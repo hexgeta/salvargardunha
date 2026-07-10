@@ -2,14 +2,46 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "salvaragardunha.hexgeta.com" }],
-      "destination": "https://salvargardunha.hexgeta.com/$1",
+      "has": [
+        {
+          "type": "host",
+          "value": "salvaragardunha.hexgeta.com"
+        }
+      ],
+      "destination": "https://salvargardunha.com/$1",
       "permanent": true
     },
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "no-farms.hexgeta.com" }],
-      "destination": "https://salvargardunha.hexgeta.com/$1",
+      "has": [
+        {
+          "type": "host",
+          "value": "salvargardunha.hexgeta.com"
+        }
+      ],
+      "destination": "https://salvargardunha.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "no-farms.hexgeta.com"
+        }
+      ],
+      "destination": "https://salvargardunha.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.salvargardunha.com"
+        }
+      ],
+      "destination": "https://salvargardunha.com/$1",
       "permanent": true
     }
   ]

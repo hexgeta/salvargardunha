@@ -1,15 +1,16 @@
 // Serverless function (Vercel) — generates a UNIQUE objection to the PSZAER
 // inclusion of the Serra da Gardunha / Beira Baixa, via OpenAI gpt-mini, in the
-// language selected on the page (pt | de | fr). Each visitor gets a distinct text.
+// language selected on the page (pt | en | de | fr). Each visitor gets a distinct text.
 
 const MODEL = process.env.OPENAI_MODEL || 'gpt-4o-mini';
 
-const LANG_NAME = { pt: 'português de Portugal', de: 'Deutsch', fr: 'français' };
+const LANG_NAME = { pt: 'português de Portugal', en: 'English', de: 'Deutsch', fr: 'français' };
 
 const FALLBACK = {
   pt: 'Venho manifestar a minha oposição à inclusão da Serra da Gardunha e da Beira Baixa nas Zonas de Aceleração de Energias Renováveis do PSZAER. Oponho-me à instalação de megacentrais solares e eólicas nesta região sem avaliação de impacte ambiental, pelos impactes na paisagem protegida, na água, no solo agrícola e florestal e nas espécies ameaçadas. Peço a exclusão desta área do programa.',
   de: 'Hiermit erhebe ich Einspruch gegen die Aufnahme der Serra da Gardunha und der Beira Baixa in die Beschleunigungszonen für erneuerbare Energien des PSZAER. Ich lehne den Bau von Solar- und Windgroßkraftwerken in dieser Region ohne Umweltverträglichkeitsprüfung ab — wegen der Auswirkungen auf die geschützte Landschaft, das Wasser, den land- und forstwirtschaftlichen Boden und die bedrohten Arten. Ich fordere den Ausschluss dieses Gebiets aus dem Programm.',
   fr: 'Je manifeste mon opposition à l’inclusion de la Serra da Gardunha et de la Beira Baixa dans les zones d’accélération des énergies renouvelables du PSZAER. Je m’oppose à l’installation de méga-centrales solaires et éoliennes dans cette région sans évaluation d’impact environnemental, en raison des impacts sur le paysage protégé, l’eau, les sols agricoles et forestiers et les espèces menacées. Je demande l’exclusion de cette zone du programme.',
+  en: 'I wish to express my opposition to the inclusion of the Serra da Gardunha and the Beira Baixa in the PSZAER renewable-energy acceleration zones. I oppose the installation of mega solar and wind power plants in this region without an environmental impact assessment, given the impacts on the protected landscape, water, agricultural and forest land, and threatened species. I ask that this area be excluded from the programme.',
 };
 
 const ANGLES = ['the protected mountain landscape', 'water courses and supply', 'threatened species', 'the absence of an environmental impact assessment', 'agricultural and forest land', 'refusing the "leftover land" framing', 'rooftops instead of the mountain', 'proximity to homes'];

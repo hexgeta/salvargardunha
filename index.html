@@ -7,11 +7,11 @@
 <meta name="description" content="Os próprios documentos do Governo colocam a Serra da Gardunha na região mais visada do país para centrais solares — sem avaliação de impacte ambiental. A consulta pública termina a 15 de julho de 2026.">
 <meta property="og:title" content="A Serra da Gardunha não está à venda">
 <meta property="og:description" content="A Beira Baixa é a região com maior percentagem de solo para solar do país. Megacentrais sem avaliação ambiental. Temos até 15 de julho para dizer não.">
-<meta property="og:image" content="https://salvargardunha.hexgeta.com/mapa-oficial.png">
-<meta property="og:url" content="https://salvargardunha.hexgeta.com/">
+<meta property="og:image" content="https://salvargardunha.com/mapa-oficial.png">
+<meta property="og:url" content="https://salvargardunha.com/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://salvargardunha.hexgeta.com/">
+<link rel="canonical" href="https://salvargardunha.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <style>
   :root{--bg:#0a0d0a;--panel:#141a14;--line:#243024;--ink:#f3f5f1;--muted:#9aa79a;--green:#4ade80;--green-d:#22c55e;--amber:#fbbf24;--red:#f87171;--max:780px}
@@ -26,7 +26,7 @@
   .langsw button{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:11.5px;letter-spacing:.05em;padding:5px 9px;border-radius:999px;cursor:pointer}
   .langsw button.on{background:var(--green-d);color:#05230f}
 
-  .bar{position:sticky;top:0;z-index:50;background:#1a1206;border-bottom:1px solid #3a2a08;color:var(--amber);font-size:13px;letter-spacing:.02em;text-align:center;padding:9px 60px 9px 14px}
+  .bar{position:sticky;top:0;z-index:50;background:#1a1206;border-bottom:1px solid #3a2a08;color:var(--amber);font-size:14.5px;letter-spacing:.02em;text-align:center;padding:10px 60px 10px 14px}
   .bar b{color:#fff}
 
   header{padding:60px 0 40px;border-bottom:1px solid var(--line);background:linear-gradient(180deg, rgba(10,13,10,.82) 0%, rgba(10,13,10,.6) 55%, rgba(10,13,10,.88) 85%, var(--bg) 100%), url('img/gardunha-hero.jpg') center 32%/cover no-repeat var(--bg)}
@@ -111,9 +111,18 @@
   .gcap{padding:10px 13px;font-size:13px;color:var(--muted);line-height:1.45}
   @media(max-width:560px){.gal{columns:1}}
 
-  .secondary{text-align:center;background:radial-gradient(120% 120% at 50% 0%, #10200f 0%, var(--bg) 70%)}
-  .secondary h2{margin-bottom:6px}
-  .secondary .cta{justify-content:center}
+  .pet-band{padding:38px 0;text-align:center;background:linear-gradient(180deg,#0d2412 0%,#153920 50%,#0d2412 100%);border-top:1px solid #2e6b3c;border-bottom:1px solid #2e6b3c}
+  .pet-band .kicker{margin-bottom:10px}
+  .pet-nums{display:flex;align-items:baseline;justify-content:center;gap:10px;flex-wrap:wrap}
+  .pet-count{font-size:clamp(38px,7vw,56px);font-weight:900;color:#fff;line-height:1;font-variant-numeric:tabular-nums}
+  .pet-total{color:var(--green);font-weight:700;font-size:clamp(15px,2.6vw,19px)}
+  .pet-track{position:relative;height:14px;border-radius:999px;background:#07140a;border:1px solid #275c33;margin:18px auto 4px;max-width:540px}
+  .pet-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--green-d),var(--green));transition:width .9s ease}
+  .pet-goal{position:absolute;top:-5px;bottom:-5px;left:53.33%;width:2px;background:var(--amber)}
+  .pet-band .pet-done{color:#dcf5e3;font-size:15.5px;margin-top:12px}
+  .pet-band .pet-done b{color:#fff}
+  .pet-band .pet-next{color:#9fbfa8;font-size:14px;margin-top:2px}
+  .pet-band .cta{justify-content:center;margin-top:18px}
 
   footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
   footer a{color:var(--green);text-decoration:none}
@@ -127,11 +136,12 @@
 
 <div class="langsw" id="langsw">
   <button data-lang="pt" class="on">PT</button>
+  <button data-lang="en">EN</button>
   <button data-lang="de">DE</button>
   <button data-lang="fr">FR</button>
 </div>
 
-<div class="bar mono"><span data-i18n="bar_pre">⚠ A consulta pública termina a <b>15 de julho de 2026</b> —</span> <span id="barleft">…</span></div>
+<div class="bar mono"><span data-i18n="bar_pre">⚠️ A consulta pública termina a <b>15 de julho de 2026</b> —</span> <span id="barleft">…</span></div>
 
 <header>
   <div class="wrap">
@@ -155,6 +165,33 @@
 
 <section>
   <div class="wrap">
+    <div class="kicker" data-i18n="plan_k">O que planeiam para a nossa terra</div>
+    <h2 data-i18n="plan_h">Arrasta e compara: hoje vs. amanhã</h2>
+    <p data-i18n="plan_p">À esquerda, a Barragem da Marateca (Castelo Branco) como está hoje. À direita, a <b>simulação do impacto</b> com as centrais que as zonas de aceleração permitem. <b>Arrasta o cursor</b> sobre a imagem e compara.</p>
+
+    <div class="ba" id="ba">
+      <img src="img/740769841_27332456719781061_8179379585894883459_n.jpg" alt="Simulação do impacto na Barragem da Marateca — painéis solares e turbinas eólicas em redor da albufeira" data-i18n-alt="ba_alt_after" draggable="false" loading="lazy" decoding="async">
+      <div class="ba-top"><img src="img/741592334_2120395075491984_8908079985984849851_n.jpg" alt="Barragem da Marateca como está hoje — albufeira rodeada de campos e floresta" data-i18n-alt="ba_alt_before" draggable="false" loading="lazy" decoding="async"></div>
+      <div class="ba-line"></div>
+      <div class="ba-grip" id="baGrip" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Arrasta para comparar antes e depois" data-i18n-aria="ba_aria"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9.5 6 4 12l5.5 6M14.5 6 20 12l-5.5 6" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="ba-tag ba-l" data-i18n="ba_before">Hoje</span>
+      <span class="ba-tag ba-r" data-i18n="ba_after">Amanhã?</span>
+    </div>
+    <p class="ba-cap" data-i18n="ba_cap">Imagem da direita: simulação de impacto criada pela campanha — não é uma fotografia real.</p>
+
+    <p data-i18n="gal_p">Mais imagens da campanha — carrega para abrir em tamanho real e partilha:</p>
+    <div class="gal">
+      <div class="gcard"><a href="img/740686631_1390722619778820_6926096822835936067_n.jpg" target="_blank" rel="noopener"><img src="img/740686631_1390722619778820_6926096822835936067_n.jpg" alt="Simulação: campos solares na encosta da serra." data-i18n-alt="gal_c1" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c1">Simulação: campos solares na encosta da serra.</div></div>
+      <div class="gcard"><a href="img/742930904_27518027324519606_6599532876838514293_n.jpg" target="_blank" rel="noopener"><img src="img/742930904_27518027324519606_6599532876838514293_n.jpg" alt="Hoje vs. amanhã — simulação vista do cruzeiro, com centrais na encosta." data-i18n-alt="gal_c2" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c2">Hoje vs. amanhã — simulação vista do cruzeiro, com centrais na encosta.</div></div>
+      <div class="gcard"><a href="img/733975149_1024859899913181_5582827324138976666_n.jpg" target="_blank" rel="noopener"><img src="img/733975149_1024859899913181_5582827324138976666_n.jpg" alt="Terrenos de projeto (a verde) e terrenos excluídos na zona da Lardosa — área de estudo da REN." data-i18n-alt="gal_c5" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c5">Terrenos de projeto (a verde) e terrenos excluídos na zona da Lardosa — área de estudo da REN.</div></div>
+      <div class="gcard"><a href="img/737845596_2485602155241478_6153250247347690733_n.jpg" target="_blank" rel="noopener"><img src="img/737845596_2485602155241478_6153250247347690733_n.jpg" alt="Hoje vs. amanhã — imagem de partilha da campanha." data-i18n-alt="gal_c3" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c3">Hoje vs. amanhã — imagem de partilha da campanha.</div></div>
+      <div class="gcard"><a href="img/739437500_1519907529677484_7501892398427900492_n.jpg" target="_blank" rel="noopener"><img src="img/739437500_1519907529677484_7501892398427900492_n.jpg" alt="Cartaz da campanha — guarda, imprime e partilha." data-i18n-alt="gal_c4" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c4">Cartaz da campanha — guarda, imprime e partilha.</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
     <div class="kicker" data-i18n="map_k">O mapa oficial do Governo</div>
     <h2 data-i18n="map_h">Isto é o plano — e a Gardunha está no meio</h2>
     <p data-i18n="map_p">Cada mancha é uma zona onde o Governo quer acelerar centrais renováveis. O interior centro é a área mais coberta do país. A Serra da Gardunha e o maciço de Castelo Branco estão no coração dessa mancha.</p>
@@ -166,6 +203,20 @@
         <span data-i18n="map_src">Fonte: <i>Proposta PSZAER — Relatório Temático de Integração de Informação Espacializada</i> (LNEG / EMER 2030), Figura 39. Assinalação nossa.</span>
       </figcaption>
     </figure>
+  </div>
+</section>
+
+<section class="pet-band">
+  <div class="wrap">
+    <div class="kicker" data-i18n="pet_k">Petição no Parlamento</div>
+    <div class="pet-nums"><span class="pet-count">5&nbsp;283</span><span class="pet-total" data-i18n="pet_total">/ 7&nbsp;500 assinaturas</span></div>
+    <div class="pet-track"><div class="pet-fill" style="width:70%"></div><div class="pet-goal" title="4 000"></div></div>
+    <p class="pet-done" data-i18n="pet_done">✅ <b>Meta das 4&nbsp;000 atingida</b> — o debate no Parlamento está garantido.</p>
+    <p class="pet-next" data-i18n="pet_next">Próxima meta: <b>7&nbsp;500</b> — obriga à audição dos peticionários.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener" data-i18n="hero_cta1">Objetar na consulta pública →</a>
+      <a class="btn btn-ghost" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="pet_btn">Assinar a petição →</a>
+    </div>
   </div>
 </section>
 
@@ -204,33 +255,6 @@
       <li data-i18n="risk_f3"><b>A fauna</b>A região é casa de espécies ameaçadas — <b>abutre-preto, águia-imperial, águia-real, cegonha-preta, sisão, lince-ibérico, lobo-ibérico e morcegos</b>. O relatório reconhece que faltam dados sobre elas fora das áreas protegidas.</li>
       <li data-i18n="risk_f4"><b>A água e a terra</b>Ocupa solo agrícola e florestal, afeta linhas de água e a serra que abastece a região. Casas ficam a apenas <b>200 m</b> (solar) e <b>1 km</b> (eólica) das centrais.</li>
     </ul>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="kicker" data-i18n="plan_k">O que planeiam para a nossa terra</div>
-    <h2 data-i18n="plan_h">Arrasta e compara: hoje vs. amanhã</h2>
-    <p data-i18n="plan_p">À esquerda, a Barragem da Marateca (Castelo Branco) como está hoje. À direita, a <b>simulação do impacto</b> com as centrais que as zonas de aceleração permitem. <b>Arrasta o cursor</b> sobre a imagem e compara.</p>
-
-    <div class="ba" id="ba">
-      <img src="img/740769841_27332456719781061_8179379585894883459_n.jpg" alt="Simulação do impacto na Barragem da Marateca — painéis solares e turbinas eólicas em redor da albufeira" data-i18n-alt="ba_alt_after" draggable="false" loading="lazy" decoding="async">
-      <div class="ba-top"><img src="img/741592334_2120395075491984_8908079985984849851_n.jpg" alt="Barragem da Marateca como está hoje — albufeira rodeada de campos e floresta" data-i18n-alt="ba_alt_before" draggable="false" loading="lazy" decoding="async"></div>
-      <div class="ba-line"></div>
-      <div class="ba-grip" id="baGrip" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Arrasta para comparar antes e depois" data-i18n-aria="ba_aria"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9.5 6 4 12l5.5 6M14.5 6 20 12l-5.5 6" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <span class="ba-tag ba-l" data-i18n="ba_before">Hoje</span>
-      <span class="ba-tag ba-r" data-i18n="ba_after">Amanhã?</span>
-    </div>
-    <p class="ba-cap" data-i18n="ba_cap">Imagem da direita: simulação de impacto criada pela campanha — não é uma fotografia real.</p>
-
-    <p data-i18n="gal_p">Mais imagens da campanha — carrega para abrir em tamanho real e partilha:</p>
-    <div class="gal">
-      <div class="gcard"><a href="img/740686631_1390722619778820_6926096822835936067_n.jpg" target="_blank" rel="noopener"><img src="img/740686631_1390722619778820_6926096822835936067_n.jpg" alt="Simulação: campos solares na encosta da serra." data-i18n-alt="gal_c1" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c1">Simulação: campos solares na encosta da serra.</div></div>
-      <div class="gcard"><a href="img/742930904_27518027324519606_6599532876838514293_n.jpg" target="_blank" rel="noopener"><img src="img/742930904_27518027324519606_6599532876838514293_n.jpg" alt="Hoje vs. amanhã — simulação vista do cruzeiro, com centrais na encosta." data-i18n-alt="gal_c2" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c2">Hoje vs. amanhã — simulação vista do cruzeiro, com centrais na encosta.</div></div>
-      <div class="gcard"><a href="img/733975149_1024859899913181_5582827324138976666_n.jpg" target="_blank" rel="noopener"><img src="img/733975149_1024859899913181_5582827324138976666_n.jpg" alt="Terrenos de projeto (a verde) e terrenos excluídos na zona da Lardosa — área de estudo da REN." data-i18n-alt="gal_c5" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c5">Terrenos de projeto (a verde) e terrenos excluídos na zona da Lardosa — área de estudo da REN.</div></div>
-      <div class="gcard"><a href="img/737845596_2485602155241478_6153250247347690733_n.jpg" target="_blank" rel="noopener"><img src="img/737845596_2485602155241478_6153250247347690733_n.jpg" alt="Hoje vs. amanhã — imagem de partilha da campanha." data-i18n-alt="gal_c3" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c3">Hoje vs. amanhã — imagem de partilha da campanha.</div></div>
-      <div class="gcard"><a href="img/739437500_1519907529677484_7501892398427900492_n.jpg" target="_blank" rel="noopener"><img src="img/739437500_1519907529677484_7501892398427900492_n.jpg" alt="Cartaz da campanha — guarda, imprime e partilha." data-i18n-alt="gal_c4" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c4">Cartaz da campanha — guarda, imprime e partilha.</div></div>
-    </div>
   </div>
 </section>
 
@@ -288,6 +312,20 @@
   </div>
 </section>
 
+<section class="pet-band">
+  <div class="wrap">
+    <div class="kicker" data-i18n="pet_k">Petição no Parlamento</div>
+    <div class="pet-nums"><span class="pet-count">5&nbsp;283</span><span class="pet-total" data-i18n="pet_total">/ 7&nbsp;500 assinaturas</span></div>
+    <div class="pet-track"><div class="pet-fill" style="width:70%"></div><div class="pet-goal" title="4 000"></div></div>
+    <p class="pet-done" data-i18n="pet_done">✅ <b>Meta das 4&nbsp;000 atingida</b> — o debate no Parlamento está garantido.</p>
+    <p class="pet-next" data-i18n="pet_next">Próxima meta: <b>7&nbsp;500</b> — obriga à audição dos peticionários.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener" data-i18n="hero_cta1">Objetar na consulta pública →</a>
+      <a class="btn btn-ghost" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="pet_btn">Assinar a petição →</a>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="kicker" data-i18n="docs_k">Documentos da consulta</div>
@@ -310,12 +348,17 @@
   </div>
 </section>
 
-<section class="secondary">
+<section class="pet-band">
   <div class="wrap">
-    <div class="kicker" data-i18n="pet_k">E também</div>
-    <h2 data-i18n="pet_h">Assina a petição no Parlamento</h2>
-    <p data-i18n="pet_p">A petição já ultrapassou as <b>4&nbsp;000 assinaturas</b> que obrigam a um debate no Parlamento — o próximo objetivo são <b>7&nbsp;500</b>, que forçam a audição dos peticionários. Não tem prazo, mas cada assinatura pesa.</p>
-    <div class="cta"><a class="btn btn-ghost" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="pet_btn">Assinar a petição →</a></div>
+    <div class="kicker" data-i18n="pet_k">Petição no Parlamento</div>
+    <div class="pet-nums"><span class="pet-count">5&nbsp;283</span><span class="pet-total" data-i18n="pet_total">/ 7&nbsp;500 assinaturas</span></div>
+    <div class="pet-track"><div class="pet-fill" style="width:70%"></div><div class="pet-goal" title="4 000"></div></div>
+    <p class="pet-done" data-i18n="pet_done">✅ <b>Meta das 4&nbsp;000 atingida</b> — o debate no Parlamento está garantido.</p>
+    <p class="pet-next" data-i18n="pet_next">Próxima meta: <b>7&nbsp;500</b> — obriga à audição dos peticionários.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener" data-i18n="hero_cta1">Objetar na consulta pública →</a>
+      <a class="btn btn-ghost" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="pet_btn">Assinar a petição →</a>
+    </div>
   </div>
 </section>
 
@@ -334,8 +377,74 @@
 
 <script>
   var I18N={
+    en:{
+      bar_pre:'⚠️ The public consultation closes on <b>15 July 2026</b> —',
+      eyebrow:'PSZAER public consultation · Beira Baixa',
+      h1a:'The Serra da Gardunha', h1b:'is not for sale',
+      lede:'This is not our opinion: the <b>Government’s own documents</b> put our mountains in the <b>most targeted region of the country</b> for mega solar plants — fast-tracked licences and <b>no environmental impact assessment</b>. We have until <b>15 July</b> to say no.',
+      cd_d:'Days', cd_h:'Hours', cd_m:'Min', cd_s:'Sec',
+      hero_cta1:'Object in the public consultation →', hero_cta2:'Share ↓',
+      map_k:'The Government’s official map', map_h:'This is the plan — and the Gardunha is right in the middle',
+      map_p:'Every patch is a zone where the Government wants to fast-track renewable power plants. The central interior is the most covered area in the country. The Serra da Gardunha and the Castelo Branco massif sit at the heart of that patch.',
+      map_lg_solar:'Solar zones', map_lg_wind:'Wind zones',
+      map_src:'Source: <i>PSZAER Proposal — Thematic Report on the Integration of Spatial Information</i> (LNEG / EMER 2030), Figure 39. Marking ours.',
+      hap_k:'What is happening', hap_h:'7% of the country opened to power plants — with no environmental assessment',
+      hap_p1:'The Government has put the <b>PSZAER</b> — the <i>Sectoral Programme for Renewable Energy Acceleration Zones</i> — out for public consultation. In the words of its own summary, the process <b>“made available for acceleration around 7% of the mainland territory”</b>, where projects can be licensed <b>“without going through environmental impact assessment (EIA)”</b>.',
+      hap_p2:'Inside these zones, environmental assessment is replaced by a simple <b>“verification sub-procedure”</b> and a <b>“single window”</b> with tight deadlines. The mapped potential is enormous: <b>~578,777 ha for solar</b> and <b>~84,618 ha for wind</b>. And these are not rooftops — <b>78.9% of the solar-potential area is forest land</b>.',
+      hap_p3:'The consultation is open until <b>15 July 2026</b>. After that, it is too late.',
+      tgt_k:'Why OUR mountains are the target', tgt_h:'The Beira Baixa is the country’s #1 region for solar',
+      tgt_p:'of solar zones in the Beira Baixa — <b>11% of the entire region</b>, the highest share of any region in Portugal. Plus <b>19,295 ha</b> for wind. The municipality of Fundão alone adds up to <b>~6,237 ha of solar and ~4,947 ha of wind</b>.',
+      tgt_f1:'<b>#1 solar, #2/#3/#4 wind</b>In the national ranking, the region leads on solar (Sertã and Proença-a-Nova at the top) and dominates wind: Castelo Branco (#2), Oleiros (#3), Fundão (#4).',
+      tgt_f2:'<b>The Gardunha is named in there</b>The Government’s consultants single out the <i>“Pinhal do Centro”</i> landscape group — which includes the <b>“Serras da Gardunha, Alvelos e Moradal”</b> and the <b>“agro-forestry massif of Castelo Branco”</b> — as the one with the <b>highest solar potential in the country</b> (~34% of the group).',
+      tgt_quote:'“It is therefore natural that the remaining land areas are those with the lowest current landscape-quality values.”<span>— PSZAER Landscape Report, on the interior. In other words: they treat our land as the country’s “leftovers”. It is not.</span>',
+      risk_k:'What is at stake', risk_h:'Blankets of glass over the mountains',
+      risk_f1:'<b>The landscape</b>The report itself admits that large-scale solar creates <i>“blankets of glass”</i> and is felt as <i>“a significant visual degradation”</i>. There is a limit of <b>25 contiguous ha</b> per solar field — which the mega-projects ignore.',
+      risk_f2:'<b>No environmental screening</b>Inside the acceleration zones there is no EIA. Without that screening, projects go ahead without the assessment that protects water, soil, forest and biodiversity.',
+      risk_f3:'<b>The wildlife</b>The region is home to threatened species — <b>cinereous vulture, Iberian imperial eagle, golden eagle, black stork, little bustard, Iberian lynx, Iberian wolf and bats</b>. The report acknowledges that data on them outside protected areas is lacking.',
+      risk_f4:'<b>Water and land</b>It takes up agricultural and forest soil, affects watercourses and the mountains that supply the region. Homes can be just <b>200 m</b> (solar) and <b>1 km</b> (wind) from the plants.',
+      plan_k:'What they plan for our land', plan_h:'Drag and compare: today vs. tomorrow',
+      plan_p:'On the left, the Marateca reservoir (Castelo Branco) as it is today. On the right, the <b>impact simulation</b> with the plants the acceleration zones allow. <b>Drag the handle</b> across the image and compare.',
+      ba_before:'Today', ba_after:'Tomorrow?',
+      ba_aria:'Drag to compare before and after',
+      ba_alt_before:'The Marateca reservoir as it is today — surrounded by fields and forest',
+      ba_alt_after:'Impact simulation at the Marateca reservoir — solar panels and wind turbines around the water',
+      ba_cap:'Right-hand image: impact simulation created by the campaign — not a real photograph.',
+      gal_p:'More campaign images — click to open full size and share:',
+      gal_c1:'Simulation: solar fields on the mountainside.',
+      gal_c2:'Today vs. tomorrow — simulation seen from the stone-cross viewpoint, with plants on the hillside.',
+      gal_c3:'Today vs. tomorrow — campaign share image.',
+      gal_c4:'Campaign poster — save, print and share.',
+      gal_c5:'Project land (green) and excluded land near Lardosa — REN study area.',
+      act_k:'What you can do', act_h:'Two actions — in two minutes',
+      act1_h:'Object in the public consultation', act1_tag:'by 15 Jul',
+      act1_p:'This is the most important action. It is the official decision process and objections <b>must be considered</b> by law. See the step-by-step below.',
+      act1_btn:'Go to participa.pt →',
+      act2_h:'Share', act2_p:'Send this page to everyone you know in the Beira Baixa. The more objections, the more weight the no carries.',
+      share_copy:'Copy link',
+      how_k:'How to object in 2 minutes', how_h:'Step by step',
+      how1:'<b>Create an account on participa.pt.</b> In the top right corner, click <b>“Registo”</b> → choose the <b>“Individual”</b> type → fill in name, email and a password (minimum 12 characters) and click <b>“Registar”</b>.',
+      how2:'<b>Activate the account.</b> Go to your email, open the message from Participa and click the <b>activation link</b>.',
+      how3:'<b>Log in.</b> Back on participa.pt, click <b>“Entrar”</b> (you can also log in with the <b>Chave Móvel Digital</b>).',
+      how4:'<b>Open the consultation.</b> <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">Click here to open the PSZAER consultation</a> and press the <b>“Participar”</b> button.',
+      how5:'<b>Write the contribution.</b> Paste your text — generate your <b>unique contribution</b> with the button below. Each person can only submit <b>one</b>, and a different text from each person counts far more than identical copies.',
+      how6:'<b>Make it public and submit.</b> Tick the option that authorises the <b>publication</b> of the contribution in the final report and click <b>“Submeter”</b>. ✅ Done.',
+      gen_h:'Your contribution — unique',
+      gen_p:'Press “Generate” to create a unique, original contribution (written by AI from the facts on this page). Every objection comes out different — and counts for more.',
+      gen_btn:'✨ Generate my contribution', gen_copy:'Copy text',
+      docs_k:'Consultation documents', docs_h:'Read the official documents',
+      docs_p:'All the documents under public consultation, for download. The numbers and quotes on this page come from them.',
+      pet_k:'Petition in Parliament',
+      pet_total:'/ 7,500 signatures',
+      pet_done:'✅ <b>4,000-signature milestone reached</b> — the debate in Parliament is guaranteed.',
+      pet_next:'Next goal: <b>7,500</b> — forces a hearing of the petitioners.',
+      pet_btn:'Sign the petition →',
+      foot_made:'Made by neighbours of the Beira Baixa who want the mountains left standing.',
+      foot_s1:'Consultation and official documents (participa.pt)', foot_s2:'Petition in Parliament', foot_s3:'Explainer (Público)',
+      foot_photo:'Cover photo: Jocehcap11, CC BY-SA 4.0 (Wikimedia Commons)',
+      foot_disc:'All figures and quotes are taken from the official documents under public consultation on participa.pt (PSZAER Proposal and Thematic Reports, May 2026). Informative, civic page, non-profit, not affiliated with any party, company or public body.'
+    },
     de:{
-      bar_pre:'⚠ Die öffentliche Konsultation endet am <b>15. Juli 2026</b> —',
+      bar_pre:'⚠️ Die öffentliche Konsultation endet am <b>15. Juli 2026</b> —',
       eyebrow:'Öffentliche Konsultation PSZAER · Beira Baixa',
       h1a:'Die Serra da Gardunha', h1b:'ist nicht käuflich',
       lede:'Das ist nicht unsere Meinung: <b>die eigenen Regierungsunterlagen</b> stufen unser Gebirge als die <b>am stärksten anvisierte Region des Landes</b> für Solar-Großkraftwerke ein — im Schnellverfahren genehmigt und <b>ohne Umweltverträglichkeitsprüfung</b>. Wir haben bis zum <b>15. Juli</b> Zeit, Nein zu sagen.',
@@ -390,8 +499,10 @@
       gen_btn:'✨ Meinen Beitrag erzeugen', gen_copy:'Text kopieren',
       docs_k:'Unterlagen der Konsultation', docs_h:'Lies die offiziellen Unterlagen',
       docs_p:'Alle Unterlagen der öffentlichen Konsultation zum Herunterladen. Die Zahlen und Zitate dieser Seite stammen von hier.',
-      pet_k:'Und außerdem', pet_h:'Unterschreibe die Petition im Parlament',
-      pet_p:'Die Petition hat die <b>4&nbsp;000 Unterschriften</b>, die eine Debatte im Parlament erzwingen, bereits überschritten — das nächste Ziel sind <b>7&nbsp;500</b>, die eine Anhörung der Petenten erzwingen. Sie hat keine Frist, aber jede Unterschrift zählt.',
+      pet_k:'Petition im Parlament',
+      pet_total:'/ 7&nbsp;500 Unterschriften',
+      pet_done:'✅ <b>Ziel von 4&nbsp;000 erreicht</b> — die Debatte im Parlament ist gesichert.',
+      pet_next:'Nächstes Ziel: <b>7&nbsp;500</b> — erzwingt die Anhörung der Petenten.',
       pet_btn:'Petition unterschreiben →',
       foot_made:'Gemacht von Nachbarn der Beira Baixa, die das Gebirge stehen lassen wollen.',
       foot_s1:'Konsultation und offizielle Unterlagen (participa.pt)', foot_s2:'Petition im Parlament', foot_s3:'Erklärung (Público)',
@@ -399,7 +510,7 @@
       foot_disc:'Alle Zahlen und Zitate stammen aus den offiziellen Unterlagen der öffentlichen Konsultation auf participa.pt (PSZAER-Vorschlag und Themenberichte, Mai 2026). Informative, bürgerliche Seite, ohne Gewinnabsicht, keiner Partei, keinem Unternehmen und keiner öffentlichen Stelle zugehörig.'
     },
     fr:{
-      bar_pre:'⚠ La consultation publique se termine le <b>15 juillet 2026</b> —',
+      bar_pre:'⚠️ La consultation publique se termine le <b>15 juillet 2026</b> —',
       eyebrow:'Consultation publique PSZAER · Beira Baixa',
       h1a:'La Serra da Gardunha', h1b:'n’est pas à vendre',
       lede:'Ce n’est pas notre avis : <b>les propres documents du gouvernement</b> placent notre montagne dans la région <b>la plus visée du pays</b> pour les méga-centrales solaires — autorisées à la hâte et <b>sans évaluation d’impact environnemental</b>. Nous avons jusqu’au <b>15 juillet</b> pour dire non.',
@@ -454,8 +565,10 @@
       gen_btn:'✨ Générer ma contribution', gen_copy:'Copier le texte',
       docs_k:'Documents de la consultation', docs_h:'Lis les documents officiels',
       docs_p:'Tous les documents en consultation publique, à télécharger. Les chiffres et citations de cette page en proviennent.',
-      pet_k:'Et aussi', pet_h:'Signe la pétition au Parlement',
-      pet_p:'La pétition a déjà dépassé les <b>4&nbsp;000 signatures</b> qui imposent un débat au Parlement — le prochain objectif est <b>7&nbsp;500</b>, qui forcent l’audition des pétitionnaires. Elle n’a pas de date limite, mais chaque signature compte.',
+      pet_k:'Pétition au Parlement',
+      pet_total:'/ 7&nbsp;500 signatures',
+      pet_done:'✅ <b>Objectif des 4&nbsp;000 atteint</b> — le débat au Parlement est garanti.',
+      pet_next:'Prochain objectif : <b>7&nbsp;500</b> — impose l’audition des pétitionnaires.',
       pet_btn:'Signer la pétition →',
       foot_made:'Fait par des voisins de la Beira Baixa qui veulent la montagne debout.',
       foot_s1:'Consultation et documents officiels (participa.pt)', foot_s2:'Pétition au Parlement', foot_s3:'Explication (Público)',
@@ -465,6 +578,7 @@
   };
   var STR={
     pt:{left:function(d,h){return 'faltam <b>'+d+' dias e '+h+'h</b>'}, ended:'<b>a consulta terminou</b> — assina a petição', gen:'A gerar…', copied:'Copiado ✓', linkcopied:'Link copiado ✓', shareMsg:'A Serra da Gardunha é das áreas mais visadas do país por megacentrais solares. Objeta na consulta pública até 15 de julho: '},
+    en:{left:function(d,h){return '<b>'+d+' days and '+h+'h</b> left'}, ended:'<b>the consultation has ended</b> — sign the petition', gen:'Generating…', copied:'Copied ✓', linkcopied:'Link copied ✓', shareMsg:'The Serra da Gardunha is one of the areas most targeted by mega solar plants in Portugal. Object in the public consultation by 15 July: '},
     de:{left:function(d,h){return 'noch <b>'+d+' Tage und '+h+'h</b>'}, ended:'<b>die Konsultation ist beendet</b> — unterschreibe die Petition', gen:'Wird erstellt…', copied:'Kopiert ✓', linkcopied:'Link kopiert ✓', shareMsg:'Die Serra da Gardunha gehört zu den am stärksten von Solar-Großkraftwerken bedrohten Gebieten Portugals. Nimm bis 15. Juli an der Konsultation teil: '},
     fr:{left:function(d,h){return 'encore <b>'+d+' jours et '+h+'h</b>'}, ended:'<b>la consultation est terminée</b> — signe la pétition', gen:'Génération…', copied:'Copié ✓', linkcopied:'Lien copié ✓', shareMsg:'La Serra da Gardunha est l’une des zones les plus visées du pays par les méga-centrales solaires. Participe à la consultation avant le 15 juillet : '}
   };
@@ -497,14 +611,23 @@
     d.textContent=days;h.textContent=pad(hrs);m.textContent=pad(min);s.textContent=pad(sec);
     barleft.innerHTML=t.left(days,hrs);
   }
-  var url='https://salvargardunha.hexgeta.com/';
+  var url='https://salvargardunha.com/';
   function render(){
     tick();
     var msg=STR[lang].shareMsg;
     document.getElementById('wa').href='https://wa.me/?text='+encodeURIComponent(msg+url);
     document.getElementById('tg').href='https://t.me/share/url?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(msg);
     document.getElementById('fb').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url);
+    renderPet();
   }
+  var PET_NEXT=7500, petCount=5283;
+  function fmtCount(n){var sep=(lang==='en')?',':'\u00a0';return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,sep);}
+  function renderPet(){
+    var pct=Math.min(100,petCount/PET_NEXT*100);
+    document.querySelectorAll('.pet-count').forEach(function(el){el.textContent=fmtCount(petCount);});
+    document.querySelectorAll('.pet-fill').forEach(function(el){el.style.width=pct+'%';});
+  }
+  fetch('/api/petition').then(function(r){return r.json()}).then(function(j){ if(j&&j.count){petCount=j.count;} renderPet(); }).catch(function(){ renderPet(); });
   applyLang(lang); setInterval(tick,1000);
 
   var genBtn=document.getElementById('gen'), genTxt=document.getElementById('gen-txt');
