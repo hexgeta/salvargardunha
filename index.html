@@ -85,6 +85,15 @@
   ol.how li{margin-bottom:12px;font-size:16px}
   ol.how li b{color:#fff}
   ol.how a{color:var(--green)}
+  .suggest{margin-top:24px;background:#10160f;border:1px dashed var(--line);border-radius:12px;padding:16px 18px}
+  .suggest-h{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:10px}
+  .suggest p{color:#dfe6da;font-size:15px;margin:0 0 14px}
+  #gen-txt{font-style:italic;white-space:pre-wrap}
+  .docs{margin-top:22px;display:grid;gap:10px}
+  .doc{display:flex;justify-content:space-between;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;transition:border-color .15s ease}
+  .doc:hover{border-color:var(--green)}
+  .doc-t{color:var(--ink);font-weight:600;font-size:15px;line-height:1.35}
+  .doc-s{color:var(--muted);font-size:12px;white-space:nowrap;letter-spacing:.03em}
 
   footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
   footer a{color:var(--green);text-decoration:none}
@@ -201,6 +210,7 @@
         <h3>Partilhar</h3>
         <p>Envia esta página a quem conheces na Beira Baixa. Quantas mais objeções, mais peso tem o não.</p>
         <div class="cta">
+          <a class="btn btn-ghost btn-sm" id="fb" href="#" target="_blank" rel="noopener">Partilhar no Facebook</a>
           <a class="btn btn-ghost btn-sm" id="wa" href="#" target="_blank" rel="noopener">Partilhar no WhatsApp</a>
           <button class="btn btn-ghost btn-sm" id="copy" type="button">Copiar link</button>
         </div>
@@ -214,11 +224,44 @@
     <div class="kicker">Como objetar em 2 minutos</div>
     <h2>Passo a passo</h2>
     <ol class="how">
-      <li>Abre a <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">consulta em participa.pt</a> e <b>cria conta</b> (ou entra com Chave Móvel Digital).</li>
-      <li>Clica em <b>“Participar”</b> e abre o formulário de contributo.</li>
-      <li>Escreve por tuas palavras: <b>opões-te à inclusão da Serra da Gardunha e da Beira Baixa</b> nas zonas de aceleração; pedes a sua <b>exclusão</b>; invocas a <b>falta de avaliação de impacte ambiental</b>, o impacte na paisagem, na água e nas espécies protegidas, e recusas que o interior seja tratado como o “sobrante” do país.</li>
-      <li><b>Submete.</b> Está feito.</li>
+      <li><b>Cria conta no participa.pt.</b> No canto superior direito, clica em <b>“Registo”</b> → escolhe o tipo <b>“Individual”</b> → preenche nome, email e uma palavra-passe (mínimo 12 caracteres) e clica em <b>“Registar”</b>.</li>
+      <li><b>Ativa a conta.</b> Vai ao teu email, abre a mensagem do Participa e clica no <b>link de ativação</b>.</li>
+      <li><b>Inicia sessão.</b> Volta ao participa.pt e clica em <b>“Entrar”</b> (também podes entrar com <b>Chave Móvel Digital</b>).</li>
+      <li><b>Abre a consulta.</b> <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">Clica aqui para abrir a consulta do PSZAER</a> e carrega no botão <b>“Participar”</b>.</li>
+      <li><b>Escreve o contributo.</b> Cola o teu texto — gera o teu <b>contributo único</b> no botão abaixo. Cada pessoa só pode enviar <b>um</b>, e um texto diferente de cada pessoa conta muito mais do que cópias iguais.</li>
+      <li><b>Torna-o público e submete.</b> Marca a opção que autoriza a <b>publicação</b> do contributo no relatório final e clica em <b>“Submeter”</b>. ✅ Está feito.</li>
     </ol>
+
+    <div class="suggest" id="genbox">
+      <div class="suggest-h">O teu contributo — único</div>
+      <p id="gen-txt">Carrega em “Gerar” para criar um contributo único e original (redigido por IA a partir dos factos desta página). Cada objeção fica diferente — e conta mais.</p>
+      <div class="cta">
+        <button class="btn btn-primary btn-sm" id="gen" type="button">✨ Gerar o meu contributo</button>
+        <button class="btn btn-ghost btn-sm" id="copygen" type="button">Copiar texto</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Documentos da consulta</div>
+    <h2>Lê os documentos oficiais</h2>
+    <p>Todos os documentos em consulta pública, para descarregar. Os números e as citações desta página vêm daqui.</p>
+    <div class="docs">
+      <a class="doc" href="https://participa.pt/contents/consultationdocument/Emer%202030%20Apresenta%C3%A7%C3%A3o%20Zonas%20de%20Acelera%C3%A7%C3%A3o.pdf" target="_blank" rel="noopener"><span class="doc-t">Começar aqui! ABC da Discussão Pública das ZAER</span><span class="doc-s">PDF · 1.92 Mb</span></a>
+      <a class="doc" href="https://participa.pt/contents/consultationdocument/Proposta%20de%20PSZAER.pdf" target="_blank" rel="noopener"><span class="doc-t">PSZAER — Proposta</span><span class="doc-s">PDF · 2.00 Mb</span></a>
+      <a class="doc" href="https://participa.pt/contents/consultationdocument/Proposta%20PSZAER_Relatorio%20Tematico_Integracao%20Informacao%20Espacializada_1868.pdf" target="_blank" rel="noopener"><span class="doc-t">Relatório Temático — Integração de Informação Espacializada (mapas)</span><span class="doc-s">PDF · 4.26 Mb</span></a>
+      <a class="doc" href="https://participa.pt/contents/consultationdocument/Proposta%20PSZAER_Relatorio%20Tematico_Paisagem%20e%20Patrimonio%20Cultural.pdf" target="_blank" rel="noopener"><span class="doc-t">Relatório Temático — Paisagem e Património Cultural</span><span class="doc-s">PDF · 1.92 Mb</span></a>
+      <a class="doc" href="https://participa.pt/contents/consultationdocument/Proposta%20PSZAER_Relatorio%20Tematico_Ecologia.pdf" target="_blank" rel="noopener"><span class="doc-t">Relatório Temático — Ecologia</span><span class="doc-s">PDF · 1.12 Mb</span></a>
+      <a class="doc" href="https://participa.pt/contents/consultationdocument/Proposta%20PSZAER_Relatorio%20Tematico_Ordenamento%20e%20Economia%20do%20Territorio.pdf" target="_blank" rel="noopener"><span class="doc-t">Relatório Temático — Ordenamento e Economia do Território</span><span class="doc-s">PDF · 1.86 Mb</span></a>
+      <a class="doc" href="https://participa.pt/contents/consultationdocument/Proposta%20PSZAER_Relatorio%20Tematico_Juridico.pdf" target="_blank" rel="noopener"><span class="doc-t">Relatório Temático — Jurídico</span><span class="doc-s">PDF · 770 Kb</span></a>
+      <a class="doc" href="https://participa.pt/contents/consultationdocument/Proposta%20PSZAER_Relatorio%20Tematico_Energia.pdf" target="_blank" rel="noopener"><span class="doc-t">Relatório Temático — Energia</span><span class="doc-s">PDF · 313 Kb</span></a>
+      <a class="doc" href="https://participa.pt/contents/consultationdocument/AAE%20PSZAER_Relat%C3%B3rio%20Ambiental%20Preliminar.pdf" target="_blank" rel="noopener"><span class="doc-t">AAE — Relatório Ambiental Preliminar</span><span class="doc-s">PDF · 3.27 Mb</span></a>
+      <a class="doc" href="https://participa.pt/contents/consultationdocument/AAE%20PSZAER_Resumo%20N%C3%A3o%20T%C3%A9cnico.pdf" target="_blank" rel="noopener"><span class="doc-t">AAE — Resumo Não Técnico</span><span class="doc-s">PDF · 677 Kb</span></a>
+      <a class="doc" href="https://participa.pt/contents/consultationdocument/Pareceres_entidades_PSZAER_capa%20atualizada_versao_compressed.pdf" target="_blank" rel="noopener"><span class="doc-t">Consulta às Entidades — Pareceres emitidos</span><span class="doc-s">PDF · 11.05 Mb</span></a>
+      <a class="doc" href="https://participa.pt/contents/consultationdocument/EMER2030_%20Analise_pareceres_entidades_v3_1572.pdf" target="_blank" rel="noopener"><span class="doc-t">Análise e Ponderação dos Pareceres das Entidades</span><span class="doc-s">PDF · 688 Kb</span></a>
+    </div>
   </div>
 </section>
 
@@ -249,6 +292,24 @@
   tick();setInterval(tick,1000);
   var url=location.href, msg='A Serra da Gardunha é das áreas mais visadas do país por megacentrais solares. Objeta na consulta pública até 15 de julho: ';
   document.getElementById('wa').href='https://wa.me/?text='+encodeURIComponent(msg+url);
+  document.getElementById('fb').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url);
+
+  var genBtn=document.getElementById('gen'), genTxt=document.getElementById('gen-txt');
+  genBtn.addEventListener('click',function(){
+    genBtn.disabled=true; var old=genBtn.textContent; genBtn.textContent='A gerar…';
+    genTxt.style.fontStyle='italic';
+    fetch('/api/generate',{method:'POST'})
+      .then(function(r){return r.json()})
+      .then(function(j){ if(j&&j.text){ genTxt.textContent=j.text; } })
+      .catch(function(){ genTxt.textContent='Não foi possível gerar agora — tenta outra vez, ou escreve o teu texto à mão.'; })
+      .finally(function(){ genBtn.disabled=false; genBtn.textContent=old; });
+  });
+  document.getElementById('copygen').addEventListener('click',function(){
+    navigator.clipboard.writeText(genTxt.textContent).then(function(){
+      var b=document.getElementById('copygen'); var t=b.textContent; b.textContent='Copiado ✓';
+      setTimeout(function(){b.textContent=t},1800);
+    });
+  });
   document.getElementById('copy').addEventListener('click',function(){
     navigator.clipboard.writeText(url).then(function(){var b=document.getElementById('copy');var t=b.textContent;b.textContent='Link copiado ✓';setTimeout(function(){b.textContent=t},1800);});
   });
