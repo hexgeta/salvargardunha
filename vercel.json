@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "salvaragardunha.hexgeta.com" }],
+      "destination": "https://salvargardunha.hexgeta.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "no-farms.hexgeta.com" }],
+      "destination": "https://salvargardunha.hexgeta.com/:path*",
+      "permanent": true
+    }
+  ]
+}

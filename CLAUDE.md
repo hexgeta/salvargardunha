@@ -1,8 +1,8 @@
-# no-farms.hexgeta.com — "Salvar a Gardunha" campaign
+# salvargardunha.hexgeta.com — "Salvar a Gardunha" campaign
 
 Static campaign page opposing the PSZAER solar/wind "acceleration zones" over the
 Serra da Gardunha / Beira Baixa. Hosted on Vercel, auto-deploys on push to `main`
-of this GitHub repo (hexgeta/no-farms). Custom domain via Porkbun CNAME.
+of this GitHub repo (hexgeta/salvargardunha). Custom domain via Porkbun CNAME.
 
 ## ⚠️ TRILINGUAL — always keep PT / DE / FR in sync
 The page is trilingual: **Portuguese (default), German, French**, driven by a
