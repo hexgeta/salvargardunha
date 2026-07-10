@@ -103,6 +103,8 @@
   ol.how li{margin-bottom:12px;font-size:16px}
   ol.how li b{color:#fff}
   ol.how a{color:var(--green)}
+  .shot{display:block;margin:14px 0 4px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .shot img{display:block;width:100%;height:auto}
   .suggest{margin-top:24px;background:#10160f;border:1px dashed var(--line);border-radius:12px;padding:16px 18px}
   .suggest-h{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:10px}
   .suggest p{color:#dfe6da;font-size:15px;margin:0 0 14px}
@@ -129,7 +131,7 @@
   .gcap{padding:10px 13px;font-size:13px;color:var(--muted);line-height:1.45}
   @media(max-width:560px){.gal{columns:1}}
 
-  .pet-band{padding:38px 0;text-align:center;background:linear-gradient(180deg,#0d2412 0%,#153920 50%,#0d2412 100%);border-top:1px solid #2e6b3c;border-bottom:1px solid #2e6b3c}
+  .pet-band{padding:38px 0;text-align:center;background:#0c100c;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .pet-band .kicker{margin-bottom:10px}
   .pet-nums{display:flex;align-items:baseline;justify-content:center;gap:10px;flex-wrap:wrap}
   .pet-count{font-size:clamp(38px,7vw,56px);font-weight:900;color:#fff;line-height:1;font-variant-numeric:tabular-nums}
@@ -141,7 +143,7 @@
   .pet-band .pet-done b{color:#fff}
   .pet-band .pet-next{color:#9fbfa8;font-size:14px;margin-top:2px}
   .pet-band .cta{justify-content:center;margin-top:18px}
-  .cta-band{background:linear-gradient(180deg,#1b1306 0%,#2b1e07 50%,#1b1306 100%);border-top:1px solid #6b5310;border-bottom:1px solid #6b5310;padding:30px 0}
+  .cta-band{background:linear-gradient(180deg,#0d2412 0%,#153920 50%,#0d2412 100%);border-top:1px solid #2e6b3c;border-bottom:1px solid #2e6b3c;padding:30px 0}
   .cta-urgent{color:var(--amber);font-size:clamp(15px,2.7vw,18.5px);margin:0}
   .cta-urgent b{color:#fff}
   .cta-band .cta{margin-top:16px}
@@ -305,12 +307,12 @@
     <div class="kicker" data-i18n="how_k">Como objetar em 2 minutos</div>
     <h2 data-i18n="how_h">Passo a passo</h2>
     <ol class="how">
-      <li data-i18n="how1"><b>Cria conta no participa.pt.</b> No canto superior direito, clica em <b>“Registo”</b> → escolhe o tipo <b>“Individual”</b> → preenche nome, email e uma palavra-passe (mínimo 12 caracteres) e clica em <b>“Registar”</b>.</li>
-      <li data-i18n="how2"><b>Ativa a conta.</b> Vai ao teu email, abre a mensagem do Participa e clica no <b>link de ativação</b>.</li>
-      <li data-i18n="how3"><b>Inicia sessão.</b> Volta ao participa.pt e clica em <b>“Entrar”</b> (também podes entrar com <b>Chave Móvel Digital</b>).</li>
-      <li data-i18n="how4"><b>Abre a consulta.</b> <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">Clica aqui para abrir a consulta do PSZAER</a> e carrega no botão <b>“Participar”</b>.</li>
-      <li data-i18n="how5"><b>Escreve o contributo.</b> Cola o teu texto — gera o teu <b>contributo único</b> no botão abaixo. Cada pessoa só pode enviar <b>um</b>, e um texto diferente de cada pessoa conta muito mais do que cópias iguais.</li>
-      <li data-i18n="how6"><b>Torna-o público e submete.</b> Marca a opção que autoriza a <b>publicação</b> do contributo no relatório final e clica em <b>“Submeter”</b>. ✅ Está feito.</li>
+      <li><span data-i18n="how1"><b>Cria conta no participa.pt.</b> No canto superior direito, clica em <b>“Registo”</b> → escolhe o tipo <b>“Individual”</b> → preenche nome, email e uma palavra-passe (mínimo 12 caracteres) e clica em <b>“Registar”</b>.</span><a class="shot" href="img/passo-registo.jpg" target="_blank" rel="noopener"><img src="img/passo-registo.jpg" alt="Passo 1: botão “Registo” no canto superior direito do participa.pt" data-i18n-alt="ss_registo" loading="lazy" decoding="async"></a><a class="shot" href="img/passo-form.jpg" target="_blank" rel="noopener"><img src="img/passo-form.jpg" alt="Formulário de registo: escolhe “Individual”, preenche e carrega em “Submeter”" data-i18n-alt="ss_form" loading="lazy" decoding="async"></a></li>
+      <li><span data-i18n="how2"><b>Ativa a conta.</b> Vai ao teu email, abre a mensagem do Participa e clica no <b>link de ativação</b>.</span><a class="shot" href="img/passo-registado.jpg" target="_blank" rel="noopener"><img src="img/passo-registado.jpg" alt="Confirmação de registo: falta ativar a conta pelo email" data-i18n-alt="ss_registado" loading="lazy" decoding="async"></a><a class="shot" href="img/passo-email.jpg" target="_blank" rel="noopener"><img src="img/passo-email.jpg" alt="Email “Ativação de registo no Portal Participa” na caixa de entrada" data-i18n-alt="ss_email" loading="lazy" decoding="async"></a><a class="shot" href="img/passo-ativar.jpg" target="_blank" rel="noopener"><img src="img/passo-ativar.jpg" alt="Link “Ativação de registo” dentro do email" data-i18n-alt="ss_ativar" loading="lazy" decoding="async"></a></li>
+      <li><span data-i18n="how3"><b>Inicia sessão.</b> Volta ao participa.pt e clica em <b>“Entrar”</b> (também podes entrar com <b>Chave Móvel Digital</b>).</span><a class="shot" href="img/passo-login.jpg" target="_blank" rel="noopener"><img src="img/passo-login.jpg" alt="Janela “Conta ativada” — carrega em “aqui” para iniciar sessão" data-i18n-alt="ss_login" loading="lazy" decoding="async"></a></li>
+      <li><span data-i18n="how4"><b>Abre a consulta.</b> <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">Clica aqui para abrir a consulta do PSZAER</a> e carrega no botão <b>“Participar”</b>.</span><a class="shot" href="img/passo-participar.jpg" target="_blank" rel="noopener"><img src="img/passo-participar.jpg" alt="Botão “Participar” na página da consulta" data-i18n-alt="ss_participar" loading="lazy" decoding="async"></a></li>
+      <li><span data-i18n="how5"><b>Escreve o contributo.</b> Cola o teu texto — gera o teu <b>contributo único</b> no botão abaixo. Cada pessoa só pode enviar <b>um</b>, e um texto diferente de cada pessoa conta muito mais do que cópias iguais.</span></li>
+      <li><span data-i18n="how6"><b>Torna-o público e submete.</b> Marca a opção que autoriza a <b>publicação</b> do contributo no relatório final e clica em <b>“Submeter”</b>. ✅ Está feito.</span></li>
     </ol>
 
     <div class="suggest" id="genbox">
@@ -419,6 +421,13 @@
       gal_c3:'Today vs. tomorrow — campaign share image.',
       gal_c4:'Campaign poster — save, print and share.',
       gal_c5:'Project land (green) and excluded land near Lardosa — REN study area.',
+      ss_registo:'Step 1: “Registo” button in the top right corner of participa.pt',
+      ss_form:'Registration form: choose “Individual”, fill it in and click “Submeter”',
+      ss_registado:'Registration confirmation: you still need to activate the account by email',
+      ss_email:'“Ativação de registo no Portal Participa” email in the inbox',
+      ss_ativar:'“Ativação de registo” link inside the email',
+      ss_login:'“Conta ativada” window — click “aqui” to log in',
+      ss_participar:'“Participar” button on the consultation page',
       act_k:'What you can do', act_h:'Two actions — in two minutes',
       act1_h:'Object in the public consultation', act1_tag:'by 15 Jul',
       act1_p:'This is the most important action. It is the official decision process and objections <b>must be considered</b> by law. See the step-by-step below.',
@@ -485,6 +494,13 @@
       gal_c3:'Heute vs. morgen — Share-Bild der Kampagne.',
       gal_c4:'Kampagnenplakat — speichern, drucken und teilen.',
       gal_c5:'Projektflächen (grün) und ausgeschlossene Flächen bei Lardosa — Untersuchungsgebiet der REN.',
+      ss_registo:'Schritt 1: Button „Registo“ oben rechts auf participa.pt',
+      ss_form:'Registrierungsformular: „Individual“ wählen, ausfüllen und auf „Submeter“ klicken',
+      ss_registado:'Registrierungsbestätigung: Konto noch per E-Mail aktivieren',
+      ss_email:'E-Mail „Ativação de registo no Portal Participa“ im Posteingang',
+      ss_ativar:'Link „Ativação de registo“ in der E-Mail',
+      ss_login:'Fenster „Conta ativada“ — auf „aqui“ klicken, um dich anzumelden',
+      ss_participar:'Button „Participar“ auf der Konsultationsseite',
       act_k:'Was du tun kannst', act_h:'Zwei Aktionen — in zwei Minuten',
       act1_h:'In der öffentlichen Konsultation Einspruch erheben', act1_tag:'bis 15. Juli',
       act1_p:'Das ist die wichtigste Aktion. Es ist der offizielle Entscheidungsprozess, und Einsprüche <b>müssen laut Gesetz berücksichtigt werden</b>. Siehe Schritt-für-Schritt unten.',
@@ -551,6 +567,13 @@
       gal_c3:'Aujourd’hui vs demain — image de partage de la campagne.',
       gal_c4:'Affiche de la campagne — enregistre, imprime et partage.',
       gal_c5:'Terrains de projet (en vert) et terrains exclus près de Lardosa — zone d’étude de la REN.',
+      ss_registo:'Étape 1 : bouton « Registo » en haut à droite de participa.pt',
+      ss_form:'Formulaire d’inscription : choisis « Individual », remplis et clique sur « Submeter »',
+      ss_registado:'Confirmation d’inscription : il reste à activer le compte par e-mail',
+      ss_ativar:'Lien « Ativação de registo » dans l’e-mail',
+      ss_email:'E-mail « Ativação de registo no Portal Participa » dans la boîte de réception',
+      ss_login:'Fenêtre « Conta ativada » — clique sur « aqui » pour te connecter',
+      ss_participar:'Bouton « Participar » sur la page de la consultation',
       act_k:'Ce que tu peux faire', act_h:'Deux actions — en deux minutes',
       act1_h:'Objecter dans la consultation publique', act1_tag:'jusqu’au 15 juil',
       act1_p:'C’est l’action la plus importante. C’est le processus officiel de décision et les objections <b>doivent être prises en compte</b> par la loi. Vois le pas à pas ci-dessous.',
