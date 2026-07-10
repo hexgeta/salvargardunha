@@ -29,7 +29,8 @@
   .bar{position:sticky;top:0;z-index:50;background:#1a1206;border-bottom:1px solid #3a2a08;color:var(--amber);font-size:13px;letter-spacing:.02em;text-align:center;padding:9px 60px 9px 14px}
   .bar b{color:#fff}
 
-  header{padding:60px 0 40px;border-bottom:1px solid var(--line);background:radial-gradient(120% 90% at 50% -10%, #10200f 0%, var(--bg) 60%)}
+  header{padding:60px 0 40px;border-bottom:1px solid var(--line);background:linear-gradient(180deg, rgba(10,13,10,.82) 0%, rgba(10,13,10,.6) 55%, rgba(10,13,10,.88) 85%, var(--bg) 100%), url('img/gardunha-hero.jpg') center 32%/cover no-repeat var(--bg)}
+  h1,.lede{text-shadow:0 1px 14px rgba(0,0,0,.45)}
   .eyebrow{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:20px}
   h1{font-size:clamp(37px,8.3vw,70px);line-height:.98;font-weight:900;letter-spacing:-.02em;text-transform:uppercase}
   h1 .hl{color:var(--green)}
@@ -93,6 +94,22 @@
   .doc:hover{border-color:var(--green)}
   .doc-t{color:var(--ink);font-weight:600;font-size:15px;line-height:1.35}
   .doc-s{color:var(--muted);font-size:12px;white-space:nowrap;letter-spacing:.03em}
+
+  .ba{position:relative;margin-top:26px;border:1px solid var(--line);border-radius:16px;overflow:hidden;aspect-ratio:16/9;user-select:none;-webkit-user-select:none;touch-action:pan-y;cursor:ew-resize;--pos:50%}
+  .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+  .ba-top{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+  .ba-line{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;background:#fff;transform:translateX(-50%);box-shadow:0 0 12px rgba(0,0,0,.6)}
+  .ba-grip{position:absolute;top:50%;left:var(--pos);transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.45);cursor:ew-resize;touch-action:none}
+  .ba-grip:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+  .ba-tag{position:absolute;top:12px;background:rgba(0,0,0,.6);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:999px;backdrop-filter:blur(4px)}
+  .ba-l{left:12px}.ba-r{right:12px}
+  .ba-cap{color:var(--muted);font-size:13.5px;margin-top:10px}
+  .gal{margin-top:22px;columns:2;column-gap:14px}
+  .gcard{break-inside:avoid;margin:0 0 14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .gcard a{display:block}
+  .gcard img{display:block;width:100%;height:auto}
+  .gcap{padding:10px 13px;font-size:13px;color:var(--muted);line-height:1.45}
+  @media(max-width:560px){.gal{columns:1}}
 
   .secondary{text-align:center;background:radial-gradient(120% 120% at 50% 0%, #10200f 0%, var(--bg) 70%)}
   .secondary h2{margin-bottom:6px}
@@ -190,6 +207,33 @@
   </div>
 </section>
 
+<section>
+  <div class="wrap">
+    <div class="kicker" data-i18n="plan_k">O que planeiam para a nossa terra</div>
+    <h2 data-i18n="plan_h">Arrasta e compara: hoje vs. amanhã</h2>
+    <p data-i18n="plan_p">À esquerda, a Barragem da Marateca (Castelo Branco) como está hoje. À direita, a <b>simulação do impacto</b> com as centrais que as zonas de aceleração permitem. <b>Arrasta o cursor</b> sobre a imagem e compara.</p>
+
+    <div class="ba" id="ba">
+      <img src="img/740769841_27332456719781061_8179379585894883459_n.jpg" alt="Simulação do impacto na Barragem da Marateca — painéis solares e turbinas eólicas em redor da albufeira" data-i18n-alt="ba_alt_after" draggable="false" loading="lazy" decoding="async">
+      <div class="ba-top"><img src="img/741592334_2120395075491984_8908079985984849851_n.jpg" alt="Barragem da Marateca como está hoje — albufeira rodeada de campos e floresta" data-i18n-alt="ba_alt_before" draggable="false" loading="lazy" decoding="async"></div>
+      <div class="ba-line"></div>
+      <div class="ba-grip" id="baGrip" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Arrasta para comparar antes e depois" data-i18n-aria="ba_aria"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9.5 6 4 12l5.5 6M14.5 6 20 12l-5.5 6" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="ba-tag ba-l" data-i18n="ba_before">Hoje</span>
+      <span class="ba-tag ba-r" data-i18n="ba_after">Amanhã?</span>
+    </div>
+    <p class="ba-cap" data-i18n="ba_cap">Imagem da direita: simulação de impacto criada pela campanha — não é uma fotografia real.</p>
+
+    <p data-i18n="gal_p">Mais imagens da campanha — carrega para abrir em tamanho real e partilha:</p>
+    <div class="gal">
+      <div class="gcard"><a href="img/740686631_1390722619778820_6926096822835936067_n.jpg" target="_blank" rel="noopener"><img src="img/740686631_1390722619778820_6926096822835936067_n.jpg" alt="Simulação: campos solares na encosta da serra." data-i18n-alt="gal_c1" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c1">Simulação: campos solares na encosta da serra.</div></div>
+      <div class="gcard"><a href="img/742930904_27518027324519606_6599532876838514293_n.jpg" target="_blank" rel="noopener"><img src="img/742930904_27518027324519606_6599532876838514293_n.jpg" alt="Hoje vs. amanhã — simulação vista do cruzeiro, com centrais na encosta." data-i18n-alt="gal_c2" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c2">Hoje vs. amanhã — simulação vista do cruzeiro, com centrais na encosta.</div></div>
+      <div class="gcard"><a href="img/733975149_1024859899913181_5582827324138976666_n.jpg" target="_blank" rel="noopener"><img src="img/733975149_1024859899913181_5582827324138976666_n.jpg" alt="Terrenos de projeto (a verde) e terrenos excluídos na zona da Lardosa — área de estudo da REN." data-i18n-alt="gal_c5" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c5">Terrenos de projeto (a verde) e terrenos excluídos na zona da Lardosa — área de estudo da REN.</div></div>
+      <div class="gcard"><a href="img/737845596_2485602155241478_6153250247347690733_n.jpg" target="_blank" rel="noopener"><img src="img/737845596_2485602155241478_6153250247347690733_n.jpg" alt="Hoje vs. amanhã — imagem de partilha da campanha." data-i18n-alt="gal_c3" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c3">Hoje vs. amanhã — imagem de partilha da campanha.</div></div>
+      <div class="gcard"><a href="img/739437500_1519907529677484_7501892398427900492_n.jpg" target="_blank" rel="noopener"><img src="img/739437500_1519907529677484_7501892398427900492_n.jpg" alt="Cartaz da campanha — guarda, imprime e partilha." data-i18n-alt="gal_c4" loading="lazy" decoding="async"></a><div class="gcap" data-i18n="gal_c4">Cartaz da campanha — guarda, imprime e partilha.</div></div>
+    </div>
+  </div>
+</section>
+
 <section id="acoes">
   <div class="wrap">
     <div class="kicker" data-i18n="act_k">O que podes fazer</div>
@@ -282,6 +326,7 @@
       <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener" data-i18n="foot_s1">Consulta e documentos oficiais (participa.pt)</a>
       <a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="foot_s2">Petição no Parlamento</a>
       <a href="https://www.publico.pt/2026/06/20/azul/perguntaserespostas/vai-funcionar-plano-acelerar-energia-eolica-solar-portugal-2178537" target="_blank" rel="noopener" data-i18n="foot_s3">Explicação (Público)</a>
+      <a href="https://commons.wikimedia.org/wiki/File:Serra_da_Gardunha_-_Nascer_do_Sol.jpg" target="_blank" rel="noopener" data-i18n="foot_photo">Foto de capa: Jocehcap11, CC BY-SA 4.0 (Wikimedia Commons)</a>
     </div>
     <p class="disclaimer" data-i18n="foot_disc">Todos os números e citações são retirados dos documentos oficiais em consulta pública no participa.pt (Proposta de PSZAER e Relatórios Temáticos, maio de 2026). Página informativa e cívica, sem fins lucrativos, não filiada em nenhum partido, empresa ou entidade pública.</p>
   </div>
@@ -314,6 +359,19 @@
       risk_f2:'<b>Ohne Umweltfilter</b>In den Beschleunigungszonen gibt es keine UVP. Ohne diesen Filter schreiten Projekte ohne die Prüfung voran, die Wasser, Boden, Wald und Artenvielfalt schützt.',
       risk_f3:'<b>Die Tierwelt</b>Die Region beheimatet bedrohte Arten — <b>Mönchsgeier, Kaiseradler, Steinadler, Schwarzstorch, Zwergtrappe, Iberischer Luchs, Iberischer Wolf und Fledermäuse</b>. Der Bericht gibt zu, dass Daten über sie außerhalb der Schutzgebiete fehlen.',
       risk_f4:'<b>Wasser und Boden</b>Es belegt Acker- und Waldboden, beeinträchtigt Wasserläufe und das Gebirge, das die Region versorgt. Häuser liegen nur <b>200 m</b> (Solar) und <b>1 km</b> (Wind) von den Anlagen entfernt.',
+      plan_k:'Was sie für unser Land planen', plan_h:'Zieh und vergleiche: heute vs. morgen',
+      plan_p:'Links der Marateca-Stausee (Castelo Branco), wie er heute ist. Rechts die <b>Simulation der Auswirkungen</b> mit den Kraftwerken, die die Beschleunigungszonen erlauben. <b>Zieh den Regler</b> über das Bild und vergleiche.',
+      ba_before:'Heute', ba_after:'Morgen?',
+      ba_aria:'Ziehen, um Vorher und Nachher zu vergleichen',
+      ba_alt_before:'Der Marateca-Stausee heute — Stausee umgeben von Feldern und Wald',
+      ba_alt_after:'Simulation der Auswirkungen am Marateca-Stausee — Solarpaneele und Windräder rund um den See',
+      ba_cap:'Rechtes Bild: von der Kampagne erstellte Simulation der Auswirkungen — kein echtes Foto.',
+      gal_p:'Weitere Bilder der Kampagne — klicke, um sie in voller Größe zu öffnen, und teile sie:',
+      gal_c1:'Simulation: Solarfelder am Berghang.',
+      gal_c2:'Heute vs. morgen — Simulation vom Kreuz-Aussichtspunkt, mit Kraftwerken am Hang.',
+      gal_c3:'Heute vs. morgen — Share-Bild der Kampagne.',
+      gal_c4:'Kampagnenplakat — speichern, drucken und teilen.',
+      gal_c5:'Projektflächen (grün) und ausgeschlossene Flächen bei Lardosa — Untersuchungsgebiet der REN.',
       act_k:'Was du tun kannst', act_h:'Zwei Aktionen — in zwei Minuten',
       act1_h:'In der öffentlichen Konsultation Einspruch erheben', act1_tag:'bis 15. Juli',
       act1_p:'Das ist die wichtigste Aktion. Es ist der offizielle Entscheidungsprozess, und Einsprüche <b>müssen laut Gesetz berücksichtigt werden</b>. Siehe Schritt-für-Schritt unten.',
@@ -337,6 +395,7 @@
       pet_btn:'Petition unterschreiben →',
       foot_made:'Gemacht von Nachbarn der Beira Baixa, die das Gebirge stehen lassen wollen.',
       foot_s1:'Konsultation und offizielle Unterlagen (participa.pt)', foot_s2:'Petition im Parlament', foot_s3:'Erklärung (Público)',
+      foot_photo:'Titelfoto: Jocehcap11, CC BY-SA 4.0 (Wikimedia Commons)',
       foot_disc:'Alle Zahlen und Zitate stammen aus den offiziellen Unterlagen der öffentlichen Konsultation auf participa.pt (PSZAER-Vorschlag und Themenberichte, Mai 2026). Informative, bürgerliche Seite, ohne Gewinnabsicht, keiner Partei, keinem Unternehmen und keiner öffentlichen Stelle zugehörig.'
     },
     fr:{
@@ -364,6 +423,19 @@
       risk_f2:'<b>Sans filtre environnemental</b>Dans les zones d’accélération, il n’y a pas d’EIE. Sans ce filtre, les projets avancent sans l’évaluation qui protège l’eau, le sol, la forêt et la biodiversité.',
       risk_f3:'<b>La faune</b>La région abrite des espèces menacées — <b>vautour moine, aigle ibérique, aigle royal, cigogne noire, outarde canepetière, lynx ibérique, loup ibérique et chauves-souris</b>. Le rapport reconnaît qu’il manque des données sur elles hors des aires protégées.',
       risk_f4:'<b>L’eau et la terre</b>Cela occupe des sols agricoles et forestiers, affecte les cours d’eau et la montagne qui alimente la région. Des maisons se trouvent à seulement <b>200 m</b> (solaire) et <b>1 km</b> (éolien) des centrales.',
+      plan_k:'Ce qu’ils préparent pour notre terre', plan_h:'Fais glisser et compare : aujourd’hui vs demain',
+      plan_p:'À gauche, le barrage de Marateca (Castelo Branco) tel qu’il est aujourd’hui. À droite, la <b>simulation de l’impact</b> avec les centrales que permettent les zones d’accélération. <b>Fais glisser le curseur</b> sur l’image et compare.',
+      ba_before:'Aujourd’hui', ba_after:'Demain ?',
+      ba_aria:'Fais glisser pour comparer avant et après',
+      ba_alt_before:'Le barrage de Marateca aujourd’hui — retenue entourée de champs et de forêt',
+      ba_alt_after:'Simulation de l’impact au barrage de Marateca — panneaux solaires et éoliennes autour de la retenue',
+      ba_cap:'Image de droite : simulation d’impact créée par la campagne — ce n’est pas une vraie photo.',
+      gal_p:'Plus d’images de la campagne — clique pour les ouvrir en taille réelle et partage-les :',
+      gal_c1:'Simulation : champs solaires sur le versant de la montagne.',
+      gal_c2:'Aujourd’hui vs demain — simulation vue du calvaire, avec des centrales sur le versant.',
+      gal_c3:'Aujourd’hui vs demain — image de partage de la campagne.',
+      gal_c4:'Affiche de la campagne — enregistre, imprime et partage.',
+      gal_c5:'Terrains de projet (en vert) et terrains exclus près de Lardosa — zone d’étude de la REN.',
       act_k:'Ce que tu peux faire', act_h:'Deux actions — en deux minutes',
       act1_h:'Objecter dans la consultation publique', act1_tag:'jusqu’au 15 juil',
       act1_p:'C’est l’action la plus importante. C’est le processus officiel de décision et les objections <b>doivent être prises en compte</b> par la loi. Vois le pas à pas ci-dessous.',
@@ -387,6 +459,7 @@
       pet_btn:'Signer la pétition →',
       foot_made:'Fait par des voisins de la Beira Baixa qui veulent la montagne debout.',
       foot_s1:'Consultation et documents officiels (participa.pt)', foot_s2:'Pétition au Parlement', foot_s3:'Explication (Público)',
+      foot_photo:'Photo de couverture : Jocehcap11, CC BY-SA 4.0 (Wikimedia Commons)',
       foot_disc:'Tous les chiffres et citations proviennent des documents officiels en consultation publique sur participa.pt (Proposition de PSZAER et rapports thématiques, mai 2026). Page informative et civique, sans but lucratif, non affiliée à un parti, une entreprise ou une entité publique.'
     }
   };
@@ -397,13 +470,17 @@
   };
 
   var PT={}; document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
+  document.querySelectorAll('[data-i18n-alt]').forEach(function(el){var k=el.getAttribute('data-i18n-alt');if(PT[k]==null)PT[k]=el.getAttribute('alt');});
+  document.querySelectorAll('[data-i18n-aria]').forEach(function(el){var k=el.getAttribute('data-i18n-aria');if(PT[k]==null)PT[k]=el.getAttribute('aria-label');});
   var lang=localStorage.getItem('nf_lang')||'pt';
+  function tr(l,k){return (l==='pt')?PT[k]:((I18N[l]&&I18N[l][k]!=null)?I18N[l][k]:PT[k]);}
   function applyLang(l){
     lang=l; document.documentElement.lang=l;
     document.querySelectorAll('[data-i18n]').forEach(function(el){
-      var k=el.getAttribute('data-i18n');
-      el.innerHTML=(l==='pt')?PT[k]:((I18N[l]&&I18N[l][k]!=null)?I18N[l][k]:PT[k]);
+      el.innerHTML=tr(l,el.getAttribute('data-i18n'));
     });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function(el){el.setAttribute('alt',tr(l,el.getAttribute('data-i18n-alt')));});
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){el.setAttribute('aria-label',tr(l,el.getAttribute('data-i18n-aria')));});
     document.querySelectorAll('#langsw button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
     localStorage.setItem('nf_lang',l);
     render();
@@ -440,6 +517,26 @@
   function copyBtn(id,txtFn){document.getElementById(id).addEventListener('click',function(){navigator.clipboard.writeText(txtFn()).then(function(){var b=document.getElementById(id);var t=b.textContent;b.textContent=(id==='copy')?STR[lang].linkcopied:STR[lang].copied;setTimeout(function(){b.textContent=t},1800);});});}
   copyBtn('copygen',function(){return genTxt.textContent});
   copyBtn('copy',function(){return url});
+
+  (function(){
+    var ba=document.getElementById('ba'), grip=document.getElementById('baGrip');
+    if(!ba||!grip) return;
+    var pos=50, dragging=false;
+    function setPos(p){
+      pos=Math.max(0,Math.min(100,p));
+      ba.style.setProperty('--pos',pos+'%');
+      grip.setAttribute('aria-valuenow',Math.round(pos));
+    }
+    function pct(e){var r=ba.getBoundingClientRect();return (e.clientX-r.left)/r.width*100;}
+    ba.addEventListener('pointerdown',function(e){dragging=true;ba.setPointerCapture(e.pointerId);setPos(pct(e));});
+    ba.addEventListener('pointermove',function(e){if(dragging)setPos(pct(e));});
+    ba.addEventListener('pointerup',function(){dragging=false;});
+    ba.addEventListener('pointercancel',function(){dragging=false;});
+    grip.addEventListener('keydown',function(e){
+      if(e.key==='ArrowLeft'){setPos(pos-4);e.preventDefault();}
+      else if(e.key==='ArrowRight'){setPos(pos+4);e.preventDefault();}
+    });
+  })();
 </script>
 </body>
 </html>
