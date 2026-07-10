@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salvar a Gardunha — Não às megacentrais solares na serra</title>
+<meta name="description" content="Os próprios documentos do Governo colocam a Serra da Gardunha na região mais visada do país para centrais solares — sem avaliação de impacte ambiental. A consulta pública termina a 15 de julho de 2026. Diz não.">
+<meta property="og:title" content="A Serra da Gardunha não está à venda">
+<meta property="og:description" content="A Beira Baixa é a região com maior percentagem de solo para solar do país. Megacentrais sem avaliação ambiental. Temos até 15 de julho para dizer não.">
+<meta property="og:image" content="mapa-oficial.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#0a0d0a; --panel:#141a14; --line:#243024;
+    --ink:#f3f5f1; --muted:#9aa79a; --green:#4ade80; --green-d:#22c55e;
+    --amber:#fbbf24; --red:#f87171; --max:780px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+  a{color:inherit}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+
+  .bar{position:sticky;top:0;z-index:50;background:#1a1206;border-bottom:1px solid #3a2a08;
+    color:var(--amber);font-size:13px;letter-spacing:.02em;text-align:center;padding:9px 14px}
+  .bar b{color:#fff}
+
+  header{padding:60px 0 40px;border-bottom:1px solid var(--line);
+    background:radial-gradient(120% 90% at 50% -10%, #10200f 0%, var(--bg) 60%)}
+  .eyebrow{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);
+    font-weight:700;margin-bottom:20px}
+  h1{font-size:clamp(37px,8.3vw,70px);line-height:.98;font-weight:900;letter-spacing:-.02em;text-transform:uppercase}
+  h1 .hl{color:var(--green)}
+  .lede{font-size:clamp(17px,2.6vw,21px);color:#d7ddd4;margin-top:22px;max-width:660px}
+  .lede b{color:#fff}
+
+  .cd{display:flex;gap:10px;margin:32px 0 8px;flex-wrap:wrap}
+  .cd .u{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:78px;text-align:center}
+  .cd .n{font-size:32px;font-weight:800;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+  .cd .l{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:7px}
+  .cd .over{color:var(--red)}
+
+  .cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:16px;padding:15px 22px;
+    border-radius:12px;text-decoration:none;border:1px solid transparent;transition:transform .06s ease, background .15s ease;cursor:pointer}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--green-d);color:#05230f}
+  .btn-primary:hover{background:var(--green)}
+  .btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--green);color:var(--green)}
+  .btn-sm{font-size:14px;padding:11px 16px}
+
+  section{padding:54px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:16px}
+  h2{font-size:clamp(24px,4.5vw,34px);font-weight:800;letter-spacing:-.01em;line-height:1.12}
+  section p{color:#ccd3c9;margin-top:16px;font-size:17px}
+  section p b{color:#fff}
+  .big{font-size:clamp(30px,6vw,46px);font-weight:900;color:var(--green);letter-spacing:-.02em;line-height:1.05}
+
+  figure{margin:26px 0 6px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 12px 4px;overflow:hidden}
+  figure img{display:block;width:100%;height:auto;border-radius:8px}
+  figcaption{color:#334;font-size:13.5px;padding:12px 8px 8px;line-height:1.5}
+  figcaption .lg{display:inline-flex;gap:6px;align-items:center;margin-right:14px;color:#111;font-weight:600}
+  figcaption .sw{width:14px;height:14px;border-radius:3px;display:inline-block}
+
+  .facts{list-style:none;margin-top:24px;display:grid;gap:14px}
+  .facts li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;color:#ccd3c9;font-size:16px}
+  .facts li b{color:#fff;display:block;margin-bottom:3px}
+  .quote{margin-top:24px;border-left:3px solid var(--amber);padding:6px 0 6px 18px;color:#e7ecdf;font-size:18px;font-style:italic}
+  .quote span{display:block;margin-top:8px;font-style:normal;font-size:13.5px;color:var(--muted)}
+
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 20px;margin-top:16px;
+    display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+  .step .num{width:38px;height:38px;border-radius:50%;background:#10200f;border:1px solid var(--green);color:var(--green);
+    font-weight:800;display:flex;align-items:center;justify-content:center;font-size:17px}
+  .step h3{font-size:19px;font-weight:800}
+  .step .tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:700;margin-left:8px}
+  .step p{margin-top:7px;font-size:15.5px;color:#c3cbbf}
+
+  ol.how{margin:22px 0 0 0;padding-left:22px;color:#ccd3c9}
+  ol.how li{margin-bottom:12px;font-size:16px}
+  ol.how li b{color:#fff}
+  ol.how a{color:var(--green)}
+
+  footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
+  footer a{color:var(--green);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  .srcs{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px 18px}
+  .disclaimer{margin-top:26px;font-size:12.5px;color:#6f7a6f;border-top:1px solid var(--line);padding-top:18px}
+  @media(max-width:520px){ .step{grid-template-columns:1fr} .step .num{display:none} }
+</style>
+</head>
+<body>
+
+<div class="bar mono">⚠ A consulta pública termina a <b>15 de julho de 2026</b> — <span id="barleft">a calcular…</span></div>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Consulta pública PSZAER · Beira Baixa</div>
+    <h1>A Serra da Gardunha<br><span class="hl">não está à venda</span></h1>
+    <p class="lede">Não é opinião nossa: os <b>próprios documentos do Governo</b> colocam a nossa serra na região <b>mais visada do país</b> para megacentrais solares — licenciadas à pressa e <b>sem avaliação de impacte ambiental</b>. Temos até <b>15 de julho</b> para dizer não.</p>
+
+    <div class="cd" id="cd" aria-label="Tempo até ao fim da consulta">
+      <div class="u"><div class="n" id="d">–</div><div class="l">Dias</div></div>
+      <div class="u"><div class="n" id="h">–</div><div class="l">Horas</div></div>
+      <div class="u"><div class="n" id="m">–</div><div class="l">Min</div></div>
+      <div class="u"><div class="n" id="s">–</div><div class="l">Seg</div></div>
+    </div>
+
+    <div class="cta">
+      <a class="btn btn-primary" href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">Objetar na consulta pública →</a>
+      <a class="btn btn-ghost" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener">Assinar a petição</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">O mapa oficial do Governo</div>
+    <h2>Isto é o plano — e a Gardunha está no meio</h2>
+    <p>Cada mancha é uma zona onde o Governo quer acelerar centrais renováveis. O interior centro é a área mais coberta do país. A Serra da Gardunha e o maciço de Castelo Branco estão no coração dessa mancha.</p>
+    <figure>
+      <img src="mapa-oficial.png" alt="Mapa oficial das zonas de aceleração de energias renováveis (ZAER) em Portugal: a amarelo as zonas solares e a azul as eólicas, com a Serra da Gardunha assinalada no interior centro.">
+      <figcaption>
+        <span class="lg"><span class="sw" style="background:#ffe600;border:1px solid #ccc"></span>Zonas solares</span>
+        <span class="lg"><span class="sw" style="background:#1f6fff"></span>Zonas eólicas</span><br>
+        Fonte: <i>Proposta PSZAER — Relatório Temático de Integração de Informação Espacializada</i> (LNEG / EMER 2030), Figura 39. Assinalação nossa.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">O que está a acontecer</div>
+    <h2>7% do país aberto a centrais — sem avaliação ambiental</h2>
+    <p>O Governo pôs em consulta pública o <b>PSZAER</b> — o <i>Programa Setorial das Zonas de Aceleração da Implantação de Energias Renováveis</i>. Nas palavras do próprio resumo, o processo <b>“deixou disponível para aceleração cerca de 7% do território nacional continental”</b>, onde os projetos podem ser licenciados <b>“sem passarem pela avaliação de impacte ambiental (AIA)”</b>.</p>
+    <p>Dentro destas zonas, a avaliação ambiental é substituída por um simples <b>“subprocedimento de verificação”</b> e por uma <b>“janela única”</b> com prazos apertados. O potencial mapeado é enorme: <b>~578&nbsp;777&nbsp;ha para solar</b> e <b>~84&nbsp;618&nbsp;ha para eólica</b>. E não são telhados — <b>78,9% da área de potencial solar é espaço florestal</b>.</p>
+    <p>A consulta está aberta até <b>15 de julho de 2026</b>. Depois disso, é tarde.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Porque é a NOSSA serra o alvo</div>
+    <h2>A Beira Baixa é a região #1 do país para solar</h2>
+    <p class="big">57&nbsp;758 ha</p>
+    <p style="margin-top:6px">de zonas solares na Beira Baixa — <b>11% de toda a região</b>, a maior percentagem de qualquer região de Portugal. Mais <b>19&nbsp;295 ha</b> para eólica. Só o concelho do Fundão soma <b>~6&nbsp;237 ha de solar e ~4&nbsp;947 ha de eólica</b>.</p>
+    <ul class="facts">
+      <li><b>#1 solar, #2/#3/#4 eólica</b>No ranking nacional, a região lidera o solar (Sertã e Proença-a-Nova no topo) e domina a eólica: Castelo Branco (#2), Oleiros (#3), Fundão (#4).</li>
+      <li><b>A Gardunha está lá nomeada</b>Os consultores do Governo destacam o grupo de paisagem <i>“Pinhal do Centro”</i> — que integra as <b>“Serras da Gardunha, Alvelos e Moradal”</b> e o <b>“Maciço agro-florestal de Castelo Branco”</b> — como o de <b>maior potencial solar do país</b> (~34% do grupo).</li>
+    </ul>
+    <div class="quote">“É por isso natural que as áreas territoriais sobrantes sejam as que têm menores valores atuais de qualidade de paisagem.”
+      <span>— Relatório de Paisagem do PSZAER, sobre o interior. Ou seja: tratam a nossa terra como o “sobrante” do país. Não é.</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">O que está em risco</div>
+    <h2>Mantos de vidro sobre a serra</h2>
+    <ul class="facts">
+      <li><b>A paisagem</b>O próprio relatório admite que o solar em grande escala cria <i>“mantos de vidro”</i> e é sentido como <i>“uma degradação visual significativa”</i>. Há um limite de <b>25 ha contínuos</b> por campo solar — que os megaprojetos ignoram.</li>
+      <li><b>Sem crivo ambiental</b>Dentro das zonas de aceleração não há AIA. Sem esse crivo, os projetos avançam sem a avaliação que protege água, solo, floresta e biodiversidade.</li>
+      <li><b>A fauna</b>A região é casa de espécies ameaçadas — <b>abutre-preto, águia-imperial, águia-real, cegonha-preta, sisão, lince-ibérico, lobo-ibérico e morcegos</b>. O relatório reconhece que faltam dados sobre elas fora das áreas protegidas.</li>
+      <li><b>A água e a terra</b>Ocupa solo agrícola e florestal, afeta linhas de água e a serra que abastece a região. Casas ficam a apenas <b>200 m</b> (solar) e <b>1 km</b> (eólica) das centrais.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">O que podes fazer</div>
+    <h2>Três ações — a primeira é a que mais conta</h2>
+
+    <div class="step">
+      <div class="num">1</div>
+      <div>
+        <h3>Objetar na consulta pública<span class="tag">até 15 jul</span></h3>
+        <p>É a ação mais importante. É o processo oficial de decisão e as objeções <b>têm de ser consideradas</b> por lei. Bastam dois minutos — vê o passo a passo abaixo.</p>
+        <div class="cta"><a class="btn btn-primary btn-sm" href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">Ir a participa.pt →</a></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">2</div>
+      <div>
+        <h3>Assinar a petição</h3>
+        <p>Leva a serra à Assembleia da República. Com <b>4&nbsp;000 assinaturas</b>, obriga a um debate no Parlamento.</p>
+        <div class="cta"><a class="btn btn-ghost btn-sm" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener">Assinar a petição →</a></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">3</div>
+      <div>
+        <h3>Partilhar</h3>
+        <p>Envia esta página a quem conheces na Beira Baixa. Quantas mais objeções, mais peso tem o não.</p>
+        <div class="cta">
+          <a class="btn btn-ghost btn-sm" id="wa" href="#" target="_blank" rel="noopener">Partilhar no WhatsApp</a>
+          <button class="btn btn-ghost btn-sm" id="copy" type="button">Copiar link</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Como objetar em 2 minutos</div>
+    <h2>Passo a passo</h2>
+    <ol class="how">
+      <li>Abre a <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">consulta em participa.pt</a> e <b>cria conta</b> (ou entra com Chave Móvel Digital).</li>
+      <li>Clica em <b>“Participar”</b> e abre o formulário de contributo.</li>
+      <li>Escreve por tuas palavras: <b>opões-te à inclusão da Serra da Gardunha e da Beira Baixa</b> nas zonas de aceleração; pedes a sua <b>exclusão</b>; invocas a <b>falta de avaliação de impacte ambiental</b>, o impacte na paisagem, na água e nas espécies protegidas, e recusas que o interior seja tratado como o “sobrante” do país.</li>
+      <li><b>Submete.</b> Está feito.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Feito por vizinhos da Beira Baixa que querem a serra de pé.</div>
+    <div class="srcs">
+      <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">Consulta e documentos oficiais (participa.pt)</a>
+      <a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener">Petição no Parlamento</a>
+      <a href="https://www.publico.pt/2026/06/20/azul/perguntaserespostas/vai-funcionar-plano-acelerar-energia-eolica-solar-portugal-2178537" target="_blank" rel="noopener">Explicação (Público)</a>
+    </div>
+    <p class="disclaimer">Todos os números e citações são retirados dos documentos oficiais em consulta pública no participa.pt (Proposta de PSZAER e Relatórios Temáticos, maio de 2026). Página informativa e cívica, sem fins lucrativos, não filiada em nenhum partido, empresa ou entidade pública.</p>
+  </div>
+</footer>
+
+<script>
+  var DEADLINE=new Date('2026-07-15T23:59:59+01:00').getTime();
+  var d=document.getElementById('d'),h=document.getElementById('h'),m=document.getElementById('m'),s=document.getElementById('s'),barleft=document.getElementById('barleft');
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    var diff=DEADLINE-Date.now();
+    if(diff<=0){d.textContent='0';h.textContent='00';m.textContent='00';s.textContent='00';d.classList.add('over');
+      barleft.innerHTML='<b>a consulta terminou</b> — continua a assinar a petição';return;}
+    var days=Math.floor(diff/864e5),hrs=Math.floor(diff%864e5/36e5),min=Math.floor(diff%36e5/6e4),sec=Math.floor(diff%6e4/1e3);
+    d.textContent=days;h.textContent=pad(hrs);m.textContent=pad(min);s.textContent=pad(sec);
+    barleft.innerHTML='faltam <b>'+days+' dias e '+hrs+'h</b>';
+  }
+  tick();setInterval(tick,1000);
+  var url=location.href, msg='A Serra da Gardunha é das áreas mais visadas do país por megacentrais solares. Objeta na consulta pública até 15 de julho: ';
+  document.getElementById('wa').href='https://wa.me/?text='+encodeURIComponent(msg+url);
+  document.getElementById('copy').addEventListener('click',function(){
+    navigator.clipboard.writeText(url).then(function(){var b=document.getElementById('copy');var t=b.textContent;b.textContent='Link copiado ✓';setTimeout(function(){b.textContent=t},1800);});
+  });
+</script>
+</body>
+</html>
