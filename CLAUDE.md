@@ -20,6 +20,31 @@ strings). Never ship PT-only text. Image captions and alt text count too.
 The AI "gerar contributo" endpoint (`api/generate.js`) also generates in the
 selected language — keep its `lang` handling in sync.
 
+Participa.pt UI labels (“Registo”, “Individual”, “Registar”, “Entrar”,
+“Participar”, “Submeter”) stay in **Portuguese in every language** — the how-to
+steps describe clicks on a Portuguese-only site. Translate the surrounding text,
+never the quoted button names.
+
+### ⚠️ Quote-corruption hazard when editing `index.html` (broke prod once)
+The file mixes three quote styles: **straight `'`/`"` for JS string delimiters
+and HTML attributes**, and **typographic `’` `“ ”` `„ “` `« »` only inside
+visible text**. The Edit tool fuzzy-matches quotes: if `old_string` uses straight
+quotes where the file has curly ones (or vice versa), it may still "succeed" and
+silently swap quote styles in the written text. This has produced BOTH failure
+modes: curly `”` inside HTML attributes (`href=”…”` — broken markup) and curly
+`’` as JS string delimiters in `I18N` (`act1_h:’…’` — a syntax error that killed
+the ENTIRE script: no translations, no countdown, no share buttons).
+
+Rules:
+1. Before editing any line containing quotes, Read/grep the exact bytes and copy
+   them verbatim into `old_string` — never retype quotes from memory.
+2. In `new_string`: straight quotes for code (JS delimiters, HTML attributes);
+   curly quotes only inside human-visible text. An apostrophe inside a
+   single-quoted JS string must be curly `’` (e.g. `'C’est'`), never straight.
+3. After ANY edit touching the `<script>` block, verify it parses:
+   `sed -n '/<script>/,/<\/script>/p' index.html | sed '1d;$d' | node --check /dev/stdin`
+   and `grep -n '=”' index.html` must return nothing.
+
 ## Structure
 - `index.html` — the page: i18n dict + switcher, countdown to 15 Jul 2026, the
   draggable Marateca before/after slider + campaign gallery (under the hero), the

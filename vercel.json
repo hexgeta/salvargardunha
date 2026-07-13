@@ -1,4 +1,9 @@
 {
+  "rewrites": [
+    { "source": "/en", "destination": "/index.html" },
+    { "source": "/de", "destination": "/index.html" },
+    { "source": "/fr", "destination": "/index.html" }
+  ],
   "redirects": [
     {
       "source": "/(.*)",
