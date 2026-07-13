@@ -56,7 +56,16 @@ Rules:
 - `api/petition.js` — scrapes the live online-signature count from
   participacao.parlamento.pt/initiatives/5569 (edge-cached 30 min; hardcoded
   fallback count — bump it occasionally).
-- `mapa-oficial.png` — the official ZAER map (Figura 39) with the Gardunha marked.
+- `mapa-oficial.png` — the official ZAER map (Figura 39) with the Gardunha marked
+  (regenerated from the PDF, page 69 of rt-espacializada; circle at the verified
+  Gardunha location 40.18°N 7.34°W).
+- `docs/` — local mirror of all 12 official consultation PDFs (so they outlive
+  participa.pt), listed on the page in release-date order with quadrilingual
+  summaries (i18n keys `sum_*`). Summaries were written from the actual PDFs —
+  keep them faithful; don't invent numbers.
+- `api/page.js` — serves index.html on /en /de /fr with language-swapped OG/meta
+  tags (crawlers don't run JS); rewired in vercel.json. OG images are
+  `img/og-{pt,en,de,fr}.jpg`.
 - `img/` — campaign images: the "what they plan" gallery, the Marateca
   before/after slider pair, and `gardunha-hero.jpg` (hero background — CC BY-SA 4.0
   by Jocehcap11, Wikimedia Commons; credit link in the footer must stay).
