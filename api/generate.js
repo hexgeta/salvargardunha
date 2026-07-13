@@ -24,7 +24,7 @@ Rules:
 - First person, sincere and respectful tone (never aggressive or robotic).
 - 90 to 140 words, one or two short paragraphs.
 - Each text MUST be different: vary structure, vocabulary, order and emphasis. Never reuse stock phrases.
-- Use 2-3 of these arguments, combined in varied ways: no environmental impact assessment (AIA/EIA); impact on the protected mountain landscape; loss of agricultural and forest land; water courses and supply; threatened species (birds of prey, black stork, bats, Iberian lynx, Iberian wolf); proximity to homes; refusing to treat the interior as "leftover" land; preferring rooftops and already-built-up areas instead of the mountain.
+- Use 2-3 arguments, combined in varied ways. If the citizen chose specific concerns, prioritise those; otherwise draw from: no environmental impact assessment (AIA/EIA); impact on the protected mountain landscape; loss of agricultural and forest land; water courses and supply; threatened species (birds of prey, black stork, bats, Iberian lynx, Iberian wolf); proximity to homes; refusing to treat the interior as "leftover" land; preferring rooftops and already-built-up areas instead of the mountain.
 - End with a clear request: exclude the Serra da Gardunha / Beira Baixa from the acceleration zones.
 - Keep the proper names "Serra da Gardunha", "Beira Baixa" and "PSZAER" as they are.
 - Return ONLY the contribution text — no title, no quotes, no notes.`;
@@ -40,7 +40,14 @@ module.exports = async (req, res) => {
   const key = process.env.OPENAI_API_KEY;
   if (!key) { res.status(200).json({ text: FALLBACK[lang], source: 'fallback' }); return; }
 
-  const pick = [...ANGLES].sort(() => 0.5 - Math.random()).slice(0, 3).join('; ');
+  // Optional: specific concerns the visitor picked as chips on the page.
+  const chosen = (req.body && Array.isArray(req.body.topics))
+    ? req.body.topics.filter((t) => typeof t === 'string' && t.trim()).slice(0, 4)
+    : [];
+
+  const userMsg = chosen.length
+    ? `Write a unique, original contribution now, in ${LANG_NAME[lang]}. The citizen specifically chose these concerns — build the contribution around them, giving them clear priority: ${chosen.join('; ')}. You may add one supporting argument if it flows naturally.`
+    : `Write a unique, original contribution now, in ${LANG_NAME[lang]}. Give special emphasis to: ${[...ANGLES].sort(() => 0.5 - Math.random()).slice(0, 3).join('; ')}.`;
 
   try {
     const r = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -52,7 +59,7 @@ module.exports = async (req, res) => {
         max_tokens: 380,
         messages: [
           { role: 'system', content: systemPrompt(LANG_NAME[lang]) },
-          { role: 'user', content: `Write a unique, original contribution now, in ${LANG_NAME[lang]}. Give special emphasis to: ${pick}.` },
+          { role: 'user', content: userMsg },
         ],
       }),
     });

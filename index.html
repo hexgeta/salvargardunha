@@ -129,6 +129,15 @@
   .suggest-h{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:10px}
   .suggest p{color:#dfe6da;font-size:15px;margin:0 0 14px}
   #gen-txt{font-style:italic;white-space:pre-wrap}
+  .topics-lead{color:#dfe6da;font-size:15px;margin:16px 0 0}
+  .topics{margin:12px 0 2px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .tp{text-align:left;background:#0f160f;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:13px;color:#c3cbbf;line-height:1.42;cursor:pointer;position:relative;transition:border-color .12s ease,background .12s ease}
+  .tp:hover{border-color:var(--green)}
+  .tp b{color:#fff;display:block;font-size:13px;margin-bottom:1px}
+  .tp.on{border-color:var(--green);background:#10230f}
+  .tp.on b{color:var(--green)}
+  .tp.on::after{content:"✓";position:absolute;top:7px;right:10px;color:var(--green);font-weight:800;font-size:13px}
+  @media(max-width:560px){.topics{grid-template-columns:1fr}}
   .docs{margin-top:22px;display:grid;gap:10px}
   .doc{display:block;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;transition:border-color .15s ease}
   .doc:hover{border-color:var(--green)}
@@ -242,16 +251,40 @@
       <li><span data-i18n="how3"><b>Inicia sessão.</b> Volta a <a href="https://participa.pt" target="_blank" rel="noopener">participa.pt</a> e clica em <b>“Entrar”</b> (também podes entrar com <b>Chave Móvel Digital</b>).</span><a class="shot" href="img/passo-login.jpg" target="_blank" rel="noopener"><img src="img/passo-login.jpg" alt="Janela “Conta ativada” — carrega em “aqui” para iniciar sessão" data-i18n-alt="ss_login" loading="lazy" decoding="async"></a></li>
       <li><span data-i18n="how4"><b>Abre a consulta.</b> <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">Clica aqui para abrir a consulta do PSZAER</a> e carrega no botão <b>“Participar”</b>.</span><a class="shot" href="img/passo-participar.jpg" target="_blank" rel="noopener"><img src="img/passo-participar.jpg" alt="Botão “Participar” na página da consulta" data-i18n-alt="ss_participar" loading="lazy" decoding="async"></a></li>
       <li><span data-i18n="how5"><b>Escreve o contributo.</b> Cola o teu texto — gera o teu <b>contributo único</b> no botão abaixo. Cada pessoa só pode enviar <b>um</b>, e um texto diferente de cada pessoa conta muito mais do que cópias iguais.</span>
+        <p class="topics-lead" data-i18n="topics_lead">Escolhe os temas que mais te preocupam (opcional) e o contributo será orientado para eles. Se não escolheres nenhum, fica geral.</p>
+        <div class="topics" id="topics">
+          <button class="tp" type="button" data-topic="destruction of wildlife habitats and ecosystems, threatened species (black vulture, imperial eagle, Iberian lynx, Iberian wolf, bats)" data-i18n="obj1"><b>Habitats e ecossistemas</b>Destrói o habitat de espécies ameaçadas — abutre-preto, águia-imperial, lince e lobo ibérico.</button>
+          <button class="tp" type="button" data-topic="falling property values for homes near industrial-scale plants" data-i18n="obj2"><b>Valor das casas</b>Viver ao lado de centrais industriais faz cair o preço das habitações.</button>
+          <button class="tp" type="button" data-topic="harm to nature and heritage tourism (Fundão cherries, mountain trails, historic villages)" data-i18n="obj3"><b>Turismo</b>Afasta o turismo de natureza, das cerejas do Fundão e das aldeias históricas.</button>
+          <button class="tp" type="button" data-topic="visual blight — blankets of glass over an outstanding landscape" data-i18n="obj4"><b>Paisagem</b>«Mantos de vidro» sobre uma das paisagens mais bonitas do interior.</button>
+          <button class="tp" type="button" data-topic="loss of fertile farmland — cherry orchards, olive groves, pasture" data-i18n="obj5"><b>Terra agrícola</b>Ocupa solo fértil de cerejais, olivais e pastagens.</button>
+          <button class="tp" type="button" data-topic="health concerns: heavy metals and microplastics from panel wear, and glare near homes" data-i18n="obj6"><b>Saúde</b>Metais pesados, microplásticos da degradação dos painéis e reflexos junto a casas.</button>
+          <button class="tp" type="button" data-topic="the mountain supplies the region's water; works affect streams, springs and aquifers" data-i18n="obj7"><b>Água</b>A serra abastece a região — afeta linhas de água, nascentes e aquíferos.</button>
+          <button class="tp" type="button" data-topic="increased wildfire risk from clearing and infrastructure in fire-prone forest" data-i18n="obj8"><b>Risco de incêndio</b>Desmatação e infraestruturas em floresta aumentam o risco de fogo.</button>
+          <button class="tp" type="button" data-topic="destroying forest (78.9% of the solar potential) releases carbon and removes carbon sinks" data-i18n="obj9"><b>Floresta e carbono</b>78,9% do potencial solar é floresta — destruí-la liberta carbono.</button>
+          <button class="tp" type="button" data-topic="projects skip the environmental impact assessment (EIA) inside the acceleration zones" data-i18n="obj10"><b>Sem avaliação ambiental</b>Dentro das ZAER não há AIA — sem o crivo que protege a natureza.</button>
+          <button class="tp" type="button" data-topic="historic villages, chapels, the stone cross, trails and the Marateca reservoir lose their setting" data-i18n="obj11"><b>Património cultural</b>Aldeias, capelas, o cruzeiro, os trilhos e a Marateca perdem o enquadramento.</button>
+          <button class="tp" type="button" data-topic="profits leave the region while the burdens stay (energy monofunctionality)" data-i18n="obj12"><b>Benefícios para fora</b>Os lucros saem da região; ficam só os encargos.</button>
+          <button class="tp" type="button" data-topic="the rush for zones inflates land prices and pushes out farmers" data-i18n="obj13"><b>Especulação da terra</b>A corrida às ZAER inflaciona a terra e expulsa os agricultores.</button>
+          <button class="tp" type="button" data-topic="many projects together with no assessment of the combined cumulative effect" data-i18n="obj14"><b>Impacto cumulativo</b>Muitos projetos juntos, sem avaliação do efeito total.</button>
+          <button class="tp" type="button" data-topic="the grid is the real bottleneck — ~8.7 GW already awarded are not connected; land is not the problem" data-i18n="obj15"><b>A rede é o travão</b>Há ~8,7 GW já atribuídos por ligar — não falta terreno, falta rede.</button>
+          <button class="tp" type="button" data-topic="plants sited just 200 m (solar) and 1 km (wind) from homes" data-i18n="obj16"><b>Demasiado perto de casas</b>Centrais a apenas 200 m (solar) e 1 km (eólica) das habitações.</button>
+          <button class="tp" type="button" data-topic="wind turbines cause noise and intermittent shadow flicker for nearby residents" data-i18n="obj17"><b>Ruído e sombra</b>As turbinas geram ruído e sombra intermitente para quem vive perto.</button>
+          <button class="tp" type="button" data-topic="turbine blades and power lines kill birds and bats, admitted in the official report" data-i18n="obj18"><b>Aves e morcegos</b>Pás e linhas elétricas matam aves e morcegos — admitido no relatório.</button>
+          <button class="tp" type="button" data-topic="soil sealing, erosion and changes to the hillside's hydrology" data-i18n="obj19"><b>Solo e erosão</b>Selagem do solo, erosão e alteração da hidrologia da encosta.</button>
+          <button class="tp" type="button" data-topic="alternatives ignored — urban rooftops (28 GW potential), already-built-up land and self-consumption" data-i18n="obj20"><b>Alternativas ignoradas</b>Telhados urbanos (28 GW), áreas já construídas e autoconsumo ficam por usar.</button>
+        </div>
         <div class="suggest" id="genbox">
       <div class="suggest-h" data-i18n="gen_h">O teu contributo — único</div>
       <p id="gen-txt" data-i18n="gen_p">Carrega em “Gerar” para criar um contributo único e original (redigido por IA a partir dos factos desta página). Cada objeção fica diferente — e conta mais.</p>
       <div class="cta">
         <button class="btn btn-primary btn-sm" id="gen" type="button" data-i18n="gen_btn">✨ Gerar o meu contributo</button>
-        <button class="btn btn-ghost btn-sm" id="copygen" type="button" data-i18n="gen_copy">Copiar texto</button>
+        <button class="btn btn-ghost btn-sm" id="copygen" type="button" data-i18n="gen_copy" style="display:none">Copiar texto</button>
       </div>
     </div>
       </li>
-      <li><span data-i18n="how6"><b>Torna-o público e submete.</b> Marca a opção que autoriza a <b>publicação</b> do contributo no relatório final e clica em <b>“Submeter”</b>. ✅ Está feito.</span></li>
+      <li><span data-i18n="how_disc"><b>Escolhe “Discordância”.</b> Na área <i>“A minha participação”</i>, cola o teu contributo na caixa de comentário e, no menu <b>“Classificação”</b> (a azul, ao cimo da caixa), seleciona <b>“Discordância”</b> — para deixar claro que te opões.</span><a class="shot" href="img/passo-colar.jpg" target="_blank" rel="noopener"><img src="img/passo-colar.jpg" alt="Área “A minha participação”: cola o comentário e escolhe “Discordância” no menu “Classificação”" data-i18n-alt="ss_colar" loading="lazy" decoding="async"></a></li>
+      <li><span data-i18n="how6"><b>Torna-o público e submete.</b> Marca a opção que autoriza a <b>publicação</b> do contributo no relatório final e clica em <b>“Submeter”</b>. ✅ Está feito.</span><a class="shot" href="img/passo-submeter.jpg" target="_blank" rel="noopener"><img src="img/passo-submeter.jpg" alt="Marca “Autorizo a publicação do meu comentário” e clica em “Submeter”" data-i18n-alt="ss_submeter" loading="lazy" decoding="async"></a><a class="shot" href="img/passo-obrigado.jpg" target="_blank" rel="noopener"><img src="img/passo-obrigado.jpg" alt="Confirmação: a tua participação foi submetida com sucesso" data-i18n-alt="ss_obrigado" loading="lazy" decoding="async"></a></li>
       <li id="partilhar"><span data-i18n="how7"><b>Partilha esta página.</b> Envia-a a quem conheces na Beira Baixa — quantas mais objeções, mais peso tem o não.</span>
         <div class="cta">
           <a class="btn btn-sm fbb" id="fb" href="#" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>Facebook</a>
@@ -481,11 +514,36 @@
       how3:'<b>Log in.</b> Back on <a href="https://participa.pt" target="_blank" rel="noopener">participa.pt</a>, click <b>“Entrar”</b> (you can also log in with the <b>Chave Móvel Digital</b>).',
       how4:'<b>Open the consultation.</b> <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">Click here to open the PSZAER consultation</a> and press the <b>“Participar”</b> button.',
       how5:'<b>Write the contribution.</b> Paste your text — generate your <b>unique contribution</b> with the button below. Each person can only submit <b>one</b>, and a different text from each person counts far more than identical copies.',
+      how_disc:'<b>Choose “Discordância” (disagreement).</b> In the <i>“A minha participação”</i> area, paste your contribution into the comment box and, in the <b>“Classificação”</b> (classification) menu — the blue bar at the top of the box — select <b>“Discordância”</b> to make clear you object.',
       how6:'<b>Make it public and submit.</b> Tick the option that authorises the <b>publication</b> of the contribution in the final report and click <b>“Submeter”</b>. ✅ Done.',
       how7:'<b>Share this page.</b> Send it to everyone you know in the Beira Baixa — the more objections, the more weight the no carries.',
+      ss_colar:'The “A minha participação” area: paste the comment and pick “Discordância” in the “Classificação” menu',
+      ss_submeter:'Tick “Autorizo a publicação do meu comentário” and click “Submeter”',
+      ss_obrigado:'Confirmation: your contribution was submitted successfully',
       gen_h:'Your contribution — unique',
       gen_p:'Press “Generate” to create a unique, original contribution (written by AI from the facts on this page). Every objection comes out different — and counts for more.',
       gen_btn:'✨ Generate my contribution', gen_copy:'Copy text',
+      topics_lead:'Pick the concerns that matter most to you (optional) and the contribution will focus on them. If you choose none, it stays general.',
+      obj1:'<b>Habitats and ecosystems</b>Destroys the habitat of threatened species — black vulture, imperial eagle, Iberian lynx and wolf.',
+      obj2:'<b>House prices</b>Living next to industrial-scale plants pushes home values down.',
+      obj3:'<b>Tourism</b>Drives away nature tourism, the Fundão cherries and the historic villages.',
+      obj4:'<b>Landscape</b>‘Blankets of glass’ over one of the interior’s most beautiful landscapes.',
+      obj5:'<b>Farmland</b>Takes up fertile soil — cherry orchards, olive groves and pasture.',
+      obj6:'<b>Health</b>Heavy metals, microplastics from panel wear and glare near homes.',
+      obj7:'<b>Water</b>The mountain supplies the region — it affects streams, springs and aquifers.',
+      obj8:'<b>Fire risk</b>Clearing and infrastructure in forest raise the wildfire risk.',
+      obj9:'<b>Forest and carbon</b>78.9% of the solar potential is forest — destroying it releases carbon.',
+      obj10:'<b>No environmental assessment</b>Inside the ZAER there is no EIA — none of the screening that protects nature.',
+      obj11:'<b>Cultural heritage</b>Villages, chapels, the stone cross, trails and the Marateca lose their setting.',
+      obj12:'<b>Benefits leave</b>The profits leave the region; only the burdens stay.',
+      obj13:'<b>Land speculation</b>The rush for zones inflates land prices and pushes out farmers.',
+      obj14:'<b>Cumulative impact</b>Many projects together, with no assessment of the total effect.',
+      obj15:'<b>The grid is the real brake</b>~8.7 GW already awarded aren’t connected — the problem isn’t land, it’s the grid.',
+      obj16:'<b>Too close to homes</b>Plants just 200 m (solar) and 1 km (wind) from homes.',
+      obj17:'<b>Noise and shadow</b>Turbines cause noise and intermittent shadow flicker for those living nearby.',
+      obj18:'<b>Birds and bats</b>Blades and power lines kill birds and bats — admitted in the report.',
+      obj19:'<b>Soil and erosion</b>Soil sealing, erosion and changes to the hillside’s hydrology.',
+      obj20:'<b>Alternatives ignored</b>Urban rooftops (28 GW), already-built-up land and self-consumption go unused.',
       docs_k:'Consultation documents', docs_h:'Read the official documents',
       docs_p:'All the consultation documents, in order of publication, hosted here for easy reading — each with a short summary. The numbers and quotes on this page come from them.',
       sum_abc:'Introductory presentation by EMER 2030 explaining in plain language what the ZAER are: the 2030 targets (20.8 GW solar, 10.4 GW wind), how projects are licensed and the timeline — public discussion in June–July 2026 and transposition into municipal plans in 2026–2028. The recommended starting point before the technical documents.',
@@ -574,11 +632,36 @@
       how3:'<b>Melde dich an.</b> Zurück auf <a href="https://participa.pt" target="_blank" rel="noopener">participa.pt</a>, klicke auf <b>„Entrar“</b> (du kannst dich auch mit der <b>Chave Móvel Digital</b> anmelden).',
       how4:'<b>Öffne die Konsultation.</b> <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">Klicke hier, um die PSZAER-Konsultation zu öffnen</a> und drücke auf <b>„Participar“</b>.',
       how5:'<b>Schreibe den Beitrag.</b> Füge deinen Text ein — erzeuge deinen <b>einzigartigen Beitrag</b> mit dem Button unten. Jede Person darf nur <b>einen</b> einreichen, und ein individueller Text zählt viel mehr als identische Kopien.',
+      how_disc:'<b>Wähle „Discordância“ (Ablehnung).</b> Füge im Bereich <i>„A minha participação“</i> deinen Beitrag in das Kommentarfeld ein und wähle im Menü <b>„Classificação“</b> (Einstufung) — die blaue Leiste oben am Feld — <b>„Discordância“</b>, um deinen Widerspruch deutlich zu machen.',
       how6:'<b>Mache ihn öffentlich und reiche ihn ein.</b> Aktiviere die Option zur <b>Veröffentlichung</b> des Beitrags im Abschlussbericht und klicke auf <b>„Submeter“</b>. ✅ Fertig.',
       how7:'<b>Teile diese Seite.</b> Schicke sie an alle, die du in der Beira Baixa kennst — je mehr Einsprüche, desto mehr Gewicht hat das Nein.',
+      ss_colar:'Der Bereich „A minha participação“: Kommentar einfügen und im Menü „Classificação“ „Discordância“ wählen',
+      ss_submeter:'„Autorizo a publicação do meu comentário“ ankreuzen und auf „Submeter“ klicken',
+      ss_obrigado:'Bestätigung: dein Beitrag wurde erfolgreich eingereicht',
       gen_h:'Dein Beitrag — einzigartig',
       gen_p:'Klicke auf „Erzeugen“, um einen einzigartigen, originellen Beitrag zu erstellen (per KI aus den Fakten dieser Seite verfasst). Jeder Einspruch ist anders — und zählt mehr.',
       gen_btn:'✨ Meinen Beitrag erzeugen', gen_copy:'Text kopieren',
+      topics_lead:'Wähle die Themen, die dir am wichtigsten sind (optional) — der Beitrag wird darauf ausgerichtet. Wählst du keins, bleibt er allgemein.',
+      obj1:'<b>Lebensräume und Ökosysteme</b>Zerstört den Lebensraum bedrohter Arten — Mönchsgeier, Kaiseradler, Iberischer Luchs und Wolf.',
+      obj2:'<b>Immobilienwerte</b>Das Leben neben Großanlagen drückt die Immobilienpreise.',
+      obj3:'<b>Tourismus</b>Vertreibt den Naturtourismus, die Kirschen aus Fundão und die historischen Dörfer.',
+      obj4:'<b>Landschaft</b>„Glasteppiche“ über einer der schönsten Landschaften des Landesinneren.',
+      obj5:'<b>Ackerland</b>Belegt fruchtbaren Boden — Kirschgärten, Olivenhaine und Weiden.',
+      obj6:'<b>Gesundheit</b>Schwermetalle, Mikroplastik aus dem Panelabrieb und Blendung nahe Wohnhäusern.',
+      obj7:'<b>Wasser</b>Das Gebirge versorgt die Region — betrifft Bäche, Quellen und Grundwasser.',
+      obj8:'<b>Brandgefahr</b>Rodung und Infrastruktur im Wald erhöhen die Waldbrandgefahr.',
+      obj9:'<b>Wald und Kohlenstoff</b>78,9% des Solarpotenzials ist Wald — seine Zerstörung setzt Kohlenstoff frei.',
+      obj10:'<b>Keine Umweltprüfung</b>In den ZAER gibt es keine UVP — kein Schutzfilter für die Natur.',
+      obj11:'<b>Kulturerbe</b>Dörfer, Kapellen, das Steinkreuz, Wege und die Marateca verlieren ihr Umfeld.',
+      obj12:'<b>Gewinne fließen ab</b>Die Gewinne verlassen die Region; nur die Lasten bleiben.',
+      obj13:'<b>Bodenspekulation</b>Der Ansturm auf Zonen treibt die Bodenpreise und verdrängt die Bauern.',
+      obj14:'<b>Kumulative Wirkung</b>Viele Projekte zusammen, ohne Bewertung der Gesamtwirkung.',
+      obj15:'<b>Das Netz ist die Bremse</b>~8,7 GW bereits vergeben, aber nicht angeschlossen — nicht Land fehlt, sondern Netz.',
+      obj16:'<b>Zu nah an Wohnhäusern</b>Anlagen nur 200 m (Solar) und 1 km (Wind) von Wohnhäusern.',
+      obj17:'<b>Lärm und Schattenwurf</b>Turbinen erzeugen Lärm und periodischen Schattenwurf für Anwohner.',
+      obj18:'<b>Vögel und Fledermäuse</b>Rotoren und Stromleitungen töten Vögel und Fledermäuse — im Bericht eingeräumt.',
+      obj19:'<b>Boden und Erosion</b>Bodenversiegelung, Erosion und veränderte Hydrologie des Hangs.',
+      obj20:'<b>Ignorierte Alternativen</b>Städtische Dächer (28 GW), bereits bebaute Flächen und Eigenverbrauch bleiben ungenutzt.',
       docs_k:'Unterlagen der Konsultation', docs_h:'Lies die offiziellen Unterlagen',
       docs_p:'Alle Unterlagen der Konsultation, in der Reihenfolge ihrer Veröffentlichung, hier gehostet zum einfachen Lesen — jede mit einer kurzen Zusammenfassung. Die Zahlen und Zitate dieser Seite stammen von hier.',
       sum_abc:'Einführende Präsentation der EMER 2030, die in einfacher Sprache erklärt, was die ZAER sind: die Ziele für 2030 (20,8 GW Solar, 10,4 GW Wind), wie Projekte genehmigt werden und der Zeitplan — öffentliche Diskussion im Juni–Juli 2026, Übertragung in die kommunalen Pläne 2026–2028. Der empfohlene Einstieg vor den technischen Dokumenten.',
@@ -667,11 +750,36 @@
       how3:'<b>Connecte-toi.</b> Reviens sur <a href="https://participa.pt" target="_blank" rel="noopener">participa.pt</a> et clique sur <b>« Entrar »</b> (tu peux aussi entrer avec la <b>Chave Móvel Digital</b>).',
       how4:'<b>Ouvre la consultation.</b> <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">Clique ici pour ouvrir la consultation du PSZAER</a> et appuie sur le bouton <b>« Participar »</b>.',
       how5:'<b>Écris la contribution.</b> Colle ton texte — génère ta <b>contribution unique</b> avec le bouton ci-dessous. Chaque personne ne peut en envoyer qu’<b>une</b>, et un texte différent par personne compte bien plus que des copies identiques.',
+      how_disc:'<b>Choisis « Discordância » (désaccord).</b> Dans la zone <i>« A minha participação »</i>, colle ta contribution dans la boîte de commentaire et, dans le menu <b>« Classificação »</b> (classification) — la barre bleue en haut de la boîte — sélectionne <b>« Discordância »</b> pour montrer clairement ton opposition.',
       how6:'<b>Rends-la publique et soumets.</b> Coche l’option qui autorise la <b>publication</b> de la contribution dans le rapport final et clique sur <b>« Submeter »</b>. ✅ C’est fait.',
       how7:'<b>Partage cette page.</b> Envoie-la à tous ceux que tu connais en Beira Baixa — plus il y a d’objections, plus le non pèse.',
+      ss_colar:'La zone « A minha participação » : colle le commentaire et choisis « Discordância » dans le menu « Classificação »',
+      ss_submeter:'Coche « Autorizo a publicação do meu comentário » et clique sur « Submeter »',
+      ss_obrigado:'Confirmation : ta contribution a été soumise avec succès',
       gen_h:'Ta contribution — unique',
       gen_p:'Clique sur « Générer » pour créer une contribution unique et originale (rédigée par IA à partir des faits de cette page). Chaque objection est différente — et compte davantage.',
       gen_btn:'✨ Générer ma contribution', gen_copy:'Copier le texte',
+      topics_lead:'Choisis les thèmes qui te préoccupent le plus (facultatif) — la contribution sera orientée vers eux. Si tu n’en choisis aucun, elle reste générale.',
+      obj1:'<b>Habitats et écosystèmes</b>Détruit l’habitat d’espèces menacées — vautour moine, aigle ibérique, lynx et loup ibériques.',
+      obj2:'<b>Prix des logements</b>Vivre à côté de centrales industrielles fait chuter le prix des maisons.',
+      obj3:'<b>Tourisme</b>Éloigne le tourisme de nature, les cerises de Fundão et les villages historiques.',
+      obj4:'<b>Paysage</b>« Manteaux de verre » sur l’un des plus beaux paysages de l’intérieur.',
+      obj5:'<b>Terres agricoles</b>Occupe un sol fertile — cerisaies, oliveraies et pâturages.',
+      obj6:'<b>Santé</b>Métaux lourds, microplastiques de l’usure des panneaux et reflets près des maisons.',
+      obj7:'<b>Eau</b>La montagne alimente la région — affecte ruisseaux, sources et aquifères.',
+      obj8:'<b>Risque d’incendie</b>Le débroussaillage et les infrastructures en forêt augmentent le risque d’incendie.',
+      obj9:'<b>Forêt et carbone</b>78,9% du potentiel solaire est forestier — la détruire libère du carbone.',
+      obj10:'<b>Sans évaluation environnementale</b>Dans les ZAER, pas d’EIE — aucun filtre pour protéger la nature.',
+      obj11:'<b>Patrimoine culturel</b>Villages, chapelles, le calvaire, les sentiers et la Marateca perdent leur cadre.',
+      obj12:'<b>Les bénéfices partent</b>Les profits quittent la région ; seules les charges restent.',
+      obj13:'<b>Spéculation foncière</b>La ruée sur les zones gonfle le prix des terres et chasse les agriculteurs.',
+      obj14:'<b>Impact cumulatif</b>De nombreux projets ensemble, sans évaluation de l’effet total.',
+      obj15:'<b>Le réseau est le vrai frein</b>~8,7 GW déjà attribués non raccordés — ce n’est pas le terrain, c’est le réseau.',
+      obj16:'<b>Trop près des maisons</b>Centrales à seulement 200 m (solaire) et 1 km (éolien) des habitations.',
+      obj17:'<b>Bruit et ombre</b>Les turbines génèrent du bruit et un effet d’ombre intermittent pour les riverains.',
+      obj18:'<b>Oiseaux et chauves-souris</b>Pales et lignes électriques tuent oiseaux et chauves-souris — admis dans le rapport.',
+      obj19:'<b>Sol et érosion</b>Imperméabilisation du sol, érosion et modification de l’hydrologie du versant.',
+      obj20:'<b>Alternatives ignorées</b>Toitures urbaines (28 GW), terrains déjà bâtis et autoconsommation restent inutilisés.',
       docs_k:'Documents de la consultation', docs_h:'Lis les documents officiels',
       docs_p:'Tous les documents de la consultation, par ordre de publication, hébergés ici pour une lecture facile — chacun avec un court résumé. Les chiffres et citations de cette page en proviennent.',
       sum_abc:'Présentation introductive de l’EMER 2030 expliquant en langage simple ce que sont les ZAER : les objectifs 2030 (20,8 GW solaire, 10,4 GW éolien), comment les projets sont autorisés et le calendrier — discussion publique en juin–juillet 2026, transposition dans les plans municipaux en 2026–2028. Le point de départ recommandé avant les documents techniques.',
@@ -719,6 +827,7 @@
     document.querySelectorAll('[data-i18n-alt]').forEach(function(el){el.setAttribute('alt',tr(l,el.getAttribute('data-i18n-alt')));});
     document.querySelectorAll('[data-i18n-aria]').forEach(function(el){el.setAttribute('aria-label',tr(l,el.getAttribute('data-i18n-aria')));});
     document.querySelectorAll('#langsw button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
+    var cg=document.getElementById('copygen'); if(cg) cg.style.display='none';
     localStorage.setItem('nf_lang',l);
     try{history.replaceState(null,'',l==='pt'?'/':'/'+l);}catch(e){}
     render();
@@ -757,11 +866,14 @@
   fetch('/api/petition').then(function(r){return r.json()}).then(function(j){ if(j&&j.count){petCount=j.count;} renderPet(); }).catch(function(){ renderPet(); });
   applyLang(lang); setInterval(tick,1000);
 
-  var genBtn=document.getElementById('gen'), genTxt=document.getElementById('gen-txt');
+  var genBtn=document.getElementById('gen'), genTxt=document.getElementById('gen-txt'), copyGen=document.getElementById('copygen');
+  var chips=Array.prototype.slice.call(document.querySelectorAll('.tp'));
+  chips.forEach(function(c){c.setAttribute('aria-pressed','false');c.addEventListener('click',function(){var on=c.classList.toggle('on');c.setAttribute('aria-pressed',on?'true':'false');});});
+  function selectedTopics(){return chips.filter(function(c){return c.classList.contains('on');}).map(function(c){return c.getAttribute('data-topic');});}
   genBtn.addEventListener('click',function(){
     genBtn.disabled=true; var old=genBtn.textContent; genBtn.textContent=STR[lang].gen; genTxt.style.fontStyle='italic';
-    fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({lang:lang})})
-      .then(function(r){return r.json()}).then(function(j){ if(j&&j.text){ genTxt.textContent=j.text; } })
+    fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({lang:lang,topics:selectedTopics()})})
+      .then(function(r){return r.json()}).then(function(j){ if(j&&j.text){ genTxt.textContent=j.text; copyGen.style.display=''; } })
       .catch(function(){}).finally(function(){ genBtn.disabled=false; genBtn.textContent=old; });
   });
   function copyBtn(id,txtFn){document.getElementById(id).addEventListener('click',function(){navigator.clipboard.writeText(txtFn()).then(function(){var b=document.getElementById(id);var t=b.textContent;b.textContent=(id==='copy')?STR[lang].linkcopied:STR[lang].copied;setTimeout(function(){b.textContent=t},1800);});});}
