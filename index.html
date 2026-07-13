@@ -129,8 +129,16 @@
   .suggest-h{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:10px}
   .suggest p{color:#dfe6da;font-size:15px;margin:0 0 14px}
   #gen-txt{font-style:italic;white-space:pre-wrap}
-  .topics-lead{color:#dfe6da;font-size:15px;margin:16px 0 0}
-  .topics{margin:12px 0 2px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .shelf{margin-top:16px;border:1px solid var(--line);border-radius:12px;background:#0f160f}
+  .shelf>summary{list-style:none;cursor:pointer;padding:13px 16px;font-weight:700;font-size:14.5px;color:var(--ink);display:flex;align-items:center;gap:10px}
+  .shelf>summary::-webkit-details-marker{display:none}
+  .shelf>summary::after{content:"▾";color:var(--green);transition:transform .2s ease}
+  .shelf[open]>summary::after{transform:rotate(180deg)}
+  .shelf>summary:hover{color:var(--green)}
+  .shelf-label{margin-right:auto}
+  .shelf-badge{background:var(--green-d);color:#05230f;font-size:12px;font-weight:800;border-radius:999px;padding:2px 8px;min-width:20px;text-align:center}
+  .topics-lead{color:#dfe6da;font-size:14.5px;margin:2px 16px 0}
+  .topics{margin:12px 16px 14px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .tp{text-align:left;background:#0f160f;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:13px;color:#c3cbbf;line-height:1.42;cursor:pointer;position:relative;transition:border-color .12s ease,background .12s ease}
   .tp:hover{border-color:var(--green)}
   .tp b{color:#fff;display:block;font-size:13px;margin-bottom:1px}
@@ -251,7 +259,9 @@
       <li><span data-i18n="how3"><b>Inicia sessão.</b> Volta a <a href="https://participa.pt" target="_blank" rel="noopener">participa.pt</a> e clica em <b>“Entrar”</b> (também podes entrar com <b>Chave Móvel Digital</b>).</span><a class="shot" href="img/passo-login.jpg" target="_blank" rel="noopener"><img src="img/passo-login.jpg" alt="Janela “Conta ativada” — carrega em “aqui” para iniciar sessão" data-i18n-alt="ss_login" loading="lazy" decoding="async"></a></li>
       <li><span data-i18n="how4"><b>Abre a consulta.</b> <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">Clica aqui para abrir a consulta do PSZAER</a> e carrega no botão <b>“Participar”</b>.</span><a class="shot" href="img/passo-participar.jpg" target="_blank" rel="noopener"><img src="img/passo-participar.jpg" alt="Botão “Participar” na página da consulta" data-i18n-alt="ss_participar" loading="lazy" decoding="async"></a></li>
       <li><span data-i18n="how5"><b>Escreve o contributo.</b> Cola o teu texto — gera o teu <b>contributo único</b> no botão abaixo. Cada pessoa só pode enviar <b>um</b>, e um texto diferente de cada pessoa conta muito mais do que cópias iguais.</span>
-        <p class="topics-lead" data-i18n="topics_lead">Escolhe os temas que mais te preocupam (opcional) e o contributo será orientado para eles. Se não escolheres nenhum, fica geral.</p>
+        <details class="shelf">
+        <summary><span class="shelf-label" data-i18n="topics_toggle">Escolher temas para o contributo (opcional)</span><span class="shelf-badge" id="shelfBadge" hidden>0</span></summary>
+        <p class="topics-lead" data-i18n="topics_lead">Escolhe os temas que mais te preocupam e o contributo será orientado para eles. Se não escolheres nenhum, fica geral.</p>
         <div class="topics" id="topics">
           <button class="tp" type="button" data-topic="destruction of wildlife habitats and ecosystems, threatened species (black vulture, imperial eagle, Iberian lynx, Iberian wolf, bats)" data-i18n="obj1"><b>Habitats e ecossistemas</b>Destrói o habitat de espécies ameaçadas — abutre-preto, águia-imperial, lince e lobo ibérico.</button>
           <button class="tp" type="button" data-topic="falling property values for homes near industrial-scale plants" data-i18n="obj2"><b>Valor das casas</b>Viver ao lado de centrais industriais faz cair o preço das habitações.</button>
@@ -274,6 +284,7 @@
           <button class="tp" type="button" data-topic="soil sealing, erosion and changes to the hillside's hydrology" data-i18n="obj19"><b>Solo e erosão</b>Selagem do solo, erosão e alteração da hidrologia da encosta.</button>
           <button class="tp" type="button" data-topic="alternatives ignored — urban rooftops (28 GW potential), already-built-up land and self-consumption" data-i18n="obj20"><b>Alternativas ignoradas</b>Telhados urbanos (28 GW), áreas já construídas e autoconsumo ficam por usar.</button>
         </div>
+        </details>
         <div class="suggest" id="genbox">
       <div class="suggest-h" data-i18n="gen_h">O teu contributo — único</div>
       <p id="gen-txt" data-i18n="gen_p">Carrega em “Gerar” para criar um contributo único e original (redigido por IA a partir dos factos desta página). Cada objeção fica diferente — e conta mais.</p>
@@ -523,6 +534,7 @@
       gen_h:'Your contribution — unique',
       gen_p:'Press “Generate” to create a unique, original contribution (written by AI from the facts on this page). Every objection comes out different — and counts for more.',
       gen_btn:'✨ Generate my contribution', gen_copy:'Copy text',
+      topics_toggle:'Choose topics for your contribution (optional)',
       topics_lead:'Pick the concerns that matter most to you (optional) and the contribution will focus on them. If you choose none, it stays general.',
       obj1:'<b>Habitats and ecosystems</b>Destroys the habitat of threatened species — black vulture, imperial eagle, Iberian lynx and wolf.',
       obj2:'<b>House prices</b>Living next to industrial-scale plants pushes home values down.',
@@ -641,6 +653,7 @@
       gen_h:'Dein Beitrag — einzigartig',
       gen_p:'Klicke auf „Erzeugen“, um einen einzigartigen, originellen Beitrag zu erstellen (per KI aus den Fakten dieser Seite verfasst). Jeder Einspruch ist anders — und zählt mehr.',
       gen_btn:'✨ Meinen Beitrag erzeugen', gen_copy:'Text kopieren',
+      topics_toggle:'Themen für deinen Beitrag wählen (optional)',
       topics_lead:'Wähle die Themen, die dir am wichtigsten sind (optional) — der Beitrag wird darauf ausgerichtet. Wählst du keins, bleibt er allgemein.',
       obj1:'<b>Lebensräume und Ökosysteme</b>Zerstört den Lebensraum bedrohter Arten — Mönchsgeier, Kaiseradler, Iberischer Luchs und Wolf.',
       obj2:'<b>Immobilienwerte</b>Das Leben neben Großanlagen drückt die Immobilienpreise.',
@@ -759,6 +772,7 @@
       gen_h:'Ta contribution — unique',
       gen_p:'Clique sur « Générer » pour créer une contribution unique et originale (rédigée par IA à partir des faits de cette page). Chaque objection est différente — et compte davantage.',
       gen_btn:'✨ Générer ma contribution', gen_copy:'Copier le texte',
+      topics_toggle:'Choisir des thèmes pour ta contribution (facultatif)',
       topics_lead:'Choisis les thèmes qui te préoccupent le plus (facultatif) — la contribution sera orientée vers eux. Si tu n’en choisis aucun, elle reste générale.',
       obj1:'<b>Habitats et écosystèmes</b>Détruit l’habitat d’espèces menacées — vautour moine, aigle ibérique, lynx et loup ibériques.',
       obj2:'<b>Prix des logements</b>Vivre à côté de centrales industrielles fait chuter le prix des maisons.',
@@ -866,15 +880,23 @@
   fetch('/api/petition').then(function(r){return r.json()}).then(function(j){ if(j&&j.count){petCount=j.count;} renderPet(); }).catch(function(){ renderPet(); });
   applyLang(lang); setInterval(tick,1000);
 
-  var genBtn=document.getElementById('gen'), genTxt=document.getElementById('gen-txt'), copyGen=document.getElementById('copygen');
+  var GENFB={
+    pt:'Venho manifestar a minha oposição à inclusão da Serra da Gardunha e da Beira Baixa nas Zonas de Aceleração de Energias Renováveis do PSZAER. Oponho-me à instalação de megacentrais solares e eólicas nesta região sem avaliação de impacte ambiental, pelos impactes na paisagem protegida, na água, no solo agrícola e florestal e nas espécies ameaçadas. Peço a exclusão desta área do programa.',
+    en:'I wish to express my opposition to the inclusion of the Serra da Gardunha and the Beira Baixa in the PSZAER renewable-energy acceleration zones. I oppose the installation of mega solar and wind power plants in this region without an environmental impact assessment, given the impacts on the protected landscape, water, agricultural and forest land, and threatened species. I ask that this area be excluded from the programme.',
+    de:'Hiermit erhebe ich Einspruch gegen die Aufnahme der Serra da Gardunha und der Beira Baixa in die Beschleunigungszonen für erneuerbare Energien des PSZAER. Ich lehne den Bau von Solar- und Windgroßkraftwerken in dieser Region ohne Umweltverträglichkeitsprüfung ab — wegen der Auswirkungen auf die geschützte Landschaft, das Wasser, den land- und forstwirtschaftlichen Boden und die bedrohten Arten. Ich fordere den Ausschluss dieses Gebiets aus dem Programm.',
+    fr:'Je manifeste mon opposition à l’inclusion de la Serra da Gardunha et de la Beira Baixa dans les zones d’accélération des énergies renouvelables du PSZAER. Je m’oppose à l’installation de méga-centrales solaires et éoliennes dans cette région sans évaluation d’impact environnemental, en raison des impacts sur le paysage protégé, l’eau, les sols agricoles et forestiers et les espèces menacées. Je demande l’exclusion de cette zone du programme.'
+  };
+  var genBtn=document.getElementById('gen'), genTxt=document.getElementById('gen-txt'), copyGen=document.getElementById('copygen'), shelfBadge=document.getElementById('shelfBadge');
   var chips=Array.prototype.slice.call(document.querySelectorAll('.tp'));
-  chips.forEach(function(c){c.setAttribute('aria-pressed','false');c.addEventListener('click',function(){var on=c.classList.toggle('on');c.setAttribute('aria-pressed',on?'true':'false');});});
   function selectedTopics(){return chips.filter(function(c){return c.classList.contains('on');}).map(function(c){return c.getAttribute('data-topic');});}
+  function updateBadge(){var n=selectedTopics().length; if(shelfBadge){shelfBadge.textContent=n; shelfBadge.hidden=(n===0);}}
+  chips.forEach(function(c){c.setAttribute('aria-pressed','false');c.addEventListener('click',function(){var on=c.classList.toggle('on');c.setAttribute('aria-pressed',on?'true':'false');updateBadge();});});
+  function showGen(text){genTxt.textContent=text; copyGen.style.display='';}
   genBtn.addEventListener('click',function(){
     genBtn.disabled=true; var old=genBtn.textContent; genBtn.textContent=STR[lang].gen; genTxt.style.fontStyle='italic';
     fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({lang:lang,topics:selectedTopics()})})
-      .then(function(r){return r.json()}).then(function(j){ if(j&&j.text){ genTxt.textContent=j.text; copyGen.style.display=''; } })
-      .catch(function(){}).finally(function(){ genBtn.disabled=false; genBtn.textContent=old; });
+      .then(function(r){return r.json()}).then(function(j){ showGen((j&&j.text)?j.text:GENFB[lang]); })
+      .catch(function(){ showGen(GENFB[lang]); }).finally(function(){ genBtn.disabled=false; genBtn.textContent=old; });
   });
   function copyBtn(id,txtFn){document.getElementById(id).addEventListener('click',function(){navigator.clipboard.writeText(txtFn()).then(function(){var b=document.getElementById(id);var t=b.textContent;b.textContent=(id==='copy')?STR[lang].linkcopied:STR[lang].copied;setTimeout(function(){b.textContent=t},1800);});});}
   copyBtn('copygen',function(){return genTxt.textContent});
