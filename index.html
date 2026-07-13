@@ -61,8 +61,8 @@
   .lede{font-size:clamp(17px,2.6vw,21px);color:#d7ddd4;margin-top:22px;max-width:660px}
   .lede b{color:#fff}
 
-  .cd{display:flex;gap:10px;margin:32px 0 8px;flex-wrap:wrap}
-  .cd .u{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:78px;text-align:center}
+  .cd{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:32px 0 8px;max-width:520px}
+  .cd .u{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:0;text-align:center}
   .cd .n{font-size:32px;font-weight:800;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
   .cd .l{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:7px}
   .cd .over{color:var(--red)}
@@ -280,6 +280,15 @@
   </div>
 </section>
 
+<section class="cta-band">
+  <div class="wrap">
+    <p class="cta-urgent"><span data-i18n="band1_line">Isto é o plano para a nossa serra. Faz ouvir a tua voz e ajuda a travar estas megacentrais —</span> <span class="divleft">…</span></p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#passos" data-i18n="hero_cta1">Objetar na consulta pública →</a>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="kicker" data-i18n="hap_k">O que está a acontecer</div>
@@ -350,6 +359,15 @@
   </div>
 </section>
 
+<section class="cta-band">
+  <div class="wrap">
+    <p class="cta-urgent"><span data-i18n="band2_line">Não deixes que decidam por nós. A objeção é oficial e tem de ser considerada por lei —</span> <span class="divleft">…</span></p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#passos" data-i18n="hero_cta1">Objetar na consulta pública →</a>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="kicker" data-i18n="docs_k">Documentos da consulta</div>
@@ -405,6 +423,8 @@
       lede:'They plan to build <b>large-scale solar and wind farms</b> across our region — mega-projects that will <b>ruin our countryside</b>. This is not our opinion: the <b>Government’s own documents</b> make our mountains the most targeted region in the country, with fast-tracked licences and <b>no environmental impact assessment</b>. We must <b>object by 15 July</b>.',
       cd_d:'Days', cd_h:'Hours', cd_m:'Min', cd_s:'Sec',
       hero_cta1:'Object in the public consultation →', hero_cta2:'Share ↓',
+      band1_line:'This is the plan for our mountains. Make your voice heard and help block these mega-plants —',
+      band2_line:'Don’t let them decide for us. Objecting is official and must be considered by law —',
       map_k:'The Government’s official map', map_h:'This is the plan — and the Gardunha is right in the middle',
       map_p:'Every patch is a zone where the Government wants to fast-track renewable power plants. The central interior is the most covered area in the country. The Serra da Gardunha and the Castelo Branco massif sit at the heart of that patch.',
       map_lg_solar:'Solar zones', map_lg_wind:'Wind zones',
@@ -497,6 +517,8 @@
       lede:'Sie planen <b>Solar- und Windparks im großen Maßstab</b> in unserer Region — Megaprojekte, die <b>unsere Landschaft ruinieren</b> werden. Das ist nicht unsere Meinung: <b>die eigenen Regierungsunterlagen</b> machen unser Gebirge zur meistanvisierten Region des Landes — im Schnellverfahren genehmigt und <b>ohne Umweltverträglichkeitsprüfung</b>. Wir müssen <b>bis zum 15. Juli Einspruch erheben</b>.',
       cd_d:'Tage', cd_h:'Std.', cd_m:'Min.', cd_s:'Sek.',
       hero_cta1:'In der Konsultation Einspruch erheben →', hero_cta2:'Teilen ↓',
+      band1_line:'Das ist der Plan für unser Gebirge. Erhebe deine Stimme und hilf, diese Großkraftwerke zu stoppen —',
+      band2_line:'Lass nicht andere für uns entscheiden. Der Einspruch ist offiziell und muss laut Gesetz berücksichtigt werden —',
       map_k:'Die offizielle Karte der Regierung', map_h:'Das ist der Plan — und die Gardunha liegt mittendrin',
       map_p:'Jeder Fleck ist eine Zone, in der die Regierung erneuerbare Kraftwerke beschleunigen will. Das zentrale Landesinnere ist das am dichtesten belegte Gebiet des Landes. Die Serra da Gardunha und das Massiv von Castelo Branco liegen im Herzen dieses Flecks.',
       map_lg_solar:'Solarzonen', map_lg_wind:'Windzonen',
@@ -588,6 +610,8 @@
       lede:'Ils prévoient de construire des <b>centrales solaires et éoliennes à grande échelle</b> dans notre région — des mégaprojets qui vont <b>défigurer nos paysages</b>. Ce n’est pas notre avis : <b>les propres documents du gouvernement</b> font de notre montagne la région la plus visée du pays — autorisée à la hâte et <b>sans évaluation d’impact environnemental</b>. Nous devons <b>objecter avant le 15 juillet</b>.',
       cd_d:'Jours', cd_h:'Heures', cd_m:'Min', cd_s:'Sec',
       hero_cta1:'Objecter dans la consultation →', hero_cta2:'Partager ↓',
+      band1_line:'Voici le plan pour notre montagne. Fais entendre ta voix et aide à bloquer ces méga-centrales —',
+      band2_line:'Ne les laisse pas décider à notre place. L’objection est officielle et doit être prise en compte par la loi —',
       map_k:'La carte officielle du gouvernement', map_h:'Voici le plan — et la Gardunha est au milieu',
       map_p:'Chaque tache est une zone où le gouvernement veut accélérer les centrales renouvelables. L’intérieur centre est la zone la plus couverte du pays. La Serra da Gardunha et le massif de Castelo Branco sont au cœur de cette tache.',
       map_lg_solar:'Zones solaires', map_lg_wind:'Zones éoliennes',
