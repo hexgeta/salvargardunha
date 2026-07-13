@@ -1,9 +1,12 @@
 {
   "rewrites": [
-    { "source": "/en", "destination": "/index.html" },
-    { "source": "/de", "destination": "/index.html" },
-    { "source": "/fr", "destination": "/index.html" }
+    { "source": "/en", "destination": "/api/page?lang=en" },
+    { "source": "/de", "destination": "/api/page?lang=de" },
+    { "source": "/fr", "destination": "/api/page?lang=fr" }
   ],
+  "functions": {
+    "api/page.js": { "includeFiles": "index.html" }
+  },
   "redirects": [
     {
       "source": "/(.*)",
