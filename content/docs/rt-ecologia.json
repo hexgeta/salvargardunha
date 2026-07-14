@@ -1,0 +1,73 @@
+{
+  "slug": "rt-ecologia",
+  "title": "Thematic Report: Ecology",
+  "titlePt": "Relatório Temático: Ecologia",
+  "authors": "CIBIO-BIOPOLIS",
+  "date": "May 2026",
+  "pages": 70,
+  "summary": "The ecology chapter of the environmental assessment. It sets the criteria deciding which ecologically valuable areas stay <i>out</i> of the zones, combining protected areas (with a 1 km buffer), areas important for threatened species, and land uses with high biodiversity potential. It states plainly that wind turbines <b>kill birds of prey, soaring birds and bats by blade collision</b>, and that the power lines both technologies need kill birds by collision and electrocution. Crucially, it admits that information on where species occur <b>outside protected areas is limited</b> — which can undermine biodiversity protection exactly where our region sits.",
+  "keyFigures": [
+    { "n": "1 km", "label": "protective buffer added around protected areas, Natura 2000 sites and Important Bird Areas" },
+    { "n": "5 km", "label": "exclusion buffer around bat roosts of national importance, for <b>wind</b> projects" },
+    { "n": "3 years", "label": "minimum bird and bat <b>mortality monitoring</b> required once a wind farm starts operating" },
+    { "n": "40+", "label": "threatened or near-threatened bird species mapped, plus wolf, lynx, black stork and bats" }
+  ],
+  "sections": [
+    {
+      "h": "The admission that matters most",
+      "paras": [
+        "The report is candid about the limits of its own evidence base. Protection instruments like Natura 2000 let projects be steered away from sensitive places — but the data thins out precisely where there is no formal protection.",
+        "This is the crux for the Serra da Gardunha: much of the region's wildlife lives outside formally classified areas, where — on the report's own account — the information used to draw these maps is weakest."
+      ],
+      "quotes": [
+        { "q": "The concentration of projects and the limited information on the distribution of species outside protected areas may constrain the effectiveness of biodiversity protection.", "cite": "p. 9" }
+      ]
+    },
+    {
+      "h": "What wind turbines do to birds and bats",
+      "paras": [
+        "The report does not soften this. For birds of prey, other soaring birds and bats, <b>significant impacts have already been identified from direct mortality by collision with turbine blades</b>. Solar's impacts are different in kind — habitat loss and degradation.",
+        "But that distinction is then substantially narrowed, because <i>both</i> technologies need power lines to reach the grid — and those lines kill birds by collision and by electrocution. For some large birds of prey, the report therefore applies <b>identical exclusion criteria for solar as for wind</b>."
+      ],
+      "quotes": [
+        { "q": "This is the case for some bird species, namely birds of prey and other soaring birds, as well as bats, for which significant impacts have already been identified associated with the phenomenon of direct mortality through collision with the blades of the wind turbines.", "cite": "p. 14" },
+        { "q": "Longer lines imply a higher level of impact on biodiversity values, above all on birdlife (due to mortality by collision or electrocution).", "cite": "p. 10" }
+      ]
+    },
+    {
+      "h": "The species that were mapped",
+      "paras": [
+        "Exclusion buffers vary by species and by technology. Among them: <b>black vulture</b> breeding colonies (5 km for solar, 8 km for wind); Egyptian and griffon vulture nest sites (5 km); <b>Spanish imperial eagle, golden eagle, Bonelli's eagle</b> and osprey nest sites (5 km); Montagu's harrier, peregrine falcon and lesser kestrel (3 km solar / 5 km wind); eagle owl (2 km); and the <b>black stork</b> — 5 km around nests, plus its gathering and main feeding areas.",
+        "For mammals, bat roosts of national importance carry a 2 km buffer for solar and <b>5 km for wind</b>. The territories of <b>Iberian wolf</b> packs and the presence and breeding squares of the <b>Iberian lynx</b> were also mapped, along with 100 threatened insect species and threatened vascular plants.",
+        "A further <b>40 threatened or near-threatened bird species</b> not otherwise captured were covered by flagging survey squares with confirmed breeding of four or more of them."
+      ]
+    },
+    {
+      "h": "How the exclusion map was built",
+      "paras": [
+        "Three layers were combined: <b>Layer 1</b>, every area designated for nature conservation — national protected areas, Natura 2000, RAMSAR wetlands, biosphere reserves and Important Bird Areas — each with a <b>1 km protective buffer</b>. <b>Layer 2</b>, other areas important for threatened and near-threatened species. <b>Layer 3</b>, the biodiversity potential of each land-cover type.",
+        "Cork oak, holm oak and other oak forests, agro-silvo-pastoral systems, watercourses and wetlands rate highest. Eucalyptus and acacia plantations, vineyards and built surfaces rate lowest. Squares where more than <b>40%</b> of the land is high-value cover were flagged as regions of high biodiversity potential regardless of formal protection.",
+        "The report chose a deliberately binary approach — in or out — rather than mapping gradients of ecological value."
+      ]
+    },
+    {
+      "h": "What projects inside a zone must still do",
+      "paras": [
+        "Because a project inside a zone can be exempted from full environmental impact assessment, the mitigation rulebook is what remains. Every project must characterise the biodiversity of its site, and must include an <b>ecological restoration component showing a net positive gain for biodiversity</b>.",
+        "Standard measures include: anti-electrocution design on medium-voltage lines; cable marking to reduce bird collision; fencing permeable to small and medium fauna; corridors between blocks of solar panels; aviation lighting kept to the minimum so it does not attract birds and bats; <b>no disturbing works between 1 March and 30 June</b> (the breeding season of most fauna); no herbicides; and burying internal cabling.",
+        "Where very relevant ecological features are found and impacts cannot be mitigated, a project may still have to undergo full environmental assessment — a situation the report says is “in principle, not much to be expected” inside a zone."
+      ]
+    },
+    {
+      "h": "Mortality monitoring — and shutting turbines down",
+      "paras": [
+        "Wind farms must search for bird and bat carcasses for the <b>first three years of operation</b>, covering at least 70% of turbines, weekly from March to October, with statistical correction for scavenging and imperfect detection. Overhead lines must be surveyed for collision and electrocution deaths across four seasons.",
+        "If significant impacts are found — especially on protected or highly threatened species — additional measures are required and monitoring continues at least two more years. For bats that can mean raising the turbine cut-in speed at night in July–September; for soaring birds it can mean <b>curtailment or “shutdown on demand”</b>, triggered in real time by detection systems or field observers.",
+        "The report explicitly rejects the idea that being inside a zone makes monitoring unnecessary."
+      ],
+      "quotes": [
+        { "q": "Monitoring the impacts of these projects is not considered dispensable, since biodiversity values not known in the region of the ZAER may occur and may prove to be significantly impacted by specific projects.", "cite": "p. 46" }
+      ]
+    }
+  ]
+}

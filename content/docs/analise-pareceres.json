@@ -1,0 +1,102 @@
+{
+  "slug": "analise-pareceres",
+  "title": "The Government's Own Weighing of the Public Bodies' Opinions",
+  "titlePt": "Análise e Ponderação dos Pareceres das Entidades",
+  "authors": "EMER 2030 — the same body that wrote the programme",
+  "date": "23 June 2026",
+  "pages": 47,
+  "summary": "The Government's own analysis of the 172 formal contributions made by the public bodies it consulted. Thirty-six bodies issued an opinion. <b>Four were unfavourable</b>: the cultural heritage authority, the agriculture authority, the national association of municipalities (unfavourable to both the content <i>and</i> the conduct of the process), and one municipality. Of the 172 contributions, <b>66 were accepted, 61 only partly accepted, and 45 merely “noted”</b> — the formula used when an objection is recorded but changes nothing. Among those merely noted: the national planning authority's finding that the zones are far larger than the 2030 targets require.",
+  "keyFigures": [
+    { "n": "4", "label": "public bodies gave an <b>unfavourable</b> opinion — including the heritage and agriculture authorities" },
+    { "n": "45", "label": "of 172 contributions were merely <b>“noted”</b> — recorded, but changing nothing in the programme" },
+    { "n": "51.6%", "label": "of the Centro region is covered by proposed solar zones (48% for wind) — the most affected region, per CCDR Centro" },
+    { "n": "357,347 ha", "label": "of solar zones the planning authority called <b>“far in excess”</b> of what the 2030 targets need" }
+  ],
+  "sections": [
+    {
+      "h": "What this document is — and why it matters",
+      "paras": [
+        "This is the Government's own analysis and weighing of the formal opinions issued by the public bodies it was legally required to consult. It was written by <b>EMER 2030 — the same body that drafted the programme it is being judged on</b>.",
+        "It deals <i>only</i> with the institutional opinions. The submissions made by ordinary citizens during the public consultation will be analysed separately, after 15 July. In other words: this document is the preview of how your objection will be handled."
+      ]
+    },
+    {
+      "h": "The three verdicts — and the one to watch",
+      "paras": [
+        "Every contribution was given one of three verdicts. <b>Accepted</b> (<i>acolhe-se</i>) means it forces a change. <b>Partially accepted</b> means it is taken on board only in principle, with delivery deferred to later stages — municipal plans, or project-level assessment. <b>Noted</b> (<i>regista-se</i>) means the contribution is considered relevant but <b>changes nothing</b>.",
+        "The counts across the whole document: <b>66 accepted, 61 partially accepted, 45 merely noted</b>. So roughly <b>two thirds of all objections</b> produced either no change at all, or only a deferred promise."
+      ],
+      "quotes": [
+        { "q": "Noted — the contribution is considered relevant, but does not determine any autonomous change to the PSZAER.", "cite": "p. 7, the document's own definition" }
+      ]
+    },
+    {
+      "h": "Who objected",
+      "paras": [
+        "<b>Unfavourable opinions:</b> <b>Património Cultural, I.P.</b> (the national cultural heritage authority); the <b>DGADR</b> (Directorate-General for Agriculture and Rural Development), unfavourable to the proposal itself; the <b>ANMP</b> (National Association of Portuguese Municipalities), unfavourable to both the content and the conduct of the process; and the <b>Municipality of Santa Maria da Feira</b>.",
+        "<b>Conditional:</b> the <b>DGT</b> (national territory authority) gave an opinion conditional on <i>reformulating the proposal</i>. The <b>ICNF</b> (nature conservation) and <b>APA</b> (environment agency) gave favourable-conditional opinions, as did all five regional commissions.",
+        "<b>Fundão and Covilhã</b>, along with roughly a dozen other municipalities, filed contributions with reservations and recommendations. The health authority issued no opinion at all."
+      ]
+    },
+    {
+      "h": "“Far in excess of what the targets require” — and the answer was: noted",
+      "paras": [
+        "The DGT — the national territorial planning authority — called the sizing of the maps critical: <b>357,347 hectares</b> of solar zones and 85,321 ha of wind, far more than is needed to meet the 2030 energy targets.",
+        "The Government's verdict on that contribution was <b>“Regista-se”</b> — merely noted. Its answer was that the mapped areas are only “potential areas”, a “territorial universe of reference”, and that actual take-up will depend on later selection and phasing.",
+        "The DGT also found the geographic files supplied did not match the reports, and that <b>no geographic data at all</b> had been released for zones on artificialised land — making independent verification impossible."
+      ],
+      "quotes": [
+        { "q": "It considers the oversizing of the mapping critical: 357,347 ha for Solar ZAER and 85,321 ha for Wind ZAER, far in excess of the area needed to meet the PNEC 2030 targets.", "cite": "DGT contribution, p. 10 — verdict: Noted" }
+      ]
+    },
+    {
+      "h": "The heritage authority: no archaeologist on the team",
+      "paras": [
+        "Património Cultural, I.P. issued the only outright unfavourable sectoral opinion, filing twelve separate contributions. It found no methodology, no criteria, no indicators, no safeguard measures and no monitoring for cultural heritage. It found the exclusion criteria cover only <i>classified</i> heritage, leaving inventoried heritage and protection settings out.",
+        "It also recorded that the assessment team contains <b>no cultural heritage specialist and no archaeologist</b>. The Government's entire reply to that point was a single word: <i>noted</i>."
+      ],
+      "quotes": [
+        { "q": "The multidisciplinary SEA team does not include a Cultural Heritage specialist, in particular an archaeologist, which compromises the identification, description and assessment of the effects on heritage values. — Noted.", "cite": "p. 13" }
+      ]
+    },
+    {
+      "h": "Farmland, nature and water",
+      "paras": [
+        "The <b>agriculture authority (DGADR)</b> was unfavourable. It warned the land-cover data used to draw the maps is too coarse and too out of date to confirm any given parcel is suitable, risking the improper inclusion of farmland; that identifying the zones creates a risk of <b>land speculation</b>; and that there is no systematic knowledge of the cumulative impacts of large projects on soil, ecology and landscape. It drew attention to growing social opposition to large centralised projects with no visible local return — a point the Government merely noted.",
+        "The <b>ICNF</b>'s conditional approval identified a cartographic error affecting cork oak and holm oak stands, with the risk of irreversible loss of legally protected trees, and zones persisting over sensitive habitats and ecological corridors.",
+        "The <b>environment agency (APA)</b> held that the mitigation measures presented are largely just reminders of existing law, adding no real caution — and that the cumulative impacts of solar on soil and water must be assessed explicitly."
+      ]
+    },
+    {
+      "h": "The Centro region — and Fundão",
+      "paras": [
+        "CCDR Centro pointed out that the <b>Centro is the region most affected</b>: <b>51.6% of its area is covered for solar and 48% for wind</b>. It warned of excessive concentration, land speculation, <b>“energy monofunctionalisation”</b>, and territorial burdens falling on low-density territories.",
+        "The <b>Municipality of Fundão</b> identified preliminary conflicts with its industrial zone expansion, with short distances to settlements, with the <b>Gardunha Sul irrigation project</b>, with the Municipal Ecological Structure, and with the agricultural and ecological reserves. The Government's reply: these overlaps “do not in themselves determine the automatic exclusion of the areas”, but may justify adjustments “where incompatibility is confirmed”.",
+        "<b>Covilhã</b> asked for the GIS files, for clarification of its own role in the licensing conference, and whether it could actually issue an unfavourable pronouncement. Partially accepted."
+      ],
+      "quotes": [
+        { "q": "The Centre Region is the one most covered by the proposed areas, with 51.6% of the area under CCDRC's competence for solar and 48% for wind, warning of the risks of excessive concentration, land speculation, energy monofunctionalisation and territorial burdens in low-density territories.", "cite": "CCDR Centro, p. 28" }
+      ]
+    },
+    {
+      "h": "What the ICNF demanded about the Gardunha — and where it went",
+      "paras": [
+        "In its formal opinion (filed in the separate <i>Pareceres Emitidos</i> volume), the <b>ICNF — the national nature conservation and forests institute — found that the proposed wind and solar areas overlap the 1 km buffer around the Serra da Gardunha Regional Protected Landscape</b> (and the Serra da Estrela Natural Park). It described the overlap as <i>marginal</i>, and stated plainly that <b>these areas must be removed</b> from the proposed zones.",
+        "That demand does not appear in this weighing document. The phrase “Paisagem Protegida” does not occur once in its 47 pages, and the only two mentions of the Gardunha are Fundão's irrigation project. The nature-conservation authority named our mountain and asked for it to be taken out — and the Government's response document does not address the request."
+      ],
+      "quotes": [
+        { "q": "The areas proposed for wind and solar energy overlap marginally with the 1 km buffer around the Serra da Gardunha Regional Protected Landscape and the Serra da Estrela Natural Park. These areas must be removed from the areas proposed for wind and solar energy.", "cite": "ICNF opinion, in “Pareceres Emitidos — Entidades”" }
+      ]
+    },
+    {
+      "h": "The process itself was criticised — and noted",
+      "paras": [
+        "The national association of municipalities criticised the process as well as the content: the consultation window was too short given the extent and technical complexity of the documents, and the geographic files — essential to any municipal analysis — were released too late. The Government merely <i>noted</i> this.",
+        "To the municipality that declared itself “totally against the proposal”, the Government replied with a sentence that states its underlying premise plainly."
+      ],
+      "quotes": [
+        { "q": "A sustainable, harmonious, cohesive growth that guarantees the populations' quality of life cannot be achieved without a just and balanced energy transition. However, that will only be possible if the territories with the greatest aptitude for the implementation of projects accept the responsibility of implementing them.", "cite": "EMER 2030's reply to Santa Maria da Feira, p. 43" }
+      ]
+    }
+  ]
+}

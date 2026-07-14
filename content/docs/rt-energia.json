@@ -1,0 +1,84 @@
+{
+  "slug": "rt-energia",
+  "title": "Thematic Report: Energy — “The barrier is the grid, not the land”",
+  "titlePt": "Relatório Temático: Energia",
+  "authors": "Instituto Superior Técnico (Pedro Carvalho, coordination)",
+  "date": "May 2026",
+  "pages": 31,
+  "summary": "The energy chapter behind the programme — and quietly the most damaging document to the case for covering the interior in panels. Its central finding is that the main obstacle to renewables in Portugal is <b>not a shortage of land or sunshine</b>, but grid access and licensing: around <b>8.7 GW</b> already holds grid reservations or connection agreements yet has never been connected. From this it concludes that acceleration zones should be <b>small, modular and close to the grid and to consumption</b> — on industrial, peri-urban and artificialised land — rather than large homogeneous blocks, which “accumulate constraints” and are less socially accepted. It cites roughly <b>28 GW</b> of technical rooftop solar potential in urban areas.",
+  "keyFigures": [
+    { "n": "8.7 GW", "label": "already awarded grid capacity that was <b>never connected</b> — the real bottleneck" },
+    { "n": "28 GW", "label": "technical potential of <b>urban rooftop solar</b>, per the LNEG study cited in the report" },
+    { "n": "10 km", "label": "distance to a substation beyond which promoters said projects struggle to stay viable" },
+    { "n": "1–2 GW", "label": "added by self-consumption and energy communities in just a few years, with strong social acceptance" }
+  ],
+  "sections": [
+    {
+      "h": "The central finding: land is not the constraint",
+      "paras": [
+        "The team consulted a wide range of bodies and specialists to build an impartial diagnosis of what is actually holding back the energy transition. Their conclusion cuts against the entire premise of opening up the countryside."
+      ],
+      "quotes": [
+        { "q": "The analysis of the contributions gathered shows that the main obstacle to the development of renewable energy does not lie in a scarcity of resources, but rather in the combination of several factors: difficulties in grid access, the slowness of licensing processes, and the inability to convert awarded capacity into capacity actually connected.", "cite": "p. 7" }
+      ]
+    },
+    {
+      "h": "8.7 GW already awarded — and never connected",
+      "paras": [
+        "The report puts a number on the waste: around <b>8.7 GW</b> of renewable generation (largely solar) holds a grid capacity reservation title or connection agreement that has never materialised into connected capacity.",
+        "It calls this perhaps the single most important indicator for a public decision-maker: before discussing “more new capacity”, it is worth understanding why such a large volume of <i>already-awarded</i> capacity is not converting into actual generation."
+      ],
+      "quotes": [
+        { "q": "The information obtained by the project team points consistently to the existence of around 8.7 GW of renewable generation (largely solar) with a capacity reservation title or connection agreements that have not yet materialised into connected capacity.", "cite": "p. 17" }
+      ]
+    },
+    {
+      "h": "Big blocks are the wrong shape — the report says so three times",
+      "paras": [
+        "The argument for <i>small</i> zones appears in the executive summary, in the analysis, and again in the conclusions. Very large areas accumulate constraints and become technically unsuitable; smaller zones, close to the grid and often anchored on existing projects or already-disturbed land, are far more likely to actually get built.",
+        "This is the opposite of what the programme does in the Beira Baixa."
+      ],
+      "quotes": [
+        { "q": "Areas that are too extensive tend to accumulate constraints and become technically unsuitable. Overlaying all the suitability criteria can lead to an empty set. By contrast, smaller zones, close to the grid and frequently anchored on existing projects or already-intervened areas, have a greater probability of actually being developed.", "cite": "p. 13" },
+        { "q": "Modular, small, technologically differentiated zones close to the grid and/or to consumption centres have a greater probability of being used than large generic patches.", "cite": "p. 29, conclusions" }
+      ]
+    },
+    {
+      "h": "The grid is the real barrier",
+      "paras": [
+        "The most repeated sentence in all the contributions gathered is unequivocal: the grid has been the main barrier to integrating renewables. The difficulty takes many forms — lack of capacity at specific nodes, slow reinforcements, geographic concentration of requests, and an inability to distinguish robust projects from speculative ones.",
+        "The report argues the “first come, first served” model should become <b>“first ready, first served”</b>, with binding milestones and rules that expire the grid rights of “zombie” projects that occupy capacity but never get built."
+      ],
+      "quotes": [
+        { "q": "The most repeated sentence in the contributions gathered is unequivocal: the grid has been the main barrier to the integration of renewables.", "cite": "p. 19" },
+        { "q": "Simply designating areas for generation, without a corresponding response in grid or flexibility, may produce more administrative pipeline without accelerating the production of more electricity from renewable sources.", "cite": "p. 9" }
+      ]
+    },
+    {
+      "h": "Rooftops: 28 GW sitting unused",
+      "paras": [
+        "The technical potential of urban rooftop solar is cited at a reference value of <b>28 GW</b> — an enormous figure against the 2030 targets. The report is candid that not all of it is immediately convertible (many roofs need structural work, and a Lisbon owners' association suggested roughly half may be unusable as they stand), but its conclusion is that urban potential should not be written off.",
+        "Self-consumption and energy communities added <b>1–2 GW in just a few years</b>, with strong social acceptance and less dependence on the transmission grid. The report argues public policy should stop treating this decentralised route as a residual complement."
+      ],
+      "quotes": [
+        { "q": "Accelerating renewables is not only about accelerating power plants, but also about accelerating the transformation of the demand side into a platform for integrating clean energy.", "cite": "p. 27" }
+      ]
+    },
+    {
+      "h": "Making better use of what already exists",
+      "paras": [
+        "Repowering (replacing old turbines with more efficient ones), over-equipping, and hybridisation (combining wind and solar at one connection point) all raise output <b>without occupying new ground</b>. Wind–solar hybridisation in the North alone could allow 20–30% more energy injected with no additional grid capacity.",
+        "The report also urges extracting more capacity from the existing grid — dynamic line rating, shared reserve transformers, better digitalisation — before building everything new."
+      ]
+    },
+    {
+      "h": "The lesson from abroad",
+      "paras": [
+        "Reviewing other European countries, the report draws a conclusion that speaks directly to a consultation like this one: acceleration should not mean simply licensing faster, but locating better."
+      ],
+      "quotes": [
+        { "q": "The lesson is clear: acceleration should not be just “licensing faster”, but also locating better and investing in grid and storage where these maximise the integration of the energy produced.", "cite": "p. 11" }
+      ]
+    }
+  ]
+}

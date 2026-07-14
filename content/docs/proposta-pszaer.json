@@ -1,0 +1,95 @@
+{
+  "slug": "proposta-pszaer",
+  "title": "The Proposal Itself: Sectoral Programme for Renewable Energy Acceleration Zones (PSZAER)",
+  "titlePt": "Proposta de Programa Setorial das Zonas de Aceleração de Energias Renováveis",
+  "authors": "Team coordinated by Maria do Rosário Partidário (Instituto Superior Técnico), commissioned by EMER 2030",
+  "date": "May 2026",
+  "pages": 67,
+  "summary": "The central document — the proposed national programme designating Portugal's renewable-energy acceleration zones under EU Directive RED III. It maps roughly <b>578,777 ha</b> as potential solar zones and <b>84,489 ha</b> as wind zones, touching 193 municipalities for solar and 111 for wind. Inside those zones, projects would be licensed through a single-window procedure in which the usual project-level Environmental Impact Assessment <b>is not carried out</b>. The document states plainly that the great majority of the mapped areas, for both solar and wind, fall within the <b>Pinhal do Centro</b> landscape group — which includes the Serra da Gardunha.",
+  "keyFigures": [
+    { "n": "578,777 ha", "label": "mapped as potential solar acceleration zones (1,107 polygons over 100 ha)" },
+    { "n": "84,489 ha", "label": "mapped as potential wind acceleration zones" },
+    { "n": "193 / 111", "label": "municipalities touched by solar / wind potential" },
+    { "n": "78.9%", "label": "of the potential solar area is classified in municipal plans as rural <b>Forest Space</b>" }
+  ],
+  "sections": [
+    {
+      "h": "What this programme is",
+      "paras": [
+        "The programme responds to EU Directive 2023/2413 (RED III), which requires every Member State to designate <b>renewable energy acceleration zones</b> — places identified as particularly suitable for renewables, where licensing can be simplified and speeded up. The Directive requires such plans to undergo a strategic environmental assessment before adoption.",
+        "It covers onshore solar and wind only. It has three core components: the strategy and strategic options; their territorialisation in a map of zones; and a governance proposal for a simplified, fast and predictable licensing regime."
+      ]
+    },
+    {
+      "h": "How the maps should — and should not — be read",
+      "paras": [
+        "Two principles matter enormously for anyone looking at the map of their own region. First, the mapped zones are an <i>indicative</i> patch of potential rather than a precise boundary. Second, the zones are <b>not exclusive</b> — projects can still be proposed outside them under the ordinary environmental impact assessment regime.",
+        "In other words, being outside a zone is not protection; and being inside one is not yet a project. What being inside a zone changes is <i>how</i> a project gets approved."
+      ],
+      "quotes": [
+        { "q": "The acceleration zones that have been identified correspond to an indicative patch of the potential, since at the scale of the PSZAER and the SEA precise limits cannot be defined on the ground; the specific limits must be established in the project design and licensing procedures.", "cite": "p. 6" },
+        { "q": "The ZAER are not exclusive zones for the development of renewable energy; other areas of the territory may continue to receive proposals for renewable energy projects under the EIA regime.", "cite": "p. 6" }
+      ]
+    },
+    {
+      "h": "What the diagnosis actually found",
+      "paras": [
+        "On <b>energy</b>, the diagnosis concludes the territory is not a constraint in terms of resource availability. What determines viability is the overlap of resource, electricity grid and proximity to consumption — with projects tending to become unviable beyond roughly 10–20 km from a substation. Rooftops, industrial zones and existing infrastructure are highlighted as having clear advantages in social acceptance and speed.",
+        "On <b>territory and economy</b>, the diagnosis warns that low-density territories cannot simply be read as land available for extensive land-take, given their weaker capacity to retain the benefits. Land occupied by solar grew from about <b>1,290 ha in 2018 to roughly 4,740 ha in 2023</b> — a 267% increase in five years, a pace with no parallel in any other form of land occupation.",
+        "It also reproduces LNEG's estimate of solar potential on <b>already artificialised areas: 23.33 GW</b> of capacity and 36.84 TWh a year — i.e. a very large share of what is needed, without touching the countryside at all."
+      ]
+    },
+    {
+      "h": "Where the zones land: the Gardunha named in the Government's own text",
+      "paras": [
+        "The team overlaid the potential zones onto the map of Landscape Units. The finding is stated plainly, and it is the single most important sentence in this document for the Beira Baixa."
+      ],
+      "quotes": [
+        { "q": "The mapping of areas with ZAER potential was also cross-referenced against the mapping of Landscape Units, and it was found that the great majority of those areas, for solar and wind energy, occur in the Pinhal do Centro Group, which comprises the units of Pinhal Interior, Zêzere Valley, Serras da Gardunha, Alvelos and Moradal, and the Castelo Branco Agroforestry Massif.", "cite": "p. 11" }
+      ]
+    },
+    {
+      "h": "The exclusion criteria — and what was quietly removed",
+      "paras": [
+        "Exclusions cover slopes above 25%, protected areas and Natura 2000, classified heritage (with a 150 m buffer around archaeological sites), coastal zones, forestry-interest areas, water-protection zones, the National Agricultural Reserve (RAN), and specific land cover such as cork oak, holm oak, chestnut and stone pine. Buffers around dwellings are set at <b>200 m for solar and 1 km for wind</b>.",
+        "The document also lists what <b>changed</b> from earlier work, and this is worth noting: the slope threshold was relaxed from 20% to 25%; <b>maritime pine, vineyards, orchards and olive groves were removed as exclusion criteria</b>; the buffer at the edge of wetlands was cut from 500 m to 50 m; and the National Ecological Reserve (REN) is <b>not</b> taken as an exclusion criterion in itself.",
+        "Solar zones were restricted to polygons over 100 ha expressly for coherence with the assessment regime — which is mandatory only above 100 ha."
+      ]
+    },
+    {
+      "h": "The numbers",
+      "paras": [
+        "<b>Solar:</b> about <b>578,777 ha</b> pass the exclusion criteria in polygons over 100 ha. Counting only areas within 10 km of a substation gives 371,348 ha. But if <i>available grid connection capacity</i> is taken into account, the usable area collapses to just <b>9–18%</b> of the total at under 10 km — a striking admission that the mapped area vastly exceeds what the grid can actually absorb.",
+        "<b>Wind:</b> about <b>84,489 ha</b>. Accounting for grid capacity, this falls to 2–5% at under 10 km.",
+        "In municipal planning terms, the potential areas fall in <b>193 municipalities</b> for solar and 111 for wind. <b>78.9% of the potential solar area</b> is classified as rural Forest Space — these are not rooftops."
+      ]
+    },
+    {
+      "h": "The single window: how licensing changes inside a zone",
+      "paras": [
+        "Inside the zones, licensing becomes an <b>integrated single-window procedure</b>: one application, one platform, one title covering electrical control, environmental compatibility and territorial conformity, coordinated by the energy directorate DGEG.",
+        "In the environmental strand <b>there is no project-level environmental impact assessment</b>. Instead the developer must show the project complies with the programme's directives and generates no significant negative impacts <i>not already identified</i> in the strategic assessment of the programme itself.",
+        "Crucially, the document admits that the programme's protective directives only become binding on private developers if they are written into <b>municipal plans</b> — which are, on the document's own account, frequently out of date."
+      ],
+      "quotes": [
+        { "q": "For the directives set out in the PSZAER to be binding on private parties, they will have to be included in the municipal territorial plans.", "cite": "p. 38" },
+        { "q": "In planning terms, the project is subject to mere prior communication, to be submitted to the competent municipality; the urban operation is not subject to prior control, since all questions relating to location, territorial compatibility and administrative constraints have already been assessed and resolved within the integrated procedure.", "cite": "p. 41" }
+      ]
+    },
+    {
+      "h": "Mitigation measures — the protections that would apply",
+      "paras": [
+        "Because there is no project assessment inside the zones, mitigation must be set at programme level. Ecological measures include invasive-species control, avoiding the most disturbing works between 1 March and 30 June (the breeding season), no herbicides, anti-collision and anti-electrocution measures on power lines, and fencing permeable to fauna.",
+        "Landscape measures include the <b>25 ha cap</b> on continuous panel areas, with compartmentalisation beyond that — adding roughly 30–35% extra land on top of the panel area.",
+        "For wind, minimum setbacks are specified: <b>500 m</b> from turbines to sensitive receptors for noise; <b>1,000 m</b> to settlements, and <b>2,500 m</b> for historic villages; 3,000–5,000 m to protected landscape areas depending on relief."
+      ]
+    },
+    {
+      "h": "Review and the ageing wind fleet",
+      "paras": [
+        "Portugal's onshore wind fleet is among the oldest in Europe — the average turbine is over 17 years old. On a 20-year lifetime, around <b>69% of installed wind capacity reaches end of life by 2030</b>. Repowering with up to a 20% capacity increase, within a 150 m band of an existing park, is already <b>exempt from environmental assessment</b>.",
+        "The document notes the transposition of RED III indicates the zones must be <b>reviewed every three years</b>."
+      ]
+    }
+  ]
+}

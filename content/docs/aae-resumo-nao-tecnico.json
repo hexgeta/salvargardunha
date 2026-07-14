@@ -1,0 +1,74 @@
+{
+  "slug": "aae-resumo-nao-tecnico",
+  "title": "Non-Technical Summary of the Strategic Environmental Assessment",
+  "titlePt": "Avaliação Ambiental Estratégica — Resumo Não Técnico",
+  "authors": "Coordination: Maria do Rosário Partidário (Instituto Superior Técnico), for EMER 2030",
+  "date": "May 2026",
+  "pages": 19,
+  "summary": "The plain-language version of the environmental assessment — written, in its own words, so that everyone who has the right to take part can understand what is being decided. It confirms that the programme maps where solar and wind projects could be licensed <b>without an environmental impact assessment</b>, and that after exclusions roughly <b>7% of mainland Portugal</b> remains available. It openly records the risks: pressure on low-density rural territories, cumulative effects on landscape and biodiversity, and growing social contestation. Its conclusion is remarkable: local benefits tend to be <b>greater when acceleration is done at smaller scale, closer to consumption</b>.",
+  "keyFigures": [
+    { "n": "~7%", "label": "of mainland Portugal left available for acceleration after exclusions" },
+    { "n": "200 m / 1 km", "label": "buffer between plants and homes — solar / wind" },
+    { "n": ">100 MW", "label": "what the programme counts as a “large” solar project (>75 MW for wind)" }
+  ],
+  "sections": [
+    {
+      "h": "What is being decided",
+      "paras": [
+        "This summary exists to inform everyone who has the right, and the wish, to take part. It states the purpose of the programme without euphemism."
+      ],
+      "quotes": [
+        { "q": "The proposed PSZAER defines the strategy and the strategic options for establishing the solar and wind renewable-energy acceleration zones, where renewable energy production projects may come to be licensed without undergoing an environmental impact assessment procedure.", "cite": "p. 1" }
+      ]
+    },
+    {
+      "h": "The exclusions — and the 7%",
+      "paras": [
+        "Land was excluded for erosion risk (slopes over 25%), for nature conservation (protected areas, Natura 2000, RAMSAR sites, Important Bird Areas), for classified heritage and archaeology (with a 150 m margin), for coastal protection, forestry interest, water protection and the National Agricultural Reserve. Specific covers such as cork oak, holm oak, chestnut and stone pine were also excluded.",
+        "A buffer was applied around homes: <b>200 m for solar and 1 km for wind</b>.",
+        "What remained is the map."
+      ],
+      "quotes": [
+        { "q": "This process left approximately 7% of mainland national territory available for acceleration.", "cite": "p. 6" }
+      ]
+    },
+    {
+      "h": "The assessment's own list of what must be stopped",
+      "paras": [
+        "The document lists the “critical trends that must be countered”. Two of them describe the Beira Baixa's situation exactly — and they are the Government's own words, not a campaign's."
+      ],
+      "quotes": [
+        { "q": "Great pressure on low-density rural territories, with fragile or poorly diversified local economic bases, and on natural areas of high sensitivity — soil, water, landscape, agriculture, forest, biodiversity and tourism.", "cite": "p. 10" },
+        { "q": "Growing visibility of social and territorial contestation against the deployment of renewable energy projects and associated infrastructure.", "cite": "p. 10" }
+      ]
+    },
+    {
+      "h": "The risks it admits",
+      "paras": [
+        "Among the risks the assessment itself identifies: an excessively centralised process that distances decisions from the territory; the deterioration of social acceptance where projects pile burdens on a place without real local compensation; <b>cumulative impacts on biodiversity</b> with a higher density of projects; and a decline in the visual quality of the landscape and in identity-defining landscape patterns.",
+        "It also flags something extraordinary for a document proposing to remove environmental assessment: the risk that, in its absence, there simply <b>isn't the technical capacity to check what projects actually do</b>."
+      ],
+      "quotes": [
+        { "q": "The lack of technical capacity, in the absence of environmental impact assessment, to assess the environmental components of projects at the pre- and post-implementation stages.", "cite": "p. 11" },
+        { "q": "An excessively centralised process tends to increase the distance between the decision and the territory, eroding local trust and reinforcing contestation.", "cite": "p. 11" }
+      ]
+    },
+    {
+      "h": "Local benefit depends on scale — the assessment's own conclusion",
+      "paras": [
+        "The closing conclusion is the single most useful sentence in this document for anyone objecting. The assessment does not say that big centralised plants in the interior are the right answer. It says the opposite.",
+        "It also concedes that opposition from the community is <b>legitimate</b>, and that it can hinder acceleration — an acknowledgement that objecting is not obstruction, but part of the process."
+      ],
+      "quotes": [
+        { "q": "The strategic options analysed suggest that social and local benefits tend to be greater when renewable acceleration is carried out at a smaller scale, with greater proximity, better territorial compatibility and connection to local consumption.", "cite": "p. 14" },
+        { "q": "Public acceptance of the development of these projects is another important condition, since legitimate resistance from the local community may hinder acceleration.", "cite": "p. 14" }
+      ]
+    },
+    {
+      "h": "What it says should happen instead",
+      "paras": [
+        "The follow-up guidelines include: giving priority to <b>artificialised, degraded or already-infrastructured land</b>; controlling territorial concentration and cumulative impacts; preventing <b>land speculation</b> and opportunistic hoarding of grid capacity; setting <b>maximum limits on project density</b>; and ensuring public participation that has <i>real influence over the definition of projects</i> — not participation after the fact."
+      ]
+    }
+  ]
+}

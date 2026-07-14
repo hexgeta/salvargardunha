@@ -1,0 +1,77 @@
+{
+  "slug": "rt-juridico",
+  "title": "Legal Report: How Licensing Changes Inside a Zone",
+  "titlePt": "Relatório Temático: Jurídico",
+  "authors": "AMMC Legal",
+  "date": "May 2026",
+  "pages": 66,
+  "summary": "The legal report designing the licensing regime inside the acceleration zones. Its core proposal is a <b>single-window</b> procedure run by the energy directorate, in which the environmental assessment is done once, at <i>plan</i> level, and each individual project is then only checked for <b>conformity</b> with rules already set for the zone — <b>dispensing, as a rule, with a full project-level environmental impact assessment</b>. Binding deadlines apply (12 months; 6 for repowering) and administrative discretion is deliberately reduced. Its own comparative review concludes that speed comes not from removing environmental assessment but from moving it earlier — and warns Portugal may lack the institutional capacity to make that safe.",
+  "keyFigures": [
+    { "n": "12 months", "label": "maximum licensing deadline inside a zone (6 months for repowering)" },
+    { "n": "24 months", "label": "the deadline <i>outside</i> the zones, where full project assessment still applies" },
+    { "n": "45 days", "label": "proposed maximum for the environmental <b>conformity check</b> that replaces the assessment inside a zone" }
+  ],
+  "sections": [
+    {
+      "h": "The two-track system",
+      "paras": [
+        "EU Directive RED III creates two tracks. <b>Outside</b> the zones, the classic model survives: each project is examined case by case, including an environmental impact assessment where applicable. <b>Inside</b> a zone, the change is structural — licensing becomes an exercise in <i>verifying conformity</i> with rules laid down in advance.",
+        "The assessment moves upstream, to the level of the plan. Each project is then checked against it, rather than assessed on its own merits at its own site."
+      ],
+      "quotes": [
+        { "q": "Licensing takes on a simplified and priority character, expressed in the reduction of maximum deadlines to 12 months and, in the case of repowering, to 6 months, in an appraisal focused on compliance with the conditions previously fixed when the zone was designated, dispensing, as a rule, with full environmental assessments at project level, in a (significant) reduction of the margin of administrative discretion.", "cite": "p. 6" }
+      ]
+    },
+    {
+      "h": "The protections only bind if municipalities write them in",
+      "paras": [
+        "This is the quiet catch. Under Portuguese planning law, <b>programmes do not bind private parties</b> — only <i>municipal</i> plans produce direct effects on private land use.",
+        "So the programme's protective directives — including the 25-hectare cap on continuous solar and the landscape rules — must first be written into municipal master plans before they can be enforced against any developer. And the report itself notes those municipal plans are frequently out of date."
+      ],
+      "quotes": [
+        { "q": "Since programmes are not binding on private parties, their orientations will have to be incorporated into municipal territorial plans in order to be enforceable against private parties — that is, in order to constitute the yardstick for appraising, in planning terms, the projects to be installed in the zones.", "cite": "p. 13" }
+      ]
+    },
+    {
+      "h": "What the comparison with other countries shows",
+      "paras": [
+        "The report reviews the Netherlands, Germany, Italy, Spain and France. Germany converted pre-existing priority areas into acceleration zones — safe only because a strategic assessment had already been done, with the risk that its quality varied between regions. France designated zones <i>without</i> an integrated strategic assessment, deferring safeguards to the project licence, which the report says increases legal risk and conflict.",
+        "Its own conclusion is a warning about Portugal."
+      ],
+      "quotes": [
+        { "q": "It follows consistently from this comparative analysis that speed is not achieved by suppressing environmental assessments, but rather by bringing them forward to the planning level.", "cite": "p. 16" },
+        { "q": "For Portugal, investing in the robustness of the PSZAER and in the careful delimitation of the zones are necessary conditions, but insufficient without entities that are capable and technically equipped to respond with quality and speed at every stage of the process.", "cite": "p. 16" }
+      ]
+    },
+    {
+      "h": "The single window, step by step",
+      "paras": [
+        "The developer files one application on one platform. That triggers three parallel strands: the <b>electricity</b> licence; a <b>sub-procedure verifying environmental compatibility with the zone</b>; and a <b>territorial conformity check</b> with the municipality.",
+        "The environmental strand is a conformity check, not an assessment. The developer must show the project complies with the programme's directives and <b>does not generate significant negative impacts that were not already identified</b> in the strategic assessment of the plan.",
+        "A <b>deliberative conference</b> then takes all the decisions simultaneously in a single act. A body that fails to attend or state a reasoned disagreement is <b>deemed to have no objection</b>. Conversely, an unfavourable position from any participating body means refusal — the conference requires unanimity."
+      ],
+      "quotes": [
+        { "q": "The developer must demonstrate that the project does not generate significant negative impacts that were not previously identified in the strategic environmental assessment of the programme that delimited the zone.", "cite": "p. 58" }
+      ]
+    },
+    {
+      "h": "The municipality loses its planning veto",
+      "paras": [
+        "Once the integrated title is issued, the works are subject only to a <b>mere prior communication</b> to the municipality. They are <b>not subject to municipal planning control at all</b>, because location and territorial compatibility were already settled inside the integrated procedure.",
+        "The municipality's remaining role is to supervise the works and report deviations from the approved mitigation measures."
+      ],
+      "quotes": [
+        { "q": "In planning terms, the project is subject only to a mere prior communication, to be submitted to the competent municipality; the works are not subject to prior control, since all questions relating to location, territorial compatibility and administrative constraints have already been appraised and resolved within the integrated procedure.", "cite": "p. 62" }
+      ]
+    },
+    {
+      "h": "On grid capacity: “rights acquired against undemanding duties”",
+      "paras": [
+        "The report is scathing about the current “first come, first served” allocation of grid capacity, which locks up the grid with projects that may never be built. It recommends moving to <b>“first ready, first served”</b>, with mandatory milestones and expiry for “zombie” projects."
+      ],
+      "quotes": [
+        { "q": "It is a model considered inadequate because it keeps the grid occupied by projects whose maturity has not been weighed and which may never come to fruition… The model confers rights that are acquired against undemanding execution duties.", "cite": "p. 65" }
+      ]
+    }
+  ]
+}

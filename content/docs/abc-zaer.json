@@ -1,0 +1,113 @@
+{
+  "slug": "abc-zaer",
+  "title": "Start Here: The ABC of the ZAER Public Consultation",
+  "titlePt": "Começar aqui! ABC da Discussão Pública das ZAER — Zonas de Aceleração: PSZAER e AAE",
+  "authors": "EMER 2030",
+  "date": "June 2026",
+  "pages": 13,
+  "summary": "The short introductory slide deck EMER 2030 published to open the public consultation on Portugal's Sectoral Programme for Renewable Energy Acceleration Zones (PSZAER) and its Strategic Environmental Assessment. It sets out the 2030 renewable targets, shows how far current installed capacity falls short of them, explains what changes inside an acceleration zone, lists the documents open for comment, and gives the timetable through to transposition into municipal plans in 2026–2028. It is the recommended starting point before the technical reports.",
+  "keyFigures": [
+    { "n": "20.8 GW", "label": "solar capacity target for 2030 (15.1 GW centralised + 5.7 GW decentralised)" },
+    { "n": "10.4 GW", "label": "onshore wind target for 2030 (plus 2.0 GW offshore)" },
+    { "n": "~7 GW", "label": "solar actually installed as of April 2026 — the gap is largest in <b>centralised</b> solar, exactly what the zones are meant to accelerate" },
+    { "n": "51%", "label": "renewables share of gross final energy consumption targeted for 2030" }
+  ],
+  "sections": [
+    {
+      "h": "What this document is",
+      "paras": [
+        "This is the introductory presentation, dated <b>June 2026</b> and produced by <b>EMER 2030</b>, that accompanies the public consultation on the Renewable Energy Acceleration Zones — the <b>PSZAER</b> and its <b>Strategic Environmental Assessment (AAE)</b>.",
+        "It is a 13-page slide deck, not a legal text. It answers, in order: what Portugal's 2030 energy targets are, how much has actually been built, how renewable projects are licensed today, what changes inside a ZAER, which documents are open for comment, what the “Green Map” is, whether the country will be “covered” in panels and turbines, and what the timetable is."
+      ]
+    },
+    {
+      "h": "Portugal's 2030 targets",
+      "paras": [
+        "The presentation opens with the national targets it says the acceleration zones exist to serve. By 2030 Portugal aims for <b>51% renewable energy</b> as a share of gross final energy consumption, and cites <b>carbon neutrality by 2050</b>.",
+        "The capacity targets given are <b>20.8 GW of solar</b>, <b>10.4 GW of onshore wind</b> and <b>2.0 GW of offshore wind</b>. The solar figure is broken down into <b>15.1 GW centralised</b> (large plants) and <b>5.7 GW decentralised</b> (distributed generation such as rooftops and self-consumption)."
+      ]
+    },
+    {
+      "h": "How far along is Portugal? (April 2026)",
+      "paras": [
+        "As of <b>April 2026</b>, installed capacity was approximately <b>3.2 GW of decentralised solar</b> (against a 2030 target of 5.7 GW), approximately <b>3.8 GW of centralised solar</b> (against 15.1 GW), and approximately <b>6.1 GW of onshore wind</b> (against 10.4 GW).",
+        "By the document's own figures, roughly <b>7 GW</b> of the 20.8 GW solar target is in place — and the largest gap is in <i>centralised</i> solar, the large ground-mounted plants the acceleration zones are designed to speed up."
+      ]
+    },
+    {
+      "h": "How a project is licensed today — and what the government says is wrong with it",
+      "paras": [
+        "For any centralised renewable project above <b>1 MW</b>, the deck sets out the conventional licensing route. It then lists what it calls the <b>risks of offering only this route</b> — a passage in which the government describes the shortcomings of the current system in its own words."
+      ],
+      "quotes": [
+        {
+          "q": "Risks of only making this format available: from an environmental and municipal perspective, these are ad hoc applications with no apparent national strategy; accumulation of projects and their impacts in particular locations; de-synchronisation of mitigation measures; accumulation of deadlines and applications at the licensing authorities.",
+          "cite": "p. 6"
+        }
+      ]
+    },
+    {
+      "h": "Does a project inside a zone still get an environmental impact assessment?",
+      "paras": [
+        "The deck contrasts the two routes. Under the <b>conventional method</b>, a project undergoes environmental screening, leading either to a full <b>Environmental Impact Assessment (AIA)</b> or to a case-by-case analysis.",
+        "Inside a <b>ZAER</b>, the document's position is that the zones have <i>already</i> been strategically assessed, so projects follow what it calls a “framed procedural simplification”. It stresses this does not exempt them from the programme's guidelines, the protection regimes, administrative easements and public-utility restrictions, or the legally required opinions.",
+        "This is the crux of the whole consultation, and it is worth reading the government's own framing carefully — the assessment moves from the <i>project</i> to the <i>plan</i>."
+      ],
+      "quotes": [
+        {
+          "q": "The ZAER have already been subject to a Strategic Environmental Assessment, which was analysed and revised through the Consultation of Entities and the Public Discussion. Renewable energy projects follow a framed procedural simplification, but are not exempted from: following the guidelines and standards of the PSZAER; following the protection regimes, administrative easements and public-utility restrictions, the legally required opinions and the regulatory rules.",
+          "cite": "p. 7"
+        }
+      ]
+    },
+    {
+      "h": "Which documents are under consultation",
+      "paras": [
+        "The <b>main documents</b> are: the results of the Consultation of Entities (the opinions received and EMER 2030's weighing of them); the <b>PSZAER proposal</b> itself; the <b>Strategic Environmental Assessment</b>; and its <b>Non-Technical Summary</b>.",
+        "Alongside these sit six <b>thematic reports</b>: Energy; Ecology; Landscape and Cultural Heritage; Spatial Planning and Territorial Economy; Legal; and Integration of Spatialised Information. All of them are rendered in English on this site."
+      ]
+    },
+    {
+      "h": "What the “Green Map” actually is",
+      "paras": [
+        "The Green Map (<i>Mapa Verde</i>) is the output of thematic cartography that excludes protected values — the resulting shaded area representing, <b>at national scale</b>, the areas with potential to be included in the future zones.",
+        "The document is explicit that this is <b>a programmatic reference, not a final boundary</b>, to be verified at municipal scale and at project stage."
+      ],
+      "quotes": [
+        {
+          "q": "The Green Map is merely the result of thematic cartography that excludes protected values; the resulting area represents, at national scale, the areas with potential to form part of the future ZAER. It is a programmatic reference: it does not correspond to a final delimitation and will be verified at municipal scale and at the project development stage.",
+          "cite": "p. 9"
+        }
+      ]
+    },
+    {
+      "h": "“Does this mean the country will be covered in panels and turbines?”",
+      "paras": [
+        "The deck poses this question directly and answers it with four structuring principles.",
+        "<b>Programmatic nature:</b> the PSZAER is a sectoral programme binding on public bodies, which does not replace municipal master plans (PDM) and does not produce direct, immediate effects on private parties; its full effect depends on being incorporated into municipal plans.",
+        "<b>Cartography as reference:</b> the mapping is a strategic expression at national scale, not a final or cadastral delimitation, and must be verified at municipal and project scale.",
+        "<b>Compatibility and cumulative assessment:</b> integrating the zones requires identifying incompatibilities with municipal plans and choosing the appropriate procedure; and the strategic analysis is meant to consider cumulative effects, territorial concentration, pressure on soil and landscape, and carrying capacity — made operational through indicators, phasing and monitoring."
+      ],
+      "quotes": [
+        {
+          "q": "The PSZAER is a sectoral programme of territorial incidence, binding on public bodies, which does not replace the municipal master plans (PDM) nor produce direct and immediate effects on private parties; its full territorial effectiveness depends on being made compatible with and incorporated into the municipal territorial plans.",
+          "cite": "p. 10"
+        }
+      ]
+    },
+    {
+      "h": "Environmental, landscape and heritage safeguards",
+      "paras": [
+        "The deck restates that the procedural simplification does not dispense with the regimes protecting the environment, nature conservation and biodiversity, cultural heritage, the National Ecological Reserve (REN), the National Agricultural Reserve (RAN) and the rural fire management system (SGIFR), nor with the legally required opinions.",
+        "It says these matters must be <i>densified</i> — spelled out in more detail — in the execution rules, in the municipal transposition and in project-level assessment."
+      ]
+    },
+    {
+      "h": "The timetable",
+      "paras": [
+        "<b>March 2024:</b> conclusions of the GTAER working group. <b>2025:</b> contracting of the independent group to draft the programme and its assessment; presentation of the Critical Decision Factors.",
+        "<b>1st half of 2026:</b> Order no. 1532-B/2026 of 6 February, and the Consultation of Entities. <b>June 2026:</b> public discussion. <b>July 2026:</b> analysis of contributions and preparation of the final proposal. <b>August 2026:</b> legislative process. <b>2026–2028:</b> transposition into municipal master plans."
+      ]
+    }
+  ]
+}
