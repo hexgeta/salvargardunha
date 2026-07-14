@@ -1,0 +1,128 @@
+{
+  "slug": "pareceres-entidades",
+  "title": "What Portugal's Own Public Bodies Actually Said",
+  "titlePt": "Pareceres Emitidos — Entidades",
+  "authors": "The public bodies consulted (compiled)",
+  "date": "June 2026",
+  "pages": 474,
+  "summary": "The primary source: the full formal opinions of the public bodies consulted. Three issued a formal <b>unfavourable opinion</b> — the heritage authority, the agriculture authority, and the <b>National Association of Portuguese Municipalities</b>, which rejected the content <i>and</i> the conduct of the process. <b>Not one body gave unconditional approval.</b> The nature-conservation institute (ICNF), while conditionally favourable overall, states that the areas overlapping the 1 km buffer around the <b>Serra da Gardunha Protected Landscape must be removed</b>. Fundão reports zones as close as <b>70 metres</b> from villages.",
+  "keyFigures": [
+    { "n": "70 m", "label": "shortest distance found between a proposed zone and an inhabited settlement — reported by <b>Fundão</b>" },
+    { "n": "20 days", "label": "given to public bodies to review roughly <b>800 pages</b> — and the map files arrived only halfway through" },
+    { "n": "0", "label": "bodies that gave an <b>unconditional favourable</b> opinion" },
+    { "n": "357,347 ha", "label": "of solar zones mapped — against the <b>~20,000 ha</b> the planning authority says the 2030 target actually needs" }
+  ],
+  "sections": [
+    {
+      "h": "ICNF: “these areas must be removed”",
+      "paras": [
+        "The Institute for Nature Conservation and Forests analysed the proposal region by region. In its assessment of the <b>Centro</b> region it reaches an unambiguous conclusion about our mountain: the proposed wind and solar areas overlap — <i>marginally</i> — the 1 km buffer around the <b>Serra da Gardunha Regional Protected Landscape</b> and the Serra da Estrela Natural Park. It then says, flatly, that these areas must be removed.",
+        "To be precise, and this matters for anyone quoting it: the ICNF's <i>overall</i> verdict is a <b>favourable opinion, conditional</b> on its corrections being made. The removal of the Gardunha buffer areas is one of those conditions — not an outright rejection of the programme. It is no less binding for that: it is a condition the nature-conservation authority attached to its approval.",
+        "As shown in the Government's response document, that demand is not addressed in the weighing of the opinions."
+      ],
+      "quotes": [
+        { "q": "The areas proposed for wind energy and solar energy overlap marginally with the 1 km buffer situated around the Serra da Gardunha Regional Protected Landscape and the Serra da Estrela Natural Park. These areas must be removed from the areas proposed for wind energy and solar energy.", "cite": "ICNF, cartography for the Centro region (p. 75)" }
+      ]
+    },
+    {
+      "h": "ICNF's other conditions: the oak error, corridors, firebreaks",
+      "paras": [
+        "<b>A cartographic error over cork and holm oak.</b> The ICNF found areas classified in the 2018 land-cover chart as having <i>high</i> biodiversity potential were downgraded in the 2023 chart used to draw these zones. It says this does not reflect reality on the ground, particularly in oak systems — and warns the error could compromise the robustness of the whole mapping method and lead to legally protected trees being taken.",
+        "<b>Ecological corridors.</b> The ICNF had already objected at the first stage that the zones cut through ecological corridors. It records that this was not acted on, and that the zones still overlap them.",
+        "<b>Firebreaks.</b> The strategic fire-management network was not used as an exclusion criterion at all. Solar panels are not a compatible use of a firebreak — yet in two regions alone the ICNF found roughly 786 ha of solar and 547 ha of wind zones sitting on top of them."
+      ],
+      "quotes": [
+        { "q": "Protected areas do not function as islands, and the question of species connectivity must be safeguarded.", "cite": "ICNF, on ecological corridors" },
+        { "q": "The results obtained reveal significant discrepancies between the cartographic classification of land cover and the characteristics actually present on the ground, a situation which could compromise the robustness of the methodology for delimiting the ZAER and lead to the impairment of environmentally sensitive areas.", "cite": "ICNF, on the land-cover reclassification" }
+      ]
+    },
+    {
+      "h": "Fundão: zones 70 metres from people's homes",
+      "paras": [
+        "Fundão's submission is short and blunt. The distances between the proposed zones and inhabited settlements are inconsistent — and in some cases as little as <b>70 metres</b>. (The programme's own stated buffer is 200 m for solar and 1 km for wind.)",
+        "It demands the <b>Regadio Gardunha Sul</b> irrigation project be safeguarded as strategic for the municipality, and that the Municipal Ecological Structure — forest patches, watercourses, protected land and the corridors linking them — be respected.",
+        "It also confirms the procedural failure from the receiving end: it was given the maps only as PDFs at a scale it calls difficult to interpret, with no GIS files, which severely limited its ability to work out what the zones meant on its own ground.",
+        "Its conclusion is a refusal in plain words."
+      ],
+      "quotes": [
+        { "q": "The criterion defined for the distance to population settlements must be clarified. Disparate distances were found across various settlements, some of which amount to just 70 m.", "cite": "Município do Fundão, 27 May 2026" },
+        { "q": "The Municipality of Fundão cannot accept that these renewable energy acceleration zones collide with areas classified as RAN, REN, with the Municipal Master Plan, with irrigated areas, nor with the easements that guarantee the safeguarding of the development model that Fundão has set out, which rests on safeguarding the landscape, cultural and environmental wealth as a strategic asset of the territory.", "cite": "Município do Fundão, 27 May 2026" }
+      ]
+    },
+    {
+      "h": "Covilhã: “we cannot even tell where the zones are”",
+      "paras": [
+        "Covilhã reports it could not determine where the zones actually fall. It was told 0.9% of its territory is suitable for solar — but given no data at all on wind zones, and no means of establishing even the approximate location of the areas concerned.",
+        "It raises the sharpest procedural point of all: the proposal makes no provision for what happens when a municipal council <b>votes against a project and is outvoted</b> in the licensing conference — in which case it fears being obliged to bring its own master plan into line with the very project it opposed.",
+        "It also warns that low-density territories — the most socially and economically fragile — are precisely where the plan finds most “availability”.",
+        "Separately, the regional commission reports the zones overlap about <b>110.58 ha of the Cova da Beira irrigation scheme</b> in Covilhã — land about to become protected agricultural reserve."
+      ],
+      "quotes": [
+        { "q": "The PSZAER proposal does not consider the possibility that the Municipal Council may issue an unfavourable opinion and, by being outvoted in the deliberative procedural conference, be obliged to conform the provisions of the municipal plans to the specific project — a matter that must be clarified.", "cite": "Município da Covilhã, 27 May 2026" }
+      ]
+    },
+    {
+      "h": "The heritage authority: unfavourable — and no archaeologist on the team",
+      "paras": [
+        "Portugal's national heritage institute issued a formal <b>unfavourable opinion</b>. Its file contains two technical opinions — archaeology and landscape architecture — and both proposed rejection.",
+        "It records that the team that drew up the entire assessment contains <b>no archaeologist and no cultural-heritage specialist</b>, and expresses “perplexity” at the omission. It notes this explains basic errors, such as a reference to a regulator abolished in 1992.",
+        "It finds heritage was folded into “landscape”, producing a deficient analysis with no safeguarding measures and no monitoring — which it calls <b>unacceptable</b>. And it stresses that only <i>classified</i> heritage was excluded, leaving the unclassified built, ethnographic and archaeological heritage of places like ours entirely unprotected."
+      ],
+      "quotes": [
+        { "q": "It is with perplexity that one observes that the team responsible for drawing it up does not include a specialist in the area of Cultural Heritage, which is clearly relegated to second place, almost omitted.", "cite": "Património Cultural I.P." },
+        { "q": "The energy transition, notwithstanding its recognition as a national strategic priority, cannot legitimise the irremediable impairment of the national Cultural Heritage. In view of the foregoing, it is proposed that an unfavourable opinion be issued on the PSZAER proposal.", "cite": "Património Cultural I.P., conclusion" }
+      ]
+    },
+    {
+      "h": "The agriculture authority: unfavourable — and the farmland loophole",
+      "paras": [
+        "The DGADR issued an <b>unfavourable opinion on the proposal</b>, on legal grounds: the zones breach the rules on public-utility easements. (Its opinion on the separate environmental report was conditionally favourable — the two should not be conflated.)",
+        "<b>The farmland loophole.</b> The National Agricultural Reserve is nominally excluded — but the proposal treats agrivoltaics as an “important regulatory exception”, which reopens protected farmland to solar. The DGADR demands the reserve be a total and effective exclusion, with no carve-out.",
+        "It found the zones overlap land served by public irrigation schemes, where non-agricultural use is legally prohibited — the legal basis of its refusal. And it criticises the land-cover base map for its <b>1-hectare resolution</b> and out-of-date data."
+      ],
+      "quotes": [
+        { "q": "Placing conventional solar panels in Agricultural Space generates a direct conflict with food sovereignty and the local economy.", "cite": "DGADR" }
+      ]
+    },
+    {
+      "h": "The planning authority: the zones are vastly oversized",
+      "paras": [
+        "The DGT issued an opinion <b>conditional on reformulating the proposal</b>. Its central finding is one of scale: the 2030 solar target equates to roughly <b>20,000 hectares</b> — while the mapped solar zones total <b>357,347 hectares</b>.",
+        "Because the mapping deliberately avoids built-up land, that oversizing lands entirely on rural soil: <b>forests make up 68.4%</b> of the proposed area. The DGT recommends <b>maximum occupation ceilings per region or municipality</b>, expressly to avoid overloading the countryside and to mitigate land speculation.",
+        "It, too, names us — recording that the majority of suitable areas overlap the Pinhal do Centro group, <b>the Serras da Gardunha</b>, Alvelos and Moradal."
+      ],
+      "quotes": [
+        { "q": "The areas delimited for the ZAER present an extraordinary extent, vastly greater than the area actually needed to meet the targets set out in the National Energy and Climate Plan, which for solar energy are 20.8 GW, the equivalent of 20,000 hectares.", "cite": "DGT, section 2.3" },
+        { "q": "By delimiting the ZAER on a logic exclusively of technical suitability, the programme… transfers entirely to the municipalities the burden of managing these normative conflicts without homogeneous guidelines.", "cite": "DGT" }
+      ]
+    },
+    {
+      "h": "The municipalities' association: unfavourable to the content AND the process",
+      "paras": [
+        "The body representing <b>every municipality in Portugal</b> rejected both the plan and the way it was consulted.",
+        "<b>The window was too short.</b> Roughly <b>800 pages</b> of technical material; <b>20 days</b> to respond. The ANMP calls this a “meagre deadline”.",
+        "<b>The maps came late.</b> The GIS files — without which no municipality can tell what is being proposed on its own land — were released only on <b>15 May</b>, part-way through that 20-day window.",
+        "And one detail deserves to be read twice. The ANMP explicitly warned that this consultation should <b>not</b> be run in July or August — holiday months when citizens and public services alike are least able to engage. <b>The public consultation closes on 15 July.</b>"
+      ],
+      "quotes": [
+        { "q": "Although the ANMP recognises the strategic relevance and effort that the proposed Sectoral Programme represents, this Association must issue an unfavourable opinion not only on its content, but also on the conduct of this process.", "cite": "ANMP, 3 June 2026" },
+        { "q": "EMER granted the various entities the meagre deadline of 20 days, a circumstance which does not contribute to the technical and informed depth that the matter would require.", "cite": "ANMP" },
+        { "q": "None of these strands may translate into an erosion of the strategic, territorial and urbanistic management powers legally assigned to municipalities, giving way to a functional replacement of local autonomy by strictly centralised decisions. These are solutions that the ANMP rejects.", "cite": "ANMP" }
+      ]
+    },
+    {
+      "h": "The environment agency: “must be revised before public consultation”",
+      "paras": [
+        "The APA does not use the favourable/unfavourable formula. Its verdict is arguably more damning: it concluded the proposal and the environmental report <b>required improvement and had to be revised <i>before</i> being released for public consultation</b>.",
+        "They were released anyway. You are reading them now.",
+        "Its sharpest criticism goes to the mitigation measures the whole fast-track rests on: many, it says, simply <b>restate obligations that already exist in law</b> — and it is not appropriate to present pre-existing legal duties as though they were protections this plan is offering.",
+        "It also notes the map counts substations that have <b>no connection capacity left</b> — a bias which, if corrected, would shrink the solar zones to between <b>9% and 18%</b> of the area mapped."
+      ],
+      "quotes": [
+        { "q": "Following the assessment carried out, the PSZAER proposal and the Preliminary Environmental Report require improvement. The revision of these documents must be carried out prior to their release for public consultation.", "cite": "APA, conclusion" },
+        { "q": "Some of the measures merely reproduce obligations already provided for in the legislation in force, and it does not appear appropriate for these to be included as mitigation measures under the present instrument.", "cite": "APA" },
+        { "q": "The acceleration of the energy transition must not translate into a reduction in the quality of environmental assessment.", "cite": "APA" }
+      ]
+    }
+  ]
+}
