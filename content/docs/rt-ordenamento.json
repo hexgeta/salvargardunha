@@ -1,0 +1,99 @@
+{
+  "slug": "rt-ordenamento",
+  "title": "Spatial Planning and Territorial Economy",
+  "titlePt": "Relatório Temático — Ordenamento e Economia do Território",
+  "authors": "CEDRU",
+  "date": "May 2026",
+  "pages": 121,
+  "summary": "The report on what these zones do to a <i>place</i> — and it is unusually blunt. It finds the land identified as suitable <b>vastly exceeds</b> what the 2030 targets require, and that the build-out is already reshaping the countryside: solar occupation grew from ~1,290 ha (2018) to ~4,740 ha (2023). It warns that territorial concentration, <b>land speculation</b> and “energy monofunctionality” in the low-density interior are <b>structural, not residual</b> risks — burdens falling on host territories while benefits are captured by outsiders. It recommends prioritising artificialised and degraded land over rural soil. It uses the Beira Baixa as its cautionary case.",
+  "keyFigures": [
+    { "n": "1,290 → 4,740 ha", "label": "land occupied by solar in mainland Portugal, 2018→2023 — <b>+267% in five years</b>" },
+    { "n": "1 → 108 ha", "label": "solar occupation in the <b>Beira Baixa</b> over the same five years — one of the fastest-growing sub-regions" },
+    { "n": "~20,000 ha", "label": "panel area actually <b>needed</b> to meet the 2030 solar target — against <b>~960,000 ha</b> mapped as suitable" },
+    { "n": "729", "label": "ageing index in the <b>rural Beira Baixa</b> (65+ per 100 young people) vs 143 in its urban areas" }
+  ],
+  "sections": [
+    {
+      "h": "Low-density does not mean empty",
+      "paras": [
+        "The report opens by refusing the premise that the interior is simply available land. Between 2011 and 2021 predominantly rural areas lost <b>11.3%</b> of their residents. In the Beira Baixa the ageing index reaches <b>729</b> in rural areas — 729 people over 65 for every 100 young people.",
+        "Its conclusion is that these territories are not <i>less conflicted</i>; they are <i>less able to resist</i>."
+      ],
+      "quotes": [
+        { "q": "Low-density territories should not be read only as spaces with greater land availability or lower apparent conflict, but as territories that accumulate demographic, functional and economic fragilities and which are, for that reason, more exposed to the risk of a concentration of burdens without a corresponding local retention of benefits.", "cite": "p. 19" }
+      ]
+    },
+    {
+      "h": "It is already happening — and fastest here",
+      "paras": [
+        "Comparing the national land-cover maps, solar infrastructure grew from about <b>1,290 ha in 2018 to about 4,740 ha in 2023</b> — over 250% in five years. This is not a future scenario; it is a transformation already under way.",
+        "And the geography shifted. The Alentejo's share fell from 62.4% to 39.6% as growth moved elsewhere. The report singles out the <b>Beira Baixa, which went from 1.0 ha in 2018 to 108.5 ha in 2023</b>."
+      ],
+      "quotes": [
+        { "q": "As solar advances into regions and sub-regions with less tradition of hosting this infrastructure — and frequently with greater ecological, agricultural or landscape sensitivity — it becomes more pressing to ensure that the acceleration does not generate disproportionate territorial pressures on host territories.", "cite": "pp. 9, 22" }
+      ]
+    },
+    {
+      "h": "The double hit: our municipalities face solar AND wind",
+      "paras": [
+        "The zones fall in <b>193 municipalities for solar and 111 for wind</b>, overwhelmingly on rural soil — <b>78.9%</b> of the solar potential sits on land classified as forest space.",
+        "Then comes the finding that names us. The largest solar municipalities are concentrated in low-density land <b>between the Beira Baixa and the Médio Tejo</b> — and these same areas have high <i>wind</i> potential too. The annexes list <b>Castelo Branco</b> (8,836 ha solar / 7,237 ha wind), <b>Fundão</b> (6,237 / 5,140) and <b>Penamacor</b> (4,133 / 2,694).",
+        "The report's own phrase for what this risks creating is not one a campaign invented."
+      ],
+      "quotes": [
+        { "q": "The spatial coincidence between solar and wind potential in certain municipalities of the Beira Baixa and Médio Tejo… suggests that, in the absence of planning criteria, some territories could be subject to cumulative renewable pressure of great magnitude, with evident risks of functional and landscape saturation… ensuring that the renewable acceleration does not turn certain territories into sacrifice zones of the energy transition.", "cite": "p. 32" }
+      ]
+    },
+    {
+      "h": "There is far more land than anyone needs",
+      "paras": [
+        "This is perhaps the most important number in the whole consultation. The total mapped potential exceeds <b>960,000 hectares</b>. Meeting the 2030 solar target requires a panel area of a little over <b>20,000 hectares</b> — roughly twice the area of the municipality of Lisbon.",
+        "So the suitable land exceeds the actual need by a factor of dozens. The report's conclusion is that the programme therefore has room to be selective — and a responsibility to be."
+      ],
+      "quotes": [
+        { "q": "The availability of suitable area significantly exceeds the needs of execution. Especially in solar photovoltaics, the area suitable for acceleration is far greater than what is needed to meet the PNEC 2030 targets, but only a small fraction coincides with confirmed grid connection capacity.", "cite": "p. 10" },
+        { "q": "An explicit priority must be established for carrying out renewable energy projects in artificialised, built-up, infrastructured, degraded or under-used areas… Acceleration in these areas reduces pressure on rural soil, brings production closer to consumption centres, limits the need for new lines… and reduces the social and environmental conflict associated with projects in rural areas.", "cite": "p. 12" }
+      ]
+    },
+    {
+      "h": "Speculation and “energy monofunctionality”",
+      "paras": [
+        "The report devotes a section to these risks and calls them <b>structural, not residual</b>. Where large plants cluster, it warns of: vast areas ceasing to have agricultural, forestry or recreational use; cumulative landscape and ecological impacts; and economic dependence on a single sector.",
+        "On land, it warns of an artificial rise in prices in previously low-value regions, land bought by outside investors <b>displacing farmers and small local owners</b>, and benefits concentrating outside the community — worst precisely where the land market is thin and bargaining power weak.",
+        "It cites the academic concepts of <i>green sacrifice zones</i> and <i>green grabbing</i>, and a case where the Public Prosecutor challenged a 1,200 MW project's licence in court."
+      ],
+      "quotes": [
+        { "q": "The risks of territorial concentration, land speculation and energy monofunctionality are structural and not residual… energy monofunctionality in low-density territories — with territorially concentrated burdens and scarcely visible benefits — constitutes a risk of territorial injustice with implications for long-term social acceptance.", "cite": "p. 10" }
+      ]
+    },
+    {
+      "h": "The Fundão / Penamacor case — in the Government's own report",
+      "paras": [
+        "The report's cautionary example is on our doorstep. The <b>“Sophia” solar plant (Lightsource BP, 867 MWp, Fundão and Penamacor)</b> — <b>1,700 ha fenced, 430 ha of panels</b> — is listed in its annex on public contestation.",
+        "It records significant social and political opposition, articulated by local movements, the Beira Baixa intermunicipal community and environmental NGOs, with public protests and a petition with thousands of signatures. The environmental assessment identified significant impacts on landscape and the economy. <b>The process was suspended in 2026 for the project to be reformulated.</b>",
+        "The report also uses it to make a governance point that matters for anyone being offered money: <b>land rents paid to owners are not a community benefit</b>. They split a village."
+      ],
+      "quotes": [
+        { "q": "The payment of rents to landowners is not equivalent to a local social benefit mechanism, since it benefits a restricted group — the landowners — while the landscape and environmental impacts are borne by the community as a whole. The perception of unfair distribution can reduce local acceptance more sharply than the absence of any compensation, because it creates internal cleavages in the affected community.", "cite": "p. 81, on the Sophia plant" },
+        { "q": "Significant social and political opposition, articulated by local movements, the CIM Beira Baixa and several environmental NGOs. Public protests (including in Lisbon) and a petition with thousands of signatures. The central narrative criticises the deployment of “mega-plants” and the transformation of the interior into a “sacrifice zone”… Process suspended (2026) for reformulation of the project.", "cite": "p. 117, Annex A3" }
+      ]
+    },
+    {
+      "h": "Economic benefits are real — but often captured elsewhere",
+      "paras": [
+        "Construction employment is temporary; operation and maintenance employs far fewer. Where the local economic base is weak, much of the value is captured by firms from outside, cutting the local multiplier.",
+        "On tourism, <b>30 tourism enterprises and 112 local-accommodation establishments</b> fall within areas of solar potential — country houses, agri-tourism, rural hotels, concentrated in the Centro and Norte — businesses whose entire value depends on landscape quality, tranquillity and rural identity."
+      ],
+      "quotes": [
+        { "q": "The installation of renewables can generate industrial competitiveness and significant municipal revenues, but the benefits tend to be appropriated by agents external to the territory… renewable production can exist without generating any relevant economic transformation.", "cite": "p. 10" }
+      ]
+    },
+    {
+      "h": "What it recommends instead",
+      "paras": [
+        "Treat the mapped area as a <b>reference stock, not zones for immediate activation</b>. Phase activation in five-year stages with capacity envelopes per sub-region. Make grid connection capacity — not land availability — the primary filter. Set <b>thresholds to prevent overload</b> in the areas of highest pressure.",
+        "Make local benefit-sharing a <b>mandatory common framework</b>, not something negotiated project by project. And prioritise roofs, car parks, industrial and logistics zones, landfills, quarries and abandoned mines as the preferred domain of acceleration."
+      ]
+    }
+  ]
+}

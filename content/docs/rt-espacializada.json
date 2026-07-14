@@ -1,0 +1,81 @@
+{
+  "slug": "rt-espacializada",
+  "title": "Integration of Spatialised Information — the report that drew the maps",
+  "titlePt": "Relatório Temático – Integração da Informação Espacializada",
+  "authors": "LNEG (coordination: Sofia Simões)",
+  "date": "May 2026",
+  "pages": 115,
+  "summary": "The GIS report that actually <b>drew the maps</b> — including the one reproduced on this site. It filtered the whole mainland through exclusion criteria, leaving ~578,777 ha for solar (falling to 371,348 ha once a substation must be within 10 km) and ~84,489 ha for wind. Its own limitations chapter is the most valuable part: the base land-cover map has a resolution of only <b>1 hectare</b>, <b>municipal plans were never consulted</b>, and aeronautical restrictions could only be approximated. It also confirms the <b>Beira Baixa</b> is among the most heavily mapped regions in the country.",
+  "keyFigures": [
+    { "n": "11.0%", "label": "of the <b>whole Beira Baixa region</b> mapped as potential solar zone — rising to <b>22.1%</b> without the grid-distance filter" },
+    { "n": "1 ha", "label": "resolution of the land-cover map used to draw the zones — called <b>insufficient</b> by the report itself" },
+    { "n": "0", "label": "municipal master plans (PDM) consulted when drawing the maps" },
+    { "n": "21%", "label": "of the mapped solar land is actually near a substation <b>with capacity available</b> — the rest has nowhere to connect" }
+  ],
+  "sections": [
+    {
+      "h": "How the maps were made",
+      "paras": [
+        "The whole mainland was put through a GIS filter: compile every environmental and heritage constraint that would block a zone, assemble the best available national data for each, then remove from the map every area covered by at least one constraint. What survives is what you see shaded on the map.",
+        "Different criteria were applied to solar and to wind, producing two separate maps. Areas below 20 ha were generally discarded."
+      ]
+    },
+    {
+      "h": "The admissions that matter",
+      "paras": [
+        "The report is honest about its own limits, and these admissions are among the strongest grounds for objecting. It was done in seven months, constrained by what data happened to exist.",
+        "Most strikingly: <b>municipal master plans were not consulted at all</b>. The plans that actually govern land use in Fundão, Castelo Branco and Covilhã played no part in drawing these zones."
+      ],
+      "quotes": [
+        { "q": "The work was carried out over a period of 7 months, and was limited by time and by data availability.", "cite": "p. 12" },
+        { "q": "Accordingly, the information contained in the various Municipal Master Plans (PDM) was not considered, since it was not possible to consult each of them individually.", "cite": "p. 12" }
+      ]
+    },
+    {
+      "h": "The base map is too coarse to trust at this scale",
+      "paras": [
+        "The land-cover map underpinning everything works at <b>1 hectare resolution</b> — and the report itself says that is not good enough for questions of detail, precisely because much of the analysis works with smaller polygons.",
+        "It also warns the land-cover map <b>is not legally binding</b>, so legally protected trees such as cork oak may in fact be standing in areas the map classified as something else entirely."
+      ],
+      "quotes": [
+        { "q": "The current COS (COS2023) works at a resolution of 1 ha, which is insufficient to deal properly with questions of detail… This issue is especially relevant since in this report, and especially in the case of wind, we work with polygons smaller than 100 ha.", "cite": "p. 72" },
+        { "q": "COS is not a legally binding instrument, and some specimens of protected species (e.g. cork oak, holly) may occur in areas classified by COS as, for example, “forests of invasive species”.", "cite": "p. 72" },
+        { "q": "The whole exercise under way is a function of the limitations of the cartographic information for the country, and these must be borne in mind.", "cite": "p. 72" }
+      ]
+    },
+    {
+      "h": "Aeronautical restrictions were guessed",
+      "paras": [
+        "The aeronautical servitudes for wind could not be processed in time, so the team substituted rough circles around airports and aerodromes. The report states the resulting wind figures should be treated with reservation, with an uncertainty of about <b>±6.9%</b> on the mapped area."
+      ],
+      "quotes": [
+        { "q": "It was not possible to consider the aeronautical servitudes in detail. A simplified analysis was carried out, which should be treated with reservations.", "cite": "p. 73" }
+      ]
+    },
+    {
+      "h": "The Beira Baixa, in the numbers",
+      "paras": [
+        "The report confirms what the map shows. <b>11.0% of the entire Beira Baixa region</b> is mapped as potential solar zone and 3.7% as wind — and without the grid-distance filter the solar figure rises to <b>22.1%</b>, more than a fifth of the region.",
+        "By municipality: <b>Fundão</b> has 6,237 ha of solar zone (8.9% of the municipality) and 4,947 ha of wind (7.1%). <b>Castelo Branco</b> has 8,836 ha solar and 7,183 ha wind. <b>Covilhã</b> has 3,317 ha solar and 4,659 ha wind (8.4%).",
+        "Nationally, <b>Castelo Branco is the #2 municipality for wind</b> (8.7% of all mapped wind area), with <b>Oleiros #3</b>, <b>Fundão #4</b> and <b>Covilhã #6</b>. The report concedes this concentration “may raise questions about possible acceptability in some territories.”"
+      ],
+      "quotes": [
+        { "q": "The mapped areas are unevenly distributed across NUTS III regions and municipalities, which may raise questions about possible acceptability in some territories.", "cite": "p. 72" }
+      ]
+    },
+    {
+      "h": "Most of the mapped land has nowhere to plug in",
+      "paras": [
+        "Requiring a substation within 10 km cuts the solar area from 578,777 ha to 371,348 ha. But requiring that substation to actually have <b>capacity available</b> cuts it to just <b>118,669 ha — 21%</b> of the mapped land.",
+        "For wind it is starker: only <b>4,579 ha (5%)</b> of the mapped area is within 10 km of a substation with available capacity.",
+        "In other words, the vast majority of the land being opened up cannot currently be connected to anything."
+      ]
+    },
+    {
+      "h": "The map on this site (Figure 39)",
+      "paras": [
+        "Figure 39 — the map reproduced on this site — shows the solar and wind zones falling within 20 km of a grid substation. On that analysis, 98% of solar zones and 96% of wind zones lie near a substation, which the report reads as favourable for combining wind and solar on shared connections, with the <b>Centro and Norte regions</b> the most suitable."
+      ]
+    }
+  ]
+}

@@ -202,10 +202,21 @@ ${cards}
 if (!fs.existsSync(SRC)) { console.error('no content/docs — nothing to build'); process.exit(0); }
 fs.mkdirSync(OUT, { recursive: true });
 
+// Newest first — the story reads better backwards: the Government's reply to the
+// objections, then the objections themselves, then the documents being objected to.
 const ORDER = [
-  'abc-zaer', 'proposta-pszaer', 'aae-resumo-nao-tecnico', 'aae-relatorio-preliminar',
-  'rt-paisagem', 'rt-ecologia', 'rt-ordenamento', 'rt-energia', 'rt-juridico',
-  'rt-espacializada', 'pareceres-entidades', 'analise-pareceres',
+  'analise-pareceres',        // 23 Jun 2026
+  'pareceres-entidades',      // 16 Jun 2026
+  'abc-zaer',                 // Jun 2026
+  'proposta-pszaer',          //  5 May 2026
+  'aae-relatorio-preliminar', //  5 May 2026
+  'aae-resumo-nao-tecnico',   //  5 May 2026
+  'rt-ecologia',              //  5 May 2026
+  'rt-espacializada',         //  3 May 2026
+  'rt-paisagem',              //  2 May 2026
+  'rt-energia',               //  2 May 2026
+  'rt-juridico',              //  2 May 2026
+  'rt-ordenamento',           //  2 May 2026
 ];
 
 const docs = fs.readdirSync(SRC).filter((f) => f.endsWith('.json'))
