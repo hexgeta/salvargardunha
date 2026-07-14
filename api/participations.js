@@ -64,6 +64,12 @@ module.exports = async (req, res) => {
     res.status(200).json({ count, follows: follows || null, source: 'live' });
   } catch (e) {
     res.setHeader('Cache-Control', 'no-store');
-    res.status(200).json({ count: null, follows: null, source: 'unavailable' });
+    const body = { count: null, follows: null, source: 'unavailable' };
+    if (req.query && req.query.debug === '1') {
+      body.error = String(e && e.message);
+      body.cause = String(e && e.cause && e.cause.message);
+      body.hasProxy = Boolean(proxy);
+    }
+    res.status(200).json(body);
   }
 };
