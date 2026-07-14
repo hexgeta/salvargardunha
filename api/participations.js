@@ -24,13 +24,25 @@ const TARGET = 'https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
 
-function proxyAgent(raw) {
+// Only SOME Webshare exit IPs can reach participa.pt (most get refused), so we
+// try a few different pinned exits (username-N) and take the first that answers.
+function proxyAgent(raw, exit) {
   const u = new URL(raw);
+  const user = decodeURIComponent(u.username) + (exit ? '-' + exit : '');
   return new ProxyAgent({
     uri: u.protocol + '//' + u.host,
-    token: 'Basic ' + Buffer.from(decodeURIComponent(u.username) + ':' + decodeURIComponent(u.password)).toString('base64'),
+    token: 'Basic ' + Buffer.from(user + ':' + decodeURIComponent(u.password)).toString('base64'),
     requestTls: { rejectUnauthorized: false },
   });
+}
+
+function randomExits(n, max) {
+  const out = [];
+  while (out.length < n) {
+    const e = 1 + Math.floor(Math.random() * max);
+    if (!out.includes(e)) out.push(e);
+  }
+  return out;
 }
 
 function num(html, cls) {
@@ -39,37 +51,43 @@ function num(html, cls) {
   return parseInt(m[1].replace(/[^\d]/g, ''), 10) || 0;
 }
 
-module.exports = async (req, res) => {
-  const proxy = process.env.WEBSHARE_PROXY_URL;
+async function attempt(proxy, exit, ms) {
   const opts = {
     headers: { 'User-Agent': UA, 'Accept-Language': 'pt-PT,pt;q=0.9,en;q=0.8' },
-    signal: AbortSignal.timeout(15000),
+    signal: AbortSignal.timeout(ms),
   };
-  if (proxy) opts.dispatcher = proxyAgent(proxy);
+  if (proxy) opts.dispatcher = proxyAgent(proxy, exit);
+  const r = await fetch(TARGET, opts);
+  const html = await r.text();
+  return { count: num(html, 'n-participations'), follows: num(html, 'n-follows') };
+}
 
-  try {
-    const r = await fetch(TARGET, opts);
-    const html = await r.text();
-    const count = num(html, 'n-participations');
-    const follows = num(html, 'n-follows');
+module.exports = async (req, res) => {
+  const proxy = process.env.WEBSHARE_PROXY_URL;
+  const debug = req.query && req.query.debug === '1';
+  const tried = [];
 
-    if (!count) {
-      // Couldn't read a real number — say so, don't invent one.
-      res.setHeader('Cache-Control', 'no-store');
-      res.status(200).json({ count: null, follows: null, source: 'unavailable' });
-      return;
+  // Most exits get refused by participa.pt; try a handful, short timeouts, and
+  // stay well inside the platform's function limit. First one that answers wins.
+  const exits = proxy ? randomExits(4, 20000) : [null];
+
+  for (const exit of exits) {
+    try {
+      const { count, follows } = await attempt(proxy, exit, 3500);
+      if (count) {
+        res.setHeader('Cache-Control', 's-maxage=600, stale-while-revalidate=3600');
+        res.status(200).json({ count, follows: follows || null, source: 'live' });
+        return;
+      }
+      tried.push({ exit, err: 'no-count-in-html' });
+    } catch (e) {
+      tried.push({ exit, err: String(e && e.message) });
     }
-
-    res.setHeader('Cache-Control', 's-maxage=600, stale-while-revalidate=3600');
-    res.status(200).json({ count, follows: follows || null, source: 'live' });
-  } catch (e) {
-    res.setHeader('Cache-Control', 'no-store');
-    const body = { count: null, follows: null, source: 'unavailable' };
-    if (req.query && req.query.debug === '1') {
-      body.error = String(e && e.message);
-      body.cause = String(e && e.cause && e.cause.message);
-      body.hasProxy = Boolean(proxy);
-    }
-    res.status(200).json(body);
   }
+
+  // Never invent a number — hide the counter instead.
+  res.setHeader('Cache-Control', 'no-store');
+  const body = { count: null, follows: null, source: 'unavailable' };
+  if (debug) { body.hasProxy = Boolean(proxy); body.tried = tried; }
+  res.status(200).json(body);
 };
