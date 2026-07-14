@@ -67,6 +67,8 @@
   .cd .l{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:7px}
   .cd .over{color:var(--red)}
 
+  .livecount{margin-top:15px;font-size:15px;color:#d7ddd4;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+  .livecount b{color:var(--green);font-weight:800;font-variant-numeric:tabular-nums}
   .cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
   .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:16px;padding:15px 22px;border-radius:12px;text-decoration:none;border:1px solid transparent;transition:transform .06s ease, background .15s ease;cursor:pointer}
   .btn:active{transform:translateY(1px)}
@@ -218,6 +220,7 @@
     <div class="cta">
       <a class="btn btn-primary" href="#passos" data-i18n="hero_cta1">Objetar na consulta pública →</a>
     </div>
+    <p class="livecount" id="livecount" hidden></p>
   </div>
 </header>
 
@@ -437,7 +440,7 @@
 <section class="pet-band" style="display:none">
   <div class="wrap">
     <div class="kicker" data-i18n="pet_k">Petição no Parlamento</div>
-    <div class="pet-nums"><span class="pet-count">5&nbsp;283</span><span class="pet-total" data-i18n="pet_total">/ 7&nbsp;500 assinaturas</span></div>
+    <div class="pet-nums"><span class="pet-count">5&nbsp;311</span><span class="pet-total" data-i18n="pet_total">/ 7&nbsp;500 assinaturas</span></div>
     <div class="pet-track"><div class="pet-fill" style="width:70%"></div><div class="pet-goal" title="4 000"></div></div>
     <p class="pet-done" data-i18n="pet_done">✅ <b>Meta das 4&nbsp;000 atingida</b> — o debate no Parlamento está garantido.</p>
     <p class="pet-next" data-i18n="pet_next">Próxima meta: <b>7&nbsp;500</b> — obriga à audição dos peticionários.</p>
@@ -820,10 +823,10 @@
     }
   };
   var STR={
-    pt:{left:function(d,h){return 'faltam <b>'+d+' dias e '+h+'h</b>'}, ended:'<b>a consulta terminou</b> — assina a petição', gen:'A gerar…', copied:'Copiado ✓', linkcopied:'Link copiado ✓', shareMsg:'A Serra da Gardunha é das áreas mais visadas do país por megacentrais solares. Objeta na consulta pública até 15 de julho: '},
-    en:{left:function(d,h){return '<b>'+d+' days and '+h+'h</b> left'}, ended:'<b>the consultation has ended</b> — sign the petition', gen:'Generating…', copied:'Copied ✓', linkcopied:'Link copied ✓', shareMsg:'The Serra da Gardunha is one of the areas most targeted by mega solar plants in Portugal. Object in the public consultation by 15 July: '},
-    de:{left:function(d,h){return 'noch <b>'+d+' Tage und '+h+'h</b>'}, ended:'<b>die Konsultation ist beendet</b> — unterschreibe die Petition', gen:'Wird erstellt…', copied:'Kopiert ✓', linkcopied:'Link kopiert ✓', shareMsg:'Die Serra da Gardunha gehört zu den am stärksten von Solar-Großkraftwerken bedrohten Gebieten Portugals. Nimm bis 15. Juli an der Konsultation teil: '},
-    fr:{left:function(d,h){return 'encore <b>'+d+' jours et '+h+'h</b>'}, ended:'<b>la consultation est terminée</b> — signe la pétition', gen:'Génération…', copied:'Copié ✓', linkcopied:'Lien copié ✓', shareMsg:'La Serra da Gardunha est l’une des zones les plus visées du pays par les méga-centrales solaires. Participe à la consultation avant le 15 juillet : '}
+    pt:{left:function(d,h){return 'faltam <b>'+d+' dias e '+h+'h</b>'}, ended:'<b>a consulta terminou</b> — assina a petição', gen:'A gerar…', copied:'Copiado ✓', linkcopied:'Link copiado ✓', objections:function(n){return '✍️ <b>'+n+'</b> contributos já submetidos na consulta — junta o teu.'}, shareMsg:'A Serra da Gardunha é das áreas mais visadas do país por megacentrais solares. Objeta na consulta pública até 15 de julho: '},
+    en:{left:function(d,h){return '<b>'+d+' days and '+h+'h</b> left'}, ended:'<b>the consultation has ended</b> — sign the petition', gen:'Generating…', copied:'Copied ✓', linkcopied:'Link copied ✓', objections:function(n){return '✍️ <b>'+n+'</b> contributions already submitted to the consultation — add yours.'}, shareMsg:'The Serra da Gardunha is one of the areas most targeted by mega solar plants in Portugal. Object in the public consultation by 15 July: '},
+    de:{left:function(d,h){return 'noch <b>'+d+' Tage und '+h+'h</b>'}, ended:'<b>die Konsultation ist beendet</b> — unterschreibe die Petition', gen:'Wird erstellt…', copied:'Kopiert ✓', linkcopied:'Link kopiert ✓', objections:function(n){return '✍️ <b>'+n+'</b> Beiträge bereits eingereicht — füge deinen hinzu.'}, shareMsg:'Die Serra da Gardunha gehört zu den am stärksten von Solar-Großkraftwerken bedrohten Gebieten Portugals. Nimm bis 15. Juli an der Konsultation teil: '},
+    fr:{left:function(d,h){return 'encore <b>'+d+' jours et '+h+'h</b>'}, ended:'<b>la consultation est terminée</b> — signe la pétition', gen:'Génération…', copied:'Copié ✓', linkcopied:'Lien copié ✓', objections:function(n){return '✍️ <b>'+n+'</b> contributions déjà soumises à la consultation — ajoute la tienne.'}, shareMsg:'La Serra da Gardunha est l’une des zones les plus visées du pays par les méga-centrales solaires. Participe à la consultation avant le 15 juillet : '}
   };
 
   var PT={}; document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
@@ -869,8 +872,17 @@
     document.getElementById('tg').href='https://t.me/share/url?url='+encodeURIComponent(u)+'&text='+encodeURIComponent(msg);
     document.getElementById('fb').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(u);
     renderPet();
+    renderLive();
   }
-  var PET_NEXT=7500, petCount=5283;
+  var partCount=null;
+  function renderLive(){
+    var el=document.getElementById('livecount');
+    if(!el||!partCount) return;
+    el.innerHTML=STR[lang].objections(fmtCount(partCount));
+    el.hidden=false;
+  }
+  fetch('/api/participations').then(function(r){return r.json()}).then(function(j){ if(j&&j.count){partCount=j.count; renderLive();} }).catch(function(){});
+  var PET_NEXT=7500, petCount=5311;
   function fmtCount(n){var sep=(lang==='en')?',':'\u00a0';return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,sep);}
   function renderPet(){
     var pct=Math.min(100,petCount/PET_NEXT*100);
