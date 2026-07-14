@@ -72,6 +72,29 @@ Rules:
 
 ## Facts
 Every figure/quote comes from the official PSZAER consultation documents on
-participa.pt (May 2026). Do not invent numbers. Petition milestones used on the
-page: 4 000 signatures = debate guaranteed (already passed), 7 500 = mandatory
-hearing of the petitioners.
+participa.pt (May 2026). Do not invent numbers.
+
+**Petition thresholds** (verified against Lei 43/90, as amended by Lei 63/2020 —
+an earlier version of this file had these backwards and wrong):
+- **> 1 000** signatures → hearing of the petitioners is mandatory (Art. 21.º).
+  Long since passed.
+- **> 7 500** signatures → mandatory debate in Plenary (Art. 24.º(1)(a)). This is
+  the live target the `.pet-band` progress bar counts toward.
+- The old **4 000** debate threshold is obsolete (pre-Lei 63/2020). Don't use it.
+
+## Live counters — participa.pt blocks datacenter IPs
+`api/petition.js` (parliament) scrapes fine from Vercel. `api/participations.js`
+(participa.pt consultation contribution count) does NOT: participa.pt firewalls
+datacenter IPs, so a direct fetch from Vercel never connects. It goes through the
+Webshare proxy (`WEBSHARE_PROXY_URL` env var on Vercel), and two things bite:
+- undici **ignores credentials embedded in a proxy URL** — pass them explicitly as
+  a `Proxy-Authorization` token on `ProxyAgent`.
+- participa.pt serves an **incomplete cert chain** (leaf only), so Node throws
+  "unable to verify the first certificate" — `requestTls.rejectUnauthorized:false`
+  on that read-only request.
+- Only *some* proxy exits get through, so the function retries across several
+  pinned exits (`username-N`) and takes the first that answers.
+
+**No fallback numbers.** If a count can't be read live, the endpoint returns
+`count:null` and the page hides the counter. A stale number that looks live is
+worse than no number.
