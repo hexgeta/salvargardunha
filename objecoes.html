@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>As 172 objeções e como o Governo respondeu — PSZAER · Salvar a Gardunha</title>
+<meta name="description" content="Todas as 172 contribuições das entidades públicas à consulta do PSZAER e o sentido da resposta do Governo — aceite, parcialmente aceite ou apenas registado. Filtra por entidade e por sentido.">
+<link rel="canonical" href="https://salvargardunha.com/objecoes">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<style>
+  :root{--bg:#0a0d0a;--panel:#141a14;--line:#243024;--ink:#f3f5f1;--muted:#9aa79a;--green:#4ade80;--green-d:#22c55e;--amber:#fbbf24;--red:#f87171;--max:1180px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  a{color:var(--green)}
+  .top{border-bottom:1px solid var(--line);padding:14px 0;font-size:14px}
+  .top a{text-decoration:none;color:var(--muted)}.top a:hover{color:var(--green)}
+  header{padding:34px 0 22px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:11px}
+  h1{font-size:clamp(24px,4vw,36px);line-height:1.12;font-weight:900;letter-spacing:-.02em;max-width:900px}
+  .lede{margin-top:14px;color:#c9d1c5;font-size:16px;max-width:820px}
+  .lede b{color:#fff}
+  .src{margin-top:10px;font-size:13.5px;color:var(--muted)}
+  /* summary chips */
+  .sum{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+  .chip{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:12px 15px;min-width:150px}
+  .chip .n{font-size:24px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+  .chip .l{font-size:12.5px;color:var(--muted);margin-top:5px}
+  .chip.aceite .n{color:var(--green)}
+  .chip.parcial .n{color:var(--amber)}
+  .chip.registado .n{color:var(--red)}
+  .chip.total .n{color:#fff}
+  /* controls */
+  .controls{position:sticky;top:0;z-index:5;background:rgba(10,13,10,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:14px 0;margin-top:4px}
+  .controls .wrap{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .fbtn{font:inherit;font-size:13.5px;font-weight:700;padding:8px 13px;border-radius:9px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;white-space:nowrap}
+  .fbtn:hover{border-color:var(--green)}
+  .fbtn.on{background:var(--green-d);color:#05230f;border-color:var(--green-d)}
+  .fbtn.on.parcial{background:var(--amber);border-color:var(--amber);color:#2a1e02}
+  .fbtn.on.registado{background:var(--red);border-color:var(--red);color:#2a0d0d}
+  select,input[type=search]{font:inherit;font-size:14px;padding:8px 11px;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+  input[type=search]{min-width:190px;flex:1}
+  .count{font-size:13px;color:var(--muted);margin-left:auto;white-space:nowrap}
+  /* table */
+  main{padding:8px 0 60px}
+  .tblwrap{overflow-x:auto;margin-top:16px;border:1px solid var(--line);border-radius:12px}
+  table{border-collapse:collapse;width:100%;min-width:820px}
+  thead th{position:sticky;top:0;background:#11170f;text-align:left;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:11px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+  tbody td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top;font-size:14.5px}
+  tbody tr:hover{background:#10160f}
+  .c-ent{white-space:nowrap;font-weight:700;color:#fff;font-size:13.5px}
+  .c-obj{color:#d3dacd;min-width:340px}
+  .c-note{color:#9aa79a;min-width:280px;font-size:13.5px}
+  .c-sense{white-space:nowrap}
+  .badge{display:inline-block;font-size:11.5px;font-weight:800;padding:4px 9px;border-radius:999px;letter-spacing:.02em}
+  .badge.aceite{background:rgba(74,222,128,.14);color:var(--green);border:1px solid rgba(74,222,128,.4)}
+  .badge.parcial{background:rgba(251,191,36,.14);color:var(--amber);border:1px solid rgba(251,191,36,.4)}
+  .badge.registado{background:rgba(248,113,113,.14);color:var(--red);border:1px solid rgba(248,113,113,.4)}
+  .empty{padding:40px 14px;text-align:center;color:var(--muted)}
+  footer{padding:24px 0 60px;color:#6f7a6f;font-size:12.5px;border-top:1px solid var(--line)}
+  footer a{color:var(--green);text-decoration:none}
+  @media(max-width:640px){.chip{flex:1;min-width:calc(50% - 5px)}}
+</style>
+<script defer data-domain="salvargardunha.com" src="https://analytics.hexgeta.com/script.js"></script>
+</head>
+<body>
+
+<div class="top"><div class="wrap"><a href="/">← salvargardunha.com</a> · <a href="/read/analise-pareceres">Documento completo em inglês →</a></div></div>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Consulta PSZAER · análise e ponderação</div>
+    <h1>As objeções das entidades — e o que o Governo fez com elas</h1>
+    <p class="lede">Todas as contribuições formais das entidades públicas à consulta do PSZAER (o documento numera <b>172</b>), com o <b>sentido da resposta do Governo</b>. Repara: o Governo usa apenas três respostas — <b>Aceite</b>, <b>Parcialmente aceite</b> e <b>Registado</b> (fica anotado mas <b>não muda nada</b>). <b>Não existe uma única «Não aceite»</b> — nem sequer para os pareceres desfavoráveis (Património Cultural, ANMP, Agricultura, Santa Maria da Feira).</p>
+    <p class="src">Fonte: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">Análise e Ponderação dos Pareceres das Entidades</a> (23 jun 2026, 47 pp.) · resumo em inglês em <a href="/read/analise-pareceres">/read</a>. Texto das objeções citado do documento oficial (em português). Esta tabela individualiza 171 das 172 contribuições numeradas.</p>
+    <div class="sum" id="sum"></div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="wrap">
+    <button class="fbtn on" data-sense="all">Todas</button>
+    <button class="fbtn" data-sense="Aceite">Aceite</button>
+    <button class="fbtn parcial" data-sense="Parcialmente aceite">Parcialmente aceite</button>
+    <button class="fbtn registado" data-sense="Registado">Registado</button>
+    <select id="entsel"><option value="all">Todas as entidades</option></select>
+    <input type="search" id="q" placeholder="Procurar (ex.: Gardunha, cartografia, RAN)…">
+    <span class="count" id="count"></span>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>Entidade</th><th>Contributo / objeção</th><th>Sentido</th><th>Resposta do Governo</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div class="empty" id="empty" style="display:none">Nenhuma linha corresponde ao filtro.</div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><a href="/">salvargardunha.com</a> · <a href="/read/">Documentos em inglês</a> · <a href="/social">Espalhar a palavra</a></div>
+    <p style="margin-top:10px">Extraído fielmente da tabela de Análise e Ponderação (linhas 1–172) do documento oficial em consulta pública. As objeções e as respostas são citação/síntese do texto original em português; onde um número importe, confirma no <a href="/docs/analise-pareceres.pdf">PDF</a>. Página informativa e cívica, sem fins lucrativos.</p>
+  </div>
+</footer>
+
+<script type="application/json" id="data">
+{"total_contributions": 172, "rows": [
+{"entity":"DGT","objection":"A proposta final deve enfatizar a natureza estratégica, programática e concertada que o RJIGT impõe a um programa setorial.","sense":"Aceite","note":"Versão final reforçará que as ZAER são referência programática, concretizada por transposição para os PDM."},
+{"entity":"DGT","objection":"Densifica a natureza jurídica: referência obrigatória ao planeamento local, compatibilização e eficácia diferida dependente da incorporação nos planos municipais.","sense":"Aceite","note":"PSZAER não altera automaticamente classificação/qualificação do solo."},
+{"entity":"DGT","objection":"A cartografia é indicativa (áreas com aptidão/potencial), não uma delimitação geográfica final.","sense":"Parcialmente aceite","note":"Limites não correspondem a delimitação cadastral; aferição municipal e de projeto."},
+{"entity":"DGT","objection":"Recomenda orientações metodológicas homogéneas para os municípios na adaptação dos PDM, evitando transposição assimétrica.","sense":"Parcialmente aceite","note":"PSZAER incluirá diretrizes e matriz de compatibilização (art. 51.º RJIGT)."},
+{"entity":"DGT","objection":"Discrepâncias entre relatórios: redução de ~14 000 ha nas ZAER Solar e acréscimo de 832 ha nas Eólica; falta de dados das ZAER em áreas artificializadas.","sense":"Aceite","note":"Informação geográfica será revista, validada e harmonizada."},
+{"entity":"DGT","objection":"O cruzamento ZAER x COS 2023 evidencia matriz silvo-pastoril e florestal; alerta para conflitos com agricultura, floresta, biodiversidade e paisagem.","sense":"Parcialmente aceite","note":"Integração em ZAER não afeta automaticamente projetos nem dispensa ponderação."},
+{"entity":"DGT","objection":"Considera crítico o sobredimensionamento da cartografia: 357 347 ha para ZAER Solar e 85 321 ha para Eólica, muito superior à área necessária às metas do PNEC 2030.","sense":"Registado","note":"Áreas devem ser lidas como manchas de aptidão/potência, não cartografia definitiva; concretização por faseamento e aferição municipal — sem alteração à proposta."},
+{"entity":"DGT","objection":"Recomenda definição de tetos máximos de ocupação por região/concelho para limitar áreas, prevenir sobrecarga do solo rústico e especulação fundiária.","sense":"Aceite","note":"Acolhe-se como orientação a densificar; eventual fixação de tetos será fundamentada por NUTS III/município."},
+{"entity":"DGT","objection":"Valoriza a listagem de áreas de exclusão mas considera necessário aprofundamento, mapeamento e validação à escala local.","sense":"Parcialmente aceite","note":"Critérios de exclusão à escala nacional não dispensam validação municipal e de projeto."},
+{"entity":"DGT","objection":"Áreas abrangidas por PRGP recentemente aprovados foram incluídas nas ZAER e devem salvaguardar-se para não conflituarem com o desenho da paisagem.","sense":"Aceite","note":"Articulação ZAER x PRGP a validar à escala municipal e de projeto."},
+{"entity":"DGT","objection":"A compatibilização municipal deve ser feita caso a caso porque os PDM apresentam soluções regulamentares distintas.","sense":"Registado","note":"PSZAER preverá matriz de compatibilização; procedimento por alteração/adaptação/revisão."},
+{"entity":"DGT","objection":"Valoriza a priorização de áreas artificializadas e construídas para autoconsumo, comunidades de energia e produção distribuída.","sense":"Aceite","note":"PSZAER distinguirá aceleração em áreas artificializadas como eixo prioritário."},
+{"entity":"DGT","objection":"Destaca diretrizes de gestão e integração paisagística, mitigação da intrusão visual e limites a áreas contínuas de painéis.","sense":"Aceite","note":"Diretrizes de integração paisagística a integrar nas normas de execução."},
+{"entity":"DGT","objection":"Propõe reestruturação do documento final (diagnóstico, opções estratégicas, modelo territorial, AAE, governança, monitorização).","sense":"Registado","note":"Sem prejuízo da organização interna; versão final será reestruturada."},
+{"entity":"DGEG","objection":"Pede correção da referência institucional do setor elétrico, que deve indicar DGEG, E-REDES e REN.","sense":"Aceite","note":"Versão final corrigirá a referência às entidades do setor elétrico."},
+{"entity":"DGEG","objection":"Alerta para salvaguarda de infraestruturas de combustíveis (RNTG, gasodutos, oleodutos), faixas de servidão e distâncias de segurança.","sense":"Aceite","note":"Aferição à escala municipal assegura cumprimento das servidões e RUP."},
+{"entity":"DGEG","objection":"Considera insuficiente a ponderação de recursos geológicos: pedreiras, massas minerais, áreas concessionadas e contratos de prospeção/pesquisa.","sense":"Aceite","note":"Versão final preverá verificação de sobreposições com direitos existentes."},
+{"entity":"DGEG","objection":"Questiona a classificação de minas abandonadas/desativadas como áreas prioritárias, por conflito com matérias-primas críticas.","sense":"Parcialmente aceite","note":"Utilização dependerá de verificação prévia da inexistência de conflito com recursos geológicos e matérias-primas críticas."},
+{"entity":"DGEG","objection":"Reservas quanto à possibilidade de projetos sem AIA; a compatibilização deve ser garantida em fase de planeamento.","sense":"Parcialmente aceite","note":"Dispensa de AIA não determina viabilidade automática nem afasta verificação preventiva."},
+{"entity":"DGEG","objection":"Assinala problemas de qualidade e sobreposição das áreas propostas com direitos de concessão, prospeção e pesquisa mineira.","sense":"Parcialmente aceite","note":"Questão semelhante à n.º 5; validação e harmonização cartográfica com direitos mineiros."},
+{"entity":"Património Cultural, I.P.","objection":"A AAE revela lacunas na integração do Património Cultural: metodologia, critérios, indicadores e medidas de salvaguarda.","sense":"Parcialmente aceite","note":"Versão final reforçará o Património Cultural como dimensão estruturante."},
+{"entity":"Património Cultural, I.P.","objection":"A equipa da AAE não integra especialista em Património Cultural (arqueólogo), comprometendo a avaliação dos efeitos patrimoniais.","sense":"Registado","note":""},
+{"entity":"Património Cultural, I.P.","objection":"O FCD #3 secundariza o Património Cultural, integrando-o de forma residual na componente paisagística.","sense":"Aceite","note":"FCD #3 será revisto/densificado, autonomizando o Património Cultural."},
+{"entity":"Património Cultural, I.P.","objection":"Ausência de critérios e indicadores específicos para avaliar impactes sobre património classificado, arqueológico, arquitetónico e imaterial.","sense":"Parcialmente aceite","note":"Programa integrará critérios e indicadores específicos."},
+{"entity":"Património Cultural, I.P.","objection":"O Relatório Ambiental não apresenta mecanismos de monitorização/seguimento dirigidos ao Património Cultural.","sense":"Aceite","note":"Versão final preverá monitorização própria para património cultural."},
+{"entity":"Património Cultural, I.P.","objection":"As medidas de mitigação não incluem disposições específicas para salvaguarda do Património Cultural.","sense":"Aceite","note":"Serão integradas medidas específicas diferenciadas por fases."},
+{"entity":"Património Cultural, I.P.","objection":"Não é assegurada caracterização patrimonial prévia (levantamento documental e prospeção arqueológica).","sense":"Aceite","note":"Estudos prévios como condição em áreas de incidência/proximidade patrimonial."},
+{"entity":"Património Cultural, I.P.","objection":"Não se clarifica a articulação entre PSZAER, regime de AIA e IGT, gerando incerteza procedimental.","sense":"Parcialmente aceite","note":"Simplificação não dispensa regimes de proteção do património cultural."},
+{"entity":"Património Cultural, I.P.","objection":"Fundamental assegurar a participação da tutela do Património Cultural na avaliação e licenciamento dos projetos.","sense":"Registado","note":"PSZAER não afeta regimes de proteção existentes nem limita entidades competentes."},
+{"entity":"Património Cultural, I.P.","objection":"Os critérios de exclusão consideram apenas património classificado, não incluindo inventariado, contextos e zonas de proteção.","sense":"Registado","note":"Património inventariado/não classificado poderá fundamentar ajustamentos à escala municipal e de projeto."},
+{"entity":"Património Cultural, I.P.","objection":"A proposta não avalia adequadamente efeitos cumulativos sobre áreas patrimoniais sensíveis e paisagens culturais.","sense":"Parcialmente aceite","note":"Análise de efeitos cumulativos sobre património e paisagens será reforçada."},
+{"entity":"Património Cultural, I.P.","objection":"A simplificação procedimental pode comprometer a salvaguarda do Património Cultural se não for clara a articulação com regimes de proteção.","sense":"Registado","note":"Questão complementar às n.º 28 e 29; regimes de proteção mantêm-se."},
+{"entity":"ICNF, I.P.","objection":"Ausência de delimitação clara de áreas de exclusão absoluta (no-go areas), apesar de valores naturais e culturais interditarem submissão de projetos.","sense":"Parcialmente aceite","note":"PSZAER distinguirá áreas de exclusão absoluta de condicionamento; validação local exigente em contextos sensíveis."},
+{"entity":"ICNF, I.P.","objection":"Viabilidade de ZAER depende de linhas elétricas que atravessam áreas sensíveis; a dissociação entre centros produtores e infraestruturas compromete a minimização de impactes.","sense":"Aceite","note":"Avaliação abrangerá de forma integrada linhas, subestações e acessos."},
+{"entity":"ICNF, I.P.","objection":"Riscos da hibridização, sobre-equipamento e reequipamento, que podem gerar impactes cumulativos, contrariando presunções de impacte reduzido.","sense":"Parcialmente aceite","note":"Não podem beneficiar de presunção automática de impacte reduzido."},
+{"entity":"ICNF, I.P.","objection":"Insuficiência e heterogeneidade das medidas de mitigação, muitas reiterando obrigações legais; falta de coerência solar/eólico e exclusão de linhas elétricas.","sense":"Aceite","note":"Normas de execução converterão diretrizes gerais em medidas operativas diferenciadas por tecnologia e fase."},
+{"entity":"ICNF, I.P.","objection":"Persistência de ZAER sobre valores naturais relevantes (montado, habitats sensíveis, corredores ecológicos), em parte por limitações da COS 2023.","sense":"Aceite","note":"Cartografia final será revista e validada com informação setorial e local atualizada."},
+{"entity":"ICNF, I.P.","objection":"Insuficiente articulação com o Sistema Integrado de Gestão de Fogos Rurais (RPFGC e RSFGC) e com a admissibilidade de eólica/solar em contextos florestais.","sense":"Aceite","note":"Versão final articulará ZAER com as redes de faixas de gestão de combustível."},
+{"entity":"ICNF, I.P.","objection":"Ausência de exclusão explícita de corredores de conectividade ecológica definidos em PROF e PROT, com risco de fragmentação de habitats.","sense":"Parcialmente aceite","note":"Corredores dos PROF/PROT serão considerados na cartografia e aferição municipal, mas não se exclui a RFCN além do art. 5.º RJCNB."},
+{"entity":"ICNF, I.P.","objection":"Recomendações técnicas detalhadas sobre monitorização de fauna e flora (avifauna, morcegos, grandes carnívoros), shutdown on demand, buffers e monitorização alargada.","sense":"Parcialmente aceite","note":"Consideradas caso a caso como diretrizes de avaliação/mitigação, sem substituir a avaliação de projeto."},
+{"entity":"ICNF, I.P.","objection":"Impactes sobre sistemas florestais (sobreiro e azinheira) e perda irreversível de valores protegidos por erro cartográfico.","sense":"Aceite","note":"Cartografia indicativa e normas assegurarão salvaguarda de sobreiro/azinheira e montado; correção das situações cartográficas."},
+{"entity":"ICNF, I.P.","objection":"Risco de incerteza jurídica na articulação entre PSZAER, regimes setoriais de conservação da natureza e PDM.","sense":"Aceite","note":"Versão final clarificará exclusões, condicionamentos e matérias sujeitas a verificação em sede de projeto."},
+{"entity":"ICNF, I.P.","objection":"Parecer favorável condicionado, dependente da integração e correção das matérias identificadas (exclusões, conectividade, cartografia, impactes cumulativos).","sense":"Registado","note":"Regista-se o sentido favorável condicionado; correções a integrar na versão final."},
+{"entity":"APA, I.P.","objection":"Questiona a ausência de documento autónomo de diretrizes para licenciamento e acompanhamento de projetos, referido mas não incluído.","sense":"Aceite","note":"Diretrizes deverão integrar as normas de execução ou documento próprio."},
+{"entity":"APA, I.P.","objection":"A delimitação das ZAER não pode ser remetida para a fase de licenciamento, sob pena de comprometer o objetivo da RED III.","sense":"Parcialmente aceite","note":"AAE estabelece a expressão territorial; aferição municipal ajusta à escala sem substituir o planeamento."},
+{"entity":"APA, I.P.","objection":"Insuficiente fundamentação do diagnóstico territorial e energético; ausência de síntese da produção renovável e dos grandes consumidores.","sense":"Parcialmente aceite","note":"Diagnóstico territorial e energético será reforçado com síntese da capacidade instalada e consumo."},
+{"entity":"APA, I.P.","objection":"Fragilidades nos relatórios temáticos Jurídico e de Integração da Informação Espacializada, considerados pouco desenvolvidos.","sense":"Registado","note":"Versão final deverá explicitar melhor fontes, dados, escalas, critérios e validação da cartografia."},
+{"entity":"APA, I.P.","objection":"Critica a presunção generalizada de redução de impactes na hibridização, que não pode ser assumida de forma indiscriminada.","sense":"Parcialmente aceite","note":"Questão semelhante à n.º 35; avaliação deve considerar acréscimo efetivo de ocupação."},
+{"entity":"APA, I.P.","objection":"As medidas de mitigação são, em grande parte, recordatórias da legislação vigente, sem cautela adicional aos impactes previsíveis.","sense":"Parcialmente aceite","note":"Normas de execução converterão diretrizes em medidas operativas verificáveis."},
+{"entity":"APA, I.P.","objection":"Destaca impactes cumulativos da tecnologia solar PV sobre recursos hídricos (erosão, hidromorfologia, escoamento superficial).","sense":"Parcialmente aceite","note":"Avaliação cumulativa integrará efeitos sobre solo e água, com critérios e indicadores."},
+{"entity":"APA, I.P.","objection":"Insuficiente demonstração de que projetos em ZAER não produzem efeitos ambientais significativos, face à dispensa de AIA.","sense":"Parcialmente aceite","note":"PSZAER não deverá assentar numa presunção genérica de ausência de efeitos significativos."},
+{"entity":"APA, I.P.","objection":"Recomenda maior atenção à prevenção de acidentes graves, em especial armazenamento por baterias, propondo distâncias de segurança.","sense":"Parcialmente aceite","note":"Distâncias de segurança a definir em sede de licenciamento e avaliação de projeto."},
+{"entity":"APA, I.P.","objection":"Alerta para ausência de abordagem consistente a impactes cumulativos e saturação territorial (gás, pipelines, estabelecimentos Seveso).","sense":"Parcialmente aceite","note":"Questão semelhante às n.º 8, 16 e 34; cruzamento cartográfico e distâncias de segurança."},
+{"entity":"APA, I.P.","objection":"Parecer favorável condicionado, dependente do reforço da fundamentação ambiental e integração das recomendações.","sense":"Registado","note":"Regista-se o sentido favorável condicionado; recomendações a incorporar na revisão."},
+{"entity":"DGADR","objection":"Reconhece as ZAER como planeamento estratégico nacional, sublinhando o caráter indicativo (não delimitação final com eficácia perante particulares).","sense":"Registado","note":"Convergente com as n.º 2, 3 e 4."},
+{"entity":"DGADR","objection":"Necessidade de clarificar, no diploma de aprovação, o caráter indicativo das ZAER e os pressupostos metodológicos de afinação territorial.","sense":"Aceite","note":"Ato de aprovação e normas de execução clarificarão a natureza programática."},
+{"entity":"DGADR","objection":"Preocupação com a dinâmica das servidões e restrições de utilidade pública, em particular a RAN; defende atualização contínua do mapeamento.","sense":"Aceite","note":"Identificação de ZAER não afasta o regime da RAN; cartografia atualizada e mecanismos de atualização."},
+{"entity":"DGADR","objection":"Limitações da COS 2023 (resolução e desatualização), com risco de inclusão indevida de áreas agrícolas e agroflorestais relevantes.","sense":"Parcialmente aceite","note":"Aferição de projeto recorrerá a informação setorial atualizada (RAN, hidroagrícolas, cadastro)."},
+{"entity":"DGADR","objection":"Risco de especulação fundiária e imobiliária associado à identificação das ZAER e à desatualização de PDM.","sense":"Parcialmente aceite","note":"ZAER não confere direitos de instalação nem altera o uso do solo; caráter deve ser comunicado."},
+{"entity":"DGADR","objection":"Insuficiente demonstração do conhecimento sistematizado dos impactes cumulativos de projetos de grande escala na ecologia, paisagem e solo.","sense":"Aceite","note":"AAE e normas operacionalizarão a avaliação cumulativa dentro e fora das ZAER."},
+{"entity":"DGADR","objection":"Valorização estratégica da hibridização, sobre-equipamento e reequipamento, mas alerta para o risco de presunção automática de impacte reduzido.","sense":"Parcialmente aceite","note":"Não deverá estabelecer-se presunção automática de impacte reduzido."},
+{"entity":"DGADR","objection":"Necessidade de reforçar programas de gestão, monitorização e pós-avaliação, atendendo à dispensa de AIA para projetos em ZAER.","sense":"Aceite","note":"Monitorização reforçada com linhas de base, indicadores e mecanismos de atuação."},
+{"entity":"DGADR","objection":"Referência à oposição social crescente a grandes projetos centralizados sem retorno local evidente.","sense":"Registado","note":"Versão final reforçará participação das comunidades e distribuição equilibrada de encargos e benefícios."},
+{"entity":"DGADR","objection":"Parecer favorável condicionado, desfavorável quanto à proposta de PSZAER e favorável condicionado quanto ao Relatório Ambiental Preliminar.","sense":"Registado","note":"Recomendações a ponderar na versão final (RAN, hidroagrícolas, impactes cumulativos, atividade agrícola)."},
+{"entity":"Agência para o Clima, I.P.","objection":"Necessidade de integração explícita das vertentes de mitigação e adaptação às alterações climáticas na AAE.","sense":"Aceite","note":"RA reforçará a integração climática nos FCD."},
+{"entity":"Agência para o Clima, I.P.","objection":"Demonstração insuficiente dos efeitos sobre sumidouros de carbono (perda de biomassa por alteração do uso do solo e desflorestação).","sense":"Parcialmente aceite","note":"RA reforçará balanço de carbono associado à alteração do uso do solo, quando aferível à escala estratégica."},
+{"entity":"Agência para o Clima, I.P.","objection":"O RA deve analisar não só indicadores de mitigação mas também de adaptação (robustez dos projetos a riscos climáticos).","sense":"Aceite","note":"Monitorização ponderará indicadores climáticos quantificáveis."},
+{"entity":"Agência para o Clima, I.P.","objection":"Insuficiente desenvolvimento da adaptação às alterações climáticas: ausência de cenários futuros, vulnerabilidades e critérios de resiliência.","sense":"Aceite","note":"RA integrará cenários e vulnerabilidades climáticas relevantes (incêndio, seca, cheias)."},
+{"entity":"Agência para o Clima, I.P.","objection":"Necessidade de articulação do PSZAER com estratégias e planos nacionais, regionais e municipais de adaptação climática.","sense":"Aceite","note":"Quadro de Referência Estratégico reforçará a articulação, em especial na transposição para PDM."},
+{"entity":"Agência para o Clima, I.P.","objection":"Recomenda utilização de metodologias oficiais de cálculo de emissões de GEE (NIR, fatores nacionais, IPCC).","sense":"Aceite","note":"RA e Programa referenciarão metodologias harmonizadas de cálculo e monitorização."},
+{"entity":"Agência para o Clima, I.P.","objection":"Propõe medidas específicas de mitigação e adaptação em todas as fases dos projetos (construção, exploração, desativação).","sense":"Aceite","note":"Medidas de mitigação integrarão critérios de integração e adaptação."},
+{"entity":"Agência para o Clima, I.P.","objection":"Ausência de valores de referência e metas quantificáveis para indicadores climáticos, limitando a eficácia do programa de seguimento.","sense":"Parcialmente aceite","note":"RA identificará valores de referência, indicadores e, quando possível, metas/limiares."},
+{"entity":"Agência para o Clima, I.P.","objection":"Conclusão: necessidade de revisão e complementação do Relatório Ambiental para reforçar a integração climática.","sense":"Registado","note":"Recomendações a ponderar na revisão do RA e do PSZAER."},
+{"entity":"CCDR Alentejo, I.P.","objection":"Convergência estratégica com o PROTA mas necessidade de equilibrar transição energética com preservação da identidade territorial do Alentejo.","sense":"Registado","note":"Versão final reforçará a articulação com PROT e modelos territoriais regionais."},
+{"entity":"CCDR Alentejo, I.P.","objection":"ZAER muito extensas e concentradas em poucos concelhos, com risco de sobrecarga, efeitos cumulativos e pressão territorial.","sense":"Registado","note":"Faseamento, priorização e monitorização por município/NUTS III na transposição; convergente com n.º 8."},
+{"entity":"CCDR Alentejo, I.P.","objection":"Falta de consideração da disciplina material dos PDM e das condicionantes de ordenamento, podendo gerar incompatibilidades na transposição.","sense":"Aceite","note":"Versão final preverá matriz de incompatibilidades com os PDM (art. 51.º RJIGT)."},
+{"entity":"CCDR Alentejo, I.P.","objection":"Sobreposição com povoamentos de sobreiro e/ou azinheira identificados nos PDM, por limitações da COS 2023 (classificados como pastagens).","sense":"Parcialmente aceite","note":"Cartografia a validar com informação dos PDM/ICNF; relacionada com n.º 37 e 41."},
+{"entity":"CCDR Alentejo, I.P.","objection":"A Estrutura Ecológica Municipal não foi tratada como critério de exclusão, verificando-se sobreposições com funções de proteção.","sense":"Registado","note":"EEM será considerada critério relevante de aferição/condicionamento na transposição municipal."},
+{"entity":"CCDR Alentejo, I.P.","objection":"REN/erosão: ZAER em tipologias REN de risco; questiona a designação risco de erosão e sugere áreas suscetíveis ao risco de erosão.","sense":"Parcialmente aceite","note":"Versão final terá critérios de harmonização terminológica e cartografia de risco."},
+{"entity":"CCDR Alentejo, I.P.","objection":"Não foram excluídos povoamentos florestais percorridos por incêndios, com potencial conflito com o regime aplicável a sobreiro/azinheira percorridos por incêndio.","sense":"Registado","note":"Áreas ardidas com povoamentos de sobreiro/azinheira a analisar na transposição para PDM."},
+{"entity":"CCDR Alentejo, I.P.","objection":"Artigo 51.º do RJIGT: a proposta não identifica disposições incompatíveis dos planos preexistentes nem define formas e prazos de atualização.","sense":"Aceite","note":"Matéria a tratar na versão final/diploma via matriz de compatibilização territorial."},
+{"entity":"CCDR Alentejo, I.P.","objection":"Dimensão social: propõe incluir o tema Social no Quadro 13 e criar Plano de Responsabilidade Social com medidas, indicadores e metas.","sense":"Parcialmente aceite","note":"PSZAER reforçará a dimensão social e os benefícios locais."},
+{"entity":"CCDR Alentejo, I.P.","objection":"AAE: ausência de valores de referência/metas em indicadores e insuficiente fundamentação de opções (delimitação das ZAER e efeitos ambientais).","sense":"Registado","note":"Recomendações a considerar na versão final do PSZAER e da AAE."},
+{"entity":"CCDR Alentejo, I.P.","objection":"Conclusão: a proposta pode prosseguir mas deve ponderar critérios de delimitação, espacialização das manchas e compatibilização com valores vigentes.","sense":"Registado","note":"Regista-se o parecer favorável condicionado."},
+{"entity":"CCDR Algarve, I.P.","objection":"O PSZAER deve traduzir compromisso de compatibilização com programas especiais, regionais e planeamento municipal.","sense":"Aceite","note":"Versão final reforçará articulação com programas regionais e incorporação nos PDM."},
+{"entity":"CCDR Algarve, I.P.","objection":"Necessidade de transposição das disposições e do mapeamento das ZAER para os planos municipais, por serem os instrumentos vinculativos dos particulares.","sense":"Parcialmente aceite","note":"Eficácia perante particulares depende da transposição à escala municipal."},
+{"entity":"CCDR Algarve, I.P.","objection":"As manchas propostas incidem sobre Corredores Ecológicos Estruturantes do PROT Algarve (Guadiana, Meridional, Serrano), REN e zonas ameaçadas por cheias.","sense":"Registado","note":"Situações a concretizar na transposição para PDM (exclusões/condicionamentos) com a estrutura ecológica regional."},
+{"entity":"CCDR Algarve, I.P.","objection":"Sobreposição das ZAER com núcleos urbanos, edificações dispersas e empreendimentos turísticos, com risco de conflitos de uso.","sense":"Parcialmente aceite","note":"Transposição condicionará áreas de conflito e garantirá afastamentos adequados."},
+{"entity":"CCDR Algarve, I.P.","objection":"A instalação extensiva de aerogeradores em cumeadas e grandes áreas solares pode gerar intrusão visual e impactes cumulativos, com reflexos no turismo.","sense":"Registado","note":"PSZAER reforçará critérios de integração paisagística e avaliação de visibilidade."},
+{"entity":"CCDR Algarve, I.P.","objection":"Defende promoção prioritária de autoconsumo, produção descentralizada, reequipamento e hibridização em locais já infraestruturados.","sense":"Parcialmente aceite","note":"Soluções complementares e preferenciais quando reduzam ocupação adicional de solo."},
+{"entity":"CCDR Algarve, I.P.","objection":"A área do Geoparque Algarvensis (Geoparque Mundial UNESCO) deve ser excluída do mapa de potenciais ZAER, pelo critério de exclusão Geoparque.","sense":"Aceite","note":"Versão final excluirá a área do Geoparque Algarvensis, por coerência com o critério e o reconhecimento UNESCO."},
+{"entity":"CCDR Centro, I.P.","objection":"Parecer favorável condicionado à integração das recomendações, reconhecendo relevância estratégica mas fragilidades na operacionalização e articulação com PDM.","sense":"Registado","note":"Diagnóstico e orientações a converter em disposições operacionais, sem alterar a natureza programática das ZAER."},
+{"entity":"CCDR Centro, I.P.","objection":"Falta de metodologia clara de articulação com os PDM, defendendo regras de transição, calendário de adaptação e modelo de governação Estado/CCDR/municípios.","sense":"Aceite","note":"Versão final estabelecerá modelo de articulação com PDM (art. 51.º RJIGT); similar à n.º 4."},
+{"entity":"CCDR Centro, I.P.","objection":"Interferência das áreas propostas com a Reserva Ecológica Nacional, exigindo compatibilidade com o regime jurídico e funções da REN.","sense":"Aceite","note":"Cartografia harmonizada com as delimitações da REN em vigor; convergente com n.º 9 e 87."},
+{"entity":"CCDR Centro, I.P.","objection":"Quanto à RAN e aos Aproveitamentos Hidroagrícolas, refere pequenos erros de sobreposição e interferências, designadamente no AH da Cova da Beira, Belmonte, Viseu, Penamacor, Tondela, Sever do Vouga e Oleiros, recomendando acertos de limites.","sense":"Aceite","note":"Cartografia final revista com base nas delimitações oficiais da RAN e aproveitamentos hidroagrícolas; convergente com n.º 57."},
+{"entity":"CCDR Centro, I.P.","objection":"A Região Centro é a mais abrangida pelas áreas propostas (51,6% da área da CCDRC para solar e 48% para eólica), alertando para riscos de concentração excessiva, especulação fundiária, monofuncionalização energética e encargos em territórios de baixa densidade.","sense":"Parcialmente aceite","note":"Dada a elevada incidência na Região Centro, serão previstos critérios de concentração, capacidade de carga e distribuição territorial; faseamento e monitorização; convergente com n.º 8."},
+{"entity":"CCDR Centro, I.P.","objection":"AAE com forte qualidade conceptual mas menor robustez operacional; indicadores pouco associados ao território, sem linhas de base nem metas verificáveis.","sense":"Aceite","note":"Programa de monitorização incluirá linhas de base, metas e metodologias verificáveis."},
+{"entity":"CCDR Centro, I.P.","objection":"Questiona a natureza indicativa das ZAER, a dependência excessiva de exclusões, a alteração do limiar de declive de 20% para 25% e a não aplicação do critério de proximidade à rede na eólica.","sense":"Parcialmente aceite","note":"Versão final fundamentará limiares e opções; proximidade à rede tratada como critério de exequibilidade."},
+{"entity":"CCDR Centro, I.P.","objection":"Insuficiente demonstração de que os projetos em ZAER não geram impactes negativos significativos, face à dispensa de AIA e à fase de desativação.","sense":"Parcialmente aceite","note":"RA e normas demonstrarão, ao nível estratégico, que a delimitação e medidas evitam efeitos significativos."},
+{"entity":"CCDR LVT, I.P.","objection":"Considera que a AAE cumpre os requisitos mas deve reforçar conformidade com o RJAAPP e o RJIGT, sobretudo quanto à dispensa de AIA em ZAER.","sense":"Registado","note":"Versão final assegurará conformidade formal e substantiva e demonstração preventiva de ausência de efeitos significativos."},
+{"entity":"CCDR LVT, I.P.","objection":"O documento principal do PSZAER surge demasiado sintético, remetendo frequentemente para relatórios temáticos; falta clareza para os destinatários.","sense":"Aceite","note":"Documento principal será autónomo, claro e inteligível, com siglas e conceitos explicitados."},
+{"entity":"CCDR LVT, I.P.","objection":"A aceleração não resulta apenas da demarcação de zonas mas também de licenciamento ágil, rede elétrica, aceitação social e benefícios locais.","sense":"Registado","note":"Cartografia é apenas uma componente da aceleração."},
+{"entity":"CCDR LVT, I.P.","objection":"Reservas ao modelo de licenciamento simplificado e à dispensa de AIA; a conferência procedimental exige unanimidade e pronúncia desfavorável pode determinar o indeferimento.","sense":"Parcialmente aceite","note":"Modelo não pressupõe viabilização de todas as pretensões; dispensa de AIA não afasta regimes legais; convergente com n.º 19, 52 e 99."},
+{"entity":"CCDR LVT, I.P.","objection":"No agrovoltaico, alerta para o vazio legal/regulatório, cumprimento do regime da RAN e condicionantes do olival (parecer regional, arranque de oliveiras, Xylella).","sense":"Aceite","note":"Agrovoltaico é modalidade potencial, não autorização automática; mantém-se aplicável o RJRAN e proteção do olival; relacionada com n.º 57."},
+{"entity":"CCDR LVT, I.P.","objection":"Reforça a importância da transição energética territorialmente justa, distribuição equilibrada de benefícios/encargos e monitorização pós-implementação.","sense":"Registado","note":"Versão final densificará a dimensão de justiça territorial; convergente com n.º 62 e 63."},
+{"entity":"CCDR Norte, I.P.","objection":"Reconhece o mérito global mas identifica matérias que carecem de aprofundamento (articulação territorial, exclusões, impactes cumulativos, solo agrícola, património, governação).","sense":"Registado","note":"Observações a integrar na consolidação do PSZAER."},
+{"entity":"CCDR Norte, I.P.","objection":"Fragilidade do enquadramento estratégico decorrente da não publicação do diploma nacional de transposição da RED III.","sense":"Registado","note":"Versão final assegurará compatibilidade com o diploma de transposição, quando aplicável."},
+{"entity":"CCDR Norte, I.P.","objection":"Insuficiente integração dos projetos de transporte, distribuição e armazenamento na análise de decisão, concentrada em produção solar e eólica.","sense":"Aceite","note":"Avaliação abrangerá de forma integrada linhas, subestações, acessos e infraestruturas; semelhante à n.º 34."},
+{"entity":"CCDR Norte, I.P.","objection":"Necessidade de maior robustez na avaliação de impactes cumulativos (concentração, infraestruturas, pressões antrópicas, capacidade de carga/limiares).","sense":"Aceite","note":"PSZAER densificará a metodologia de avaliação cumulativa; semelhante à n.º 8."},
+{"entity":"CCDR Norte, I.P.","objection":"Fragilidades na articulação com IGT, em particular PDM, e indefinição dos mecanismos de compatibilização e faseamento.","sense":"Parcialmente aceite","note":"Versão final definirá mecanismos de compatibilização, formas/prazos de atualização dos PDM; semelhante à n.º 4."},
+{"entity":"CCDR Norte, I.P.","objection":"Tratamento pouco consistente da REN, com dispersão de critérios e manutenção de sobreposições (declives >25%, cabeceiras de bacias, zonas de infiltração, albufeiras).","sense":"Aceite","note":"Critérios relativos à REN serão harmonizados e sobreposições revistas; semelhante à n.º 94."},
+{"entity":"CCDR Norte, I.P.","objection":"Insuficiente salvaguarda da conectividade ecológica (ERPVAC do PROT-Norte, corredores dos PROF, áreas de presença de lobo-ibérico e manchas de quercíneas).","sense":"Aceite","note":"Conectividade ecológica reforçada nas normas e aferição municipal; semelhante à n.º 39."},
+{"entity":"CCDR Norte, I.P.","objection":"Riscos significativos para o solo agrícola, incluindo solos fora da RAN com função produtiva, culturas permanentes e sistemas agro-silvo-pastoris.","sense":"Aceite","note":"Avaliação considerará a função produtiva efetiva dos solos agrícolas; relacionada com n.º 37 e 57."},
+{"entity":"CCDR Norte, I.P.","objection":"Necessidade de integrar orientações UNESCO e salvaguardar a Paisagem Cultural do Alto Douro Vinhateiro, incluindo ZAER contíguas à ZEP.","sense":"Aceite","note":"Paisagem Cultural do Alto Douro, ZEP e orientações UNESCO serão expressamente salvaguardadas; semelhante à n.º 30 e 31."},
+{"entity":"CCDR Norte, I.P.","objection":"Critério de proximidade à rede elétrica considerado simplificado (raios de 10 km e 20 km), sem avaliação fina da capacidade das subestações e reforços.","sense":"Parcialmente aceite","note":"Proximidade à rede é critério estratégico de triagem, sem substituir a avaliação da capacidade efetiva."},
+{"entity":"CCDR Norte, I.P.","objection":"Insuficiente hierarquização das ZAER (prioritárias, condicionadas ou reserva estratégica), dificultando planeamento e gestão da pressão territorial.","sense":"Aceite","note":"Versão final preverá hierarquização funcional das áreas; relacionada com n.º 7 e 8."},
+{"entity":"CCDR Norte, I.P.","objection":"O modelo de governança carece de reforço do papel das CCDR na articulação regional, acompanhamento e apoio técnico aos municípios.","sense":"Aceite","note":"CCDR assumirão papel reforçado na governação e monitorização dos efeitos territoriais."},
+{"entity":"ANMP","objection":"Parecer desfavorável ao teor da proposta e à condução do processo, embora reconhecendo a relevância estratégica do PSZAER.","sense":"Registado","note":"Regista-se o sentido desfavorável; preocupações (articulação com municípios, PDM, capacidade de carga, benefícios) relevantes para a consolidação."},
+{"entity":"ANMP","objection":"Considera exíguo o prazo de auscultação e inadequada a disponibilização tardia dos ficheiros de informação geográfica.","sense":"Registado","note":"Relatórios e pareceres disponibilizados no sítio Renováveis Participa; versão final garantirá acesso completo."},
+{"entity":"ANMP","objection":"Sublinha que a ANMP não substitui os municípios abrangidos, devendo assegurar-se consulta municipal direta, atempada e territorializada.","sense":"Registado","note":"PSZAER reforçará o papel dos municípios na aferição municipal das ZAER."},
+{"entity":"ANMP","objection":"Defende que o PSZAER identifique e pondere os planos, programas e projetos com incidência (em especial PDM), sendo insuficiente a mera remissão genérica.","sense":"Aceite","note":"Versão final incluirá matriz de compatibilização territorial com PDM/IGT; convergente com n.º 4."},
+{"entity":"ANMP","objection":"Alerta para riscos de subordinação do ordenamento municipal à lógica energética, pressão sobre PDM, artificialização e especialização funcional de territórios de baixa densidade.","sense":"Registado","note":"Cartografia ZAER não confere direito automático; versão final reforçará capacidade de carga, faseamento e distribuição equilibrada; convergente com n.º 2, 3, 4 e 8."},
+{"entity":"ANMP","objection":"Assinala preocupação transversal com efeitos cumulativos de mega-centrais, capacidade de carga territorial e industrialização difusa da paisagem rural.","sense":"Aceite","note":"Versão final assegurará mecanismos de avaliação de impactes cumulativos; convergente com n.º 8, 60 e 109."},
+{"entity":"ANMP","objection":"Valoriza soluções descentralizadas, autoconsumo, comunidades de energia, benefícios territoriais e mecanismos de retorno justo para municípios e populações.","sense":"Registado","note":"Soluções afirmadas no PSZAER como eixo complementar e prioritário; relacionadas com n.º 12 e 63."},
+{"entity":"CIMAL - C. I. do Alentejo Litoral","objection":"Preocupação com a subordinação do ordenamento à política energética, industrialização difusa do solo rústico e necessidade de autonomia municipal, avaliação de impactes cumulativos e envolvimento das comunidades.","sense":"Registado","note":"Cartografia é referência programática sujeita a aferição municipal; não substitui os PDM nem altera automaticamente o uso do solo."},
+{"entity":"CIM do Ave","objection":"Considera o PSZAER relevante mas sublinha necessidade de capacitação técnica dos municípios, modelo de janela única, distribuição equitativa das áreas e benefícios locais.","sense":"Parcialmente aceite","note":"Modelo de governança reforçará participação das CIM/municípios e mecanismos de benefícios locais."},
+{"entity":"Município de Alenquer","objection":"Solicita plena articulação com instrumentos municipais e aplicação do princípio da precaução, com exclusão de áreas sensíveis da EEM e especial atenção à zona de influência da Serra de Montejunto.","sense":"Parcialmente aceite","note":"Valores ecológicos, paisagísticos e da zona de influência da Serra de Montejunto ponderados na aferição; relacionada com n.º 4, 9, 39 e 63."},
+{"entity":"Município de Almada","objection":"Alinhamento estratégico com o PSZAER, destacando produção descentralizada, autoconsumo, comunidades de energia e ocupação de áreas artificializadas.","sense":"Aceite","note":"Confirma necessidade de autonomizar a trajetória urbana e descentralizada; semelhante à n.º 12."},
+{"entity":"Município de Barcelos","objection":"Alerta para compatibilização das ZAER com PDM, perímetros urbanos, valores naturais, maciços florestais, solo agrícola e sistemas biofísicos; refere insuficiência da informação cartográfica.","sense":"Parcialmente aceite","note":"Versão final assegurará informação geográfica em SIG com metadados para validação municipal."},
+{"entity":"Município de Castro Marim","objection":"Defende consulta prévia e intervenção municipal em todas as fases e forte condicionamento por Rede Natura 2000, Reserva Natural do Sapal, RAN, REN, património e Mata Nacional.","sense":"Parcialmente aceite","note":"Áreas a reavaliar na aferição municipal; PSZAER clarificará papel dos municípios e medidas de mitigação/compensação."},
+{"entity":"Município da Covilhã","objection":"Solicita melhoria da representação cartográfica (limites municipais e de freguesia, ficheiros SIG, adequação de escala aos PDM), clarificação da nomenclatura ZAER e do papel municipal na conferência procedimental, e maior ponderação de compensações locais.","sense":"Parcialmente aceite","note":"Informação geográfica disponibilizada com nomenclatura uniforme e limites administrativos; compatibilização considerará projetos e PMOT existentes; relacionada com n.º 4, 5 e 103."},
+{"entity":"Município do Crato","objection":"Reconhece o mérito mas alerta para efeitos concretos da operacionalização das ZAER em territórios de baixa densidade; defende avaliação de capacidade de carga, impactes cumulativos e benefícios locais.","sense":"Parcialmente aceite","note":"Versão final reforçará que ZAER não é universo automaticamente disponível; faseamento, hierarquização e compatibilização com PDM."},
+{"entity":"Município do Fundão","objection":"Sublinha que as manchas de aptidão devem ser confrontadas com o modelo territorial municipal, identificando conflitos com a expansão da Zona Industrial do Fundão (UE2), aglomerados, distâncias reduzidas, o projeto estratégico Regadio Gardunha Sul, a Estrutura Ecológica Municipal, RAN e REN; refere ausência de shapefiles rigorosos.","sense":"Parcialmente aceite","note":"Sobreposições identificadas não determinam por si só a exclusão, mas serão verificadas na aferição municipal e poderão fundamentar ajustamentos/exclusões (Zona Industrial UE2, Regadio Gardunha Sul); relacionada com n.º 4, 5 e 95."},
+{"entity":"Município de Grândola","objection":"Preocupação com a subordinação do ordenamento à política energética e risco de desvalorização do papel dos municípios e dos PDM na definição do modelo territorial.","sense":"Parcialmente aceite","note":"PSZAER não vincula diretamente particulares nem altera o uso do solo; semelhante à n.º 2 e 4."},
+{"entity":"Município de Grândola","objection":"Reserva quanto a uma leitura assente sobretudo em exclusões cartográficas, por não refletir especificidades locais, estrutura ecológica, identidade e capacidade de carga.","sense":"Aceite","note":"Cartografia nacional entendida como referência, sujeita a aferição/concretização municipal; semelhante à n.º 3, 8 e 9."},
+{"entity":"Município de Grândola","objection":"Risco de artificialização e industrialização extensiva do solo rústico, fragmentação agroflorestal, perda de continuidade ecológica e substituição por monoculturas energéticas.","sense":"Parcialmente aceite","note":"Integração em ZAER não determina ocupação integral; medidas de compartimentação e soluções agrovoltaicas; relacionada com n.º 6, 8 e 104."},
+{"entity":"Município de Grândola","objection":"Insuficiente operacionalização dos efeitos cumulativos (concentração, continuidade espacial de infraestruturas e pressão sobre sistemas ecológicos e paisagísticos).","sense":"Aceite","note":"PSZAER operacionalizará a avaliação cumulativa; semelhante à n.º 8 e 110."},
+{"entity":"Município de Grândola","objection":"Preocupação com simplificação procedimental e avaliação parcelar de impactes (linhas elétricas, acessos, subestações, armazenamento).","sense":"Aceite","note":"Avaliação abrangerá de forma integrada as infraestruturas associadas; semelhante à n.º 34 e 109."},
+{"entity":"Município de Grândola","objection":"Necessidade de proteção do montado, sistemas silvopastoris, continuidade ecológica e especificidades territoriais do concelho.","sense":"Aceite","note":"Montado e sistemas silvopastoris considerados na aferição municipal e critérios de exclusão/condicionamento."},
+{"entity":"Município de Grândola","objection":"Defesa de estratégia que privilegie áreas artificializadas/degradadas, autoconsumo, produção descentralizada, hibridização e critérios municipais de capacidade de carga.","sense":"Parcialmente aceite","note":"Versão final reforçará prioridade a áreas artificializadas/degradadas; semelhante à n.º 8 e 12."},
+{"entity":"Município de Lisboa","objection":"Defende prioridade a áreas artificializadas, coberturas e autoconsumo, sublinhando que a simplificação administrativa não deve comprometer salvaguarda ambiental, PDM e participação pública.","sense":"Aceite","note":"PSZAER distinguirá aceleração em áreas urbanas da implantação em solo rústico; semelhante à n.º 12 e 129."},
+{"entity":"Município de Loulé","objection":"Indica que o município não é abrangido por ZAER solar ou eólica, mas defende validação municipal dos perímetros definitivos e prioridade ao autoconsumo.","sense":"Aceite","note":"Delimitação final resulta de aferição municipal e ponderação das comunidades locais."},
+{"entity":"Município de Loures","objection":"Reconhece a transição energética mas defende prioridade a coberturas, edifícios, equipamentos e zonas degradadas; uso de solo não edificado deve ser subsidiário e sujeito a parecer municipal.","sense":"Registado","note":"PSZAER reforça preferência por áreas artificializadas e soluções descentralizadas."},
+{"entity":"Município da Marinha Grande","objection":"Considera que a definição das ZAER deve atender à relação entre área municipal total e área abrangida, evitando comprometimento excessivo do território e da estratégia territorial/PDM.","sense":"Parcialmente aceite","note":"Cartografia é universo de aptidão, não ocupação integral; modelo de janela única não confere direito de veto além do quadro legal; relacionada com n.º 4, 8 e 106."},
+{"entity":"Município de Matosinhos","objection":"Defende critérios diferenciados para municípios metropolitanos, costeiros, urbanizados e industrializados, sujeitos a pressões cumulativas ambientais, logísticas e paisagísticas.","sense":"Parcialmente aceite","note":"Transposição municipal considerará especificidades territoriais e pressões cumulativas; preferência por áreas artificializadas."},
+{"entity":"Município de Nisa","objection":"Analisa criticamente o PSZAER em contexto de baixa densidade e envelhecimento, valorizando a exclusão de áreas de proteção mas alertando para pressão territorial e ausência de retorno local proporcional.","sense":"Parcialmente aceite","note":"Aferição municipal ponderará usos rurais, solos agrícolas/florestais, paisagem, património e benefícios locais; relacionada com n.º 3, 8, 9 e 63."},
+{"entity":"Município de Penacova","objection":"Remeteu ficheiro geográfico em formato KML/KMZ sem parecer textual, identificando área/polígono territorial com cerca de 20,41 ha.","sense":"Registado","note":"Na ausência de parecer textual, não é possível atribuir sentido material adicional; informação a harmonizar."},
+{"entity":"Município de Pombal","objection":"Reconhece a relevância mas considera que a metodologia nacional não pondera suficientemente dinâmicas locais de ordenamento e salvaguardas dos instrumentos municipais.","sense":"Parcialmente aceite","note":"Concretização (caráter programático) será feita à escala municipal, atendendo a especificidades locais e PDM; semelhante à n.º 4 e 8."},
+{"entity":"Município de Santa Maria da Feira","objection":"Considera que o programa não pode ser aprovado tal como está, por alegada prioridade ao território cultural, paisagístico, florestal, patrimonial e ambiental.","sense":"Registado","note":"ZAER constituem mancha programática; concretização depende de transposição municipal, salvaguardas e mitigação."},
+{"entity":"Município de Santa Maria da Feira","objection":"Alega violação do PDM em vigor e da proposta de 2.ª revisão, lesão da autonomia local e afetação de áreas em REN e POACL.","sense":"Registado","note":"PSZAER não altera automaticamente PDM nem substitui planeamento; versão final preverá matriz de incompatibilidades."},
+{"entity":"Município de Santa Maria da Feira","objection":"Sustenta que os programas vinculam entidades públicas e que, para aplicação aos particulares, as regras devem ser transpostas/incorporadas nos PDM.","sense":"Aceite","note":"Versão final explicitará a eficácia territorial diferida e o modelo de transposição; convergente com n.º 2 e 4."},
+{"entity":"Município de Santa Maria da Feira","objection":"Sustenta que as ZAER incidem quase na totalidade sobre espaços florestais de produção, podendo implicar destruição de grandes áreas; invoca o PROF-EDM.","sense":"Registado","note":"Integração em ZAER não implica uso plano em exclusivo nem remoção automática de coberto; projetos aplicarão medidas de exclusão/condicionamento/mitigação."},
+{"entity":"Município de Santa Maria da Feira","objection":"Identifica sobreposição com o POACL (Crestuma-Lever), considerada incompatível com utilização sustentável e salvaguarda de recursos hídricos.","sense":"Registado","note":"Sobreposições com programas especiais/albufeiras a verificar especificamente."},
+{"entity":"Município de Santa Maria da Feira","objection":"Aponta conflito com estratégia municipal (Estrutura Ecológica Municipal, REN, RAN, EMAAC, PMDF e objetivos da AAE municipal).","sense":"Parcialmente aceite","note":"Transposição municipal ponderará EEM, REN, RAN e objetivos ambientais do PDM, podendo ajustar limites das ZAER."},
+{"entity":"Município de Santa Maria da Feira","objection":"Aponta conflitos com opções municipais: Europarque, Parque Desportivo da Encosta de Sanfins, património classificado e Estrada Real/Malaposta.","sense":"Registado","note":""},
+{"entity":"Município de Santa Maria da Feira","objection":"Em Romariz, refere impacto sobre o Castro de Romariz (Imóvel de Interesse Público), com perda paisagística e patrimonial.","sense":"Registado","note":"Valores patrimoniais classificados a analisar e ponderar em sede de aferição municipal."},
+{"entity":"Município de Santa Maria da Feira","objection":"Em Canedo/Louredo/Vale, refere ZAER com cerca de 767 ha em REN e declives acentuados, com riscos de erosão, movimentos de massa e remoção de coberto.","sense":"Parcialmente aceite","note":"PSZAER integra critérios de declive e exclusões associadas a riscos; versão final reforçará validação local."},
+{"entity":"Município de Santa Maria da Feira","objection":"Conclusão: posição totalmente contra a proposta, por alegada contrariedade aos interesses do Município e das populações.","sense":"Registado","note":"Regista-se a posição; PSZAER visa transição justa via critérios de exclusão, diretrizes e medidas de mitigação."},
+{"entity":"Município de Tomar","objection":"Reforça a importância de criação, manutenção e disponibilização pública de base de dados geográfica formal, alojada em entidade pública.","sense":"Aceite","note":"Versão final preverá disponibilização da informação geográfica oficial em formato aberto/interoperável, coerente com o SNIT."},
+{"entity":"Município de Valença","objection":"Defende equilíbrio com proteção ambiental, valorização paisagística e coesão territorial; solicita articulação com PDM, RAN, REN, solos agrícolas e zonas de proteção, destacando o vale do rio Minho e o centro histórico.","sense":"Parcialmente aceite","note":"Transposição municipal ponderará PDM, RAN, REN, paisagem do vale do Minho e património classificado; relacionada com n.º 57, 94, 115 e 106."},
+{"entity":"Município de Vila Franca de Xira","objection":"Considera fundamental um quadro normativo claro e eficaz, reforçando a articulação AAE/licenciamento, o papel municipal na verificação da compatibilidade e a fiscalização.","sense":"Parcialmente aceite","note":"PSZAER densificará normas de execução e modelo de transposição para PDM."},
+{"entity":"Município de Vila Franca de Xira","objection":"Defende que o PSZAER não conduza a uma abordagem isolada dos projetos, promovendo visão integrada da paisagem e da infraestrutura energética.","sense":"Aceite","note":"Na análise de projetos, os impactes cumulativos considerarão todos os projetos; convergente com n.º 8, 34, 60 e 109."},
+{"entity":"Município de Vila Franca de Xira","objection":"Deve salvaguardar-se a possibilidade de reformulação, condicionamento ou rejeição de projetos concretos, caso se identifiquem impactes significativos não antecipados.","sense":"Aceite","note":"Ver resposta anterior."},
+{"entity":"Município de Vila Franca de Xira","objection":"Para além das áreas prioritárias, o PSZAER deve prever identificação de zonas de reserva estratégica, respeitando a proteção dos valores ambientais.","sense":"Registado","note":"Proposta de execução faseada do PSZAER pretende ir ao encontro do comentário."},
+{"entity":"AML - Área Metropolitana de Lisboa","objection":"Sublinha que o PSZAER deve articular-se com as opções de organização territorial regional, metropolitana e municipal, dependendo a concretização em solo rústico da compatibilização com PDM e estratégias de salvaguarda agrícola/florestal.","sense":"Parcialmente aceite","note":"Concretização das ZAER dependerá da compatibilização com PDM e aferição municipal; semelhante à n.º 4 e 85."},
+{"entity":"AML - Área Metropolitana de Lisboa","objection":"Recomenda que a delimitação final salvaguarde a continuidade da infraestrutura verde metropolitana e dos corredores ecológicos, evitando fragmentação.","sense":"Aceite","note":"Continuidade da infraestrutura verde e corredores ecológicos considerada na aferição municipal e avaliação de projetos; semelhante à n.º 8, 39 e 87."},
+{"entity":"AML - Área Metropolitana de Lisboa","objection":"Defende programação faseada e territorialmente ponderada, articulada com capacidade de rede, proximidade aos centros de consumo e prevenção de impactes cumulativos.","sense":"Aceite","note":"Faseamento articulará capacidade de rede, pressão territorial e monitorização; relacionada com n.º 8 e 116."},
+{"entity":"AML - Área Metropolitana de Lisboa","objection":"Valoriza a janela única e a conferência procedimental, mas considera necessário reforçar capacidade técnica e recursos humanos municipais e salvaguardar autonomia municipal.","sense":"Parcialmente aceite","note":"Diretrizes de integração paisagística transpostas para normas de execução; semelhante à n.º 13 e 89."},
+{"entity":"AML - Área Metropolitana de Lisboa","objection":"Recomenda aplicação rigorosa das diretrizes de compartimentação da paisagem e limites às áreas contínuas, reduzindo intrusão visual de grandes centrais solares em contexto metropolitano.","sense":"Aceite","note":"Diretrizes de integração paisagística transpostas para normas de execução; semelhante à n.º 13 e 89."},
+{"entity":"AML - Área Metropolitana de Lisboa","objection":"Defende Programas de Benefícios Territoriais claros, com efeitos diretos nas comunidades (comunidades de energia, autoconsumo coletivo, combate à pobreza energética).","sense":"Parcialmente aceite","note":"Versão final estabelecerá princípios de benefícios territoriais proporcionais aos encargos; obrigatoriedade dependerá do enquadramento legal; semelhante à n.º 64 e 106."},
+{"entity":"AML - Área Metropolitana de Lisboa","objection":"Recomenda prioridade às superfícies artificializadas, edificadas e transformadas e uma via de licenciamento especialmente célere, sem agravar a pressão sobre o solo rústico.","sense":"Parcialmente aceite","note":"PSZAER manterá prioridade a áreas artificializadas; via procedimental específica dependerá do enquadramento legal; semelhante à n.º 12, 90, 129 e 142."}
+]}
+</script>
+
+<script>
+(function(){
+  var data = JSON.parse(document.getElementById('data').textContent);
+  var rows = data.rows;
+  var clean = function(s){return String(s||'').replace(/&gt;/g,'>').replace(/&lt;/g,'<').replace(/&amp;/g,'&');};
+  var senseClass = function(s){return s==='Aceite'?'aceite':(s==='Parcialmente aceite'?'parcial':'registado');};
+
+  // summary chips
+  var counts = {Aceite:0,'Parcialmente aceite':0,Registado:0};
+  rows.forEach(function(r){counts[r.sense]=(counts[r.sense]||0)+1;});
+  var sum = document.getElementById('sum');
+  var chips = [
+    {k:'total', n:rows.length, l:'contribuições analisadas'},
+    {k:'aceite', n:counts['Aceite'], l:'Aceites'},
+    {k:'parcial', n:counts['Parcialmente aceite'], l:'Parcialmente aceites'},
+    {k:'registado', n:counts['Registado'], l:'Apenas «registadas» (0 alterações)'}
+  ];
+  sum.innerHTML = chips.map(function(c){return '<div class="chip '+c.k+'"><div class="n">'+c.n+'</div><div class="l">'+c.l+'</div></div>';}).join('');
+
+  // entity dropdown
+  var ents = Array.from(new Set(rows.map(function(r){return r.entity;}))).sort(function(a,b){return a.localeCompare(b,'pt');});
+  var sel = document.getElementById('entsel');
+  ents.forEach(function(e){var o=document.createElement('option');o.value=e;o.textContent=e;sel.appendChild(o);});
+
+  var state = {sense:'all', ent:'all', q:''};
+  var tbody = document.getElementById('rows');
+  var empty = document.getElementById('empty');
+  var countEl = document.getElementById('count');
+
+  function render(){
+    var q = state.q.trim().toLowerCase();
+    var shown = 0;
+    tbody.innerHTML = '';
+    var frag = document.createDocumentFragment();
+    rows.forEach(function(r){
+      if(state.sense!=='all' && r.sense!==state.sense) return;
+      if(state.ent!=='all' && r.entity!==state.ent) return;
+      if(q){
+        var hay = (r.entity+' '+r.objection+' '+r.note).toLowerCase();
+        if(hay.indexOf(q)<0) return;
+      }
+      shown++;
+      var tr = document.createElement('tr');
+      var td1 = document.createElement('td'); td1.className='c-ent'; td1.textContent=clean(r.entity);
+      var td2 = document.createElement('td'); td2.className='c-obj'; td2.textContent=clean(r.objection);
+      var td3 = document.createElement('td'); td3.className='c-sense';
+      var b = document.createElement('span'); b.className='badge '+senseClass(r.sense); b.textContent=r.sense; td3.appendChild(b);
+      var td4 = document.createElement('td'); td4.className='c-note'; td4.textContent=clean(r.note)||'—';
+      tr.appendChild(td1);tr.appendChild(td2);tr.appendChild(td3);tr.appendChild(td4);
+      frag.appendChild(tr);
+    });
+    tbody.appendChild(frag);
+    empty.style.display = shown? 'none':'block';
+    countEl.textContent = shown+' de '+rows.length;
+  }
+
+  document.querySelectorAll('.fbtn[data-sense]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.fbtn[data-sense]').forEach(function(b){b.classList.remove('on');});
+      btn.classList.add('on');
+      state.sense = btn.getAttribute('data-sense');
+      render();
+    });
+  });
+  sel.addEventListener('change', function(){state.ent=sel.value;render();});
+  document.getElementById('q').addEventListener('input', function(e){state.q=e.target.value;render();});
+
+  render();
+})();
+</script>
+</body>
+</html>
