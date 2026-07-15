@@ -93,6 +93,7 @@ function page(d) {
 <link rel="canonical" href="https://salvargardunha.com/read/${esc(d.slug)}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <style>${CSS}</style>
+<script defer data-domain="salvargardunha.com" src="https://analytics.hexgeta.com/script.js"></script>
 </head>
 <body>
 
@@ -163,6 +164,7 @@ function indexPage(docs) {
   .doc-s{color:var(--muted);font-size:12px;white-space:nowrap}
   .doc-sum{display:block;color:#9aa79a;font-size:14px;line-height:1.55;margin-top:7px}
 </style>
+<script defer data-domain="salvargardunha.com" src="https://analytics.hexgeta.com/script.js"></script>
 </head>
 <body>
 
