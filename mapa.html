@@ -57,6 +57,7 @@
     <div class="eyebrow" data-i18n="eyebrow">Consulta PSZAER · cartografia</div>
     <h1 data-i18n="h1">Os mapas das áreas propostas</h1>
     <p class="lede" data-i18n="lede">Os mapas oficiais das áreas propostas para centrais solares e eólicas (ZAER), retirados dos documentos da consulta. São todos <b>mapas nacionais</b> — nenhum documento traz um zoom próprio da Gardunha; ela fica no grupo «Pinhal do Centro», o mais visado do país. A revisão de 23 de junho reduziu o solar em ~14 000 ha mas <b>não publicou novos mapas</b> (só texto).</p>
+    <p class="callout" data-i18n="no_muni">⚠️ <b>Não há mapas por concelho.</b> O Governo divulgou apenas mapas nacionais; os mapas detalhados a nível local nunca foram dados às populações. Estes são os únicos mapas oficiais publicados.</p>
   </div>
 </header>
 
@@ -84,6 +85,13 @@
             en:'The Serra da Gardunha marked on the official ZAER map (Figure 39). It sits in the “Pinhal do Centro” landscape group — the most targeted in the country.',
             de:'Die Serra da Gardunha, markiert auf der amtlichen ZAER-Karte (Abbildung 39). Sie liegt in der Landschaftsgruppe „Pinhal do Centro“ — der am stärksten betroffenen des Landes.',
             fr:'La Serra da Gardunha marquée sur la carte officielle des ZAER (Figure 39). Elle se trouve dans le groupe paysager « Pinhal do Centro » — le plus visé du pays.'}}
+    ]},
+    {id:'regiao', maps:[
+      {file:'/img/maps/gardunha-regiao-crop.png', kind:'regiao', doc:'proposta-pszaer', pdf:'/docs/proposta-pszaer.pdf',
+       cap:{pt:'Aproximação ao interior Centro / Beira Baixa a partir do mapa nacional combinado — onde fica a Serra da Gardunha. Repara na densidade de amarelo (solar) e azul (eólica). Não é um mapa municipal: à escala 1:2 500 000, o Governo nunca publicou mapas por concelho.',
+            en:'A zoom into the Centro / Beira Baixa interior from the national combined map — where the Serra da Gardunha sits. Note the density of yellow (solar) and blue (wind). This is not a municipal map: at 1:2,500,000, the Government never published maps by municipality.',
+            de:'Ausschnitt des Centro-/Beira-Baixa-Binnenlands aus der kombinierten nationalen Karte — wo die Serra da Gardunha liegt. Beachte die Dichte von Gelb (Solar) und Blau (Wind). Keine kommunale Karte: im Maßstab 1:2 500 000 hat die Regierung nie Karten pro Gemeinde veröffentlicht.',
+            fr:'Un zoom sur l’intérieur Centro / Beira Baixa depuis la carte nationale combinée — où se trouve la Serra da Gardunha. Noter la densité de jaune (solaire) et de bleu (éolien). Ce n’est pas une carte municipale : à l’échelle 1:2 500 000, le Gouvernement n’a jamais publié de cartes par commune.'}}
     ]},
     {id:'proposta', maps:[
       {file:'/img/maps/proposta-pszaer-p30.png', kind:'solar', doc:'proposta-pszaer', pdf:'/docs/proposta-pszaer.pdf',
@@ -131,6 +139,7 @@
     pt:{top_home:'← salvargardunha.com',top_docs:'Documentos',top_obj:'As 172 objeções',
       eyebrow:'Consulta PSZAER · cartografia', h1:'Os mapas das áreas propostas',
       lede:'Os mapas oficiais das áreas propostas para centrais solares e eólicas (ZAER), retirados dos documentos da consulta. São todos <b>mapas nacionais</b> — nenhum documento traz um zoom próprio da Gardunha; ela fica no grupo «Pinhal do Centro», o mais visado do país. A revisão de 23 de junho reduziu o solar em ~14 000 ha mas <b>não publicou novos mapas</b> (só texto).',
+      no_muni:'⚠️ <b>Não há mapas por concelho.</b> O Governo divulgou apenas mapas nacionais; os mapas detalhados a nível local nunca foram dados às populações. Estes são os únicos mapas oficiais publicados.', sec_regiao:'Aproximação à nossa região', sec_regiao_s:'O melhor detalhe possível a partir dos mapas nacionais — o interior Centro / Beira Baixa.',
       sec_feat:'Onde fica a Serra da Gardunha', sec_feat_s:'O mapa nacional das ZAER com a serra assinalada.',
       sec_proposta:'A proposta — 5 maio 2026', sec_proposta_s:'Os mapas centrais da proposta do PSZAER (as áreas já filtradas pelos critérios de exclusão).',
       sec_espac:'Relatório de mapeamento (LNEG) — 3 maio 2026', sec_espac_s:'O potencial bruto, antes de aplicar as exclusões.',
@@ -141,6 +150,7 @@
     en:{top_home:'← salvargardunha.com',top_docs:'Documents',top_obj:'The 172 objections',
       eyebrow:'PSZAER consultation · maps', h1:'The maps of the proposed areas',
       lede:'The official maps of the areas proposed for solar and wind plants (ZAER), taken from the consultation documents. They are all <b>national maps</b> — no document includes a dedicated zoom of the Gardunha; it lies in the “Pinhal do Centro” group, the most targeted in the country. The 23 June revision cut solar by ~14,000 ha but <b>published no new maps</b> (text only).',
+      no_muni:'⚠️ <b>There are no municipal maps.</b> The Government released only national maps; the detailed local maps were never given to the populations. These are the only official maps published.', sec_regiao:'Zoom into our region', sec_regiao_s:'The best detail possible from the national maps — the Centro / Beira Baixa interior.',
       sec_feat:'Where the Serra da Gardunha is', sec_feat_s:'The national ZAER map with the mountain marked.',
       sec_proposta:'The proposal — 5 May 2026', sec_proposta_s:'The core maps of the PSZAER proposal (areas already filtered by the exclusion criteria).',
       sec_espac:'Mapping report (LNEG) — 3 May 2026', sec_espac_s:'The raw potential, before the exclusions are applied.',
@@ -151,6 +161,7 @@
     de:{top_home:'← salvargardunha.com',top_docs:'Dokumente',top_obj:'Die 172 Einwände',
       eyebrow:'PSZAER-Konsultation · Karten', h1:'Die Karten der vorgeschlagenen Flächen',
       lede:'Die amtlichen Karten der für Solar- und Windkraftwerke vorgeschlagenen Flächen (ZAER), aus den Konsultationsunterlagen. Es sind alles <b>nationale Karten</b> — kein Dokument enthält einen eigenen Ausschnitt der Gardunha; sie liegt in der Gruppe „Pinhal do Centro“, der am stärksten betroffenen des Landes. Die Überarbeitung vom 23. Juni verringerte die Solarfläche um ~14 000 ha, veröffentlichte aber <b>keine neuen Karten</b> (nur Text).',
+      no_muni:'⚠️ <b>Es gibt keine kommunalen Karten.</b> Die Regierung veröffentlichte nur nationale Karten; die detaillierten lokalen Karten wurden den Bevölkerungen nie ausgehändigt. Dies sind die einzigen amtlich veröffentlichten Karten.', sec_regiao:'Ausschnitt unserer Region', sec_regiao_s:'Das bestmögliche Detail aus den nationalen Karten — das Binnenland Centro / Beira Baixa.',
       sec_feat:'Wo die Serra da Gardunha liegt', sec_feat_s:'Die nationale ZAER-Karte mit markiertem Bergzug.',
       sec_proposta:'Der Vorschlag — 5. Mai 2026', sec_proposta_s:'Die zentralen Karten des PSZAER-Vorschlags (bereits nach den Ausschlusskriterien gefilterte Flächen).',
       sec_espac:'Kartierungsbericht (LNEG) — 3. Mai 2026', sec_espac_s:'Das Rohpotenzial, vor Anwendung der Ausschlüsse.',
@@ -161,6 +172,7 @@
     fr:{top_home:'← salvargardunha.com',top_docs:'Documents',top_obj:'Les 172 objections',
       eyebrow:'Consultation PSZAER · cartes', h1:'Les cartes des zones proposées',
       lede:'Les cartes officielles des zones proposées pour les centrales solaires et éoliennes (ZAER), tirées des documents de la consultation. Ce sont toutes des <b>cartes nationales</b> — aucun document ne comporte de zoom dédié sur la Gardunha ; elle se situe dans le groupe « Pinhal do Centro », le plus visé du pays. La révision du 23 juin a réduit le solaire d’environ 14 000 ha mais <b>n’a publié aucune nouvelle carte</b> (texte seulement).',
+      no_muni:'⚠️ <b>Il n’y a pas de cartes communales.</b> Le Gouvernement n’a publié que des cartes nationales ; les cartes locales détaillées n’ont jamais été remises aux populations. Ce sont les seules cartes officielles publiées.', sec_regiao:'Zoom sur notre région', sec_regiao_s:'Le meilleur détail possible à partir des cartes nationales — l’intérieur Centro / Beira Baixa.',
       sec_feat:'Où se trouve la Serra da Gardunha', sec_feat_s:'La carte nationale des ZAER, la montagne marquée.',
       sec_proposta:'La proposition — 5 mai 2026', sec_proposta_s:'Les cartes principales de la proposition PSZAER (zones déjà filtrées par les critères d’exclusion).',
       sec_espac:'Rapport de cartographie (LNEG) — 3 mai 2026', sec_espac_s:'Le potentiel brut, avant application des exclusions.',
