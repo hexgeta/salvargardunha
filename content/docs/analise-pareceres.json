@@ -7,10 +7,22 @@
   "pages": 47,
   "summary": "The Government's own analysis of the 172 formal contributions made by the public bodies it consulted. Thirty-six bodies issued an opinion. <b>Four were unfavourable</b>: the cultural heritage authority, the agriculture authority, the national association of municipalities (unfavourable to both the content <i>and</i> the conduct of the process), and one municipality. Of the 172 contributions, <b>66 were accepted, 61 only partly accepted, and 45 merely “noted”</b> — the formula used when an objection is recorded but changes nothing. Among those merely noted: the national planning authority's finding that the zones are far larger than the 2030 targets require.",
   "keyFigures": [
-    { "n": "4", "label": "public bodies gave an <b>unfavourable</b> opinion — including the heritage and agriculture authorities" },
-    { "n": "45", "label": "of 172 contributions were merely <b>“noted”</b> — recorded, but changing nothing in the programme" },
-    { "n": "51.6%", "label": "of the Centro region is covered by proposed solar zones (48% for wind) — the most affected region, per CCDR Centro" },
-    { "n": "357,347 ha", "label": "of solar zones the planning authority called <b>“far in excess”</b> of what the 2030 targets need" }
+    {
+      "n": "4",
+      "label": "public bodies gave an <b>unfavourable</b> opinion — including the heritage and agriculture authorities"
+    },
+    {
+      "n": "45",
+      "label": "of 172 contributions were merely <b>“noted”</b> — recorded, but changing nothing in the programme"
+    },
+    {
+      "n": "51.6%",
+      "label": "of the Centro region is covered by proposed solar zones (48% for wind) — the most affected region, per CCDR Centro"
+    },
+    {
+      "n": "357,347 ha",
+      "label": "of solar zones the planning authority called <b>“far in excess”</b> of what the 2030 targets need"
+    }
   ],
   "sections": [
     {
@@ -27,7 +39,10 @@
         "The counts across the whole document: <b>66 accepted, 61 partially accepted, 45 merely noted</b>. So roughly <b>two thirds of all objections</b> produced either no change at all, or only a deferred promise."
       ],
       "quotes": [
-        { "q": "Noted — the contribution is considered relevant, but does not determine any autonomous change to the PSZAER.", "cite": "p. 7, the document's own definition" }
+        {
+          "q": "Noted — the contribution is considered relevant, but does not determine any autonomous change to the PSZAER.",
+          "cite": "p. 7, the document's own definition"
+        }
       ]
     },
     {
@@ -46,7 +61,10 @@
         "The DGT also found the geographic files supplied did not match the reports, and that <b>no geographic data at all</b> had been released for zones on artificialised land — making independent verification impossible."
       ],
       "quotes": [
-        { "q": "It considers the oversizing of the mapping critical: 357,347 ha for Solar ZAER and 85,321 ha for Wind ZAER, far in excess of the area needed to meet the PNEC 2030 targets.", "cite": "DGT contribution, p. 10 — verdict: Noted" }
+        {
+          "q": "It considers the oversizing of the mapping critical: 357,347 ha for Solar ZAER and 85,321 ha for Wind ZAER, far in excess of the area needed to meet the PNEC 2030 targets.",
+          "cite": "DGT contribution, p. 10 — verdict: Noted"
+        }
       ]
     },
     {
@@ -56,7 +74,10 @@
         "It also recorded that the assessment team contains <b>no cultural heritage specialist and no archaeologist</b>. The Government's entire reply to that point was a single word: <i>noted</i>."
       ],
       "quotes": [
-        { "q": "The multidisciplinary SEA team does not include a Cultural Heritage specialist, in particular an archaeologist, which compromises the identification, description and assessment of the effects on heritage values. — Noted.", "cite": "p. 13" }
+        {
+          "q": "The multidisciplinary SEA team does not include a Cultural Heritage specialist, in particular an archaeologist, which compromises the identification, description and assessment of the effects on heritage values. — Noted.",
+          "cite": "p. 13"
+        }
       ]
     },
     {
@@ -75,7 +96,10 @@
         "<b>Covilhã</b> asked for the GIS files, for clarification of its own role in the licensing conference, and whether it could actually issue an unfavourable pronouncement. Partially accepted."
       ],
       "quotes": [
-        { "q": "The Centre Region is the one most covered by the proposed areas, with 51.6% of the area under CCDRC's competence for solar and 48% for wind, warning of the risks of excessive concentration, land speculation, energy monofunctionalisation and territorial burdens in low-density territories.", "cite": "CCDR Centro, p. 28" }
+        {
+          "q": "The Centre Region is the one most covered by the proposed areas, with 51.6% of the area under CCDRC's competence for solar and 48% for wind, warning of the risks of excessive concentration, land speculation, energy monofunctionalisation and territorial burdens in low-density territories.",
+          "cite": "CCDR Centro, p. 28"
+        }
       ]
     },
     {
@@ -85,7 +109,10 @@
         "That demand does not appear in this weighing document. The phrase “Paisagem Protegida” does not occur once in its 47 pages, and the only two mentions of the Gardunha are Fundão's irrigation project. The nature-conservation authority named our mountain and asked for it to be taken out — and the Government's response document does not address the request."
       ],
       "quotes": [
-        { "q": "The areas proposed for wind and solar energy overlap marginally with the 1 km buffer around the Serra da Gardunha Regional Protected Landscape and the Serra da Estrela Natural Park. These areas must be removed from the areas proposed for wind and solar energy.", "cite": "ICNF opinion, in “Pareceres Emitidos — Entidades”" }
+        {
+          "q": "The areas proposed for wind and solar energy overlap marginally with the 1 km buffer around the Serra da Gardunha Regional Protected Landscape and the Serra da Estrela Natural Park. These areas must be removed from the areas proposed for wind and solar energy.",
+          "cite": "ICNF opinion, in “Pareceres Emitidos — Entidades”"
+        }
       ]
     },
     {
@@ -95,8 +122,13 @@
         "To the municipality that declared itself “totally against the proposal”, the Government replied with a sentence that states its underlying premise plainly."
       ],
       "quotes": [
-        { "q": "A sustainable, harmonious, cohesive growth that guarantees the populations' quality of life cannot be achieved without a just and balanced energy transition. However, that will only be possible if the territories with the greatest aptitude for the implementation of projects accept the responsibility of implementing them.", "cite": "EMER 2030's reply to Santa Maria da Feira, p. 43" }
+        {
+          "q": "A sustainable, harmonious, cohesive growth that guarantees the populations' quality of life cannot be achieved without a just and balanced energy transition. However, that will only be possible if the territories with the greatest aptitude for the implementation of projects accept the responsibility of implementing them.",
+          "cite": "EMER 2030's reply to Santa Maria da Feira, p. 43"
+        }
       ]
     }
-  ]
+  ],
+  "tag": "The Government’s reply",
+  "blurb": "The Government’s response to the objections — two thirds changed nothing."
 }

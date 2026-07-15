@@ -7,10 +7,22 @@
   "pages": 70,
   "summary": "The ecology chapter of the environmental assessment. It sets the criteria deciding which ecologically valuable areas stay <i>out</i> of the zones, combining protected areas (with a 1 km buffer), areas important for threatened species, and land uses with high biodiversity potential. It states plainly that wind turbines <b>kill birds of prey, soaring birds and bats by blade collision</b>, and that the power lines both technologies need kill birds by collision and electrocution. Crucially, it admits that information on where species occur <b>outside protected areas is limited</b> — which can undermine biodiversity protection exactly where our region sits.",
   "keyFigures": [
-    { "n": "1 km", "label": "protective buffer added around protected areas, Natura 2000 sites and Important Bird Areas" },
-    { "n": "5 km", "label": "exclusion buffer around bat roosts of national importance, for <b>wind</b> projects" },
-    { "n": "3 years", "label": "minimum bird and bat <b>mortality monitoring</b> required once a wind farm starts operating" },
-    { "n": "40+", "label": "threatened or near-threatened bird species mapped, plus wolf, lynx, black stork and bats" }
+    {
+      "n": "1 km",
+      "label": "protective buffer added around protected areas, Natura 2000 sites and Important Bird Areas"
+    },
+    {
+      "n": "5 km",
+      "label": "exclusion buffer around bat roosts of national importance, for <b>wind</b> projects"
+    },
+    {
+      "n": "3 years",
+      "label": "minimum bird and bat <b>mortality monitoring</b> required once a wind farm starts operating"
+    },
+    {
+      "n": "40+",
+      "label": "threatened or near-threatened bird species mapped, plus wolf, lynx, black stork and bats"
+    }
   ],
   "sections": [
     {
@@ -20,7 +32,10 @@
         "This is the crux for the Serra da Gardunha: much of the region's wildlife lives outside formally classified areas, where — on the report's own account — the information used to draw these maps is weakest."
       ],
       "quotes": [
-        { "q": "The concentration of projects and the limited information on the distribution of species outside protected areas may constrain the effectiveness of biodiversity protection.", "cite": "p. 9" }
+        {
+          "q": "The concentration of projects and the limited information on the distribution of species outside protected areas may constrain the effectiveness of biodiversity protection.",
+          "cite": "p. 9"
+        }
       ]
     },
     {
@@ -30,8 +45,14 @@
         "But that distinction is then substantially narrowed, because <i>both</i> technologies need power lines to reach the grid — and those lines kill birds by collision and by electrocution. For some large birds of prey, the report therefore applies <b>identical exclusion criteria for solar as for wind</b>."
       ],
       "quotes": [
-        { "q": "This is the case for some bird species, namely birds of prey and other soaring birds, as well as bats, for which significant impacts have already been identified associated with the phenomenon of direct mortality through collision with the blades of the wind turbines.", "cite": "p. 14" },
-        { "q": "Longer lines imply a higher level of impact on biodiversity values, above all on birdlife (due to mortality by collision or electrocution).", "cite": "p. 10" }
+        {
+          "q": "This is the case for some bird species, namely birds of prey and other soaring birds, as well as bats, for which significant impacts have already been identified associated with the phenomenon of direct mortality through collision with the blades of the wind turbines.",
+          "cite": "p. 14"
+        },
+        {
+          "q": "Longer lines imply a higher level of impact on biodiversity values, above all on birdlife (due to mortality by collision or electrocution).",
+          "cite": "p. 10"
+        }
       ]
     },
     {
@@ -66,8 +87,13 @@
         "The report explicitly rejects the idea that being inside a zone makes monitoring unnecessary."
       ],
       "quotes": [
-        { "q": "Monitoring the impacts of these projects is not considered dispensable, since biodiversity values not known in the region of the ZAER may occur and may prove to be significantly impacted by specific projects.", "cite": "p. 46" }
+        {
+          "q": "Monitoring the impacts of these projects is not considered dispensable, since biodiversity values not known in the region of the ZAER may occur and may prove to be significantly impacted by specific projects.",
+          "cite": "p. 46"
+        }
       ]
     }
-  ]
+  ],
+  "tag": "Ecology",
+  "blurb": "Wind kills raptors and bats; data on species outside protected areas is thin."
 }

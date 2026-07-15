@@ -7,10 +7,22 @@
   "pages": 249,
   "summary": "The complete environmental assessment — 249 pages, of which the short Non-Technical Summary is the public-facing version. It confirms that screening left roughly <b>7% of mainland Portugal</b> open to projects that can proceed <b>without an environmental impact assessment</b>. Its value lies in what it openly concedes: that the pressure falls mainly on <b>forest, farming and pasture land in low-density rural territories</b>; that biodiversity values <b>not currently known</b> may exist inside the zones; that community opposition is <b>legitimate</b>; and that those who bear the territorial costs should be those who benefit.",
   "keyFigures": [
-    { "n": "~7%", "label": "of mainland Portugal open to projects <b>without an environmental impact assessment</b>" },
-    { "n": "8.7 GW", "label": "of grid capacity already allocated but <b>never built</b> — listed among the system's core weaknesses" },
-    { "n": "4", "label": "Critical Decision Factors, broken into 11 criteria and 30 indicators" },
-    { "n": "€13,500", "label": "per MVA — the municipal compensation set in law, the main financial return to a host territory" }
+    {
+      "n": "~7%",
+      "label": "of mainland Portugal open to projects <b>without an environmental impact assessment</b>"
+    },
+    {
+      "n": "8.7 GW",
+      "label": "of grid capacity already allocated but <b>never built</b> — listed among the system's core weaknesses"
+    },
+    {
+      "n": "4",
+      "label": "Critical Decision Factors, broken into 11 criteria and 30 indicators"
+    },
+    {
+      "n": "€13,500",
+      "label": "per MVA — the municipal compensation set in law, the main financial return to a host territory"
+    }
   ],
   "sections": [
     {
@@ -20,7 +32,10 @@
         "It is explicitly <b>not</b> a project assessment. It evaluates a strategy, not the effects of a specific plant on a specific hillside. That gap is precisely what an objection can point to."
       ],
       "quotes": [
-        { "q": "[This assessment] will produce development contexts suited to future implementation proposals, and generate guidelines for the development of projects to be adopted in the face of the absence of EIA procedures.", "cite": "p. 14" }
+        {
+          "q": "[This assessment] will produce development contexts suited to future implementation proposals, and generate guidelines for the development of projects to be adopted in the face of the absence of EIA procedures.",
+          "cite": "p. 14"
+        }
       ]
     },
     {
@@ -30,8 +45,14 @@
         "In short: the Government proposes to remove project-level scrutiny while admitting it does not know what the projects already built have done."
       ],
       "quotes": [
-        { "q": "Lack of knowledge about the environmental impacts of existing projects, including mega power plants.", "cite": "p. 37, among the principal weaknesses" },
-        { "q": "Incomplete knowledge about the geographic distribution of sensitive species and habitats; limited knowledge about the impacts of projects already built and about the effectiveness of the mitigation measures applied.", "cite": "p. 63" }
+        {
+          "q": "Lack of knowledge about the environmental impacts of existing projects, including mega power plants.",
+          "cite": "p. 37, among the principal weaknesses"
+        },
+        {
+          "q": "Incomplete knowledge about the geographic distribution of sensitive species and habitats; limited knowledge about the impacts of projects already built and about the effectiveness of the mitigation measures applied.",
+          "cite": "p. 63"
+        }
       ]
     },
     {
@@ -41,8 +62,14 @@
         "It names the risks precisely: territorial concentration and <b>monofunctionality</b>; <b>land speculation</b> and land purchase by outside actors; value captured by actors outside the territory, reinforcing a perception of <i>territorial extraction</i>; and the reinforcement of inequality if the most fragile territories bear a disproportionate share of impacts without sufficient return."
       ],
       "quotes": [
-        { "q": "Part of the functional and landscape transformation pressure associated with acceleration may fall on rural and low-density territories, frequently already subject to demographic, economic and ecological vulnerabilities. This circumstance reinforces the importance of ensuring that those who bear the territorial costs of acceleration are those who benefit from it.", "cite": "p. 103" },
-        { "q": "It is not enough to produce more energy to generate sustainable development at the local scale — it is necessary to consider who benefits, in which territories, at what scale, and with what concrete effects on people's lives.", "cite": "pp. 59, 98" }
+        {
+          "q": "Part of the functional and landscape transformation pressure associated with acceleration may fall on rural and low-density territories, frequently already subject to demographic, economic and ecological vulnerabilities. This circumstance reinforces the importance of ensuring that those who bear the territorial costs of acceleration are those who benefit from it.",
+          "cite": "p. 103"
+        },
+        {
+          "q": "It is not enough to produce more energy to generate sustainable development at the local scale — it is necessary to consider who benefits, in which territories, at what scale, and with what concrete effects on people's lives.",
+          "cite": "pp. 59, 98"
+        }
       ]
     },
     {
@@ -51,7 +78,10 @@
         "On cumulative impacts, the report describes what happens when several projects pile into the same place. It is not a campaign slogan — it is the Government's own assessment describing the feeling it expects to create."
       ],
       "quotes": [
-        { "q": "It is no longer each isolated project that generates tension; it becomes the sum of their externalities — noise, traffic, visual effects, functional restrictions — that installs the feeling of a “sacrificed territory”, with direct consequences for the social contestation that the critical trends already identify as growing.", "cite": "p. 59" }
+        {
+          "q": "It is no longer each isolated project that generates tension; it becomes the sum of their externalities — noise, traffic, visual effects, functional restrictions — that installs the feeling of a “sacrificed territory”, with direct consequences for the social contestation that the critical trends already identify as growing.",
+          "cite": "p. 59"
+        }
       ]
     },
     {
@@ -61,7 +91,10 @@
         "It adds a nuance worth using: a small, badly designed project in a sensitive place can do more harm than a large, well-integrated one. Siting and design matter as much as size."
       ],
       "quotes": [
-        { "q": "All large-scale interventions, in themselves or through cumulative effect, in beautiful and functional landscapes that significantly alter that perception and landscape function carry significant risks of diminishing the visual quality of those landscapes, the identity matrices of the communities that build and enjoy them, and the compatible economic activities that develop there.", "cite": "pp. 67–68" }
+        {
+          "q": "All large-scale interventions, in themselves or through cumulative effect, in beautiful and functional landscapes that significantly alter that perception and landscape function carry significant risks of diminishing the visual quality of those landscapes, the identity matrices of the communities that build and enjoy them, and the compatible economic activities that develop there.",
+          "cite": "pp. 67–68"
+        }
       ]
     },
     {
@@ -71,7 +104,10 @@
         "This single line is worth quoting in an objection: the Government's own environmental assessment accepts that refusing large projects near your home is a legitimate position, not obstruction."
       ],
       "quotes": [
-        { "q": "[Among the aspects that may limit acceleration:] the opposition of communities that legitimately refuse the existence of large projects in their vicinity.", "cite": "p. 99" }
+        {
+          "q": "[Among the aspects that may limit acceleration:] the opposition of communities that legitimately refuse the existence of large projects in their vicinity.",
+          "cite": "p. 99"
+        }
       ]
     },
     {
@@ -81,8 +117,14 @@
         "It concedes there is a <b>relevant incidence on natural space</b> inside the zones, and that uncertainty remains about its sensitivity."
       ],
       "quotes": [
-        { "q": "Although the exercise of excluding areas relevant to biodiversity and landscape may be considered the first step of the mitigation hierarchy (avoiding impacts), the implementation of measures and guidelines aimed at mitigating possible unforeseen impacts is not considered dispensable (for example, biodiversity values that are not known may occur in the region of the ZAER).", "cite": "pp. 99–100" },
-        { "q": "Since, with the ZAER identified, there is nonetheless a relevant incidence on natural space — whose sensitivity will not be significant but about which uncertainty also exists — it is important to guard against potential negative impacts.", "cite": "p. 100" }
+        {
+          "q": "Although the exercise of excluding areas relevant to biodiversity and landscape may be considered the first step of the mitigation hierarchy (avoiding impacts), the implementation of measures and guidelines aimed at mitigating possible unforeseen impacts is not considered dispensable (for example, biodiversity values that are not known may occur in the region of the ZAER).",
+          "cite": "pp. 99–100"
+        },
+        {
+          "q": "Since, with the ZAER identified, there is nonetheless a relevant incidence on natural space — whose sensitivity will not be significant but about which uncertainty also exists — it is important to guard against potential negative impacts.",
+          "cite": "p. 100"
+        }
       ]
     },
     {
@@ -92,5 +134,7 @@
         "It recommends the programme be implemented <b>in phases</b>, so it can be adjusted as reality unfolds."
       ]
     }
-  ]
+  ],
+  "tag": "Environmental assessment",
+  "blurb": "The 249-page assessment — admits the risks and that opposition is legitimate."
 }

@@ -7,10 +7,22 @@
   "pages": 67,
   "summary": "The central document — the proposed national programme designating Portugal's renewable-energy acceleration zones under EU Directive RED III. It maps roughly <b>578,777 ha</b> as potential solar zones and <b>84,489 ha</b> as wind zones, touching 193 municipalities for solar and 111 for wind. Inside those zones, projects would be licensed through a single-window procedure in which the usual project-level Environmental Impact Assessment <b>is not carried out</b>. The document states plainly that the great majority of the mapped areas, for both solar and wind, fall within the <b>Pinhal do Centro</b> landscape group — which includes the Serra da Gardunha.",
   "keyFigures": [
-    { "n": "578,777 ha", "label": "mapped as potential solar acceleration zones (1,107 polygons over 100 ha)" },
-    { "n": "84,489 ha", "label": "mapped as potential wind acceleration zones" },
-    { "n": "193 / 111", "label": "municipalities touched by solar / wind potential" },
-    { "n": "78.9%", "label": "of the potential solar area is classified in municipal plans as rural <b>Forest Space</b>" }
+    {
+      "n": "578,777 ha",
+      "label": "mapped as potential solar acceleration zones (1,107 polygons over 100 ha)"
+    },
+    {
+      "n": "84,489 ha",
+      "label": "mapped as potential wind acceleration zones"
+    },
+    {
+      "n": "193 / 111",
+      "label": "municipalities touched by solar / wind potential"
+    },
+    {
+      "n": "78.9%",
+      "label": "of the potential solar area is classified in municipal plans as rural <b>Forest Space</b>"
+    }
   ],
   "sections": [
     {
@@ -27,8 +39,14 @@
         "In other words, being outside a zone is not protection; and being inside one is not yet a project. What being inside a zone changes is <i>how</i> a project gets approved."
       ],
       "quotes": [
-        { "q": "The acceleration zones that have been identified correspond to an indicative patch of the potential, since at the scale of the PSZAER and the SEA precise limits cannot be defined on the ground; the specific limits must be established in the project design and licensing procedures.", "cite": "p. 6" },
-        { "q": "The ZAER are not exclusive zones for the development of renewable energy; other areas of the territory may continue to receive proposals for renewable energy projects under the EIA regime.", "cite": "p. 6" }
+        {
+          "q": "The acceleration zones that have been identified correspond to an indicative patch of the potential, since at the scale of the PSZAER and the SEA precise limits cannot be defined on the ground; the specific limits must be established in the project design and licensing procedures.",
+          "cite": "p. 6"
+        },
+        {
+          "q": "The ZAER are not exclusive zones for the development of renewable energy; other areas of the territory may continue to receive proposals for renewable energy projects under the EIA regime.",
+          "cite": "p. 6"
+        }
       ]
     },
     {
@@ -45,7 +63,10 @@
         "The team overlaid the potential zones onto the map of Landscape Units. The finding is stated plainly, and it is the single most important sentence in this document for the Beira Baixa."
       ],
       "quotes": [
-        { "q": "The mapping of areas with ZAER potential was also cross-referenced against the mapping of Landscape Units, and it was found that the great majority of those areas, for solar and wind energy, occur in the Pinhal do Centro Group, which comprises the units of Pinhal Interior, Zêzere Valley, Serras da Gardunha, Alvelos and Moradal, and the Castelo Branco Agroforestry Massif.", "cite": "p. 11" }
+        {
+          "q": "The mapping of areas with ZAER potential was also cross-referenced against the mapping of Landscape Units, and it was found that the great majority of those areas, for solar and wind energy, occur in the Pinhal do Centro Group, which comprises the units of Pinhal Interior, Zêzere Valley, Serras da Gardunha, Alvelos and Moradal, and the Castelo Branco Agroforestry Massif.",
+          "cite": "p. 11"
+        }
       ]
     },
     {
@@ -72,8 +93,14 @@
         "Crucially, the document admits that the programme's protective directives only become binding on private developers if they are written into <b>municipal plans</b> — which are, on the document's own account, frequently out of date."
       ],
       "quotes": [
-        { "q": "For the directives set out in the PSZAER to be binding on private parties, they will have to be included in the municipal territorial plans.", "cite": "p. 38" },
-        { "q": "In planning terms, the project is subject to mere prior communication, to be submitted to the competent municipality; the urban operation is not subject to prior control, since all questions relating to location, territorial compatibility and administrative constraints have already been assessed and resolved within the integrated procedure.", "cite": "p. 41" }
+        {
+          "q": "For the directives set out in the PSZAER to be binding on private parties, they will have to be included in the municipal territorial plans.",
+          "cite": "p. 38"
+        },
+        {
+          "q": "In planning terms, the project is subject to mere prior communication, to be submitted to the competent municipality; the urban operation is not subject to prior control, since all questions relating to location, territorial compatibility and administrative constraints have already been assessed and resolved within the integrated procedure.",
+          "cite": "p. 41"
+        }
       ]
     },
     {
@@ -91,5 +118,7 @@
         "The document notes the transposition of RED III indicates the zones must be <b>reviewed every three years</b>."
       ]
     }
-  ]
+  ],
+  "tag": "The proposal",
+  "blurb": "The core plan: where solar and wind get fast-tracked, with the EIA waived."
 }

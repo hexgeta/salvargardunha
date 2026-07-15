@@ -7,9 +7,18 @@
   "pages": 66,
   "summary": "The legal report designing the licensing regime inside the acceleration zones. Its core proposal is a <b>single-window</b> procedure run by the energy directorate, in which the environmental assessment is done once, at <i>plan</i> level, and each individual project is then only checked for <b>conformity</b> with rules already set for the zone — <b>dispensing, as a rule, with a full project-level environmental impact assessment</b>. Binding deadlines apply (12 months; 6 for repowering) and administrative discretion is deliberately reduced. Its own comparative review concludes that speed comes not from removing environmental assessment but from moving it earlier — and warns Portugal may lack the institutional capacity to make that safe.",
   "keyFigures": [
-    { "n": "12 months", "label": "maximum licensing deadline inside a zone (6 months for repowering)" },
-    { "n": "24 months", "label": "the deadline <i>outside</i> the zones, where full project assessment still applies" },
-    { "n": "45 days", "label": "proposed maximum for the environmental <b>conformity check</b> that replaces the assessment inside a zone" }
+    {
+      "n": "12 months",
+      "label": "maximum licensing deadline inside a zone (6 months for repowering)"
+    },
+    {
+      "n": "24 months",
+      "label": "the deadline <i>outside</i> the zones, where full project assessment still applies"
+    },
+    {
+      "n": "45 days",
+      "label": "proposed maximum for the environmental <b>conformity check</b> that replaces the assessment inside a zone"
+    }
   ],
   "sections": [
     {
@@ -19,7 +28,10 @@
         "The assessment moves upstream, to the level of the plan. Each project is then checked against it, rather than assessed on its own merits at its own site."
       ],
       "quotes": [
-        { "q": "Licensing takes on a simplified and priority character, expressed in the reduction of maximum deadlines to 12 months and, in the case of repowering, to 6 months, in an appraisal focused on compliance with the conditions previously fixed when the zone was designated, dispensing, as a rule, with full environmental assessments at project level, in a (significant) reduction of the margin of administrative discretion.", "cite": "p. 6" }
+        {
+          "q": "Licensing takes on a simplified and priority character, expressed in the reduction of maximum deadlines to 12 months and, in the case of repowering, to 6 months, in an appraisal focused on compliance with the conditions previously fixed when the zone was designated, dispensing, as a rule, with full environmental assessments at project level, in a (significant) reduction of the margin of administrative discretion.",
+          "cite": "p. 6"
+        }
       ]
     },
     {
@@ -29,7 +41,10 @@
         "So the programme's protective directives — including the 25-hectare cap on continuous solar and the landscape rules — must first be written into municipal master plans before they can be enforced against any developer. And the report itself notes those municipal plans are frequently out of date."
       ],
       "quotes": [
-        { "q": "Since programmes are not binding on private parties, their orientations will have to be incorporated into municipal territorial plans in order to be enforceable against private parties — that is, in order to constitute the yardstick for appraising, in planning terms, the projects to be installed in the zones.", "cite": "p. 13" }
+        {
+          "q": "Since programmes are not binding on private parties, their orientations will have to be incorporated into municipal territorial plans in order to be enforceable against private parties — that is, in order to constitute the yardstick for appraising, in planning terms, the projects to be installed in the zones.",
+          "cite": "p. 13"
+        }
       ]
     },
     {
@@ -39,8 +54,14 @@
         "Its own conclusion is a warning about Portugal."
       ],
       "quotes": [
-        { "q": "It follows consistently from this comparative analysis that speed is not achieved by suppressing environmental assessments, but rather by bringing them forward to the planning level.", "cite": "p. 16" },
-        { "q": "For Portugal, investing in the robustness of the PSZAER and in the careful delimitation of the zones are necessary conditions, but insufficient without entities that are capable and technically equipped to respond with quality and speed at every stage of the process.", "cite": "p. 16" }
+        {
+          "q": "It follows consistently from this comparative analysis that speed is not achieved by suppressing environmental assessments, but rather by bringing them forward to the planning level.",
+          "cite": "p. 16"
+        },
+        {
+          "q": "For Portugal, investing in the robustness of the PSZAER and in the careful delimitation of the zones are necessary conditions, but insufficient without entities that are capable and technically equipped to respond with quality and speed at every stage of the process.",
+          "cite": "p. 16"
+        }
       ]
     },
     {
@@ -51,7 +72,10 @@
         "A <b>deliberative conference</b> then takes all the decisions simultaneously in a single act. A body that fails to attend or state a reasoned disagreement is <b>deemed to have no objection</b>. Conversely, an unfavourable position from any participating body means refusal — the conference requires unanimity."
       ],
       "quotes": [
-        { "q": "The developer must demonstrate that the project does not generate significant negative impacts that were not previously identified in the strategic environmental assessment of the programme that delimited the zone.", "cite": "p. 58" }
+        {
+          "q": "The developer must demonstrate that the project does not generate significant negative impacts that were not previously identified in the strategic environmental assessment of the programme that delimited the zone.",
+          "cite": "p. 58"
+        }
       ]
     },
     {
@@ -61,7 +85,10 @@
         "The municipality's remaining role is to supervise the works and report deviations from the approved mitigation measures."
       ],
       "quotes": [
-        { "q": "In planning terms, the project is subject only to a mere prior communication, to be submitted to the competent municipality; the works are not subject to prior control, since all questions relating to location, territorial compatibility and administrative constraints have already been appraised and resolved within the integrated procedure.", "cite": "p. 62" }
+        {
+          "q": "In planning terms, the project is subject only to a mere prior communication, to be submitted to the competent municipality; the works are not subject to prior control, since all questions relating to location, territorial compatibility and administrative constraints have already been appraised and resolved within the integrated procedure.",
+          "cite": "p. 62"
+        }
       ]
     },
     {
@@ -70,8 +97,13 @@
         "The report is scathing about the current “first come, first served” allocation of grid capacity, which locks up the grid with projects that may never be built. It recommends moving to <b>“first ready, first served”</b>, with mandatory milestones and expiry for “zombie” projects."
       ],
       "quotes": [
-        { "q": "It is a model considered inadequate because it keeps the grid occupied by projects whose maturity has not been weighed and which may never come to fruition… The model confers rights that are acquired against undemanding execution duties.", "cite": "p. 65" }
+        {
+          "q": "It is a model considered inadequate because it keeps the grid occupied by projects whose maturity has not been weighed and which may never come to fruition… The model confers rights that are acquired against undemanding execution duties.",
+          "cite": "p. 65"
+        }
       ]
     }
-  ]
+  ],
+  "tag": "Legal",
+  "blurb": "The single-window licensing regime that replaces the full EIA."
 }

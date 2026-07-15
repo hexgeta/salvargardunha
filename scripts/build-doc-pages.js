@@ -143,8 +143,8 @@ ${secs}
 
 function indexPage(docs) {
   const cards = docs.map((d) => `      <a class="doc" href="/read/${esc(d.slug)}">
-        <span class="doc-top"><span class="doc-t">${rich(d.title)}</span><span class="doc-s">${esc(d.date || '')}${d.pages ? ' · ' + esc(d.pages) + ' pp' : ''}</span></span>
-        <span class="doc-sum">${rich(d.summary)}</span>
+        <span class="doc-top"><span class="doc-t">${d.tag ? `<span class="doc-tag">${rich(d.tag)}</span>` : ''}${rich(d.title)}</span><span class="doc-s">${esc(d.date || '')}${d.pages ? ' · ' + esc(d.pages) + ' pp' : ''}</span></span>
+        <span class="doc-sum">${rich(d.blurb || d.summary)}</span>
       </a>`).join('\n');
 
   return `<!doctype html>
@@ -161,6 +161,7 @@ function indexPage(docs) {
   .doc:hover{border-color:var(--green)}
   .doc-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
   .doc-t{color:var(--ink);font-weight:700;font-size:16px;line-height:1.35}
+  .doc-tag{display:block;color:var(--green);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
   .doc-s{color:var(--muted);font-size:12px;white-space:nowrap}
   .doc-sum{display:block;color:#9aa79a;font-size:14px;line-height:1.55;margin-top:7px}
 </style>

@@ -7,10 +7,22 @@
   "pages": 39,
   "summary": "The landscape and cultural-heritage report behind the acceleration-zones programme. It sets out the legal framework, lists the heritage, agricultural and forestry categories excluded outright from the zones, then overlays the remaining potential zones onto Portugal's Landscape Unit Groups. The overlay finds that the <b>“Pinhal do Centro”</b> group — which expressly contains the landscape unit <b>“Serras da Gardunha, Alvelos e Moradal”</b> — stands out nationally: about <b>34% of it is potential solar zone</b>, the highest share in the country. The report acknowledges that large-scale solar is experienced as significant visual degradation, creating “blankets of glass”, and proposes capping continuous panel areas at 25 ha.",
   "keyFigures": [
-    { "n": "34.17%", "label": "of the Pinhal do Centro group (1,371.82 km² of 4,014.86 km²) is potential solar zone — the highest share of any group in Portugal (Table 1)" },
-    { "n": "~40%", "label": "of Pinhal do Centro has zone potential in total — c. 34% solar plus c. 6% wind, also the national high for wind" },
-    { "n": "25 ha", "label": "proposed maximum size of a continuous block of solar panels before landscape compartmentalisation is required" },
-    { "n": "30–35%", "label": "extra land needed on top of the panel area for landscape integration — 100 ha of panels needs 30–35 ha more" }
+    {
+      "n": "34.17%",
+      "label": "of the Pinhal do Centro group (1,371.82 km² of 4,014.86 km²) is potential solar zone — the highest share of any group in Portugal (Table 1)"
+    },
+    {
+      "n": "~40%",
+      "label": "of Pinhal do Centro has zone potential in total — c. 34% solar plus c. 6% wind, also the national high for wind"
+    },
+    {
+      "n": "25 ha",
+      "label": "proposed maximum size of a continuous block of solar panels before landscape compartmentalisation is required"
+    },
+    {
+      "n": "30–35%",
+      "label": "extra land needed on top of the panel area for landscape integration — 100 ha of panels needs 30–35 ha more"
+    }
   ],
   "sections": [
     {
@@ -20,7 +32,10 @@
         "Because landscape is understood as the historical reflection of social and economic life in the territory, cultural, archaeological and built heritage are folded into the same theme."
       ],
       "quotes": [
-        { "q": "Many of the interventions have a scale and a location that easily become controversial because of the significant visual intrusion and the loss of identity with the more traditional land uses to which the affected communities are accustomed.", "cite": "section 1" }
+        {
+          "q": "Many of the interventions have a scale and a location that easily become controversial because of the significant visual intrusion and the loss of identity with the more traditional land uses to which the affected communities are accustomed.",
+          "cite": "section 1"
+        }
       ]
     },
     {
@@ -30,7 +45,10 @@
         "Under the Convention, Portugal committed to recognising landscape in law, establishing landscape policies, guaranteeing <b>public participation</b> in them, and integrating landscape into all other public policies. The Convention's “landscape quality objectives” are explicitly defined as the aspirations of the population for their own surroundings, arrived at after public consultation — which is precisely what a consultation like this one is for."
       ],
       "quotes": [
-        { "q": "[Landscape quality objectives] may be expressed as the formulation of the aspirations of the populations with regard to the landscape features of their living environment, for each of the landscapes identified and assessed, and after a process of public consultation.", "cite": "section 2, quoting the Landscape Convention" }
+        {
+          "q": "[Landscape quality objectives] may be expressed as the formulation of the aspirations of the populations with regard to the landscape features of their living environment, for each of the landscapes identified and assessed, and after a process of public consultation.",
+          "cite": "section 2, quoting the Landscape Convention"
+        }
       ]
     },
     {
@@ -41,7 +59,10 @@
         "It draws a pointed distinction between genuine agrivoltaics and solar parks where grazing is really just an undergrowth-maintenance measure rather than a pre-existing farming activity."
       ],
       "quotes": [
-        { "q": "all large-scale interventions, in themselves or through cumulative effect, in beautiful and functional landscapes (rural or urban) that significantly alter that landscape perception and function, carry significant risks of diminishing the visual quality of those landscapes, the identity matrices of the communities that build and enjoy them, and the compatible economic activities that develop there.", "cite": "section 3.3" }
+        {
+          "q": "all large-scale interventions, in themselves or through cumulative effect, in beautiful and functional landscapes (rural or urban) that significantly alter that landscape perception and function, carry significant risks of diminishing the visual quality of those landscapes, the identity matrices of the communities that build and enjoy them, and the compatible economic activities that develop there.",
+          "cite": "section 3.3"
+        }
       ]
     },
     {
@@ -60,8 +81,14 @@
         "The report then explains <i>why</i> this area came out on top — and the reasoning is worth reading carefully. Because every culturally and scenically higher-value area was excluded first, what remains is, by construction, the land the method rates lowest. It cites an academic source to describe the area as “far from a sustainable landscape”."
       ],
       "quotes": [
-        { "q": "These analyses show that around 40% of the territory included in the Landscape Unit Group “J – Pinhal do Centro”, which thus stands out within the national set, has potential as ZAER, both for solar (c. 34% of that Group) and wind (likewise, c. 6%).", "cite": "section 5" },
-        { "q": "It is therefore natural that the remaining territorial areas are those with the lowest current landscape-quality values, such as those included in this Landscape Unit Group.", "cite": "section 5" }
+        {
+          "q": "These analyses show that around 40% of the territory included in the Landscape Unit Group “J – Pinhal do Centro”, which thus stands out within the national set, has potential as ZAER, both for solar (c. 34% of that Group) and wind (likewise, c. 6%).",
+          "cite": "section 5"
+        },
+        {
+          "q": "It is therefore natural that the remaining territorial areas are those with the lowest current landscape-quality values, such as those included in this Landscape Unit Group.",
+          "cite": "section 5"
+        }
       ]
     },
     {
@@ -72,7 +99,10 @@
         "The land arithmetic is striking: the report quantifies the <b>additional</b> area needed for compartmentalisation and integration at around <b>30–35% of the panel area</b> — so 100 ha of panels requires a further 30 to 35 ha on top."
       ],
       "quotes": [
-        { "q": "Continuous areas of solar panels may not exceed 25 ha. Beyond this dimension, landscape compartmentalisation measures must be established, surrounding the entire continuous area of panels.", "cite": "section 7.1" }
+        {
+          "q": "Continuous areas of solar panels may not exceed 25 ha. Beyond this dimension, landscape compartmentalisation measures must be established, surrounding the entire continuous area of panels.",
+          "cite": "section 7.1"
+        }
       ]
     },
     {
@@ -88,9 +118,17 @@
         "It distinguishes wind from solar. Wind meets less opposition through habituation to an essentially vertical technology. Solar is different — and here the report's own language is the most quoted line in this whole consultation."
       ],
       "quotes": [
-        { "q": "[Solar], by occupying large areas of horizontal extent, with reflections of light, creating blankets of glass over essentially flattened or slightly undulating territories, is felt very strongly as a significant visual degradation, leading many communities of observers to react negatively to the introduction of this technology at large scales.", "cite": "section 8" },
-        { "q": "the solution will be, first, to avoid the areas which for various reasons are considered of great collective landscape and heritage interest; and second, to establish a maximum dimension for large-scale solar panel parks (in the case of the ZAER, 25 ha is proposed), compartmentalised by naturalised, biophysically diversified structures.", "cite": "section 8" }
+        {
+          "q": "[Solar], by occupying large areas of horizontal extent, with reflections of light, creating blankets of glass over essentially flattened or slightly undulating territories, is felt very strongly as a significant visual degradation, leading many communities of observers to react negatively to the introduction of this technology at large scales.",
+          "cite": "section 8"
+        },
+        {
+          "q": "the solution will be, first, to avoid the areas which for various reasons are considered of great collective landscape and heritage interest; and second, to establish a maximum dimension for large-scale solar panel parks (in the case of the ZAER, 25 ha is proposed), compartmentalised by naturalised, biophysically diversified structures.",
+          "cite": "section 8"
+        }
       ]
     }
-  ]
+  ],
+  "tag": "Landscape",
+  "blurb": "Names the Gardunha in the country’s most-targeted landscape group."
 }

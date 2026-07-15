@@ -7,10 +7,22 @@
   "pages": 13,
   "summary": "The short introductory slide deck EMER 2030 published to open the public consultation on Portugal's Sectoral Programme for Renewable Energy Acceleration Zones (PSZAER) and its Strategic Environmental Assessment. It sets out the 2030 renewable targets, shows how far current installed capacity falls short of them, explains what changes inside an acceleration zone, lists the documents open for comment, and gives the timetable through to transposition into municipal plans in 2026–2028. It is the recommended starting point before the technical reports.",
   "keyFigures": [
-    { "n": "20.8 GW", "label": "solar capacity target for 2030 (15.1 GW centralised + 5.7 GW decentralised)" },
-    { "n": "10.4 GW", "label": "onshore wind target for 2030 (plus 2.0 GW offshore)" },
-    { "n": "~7 GW", "label": "solar actually installed as of April 2026 — the gap is largest in <b>centralised</b> solar, exactly what the zones are meant to accelerate" },
-    { "n": "51%", "label": "renewables share of gross final energy consumption targeted for 2030" }
+    {
+      "n": "20.8 GW",
+      "label": "solar capacity target for 2030 (15.1 GW centralised + 5.7 GW decentralised)"
+    },
+    {
+      "n": "10.4 GW",
+      "label": "onshore wind target for 2030 (plus 2.0 GW offshore)"
+    },
+    {
+      "n": "~7 GW",
+      "label": "solar actually installed as of April 2026 — the gap is largest in <b>centralised</b> solar, exactly what the zones are meant to accelerate"
+    },
+    {
+      "n": "51%",
+      "label": "renewables share of gross final energy consumption targeted for 2030"
+    }
   ],
   "sections": [
     {
@@ -109,5 +121,7 @@
         "<b>1st half of 2026:</b> Order no. 1532-B/2026 of 6 February, and the Consultation of Entities. <b>June 2026:</b> public discussion. <b>July 2026:</b> analysis of contributions and preparation of the final proposal. <b>August 2026:</b> legislative process. <b>2026–2028:</b> transposition into municipal master plans."
       ]
     }
-  ]
+  ],
+  "tag": "Start here",
+  "blurb": "Plain-language intro: what the acceleration zones are, and the timeline."
 }

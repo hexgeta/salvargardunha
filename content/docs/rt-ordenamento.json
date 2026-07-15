@@ -7,10 +7,22 @@
   "pages": 121,
   "summary": "The report on what these zones do to a <i>place</i> — and it is unusually blunt. It finds the land identified as suitable <b>vastly exceeds</b> what the 2030 targets require, and that the build-out is already reshaping the countryside: solar occupation grew from ~1,290 ha (2018) to ~4,740 ha (2023). It warns that territorial concentration, <b>land speculation</b> and “energy monofunctionality” in the low-density interior are <b>structural, not residual</b> risks — burdens falling on host territories while benefits are captured by outsiders. It recommends prioritising artificialised and degraded land over rural soil. It uses the Beira Baixa as its cautionary case.",
   "keyFigures": [
-    { "n": "1,290 → 4,740 ha", "label": "land occupied by solar in mainland Portugal, 2018→2023 — <b>+267% in five years</b>" },
-    { "n": "1 → 108 ha", "label": "solar occupation in the <b>Beira Baixa</b> over the same five years — one of the fastest-growing sub-regions" },
-    { "n": "~20,000 ha", "label": "panel area actually <b>needed</b> to meet the 2030 solar target — against <b>~960,000 ha</b> mapped as suitable" },
-    { "n": "729", "label": "ageing index in the <b>rural Beira Baixa</b> (65+ per 100 young people) vs 143 in its urban areas" }
+    {
+      "n": "1,290 → 4,740 ha",
+      "label": "land occupied by solar in mainland Portugal, 2018→2023 — <b>+267% in five years</b>"
+    },
+    {
+      "n": "1 → 108 ha",
+      "label": "solar occupation in the <b>Beira Baixa</b> over the same five years — one of the fastest-growing sub-regions"
+    },
+    {
+      "n": "~20,000 ha",
+      "label": "panel area actually <b>needed</b> to meet the 2030 solar target — against <b>~960,000 ha</b> mapped as suitable"
+    },
+    {
+      "n": "729",
+      "label": "ageing index in the <b>rural Beira Baixa</b> (65+ per 100 young people) vs 143 in its urban areas"
+    }
   ],
   "sections": [
     {
@@ -20,7 +32,10 @@
         "Its conclusion is that these territories are not <i>less conflicted</i>; they are <i>less able to resist</i>."
       ],
       "quotes": [
-        { "q": "Low-density territories should not be read only as spaces with greater land availability or lower apparent conflict, but as territories that accumulate demographic, functional and economic fragilities and which are, for that reason, more exposed to the risk of a concentration of burdens without a corresponding local retention of benefits.", "cite": "p. 19" }
+        {
+          "q": "Low-density territories should not be read only as spaces with greater land availability or lower apparent conflict, but as territories that accumulate demographic, functional and economic fragilities and which are, for that reason, more exposed to the risk of a concentration of burdens without a corresponding local retention of benefits.",
+          "cite": "p. 19"
+        }
       ]
     },
     {
@@ -30,7 +45,10 @@
         "And the geography shifted. The Alentejo's share fell from 62.4% to 39.6% as growth moved elsewhere. The report singles out the <b>Beira Baixa, which went from 1.0 ha in 2018 to 108.5 ha in 2023</b>."
       ],
       "quotes": [
-        { "q": "As solar advances into regions and sub-regions with less tradition of hosting this infrastructure — and frequently with greater ecological, agricultural or landscape sensitivity — it becomes more pressing to ensure that the acceleration does not generate disproportionate territorial pressures on host territories.", "cite": "pp. 9, 22" }
+        {
+          "q": "As solar advances into regions and sub-regions with less tradition of hosting this infrastructure — and frequently with greater ecological, agricultural or landscape sensitivity — it becomes more pressing to ensure that the acceleration does not generate disproportionate territorial pressures on host territories.",
+          "cite": "pp. 9, 22"
+        }
       ]
     },
     {
@@ -41,7 +59,10 @@
         "The report's own phrase for what this risks creating is not one a campaign invented."
       ],
       "quotes": [
-        { "q": "The spatial coincidence between solar and wind potential in certain municipalities of the Beira Baixa and Médio Tejo… suggests that, in the absence of planning criteria, some territories could be subject to cumulative renewable pressure of great magnitude, with evident risks of functional and landscape saturation… ensuring that the renewable acceleration does not turn certain territories into sacrifice zones of the energy transition.", "cite": "p. 32" }
+        {
+          "q": "The spatial coincidence between solar and wind potential in certain municipalities of the Beira Baixa and Médio Tejo… suggests that, in the absence of planning criteria, some territories could be subject to cumulative renewable pressure of great magnitude, with evident risks of functional and landscape saturation… ensuring that the renewable acceleration does not turn certain territories into sacrifice zones of the energy transition.",
+          "cite": "p. 32"
+        }
       ]
     },
     {
@@ -51,8 +72,14 @@
         "So the suitable land exceeds the actual need by a factor of dozens. The report's conclusion is that the programme therefore has room to be selective — and a responsibility to be."
       ],
       "quotes": [
-        { "q": "The availability of suitable area significantly exceeds the needs of execution. Especially in solar photovoltaics, the area suitable for acceleration is far greater than what is needed to meet the PNEC 2030 targets, but only a small fraction coincides with confirmed grid connection capacity.", "cite": "p. 10" },
-        { "q": "An explicit priority must be established for carrying out renewable energy projects in artificialised, built-up, infrastructured, degraded or under-used areas… Acceleration in these areas reduces pressure on rural soil, brings production closer to consumption centres, limits the need for new lines… and reduces the social and environmental conflict associated with projects in rural areas.", "cite": "p. 12" }
+        {
+          "q": "The availability of suitable area significantly exceeds the needs of execution. Especially in solar photovoltaics, the area suitable for acceleration is far greater than what is needed to meet the PNEC 2030 targets, but only a small fraction coincides with confirmed grid connection capacity.",
+          "cite": "p. 10"
+        },
+        {
+          "q": "An explicit priority must be established for carrying out renewable energy projects in artificialised, built-up, infrastructured, degraded or under-used areas… Acceleration in these areas reduces pressure on rural soil, brings production closer to consumption centres, limits the need for new lines… and reduces the social and environmental conflict associated with projects in rural areas.",
+          "cite": "p. 12"
+        }
       ]
     },
     {
@@ -63,7 +90,10 @@
         "It cites the academic concepts of <i>green sacrifice zones</i> and <i>green grabbing</i>, and a case where the Public Prosecutor challenged a 1,200 MW project's licence in court."
       ],
       "quotes": [
-        { "q": "The risks of territorial concentration, land speculation and energy monofunctionality are structural and not residual… energy monofunctionality in low-density territories — with territorially concentrated burdens and scarcely visible benefits — constitutes a risk of territorial injustice with implications for long-term social acceptance.", "cite": "p. 10" }
+        {
+          "q": "The risks of territorial concentration, land speculation and energy monofunctionality are structural and not residual… energy monofunctionality in low-density territories — with territorially concentrated burdens and scarcely visible benefits — constitutes a risk of territorial injustice with implications for long-term social acceptance.",
+          "cite": "p. 10"
+        }
       ]
     },
     {
@@ -74,8 +104,14 @@
         "The report also uses it to make a governance point that matters for anyone being offered money: <b>land rents paid to owners are not a community benefit</b>. They split a village."
       ],
       "quotes": [
-        { "q": "The payment of rents to landowners is not equivalent to a local social benefit mechanism, since it benefits a restricted group — the landowners — while the landscape and environmental impacts are borne by the community as a whole. The perception of unfair distribution can reduce local acceptance more sharply than the absence of any compensation, because it creates internal cleavages in the affected community.", "cite": "p. 81, on the Sophia plant" },
-        { "q": "Significant social and political opposition, articulated by local movements, the CIM Beira Baixa and several environmental NGOs. Public protests (including in Lisbon) and a petition with thousands of signatures. The central narrative criticises the deployment of “mega-plants” and the transformation of the interior into a “sacrifice zone”… Process suspended (2026) for reformulation of the project.", "cite": "p. 117, Annex A3" }
+        {
+          "q": "The payment of rents to landowners is not equivalent to a local social benefit mechanism, since it benefits a restricted group — the landowners — while the landscape and environmental impacts are borne by the community as a whole. The perception of unfair distribution can reduce local acceptance more sharply than the absence of any compensation, because it creates internal cleavages in the affected community.",
+          "cite": "p. 81, on the Sophia plant"
+        },
+        {
+          "q": "Significant social and political opposition, articulated by local movements, the CIM Beira Baixa and several environmental NGOs. Public protests (including in Lisbon) and a petition with thousands of signatures. The central narrative criticises the deployment of “mega-plants” and the transformation of the interior into a “sacrifice zone”… Process suspended (2026) for reformulation of the project.",
+          "cite": "p. 117, Annex A3"
+        }
       ]
     },
     {
@@ -85,7 +121,10 @@
         "On tourism, <b>30 tourism enterprises and 112 local-accommodation establishments</b> fall within areas of solar potential — country houses, agri-tourism, rural hotels, concentrated in the Centro and Norte — businesses whose entire value depends on landscape quality, tranquillity and rural identity."
       ],
       "quotes": [
-        { "q": "The installation of renewables can generate industrial competitiveness and significant municipal revenues, but the benefits tend to be appropriated by agents external to the territory… renewable production can exist without generating any relevant economic transformation.", "cite": "p. 10" }
+        {
+          "q": "The installation of renewables can generate industrial competitiveness and significant municipal revenues, but the benefits tend to be appropriated by agents external to the territory… renewable production can exist without generating any relevant economic transformation.",
+          "cite": "p. 10"
+        }
       ]
     },
     {
@@ -95,5 +134,7 @@
         "Make local benefit-sharing a <b>mandatory common framework</b>, not something negotiated project by project. And prioritise roofs, car parks, industrial and logistics zones, landfills, quarries and abandoned mines as the preferred domain of acceleration."
       ]
     }
-  ]
+  ],
+  "tag": "Territory & economy",
+  "blurb": "Zones far exceed the 2030 needs; warns of land speculation in the interior."
 }
