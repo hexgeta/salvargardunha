@@ -3,10 +3,13 @@
   "rewrites": [
     { "source": "/en", "destination": "/api/page?lang=en" },
     { "source": "/de", "destination": "/api/page?lang=de" },
-    { "source": "/fr", "destination": "/api/page?lang=fr" }
+    { "source": "/fr", "destination": "/api/page?lang=fr" },
+    { "source": "/en/:page", "destination": "/api/page?lang=en&page=:page" },
+    { "source": "/de/:page", "destination": "/api/page?lang=de&page=:page" },
+    { "source": "/fr/:page", "destination": "/api/page?lang=fr&page=:page" }
   ],
   "functions": {
-    "api/page.js": { "includeFiles": "index.html" }
+    "api/page.js": { "includeFiles": "*.html" }
   },
   "redirects": [
     {
