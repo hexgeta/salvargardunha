@@ -3,7 +3,8 @@
   "rewrites": [
     { "source": "/en", "destination": "/api/page?lang=en" },
     { "source": "/de", "destination": "/api/page?lang=de" },
-    { "source": "/fr", "destination": "/api/page?lang=fr" }
+    { "source": "/fr", "destination": "/api/page?lang=fr" },
+    { "source": "/social", "destination": "/aliados" }
   ],
   "functions": {
     "api/page.js": { "includeFiles": "index.html" }
