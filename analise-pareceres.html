@@ -39,6 +39,7 @@
   tbody tr{border-top:1px solid var(--line)}
   tbody td{color:#ccd3c9}
   td .ent{color:#fff;font-weight:600}
+  td .ent[title]{border-bottom:1px dotted #6f7a6f;cursor:help}
   .pill{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.02em;padding:3px 9px;border-radius:999px;white-space:nowrap}
   .p-unfav{background:#3a1414;color:#fca5a5;border:1px solid #5c2020}
   .p-cond{background:#3a2e0a;color:#fcd34d;border:1px solid #5c4a12}
@@ -91,18 +92,18 @@
       <table>
         <thead><tr><th>Entidade pública</th><th>Tipo</th><th>Sentido do parecer</th></tr></thead>
         <tbody>
-          <tr><td><span class="ent">Património Cultural, I.P.</span><br>autoridade do património</td><td>Setorial</td><td><span class="pill p-unfav">Desfavorável</span></td></tr>
-          <tr><td><span class="ent">DGADR</span><br>Agricultura e Desenvolvimento Rural</td><td>Setorial</td><td><span class="pill p-unfav">Desfavorável</span> à proposta (condicionado ao relatório ambiental)</td></tr>
-          <tr><td><span class="ent">ANMP</span><br>Associação Nacional de Municípios Portugueses</td><td>Assoc. municipal</td><td><span class="pill p-unfav">Desfavorável</span> quanto ao conteúdo e à condução do processo</td></tr>
-          <tr><td><span class="ent">Município de Santa Maria da Feira</span></td><td>Município</td><td><span class="pill p-unfav">Desfavorável</span> / posição contrária</td></tr>
-          <tr><td><span class="ent">DGT</span><br>Direção-Geral do Território</td><td>Setorial</td><td><span class="pill p-cond">Condicionado</span> à reformulação da proposta</td></tr>
-          <tr><td><span class="ent">DGEG</span><br>Direção-Geral de Energia e Geologia</td><td>Setorial</td><td><span class="pill p-cond">Condicionado</span> — recomendações técnicas e condições setoriais</td></tr>
-          <tr><td><span class="ent">ICNF</span><br>Conservação da Natureza e Florestas</td><td>Setorial</td><td><span class="pill p-cond">Favorável, condicionado</span> — incl. expurgar a faixa de 1&nbsp;km em redor da paisagem protegida da Serra da Gardunha</td></tr>
-          <tr><td><span class="ent">APA</span><br>Agência Portuguesa do Ambiente</td><td>Setorial</td><td><span class="pill p-cond">Favorável, condicionado</span></td></tr>
-          <tr><td><span class="ent">Agência para o Clima</span></td><td>Setorial</td><td><span class="pill p-cond">Condicionado</span> — recomenda revisão e complemento</td></tr>
-          <tr><td><span class="ent">CCDR</span> Centro, Norte, Alentejo, Algarve, Lisboa&nbsp;e&nbsp;Vale&nbsp;do&nbsp;Tejo</td><td>Regional (×5)</td><td><span class="pill p-cond">Favorável, condicionado</span></td></tr>
-          <tr><td><span class="ent">Município do Fundão</span> · <span class="ent">Covilhã</span><br>+ ~12 outros municípios e 2 comunidades intermunicipais</td><td>Municipal</td><td><span class="pill p-cond">Reservas e recomendações</span></td></tr>
-          <tr><td><span class="ent">ACSS</span><br>Administração Central do Sistema de Saúde</td><td>Setorial</td><td><span class="pill p-none">Não emitiu parecer</span></td></tr>
+          <tr><td><span class="ent" title="Instituto público que protege o património cultural e arqueológico do país — monumentos, sítios e paisagens classificadas.">Património Cultural, I.P.</span><br>autoridade do património</td><td>Setorial</td><td><span class="pill p-unfav">Desfavorável</span></td></tr>
+          <tr><td><span class="ent" title="Direção-Geral de Agricultura e Desenvolvimento Rural — organismo do Estado responsável pelos solos agrícolas, regadio e desenvolvimento rural.">DGADR</span><br>Agricultura e Desenvolvimento Rural</td><td>Setorial</td><td><span class="pill p-unfav">Desfavorável</span> à proposta (condicionado ao relatório ambiental)</td></tr>
+          <tr><td><span class="ent" title="Associação Nacional de Municípios Portugueses — a associação que representa todas as câmaras municipais do país e fala em nome delas perante o Governo.">ANMP</span><br>Associação Nacional de Municípios Portugueses</td><td>Assoc. municipal</td><td><span class="pill p-unfav">Desfavorável</span> quanto ao conteúdo e à condução do processo</td></tr>
+          <tr><td><span class="ent" title="Câmara Municipal de Santa Maria da Feira — o governo local (autarquia) deste concelho.">Município de Santa Maria da Feira</span></td><td>Município</td><td><span class="pill p-unfav">Desfavorável</span> / posição contrária</td></tr>
+          <tr><td><span class="ent" title="Direção-Geral do Território — organismo do Estado responsável pelo ordenamento do território e pela cartografia oficial.">DGT</span><br>Direção-Geral do Território</td><td>Setorial</td><td><span class="pill p-cond">Condicionado</span> à reformulação da proposta</td></tr>
+          <tr><td><span class="ent" title="Direção-Geral de Energia e Geologia — organismo do Estado que tutela os setores da energia e dos recursos geológicos.">DGEG</span><br>Direção-Geral de Energia e Geologia</td><td>Setorial</td><td><span class="pill p-cond">Condicionado</span> — recomendações técnicas e condições setoriais</td></tr>
+          <tr><td><span class="ent" title="Instituto da Conservação da Natureza e das Florestas — organismo do Estado que gere as áreas protegidas, a biodiversidade e as florestas.">ICNF</span><br>Conservação da Natureza e Florestas</td><td>Setorial</td><td><span class="pill p-cond">Favorável, condicionado</span> — incl. expurgar a faixa de 1&nbsp;km em redor da paisagem protegida da Serra da Gardunha</td></tr>
+          <tr><td><span class="ent" title="Agência Portuguesa do Ambiente — organismo do Estado responsável pela política de ambiente e pela avaliação ambiental dos planos e projetos.">APA</span><br>Agência Portuguesa do Ambiente</td><td>Setorial</td><td><span class="pill p-cond">Favorável, condicionado</span></td></tr>
+          <tr><td><span class="ent" title="Organismo público dedicado à política climática e à transição para a neutralidade carbónica.">Agência para o Clima</span></td><td>Setorial</td><td><span class="pill p-cond">Condicionado</span> — recomenda revisão e complemento</td></tr>
+          <tr><td><span class="ent" title="Comissões de Coordenação e Desenvolvimento Regional — organismos do Estado que coordenam o desenvolvimento e o ordenamento do território em cada região.">CCDR</span> Centro, Norte, Alentejo, Algarve, Lisboa&nbsp;e&nbsp;Vale&nbsp;do&nbsp;Tejo</td><td>Regional (×5)</td><td><span class="pill p-cond">Favorável, condicionado</span></td></tr>
+          <tr><td><span class="ent" title="Câmaras municipais da Beira Baixa (o governo local destes concelhos) — entre os territórios diretamente abrangidos pelas zonas.">Município do Fundão</span> · <span class="ent" title="Câmara Municipal da Covilhã — o governo local deste concelho da Beira Baixa.">Covilhã</span><br>+ ~12 outros municípios e 2 comunidades intermunicipais</td><td>Municipal</td><td><span class="pill p-cond">Reservas e recomendações</span></td></tr>
+          <tr><td><span class="ent" title="Administração Central do Sistema de Saúde — organismo do Estado que gere os recursos financeiros e o património do Serviço Nacional de Saúde.">ACSS</span><br>Administração Central do Sistema de Saúde</td><td>Setorial</td><td><span class="pill p-none">Não emitiu parecer</span></td></tr>
         </tbody>
       </table>
     </div>
