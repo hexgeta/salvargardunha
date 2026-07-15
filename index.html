@@ -1005,7 +1005,7 @@
     document.querySelectorAll('#langsw button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
     var cg=document.getElementById('copygen'); if(cg) cg.style.display='none';
     localStorage.setItem('nf_lang',l);
-    try{history.replaceState(null,'',l==='pt'?'/':'/'+l);}catch(e){}
+    try{history.replaceState(null,'',(l==='pt'?'/':'/'+l)+location.hash);}catch(e){}
     render();
   }
   document.querySelectorAll('#langsw button').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang'));});});
@@ -1050,6 +1050,11 @@
   }
   fetch('/api/petition').then(function(r){return r.json()}).then(function(j){ if(j&&j.count){petCount=j.count;} renderPet(); }).catch(function(){ renderPet(); });
   applyLang(lang); setInterval(tick,1000);
+  // After translation reflows the page, re-honour a #hash the browser jumped to too early.
+  if(location.hash.length>1){
+    var target=document.getElementById(location.hash.slice(1));
+    if(target){requestAnimationFrame(function(){setTimeout(function(){target.scrollIntoView();},60);});}
+  }
 
   var GENFB={
     pt:'Venho manifestar a minha oposição à inclusão da Serra da Gardunha e da Beira Baixa nas Zonas de Aceleração de Energias Renováveis do PSZAER. Oponho-me à instalação de megacentrais solares e eólicas nesta região sem avaliação de impacte ambiental, pelos impactes na paisagem protegida, na água, no solo agrícola e florestal e nas espécies ameaçadas. Peço a exclusão desta área do programa.',
