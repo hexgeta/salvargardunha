@@ -14,7 +14,12 @@
   .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
   a{color:var(--green)}
   .top{border-bottom:1px solid var(--line);padding:14px 0;font-size:14px}
+  .top .wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
   .top a{text-decoration:none;color:var(--muted)}.top a:hover{color:var(--green)}
+  .langsw{margin-left:auto;display:flex;gap:2px}
+  .langsw button{font:inherit;font-size:12.5px;font-weight:700;padding:5px 9px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;border-radius:7px;text-transform:uppercase;letter-spacing:.04em}
+  .langsw button:hover{color:var(--green);border-color:var(--green)}
+  .langsw button.on{background:var(--green-d);color:#05230f;border-color:var(--green-d)}
   header{padding:34px 0 22px;border-bottom:1px solid var(--line)}
   .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:11px}
   h1{font-size:clamp(24px,4vw,36px);line-height:1.12;font-weight:900;letter-spacing:-.02em;max-width:900px}
@@ -65,25 +70,25 @@
 </head>
 <body>
 
-<div class="top"><div class="wrap"><a href="/">← salvargardunha.com</a> · <a href="/read/analise-pareceres">Documento completo em inglês →</a></div></div>
+<div class="top"><div class="wrap"><a href="/" data-i18n="top_home">← salvargardunha.com</a> · <a href="/read/analise-pareceres" data-i18n="top_doc">Documento completo em inglês →</a><span class="langsw" id="langsw"><button data-l="pt">PT</button><button data-l="en">EN</button><button data-l="de">DE</button><button data-l="fr">FR</button></span></div></div>
 
 <header>
   <div class="wrap">
-    <div class="eyebrow">Consulta PSZAER · análise e ponderação</div>
-    <h1>As objeções das entidades — e o que o Governo fez com elas</h1>
-    <p class="lede">Todas as contribuições formais das entidades públicas à consulta do PSZAER (o documento numera <b>172</b>), com o <b>sentido da resposta do Governo</b>. Repara: o Governo usa apenas três respostas — <b>Aceite</b>, <b>Parcialmente aceite</b> e <b>Registado</b> (fica anotado mas <b>não muda nada</b>). <b>Não existe uma única «Não aceite»</b> — nem sequer para os pareceres desfavoráveis (Património Cultural, ANMP, Agricultura, Santa Maria da Feira).</p>
-    <p class="src">Fonte: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">Análise e Ponderação dos Pareceres das Entidades</a> (23 jun 2026, 47 pp.) · resumo em inglês em <a href="/read/analise-pareceres">/read</a>. Texto das objeções citado do documento oficial (em português). Esta tabela individualiza 171 das 172 contribuições numeradas.</p>
+    <div class="eyebrow" data-i18n="eyebrow">Consulta PSZAER · análise e ponderação</div>
+    <h1 data-i18n="h1">As objeções das entidades — e o que o Governo fez com elas</h1>
+    <p class="lede" data-i18n="lede">Todas as contribuições formais das entidades públicas à consulta do PSZAER (o documento numera <b>172</b>), com o <b>sentido da resposta do Governo</b>. Repara: o Governo usa apenas três respostas — <b>Aceite</b>, <b>Parcialmente aceite</b> e <b>Registado</b> (fica anotado mas <b>não muda nada</b>). <b>Não existe uma única «Não aceite»</b> — nem sequer para os pareceres desfavoráveis (Património Cultural, ANMP, Agricultura, Santa Maria da Feira).</p>
+    <p class="src" data-i18n="src">Fonte: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">Análise e Ponderação dos Pareceres das Entidades</a> (23 jun 2026, 47 pp.) · resumo em inglês em <a href="/read/analise-pareceres">/read</a>. Texto das objeções citado do documento oficial (em português). Esta tabela individualiza 171 das 172 contribuições numeradas.</p>
     <div class="sum" id="sum"></div>
   </div>
 </header>
 
 <div class="controls">
   <div class="wrap">
-    <button class="fbtn on" data-sense="all">Todas</button>
+    <button class="fbtn on" data-sense="all" data-i18n="f_all">Todas</button>
     <button class="fbtn" data-sense="Aceite">Aceite</button>
     <button class="fbtn parcial" data-sense="Parcialmente aceite">Parcialmente aceite</button>
     <button class="fbtn registado" data-sense="Registado">Registado</button>
-    <select id="entsel"><option value="all">Todas as entidades</option></select>
+    <select id="entsel"><option value="all" data-i18n="ent_all">Todas as entidades</option></select>
     <input type="search" id="q" placeholder="Procurar (ex.: Gardunha, cartografia, RAN)…">
     <span class="count" id="count"></span>
   </div>
@@ -93,18 +98,18 @@
   <div class="wrap">
     <div class="tblwrap">
       <table>
-        <thead><tr><th>Entidade</th><th>Contributo / objeção</th><th>Sentido</th><th>Resposta do Governo</th></tr></thead>
+        <thead><tr><th data-i18n="th_ent">Entidade</th><th data-i18n="th_obj">Contributo / objeção</th><th data-i18n="th_sense">Sentido</th><th data-i18n="th_gov">Resposta do Governo</th></tr></thead>
         <tbody id="rows"></tbody>
       </table>
     </div>
-    <div class="empty" id="empty" style="display:none">Nenhuma linha corresponde ao filtro.</div>
+    <div class="empty" id="empty" style="display:none" data-i18n="empty">Nenhuma linha corresponde ao filtro.</div>
   </div>
 </main>
 
 <footer>
   <div class="wrap">
-    <div><a href="/">salvargardunha.com</a> · <a href="/read/">Documentos em inglês</a> · <a href="/social">Espalhar a palavra</a></div>
-    <p style="margin-top:10px">Extraído fielmente da tabela de Análise e Ponderação (linhas 1–172) do documento oficial em consulta pública. As objeções e as respostas são citação/síntese do texto original em português; onde um número importe, confirma no <a href="/docs/analise-pareceres.pdf">PDF</a>. Página informativa e cívica, sem fins lucrativos.</p>
+    <div><a href="/">salvargardunha.com</a> · <a href="/read/" data-i18n="foot_docs">Documentos em inglês</a> · <a href="/social" data-i18n="foot_share">Espalhar a palavra</a></div>
+    <p style="margin-top:10px" data-i18n="foot_disc">Extraído fielmente da tabela de Análise e Ponderação (linhas 1–172) do documento oficial em consulta pública. As objeções e as respostas são citação/síntese do texto original em português; onde um número importe, confirma no <a href="/docs/analise-pareceres.pdf">PDF</a>. Página informativa e cívica, sem fins lucrativos.</p>
   </div>
 </footer>
 
@@ -291,67 +296,154 @@
   var clean = function(s){return String(s||'').replace(/&gt;/g,'>').replace(/&lt;/g,'<').replace(/&amp;/g,'&');};
   var senseClass = function(s){return s==='Aceite'?'aceite':(s==='Parcialmente aceite'?'parcial':'registado');};
 
-  // summary chips
-  var counts = {Aceite:0,'Parcialmente aceite':0,Registado:0};
-  rows.forEach(function(r){counts[r.sense]=(counts[r.sense]||0)+1;});
-  var sum = document.getElementById('sum');
-  var chips = [
-    {k:'total', n:rows.length, l:'contribuições analisadas'},
-    {k:'aceite', n:counts['Aceite'], l:'Aceites'},
-    {k:'parcial', n:counts['Parcialmente aceite'], l:'Parcialmente aceites'},
-    {k:'registado', n:counts['Registado'], l:'Apenas «registadas» (0 alterações)'}
-  ];
-  sum.innerHTML = chips.map(function(c){return '<div class="chip '+c.k+'"><div class="n">'+c.n+'</div><div class="l">'+c.l+'</div></div>';}).join('');
+  // ---- i18n (UI only; objection/note text stays in official Portuguese) ----
+  var SENSE = {
+    pt:{'Aceite':'Aceite','Parcialmente aceite':'Parcialmente aceite','Registado':'Registado'},
+    en:{'Aceite':'Accepted','Parcialmente aceite':'Partially accepted','Registado':'Noted'},
+    de:{'Aceite':'Angenommen','Parcialmente aceite':'Teilweise angenommen','Registado':'Zur Kenntnis genommen'},
+    fr:{'Aceite':'Accepté','Parcialmente aceite':'Partiellement accepté','Registado':'Enregistré'}
+  };
+  var STR = {
+    pt:{
+      top_home:'← salvargardunha.com', top_doc:'Documento completo em inglês →',
+      eyebrow:'Consulta PSZAER · análise e ponderação',
+      h1:'As objeções das entidades — e o que o Governo fez com elas',
+      lede:'Todas as contribuições formais das entidades públicas à consulta do PSZAER (o documento numera <b>172</b>), com o <b>sentido da resposta do Governo</b>. Repara: o Governo usa apenas três respostas — <b>Aceite</b>, <b>Parcialmente aceite</b> e <b>Registado</b> (fica anotado mas <b>não muda nada</b>). <b>Não existe uma única «Não aceite»</b> — nem sequer para os pareceres desfavoráveis (Património Cultural, ANMP, Agricultura, Santa Maria da Feira).',
+      src:'Fonte: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">Análise e Ponderação dos Pareceres das Entidades</a> (23 jun 2026, 47 pp.) · resumo em inglês em <a href="/read/analise-pareceres">/read</a>. Texto das objeções citado do documento oficial (em português). Esta tabela individualiza 171 das 172 contribuições numeradas.',
+      f_all:'Todas', ent_all:'Todas as entidades', q_ph:'Procurar (ex.: Gardunha, cartografia, RAN)…',
+      th_ent:'Entidade', th_obj:'Contributo / objeção', th_sense:'Sentido', th_gov:'Resposta do Governo',
+      empty:'Nenhuma linha corresponde ao filtro.',
+      c_total:'contribuições analisadas', c_aceite:'Aceites', c_parcial:'Parcialmente aceites', c_registado:'Apenas «registadas» (0 alterações)',
+      count:function(s,t){return s+' de '+t;},
+      foot_docs:'Documentos em inglês', foot_share:'Espalhar a palavra',
+      foot_disc:'Extraído fielmente da tabela de Análise e Ponderação (linhas 1–172) do documento oficial em consulta pública. As objeções e as respostas são citação/síntese do texto original em português; onde um número importe, confirma no <a href="/docs/analise-pareceres.pdf">PDF</a>. Página informativa e cívica, sem fins lucrativos.'
+    },
+    en:{
+      top_home:'← salvargardunha.com', top_doc:'Full document in English →',
+      eyebrow:'PSZAER consultation · analysis & weighing',
+      h1:'The bodies’ objections — and what the Government did with them',
+      lede:'Every formal contribution the public bodies made to the PSZAER consultation (the document numbers <b>172</b>), with the <b>Government’s response</b>. Note: the Government uses only three responses — <b>Accepted</b>, <b>Partially accepted</b> and <b>Noted</b> (logged but <b>changes nothing</b>). <b>There is not a single “Rejected”</b> — not even for the unfavourable opinions (Cultural Heritage, national municipalities association, Agriculture, Santa Maria da Feira).',
+      src:'Source: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">Analysis & Weighing of the Bodies’ Opinions</a> (23 Jun 2026, 47 pp.) · English summary at <a href="/read/analise-pareceres">/read</a>. The objection text is quoted from the official document (in Portuguese). This table individuates 171 of the 172 numbered contributions.',
+      f_all:'All', ent_all:'All bodies', q_ph:'Search (e.g. Gardunha, cartografia, RAN)…',
+      th_ent:'Body', th_obj:'Contribution / objection', th_sense:'Outcome', th_gov:'Government’s response',
+      empty:'No rows match the filter.',
+      c_total:'contributions analysed', c_aceite:'Accepted', c_parcial:'Partially accepted', c_registado:'Merely “noted” (0 changes)',
+      count:function(s,t){return s+' of '+t;},
+      foot_docs:'Documents in English', foot_share:'Spread the word',
+      foot_disc:'Faithfully extracted from the Analysis & Weighing table (rows 1–172) of the official document in public consultation. Objections and responses are quotes/summaries of the original Portuguese text; where a number matters, check the <a href="/docs/analise-pareceres.pdf">PDF</a>. Informative, civic, non-profit page.'
+    },
+    de:{
+      top_home:'← salvargardunha.com', top_doc:'Vollständiges Dokument auf Englisch →',
+      eyebrow:'PSZAER-Konsultation · Analyse & Abwägung',
+      h1:'Die Einwände der Behörden — und was die Regierung damit machte',
+      lede:'Alle formellen Beiträge der öffentlichen Stellen zur PSZAER-Konsultation (das Dokument nummeriert <b>172</b>), mit der <b>Antwort der Regierung</b>. Beachte: die Regierung verwendet nur drei Antworten — <b>Angenommen</b>, <b>Teilweise angenommen</b> und <b>Zur Kenntnis genommen</b> (vermerkt, aber <b>ändert nichts</b>). <b>Kein einziges „Abgelehnt“</b> — nicht einmal bei den ablehnenden Stellungnahmen (Kulturerbe, Gemeindeverband, Landwirtschaft, Santa Maria da Feira).',
+      src:'Quelle: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">Analyse & Abwägung der Stellungnahmen</a> (23. Juni 2026, 47 S.) · englische Zusammenfassung unter <a href="/read/analise-pareceres">/read</a>. Der Einwandstext ist aus dem amtlichen Dokument zitiert (auf Portugiesisch). Diese Tabelle listet 171 der 172 nummerierten Beiträge einzeln auf.',
+      f_all:'Alle', ent_all:'Alle Stellen', q_ph:'Suchen (z. B. Gardunha, cartografia, RAN)…',
+      th_ent:'Stelle', th_obj:'Beitrag / Einwand', th_sense:'Ergebnis', th_gov:'Antwort der Regierung',
+      empty:'Keine Zeile entspricht dem Filter.',
+      c_total:'analysierte Beiträge', c_aceite:'Angenommen', c_parcial:'Teilweise angenommen', c_registado:'Nur „vermerkt“ (0 Änderungen)',
+      count:function(s,t){return s+' von '+t;},
+      foot_docs:'Dokumente auf Englisch', foot_share:'Weitersagen',
+      foot_disc:'Getreu aus der Tabelle „Analyse & Abwägung“ (Zeilen 1–172) des amtlichen Dokuments in der öffentlichen Konsultation entnommen. Einwände und Antworten sind Zitate/Zusammenfassungen des portugiesischen Originaltexts; wo eine Zahl zählt, prüfe das <a href="/docs/analise-pareceres.pdf">PDF</a>. Informative, zivilgesellschaftliche, gemeinnützige Seite.'
+    },
+    fr:{
+      top_home:'← salvargardunha.com', top_doc:'Document complet en anglais →',
+      eyebrow:'Consultation PSZAER · analyse et pondération',
+      h1:'Les objections des organismes — et ce que le Gouvernement en a fait',
+      lede:'Toutes les contributions formelles des organismes publics à la consultation du PSZAER (le document en numérote <b>172</b>), avec la <b>réponse du Gouvernement</b>. À noter : le Gouvernement n’utilise que trois réponses — <b>Accepté</b>, <b>Partiellement accepté</b> et <b>Enregistré</b> (noté mais <b>ne change rien</b>). <b>Pas un seul « Rejeté »</b> — même pas pour les avis défavorables (Patrimoine culturel, association des communes, Agriculture, Santa Maria da Feira).',
+      src:'Source : <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">Analyse et pondération des avis</a> (23 juin 2026, 47 p.) · résumé en anglais sur <a href="/read/analise-pareceres">/read</a>. Le texte des objections est cité du document officiel (en portugais). Ce tableau individualise 171 des 172 contributions numérotées.',
+      f_all:'Toutes', ent_all:'Tous les organismes', q_ph:'Rechercher (ex. : Gardunha, cartografia, RAN)…',
+      th_ent:'Organisme', th_obj:'Contribution / objection', th_sense:'Décision', th_gov:'Réponse du Gouvernement',
+      empty:'Aucune ligne ne correspond au filtre.',
+      c_total:'contributions analysées', c_aceite:'Acceptées', c_parcial:'Partiellement acceptées', c_registado:'Seulement « enregistrées » (0 changement)',
+      count:function(s,t){return s+' sur '+t;},
+      foot_docs:'Documents en anglais', foot_share:'Faire passer le mot',
+      foot_disc:'Extrait fidèlement du tableau d’Analyse et pondération (lignes 1–172) du document officiel en consultation publique. Objections et réponses sont des citations/synthèses du texte portugais original ; là où un chiffre compte, vérifie le <a href="/docs/analise-pareceres.pdf">PDF</a>. Page informative, citoyenne, à but non lucratif.'
+    }
+  };
 
-  // entity dropdown
-  var ents = Array.from(new Set(rows.map(function(r){return r.entity;}))).sort(function(a,b){return a.localeCompare(b,'pt');});
+  var lang = (function(){try{return localStorage.getItem('nf_lang')||'pt';}catch(e){return 'pt';}})();
+  if(!STR[lang]) lang='pt';
+
   var sel = document.getElementById('entsel');
-  ents.forEach(function(e){var o=document.createElement('option');o.value=e;o.textContent=e;sel.appendChild(o);});
-
-  var state = {sense:'all', ent:'all', q:''};
   var tbody = document.getElementById('rows');
   var empty = document.getElementById('empty');
   var countEl = document.getElementById('count');
+  var sumEl = document.getElementById('sum');
+  var qEl = document.getElementById('q');
+  var state = {sense:'all', ent:'all', q:''};
+
+  // entity dropdown (values stay PT; only the default label is translated)
+  var ents = Array.from(new Set(rows.map(function(r){return r.entity;}))).sort(function(a,b){return a.localeCompare(b,'pt');});
+  ents.forEach(function(e){var o=document.createElement('option');o.value=e;o.textContent=e;sel.appendChild(o);});
+
+  var counts = {Aceite:0,'Parcialmente aceite':0,Registado:0};
+  rows.forEach(function(r){counts[r.sense]=(counts[r.sense]||0)+1;});
+
+  function renderChips(t){
+    var chips=[
+      {k:'total',n:rows.length,l:t.c_total},
+      {k:'aceite',n:counts['Aceite'],l:t.c_aceite},
+      {k:'parcial',n:counts['Parcialmente aceite'],l:t.c_parcial},
+      {k:'registado',n:counts['Registado'],l:t.c_registado}
+    ];
+    sumEl.innerHTML = chips.map(function(c){return '<div class="chip '+c.k+'"><div class="n">'+c.n+'</div><div class="l">'+c.l+'</div></div>';}).join('');
+  }
 
   function render(){
-    var q = state.q.trim().toLowerCase();
-    var shown = 0;
-    tbody.innerHTML = '';
-    var frag = document.createDocumentFragment();
+    var t=STR[lang], sm=SENSE[lang];
+    var q=state.q.trim().toLowerCase(), shown=0;
+    var frag=document.createDocumentFragment();
     rows.forEach(function(r){
       if(state.sense!=='all' && r.sense!==state.sense) return;
       if(state.ent!=='all' && r.entity!==state.ent) return;
-      if(q){
-        var hay = (r.entity+' '+r.objection+' '+r.note).toLowerCase();
-        if(hay.indexOf(q)<0) return;
-      }
+      if(q){var hay=(r.entity+' '+r.objection+' '+r.note).toLowerCase();if(hay.indexOf(q)<0)return;}
       shown++;
-      var tr = document.createElement('tr');
-      var td1 = document.createElement('td'); td1.className='c-ent'; td1.textContent=clean(r.entity);
-      var td2 = document.createElement('td'); td2.className='c-obj'; td2.textContent=clean(r.objection);
-      var td3 = document.createElement('td'); td3.className='c-sense';
-      var b = document.createElement('span'); b.className='badge '+senseClass(r.sense); b.textContent=r.sense; td3.appendChild(b);
-      var td4 = document.createElement('td'); td4.className='c-note'; td4.textContent=clean(r.note)||'—';
+      var tr=document.createElement('tr');
+      var td1=document.createElement('td');td1.className='c-ent';td1.textContent=clean(r.entity);
+      var td2=document.createElement('td');td2.className='c-obj';td2.textContent=clean(r.objection);
+      var td3=document.createElement('td');td3.className='c-sense';
+      var b=document.createElement('span');b.className='badge '+senseClass(r.sense);b.textContent=sm[r.sense];td3.appendChild(b);
+      var td4=document.createElement('td');td4.className='c-note';td4.textContent=clean(r.note)||'—';
       tr.appendChild(td1);tr.appendChild(td2);tr.appendChild(td3);tr.appendChild(td4);
       frag.appendChild(tr);
     });
-    tbody.appendChild(frag);
-    empty.style.display = shown? 'none':'block';
-    countEl.textContent = shown+' de '+rows.length;
+    tbody.innerHTML=''; tbody.appendChild(frag);
+    empty.style.display = shown?'none':'block';
+    countEl.textContent = t.count(shown, rows.length);
+  }
+
+  function applyLang(l){
+    lang=l; try{localStorage.setItem('nf_lang',l);}catch(e){}
+    var t=STR[l], sm=SENSE[l];
+    document.documentElement.lang=l;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n'); if(t[k]!=null) el.innerHTML=t[k];
+    });
+    // filter buttons: translate visible label, keep data-sense value
+    document.querySelectorAll('.fbtn[data-sense]').forEach(function(b){
+      var s=b.getAttribute('data-sense');
+      b.textContent = s==='all'? t.f_all : sm[s];
+    });
+    qEl.placeholder=t.q_ph;
+    document.querySelectorAll('#langsw button').forEach(function(b){b.classList.toggle('on', b.getAttribute('data-l')===l);});
+    renderChips(t);
+    render();
   }
 
   document.querySelectorAll('.fbtn[data-sense]').forEach(function(btn){
-    btn.addEventListener('click', function(){
+    btn.addEventListener('click',function(){
       document.querySelectorAll('.fbtn[data-sense]').forEach(function(b){b.classList.remove('on');});
-      btn.classList.add('on');
-      state.sense = btn.getAttribute('data-sense');
-      render();
+      btn.classList.add('on'); state.sense=btn.getAttribute('data-sense'); render();
     });
   });
-  sel.addEventListener('change', function(){state.ent=sel.value;render();});
-  document.getElementById('q').addEventListener('input', function(e){state.q=e.target.value;render();});
+  sel.addEventListener('change',function(){state.ent=sel.value;render();});
+  qEl.addEventListener('input',function(e){state.q=e.target.value;render();});
+  document.querySelectorAll('#langsw button').forEach(function(b){
+    b.addEventListener('click',function(){applyLang(b.getAttribute('data-l'));});
+  });
 
-  render();
+  applyLang(lang);
 })();
 </script>
 </body>
