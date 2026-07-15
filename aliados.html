@@ -14,7 +14,7 @@
   body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
   a{color:var(--green)}
-  .top{border-bottom:1px solid var(--line);padding:13px 0;font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .top{position:sticky;top:0;z-index:50;background:rgba(10,13,10,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:13px 0;font-size:14px}
   .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%}
   .top a{text-decoration:none;color:var(--muted)}.top a:hover{color:var(--green)}
   .langsw{display:flex;gap:2px;background:rgba(20,26,20,.9);border:1px solid var(--line);border-radius:999px;padding:3px}
@@ -86,6 +86,7 @@
     <h2 data-i18n="kit_h">Textos prontos — copia e cola</h2>
     <p data-i18n="kit_p">Usa estes textos para comentar, publicar, enviar a grupos, ou para contactar por mensagem as páginas e criadores da região. Toca em copiar.</p>
     <div class="grid">
+      <div class="card"><h3 data-i18n="vs_h">⚡ Comentário rápido</h3><p id="vstxt" class="paste" data-i18n="vs_txt">🌄 A Serra da Gardunha não está à venda — objeta contra as megacentrais solares e eólicas até 15 de julho 👉 salvargardunha.com</p><button class="btn btn-primary msgcopy copybtn" type="button" data-copy="#vstxt" data-i18n="kit_copy">📋 Copiar</button></div>
       <div class="card"><h3 data-i18n="cm_h">💬 Comentário curto</h3><p id="cmtxt" class="paste" data-i18n="cm_txt">⚠️ A Serra da Gardunha é das áreas mais visadas do país para megacentrais solares e eólicas — que podem ser licenciadas sem avaliação de impacte ambiental. A consulta pública termina a 15 de julho. Faz-te ouvir 👉 salvargardunha.com</p><button class="btn btn-primary msgcopy copybtn" type="button" data-copy="#cmtxt" data-i18n="kit_copy">📋 Copiar</button></div>
       <div class="card"><h3 data-i18n="fb_h">📣 Publicação para Facebook</h3><p id="fbtxt" class="paste" data-i18n="fb_txt">🌄 A nossa serra não está à venda.
 
@@ -95,6 +96,8 @@ A consulta pública termina a 15 de julho e cada objeção tem de ser considerad
 
 Sabe tudo e objeta 👉 salvargardunha.com</p><button class="btn btn-primary msgcopy copybtn" type="button" data-copy="#fbtxt" data-i18n="kit_copy">📋 Copiar</button></div>
       <div class="card"><h3 data-i18n="dm_h">✉️ Mensagem para páginas e criadores (DM)</h3><p id="dmtxt" class="paste" data-i18n="dm_txt">Olá! Somos vizinhos que criámos a campanha salvargardunha.com contra as megacentrais solares e eólicas sobre a Serra da Gardunha. A consulta pública termina a 15 de julho. Como têm uma grande audiência na região, seria uma enorme ajuda se pudessem partilhar. Obrigado por tudo o que fazem pela nossa terra! 🌄</p><button class="btn btn-primary msgcopy copybtn" type="button" data-copy="#dmtxt" data-i18n="kit_copy">📋 Copiar</button></div>
+      <div class="card"><h3 data-i18n="dm2_h">✉️ Mensagem — pedir para partilhar</h3><p id="dm2txt" class="paste" data-i18n="dm2_txt">Olá! 🌄 Podem ajudar a Serra da Gardunha? Criámos o salvargardunha.com, que explica passo a passo como objetar na consulta pública (termina a 15 de julho) e como assinar a petição. Seria uma enorme ajuda se partilhassem este link com os vossos seguidores. Obrigado por tudo o que fazem pela nossa terra!</p><button class="btn btn-primary msgcopy copybtn" type="button" data-copy="#dm2txt" data-i18n="kit_copy">📋 Copiar</button></div>
+      <div class="card"><h3 data-i18n="dm3_h">✉️ Mensagem pessoal (DM)</h3><p id="dm3txt" class="paste" data-i18n="dm3_txt">Olá João. Fiz o Salvargardunha.com para que seja muito fácil as pessoas informarem-se sobre o projeto das centrais solares e agirem rapidamente. Explica ao pormenor os passos para assinar a petição. Se puderes partilhar, ajudas imenso. Obrigado! 🌄</p><button class="btn btn-primary msgcopy copybtn" type="button" data-copy="#dm3txt" data-i18n="kit_copy">📋 Copiar</button></div>
       <div class="card"><h3 data-i18n="msg_h">📰 Mensagem para a imprensa</h3><p id="prtxt" class="paste" data-i18n="msg_p">“Boa tarde. A consulta pública do PSZAER — que coloca a Serra da Gardunha na região mais visada do país para megacentrais solares — está a terminar. Reunimos os factos, todos dos documentos oficiais do Governo, e a tradução dos 12 documentos em salvargardunha.com. Ficamos ao dispor para qualquer esclarecimento.”</p><button class="btn btn-primary msgcopy copybtn" type="button" data-copy="#prtxt" data-i18n="kit_copy">📋 Copiar</button></div>
     </div>
   </div>
@@ -112,7 +115,7 @@ Sabe tudo e objeta 👉 salvargardunha.com</p><button class="btn btn-primary msg
 
       <div class="card hot"><h3><a href="https://observador.pt/2026/07/07/cidadaos-pela-beira-baixa-estao-contra-zonas-de-aceleracao-de-renovaveis/" target="_blank" rel="noopener">Cidadãos pela Beira Baixa (CPBB)</a></h3><p data-i18n="d_cpbb">Movimento de cidadãos que apresentou uma participação crítica ao próprio PSZAER — não só a projetos individuais. Ativos nas redes sociais.</p><div class="links"><a href="https://observador.pt/2026/07/07/cidadaos-pela-beira-baixa-estao-contra-zonas-de-aceleracao-de-renovaveis/" target="_blank" rel="noopener" data-i18n="l_news">Notícia →</a></div></div>
 
-      <div class="card hot"><h3><a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener">Plataforma de Defesa do Parque Natural do Tejo Internacional</a></h3><p data-i18n="d_pnti">Autora da petição no Parlamento contra as centrais “Sophia” e “Beira” e da manifestação nacional em Lisboa. A ação mais organizada da região.</p><div class="links"><a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="l_sign">Assinar a petição →</a> <a href="https://www.facebook.com/pnti2019/" target="_blank" rel="noopener">Facebook →</a></div></div>
+      <div class="card hot"><h3><a href="https://www.facebook.com/pnti2019/" target="_blank" rel="noopener">Plataforma de Defesa do Parque Natural do Tejo Internacional</a></h3><p data-i18n="d_pnti">Autora da petição no Parlamento contra as centrais “Sophia” e “Beira” e da manifestação nacional em Lisboa. A ação mais organizada da região.</p><div class="links"><a href="https://www.facebook.com/pnti2019/" target="_blank" rel="noopener">Facebook →</a></div></div>
 
       <div class="card hot"><h3><a href="https://quercus.pt/nucleos-regionais/castelo-branco" target="_blank" rel="noopener">Quercus — Núcleo de Castelo Branco</a></h3><p data-i18n="d_quercus">Núcleo regional da maior ONG ambiental do país. Já se opôs formalmente às centrais da Beira Baixa e exige uma avaliação ambiental regional.</p><div class="links"><a href="https://quercus.pt/nucleos-regionais/castelo-branco" target="_blank" rel="noopener">quercus.pt →</a> <a href="https://www.facebook.com/Quercus.Castelo.Branco/" target="_blank" rel="noopener">Facebook →</a></div></div>
 
@@ -219,8 +222,14 @@ Sabe tudo e objeta 👉 salvargardunha.com</p><button class="btn btn-primary msg
       cm_txt:'⚠️ The Serra da Gardunha is one of the areas most targeted in the country for mega solar and wind plants — which can be licensed without an environmental impact assessment. The public consultation closes on 15 July. Make yourself heard 👉 salvargardunha.com',
       fb_h:'📣 Facebook post',
       fb_txt:'🌄 Our mountains are not for sale.\n\nThe Government has placed the Serra da Gardunha in the most targeted region of the country for mega solar and wind plants — it’s in their own official documents. They can go ahead WITHOUT an environmental impact assessment, and just 200 m from homes.\n\nThe public consultation closes on 15 July, and every objection must be considered by law. It takes 2 minutes.\n\nLearn everything and object 👉 salvargardunha.com',
+      vs_h:'⚡ Quick comment',
+      vs_txt:'🌄 The Serra da Gardunha is not for sale — object to the mega solar and wind plants by 15 July 👉 salvargardunha.com',
       dm_h:'✉️ Message for pages & creators (DM)',
       dm_txt:'Hi! We’re neighbours who created the campaign salvargardunha.com against the mega solar and wind plants over the Serra da Gardunha. The public consultation closes on 15 July. Since you have a big audience in the region, it would be a huge help if you could share it. Thank you for all you do for our land! 🌄',
+      dm2_h:'✉️ Message — ask them to share the guide',
+      dm2_txt:'Hi! 🌄 Could you help the Serra da Gardunha? We created salvargardunha.com, which explains step by step how to object in the public consultation (it closes on 15 July) and how to sign the petition. It would be a huge help if you shared this link with your followers. Thank you for all you do for our land!',
+      dm3_h:'✉️ Personal message (DM)',
+      dm3_txt:'Hi João. I made Salvargardunha.com so it’s really easy for people to learn about the solar-plant project and act fast. It explains the steps to sign the petition in detail. If you can share it, it helps enormously. Thank you! 🌄',
       s1_k:'Who is already fighting', s1_h:'Movements and associations — contact them, join, share',
       s1_p:'These groups already publicly oppose the large-scale solar and wind plants and the acceleration zones (ZAER) in the region. They are the most valuable allies — many have already filed opinions, petitions and submissions to the consultation.',
       d_gsul:'The frontline movement, from Vale de Prazeres / Mata da Rainha (Fundão). It organised the protests against the “Sophia” mega-plant, right over our mountains.',
@@ -287,8 +296,14 @@ Sabe tudo e objeta 👉 salvargardunha.com</p><button class="btn btn-primary msg
       cm_txt:'⚠️ Die Serra da Gardunha gehört zu den am stärksten bedrohten Gebieten des Landes für Solar- und Wind-Großkraftwerke — die ohne Umweltverträglichkeitsprüfung genehmigt werden können. Die öffentliche Konsultation endet am 15. Juli. Mach dich gehört 👉 salvargardunha.com',
       fb_h:'📣 Facebook-Beitrag',
       fb_txt:'🌄 Unser Gebirge ist nicht käuflich.\n\nDie Regierung hat die Serra da Gardunha zur meistanvisierten Region des Landes für Solar- und Wind-Großkraftwerke gemacht — es steht in ihren eigenen offiziellen Unterlagen. Sie können OHNE Umweltverträglichkeitsprüfung voranschreiten, und nur 200 m von Wohnhäusern entfernt.\n\nDie öffentliche Konsultation endet am 15. Juli, und jeder Einspruch muss laut Gesetz berücksichtigt werden. Es dauert 2 Minuten.\n\nErfahre alles und erhebe Einspruch 👉 salvargardunha.com',
+      vs_h:'⚡ Schneller Kommentar',
+      vs_txt:'🌄 Die Serra da Gardunha ist nicht käuflich — erhebe bis 15. Juli Einspruch gegen die Solar- und Wind-Großkraftwerke 👉 salvargardunha.com',
       dm_h:'✉️ Nachricht für Seiten & Creator (DM)',
       dm_txt:'Hallo! Wir sind Nachbarn, die die Kampagne salvargardunha.com gegen die Solar- und Wind-Großkraftwerke über der Serra da Gardunha gestartet haben. Die öffentliche Konsultation endet am 15. Juli. Da ihr eine große Reichweite in der Region habt, wäre es eine enorme Hilfe, wenn ihr sie teilen könntet. Danke für alles, was ihr für unsere Region tut! 🌄',
+      dm2_h:'✉️ Nachricht — um Teilen bitten',
+      dm2_txt:'Hallo! 🌄 Könnt ihr der Serra da Gardunha helfen? Wir haben salvargardunha.com erstellt, das Schritt für Schritt erklärt, wie man in der öffentlichen Konsultation (endet am 15. Juli) Einspruch erhebt und die Petition unterschreibt. Es wäre eine enorme Hilfe, wenn ihr diesen Link mit euren Followern teilt. Danke für alles, was ihr für unsere Region tut!',
+      dm3_h:'✉️ Persönliche Nachricht (DM)',
+      dm3_txt:'Hallo João. Ich habe Salvargardunha.com gemacht, damit sich die Leute ganz einfach über das Solarkraftwerk-Projekt informieren und schnell handeln können. Es erklärt die Schritte zum Unterschreiben der Petition im Detail. Wenn du es teilen kannst, hilft das enorm. Danke! 🌄',
       s1_k:'Wer bereits kämpft', s1_h:'Bewegungen und Verbände — kontaktiere sie, mach mit, teile',
       s1_p:'Diese Gruppen lehnen die Solar- und Windgroßkraftwerke und die Beschleunigungszonen (ZAER) in der Region bereits öffentlich ab. Sie sind die wertvollsten Verbündeten — viele haben schon Stellungnahmen, Petitionen und Eingaben zur Konsultation eingereicht.',
       d_gsul:'Die Bewegung an vorderster Front, aus Vale de Prazeres / Mata da Rainha (Fundão). Sie organisierte die Proteste gegen das Großkraftwerk „Sophia“, direkt über unserem Gebirge.',
@@ -355,8 +370,14 @@ Sabe tudo e objeta 👉 salvargardunha.com</p><button class="btn btn-primary msg
       cm_txt:'⚠️ La Serra da Gardunha est l’une des zones les plus visées du pays par les méga-centrales solaires et éoliennes — qui peuvent être autorisées sans évaluation d’impact environnemental. La consultation publique se termine le 15 juillet. Fais entendre ta voix 👉 salvargardunha.com',
       fb_h:'📣 Publication Facebook',
       fb_txt:'🌄 Notre montagne n’est pas à vendre.\n\nLe gouvernement a placé la Serra da Gardunha dans la région la plus visée du pays par les méga-centrales solaires et éoliennes — c’est dans ses propres documents officiels. Elles peuvent avancer SANS évaluation d’impact environnemental, à seulement 200 m des maisons.\n\nLa consultation publique se termine le 15 juillet, et chaque objection doit être prise en compte par la loi. Cela prend 2 minutes.\n\nRenseigne-toi et objecte 👉 salvargardunha.com',
+      vs_h:'⚡ Commentaire rapide',
+      vs_txt:'🌄 La Serra da Gardunha n’est pas à vendre — objecte contre les méga-centrales solaires et éoliennes avant le 15 juillet 👉 salvargardunha.com',
       dm_h:'✉️ Message pour pages et créateurs (DM)',
       dm_txt:'Bonjour ! Nous sommes des voisins qui avons créé la campagne salvargardunha.com contre les méga-centrales solaires et éoliennes au-dessus de la Serra da Gardunha. La consultation publique se termine le 15 juillet. Comme vous avez une grande audience dans la région, ce serait une aide énorme si vous pouviez la partager. Merci pour tout ce que vous faites pour notre terre ! 🌄',
+      dm2_h:'✉️ Message — demander de partager',
+      dm2_txt:'Bonjour ! 🌄 Pouvez-vous aider la Serra da Gardunha ? Nous avons créé salvargardunha.com, qui explique pas à pas comment objecter dans la consultation publique (elle se termine le 15 juillet) et comment signer la pétition. Ce serait une aide énorme si vous partagiez ce lien avec vos abonnés. Merci pour tout ce que vous faites pour notre terre !',
+      dm3_h:'✉️ Message personnel (DM)',
+      dm3_txt:'Bonjour João. J’ai créé Salvargardunha.com pour que les gens puissent facilement s’informer sur le projet de centrales solaires et agir vite. Il explique en détail les étapes pour signer la pétition. Si tu peux le partager, ça aide énormément. Merci ! 🌄',
       s1_k:'Qui lutte déjà', s1_h:'Mouvements et associations — contacte-les, rejoins, partage',
       s1_p:'Ces groupes s’opposent déjà publiquement aux méga-centrales solaires et éoliennes et aux zones d’accélération (ZAER) de la région. Ce sont les alliés les plus précieux — beaucoup ont déjà déposé des avis, des pétitions et des contributions à la consultation.',
       d_gsul:'Le mouvement de première ligne, de Vale de Prazeres / Mata da Rainha (Fundão). Il a organisé les manifestations contre la méga-centrale « Sophia », juste au-dessus de notre montagne.',
