@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-PT">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Who did (and didn't) reply — PSZAER consultation · internal</title>
+<title data-i18n="title">Quem respondeu (e quem não) — consulta PSZAER · interno</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <style>
-  :root{--bg:#0a0d0a;--panel:#141a14;--line:#243024;--ink:#f3f5f1;--muted:#9aa79a;--green:#4ade80;--amber:#fbbf24;--red:#f87171;--max:860px}
+  :root{--bg:#0a0d0a;--panel:#141a14;--line:#243024;--ink:#f3f5f1;--muted:#9aa79a;--green:#4ade80;--green-d:#22c55e;--amber:#fbbf24;--red:#f87171;--max:860px}
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
@@ -27,47 +27,52 @@
   li{padding:5px 0;font-size:14px;color:#ccd3c9;break-inside:avoid;border-bottom:1px solid var(--line)}
   .tagm{display:inline-block;font-size:11px;color:var(--muted);margin-left:4px}
   footer{padding:24px 0 60px;color:#6f7a6f;font-size:12.5px;border-top:1px solid var(--line)}
+
+  .langsw{position:fixed;top:10px;right:10px;z-index:60;display:flex;gap:2px;background:rgba(10,13,10,.85);border:1px solid var(--line);border-radius:999px;padding:3px;backdrop-filter:blur(6px)}
+  .langsw button{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:11.5px;letter-spacing:.05em;padding:5px 9px;border-radius:999px;cursor:pointer}
+  .langsw button.on{background:var(--green-d);color:#05230f}
 </style>
 </head>
 <body>
+<div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></div>
 <header>
   <div class="wrap">
-    <div class="eyebrow">Internal note · not linked publicly</div>
-    <h1>Who replied — and who didn't — in the PSZAER entity consultation</h1>
-    <div class="note">
-      <b>Important caveat.</b> The consultation documents do <b>not</b> enumerate the full universe of bodies invited. The Government (art. 48.º RJIGT consultation, opened 5 May 2026) describes the consulted universe only <i>by category</i> — sectoral bodies, the five CCDRs, central-administration services, intermunicipal entities, municipal associations and affected municipalities — and states that any entity <b>silent within 20 days is deemed to have "nothing to oppose"</b>. Non-responders were therefore never individually named or counted. So a complete "did not reply" list <b>cannot</b> be derived from the documents. The only hard data is the page-8 table of <b>analise-pareceres.pdf</b> ("Entidades — Sentido do Parecer Emitido"), which names 37 engaged entities. Source: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">/docs/analise-pareceres.pdf</a>, p. 8.
+    <div class="eyebrow" data-i18n="eyebrow">Nota interna · não ligada publicamente</div>
+    <h1 data-i18n="h1">Quem respondeu — e quem não — na consulta às entidades do PSZAER</h1>
+    <div class="note" data-i18n="note">
+      <b>Ressalva importante.</b> Os documentos da consulta <b>não</b> enumeram o universo completo das entidades convidadas. O Governo (consulta do art. 48.º RJIGT, aberta a 5 de maio de 2026) descreve o universo consultado apenas <i>por categoria</i> — entidades sectoriais, as cinco CCDR, serviços da administração central, entidades intermunicipais, associações de municípios e municípios afetados — e afirma que qualquer entidade <b>que se mantenha silente durante 20 dias se considera «nada ter a opor»</b>. Os não respondentes nunca foram, por isso, individualmente nomeados ou contabilizados. Uma lista completa de «não respondeu» <b>não pode</b>, assim, ser extraída dos documentos. Os únicos dados concretos são a tabela da página 8 do <b>analise-pareceres.pdf</b> («Entidades — Sentido do Parecer Emitido»), que nomeia 37 entidades participantes. Fonte: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">/docs/analise-pareceres.pdf</a>, p. 8.
     </div>
   </div>
 </header>
 <main>
   <div class="wrap">
-    <h2>Explicitly recorded as NOT having issued an opinion</h2>
+    <h2 data-i18n="h2_recorded">Registadas explicitamente como NÃO tendo emitido parecer</h2>
     <div class="big">
       <div class="who">Administração Central do Sistema de Saúde, I.P. (ACSS)</div>
-      <div class="sub">The only one of the 37 named entities marked "Não emitiu parecer" in the page-8 table. Every other listed body issued some opinion or contribution.</div>
+      <div class="sub" data-i18n="big_sub">A única das 37 entidades nomeadas assinalada como «Não emitiu parecer» na tabela da página 8. Todas as restantes entidades listadas emitiram algum parecer ou contributo.</div>
     </div>
 
-    <h2>Two that replied but said next to nothing</h2>
+    <h2 data-i18n="h2_twolittle">Duas que responderam mas quase nada disseram</h2>
     <ul>
-      <li>Município de Penacova <span class="tagm">— no written opinion; geographic contribution only</span></li>
-      <li>Município de Loulé <span class="tagm">— "no direct ZAER incidence"</span></li>
+      <li>Município de Penacova <span class="tagm" data-i18n="tag_penacova">— sem parecer escrito; apenas contributo geográfico</span></li>
+      <li>Município de Loulé <span class="tagm" data-i18n="tag_loule">— «sem incidência direta de ZAER»</span></li>
     </ul>
 
-    <h2>The 36 bodies that did issue an opinion</h2>
+    <h2 data-i18n="h2_36">As 36 entidades que emitiram parecer</h2>
     <ul>
       <li>Direção-Geral do Território</li>
       <li>Direção-Geral de Energia e Geologia</li>
-      <li>Património Cultural, I.P. <span class="tagm">— unfavourable</span></li>
-      <li>ICNF, I.P. <span class="tagm">— Gardunha 1 km buffer</span></li>
+      <li>Património Cultural, I.P. <span class="tagm" data-i18n="tag_unfav">— desfavorável</span></li>
+      <li>ICNF, I.P. <span class="tagm" data-i18n="tag_icnf">— Gardunha, tampão de 1 km</span></li>
       <li>Agência Portuguesa do Ambiente, I.P.</li>
-      <li>Direção-Geral de Agricultura e Desenvolvimento Rural <span class="tagm">— unfavourable</span></li>
+      <li>Direção-Geral de Agricultura e Desenvolvimento Rural <span class="tagm" data-i18n="tag_unfav">— desfavorável</span></li>
       <li>Agência para o Clima, I.P.</li>
       <li>CCDR Alentejo, I.P.</li>
       <li>CCDR Algarve, I.P.</li>
       <li>CCDR Centro, I.P.</li>
       <li>CCDR Lisboa e Vale do Tejo, I.P.</li>
       <li>CCDR Norte, I.P.</li>
-      <li>Associação Nacional de Municípios Portugueses <span class="tagm">— unfavourable (content + process)</span></li>
+      <li>Associação Nacional de Municípios Portugueses <span class="tagm" data-i18n="tag_anmp">— desfavorável (conteúdo + processo)</span></li>
       <li>Comunidade Intermunicipal do Alentejo Litoral</li>
       <li>Comunidade Intermunicipal do Ave</li>
       <li>Área Metropolitana de Lisboa</li>
@@ -95,7 +100,75 @@
   </div>
 </main>
 <footer>
-  <div class="wrap">Internal reference for the Salvar a Gardunha campaign. Data extracted from the official "Análise e Ponderação dos Pareceres das Entidades" (23 Jun 2026), page 8. Not linked from the site; <code>noindex</code>.</div>
+  <div class="wrap" data-i18n="footer">Referência interna para a campanha Salvar a Gardunha. Dados extraídos da «Análise e Ponderação dos Pareceres das Entidades» oficial (23 jun. 2026), página 8. Não ligada a partir do site; <code>noindex</code>.</div>
 </footer>
+<script>
+(function(){
+  var LANGS=['pt','en','de','fr'];
+  var I18N={
+    en:{
+      title:"Who did (and didn't) reply — PSZAER consultation · internal",
+      eyebrow:'Internal note · not linked publicly',
+      h1:"Who replied — and who didn't — in the PSZAER entity consultation",
+      note:'<b>Important caveat.</b> The consultation documents do <b>not</b> enumerate the full universe of bodies invited. The Government (art. 48.º RJIGT consultation, opened 5 May 2026) describes the consulted universe only <i>by category</i> — sectoral bodies, the five CCDRs, central-administration services, intermunicipal entities, municipal associations and affected municipalities — and states that any entity <b>silent within 20 days is deemed to have "nothing to oppose"</b>. Non-responders were therefore never individually named or counted. So a complete "did not reply" list <b>cannot</b> be derived from the documents. The only hard data is the page-8 table of <b>analise-pareceres.pdf</b> ("Entidades — Sentido do Parecer Emitido"), which names 37 engaged entities. Source: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">/docs/analise-pareceres.pdf</a>, p. 8.',
+      h2_recorded:'Explicitly recorded as NOT having issued an opinion',
+      big_sub:'The only one of the 37 named entities marked "Não emitiu parecer" in the page-8 table. Every other listed body issued some opinion or contribution.',
+      h2_twolittle:'Two that replied but said next to nothing',
+      tag_penacova:'— no written opinion; geographic contribution only',
+      tag_loule:'— "no direct ZAER incidence"',
+      h2_36:'The 36 bodies that did issue an opinion',
+      tag_unfav:'— unfavourable',
+      tag_icnf:'— Gardunha 1 km buffer',
+      tag_anmp:'— unfavourable (content + process)',
+      footer:'Internal reference for the Salvar a Gardunha campaign. Data extracted from the official "Análise e Ponderação dos Pareceres das Entidades" (23 Jun 2026), page 8. Not linked from the site; <code>noindex</code>.'
+    },
+    de:{
+      title:'Wer geantwortet hat (und wer nicht) — PSZAER-Konsultation · intern',
+      eyebrow:'Interne Notiz · nicht öffentlich verlinkt',
+      h1:'Wer geantwortet hat — und wer nicht — in der Entitäten-Konsultation zum PSZAER',
+      note:'<b>Wichtiger Vorbehalt.</b> Die Konsultationsunterlagen führen das vollständige Universum der eingeladenen Stellen <b>nicht</b> auf. Die Regierung (Konsultation nach Art. 48.º RJIGT, eröffnet am 5. Mai 2026) beschreibt das konsultierte Universum nur <i>nach Kategorie</i> — sektorale Stellen, die fünf CCDR, Dienste der Zentralverwaltung, interkommunale Einrichtungen, Gemeindeverbände und betroffene Gemeinden — und legt fest, dass jede Stelle, die <b>innerhalb von 20 Tagen schweigt, als „nichts einzuwenden“ habend gilt</b>. Nicht antwortende Stellen wurden daher nie einzeln benannt oder gezählt. Eine vollständige Liste der „hat nicht geantwortet“ lässt sich somit <b>nicht</b> aus den Unterlagen ableiten. Die einzigen belastbaren Daten sind die Tabelle auf Seite 8 von <b>analise-pareceres.pdf</b> („Entidades — Sentido do Parecer Emitido“), die 37 beteiligte Entitäten nennt. Quelle: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">/docs/analise-pareceres.pdf</a>, S. 8.',
+      h2_recorded:'Ausdrücklich als OHNE abgegebene Stellungnahme erfasst',
+      big_sub:'Die einzige der 37 genannten Entitäten, die in der Tabelle auf Seite 8 als „Não emitiu parecer“ markiert ist. Alle übrigen aufgeführten Stellen gaben eine Stellungnahme oder einen Beitrag ab.',
+      h2_twolittle:'Zwei, die antworteten, aber so gut wie nichts sagten',
+      tag_penacova:'— keine schriftliche Stellungnahme; nur geografischer Beitrag',
+      tag_loule:'— „keine direkte ZAER-Betroffenheit“',
+      h2_36:'Die 36 Stellen, die eine Stellungnahme abgaben',
+      tag_unfav:'— ablehnend',
+      tag_icnf:'— Gardunha, 1-km-Pufferzone',
+      tag_anmp:'— ablehnend (Inhalt + Verfahren)',
+      footer:'Interne Referenz für die Kampagne Salvar a Gardunha. Daten entnommen aus der offiziellen „Análise e Ponderação dos Pareceres das Entidades“ (23. Juni 2026), Seite 8. Nicht vom Site verlinkt; <code>noindex</code>.'
+    },
+    fr:{
+      title:'Qui a répondu (et qui non) — consultation PSZAER · interne',
+      eyebrow:'Note interne · non liée publiquement',
+      h1:'Qui a répondu — et qui non — dans la consultation des entités du PSZAER',
+      note:'<b>Réserve importante.</b> Les documents de la consultation <b>n’énumèrent pas</b> l’univers complet des organismes invités. Le Gouvernement (consultation au titre de l’art. 48.º RJIGT, ouverte le 5 mai 2026) décrit l’univers consulté uniquement <i>par catégorie</i> — organismes sectoriels, les cinq CCDR, services de l’administration centrale, entités intercommunales, associations de communes et communes affectées — et précise que toute entité <b>restée silencieuse pendant 20 jours est réputée « n’avoir rien à opposer »</b>. Les non-répondants n’ont donc jamais été nommés ni comptabilisés individuellement. Une liste complète des « n’a pas répondu » ne peut <b>donc pas</b> être tirée des documents. Les seules données concrètes sont le tableau de la page 8 de <b>analise-pareceres.pdf</b> (« Entidades — Sentido do Parecer Emitido »), qui nomme 37 entités participantes. Source : <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">/docs/analise-pareceres.pdf</a>, p. 8.',
+      h2_recorded:'Expressément enregistrée comme N’AYANT PAS émis d’avis',
+      big_sub:'La seule des 37 entités nommées marquée « Não emitiu parecer » dans le tableau de la page 8. Tous les autres organismes listés ont émis un avis ou une contribution.',
+      h2_twolittle:'Deux qui ont répondu mais n’ont presque rien dit',
+      tag_penacova:'— pas d’avis écrit ; contribution géographique uniquement',
+      tag_loule:'— « pas d’incidence directe de ZAER »',
+      h2_36:'Les 36 organismes qui ont émis un avis',
+      tag_unfav:'— défavorable',
+      tag_icnf:'— Gardunha, zone tampon de 1 km',
+      tag_anmp:'— défavorable (fond + procédure)',
+      footer:'Référence interne pour la campagne Salvar a Gardunha. Données extraites de l’« Análise e Ponderação dos Pareceres das Entidades » officielle (23 juin 2026), page 8. Non liée depuis le site ; <code>noindex</code>.'
+    }
+  };
+  var PT={};
+  document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
+  function tr(l,k){ if(l==='pt')return PT[k]; return (I18N[l]&&I18N[l][k]!=null)?I18N[l][k]:PT[k]; }
+  function applyLang(l){
+    if(LANGS.indexOf(l)<0)l='pt';
+    document.documentElement.lang=(l==='pt'?'pt-PT':l);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=tr(l,el.getAttribute('data-i18n'));});
+    document.querySelectorAll('#langsw button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
+    try{localStorage.setItem('nf_lang',l);}catch(e){}
+  }
+  document.querySelectorAll('#langsw button').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang'));});});
+  var saved; try{saved=localStorage.getItem('nf_lang');}catch(e){}
+  applyLang(saved||'pt');
+})();
+</script>
 </body>
 </html>

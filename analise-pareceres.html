@@ -15,6 +15,10 @@
   body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
   a{color:var(--green)}
+  .langsw{position:fixed;top:12px;right:12px;z-index:60;display:flex;gap:2px;background:rgba(10,13,10,.85);border:1px solid var(--line);border-radius:999px;padding:3px;backdrop-filter:blur(6px)}
+  .langsw button{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:11.5px;letter-spacing:.05em;padding:5px 9px;border-radius:999px;cursor:pointer}
+  .langsw button.on{background:var(--green-d);color:#05230f}
+  @media(max-width:640px){.langsw{top:8px;right:8px}.langsw button{font-size:10.5px;padding:4px 7px}}
   header{padding:46px 0 30px;border-bottom:1px solid var(--line)}
   .back{display:inline-block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:22px}
   .back:hover{color:var(--green)}
@@ -65,95 +69,97 @@
 </head>
 <body>
 
+<div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></div>
+
 <header>
   <div class="wrap">
-    <a class="back" href="/">← Salvar a Gardunha</a>
-    <div class="eyebrow">PSZAER · Pareceres institucionais</div>
-    <h1>O que disseram as entidades oficiais —<br>e como o Governo respondeu</h1>
-    <p class="lede">Antes mesmo de a consulta pública abrir, as entidades públicas do próprio Estado português foram formalmente consultadas sobre o PSZAER. <b>Várias emitiram pareceres desfavoráveis ou fortemente condicionados</b> — e o próprio documento de ponderação do Governo mostra que quase dois terços dos contributos foram apenas <b>parcialmente aceites</b> ou meramente <b>registados</b>, sem qualquer alteração ao programa.</p>
-    <p class="src">Fonte, resumida em linguagem simples a partir de: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">«Análise e Ponderação dos Pareceres das Entidades»</a> (EMER 2030, 23 de junho de 2026, 47 pp.). Este é o nosso resumo fiel, não uma transcrição oficial.</p>
+    <a class="back" href="/" data-i18n="back">← Salvar a Gardunha</a>
+    <div class="eyebrow" data-i18n="eyebrow">PSZAER · Pareceres institucionais</div>
+    <h1 data-i18n="h1">O que disseram as entidades oficiais —<br>e como o Governo respondeu</h1>
+    <p class="lede" data-i18n="lede">Antes mesmo de a consulta pública abrir, as entidades públicas do próprio Estado português foram formalmente consultadas sobre o PSZAER. <b>Várias emitiram pareceres desfavoráveis ou fortemente condicionados</b> — e o próprio documento de ponderação do Governo mostra que quase dois terços dos contributos foram apenas <b>parcialmente aceites</b> ou meramente <b>registados</b>, sem qualquer alteração ao programa.</p>
+    <p class="src" data-i18n="src">Fonte, resumida em linguagem simples a partir de: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">«Análise e Ponderação dos Pareceres das Entidades»</a> (EMER 2030, 23 de junho de 2026, 47 pp.). Este é o nosso resumo fiel, não uma transcrição oficial.</p>
   </div>
 </header>
 
 <section>
   <div class="wrap">
-    <div class="kick">O essencial</div>
-    <h2>36 entidades, 172 contributos — e um padrão</h2>
+    <div class="kick" data-i18n="s1_kick">O essencial</div>
+    <h2 data-i18n="s1_h2">36 entidades, 172 contributos — e um padrão</h2>
     <div class="stat">
-      <div class="s"><div class="n">4</div><div class="l">entidades públicas emitiram parecer <b style="color:#fca5a5">desfavorável</b> — incluindo a autoridade do património e a autoridade da agricultura</div></div>
-      <div class="s"><div class="n">~⅔</div><div class="l">dos contributos foram apenas <b style="color:var(--amber)">parcialmente aceites</b> ou meramente <b>registados</b> — sem qualquer alteração autónoma ao programa</div></div>
-      <div class="s"><div class="n">1&nbsp;km</div><div class="l">a faixa de proteção em redor da paisagem protegida da <b>Serra da Gardunha</b> que o ICNF pediu que fosse expurgada de zonas</div></div>
+      <div class="s"><div class="n">4</div><div class="l" data-i18n="stat1">entidades públicas emitiram parecer <b style="color:#fca5a5">desfavorável</b> — incluindo a autoridade do património e a autoridade da agricultura</div></div>
+      <div class="s"><div class="n">~⅔</div><div class="l" data-i18n="stat2">dos contributos foram apenas <b style="color:var(--amber)">parcialmente aceites</b> ou meramente <b>registados</b> — sem qualquer alteração autónoma ao programa</div></div>
+      <div class="s"><div class="n">1&nbsp;km</div><div class="l" data-i18n="stat3">a faixa de proteção em redor da paisagem protegida da <b>Serra da Gardunha</b> que o ICNF pediu que fosse expurgada de zonas</div></div>
     </div>
-    <p>O Governo apresenta isto como uma «convergência significativa» quanto à importância do programa. Mas basta ler a coluna que interessa — o <b>sentido de cada parecer</b> — para ver um quadro de reservas generalizadas por parte das próprias entidades incumbidas de proteger o património, os solos agrícolas, a natureza e o poder local.</p>
+    <p data-i18n="s1_p">O Governo apresenta isto como uma «convergência significativa» quanto à importância do programa. Mas basta ler a coluna que interessa — o <b>sentido de cada parecer</b> — para ver um quadro de reservas generalizadas por parte das próprias entidades incumbidas de proteger o património, os solos agrícolas, a natureza e o poder local.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="kick">Quadro 1</div>
-    <h2>Cada entidade e o sentido do seu parecer</h2>
-    <p>Diretamente da tabela-resumo do próprio Governo (p. 8). «Condicionado» significa que a entidade só apoiou o objetivo se a proposta for reformulada ou fortemente corrigida.</p>
+    <div class="kick" data-i18n="s2_kick">Quadro 1</div>
+    <h2 data-i18n="s2_h2">Cada entidade e o sentido do seu parecer</h2>
+    <p data-i18n="s2_p">Diretamente da tabela-resumo do próprio Governo (p. 8). «Condicionado» significa que a entidade só apoiou o objetivo se a proposta for reformulada ou fortemente corrigida.</p>
     <div class="tbl-scroll">
       <table>
-        <thead><tr><th>Entidade pública</th><th>Tipo</th><th>Sentido do parecer</th></tr></thead>
+        <thead><tr><th data-i18n="th_ent">Entidade pública</th><th data-i18n="th_type">Tipo</th><th data-i18n="th_sense">Sentido do parecer</th></tr></thead>
         <tbody>
-          <tr><td><span class="ent" title="Instituto público que protege o património cultural e arqueológico do país — monumentos, sítios e paisagens classificadas.">Património Cultural, I.P.</span><br>autoridade do património</td><td>Setorial</td><td><span class="pill p-unfav">Desfavorável</span></td></tr>
-          <tr><td><span class="ent" title="Direção-Geral de Agricultura e Desenvolvimento Rural — organismo do Estado responsável pelos solos agrícolas, regadio e desenvolvimento rural.">DGADR</span><br>Agricultura e Desenvolvimento Rural</td><td>Setorial</td><td><span class="pill p-unfav">Desfavorável</span> à proposta (condicionado ao relatório ambiental)</td></tr>
-          <tr><td><span class="ent" title="Associação Nacional de Municípios Portugueses — a associação que representa todas as câmaras municipais do país e fala em nome delas perante o Governo.">ANMP</span><br>Associação Nacional de Municípios Portugueses</td><td>Assoc. municipal</td><td><span class="pill p-unfav">Desfavorável</span> quanto ao conteúdo e à condução do processo</td></tr>
-          <tr><td><span class="ent" title="Câmara Municipal de Santa Maria da Feira — o governo local (autarquia) deste concelho.">Município de Santa Maria da Feira</span></td><td>Município</td><td><span class="pill p-unfav">Desfavorável</span> / posição contrária</td></tr>
-          <tr><td><span class="ent" title="Direção-Geral do Território — organismo do Estado responsável pelo ordenamento do território e pela cartografia oficial.">DGT</span><br>Direção-Geral do Território</td><td>Setorial</td><td><span class="pill p-cond">Condicionado</span> à reformulação da proposta</td></tr>
-          <tr><td><span class="ent" title="Direção-Geral de Energia e Geologia — organismo do Estado que tutela os setores da energia e dos recursos geológicos.">DGEG</span><br>Direção-Geral de Energia e Geologia</td><td>Setorial</td><td><span class="pill p-cond">Condicionado</span> — recomendações técnicas e condições setoriais</td></tr>
-          <tr><td><span class="ent" title="Instituto da Conservação da Natureza e das Florestas — organismo do Estado que gere as áreas protegidas, a biodiversidade e as florestas.">ICNF</span><br>Conservação da Natureza e Florestas</td><td>Setorial</td><td><span class="pill p-cond">Favorável, condicionado</span> — incl. expurgar a faixa de 1&nbsp;km em redor da paisagem protegida da Serra da Gardunha</td></tr>
-          <tr><td><span class="ent" title="Agência Portuguesa do Ambiente — organismo do Estado responsável pela política de ambiente e pela avaliação ambiental dos planos e projetos.">APA</span><br>Agência Portuguesa do Ambiente</td><td>Setorial</td><td><span class="pill p-cond">Favorável, condicionado</span></td></tr>
-          <tr><td><span class="ent" title="Organismo público dedicado à política climática e à transição para a neutralidade carbónica.">Agência para o Clima</span></td><td>Setorial</td><td><span class="pill p-cond">Condicionado</span> — recomenda revisão e complemento</td></tr>
-          <tr><td><span class="ent" title="Comissões de Coordenação e Desenvolvimento Regional — organismos do Estado que coordenam o desenvolvimento e o ordenamento do território em cada região.">CCDR</span> Centro, Norte, Alentejo, Algarve, Lisboa&nbsp;e&nbsp;Vale&nbsp;do&nbsp;Tejo</td><td>Regional (×5)</td><td><span class="pill p-cond">Favorável, condicionado</span></td></tr>
-          <tr><td><span class="ent" title="Câmaras municipais da Beira Baixa (o governo local destes concelhos) — entre os territórios diretamente abrangidos pelas zonas.">Município do Fundão</span> · <span class="ent" title="Câmara Municipal da Covilhã — o governo local deste concelho da Beira Baixa.">Covilhã</span><br>+ ~12 outros municípios e 2 comunidades intermunicipais</td><td>Municipal</td><td><span class="pill p-cond">Reservas e recomendações</span></td></tr>
-          <tr><td><span class="ent" title="Administração Central do Sistema de Saúde — organismo do Estado que gere os recursos financeiros e o património do Serviço Nacional de Saúde.">ACSS</span><br>Administração Central do Sistema de Saúde</td><td>Setorial</td><td><span class="pill p-none">Não emitiu parecer</span></td></tr>
+          <tr><td><span class="ent" title="Instituto público que protege o património cultural e arqueológico do país — monumentos, sítios e paisagens classificadas.">Património Cultural, I.P.</span><br><span data-i18n="e1_d">autoridade do património</span></td><td data-i18n="t_set">Setorial</td><td><span class="pill p-unfav" data-i18n="p_unfav">Desfavorável</span></td></tr>
+          <tr><td><span class="ent" title="Direção-Geral de Agricultura e Desenvolvimento Rural — organismo do Estado responsável pelos solos agrícolas, regadio e desenvolvimento rural.">DGADR</span><br>Agricultura e Desenvolvimento Rural</td><td data-i18n="t_set">Setorial</td><td><span class="pill p-unfav" data-i18n="p_unfav">Desfavorável</span> <span data-i18n="s2r2">à proposta (condicionado ao relatório ambiental)</span></td></tr>
+          <tr><td><span class="ent" title="Associação Nacional de Municípios Portugueses — a associação que representa todas as câmaras municipais do país e fala em nome delas perante o Governo.">ANMP</span><br>Associação Nacional de Municípios Portugueses</td><td data-i18n="t_assoc">Assoc. municipal</td><td><span class="pill p-unfav" data-i18n="p_unfav">Desfavorável</span> <span data-i18n="s2r3">quanto ao conteúdo e à condução do processo</span></td></tr>
+          <tr><td><span class="ent" title="Câmara Municipal de Santa Maria da Feira — o governo local (autarquia) deste concelho.">Município de Santa Maria da Feira</span></td><td data-i18n="t_muni">Município</td><td><span class="pill p-unfav" data-i18n="p_unfav">Desfavorável</span> <span data-i18n="s2r4">/ posição contrária</span></td></tr>
+          <tr><td><span class="ent" title="Direção-Geral do Território — organismo do Estado responsável pelo ordenamento do território e pela cartografia oficial.">DGT</span><br>Direção-Geral do Território</td><td data-i18n="t_set">Setorial</td><td><span class="pill p-cond" data-i18n="p_cond">Condicionado</span> <span data-i18n="s2r5">à reformulação da proposta</span></td></tr>
+          <tr><td><span class="ent" title="Direção-Geral de Energia e Geologia — organismo do Estado que tutela os setores da energia e dos recursos geológicos.">DGEG</span><br>Direção-Geral de Energia e Geologia</td><td data-i18n="t_set">Setorial</td><td><span class="pill p-cond" data-i18n="p_cond">Condicionado</span> <span data-i18n="s2r6">— recomendações técnicas e condições setoriais</span></td></tr>
+          <tr><td><span class="ent" title="Instituto da Conservação da Natureza e das Florestas — organismo do Estado que gere as áreas protegidas, a biodiversidade e as florestas.">ICNF</span><br>Conservação da Natureza e Florestas</td><td data-i18n="t_set">Setorial</td><td><span class="pill p-cond" data-i18n="p_favcond">Favorável, condicionado</span> <span data-i18n="s2r7">— incl. expurgar a faixa de 1&nbsp;km em redor da paisagem protegida da Serra da Gardunha</span></td></tr>
+          <tr><td><span class="ent" title="Agência Portuguesa do Ambiente — organismo do Estado responsável pela política de ambiente e pela avaliação ambiental dos planos e projetos.">APA</span><br>Agência Portuguesa do Ambiente</td><td data-i18n="t_set">Setorial</td><td><span class="pill p-cond" data-i18n="p_favcond">Favorável, condicionado</span></td></tr>
+          <tr><td><span class="ent" title="Organismo público dedicado à política climática e à transição para a neutralidade carbónica.">Agência para o Clima</span></td><td data-i18n="t_set">Setorial</td><td><span class="pill p-cond" data-i18n="p_cond">Condicionado</span> <span data-i18n="s2r9">— recomenda revisão e complemento</span></td></tr>
+          <tr><td><span class="ent" title="Comissões de Coordenação e Desenvolvimento Regional — organismos do Estado que coordenam o desenvolvimento e o ordenamento do território em cada região.">CCDR</span> Centro, Norte, Alentejo, Algarve, Lisboa&nbsp;e&nbsp;Vale&nbsp;do&nbsp;Tejo</td><td data-i18n="t_reg">Regional (×5)</td><td><span class="pill p-cond" data-i18n="p_favcond">Favorável, condicionado</span></td></tr>
+          <tr><td><span class="ent" title="Câmaras municipais da Beira Baixa (o governo local destes concelhos) — entre os territórios diretamente abrangidos pelas zonas.">Município do Fundão</span> · <span class="ent" title="Câmara Municipal da Covilhã — o governo local deste concelho da Beira Baixa.">Covilhã</span><br><span data-i18n="e11_d">+ ~12 outros municípios e 2 comunidades intermunicipais</span></td><td data-i18n="t_municipal">Municipal</td><td><span class="pill p-cond" data-i18n="p_res">Reservas e recomendações</span></td></tr>
+          <tr><td><span class="ent" title="Administração Central do Sistema de Saúde — organismo do Estado que gere os recursos financeiros e o património do Serviço Nacional de Saúde.">ACSS</span><br>Administração Central do Sistema de Saúde</td><td data-i18n="t_set">Setorial</td><td><span class="pill p-none" data-i18n="p_none">Não emitiu parecer</span></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="note">Lista completa das 36 entidades na p. 8 do documento-fonte. Os municípios de Almada e Lisboa e a Área Metropolitana de Lisboa foram favoráveis com recomendações; alguns não tinham incidência direta de ZAER.</p>
+    <p class="note" data-i18n="note1">Lista completa das 36 entidades na p. 8 do documento-fonte. Os municípios de Almada e Lisboa e a Área Metropolitana de Lisboa foram favoráveis com recomendações; alguns não tinham incidência direta de ZAER.</p>
     <div class="callout">
-      <div class="kick">O pedido que ficou sem resposta</div>
-      <p>No seu parecer, o <b>ICNF</b> — a autoridade de conservação da natureza do próprio Estado — pediu expressamente que as áreas que se sobrepõem ao <b>buffer de 1&nbsp;km em redor da Paisagem Protegida Regional da Serra da Gardunha</b> (e do Parque Natural da Serra da Estrela) fossem <b>removidas</b> das zonas: «Devem estas áreas ser removidas das áreas propostas.» O próprio ICNF descreve essa sobreposição como <b>marginal</b> — mas o pedido é inequívoco.</p>
-      <p>No entanto, nas <b>47 páginas</b> de ponderação dos pareceres, a resposta do Governo <b>não menciona a Gardunha uma única vez</b>. A única ocorrência de «Gardunha» refere-se ao <b>Regadio Gardunha Sul</b>, um projeto de rega distinto suscitado pelo Município do Fundão. O pedido de remoção do buffer da Gardunha ficou <b>sem qualquer resposta específica</b>.</p>
+      <div class="kick" data-i18n="co_kick">O pedido que ficou sem resposta</div>
+      <p data-i18n="co_p1">No seu parecer, o <b>ICNF</b> — a autoridade de conservação da natureza do próprio Estado — pediu expressamente que as áreas que se sobrepõem ao <b>buffer de 1&nbsp;km em redor da Paisagem Protegida Regional da Serra da Gardunha</b> (e do Parque Natural da Serra da Estrela) fossem <b>removidas</b> das zonas: «Devem estas áreas ser removidas das áreas propostas.» O próprio ICNF descreve essa sobreposição como <b>marginal</b> — mas o pedido é inequívoco.</p>
+      <p data-i18n="co_p2">No entanto, nas <b>47 páginas</b> de ponderação dos pareceres, a resposta do Governo <b>não menciona a Gardunha uma única vez</b>. A única ocorrência de «Gardunha» refere-se ao <b>Regadio Gardunha Sul</b>, um projeto de rega distinto suscitado pelo Município do Fundão. O pedido de remoção do buffer da Gardunha ficou <b>sem qualquer resposta específica</b>.</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="kick">Quadro 2</div>
-    <h2>As principais objeções — e a resposta do Governo</h2>
-    <p>As preocupações recorrentes suscitadas ao longo dos pareceres (secção 6, pp. 9–46), cada uma com a forma como o Governo a ponderou. «Resultado» reflete o veredicto do próprio Governo: <b>Aceite</b>, <b>Parcialmente aceite</b>, <b>Registado</b> (registado, sem alteração) ou <b>Rejeitado</b>.</p>
+    <div class="kick" data-i18n="s3_kick">Quadro 2</div>
+    <h2 data-i18n="s3_h2">As principais objeções — e a resposta do Governo</h2>
+    <p data-i18n="s3_p">As preocupações recorrentes suscitadas ao longo dos pareceres (secção 6, pp. 9–46), cada uma com a forma como o Governo a ponderou. «Resultado» reflete o veredicto do próprio Governo: <b>Aceite</b>, <b>Parcialmente aceite</b>, <b>Registado</b> (registado, sem alteração) ou <b>Rejeitado</b>.</p>
     <div class="tbl-scroll">
       <table>
-        <thead><tr><th>Objeção</th><th>Suscitada por</th><th>A preocupação</th><th>Resposta do Governo</th><th>Resultado</th></tr></thead>
+        <thead><tr><th data-i18n="th_obj">Objeção</th><th data-i18n="th_by">Suscitada por</th><th data-i18n="th_concern">A preocupação</th><th data-i18n="th_reply">Resposta do Governo</th><th data-i18n="th_result">Resultado</th></tr></thead>
         <tbody id="rows">
-          <tr><td colspan="5" style="color:var(--muted)">A carregar o detalhe…</td></tr>
+          <tr><td colspan="5" style="color:var(--muted)" data-i18n="loading">A carregar o detalhe…</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="note">Resumo fiel, em linguagem simples, do original em português. Onde a formulação do Governo era procedimental, resumimos a sua substância. Leia o documento completo através da ligação abaixo.</p>
+    <p class="note" data-i18n="note2">Resumo fiel, em linguagem simples, do original em português. Onde a formulação do Governo era procedimental, resumimos a sua substância. Leia o documento completo através da ligação abaixo.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="kick">O que significa</div>
-    <h2>Quem guarda o nosso património, os nossos solos e a nossa natureza já se opôs</h2>
-    <p>A autoridade do património, a autoridade da agricultura, a associação nacional de municípios e o instituto de conservação da natureza (ICNF) manifestaram todos oposição — o ICNF pedindo explicitamente a remoção das zonas em redor da <b>paisagem protegida da Serra da Gardunha</b>. Ainda assim, a ponderação do Governo aceitou a maioria das preocupações apenas «em parte» ou limitou-se a «registá-las». <b>A consulta pública é a próxima oportunidade de ser ouvido — e as objeções dos cidadãos também têm de ser ponderadas.</b></p>
+    <div class="kick" data-i18n="s4_kick">O que significa</div>
+    <h2 data-i18n="s4_h2">Quem guarda o nosso património, os nossos solos e a nossa natureza já se opôs</h2>
+    <p data-i18n="s4_p">A autoridade do património, a autoridade da agricultura, a associação nacional de municípios e o instituto de conservação da natureza (ICNF) manifestaram todos oposição — o ICNF pedindo explicitamente a remoção das zonas em redor da <b>paisagem protegida da Serra da Gardunha</b>. Ainda assim, a ponderação do Governo aceitou a maioria das preocupações apenas «em parte» ou limitou-se a «registá-las». <b>A consulta pública é a próxima oportunidade de ser ouvido — e as objeções dos cidadãos também têm de ser ponderadas.</b></p>
     <div class="cta">
-      <a class="btn btn-primary" href="/#passos">Objetar na consulta pública →</a>
-      <a class="btn btn-ghost" href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">Ler o PDF original</a>
+      <a class="btn btn-primary" href="/#passos" data-i18n="cta1">Objetar na consulta pública →</a>
+      <a class="btn btn-ghost" href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener" data-i18n="cta2">Ler o PDF original</a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div>Feito por vizinhos da Beira Baixa que querem a serra de pé. · <a href="/">salvargardunha.com</a></div>
-    <p class="disc">Esta página é um resumo fiel, em linguagem simples, de um documento da consulta pública («Análise e Ponderação dos Pareceres das Entidades», EMER 2030, junho de 2026) alojado no participa.pt e espelhado em /docs/. Não é uma transcrição oficial. As citações dos «sentidos» dos pareceres são retiradas da tabela-resumo do próprio documento (p. 8). Informativo, cívico, sem fins lucrativos, não afiliado a qualquer partido, empresa ou entidade pública.</p>
+    <div data-i18n="foot">Feito por vizinhos da Beira Baixa que querem a serra de pé. · <a href="/">salvargardunha.com</a></div>
+    <p class="disc" data-i18n="disc">Esta página é um resumo fiel, em linguagem simples, de um documento da consulta pública («Análise e Ponderação dos Pareceres das Entidades», EMER 2030, junho de 2026) alojado no participa.pt e espelhado em /docs/. Não é uma transcrição oficial. As citações dos «sentidos» dos pareceres são retiradas da tabela-resumo do próprio documento (p. 8). Informativo, cívico, sem fins lucrativos, não afiliado a qualquer partido, empresa ou entidade pública.</p>
   </div>
 </footer>
 
@@ -168,6 +174,161 @@
     }).join('');
   }
   render();
+</script>
+<script>
+(function(){
+  var LANGS=['pt','en','de','fr'];
+  var I18N={
+    en:{
+      back:'← Salvar a Gardunha',
+      eyebrow:'PSZAER · Institutional opinions',
+      h1:'What the official bodies said —<br>and how the Government responded',
+      lede:'Even before the public consultation opened, the Portuguese State’s own public bodies were formally consulted on the PSZAER. <b>Several issued unfavourable or heavily conditional opinions</b> — and the Government’s own weighing document shows that nearly two thirds of contributions were only <b>partly accepted</b> or merely <b>noted</b>, with no change to the programme.',
+      src:'Source, summarised in plain language from: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">«Análise e Ponderação dos Pareceres das Entidades»</a> (EMER 2030, 23 June 2026, 47 pp.). This is our faithful summary, not an official transcript.',
+      s1_kick:'The essentials',
+      s1_h2:'36 bodies, 172 contributions — and a pattern',
+      stat1:'public bodies issued an <b style="color:#fca5a5">unfavourable</b> opinion — including the heritage authority and the agriculture authority',
+      stat2:'of contributions were only <b style="color:var(--amber)">partly accepted</b> or merely <b>noted</b> — with no independent change to the programme',
+      stat3:'the protection strip around the protected landscape of the <b>Serra da Gardunha</b> that the ICNF asked to be purged of zones',
+      s1_p:'The Government presents this as a «significant convergence» on the programme’s importance. But you need only read the column that matters — the <b>sense of each opinion</b> — to see a picture of widespread reservations from the very bodies charged with protecting heritage, farmland, nature and local government.',
+      s2_kick:'Table 1',
+      s2_h2:'Each body and the sense of its opinion',
+      s2_p:'Straight from the Government’s own summary table (p. 8). «Conditional» means the body supported the aim only if the proposal is reworked or heavily corrected.',
+      th_ent:'Public body', th_type:'Type', th_sense:'Sense of opinion',
+      e1_d:'heritage authority',
+      e11_d:'+ ~12 other municipalities and 2 intermunicipal communities',
+      t_set:'Sectoral', t_assoc:'Municipal assoc.', t_muni:'Municipality', t_reg:'Regional (×5)', t_municipal:'Municipal',
+      p_unfav:'Unfavourable', p_cond:'Conditional', p_favcond:'Favourable, conditional', p_none:'Did not issue an opinion', p_res:'Reservations and recommendations',
+      s2r2:'on the proposal (conditional on the environmental report)',
+      s2r3:'on both the content and the conduct of the process',
+      s2r4:'/ opposing position',
+      s2r5:'on the proposal being reworked',
+      s2r6:'— technical recommendations and sectoral conditions',
+      s2r7:'— incl. purging the 1&nbsp;km strip around the protected landscape of the Serra da Gardunha',
+      s2r9:'— recommends revision and additions',
+      note1:'Full list of the 36 bodies on p. 8 of the source document. The municipalities of Almada and Lisboa and the Área Metropolitana de Lisboa were favourable with recommendations; some had no direct ZAER incidence.',
+      co_kick:'The request that went unanswered',
+      co_p1:'In its opinion, the <b>ICNF</b> — the State’s own nature-conservation authority — expressly asked that the areas overlapping the <b>1&nbsp;km buffer around the Regional Protected Landscape of the Serra da Gardunha</b> (and the Serra da Estrela Natural Park) be <b>removed</b> from the zones: «These areas must be removed from the proposed areas.» The ICNF itself describes that overlap as <b>marginal</b> — but the request is unequivocal.',
+      co_p2:'Yet across the <b>47 pages</b> weighing the opinions, the Government’s response <b>does not mention the Gardunha a single time</b>. The only occurrence of «Gardunha» refers to the <b>Regadio Gardunha Sul</b>, a separate irrigation project raised by the Município do Fundão. The request to remove the Gardunha buffer was left <b>without any specific reply</b>.',
+      s3_kick:'Table 2',
+      s3_h2:'The main objections — and the Government’s response',
+      s3_p:'The recurring concerns raised across the opinions (section 6, pp. 9–46), each with the way the Government weighed it. «Outcome» reflects the Government’s own verdict: <b>Accepted</b>, <b>Partly accepted</b>, <b>Noted</b> (noted, no change) or <b>Rejected</b>.',
+      th_obj:'Objection', th_by:'Raised by', th_concern:'The concern', th_reply:'Government’s response', th_result:'Outcome',
+      loading:'Loading the detail…',
+      note2:'A faithful summary, in plain language, of the Portuguese original. Where the Government’s wording was procedural, we summarise its substance. Read the full document via the link below.',
+      s4_kick:'What it means',
+      s4_h2:'Those who guard our heritage, our soils and our nature have already objected',
+      s4_p:'The heritage authority, the agriculture authority, the national association of municipalities and the nature-conservation institute (ICNF) all voiced opposition — the ICNF explicitly asking for the removal of the zones around the <b>protected landscape of the Serra da Gardunha</b>. Even so, the Government’s weighing accepted most concerns only «in part» or merely «noted» them. <b>The public consultation is the next chance to be heard — and citizens’ objections must be weighed too.</b>',
+      cta1:'Object in the public consultation →',
+      cta2:'Read the original PDF',
+      foot:'Made by neighbours in the Beira Baixa who want the range left standing. · <a href="/">salvargardunha.com</a>',
+      disc:'This page is a faithful, plain-language summary of a public-consultation document («Análise e Ponderação dos Pareceres das Entidades», EMER 2030, June 2026) hosted on participa.pt and mirrored at /docs/. It is not an official transcript. The quotations of the «senses» of the opinions are taken from the summary table in the document itself (p. 8). Informative, civic, non-profit, not affiliated with any party, company or public body.'
+    },
+    de:{
+      back:'← Salvar a Gardunha',
+      eyebrow:'PSZAER · Stellungnahmen der Behörden',
+      h1:'Was die offiziellen Stellen sagten —<br>und wie die Regierung antwortete',
+      lede:'Schon bevor die öffentliche Konsultation begann, wurden die öffentlichen Stellen des portugiesischen Staates selbst förmlich zum PSZAER angehört. <b>Mehrere gaben ungünstige oder stark mit Auflagen versehene Stellungnahmen ab</b> — und das Abwägungsdokument der Regierung selbst zeigt, dass fast zwei Drittel der Beiträge nur <b>teilweise angenommen</b> oder bloß <b>zur Kenntnis genommen</b> wurden, ohne jede Änderung am Programm.',
+      src:'Quelle, in einfacher Sprache zusammengefasst aus: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">«Análise e Ponderação dos Pareceres das Entidades»</a> (EMER 2030, 23. Juni 2026, 47 S.). Dies ist unsere getreue Zusammenfassung, keine offizielle Abschrift.',
+      s1_kick:'Das Wesentliche',
+      s1_h2:'36 Stellen, 172 Beiträge — und ein Muster',
+      stat1:'öffentliche Stellen gaben eine <b style="color:#fca5a5">ungünstige</b> Stellungnahme ab — darunter die Denkmalschutz- und die Landwirtschaftsbehörde',
+      stat2:'der Beiträge wurden nur <b style="color:var(--amber)">teilweise angenommen</b> oder bloß <b>zur Kenntnis genommen</b> — ohne eigenständige Änderung am Programm',
+      stat3:'der Schutzstreifen rund um die Schutzlandschaft der <b>Serra da Gardunha</b>, den das ICNF von Zonen bereinigt sehen wollte',
+      s1_p:'Die Regierung stellt dies als «erhebliche Übereinstimmung» hinsichtlich der Bedeutung des Programms dar. Doch man muss nur die entscheidende Spalte lesen — den <b>Tenor jeder Stellungnahme</b> —, um ein Bild verbreiteter Vorbehalte gerade jener Stellen zu sehen, die mit dem Schutz des Erbes, der landwirtschaftlichen Böden, der Natur und der kommunalen Ebene betraut sind.',
+      s2_kick:'Tabelle 1',
+      s2_h2:'Jede Stelle und der Tenor ihrer Stellungnahme',
+      s2_p:'Direkt aus der Übersichtstabelle der Regierung selbst (S. 8). «Mit Auflagen» bedeutet, dass die Stelle das Ziel nur unterstützte, wenn der Vorschlag neu gefasst oder stark korrigiert wird.',
+      th_ent:'Öffentliche Stelle', th_type:'Art', th_sense:'Tenor der Stellungnahme',
+      e1_d:'Denkmalschutzbehörde',
+      e11_d:'+ ~12 weitere Gemeinden und 2 interkommunale Verbände',
+      t_set:'Fachbehörde', t_assoc:'Gemeindeverband', t_muni:'Gemeinde', t_reg:'Regional (×5)', t_municipal:'Kommunal',
+      p_unfav:'Ungünstig', p_cond:'Mit Auflagen', p_favcond:'Günstig, mit Auflagen', p_none:'Gab keine Stellungnahme ab', p_res:'Vorbehalte und Empfehlungen',
+      s2r2:'zum Vorschlag (mit Vorbehalt des Umweltberichts)',
+      s2r3:'sowohl inhaltlich als auch zur Verfahrensführung',
+      s2r4:'/ ablehnende Position',
+      s2r5:'auf Neufassung des Vorschlags',
+      s2r6:'— technische Empfehlungen und fachliche Auflagen',
+      s2r7:'— u.&nbsp;a. Bereinigung des 1&nbsp;km-Streifens rund um die Schutzlandschaft der Serra da Gardunha',
+      s2r9:'— empfiehlt Überarbeitung und Ergänzung',
+      note1:'Vollständige Liste der 36 Stellen auf S. 8 des Quelldokuments. Die Gemeinden Almada und Lisboa sowie die Área Metropolitana de Lisboa waren mit Empfehlungen befürwortend; einige waren nicht unmittelbar von ZAER betroffen.',
+      co_kick:'Die Bitte, die unbeantwortet blieb',
+      co_p1:'In ihrer Stellungnahme forderte das <b>ICNF</b> — die Naturschutzbehörde des Staates selbst — ausdrücklich, dass die Flächen, die sich mit dem <b>1&nbsp;km-Puffer rund um die Regionale Schutzlandschaft der Serra da Gardunha</b> (und den Naturpark Serra da Estrela) überschneiden, aus den Zonen <b>entfernt</b> werden: «Diese Flächen sind aus den vorgeschlagenen Flächen zu entfernen.» Das ICNF selbst beschreibt diese Überschneidung als <b>geringfügig</b> — doch die Forderung ist eindeutig.',
+      co_p2:'Dennoch erwähnt die Antwort der Regierung auf den <b>47 Seiten</b> der Abwägung der Stellungnahmen <b>die Gardunha kein einziges Mal</b>. Das einzige Vorkommen von «Gardunha» bezieht sich auf das <b>Regadio Gardunha Sul</b>, ein gesondertes Bewässerungsprojekt, das von der Gemeinde Fundão vorgebracht wurde. Die Forderung nach Entfernung des Gardunha-Puffers blieb <b>ohne jede konkrete Antwort</b>.',
+      s3_kick:'Tabelle 2',
+      s3_h2:'Die wichtigsten Einwände — und die Antwort der Regierung',
+      s3_p:'Die wiederkehrenden Anliegen, die sich durch die Stellungnahmen ziehen (Abschnitt 6, S. 9–46), jeweils mit der Art, wie die Regierung sie abgewogen hat. «Ergebnis» spiegelt das Urteil der Regierung selbst wider: <b>Angenommen</b>, <b>Teilweise angenommen</b>, <b>Zur Kenntnis genommen</b> (zur Kenntnis genommen, ohne Änderung) oder <b>Abgelehnt</b>.',
+      th_obj:'Einwand', th_by:'Vorgebracht von', th_concern:'Das Anliegen', th_reply:'Antwort der Regierung', th_result:'Ergebnis',
+      loading:'Details werden geladen…',
+      note2:'Getreue Zusammenfassung in einfacher Sprache des portugiesischen Originals. Wo die Formulierung der Regierung verfahrensrechtlich war, fassen wir ihren Kern zusammen. Lesen Sie das vollständige Dokument über den Link unten.',
+      s4_kick:'Was das bedeutet',
+      s4_h2:'Wer unser Erbe, unsere Böden und unsere Natur schützt, hat bereits widersprochen',
+      s4_p:'Die Denkmalschutzbehörde, die Landwirtschaftsbehörde, der nationale Gemeindeverband und das Naturschutzinstitut (ICNF) äußerten alle Widerspruch — das ICNF forderte ausdrücklich die Herausnahme der Zonen rund um die <b>Schutzlandschaft der Serra da Gardunha</b>. Dennoch nahm die Abwägung der Regierung die meisten Anliegen nur «teilweise» an oder «nahm sie zur Kenntnis». <b>Die öffentliche Konsultation ist die nächste Gelegenheit, gehört zu werden — und auch die Einwände der Bürgerinnen und Bürger müssen abgewogen werden.</b>',
+      cta1:'In der öffentlichen Konsultation Einspruch erheben →',
+      cta2:'Original-PDF lesen',
+      foot:'Gemacht von Nachbarn in der Beira Baixa, die das Gebirge stehen lassen wollen. · <a href="/">salvargardunha.com</a>',
+      disc:'Diese Seite ist eine getreue, allgemein verständliche Zusammenfassung eines Dokuments der öffentlichen Konsultation («Análise e Ponderação dos Pareceres das Entidades», EMER 2030, Juni 2026), das auf participa.pt gehostet und unter /docs/ gespiegelt ist. Sie ist keine offizielle Abschrift. Die Zitate der «Tenöre» der Stellungnahmen stammen aus der Übersichtstabelle des Dokuments selbst (S. 8). Informativ, zivilgesellschaftlich, gemeinnützig, keiner Partei, keinem Unternehmen und keiner öffentlichen Stelle zugehörig.'
+    },
+    fr:{
+      back:'← Salvar a Gardunha',
+      eyebrow:'PSZAER · Avis institutionnels',
+      h1:'Ce qu’ont dit les organismes officiels —<br>et comment le Gouvernement a répondu',
+      lede:'Avant même l’ouverture de la consultation publique, les organismes publics de l’État portugais lui-même ont été formellement consultés sur le PSZAER. <b>Plusieurs ont émis des avis défavorables ou fortement conditionnels</b> — et le propre document de pondération du Gouvernement montre que près de deux tiers des contributions n’ont été que <b>partiellement acceptées</b> ou simplement <b>enregistrées</b>, sans aucune modification du programme.',
+      src:'Source, résumée en langage simple à partir de : <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">«Análise e Ponderação dos Pareceres das Entidades»</a> (EMER 2030, 23 juin 2026, 47 p.). Ceci est notre résumé fidèle, non une transcription officielle.',
+      s1_kick:'L’essentiel',
+      s1_h2:'36 organismes, 172 contributions — et une constante',
+      stat1:'organismes publics ont émis un avis <b style="color:#fca5a5">défavorable</b> — dont l’autorité du patrimoine et l’autorité de l’agriculture',
+      stat2:'des contributions n’ont été que <b style="color:var(--amber)">partiellement acceptées</b> ou simplement <b>enregistrées</b> — sans aucune modification autonome du programme',
+      stat3:'la bande de protection autour du paysage protégé de la <b>Serra da Gardunha</b> que l’ICNF a demandé d’expurger de zones',
+      s1_p:'Le Gouvernement présente cela comme une «convergence significative» quant à l’importance du programme. Mais il suffit de lire la colonne qui compte — le <b>sens de chaque avis</b> — pour voir un tableau de réserves généralisées de la part des organismes mêmes chargés de protéger le patrimoine, les sols agricoles, la nature et le pouvoir local.',
+      s2_kick:'Tableau 1',
+      s2_h2:'Chaque organisme et le sens de son avis',
+      s2_p:'Directement du tableau de synthèse du Gouvernement lui-même (p. 8). «Conditionnel» signifie que l’organisme n’a soutenu l’objectif que si la proposition est remaniée ou fortement corrigée.',
+      th_ent:'Organisme public', th_type:'Type', th_sense:'Sens de l’avis',
+      e1_d:'autorité du patrimoine',
+      e11_d:'+ ~12 autres municipalités et 2 communautés intermunicipales',
+      t_set:'Sectoriel', t_assoc:'Assoc. municipale', t_muni:'Municipalité', t_reg:'Régional (×5)', t_municipal:'Communal',
+      p_unfav:'Défavorable', p_cond:'Conditionnel', p_favcond:'Favorable, sous conditions', p_none:'N’a pas émis d’avis', p_res:'Réserves et recommandations',
+      s2r2:'sur la proposition (sous réserve du rapport environnemental)',
+      s2r3:'quant au contenu et à la conduite du processus',
+      s2r4:'/ position contraire',
+      s2r5:'à la refonte de la proposition',
+      s2r6:'— recommandations techniques et conditions sectorielles',
+      s2r7:'— dont l’expurgation de la bande de 1&nbsp;km autour du paysage protégé de la Serra da Gardunha',
+      s2r9:'— recommande révision et compléments',
+      note1:'Liste complète des 36 organismes à la p. 8 du document source. Les municipalités d’Almada et de Lisboa et l’Área Metropolitana de Lisboa se sont montrées favorables avec des recommandations ; certaines n’avaient pas d’incidence directe de ZAER.',
+      co_kick:'La demande restée sans réponse',
+      co_p1:'Dans son avis, l’<b>ICNF</b> — l’autorité de conservation de la nature de l’État lui-même — a expressément demandé que les zones chevauchant la <b>bande tampon de 1&nbsp;km autour du Paysage protégé régional de la Serra da Gardunha</b> (et du Parc naturel de la Serra da Estrela) soient <b>retirées</b> des zones : «Ces zones doivent être retirées des zones proposées.» L’ICNF lui-même décrit ce chevauchement comme <b>marginal</b> — mais la demande est sans équivoque.',
+      co_p2:'Pourtant, dans les <b>47 pages</b> de pondération des avis, la réponse du Gouvernement <b>ne mentionne pas une seule fois la Gardunha</b>. La seule occurrence de «Gardunha» renvoie au <b>Regadio Gardunha Sul</b>, un projet d’irrigation distinct soulevé par le Município do Fundão. La demande de retrait de la bande tampon de la Gardunha est restée <b>sans aucune réponse spécifique</b>.',
+      s3_kick:'Tableau 2',
+      s3_h2:'Les principales objections — et la réponse du Gouvernement',
+      s3_p:'Les préoccupations récurrentes soulevées tout au long des avis (section 6, p. 9–46), chacune avec la manière dont le Gouvernement l’a pondérée. «Résultat» reflète le verdict du Gouvernement lui-même : <b>Accepté</b>, <b>Partiellement accepté</b>, <b>Enregistré</b> (enregistré, sans modification) ou <b>Rejeté</b>.',
+      th_obj:'Objection', th_by:'Soulevée par', th_concern:'La préoccupation', th_reply:'Réponse du Gouvernement', th_result:'Résultat',
+      loading:'Chargement du détail…',
+      note2:'Résumé fidèle, en langage simple, de l’original portugais. Là où la formulation du Gouvernement était procédurale, nous en résumons la substance. Lisez le document complet via le lien ci-dessous.',
+      s4_kick:'Ce que cela signifie',
+      s4_h2:'Ceux qui protègent notre patrimoine, nos sols et notre nature s’y sont déjà opposés',
+      s4_p:'L’autorité du patrimoine, l’autorité de l’agriculture, l’association nationale des municipalités et l’institut de conservation de la nature (ICNF) ont tous exprimé leur opposition — l’ICNF demandant explicitement le retrait des zones autour du <b>paysage protégé de la Serra da Gardunha</b>. Malgré cela, la pondération du Gouvernement n’a accepté la plupart des préoccupations qu’«en partie» ou s’est bornée à les «enregistrer». <b>La consultation publique est la prochaine occasion de se faire entendre — et les objections des citoyens doivent aussi être pondérées.</b>',
+      cta1:'S’opposer dans la consultation publique →',
+      cta2:'Lire le PDF original',
+      foot:'Fait par des voisins de la Beira Baixa qui veulent que la serra reste debout. · <a href="/">salvargardunha.com</a>',
+      disc:'Cette page est un résumé fidèle, en langage simple, d’un document de la consultation publique («Análise e Ponderação dos Pareceres das Entidades», EMER 2030, juin 2026) hébergé sur participa.pt et mis en miroir sous /docs/. Ce n’est pas une transcription officielle. Les citations des «sens» des avis sont tirées du tableau de synthèse du document lui-même (p. 8). Informatif, citoyen, à but non lucratif, non affilié à un quelconque parti, entreprise ou organisme public.'
+    }
+  };
+  var PT={};
+  document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
+  function tr(l,k){ if(l==='pt')return PT[k]; return (I18N[l]&&I18N[l][k]!=null)?I18N[l][k]:PT[k]; }
+  function applyLang(l){
+    if(LANGS.indexOf(l)<0)l='pt';
+    document.documentElement.lang=(l==='pt'?'pt-PT':l);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=tr(l,el.getAttribute('data-i18n'));});
+    document.querySelectorAll('#langsw button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
+    try{localStorage.setItem('nf_lang',l);}catch(e){}
+  }
+  document.querySelectorAll('#langsw button').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang'));});});
+  var saved; try{saved=localStorage.getItem('nf_lang');}catch(e){}
+  applyLang(saved||'pt');
+})();
 </script>
 </body>
 </html>

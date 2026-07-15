@@ -15,6 +15,11 @@
   body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
   a{color:var(--green)}
+
+  .langsw{position:fixed;top:12px;right:12px;z-index:60;display:flex;gap:2px;background:rgba(10,13,10,.85);border:1px solid var(--line);border-radius:999px;padding:3px;backdrop-filter:blur(6px)}
+  .langsw button{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:11.5px;letter-spacing:.05em;padding:5px 9px;border-radius:999px;cursor:pointer}
+  .langsw button.on{background:var(--green-d);color:#05230f}
+
   header{padding:46px 0 30px;border-bottom:1px solid var(--line)}
   .back{display:inline-block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:22px}
   .back:hover{color:var(--green)}
@@ -56,124 +61,378 @@
   footer{padding:34px 0 60px;color:var(--muted);font-size:13.5px}
   footer a{color:var(--green);text-decoration:none}
   .disc{margin-top:16px;font-size:12.5px;color:#6f7a6f;border-top:1px solid var(--line);padding-top:16px}
-  @media(max-width:640px){ th,td{padding:10px 12px;font-size:13.5px} }
+  @media(max-width:640px){ th,td{padding:10px 12px;font-size:13.5px} .langsw{top:8px;right:8px} .langsw button{font-size:10.5px;padding:4px 7px} }
 </style>
 </head>
 <body>
 
+<div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></div>
+
 <header>
   <div class="wrap">
-    <a class="back" href="/">← Salvar a Gardunha</a>
-    <div class="eyebrow">PSZAER · Guia rápido</div>
-    <h1>Quem decide, o quê e quando —<br>o processo em linguagem simples</h1>
-    <p class="lede">O que está em causa envolve algumas siglas — <b>PSZAER</b>, <b>EMER 2030</b>, <b>ZAER</b> — e várias fases. Esta página explica, em poucos minutos, o que cada uma significa, <b>quem está realmente a decidir</b> (é o Governo português, não a União Europeia) e por que razão a sua objeção ainda conta.</p>
+    <a class="back" href="/" data-i18n="back">← Salvar a Gardunha</a>
+    <div class="eyebrow" data-i18n="eyebrow">PSZAER · Guia rápido</div>
+    <h1 data-i18n="h1">Quem decide, o quê e quando —<br>o processo em linguagem simples</h1>
+    <p class="lede" data-i18n="lede">O que está em causa envolve algumas siglas — <b>PSZAER</b>, <b>EMER 2030</b>, <b>ZAER</b> — e várias fases. Esta página explica, em poucos minutos, o que cada uma significa, <b>quem está realmente a decidir</b> (é o Governo português, não a União Europeia) e por que razão a sua objeção ainda conta.</p>
   </div>
 </header>
 
 <section>
   <div class="wrap">
-    <div class="kick">O plano</div>
-    <h2>O que é o PSZAER</h2>
-    <p class="lead1"><span>PSZAER</span> = Programa Setorial das Zonas de Aceleração da Implantação de Energias Renováveis.</p>
-    <p>É um <b>plano de âmbito nacional</b> que desenha, no mapa do território continental, as <b>«zonas de aceleração»</b> (as ZAER) — as áreas onde os projetos solares e eólicos passam a ter licenciamento acelerado, com menos obstáculos. Uma dessas zonas cai sobre a <b>Serra da Gardunha</b>.</p>
-    <p>É um <b>documento</b>: regras, orientações e mapas. Foi ordenado pelo Governo através do Despacho n.º 1532-B/2026, de 6 de fevereiro de 2026, com um prazo de seis meses para ficar pronto.</p>
+    <div class="kick" data-i18n="s1_kick">O plano</div>
+    <h2 data-i18n="s1_h2">O que é o PSZAER</h2>
+    <p class="lead1" data-i18n="s1_def"><span>PSZAER</span> = Programa Setorial das Zonas de Aceleração da Implantação de Energias Renováveis.</p>
+    <p data-i18n="s1_p1">É um <b>plano de âmbito nacional</b> que desenha, no mapa do território continental, as <b>«zonas de aceleração»</b> (as ZAER) — as áreas onde os projetos solares e eólicos passam a ter licenciamento acelerado, com menos obstáculos. Uma dessas zonas cai sobre a <b>Serra da Gardunha</b>.</p>
+    <p data-i18n="s1_p2">É um <b>documento</b>: regras, orientações e mapas. Foi ordenado pelo Governo através do Despacho n.º 1532-B/2026, de 6 de fevereiro de 2026, com um prazo de seis meses para ficar pronto.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="kick">Quem o fez</div>
-    <h2>O que é a EMER 2030</h2>
-    <p class="lead1"><span>EMER 2030</span> = Estrutura de Missão para o Licenciamento de Projetos de Energias Renováveis 2030.</p>
-    <p>É uma <b>estrutura de missão</b> — no sistema administrativo português, uma <b>equipa/tarefa temporária</b> criada pelo Governo para tratar de um único assunto durante um período limitado, fora dos ministérios permanentes. A sua missão é <b>acelerar o licenciamento das energias renováveis</b>, em linha com as metas energéticas e climáticas de Portugal para 2030.</p>
-    <p>Foi à EMER 2030 que o Governo entregou o trabalho de <b>escrever o PSZAER</b> e de <b>conduzir a consulta</b> — recolher os pareceres e redigir as respostas.</p>
+    <div class="kick" data-i18n="s2_kick">Quem o fez</div>
+    <h2 data-i18n="s2_h2">O que é a EMER 2030</h2>
+    <p class="lead1" data-i18n="s2_def"><span>EMER 2030</span> = Estrutura de Missão para o Licenciamento de Projetos de Energias Renováveis 2030.</p>
+    <p data-i18n="s2_p1">É uma <b>estrutura de missão</b> — no sistema administrativo português, uma <b>equipa/tarefa temporária</b> criada pelo Governo para tratar de um único assunto durante um período limitado, fora dos ministérios permanentes. A sua missão é <b>acelerar o licenciamento das energias renováveis</b>, em linha com as metas energéticas e climáticas de Portugal para 2030.</p>
+    <p data-i18n="s2_p2">Foi à EMER 2030 que o Governo entregou o trabalho de <b>escrever o PSZAER</b> e de <b>conduzir a consulta</b> — recolher os pareceres e redigir as respostas.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="kick">A confusão mais comum</div>
-    <h2>EMER 2030 vs. PSZAER — qual é a diferença?</h2>
-    <p>Uma é <b>quem</b>; a outra é <b>o quê</b>. A EMER 2030 <b>escreveu</b> o PSZAER — como um autor e o seu livro.</p>
+    <div class="kick" data-i18n="s3_kick">A confusão mais comum</div>
+    <h2 data-i18n="s3_h2">EMER 2030 vs. PSZAER — qual é a diferença?</h2>
+    <p data-i18n="s3_p1">Uma é <b>quem</b>; a outra é <b>o quê</b>. A EMER 2030 <b>escreveu</b> o PSZAER — como um autor e o seu livro.</p>
     <div class="tbl-scroll">
       <table>
         <thead><tr><th>&nbsp;</th><th class="col-head">EMER 2030</th><th class="col-head">PSZAER</th></tr></thead>
         <tbody>
-          <tr><td><b>O que é</b></td><td>Uma equipa do Governo (estrutura de missão)</td><td>Um plano setorial (documento)</td></tr>
-          <tr><td><b>Categoria</b></td><td>Uma organização — pessoas</td><td>Um documento — regras e mapas</td></tr>
-          <tr><td><b>Papel</b></td><td>O <b>autor</b> — escreve, conduz a consulta e pondera as objeções</td><td>O objeto <b>em consulta</b> — desenha as zonas, incluindo sobre a Gardunha</td></tr>
-          <tr><td><b>Face a isto, você…</b></td><td>…critica o facto de ser juiz do seu próprio trabalho</td><td>…apresenta a sua objeção na consulta pública</td></tr>
+          <tr><td><b data-i18n="s3_r1a">O que é</b></td><td data-i18n="s3_r1b">Uma equipa do Governo (estrutura de missão)</td><td data-i18n="s3_r1c">Um plano setorial (documento)</td></tr>
+          <tr><td><b data-i18n="s3_r2a">Categoria</b></td><td data-i18n="s3_r2b">Uma organização — pessoas</td><td data-i18n="s3_r2c">Um documento — regras e mapas</td></tr>
+          <tr><td><b data-i18n="s3_r3a">Papel</b></td><td data-i18n="s3_r3b">O <b>autor</b> — escreve, conduz a consulta e pondera as objeções</td><td data-i18n="s3_r3c">O objeto <b>em consulta</b> — desenha as zonas, incluindo sobre a Gardunha</td></tr>
+          <tr><td><b data-i18n="s3_r4a">Face a isto, você…</b></td><td data-i18n="s3_r4b">…critica o facto de ser juiz do seu próprio trabalho</td><td data-i18n="s3_r4c">…apresenta a sua objeção na consulta pública</td></tr>
         </tbody>
       </table>
     </div>
-    <p>Em resumo: o <b>Governo</b> ordenou um plano → encarregou a <b>EMER 2030</b> (a equipa) → esta escreveu o <b>PSZAER</b> (o plano) → o PSZAER desenha zonas sobre a <b>Serra da Gardunha</b> → é a isso que você se opõe, e é a EMER 2030 quem lê a sua objeção.</p>
+    <p data-i18n="s3_p2">Em resumo: o <b>Governo</b> ordenou um plano → encarregou a <b>EMER 2030</b> (a equipa) → esta escreveu o <b>PSZAER</b> (o plano) → o PSZAER desenha zonas sobre a <b>Serra da Gardunha</b> → é a isso que você se opõe, e é a EMER 2030 quem lê a sua objeção.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="kick">Quem decide</div>
-    <h2>É o Governo português — não a União Europeia</h2>
-    <p>Todo este processo é <b>nacional</b>. Não há Comissão Europeia, nem instituição da UE, a decidir sobre a Gardunha. Quem determina, escreve e pondera é o <b>Estado português</b>, através da EMER 2030, no quadro do Regime Jurídico dos Instrumentos de Gestão Territorial (RJIGT).</p>
-    <p>E há um pormenor que importa: na fase institucional, as entidades consultadas <b>são também o Estado</b>. O ICNF (natureza), o Património Cultural (património), a DGADR (agricultura), a APA, a DGEG — são todos <b>organismos da administração central</b>, cada um sob o seu ministério. Ou seja, um braço do Governo (a EMER 2030) consultou <b>por escrito</b> outros braços do próprio Governo. Os <b>municípios</b> e a <b>ANMP</b> (a sua associação) são a exceção — poder local, eleito e mais independente.</p>
+    <div class="kick" data-i18n="s4_kick">Quem decide</div>
+    <h2 data-i18n="s4_h2">É o Governo português — não a União Europeia</h2>
+    <p data-i18n="s4_p1">Todo este processo é <b>nacional</b>. Não há Comissão Europeia, nem instituição da UE, a decidir sobre a Gardunha. Quem determina, escreve e pondera é o <b>Estado português</b>, através da EMER 2030, no quadro do Regime Jurídico dos Instrumentos de Gestão Territorial (RJIGT).</p>
+    <p data-i18n="s4_p2">E há um pormenor que importa: na fase institucional, as entidades consultadas <b>são também o Estado</b>. O ICNF (natureza), o Património Cultural (património), a DGADR (agricultura), a APA, a DGEG — são todos <b>organismos da administração central</b>, cada um sob o seu ministério. Ou seja, um braço do Governo (a EMER 2030) consultou <b>por escrito</b> outros braços do próprio Governo. Os <b>municípios</b> e a <b>ANMP</b> (a sua associação) são a exceção — poder local, eleito e mais independente.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="kick">Como funciona</div>
-    <h2>As fases do processo</h2>
-    <p>Não houve nenhuma <b>reunião</b> nem audiência. Os «pareceres» são <b>opiniões escritas</b>, submetidas eletronicamente numa plataforma do Governo (a PCGT). Cada entidade teve <b>20 dias</b> para responder — e, por lei, <b>o silêncio conta como «nada a opor»</b>.</p>
+    <div class="kick" data-i18n="s5_kick">Como funciona</div>
+    <h2 data-i18n="s5_h2">As fases do processo</h2>
+    <p data-i18n="s5_p1">Não houve nenhuma <b>reunião</b> nem audiência. Os «pareceres» são <b>opiniões escritas</b>, submetidas eletronicamente numa plataforma do Governo (a PCGT). Cada entidade teve <b>20 dias</b> para responder — e, por lei, <b>o silêncio conta como «nada a opor»</b>.</p>
     <div class="steps">
-      <div class="step"><div class="num">1</div><div class="body"><h3>Encomenda</h3><p>O Governo determina o PSZAER e entrega-o à EMER 2030 (Despacho n.º 1532-B/2026).</p><span class="when">6 fev 2026</span></div></div>
-      <div class="step"><div class="num">2</div><div class="body"><h3>Consulta institucional</h3><p>A EMER 2030 escreve às entidades públicas (ICNF, Património, DGADR, municípios…), que respondem por escrito em 20 dias. Várias emitem pareceres desfavoráveis ou condicionados.</p><span class="when">a partir de 5 mai 2026 · concluída</span></div></div>
-      <div class="step"><div class="num">3</div><div class="body"><h3>Ponderação dos pareceres</h3><p>A EMER 2030 compila os pareceres e escreve as suas respostas, aceitando a maioria só «em parte» ou limitando-se a «registá-las». É o documento resumido na página <a href="/analise">O que disseram as entidades oficiais</a>.</p><span class="when">23 jun 2026</span></div></div>
-      <div class="step"><div class="num">4</div><div class="body"><h3>Discussão pública — a sua vez</h3><p>Agora qualquer cidadão pode apresentar a sua objeção no participa.pt. A EMER 2030 terá de ponderar estes contributos <b>de forma autónoma</b> após o fim do período.</p><span class="when">17 jun → 15 jul 2026</span></div></div>
+      <div class="step"><div class="num">1</div><div class="body"><h3 data-i18n="s5_s1_h">Encomenda</h3><p data-i18n="s5_s1_p">O Governo determina o PSZAER e entrega-o à EMER 2030 (Despacho n.º 1532-B/2026).</p><span class="when" data-i18n="s5_s1_when">6 fev 2026</span></div></div>
+      <div class="step"><div class="num">2</div><div class="body"><h3 data-i18n="s5_s2_h">Consulta institucional</h3><p data-i18n="s5_s2_p">A EMER 2030 escreve às entidades públicas (ICNF, Património, DGADR, municípios…), que respondem por escrito em 20 dias. Várias emitem pareceres desfavoráveis ou condicionados.</p><span class="when" data-i18n="s5_s2_when">a partir de 5 mai 2026 · concluída</span></div></div>
+      <div class="step"><div class="num">3</div><div class="body"><h3 data-i18n="s5_s3_h">Ponderação dos pareceres</h3><p data-i18n="s5_s3_p">A EMER 2030 compila os pareceres e escreve as suas respostas, aceitando a maioria só «em parte» ou limitando-se a «registá-las». É o documento resumido na página <a href="/analise">O que disseram as entidades oficiais</a>.</p><span class="when" data-i18n="s5_s3_when">23 jun 2026</span></div></div>
+      <div class="step"><div class="num">4</div><div class="body"><h3 data-i18n="s5_s4_h">Discussão pública — a sua vez</h3><p data-i18n="s5_s4_p">Agora qualquer cidadão pode apresentar a sua objeção no participa.pt. A EMER 2030 terá de ponderar estes contributos <b>de forma autónoma</b> após o fim do período.</p><span class="when" data-i18n="s5_s4_when">17 jun → 15 jul 2026</span></div></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="kick">Duas rondas de «objeções»</div>
-    <h2>A palavra «objeção» refere-se a duas coisas diferentes</h2>
-    <p>É aqui que quase toda a gente se perde. Há <b>duas fases distintas</b> em que se apresentam objeções — a primeira já fechou; a segunda está a decorrer <b>e é a sua</b>.</p>
+    <div class="kick" data-i18n="s6_kick">Duas rondas de «objeções»</div>
+    <h2 data-i18n="s6_h2">A palavra «objeção» refere-se a duas coisas diferentes</h2>
+    <p data-i18n="s6_p1">É aqui que quase toda a gente se perde. Há <b>duas fases distintas</b> em que se apresentam objeções — a primeira já fechou; a segunda está a decorrer <b>e é a sua</b>.</p>
     <div class="tbl-scroll">
       <table>
-        <thead><tr><th>&nbsp;</th><th class="col-head">Fase 1 — institucional</th><th class="col-head">Fase 2 — discussão pública</th></tr></thead>
+        <thead><tr><th>&nbsp;</th><th class="col-head" data-i18n="s6_th_b">Fase 1 — institucional</th><th class="col-head" data-i18n="s6_th_c">Fase 2 — discussão pública</th></tr></thead>
         <tbody>
-          <tr><td><b>Quem objeta</b></td><td>~36 <b>entidades públicas</b> (ICNF, Património, municípios, CCDR…)</td><td><b>Cidadãos</b> — você, vizinhos, qualquer pessoa</td></tr>
-          <tr><td><b>Como</b></td><td>Parecer escrito na plataforma PCGT, prazo de 20 dias</td><td>Objeção submetida no participa.pt</td></tr>
-          <tr><td><b>Quando</b></td><td>Já fechou (consulta a partir de 5 mai 2026)</td><td><b>17 jun → 15 jul 2026</b></td></tr>
-          <tr><td><b>Quem lê e responde</b></td><td>EMER 2030 (já concluído)</td><td>EMER 2030, de novo, <b>após 15 jul</b></td></tr>
+          <tr><td><b data-i18n="s6_r1a">Quem objeta</b></td><td data-i18n="s6_r1b">~36 <b>entidades públicas</b> (ICNF, Património, municípios, CCDR…)</td><td data-i18n="s6_r1c"><b>Cidadãos</b> — você, vizinhos, qualquer pessoa</td></tr>
+          <tr><td><b data-i18n="s6_r2a">Como</b></td><td data-i18n="s6_r2b">Parecer escrito na plataforma PCGT, prazo de 20 dias</td><td data-i18n="s6_r2c">Objeção submetida no participa.pt</td></tr>
+          <tr><td><b data-i18n="s6_r3a">Quando</b></td><td data-i18n="s6_r3b">Já fechou (consulta a partir de 5 mai 2026)</td><td data-i18n="s6_r3c"><b>17 jun → 15 jul 2026</b></td></tr>
+          <tr><td><b data-i18n="s6_r4a">Quem lê e responde</b></td><td data-i18n="s6_r4b">EMER 2030 (já concluído)</td><td data-i18n="s6_r4c">EMER 2030, de novo, <b>após 15 jul</b></td></tr>
         </tbody>
       </table>
     </div>
     <div class="callout">
-      <div class="kick">O ponto que importa</div>
-      <p>Quem se opôs na Fase 1 <b>não foram ativistas nem ONG</b> — foram os <b>próprios organismos do Estado</b> encarregados de proteger o património, os solos e a natureza. Ainda assim, a EMER 2030 aceitou a maioria só «em parte» ou limitou-se a «registá-las». Quando até os peritos do próprio Governo são arquivados como «registado», a <b>Fase 2 — a sua objeção — enfrenta a mesma ponderação</b>. Por isso o número de contributos conta.</p>
+      <div class="kick" data-i18n="s6_call_kick">O ponto que importa</div>
+      <p data-i18n="s6_call_p">Quem se opôs na Fase 1 <b>não foram ativistas nem ONG</b> — foram os <b>próprios organismos do Estado</b> encarregados de proteger o património, os solos e a natureza. Ainda assim, a EMER 2030 aceitou a maioria só «em parte» ou limitou-se a «registá-las». Quando até os peritos do próprio Governo são arquivados como «registado», a <b>Fase 2 — a sua objeção — enfrenta a mesma ponderação</b>. Por isso o número de contributos conta.</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="kick">Em uma frase</div>
-    <h2>O que a campanha combate</h2>
-    <p>A «Salvar a Gardunha» combate o <b>PSZAER</b> (o plano) e as zonas que ele desenha sobre a serra. A <b>EMER 2030</b> é apenas o gabinete por detrás dele — e, ao ser em simultâneo o <b>autor</b> do plano, o <b>recetor</b> das objeções e o <b>juiz</b> que decide quais aceitar, não é um árbitro independente. A consulta pública é a próxima — e melhor — oportunidade de a voz dos cidadãos entrar nessa ponderação.</p>
+    <div class="kick" data-i18n="s7_kick">Em uma frase</div>
+    <h2 data-i18n="s7_h2">O que a campanha combate</h2>
+    <p data-i18n="s7_p1">A «Salvar a Gardunha» combate o <b>PSZAER</b> (o plano) e as zonas que ele desenha sobre a serra. A <b>EMER 2030</b> é apenas o gabinete por detrás dele — e, ao ser em simultâneo o <b>autor</b> do plano, o <b>recetor</b> das objeções e o <b>juiz</b> que decide quais aceitar, não é um árbitro independente. A consulta pública é a próxima — e melhor — oportunidade de a voz dos cidadãos entrar nessa ponderação.</p>
     <div class="cta">
-      <a class="btn btn-primary" href="/#passos">Apresentar a minha objeção →</a>
-      <a class="btn btn-ghost" href="/analise">O que disseram as entidades oficiais</a>
+      <a class="btn btn-primary" href="/#passos" data-i18n="s7_cta1">Apresentar a minha objeção →</a>
+      <a class="btn btn-ghost" href="/analise" data-i18n="s7_cta2">O que disseram as entidades oficiais</a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div>Feito por vizinhos da Beira Baixa que querem a serra de pé. · <a href="/">salvargardunha.com</a></div>
-    <p class="disc">Explicação em linguagem simples do procedimento de elaboração do PSZAER, com base nos documentos oficiais da consulta (participa.pt / EMER 2030, 2026) e no Regime Jurídico dos Instrumentos de Gestão Territorial. Informativo, cívico, sem fins lucrativos, não afiliado a qualquer partido, empresa ou entidade pública.</p>
+    <div data-i18n="foot_made">Feito por vizinhos da Beira Baixa que querem a serra de pé. · <a href="/">salvargardunha.com</a></div>
+    <p class="disc" data-i18n="disc">Explicação em linguagem simples do procedimento de elaboração do PSZAER, com base nos documentos oficiais da consulta (participa.pt / EMER 2030, 2026) e no Regime Jurídico dos Instrumentos de Gestão Territorial. Informativo, cívico, sem fins lucrativos, não afiliado a qualquer partido, empresa ou entidade pública.</p>
   </div>
 </footer>
+
+<script>
+(function(){
+  var LANGS=['pt','en','de','fr'];
+  var I18N={
+    en:{
+      back:'← Salvar a Gardunha',
+      eyebrow:'PSZAER · Quick guide',
+      h1:'Who decides, what and when —<br>the process in plain language',
+      lede:'What is at stake involves a few acronyms — <b>PSZAER</b>, <b>EMER 2030</b>, <b>ZAER</b> — and several stages. This page explains, in a few minutes, what each one means, <b>who is really deciding</b> (it is the Portuguese Government, not the European Union) and why your objection still counts.',
+      s1_kick:'The plan',
+      s1_h2:'What the PSZAER is',
+      s1_def:'<span>PSZAER</span> = Sectoral Programme for the Renewable-Energy Deployment Acceleration Zones.',
+      s1_p1:'It is a <b>nationwide plan</b> that draws, on the map of mainland Portugal, the <b>“acceleration zones”</b> (the ZAER) — the areas where solar and wind projects gain fast-tracked licensing, with fewer obstacles. One of those zones falls over the <b>Serra da Gardunha</b>.',
+      s1_p2:'It is a <b>document</b>: rules, guidelines and maps. It was ordered by the Government through Despacho n.º 1532-B/2026, of 6 February 2026, with a six-month deadline to be completed.',
+      s2_kick:'Who made it',
+      s2_h2:'What the EMER 2030 is',
+      s2_def:'<span>EMER 2030</span> = Mission Structure for the Licensing of Renewable-Energy Projects 2030.',
+      s2_p1:'It is a <b>mission structure</b> — in the Portuguese administrative system, a <b>temporary team/task force</b> created by the Government to handle a single matter for a limited period, outside the permanent ministries. Its mission is to <b>accelerate the licensing of renewable energy</b>, in line with Portugal’s energy and climate targets for 2030.',
+      s2_p2:'It was to EMER 2030 that the Government handed the work of <b>writing the PSZAER</b> and <b>running the consultation</b> — gathering the opinions and drafting the replies.',
+      s3_kick:'The most common confusion',
+      s3_h2:'EMER 2030 vs. PSZAER — what’s the difference?',
+      s3_p1:'One is <b>who</b>; the other is <b>what</b>. EMER 2030 <b>wrote</b> the PSZAER — like an author and their book.',
+      s3_r1a:'What it is',
+      s3_r1b:'A Government team (mission structure)',
+      s3_r1c:'A sectoral plan (document)',
+      s3_r2a:'Category',
+      s3_r2b:'An organisation — people',
+      s3_r2c:'A document — rules and maps',
+      s3_r3a:'Role',
+      s3_r3b:'The <b>author</b> — writes it, runs the consultation and weighs the objections',
+      s3_r3c:'The object <b>under consultation</b> — draws the zones, including over the Gardunha',
+      s3_r4a:'Faced with this, you…',
+      s3_r4b:'…criticise the fact that it judges its own work',
+      s3_r4c:'…submit your objection in the public consultation',
+      s3_p2:'In short: the <b>Government</b> ordered a plan → tasked <b>EMER 2030</b> (the team) → which wrote the <b>PSZAER</b> (the plan) → the PSZAER draws zones over the <b>Serra da Gardunha</b> → that is what you oppose, and it is EMER 2030 who reads your objection.',
+      s4_kick:'Who decides',
+      s4_h2:'It is the Portuguese Government — not the European Union',
+      s4_p1:'This entire process is <b>national</b>. There is no European Commission, nor any EU institution, deciding about the Gardunha. The one that determines, writes and weighs is the <b>Portuguese State</b>, through EMER 2030, within the framework of the Legal Regime for Territorial Management Instruments (RJIGT).',
+      s4_p2:'And there is a detail that matters: in the institutional stage, the entities consulted <b>are also the State</b>. The ICNF (nature), the Património Cultural (heritage), the DGADR (agriculture), the APA, the DGEG — are all <b>central-administration bodies</b>, each under its own ministry. In other words, one arm of the Government (EMER 2030) consulted <b>in writing</b> other arms of the Government itself. The <b>municipalities</b> and the <b>ANMP</b> (their association) are the exception — local power, elected and more independent.',
+      s5_kick:'How it works',
+      s5_h2:'The stages of the process',
+      s5_p1:'There was no <b>meeting</b> or hearing. The “opinions” are <b>written opinions</b>, submitted electronically on a Government platform (the PCGT). Each entity had <b>20 days</b> to respond — and, by law, <b>silence counts as “no objection”</b>.',
+      s5_s1_h:'The order',
+      s5_s1_p:'The Government mandates the PSZAER and hands it to EMER 2030 (Despacho n.º 1532-B/2026).',
+      s5_s1_when:'6 Feb 2026',
+      s5_s2_h:'Institutional consultation',
+      s5_s2_p:'EMER 2030 writes to the public entities (ICNF, Património, DGADR, municipalities…), which reply in writing within 20 days. Several issue unfavourable or conditional opinions.',
+      s5_s2_when:'from 5 May 2026 · completed',
+      s5_s3_h:'Weighing of the opinions',
+      s5_s3_p:'EMER 2030 compiles the opinions and writes its replies, accepting most only “in part” or merely “noting” them. It is the document summarised on the page <a href="/analise">What the official entities said</a>.',
+      s5_s3_when:'23 Jun 2026',
+      s5_s4_h:'Public discussion — your turn',
+      s5_s4_p:'Now any citizen can submit their objection on participa.pt. EMER 2030 will have to weigh these contributions <b>independently</b> after the period ends.',
+      s5_s4_when:'17 Jun → 15 Jul 2026',
+      s6_kick:'Two rounds of “objections”',
+      s6_h2:'The word “objection” refers to two different things',
+      s6_p1:'This is where almost everyone gets lost. There are <b>two distinct stages</b> in which objections are submitted — the first has already closed; the second is under way <b>and it is yours</b>.',
+      s6_th_b:'Stage 1 — institutional',
+      s6_th_c:'Stage 2 — public discussion',
+      s6_r1a:'Who objects',
+      s6_r1b:'~36 <b>public entities</b> (ICNF, Património, municipalities, CCDR…)',
+      s6_r1c:'<b>Citizens</b> — you, neighbours, anyone',
+      s6_r2a:'How',
+      s6_r2b:'Written opinion on the PCGT platform, 20-day deadline',
+      s6_r2c:'Objection submitted on participa.pt',
+      s6_r3a:'When',
+      s6_r3b:'Already closed (consultation from 5 May 2026)',
+      s6_r3c:'<b>17 Jun → 15 Jul 2026</b>',
+      s6_r4a:'Who reads and replies',
+      s6_r4b:'EMER 2030 (already concluded)',
+      s6_r4c:'EMER 2030, again, <b>after 15 Jul</b>',
+      s6_call_kick:'The point that matters',
+      s6_call_p:'Those who objected in Stage 1 <b>were not activists or NGOs</b> — they were the <b>State’s own bodies</b> tasked with protecting heritage, soils and nature. Even so, EMER 2030 accepted most only “in part” or merely “noted” them. When even the Government’s own experts are filed away as “noted”, <b>Stage 2 — your objection — faces the same weighing</b>. That is why the number of contributions counts.',
+      s7_kick:'In one sentence',
+      s7_h2:'What the campaign is fighting',
+      s7_p1:'“Salvar a Gardunha” fights the <b>PSZAER</b> (the plan) and the zones it draws over the range. <b>EMER 2030</b> is merely the office behind it — and, by being at once the <b>author</b> of the plan, the <b>recipient</b> of the objections and the <b>judge</b> that decides which to accept, it is not an independent arbiter. The public consultation is the next — and best — opportunity for citizens’ voices to enter that weighing.',
+      s7_cta1:'Submit my objection →',
+      s7_cta2:'What the official entities said',
+      foot_made:'Made by neighbours of the Beira Baixa who want the range left standing. · <a href="/">salvargardunha.com</a>',
+      disc:'Plain-language explanation of the PSZAER drafting procedure, based on the official consultation documents (participa.pt / EMER 2030, 2026) and on the Legal Regime for Territorial Management Instruments. Informative, civic, non-profit, not affiliated with any party, company or public entity.'
+    },
+    de:{
+      back:'← Salvar a Gardunha',
+      eyebrow:'PSZAER · Kurzanleitung',
+      h1:'Wer entscheidet, was und wann —<br>der Prozess in einfachen Worten',
+      lede:'Worum es geht, umfasst einige Kürzel — <b>PSZAER</b>, <b>EMER 2030</b>, <b>ZAER</b> — und mehrere Phasen. Diese Seite erklärt in wenigen Minuten, was jedes bedeutet, <b>wer wirklich entscheidet</b> (es ist die portugiesische Regierung, nicht die Europäische Union) und warum Ihr Einwand weiterhin zählt.',
+      s1_kick:'Der Plan',
+      s1_h2:'Was das PSZAER ist',
+      s1_def:'<span>PSZAER</span> = Sektorales Programm für die Zonen zur Beschleunigung des Ausbaus erneuerbarer Energien.',
+      s1_p1:'Es ist ein <b>landesweiter Plan</b>, der auf der Karte des Festlands die <b>„Beschleunigungszonen“</b> (die ZAER) einzeichnet — die Gebiete, in denen Solar- und Windprojekte eine beschleunigte Genehmigung mit weniger Hürden erhalten. Eine dieser Zonen liegt über der <b>Serra da Gardunha</b>.',
+      s1_p2:'Es ist ein <b>Dokument</b>: Regeln, Leitlinien und Karten. Es wurde von der Regierung durch das Despacho n.º 1532-B/2026 vom 6. Februar 2026 angeordnet, mit einer Frist von sechs Monaten zur Fertigstellung.',
+      s2_kick:'Wer es erstellt hat',
+      s2_h2:'Was die EMER 2030 ist',
+      s2_def:'<span>EMER 2030</span> = Missionsstruktur für die Genehmigung von Projekten erneuerbarer Energien 2030.',
+      s2_p1:'Es ist eine <b>Missionsstruktur</b> — im portugiesischen Verwaltungssystem ein <b>temporäres Team bzw. eine Sonderaufgabe</b>, das die Regierung schafft, um für einen begrenzten Zeitraum eine einzige Angelegenheit außerhalb der ständigen Ministerien zu bearbeiten. Ihre Aufgabe ist es, die <b>Genehmigung erneuerbarer Energien zu beschleunigen</b>, im Einklang mit Portugals Energie- und Klimazielen für 2030.',
+      s2_p2:'Der EMER 2030 übertrug die Regierung die Aufgabe, das <b>PSZAER zu schreiben</b> und die <b>Konsultation durchzuführen</b> — die Stellungnahmen zu sammeln und die Antworten zu verfassen.',
+      s3_kick:'Die häufigste Verwechslung',
+      s3_h2:'EMER 2030 vs. PSZAER — was ist der Unterschied?',
+      s3_p1:'Das eine ist das <b>Wer</b>; das andere das <b>Was</b>. Die EMER 2030 <b>schrieb</b> das PSZAER — wie ein Autor und sein Buch.',
+      s3_r1a:'Was es ist',
+      s3_r1b:'Ein Regierungsteam (Missionsstruktur)',
+      s3_r1c:'Ein sektoraler Plan (Dokument)',
+      s3_r2a:'Kategorie',
+      s3_r2b:'Eine Organisation — Menschen',
+      s3_r2c:'Ein Dokument — Regeln und Karten',
+      s3_r3a:'Rolle',
+      s3_r3b:'Der <b>Autor</b> — schreibt es, führt die Konsultation durch und wägt die Einwände ab',
+      s3_r3c:'Das Objekt <b>in Konsultation</b> — zeichnet die Zonen ein, auch über der Gardunha',
+      s3_r4a:'Angesichts dessen…',
+      s3_r4b:'…kritisieren, dass sie über ihre eigene Arbeit richtet',
+      s3_r4c:'…reichen Ihren Einwand in der öffentlichen Konsultation ein',
+      s3_p2:'Kurz gesagt: die <b>Regierung</b> ordnete einen Plan an → beauftragte die <b>EMER 2030</b> (das Team) → diese schrieb das <b>PSZAER</b> (den Plan) → das PSZAER zeichnet Zonen über der <b>Serra da Gardunha</b> ein → dagegen wenden Sie sich, und es ist die EMER 2030, die Ihren Einwand liest.',
+      s4_kick:'Wer entscheidet',
+      s4_h2:'Es ist die portugiesische Regierung — nicht die Europäische Union',
+      s4_p1:'Dieser gesamte Prozess ist <b>national</b>. Weder die Europäische Kommission noch eine EU-Institution entscheidet über die Gardunha. Wer bestimmt, schreibt und abwägt, ist der <b>portugiesische Staat</b>, über die EMER 2030, im Rahmen des Rechtsregimes der Instrumente der Raumordnung (RJIGT).',
+      s4_p2:'Und es gibt ein wichtiges Detail: In der institutionellen Phase <b>sind die konsultierten Stellen ebenfalls der Staat</b>. Das ICNF (Natur), das Património Cultural (Denkmalpflege), die DGADR (Landwirtschaft), die APA, die DGEG — sind allesamt <b>Stellen der Zentralverwaltung</b>, jede unter ihrem eigenen Ministerium. Mit anderen Worten: ein Arm der Regierung (die EMER 2030) konsultierte <b>schriftlich</b> andere Arme derselben Regierung. Die <b>Gemeinden</b> und die <b>ANMP</b> (ihr Verband) sind die Ausnahme — lokale, gewählte und unabhängigere Macht.',
+      s5_kick:'Wie es funktioniert',
+      s5_h2:'Die Phasen des Prozesses',
+      s5_p1:'Es gab keine <b>Sitzung</b> und keine Anhörung. Die „Stellungnahmen“ sind <b>schriftliche Stellungnahmen</b>, elektronisch auf einer Regierungsplattform (der PCGT) eingereicht. Jede Stelle hatte <b>20 Tage</b> zur Antwort — und laut Gesetz <b>gilt Schweigen als „kein Einwand“</b>.',
+      s5_s1_h:'Der Auftrag',
+      s5_s1_p:'Die Regierung ordnet das PSZAER an und übergibt es der EMER 2030 (Despacho n.º 1532-B/2026).',
+      s5_s1_when:'6. Feb. 2026',
+      s5_s2_h:'Institutionelle Konsultation',
+      s5_s2_p:'Die EMER 2030 schreibt an die öffentlichen Stellen (ICNF, Património, DGADR, Gemeinden…), die innerhalb von 20 Tagen schriftlich antworten. Mehrere geben ablehnende oder bedingte Stellungnahmen ab.',
+      s5_s2_when:'ab 5. Mai 2026 · abgeschlossen',
+      s5_s3_h:'Abwägung der Stellungnahmen',
+      s5_s3_p:'Die EMER 2030 fasst die Stellungnahmen zusammen und schreibt ihre Antworten, akzeptiert die meisten nur „teilweise“ oder beschränkt sich darauf, sie „zur Kenntnis zu nehmen“. Es ist das auf der Seite <a href="/analise">Was die offiziellen Stellen sagten</a> zusammengefasste Dokument.',
+      s5_s3_when:'23. Juni 2026',
+      s5_s4_h:'Öffentliche Diskussion — Sie sind dran',
+      s5_s4_p:'Jetzt kann jeder Bürger seinen Einwand auf participa.pt einreichen. Die EMER 2030 muss diese Beiträge nach Ablauf der Frist <b>eigenständig abwägen</b>.',
+      s5_s4_when:'17. Juni → 15. Juli 2026',
+      s6_kick:'Zwei Runden von „Einwänden“',
+      s6_h2:'Das Wort „Einwand“ bezieht sich auf zwei verschiedene Dinge',
+      s6_p1:'Hier verliert fast jeder den Überblick. Es gibt <b>zwei verschiedene Phasen</b>, in denen Einwände eingereicht werden — die erste ist bereits geschlossen; die zweite läuft <b>und ist Ihre</b>.',
+      s6_th_b:'Phase 1 — institutionell',
+      s6_th_c:'Phase 2 — öffentliche Diskussion',
+      s6_r1a:'Wer Einwände erhebt',
+      s6_r1b:'~36 <b>öffentliche Stellen</b> (ICNF, Património, Gemeinden, CCDR…)',
+      s6_r1c:'<b>Bürger</b> — Sie, Nachbarn, jeder',
+      s6_r2a:'Wie',
+      s6_r2b:'Schriftliche Stellungnahme auf der PCGT-Plattform, Frist von 20 Tagen',
+      s6_r2c:'Einwand auf participa.pt eingereicht',
+      s6_r3a:'Wann',
+      s6_r3b:'Bereits geschlossen (Konsultation ab 5. Mai 2026)',
+      s6_r3c:'<b>17. Juni → 15. Juli 2026</b>',
+      s6_r4a:'Wer liest und antwortet',
+      s6_r4b:'EMER 2030 (bereits abgeschlossen)',
+      s6_r4c:'EMER 2030, erneut, <b>nach dem 15. Juli</b>',
+      s6_call_kick:'Der entscheidende Punkt',
+      s6_call_p:'Wer in Phase 1 Einwände erhob, <b>waren keine Aktivisten oder NGO</b> — es waren die <b>staatseigenen Stellen</b>, die mit dem Schutz von Kulturerbe, Böden und Natur betraut sind. Dennoch akzeptierte die EMER 2030 die meisten nur „teilweise“ oder beschränkte sich darauf, sie „zur Kenntnis zu nehmen“. Wenn selbst die Fachleute der eigenen Regierung als „zur Kenntnis genommen“ abgelegt werden, steht <b>Phase 2 — Ihr Einwand — vor derselben Abwägung</b>. Deshalb zählt die Zahl der Beiträge.',
+      s7_kick:'In einem Satz',
+      s7_h2:'Wogegen die Kampagne kämpft',
+      s7_p1:'„Salvar a Gardunha“ bekämpft das <b>PSZAER</b> (den Plan) und die Zonen, die es über dem Gebirge einzeichnet. Die <b>EMER 2030</b> ist nur das dahinterstehende Büro — und da sie zugleich der <b>Autor</b> des Plans, der <b>Empfänger</b> der Einwände und der <b>Richter</b> ist, der entscheidet, welche akzeptiert werden, ist sie kein unabhängiger Schiedsrichter. Die öffentliche Konsultation ist die nächste — und beste — Gelegenheit, die Stimme der Bürger in diese Abwägung einzubringen.',
+      s7_cta1:'Meinen Einwand einreichen →',
+      s7_cta2:'Was die offiziellen Stellen sagten',
+      foot_made:'Gemacht von Nachbarn der Beira Baixa, die das Gebirge stehen lassen wollen. · <a href="/">salvargardunha.com</a>',
+      disc:'Erklärung in einfacher Sprache des Verfahrens zur Ausarbeitung des PSZAER, auf Grundlage der offiziellen Konsultationsdokumente (participa.pt / EMER 2030, 2026) und des Rechtsregimes der Instrumente der Raumordnung. Informativ, bürgerschaftlich, gemeinnützig, keiner Partei, keinem Unternehmen und keiner öffentlichen Stelle angeschlossen.'
+    },
+    fr:{
+      back:'← Salvar a Gardunha',
+      eyebrow:'PSZAER · Guide rapide',
+      h1:'Qui décide, quoi et quand —<br>le processus en langage simple',
+      lede:'Ce qui est en jeu implique quelques sigles — <b>PSZAER</b>, <b>EMER 2030</b>, <b>ZAER</b> — et plusieurs phases. Cette page explique, en quelques minutes, ce que chacun signifie, <b>qui décide réellement</b> (c’est le Gouvernement portugais, pas l’Union européenne) et pourquoi votre objection compte encore.',
+      s1_kick:'Le plan',
+      s1_h2:'Ce qu’est le PSZAER',
+      s1_def:'<span>PSZAER</span> = Programme sectoriel des zones d’accélération du déploiement des énergies renouvelables.',
+      s1_p1:'C’est un <b>plan à l’échelle nationale</b> qui trace, sur la carte du territoire continental, les <b>« zones d’accélération »</b> (les ZAER) — les zones où les projets solaires et éoliens bénéficient d’un licenciement accéléré, avec moins d’obstacles. L’une de ces zones tombe sur la <b>Serra da Gardunha</b>.',
+      s1_p2:'C’est un <b>document</b> : règles, orientations et cartes. Il a été ordonné par le Gouvernement par le Despacho n.º 1532-B/2026, du 6 février 2026, avec un délai de six mois pour être prêt.',
+      s2_kick:'Qui l’a fait',
+      s2_h2:'Ce qu’est l’EMER 2030',
+      s2_def:'<span>EMER 2030</span> = Structure de mission pour le licenciement des projets d’énergies renouvelables 2030.',
+      s2_p1:'C’est une <b>structure de mission</b> — dans le système administratif portugais, une <b>équipe/tâche temporaire</b> créée par le Gouvernement pour traiter d’un seul sujet pendant une période limitée, en dehors des ministères permanents. Sa mission est d’<b>accélérer le licenciement des énergies renouvelables</b>, conformément aux objectifs énergétiques et climatiques du Portugal pour 2030.',
+      s2_p2:'C’est à l’EMER 2030 que le Gouvernement a confié le travail d’<b>écrire le PSZAER</b> et de <b>mener la consultation</b> — recueillir les avis et rédiger les réponses.',
+      s3_kick:'La confusion la plus courante',
+      s3_h2:'EMER 2030 vs. PSZAER — quelle est la différence ?',
+      s3_p1:'L’une est le <b>qui</b> ; l’autre le <b>quoi</b>. L’EMER 2030 <b>a écrit</b> le PSZAER — comme un auteur et son livre.',
+      s3_r1a:'Ce que c’est',
+      s3_r1b:'Une équipe du Gouvernement (structure de mission)',
+      s3_r1c:'Un plan sectoriel (document)',
+      s3_r2a:'Catégorie',
+      s3_r2b:'Une organisation — des personnes',
+      s3_r2c:'Un document — règles et cartes',
+      s3_r3a:'Rôle',
+      s3_r3b:'L’<b>auteur</b> — l’écrit, mène la consultation et pondère les objections',
+      s3_r3c:'L’objet <b>en consultation</b> — trace les zones, y compris sur la Gardunha',
+      s3_r4a:'Face à cela, vous…',
+      s3_r4b:'…critiquez le fait qu’elle juge son propre travail',
+      s3_r4c:'…présentez votre objection dans la consultation publique',
+      s3_p2:'En résumé : le <b>Gouvernement</b> a ordonné un plan → a chargé l’<b>EMER 2030</b> (l’équipe) → qui a écrit le <b>PSZAER</b> (le plan) → le PSZAER trace des zones sur la <b>Serra da Gardunha</b> → c’est à cela que vous vous opposez, et c’est l’EMER 2030 qui lit votre objection.',
+      s4_kick:'Qui décide',
+      s4_h2:'C’est le Gouvernement portugais — pas l’Union européenne',
+      s4_p1:'Tout ce processus est <b>national</b>. Il n’y a ni Commission européenne, ni institution de l’UE, à décider au sujet de la Gardunha. Celui qui détermine, écrit et pondère est l’<b>État portugais</b>, à travers l’EMER 2030, dans le cadre du Régime juridique des instruments de gestion territoriale (RJIGT).',
+      s4_p2:'Et il y a un détail qui compte : à la phase institutionnelle, les entités consultées <b>sont aussi l’État</b>. L’ICNF (nature), le Património Cultural (patrimoine), la DGADR (agriculture), l’APA, la DGEG — sont tous des <b>organismes de l’administration centrale</b>, chacun sous son ministère. Autrement dit, un bras du Gouvernement (l’EMER 2030) a consulté <b>par écrit</b> d’autres bras du Gouvernement lui-même. Les <b>municipalités</b> et l’<b>ANMP</b> (leur association) sont l’exception — pouvoir local, élu et plus indépendant.',
+      s5_kick:'Comment ça marche',
+      s5_h2:'Les phases du processus',
+      s5_p1:'Il n’y a eu aucune <b>réunion</b> ni audience. Les « avis » sont des <b>opinions écrites</b>, soumises par voie électronique sur une plateforme du Gouvernement (la PCGT). Chaque entité a eu <b>20 jours</b> pour répondre — et, selon la loi, <b>le silence vaut « aucune objection »</b>.',
+      s5_s1_h:'La commande',
+      s5_s1_p:'Le Gouvernement détermine le PSZAER et le confie à l’EMER 2030 (Despacho n.º 1532-B/2026).',
+      s5_s1_when:'6 févr. 2026',
+      s5_s2_h:'Consultation institutionnelle',
+      s5_s2_p:'L’EMER 2030 écrit aux entités publiques (ICNF, Património, DGADR, municipalités…), qui répondent par écrit en 20 jours. Plusieurs émettent des avis défavorables ou conditionnés.',
+      s5_s2_when:'à partir du 5 mai 2026 · terminée',
+      s5_s3_h:'Pondération des avis',
+      s5_s3_p:'L’EMER 2030 compile les avis et rédige ses réponses, n’acceptant la plupart qu’« en partie » ou se limitant à les « enregistrer ». C’est le document résumé sur la page <a href="/analise">Ce qu’ont dit les entités officielles</a>.',
+      s5_s3_when:'23 juin 2026',
+      s5_s4_h:'Discussion publique — à votre tour',
+      s5_s4_p:'Désormais, tout citoyen peut présenter son objection sur participa.pt. L’EMER 2030 devra pondérer ces contributions <b>de façon autonome</b> après la fin de la période.',
+      s5_s4_when:'17 juin → 15 juil. 2026',
+      s6_kick:'Deux tours d’« objections »',
+      s6_h2:'Le mot « objection » désigne deux choses différentes',
+      s6_p1:'C’est ici que presque tout le monde se perd. Il y a <b>deux phases distinctes</b> où l’on présente des objections — la première est déjà close ; la seconde est en cours <b>et c’est la vôtre</b>.',
+      s6_th_b:'Phase 1 — institutionnelle',
+      s6_th_c:'Phase 2 — discussion publique',
+      s6_r1a:'Qui objecte',
+      s6_r1b:'~36 <b>entités publiques</b> (ICNF, Património, municipalités, CCDR…)',
+      s6_r1c:'<b>Citoyens</b> — vous, vos voisins, n’importe qui',
+      s6_r2a:'Comment',
+      s6_r2b:'Avis écrit sur la plateforme PCGT, délai de 20 jours',
+      s6_r2c:'Objection soumise sur participa.pt',
+      s6_r3a:'Quand',
+      s6_r3b:'Déjà close (consultation à partir du 5 mai 2026)',
+      s6_r3c:'<b>17 juin → 15 juil. 2026</b>',
+      s6_r4a:'Qui lit et répond',
+      s6_r4b:'EMER 2030 (déjà terminé)',
+      s6_r4c:'EMER 2030, à nouveau, <b>après le 15 juil.</b>',
+      s6_call_kick:'Le point qui compte',
+      s6_call_p:'Ceux qui se sont opposés en Phase 1 <b>n’étaient ni des activistes ni des ONG</b> — c’étaient les <b>propres organismes de l’État</b> chargés de protéger le patrimoine, les sols et la nature. Malgré cela, l’EMER 2030 n’a accepté la plupart qu’« en partie » ou s’est limitée à les « enregistrer ». Quand même les experts du propre Gouvernement sont classés comme « enregistré », la <b>Phase 2 — votre objection — affronte la même pondération</b>. C’est pourquoi le nombre de contributions compte.',
+      s7_kick:'En une phrase',
+      s7_h2:'Ce que la campagne combat',
+      s7_p1:'« Salvar a Gardunha » combat le <b>PSZAER</b> (le plan) et les zones qu’il trace sur la serra. L’<b>EMER 2030</b> n’est que le bureau derrière lui — et, en étant à la fois l’<b>auteur</b> du plan, le <b>récepteur</b> des objections et le <b>juge</b> qui décide lesquelles accepter, elle n’est pas un arbitre indépendant. La consultation publique est la prochaine — et meilleure — occasion pour la voix des citoyens d’entrer dans cette pondération.',
+      s7_cta1:'Présenter mon objection →',
+      s7_cta2:'Ce qu’ont dit les entités officielles',
+      foot_made:'Fait par des voisins de la Beira Baixa qui veulent la serra debout. · <a href="/">salvargardunha.com</a>',
+      disc:'Explication en langage simple de la procédure d’élaboration du PSZAER, sur la base des documents officiels de la consultation (participa.pt / EMER 2030, 2026) et du Régime juridique des instruments de gestion territoriale. Informatif, civique, sans but lucratif, non affilié à un parti, une entreprise ou une entité publique.'
+    }
+  };
+  var PT={};
+  document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
+  function tr(l,k){ if(l==='pt')return PT[k]; return (I18N[l]&&I18N[l][k]!=null)?I18N[l][k]:PT[k]; }
+  function applyLang(l){
+    if(LANGS.indexOf(l)<0)l='pt';
+    document.documentElement.lang=(l==='pt'?'pt-PT':l);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=tr(l,el.getAttribute('data-i18n'));});
+    document.querySelectorAll('#langsw button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
+    try{localStorage.setItem('nf_lang',l);}catch(e){}
+  }
+  document.querySelectorAll('#langsw button').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang'));});});
+  var saved; try{saved=localStorage.getItem('nf_lang');}catch(e){}
+  applyLang(saved||'pt');
+})();
+</script>
 
 </body>
 </html>
