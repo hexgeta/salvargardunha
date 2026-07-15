@@ -1059,9 +1059,24 @@
   fetch('/api/petition').then(function(r){return r.json()}).then(function(j){ if(j&&j.count){petCount=j.count;} renderPet(); }).catch(function(){ renderPet(); });
   applyLang(lang); setInterval(tick,1000);
   // After translation reflows the page, re-honour a #hash the browser jumped to too early.
+  // Lazy-loaded images ABOVE the target keep shifting layout as they load, and the sticky
+  // .bar overlaps the top — so re-scroll a few times (and on window load) with a bar-height
+  // offset, rather than a single early scrollIntoView.
   if(location.hash.length>1){
-    var target=document.getElementById(location.hash.slice(1));
-    if(target){requestAnimationFrame(function(){setTimeout(function(){target.scrollIntoView();},60);});}
+    var hashTarget=document.getElementById(location.hash.slice(1));
+    if(hashTarget){
+      var scrollToHash=function(){
+        var bar=document.querySelector('.bar');
+        var offset=(bar?bar.getBoundingClientRect().height:0)+8;
+        var y=hashTarget.getBoundingClientRect().top+window.pageYOffset-offset;
+        window.scrollTo(0,y);
+      };
+      requestAnimationFrame(function(){
+        scrollToHash();
+        [80,300,800].forEach(function(ms){setTimeout(scrollToHash,ms);});
+      });
+      window.addEventListener('load',function(){setTimeout(scrollToHash,50);});
+    }
   }
 
   var GENFB={
