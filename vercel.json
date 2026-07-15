@@ -10,11 +10,6 @@
   },
   "redirects": [
     {
-      "source": "/aliados",
-      "destination": "https://salvargardunha.com/social",
-      "permanent": true
-    },
-    {
       "source": "/(.*)",
       "has": [
         {
