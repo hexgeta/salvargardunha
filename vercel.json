@@ -3,13 +3,17 @@
   "rewrites": [
     { "source": "/en", "destination": "/api/page?lang=en" },
     { "source": "/de", "destination": "/api/page?lang=de" },
-    { "source": "/fr", "destination": "/api/page?lang=fr" },
-    { "source": "/social", "destination": "/aliados" }
+    { "source": "/fr", "destination": "/api/page?lang=fr" }
   ],
   "functions": {
     "api/page.js": { "includeFiles": "index.html" }
   },
   "redirects": [
+    {
+      "source": "/aliados",
+      "destination": "https://salvargardunha.com/social",
+      "permanent": true
+    },
     {
       "source": "/(.*)",
       "has": [
