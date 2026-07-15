@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Espalhar a palavra — aliados, imprensa e onde partilhar · Salvar a Gardunha</title>
-<meta name="description" content="Não estamos sozinhos. Os movimentos que já lutam contra as megacentrais na Beira Baixa, a imprensa regional que cobre o tema, e as comunidades onde partilhar a campanha antes do fim da consulta.">
+<meta name="description" content="Não estamos sozinhos. Os movimentos que já lutam contra as megacentrais na Beira Baixa, a imprensa regional que cobre o tema, e as comunidades onde partilhar a campanha.">
 <link rel="canonical" href="https://salvargardunha.com/aliados">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <style>
@@ -14,14 +14,17 @@
   body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
   a{color:var(--green)}
-  .top{border-bottom:1px solid var(--line);padding:16px 0;font-size:14px}
+  .top{border-bottom:1px solid var(--line);padding:13px 0;font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%}
   .top a{text-decoration:none;color:var(--muted)}.top a:hover{color:var(--green)}
-  header{padding:44px 0 30px;border-bottom:1px solid var(--line)}
+  .langsw{display:flex;gap:2px;background:rgba(20,26,20,.9);border:1px solid var(--line);border-radius:999px;padding:3px}
+  .langsw button{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:11.5px;letter-spacing:.05em;padding:5px 9px;border-radius:999px;cursor:pointer}
+  .langsw button.on{background:var(--green-d);color:#05230f}
+  header{padding:40px 0 30px;border-bottom:1px solid var(--line)}
   .eyebrow{font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:13px}
   h1{font-size:clamp(28px,4.6vw,44px);line-height:1.05;font-weight:900;letter-spacing:-.02em}
-  .lede{font-size:clamp(16px,2.4vw,19px);color:#d7ddd4;margin-top:18px;max-width:720px}
+  .lede{font-size:clamp(16px,2.4vw,19px);color:#d7ddd4;margin-top:18px;max-width:730px}
   .lede b{color:#fff}
-  .en{margin-top:12px;font-size:14px;color:var(--muted);font-style:italic;max-width:720px}
   section{padding:34px 0;border-bottom:1px solid var(--line)}
   .kick{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px}
   h2{font-size:clamp(21px,3.4vw,29px);font-weight:800;letter-spacing:-.01em;line-height:1.12}
@@ -34,7 +37,6 @@
   .card h3{font-size:16.5px;font-weight:700;line-height:1.3}
   .card h3 a{text-decoration:none}.card h3 a:hover{text-decoration:underline}
   .card .tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-left:6px;vertical-align:middle}
-  .tag-ally{background:#10230f;color:var(--green);border:1px solid #2e6b3c}
   .tag-said-no{background:#3a1414;color:#fca5a5;border:1px solid #5c2020}
   .tag-covered{background:#3a2e0a;color:#fcd34d;border:1px solid #5c4a12}
   .card p{color:#c3cbbf;font-size:14px;margin-top:6px;line-height:1.5}
@@ -57,124 +59,313 @@
 </head>
 <body>
 
-<div class="top"><div class="wrap"><a href="/">← salvargardunha.com</a></div></div>
+<div class="top"><div class="wrap">
+  <a href="/">← salvargardunha.com</a>
+  <div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></div>
+</div></div>
 
 <header>
   <div class="wrap">
-    <div class="eyebrow">Espalhar a palavra</div>
-    <h1>Não estamos sozinhos.<br>Ajuda a fazer chegar a mais gente.</h1>
-    <p class="lede">Já há quem lute contra as megacentrais na Beira Baixa — movimentos cívicos, associações ambientais, autarquias e jornalistas. Aqui reunimos <b>quem já está no terreno</b>, a <b>imprensa que cobre o tema</b>, e as <b>comunidades onde podes partilhar</b> a campanha antes do fim da consulta.</p>
-    <p class="en">A directory of the people already fighting this, the regional media covering it, and where to share the campaign. If you belong to one of these groups, or you're a journalist or local creator — please help spread the word.</p>
+    <div class="eyebrow" data-i18n="eyebrow">Espalhar a palavra</div>
+    <h1 data-i18n="h1">Não estamos sozinhos.<br>Ajuda a fazer chegar a mais gente.</h1>
+    <p class="lede" data-i18n="lede">Já há quem lute contra as megacentrais na Beira Baixa — movimentos cívicos, associações ambientais, autarquias e jornalistas. Aqui reunimos <b>quem já está no terreno</b>, a <b>imprensa que cobre o tema</b>, e as <b>comunidades onde podes partilhar</b> a campanha antes do fim da consulta.</p>
     <div class="cta">
-      <a class="btn btn-primary" href="/#passos">Objetar na consulta →</a>
-      <a class="btn btn-ghost" href="/">Ver a campanha</a>
+      <a class="btn btn-primary" href="/#passos" data-i18n="cta_object">Objetar na consulta →</a>
+      <a class="btn btn-ghost" href="/" data-i18n="cta_camp">Ver a campanha</a>
     </div>
   </div>
 </header>
 
 <section>
   <div class="wrap">
-    <div class="kick">Quem já está a lutar</div>
-    <h2>Movimentos e associações — contacta-os, junta-te, partilha</h2>
-    <p>Estes grupos já se opõem publicamente às megacentrais solares e eólicas e às zonas de aceleração (ZAER) na região. São os aliados mais valiosos — muitos já entregaram pareceres, petições e participações na consulta.</p>
+    <div class="kick" data-i18n="s1_k">Quem já está a lutar</div>
+    <h2 data-i18n="s1_h">Movimentos e associações — contacta-os, junta-te, partilha</h2>
+    <p data-i18n="s1_p">Estes grupos já se opõem publicamente às megacentrais solares e eólicas e às zonas de aceleração (ZAER) na região. São os aliados mais valiosos — muitos já entregaram pareceres, petições e participações na consulta.</p>
     <div class="grid">
-      <div class="card hot"><h3><a href="https://www.facebook.com/p/Gardunha-Sul-100070183062069/" target="_blank" rel="noopener">Movimento Cívico Gardunha Sul</a></h3><p>O movimento da linha da frente, de Vale de Prazeres / Mata da Rainha (Fundão). Organizou os protestos contra a megacentral “Sophia”, mesmo sobre a nossa serra.</p><div class="links"><a href="https://www.facebook.com/p/Gardunha-Sul-100070183062069/" target="_blank" rel="noopener">Facebook →</a></div></div>
+      <div class="card hot"><h3><a href="https://www.facebook.com/p/Gardunha-Sul-100070183062069/" target="_blank" rel="noopener">Movimento Cívico Gardunha Sul</a></h3><p data-i18n="d_gsul">O movimento da linha da frente, de Vale de Prazeres / Mata da Rainha (Fundão). Organizou os protestos contra a megacentral “Sophia”, mesmo sobre a nossa serra.</p><div class="links"><a href="https://www.facebook.com/p/Gardunha-Sul-100070183062069/" target="_blank" rel="noopener">Facebook →</a></div></div>
 
-      <div class="card hot"><h3><a href="https://covadabeiraconverge.pt/" target="_blank" rel="noopener">Cova da Beira Converge</a></h3><p>Movimento de cidadãos da Cova da Beira (Fundão/Covilhã) pela resiliência do território. Co-organizou as manifestações e tem site próprio com manifesto.</p><div class="links"><a href="https://covadabeiraconverge.pt/" target="_blank" rel="noopener">covadabeiraconverge.pt →</a></div></div>
+      <div class="card hot"><h3><a href="https://covadabeiraconverge.pt/" target="_blank" rel="noopener">Cova da Beira Converge</a></h3><p data-i18n="d_cbc">Movimento de cidadãos da Cova da Beira (Fundão/Covilhã) pela resiliência do território. Co-organizou as manifestações e tem site próprio com manifesto.</p><div class="links"><a href="https://covadabeiraconverge.pt/" target="_blank" rel="noopener">covadabeiraconverge.pt →</a></div></div>
 
-      <div class="card hot"><h3><a href="https://observador.pt/2026/07/07/cidadaos-pela-beira-baixa-estao-contra-zonas-de-aceleracao-de-renovaveis/" target="_blank" rel="noopener">Cidadãos pela Beira Baixa (CPBB)</a></h3><p>Movimento de cidadãos que apresentou uma participação crítica ao próprio PSZAER — não só a projetos individuais. Ativos nas redes sociais.</p><div class="links"><a href="https://observador.pt/2026/07/07/cidadaos-pela-beira-baixa-estao-contra-zonas-de-aceleracao-de-renovaveis/" target="_blank" rel="noopener">Notícia →</a></div></div>
+      <div class="card hot"><h3><a href="https://observador.pt/2026/07/07/cidadaos-pela-beira-baixa-estao-contra-zonas-de-aceleracao-de-renovaveis/" target="_blank" rel="noopener">Cidadãos pela Beira Baixa (CPBB)</a></h3><p data-i18n="d_cpbb">Movimento de cidadãos que apresentou uma participação crítica ao próprio PSZAER — não só a projetos individuais. Ativos nas redes sociais.</p><div class="links"><a href="https://observador.pt/2026/07/07/cidadaos-pela-beira-baixa-estao-contra-zonas-de-aceleracao-de-renovaveis/" target="_blank" rel="noopener" data-i18n="l_news">Notícia →</a></div></div>
 
-      <div class="card hot"><h3><a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener">Plataforma de Defesa do Parque Natural do Tejo Internacional</a></h3><p>Autora da petição no Parlamento contra as centrais “Sophia” e “Beira” e da manifestação nacional em Lisboa. A ação mais organizada da região.</p><div class="links"><a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener">Assinar a petição →</a> <a href="https://www.facebook.com/pnti2019/" target="_blank" rel="noopener">Facebook →</a></div></div>
+      <div class="card hot"><h3><a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener">Plataforma de Defesa do Parque Natural do Tejo Internacional</a></h3><p data-i18n="d_pnti">Autora da petição no Parlamento contra as centrais “Sophia” e “Beira” e da manifestação nacional em Lisboa. A ação mais organizada da região.</p><div class="links"><a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="l_sign">Assinar a petição →</a> <a href="https://www.facebook.com/pnti2019/" target="_blank" rel="noopener">Facebook →</a></div></div>
 
-      <div class="card hot"><h3><a href="https://quercus.pt/nucleos-regionais/castelo-branco" target="_blank" rel="noopener">Quercus — Núcleo de Castelo Branco</a></h3><p>Núcleo regional da maior ONG ambiental do país. Já se opôs formalmente às centrais da Beira Baixa e exige uma avaliação ambiental regional.</p><div class="links"><a href="https://quercus.pt/nucleos-regionais/castelo-branco" target="_blank" rel="noopener">quercus.pt →</a> <a href="https://www.facebook.com/Quercus.Castelo.Branco/" target="_blank" rel="noopener">Facebook →</a></div></div>
+      <div class="card hot"><h3><a href="https://quercus.pt/nucleos-regionais/castelo-branco" target="_blank" rel="noopener">Quercus — Núcleo de Castelo Branco</a></h3><p data-i18n="d_quercus">Núcleo regional da maior ONG ambiental do país. Já se opôs formalmente às centrais da Beira Baixa e exige uma avaliação ambiental regional.</p><div class="links"><a href="https://quercus.pt/nucleos-regionais/castelo-branco" target="_blank" rel="noopener">quercus.pt →</a> <a href="https://www.facebook.com/Quercus.Castelo.Branco/" target="_blank" rel="noopener">Facebook →</a></div></div>
 
-      <div class="card hot"><h3><a href="https://rewilding-portugal.com/" target="_blank" rel="noopener">Rewilding Portugal</a></h3><p>Apresentou posição oficial contra o projeto “Sophia” e as linhas de 400 kV associadas, pelo impacto na conectividade ecológica e em 231 espécies de vertebrados.</p><div class="links"><a href="https://rewilding-portugal.com/" target="_blank" rel="noopener">rewilding-portugal.com →</a></div></div>
+      <div class="card hot"><h3><a href="https://rewilding-portugal.com/" target="_blank" rel="noopener">Rewilding Portugal</a></h3><p data-i18n="d_rewild">Apresentou posição oficial contra o projeto “Sophia” e as linhas de 400 kV associadas, pelo impacto na conectividade ecológica e em 231 espécies de vertebrados.</p><div class="links"><a href="https://rewilding-portugal.com/" target="_blank" rel="noopener">rewilding-portugal.com →</a></div></div>
 
-      <div class="card"><h3><a href="https://www.sulinformacao.pt/2026/06/movimentos-civicos-criam-plataforma-nacional-contra-megaprojetos-solares-e-eolicos/" target="_blank" rel="noopener">Plataforma nacional (MEJS)</a></h3><p>Plataforma nacional de movimentos cívicos contra os megaprojetos solares e eólicos, que une os grupos da Beira Baixa aos do Alentejo e Algarve, a exigir um ordenamento das renováveis.</p><div class="links"><a href="https://www.sulinformacao.pt/2026/06/movimentos-civicos-criam-plataforma-nacional-contra-megaprojetos-solares-e-eolicos/" target="_blank" rel="noopener">Notícia →</a></div></div>
+      <div class="card"><h3><a href="https://www.sulinformacao.pt/2026/06/movimentos-civicos-criam-plataforma-nacional-contra-megaprojetos-solares-e-eolicos/" target="_blank" rel="noopener">Plataforma nacional (MEJS)</a></h3><p data-i18n="d_mejs">Plataforma nacional de movimentos cívicos contra os megaprojetos solares e eólicos, que une os grupos da Beira Baixa aos do Alentejo e Algarve, a exigir um ordenamento das renováveis.</p><div class="links"><a href="https://www.sulinformacao.pt/2026/06/movimentos-civicos-criam-plataforma-nacional-contra-megaprojetos-solares-e-eolicos/" target="_blank" rel="noopener" data-i18n="l_news">Notícia →</a></div></div>
 
-      <div class="card"><h3><a href="https://spea.pt/" target="_blank" rel="noopener">SPEA — Sociedade Portuguesa para o Estudo das Aves</a></h3><p>Parceira da BirdLife em Portugal e a autoridade nacional sobre mortalidade de aves em linhas elétricas — argumento central contra as linhas das centrais.</p><div class="links"><a href="mailto:spea@spea.pt">spea@spea.pt</a> <a href="https://spea.pt/" target="_blank" rel="noopener">spea.pt →</a></div></div>
+      <div class="card"><h3><a href="https://spea.pt/" target="_blank" rel="noopener">SPEA — Sociedade Portuguesa para o Estudo das Aves</a></h3><p data-i18n="d_spea">Parceira da BirdLife em Portugal e a autoridade nacional sobre mortalidade de aves em linhas elétricas — argumento central contra as linhas das centrais.</p><div class="links"><a href="mailto:spea@spea.pt">spea@spea.pt</a> <a href="https://spea.pt/" target="_blank" rel="noopener">spea.pt →</a></div></div>
 
-      <div class="card"><h3><a href="https://www.geota.pt/" target="_blank" rel="noopener">GEOTA</a></h3><p>ONG de ordenamento do território que defende um plano das renováveis primeiro, com prioridade a telhados e comunidades de energia — exatamente a crítica ao PSZAER.</p><div class="links"><a href="mailto:geota@geota.pt">geota@geota.pt</a> <a href="https://www.geota.pt/" target="_blank" rel="noopener">geota.pt →</a></div></div>
+      <div class="card"><h3><a href="https://www.geota.pt/" target="_blank" rel="noopener">GEOTA</a></h3><p data-i18n="d_geota">ONG de ordenamento do território que defende um plano das renováveis primeiro, com prioridade a telhados e comunidades de energia — exatamente a crítica ao PSZAER.</p><div class="links"><a href="mailto:geota@geota.pt">geota@geota.pt</a> <a href="https://www.geota.pt/" target="_blank" rel="noopener">geota.pt →</a></div></div>
 
-      <div class="card"><h3><a href="https://www.facebook.com/caminheirosgardunha/" target="_blank" rel="noopener">Caminheiros da Gardunha</a></h3><p>Associação de montanha cuja missão é defender e valorizar a Serra da Gardunha. Grande seguimento local que ama a serra que queremos proteger.</p><div class="links"><a href="https://www.facebook.com/caminheirosgardunha/" target="_blank" rel="noopener">Facebook →</a></div><div class="reach">~7 300 seguidores</div></div>
+      <div class="card"><h3><a href="https://www.facebook.com/caminheirosgardunha/" target="_blank" rel="noopener">Caminheiros da Gardunha</a></h3><p data-i18n="d_camin">Associação de montanha cuja missão é defender e valorizar a Serra da Gardunha. Grande seguimento local que ama a serra que queremos proteger.</p><div class="links"><a href="https://www.facebook.com/caminheirosgardunha/" target="_blank" rel="noopener">Facebook →</a></div><div class="reach">Facebook · ~7 300</div></div>
     </div>
-    <p class="note">Contactos pessoais (telemóveis de ativistas) não são publicados aqui por respeito à privacidade — usa as páginas e a petição acima.</p>
+    <p class="note" data-i18n="s1_note">Contactos pessoais (telemóveis de ativistas) não são publicados aqui por respeito à privacidade — usa as páginas e a petição acima.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="kick">Autarquias que já disseram não</div>
-    <h2>Câmaras que emitiram parecer desfavorável ao PSZAER</h2>
-    <p>Estas câmaras já se opuseram formalmente na consulta institucional. São aliadas naturais — vale a pena pedir-lhes que reforcem a posição e a divulguem.</p>
+    <div class="kick" data-i18n="s2_k">Autarquias que já disseram não</div>
+    <h2 data-i18n="s2_h">Câmaras que emitiram parecer desfavorável ao PSZAER</h2>
+    <p data-i18n="s2_p">Estas câmaras já se opuseram formalmente na consulta institucional. São aliadas naturais — vale a pena pedir-lhes que reforcem a posição e a divulguem.</p>
     <div class="grid">
-      <div class="card"><h3>Município de Idanha-a-Nova <span class="tag tag-said-no">Parecer desfavorável</span></h3><p>Um dos concelhos da “Sophia”. Entregou parecer desfavorável ao PSZAER; a proposta viola o seu PDM e o Geopark Naturtejo.</p><div class="links"><a href="https://www.cm-idanhanova.pt/" target="_blank" rel="noopener">cm-idanhanova.pt →</a> <a href="https://www.facebook.com/MunicipioIdanhaNova/" target="_blank" rel="noopener">Facebook →</a></div></div>
-      <div class="card"><h3>Município da Sertã <span class="tag tag-said-no">Parecer desfavorável</span></h3><p>Concelho vizinho no distrito de Castelo Branco que emitiu parecer desfavorável ao PSZAER.</p><div class="links"><a href="https://www.cm-serta.pt/" target="_blank" rel="noopener">cm-serta.pt →</a></div></div>
-      <div class="card"><h3>Município de Oleiros <span class="tag tag-said-no">Parecer desfavorável</span></h3><p>Também deu parecer desfavorável, invocando a especificidade ambiental do território.</p><div class="links"><a href="https://cm-oleiros.pt/" target="_blank" rel="noopener">cm-oleiros.pt →</a></div></div>
-      <div class="card"><h3>Município do Fundão · Município de Castelo Branco</h3><p>As duas câmaras que partilham a Serra da Gardunha manifestaram reservas e conflitos (Regadio Gardunha Sul, distâncias a povoações). Vale a pena pressionar por uma posição firme.</p><div class="links"><a href="https://www.facebook.com/MunicipiodoFundao/" target="_blank" rel="noopener">Fundão →</a> <a href="https://www.facebook.com/municipiodepenamacor/" target="_blank" rel="noopener">Penamacor →</a></div></div>
+      <div class="card"><h3>Município de Idanha-a-Nova <span class="tag tag-said-no" data-i18n="tag_no">Parecer desfavorável</span></h3><p data-i18n="d_idanha">Um dos concelhos da “Sophia”. Entregou parecer desfavorável ao PSZAER; a proposta viola o seu PDM e o Geopark Naturtejo.</p><div class="links"><a href="https://www.cm-idanhanova.pt/" target="_blank" rel="noopener">cm-idanhanova.pt →</a> <a href="https://www.facebook.com/MunicipioIdanhaNova/" target="_blank" rel="noopener">Facebook →</a></div></div>
+      <div class="card"><h3>Município da Sertã <span class="tag tag-said-no" data-i18n="tag_no">Parecer desfavorável</span></h3><p data-i18n="d_serta">Concelho vizinho no distrito de Castelo Branco que emitiu parecer desfavorável ao PSZAER.</p><div class="links"><a href="https://www.cm-serta.pt/" target="_blank" rel="noopener">cm-serta.pt →</a></div></div>
+      <div class="card"><h3>Município de Oleiros <span class="tag tag-said-no" data-i18n="tag_no">Parecer desfavorável</span></h3><p data-i18n="d_oleiros">Também deu parecer desfavorável, invocando a especificidade ambiental do território.</p><div class="links"><a href="https://cm-oleiros.pt/" target="_blank" rel="noopener">cm-oleiros.pt →</a></div></div>
+      <div class="card"><h3>Município do Fundão · Município de Castelo Branco</h3><p data-i18n="d_fundao">As duas câmaras que partilham a Serra da Gardunha manifestaram reservas e conflitos (Regadio Gardunha Sul, distâncias a povoações). Vale a pena pressionar por uma posição firme.</p><div class="links"><a href="https://www.facebook.com/MunicipiodoFundao/" target="_blank" rel="noopener">Fundão →</a> <a href="https://www.facebook.com/municipiodepenamacor/" target="_blank" rel="noopener">Penamacor →</a></div></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="kick">Imprensa regional</div>
-    <h2>Jornais, rádios e portais — pede-lhes que cubram o tema</h2>
-    <p>Meios da Beira Baixa e do interior, alguns já a cobrir a consulta. Se és jornalista, todos os factos desta campanha vêm dos <a href="/read/">documentos oficiais</a>. Envia-lhes a página e o resumo.</p>
+    <div class="kick" data-i18n="s3_k">Imprensa regional</div>
+    <h2 data-i18n="s3_h">Jornais, rádios e portais — pede-lhes que cubram o tema</h2>
+    <p data-i18n="s3_p">Meios da Beira Baixa e do interior, alguns já a cobrir a consulta. Se és jornalista, todos os factos desta campanha vêm dos <a href="/read/">documentos oficiais</a>. Envia-lhes a página e o resumo.</p>
     <div class="grid">
-      <div class="card"><h3><a href="https://www.jornaldofundao.pt/" target="_blank" rel="noopener">Jornal do Fundão</a></h3><p>Semanário sediado no Fundão, ao pé da Gardunha — o epicentro da campanha.</p><div class="links"><a href="mailto:redaccao@jornaldofundao.pt">redaccao@jornaldofundao.pt</a></div><div class="reach">~52 000 no Facebook</div></div>
-      <div class="card"><h3><a href="https://www.reconquista.pt/" target="_blank" rel="noopener">Reconquista</a></h3><p>O maior semanário do distrito de Castelo Branco (desde 1945).</p><div class="links"><a href="mailto:reconquista@reconquista.pt">reconquista@reconquista.pt</a></div><div class="reach">~41 700 no Facebook</div></div>
-      <div class="card"><h3><a href="https://noticiasdacovilha.pt/" target="_blank" rel="noopener">Notícias da Covilhã</a> <span class="tag tag-covered">Já cobriu</span></h3><p>Já publicou sobre o PSZAER e sobre as manifestações contra as megacentrais.</p><div class="links"><a href="https://noticiasdacovilha.pt/contactos/" target="_blank" rel="noopener">Contactos →</a></div></div>
-      <div class="card"><h3><a href="https://www.diariodigitalcastelobranco.pt/" target="_blank" rel="noopener">Diário Digital Castelo Branco</a> <span class="tag tag-covered">Já cobriu</span></h3><p>Cobriu a “Sophia” e o PSZAER (“omite cartografia”). Ativo nos conflitos energéticos do distrito.</p><div class="links"><a href="mailto:geral@diariodigitalcastelobranco.pt">geral@diariodigitalcastelobranco.pt</a></div></div>
-      <div class="card"><h3><a href="https://rcb-radiocovadabeira.pt/" target="_blank" rel="noopener">Rádio Cova da Beira (RCB)</a></h3><p>Rádio do Fundão cujo emissor está na própria Serra da Gardunha. Já emitiu “O Interior não está à venda”.</p><div class="links"><a href="mailto:redacao@rcb-radiocovadabeira.pt">redacao@rcb-radiocovadabeira.pt</a></div></div>
-      <div class="card"><h3><a href="https://radiocastelobranco.sapo.pt/" target="_blank" rel="noopener">Rádio Castelo Branco (92 FM)</a></h3><p>Cobre Castelo Branco, Idanha-a-Nova, Penamacor, Proença, Oleiros, Vila Velha de Ródão — concelhos das ZAER.</p><div class="links"><a href="https://radiocastelobranco.sapo.pt/" target="_blank" rel="noopener">Site →</a></div></div>
-      <div class="card"><h3><a href="https://radio-covilha.pt/" target="_blank" rel="noopener">Rádio Clube da Covilhã</a></h3><p>Rádio e notícias online da Covilhã / Cova da Beira.</p><div class="links"><a href="mailto:redacao@radio-covilha.pt">redacao@radio-covilha.pt</a></div></div>
-      <div class="card"><h3><a href="https://www.beirabaixatv.pt/" target="_blank" rel="noopener">Beira Baixa TV</a> <span class="tag tag-covered">Já cobriu</span></h3><p>Web-TV regional em Castelo Branco; já divulgou o comunicado do CPBB contra as ZAER.</p><div class="links"><a href="https://www.beirabaixatv.pt/contact" target="_blank" rel="noopener">Contacto →</a> <a href="https://www.youtube.com/user/BeiraBaixaTv" target="_blank" rel="noopener">YouTube →</a></div></div>
+      <div class="card"><h3><a href="https://www.jornaldofundao.pt/" target="_blank" rel="noopener">Jornal do Fundão</a></h3><p data-i18n="d_jf">Semanário sediado no Fundão, ao pé da Gardunha — o epicentro da campanha.</p><div class="links"><a href="mailto:redaccao@jornaldofundao.pt">redaccao@jornaldofundao.pt</a></div><div class="reach">Facebook · ~52 000</div></div>
+      <div class="card"><h3><a href="https://www.reconquista.pt/" target="_blank" rel="noopener">Reconquista</a></h3><p data-i18n="d_reconq">O maior semanário do distrito de Castelo Branco (desde 1945).</p><div class="links"><a href="mailto:reconquista@reconquista.pt">reconquista@reconquista.pt</a></div><div class="reach">Facebook · ~41 700</div></div>
+      <div class="card"><h3><a href="https://noticiasdacovilha.pt/" target="_blank" rel="noopener">Notícias da Covilhã</a> <span class="tag tag-covered" data-i18n="tag_cov">Já cobriu</span></h3><p data-i18n="d_ndc">Já publicou sobre o PSZAER e sobre as manifestações contra as megacentrais.</p><div class="links"><a href="https://noticiasdacovilha.pt/contactos/" target="_blank" rel="noopener" data-i18n="l_contact">Contactos →</a></div></div>
+      <div class="card"><h3><a href="https://www.diariodigitalcastelobranco.pt/" target="_blank" rel="noopener">Diário Digital Castelo Branco</a> <span class="tag tag-covered" data-i18n="tag_cov">Já cobriu</span></h3><p data-i18n="d_ddcb">Cobriu a “Sophia” e o PSZAER (“omite cartografia”). Ativo nos conflitos energéticos do distrito.</p><div class="links"><a href="mailto:geral@diariodigitalcastelobranco.pt">geral@diariodigitalcastelobranco.pt</a></div></div>
+      <div class="card"><h3><a href="https://rcb-radiocovadabeira.pt/" target="_blank" rel="noopener">Rádio Cova da Beira (RCB)</a></h3><p data-i18n="d_rcb">Rádio do Fundão cujo emissor está na própria Serra da Gardunha. Já emitiu “O Interior não está à venda”.</p><div class="links"><a href="mailto:redacao@rcb-radiocovadabeira.pt">redacao@rcb-radiocovadabeira.pt</a></div></div>
+      <div class="card"><h3><a href="https://radiocastelobranco.sapo.pt/" target="_blank" rel="noopener">Rádio Castelo Branco (92 FM)</a></h3><p data-i18n="d_rcastelo">Cobre Castelo Branco, Idanha-a-Nova, Penamacor, Proença, Oleiros, Vila Velha de Ródão — concelhos das ZAER.</p><div class="links"><a href="https://radiocastelobranco.sapo.pt/" target="_blank" rel="noopener" data-i18n="l_site">Site →</a></div></div>
+      <div class="card"><h3><a href="https://radio-covilha.pt/" target="_blank" rel="noopener">Rádio Clube da Covilhã</a></h3><p data-i18n="d_rcovilha">Rádio e notícias online da Covilhã / Cova da Beira.</p><div class="links"><a href="mailto:redacao@radio-covilha.pt">redacao@radio-covilha.pt</a></div></div>
+      <div class="card"><h3><a href="https://www.beirabaixatv.pt/" target="_blank" rel="noopener">Beira Baixa TV</a> <span class="tag tag-covered" data-i18n="tag_cov">Já cobriu</span></h3><p data-i18n="d_bbtv">Web-TV regional em Castelo Branco; já divulgou o comunicado do CPBB contra as ZAER.</p><div class="links"><a href="https://www.beirabaixatv.pt/contact" target="_blank" rel="noopener" data-i18n="l_contact2">Contacto →</a> <a href="https://www.youtube.com/user/BeiraBaixaTv" target="_blank" rel="noopener">YouTube →</a></div></div>
     </div>
     <div class="msgbox">
-      <h4>Sugestão de mensagem para a imprensa</h4>
-      <p>“Boa tarde. A consulta pública do PSZAER — que coloca a Serra da Gardunha na região mais visada do país para megacentrais solares — termina hoje, 15 de julho. Reunimos os factos, todos dos documentos oficiais do Governo, e a tradução dos 12 documentos em salvargardunha.com. Ficamos ao dispor para qualquer esclarecimento.”</p>
+      <h4 data-i18n="msg_h">Sugestão de mensagem para a imprensa</h4>
+      <p data-i18n="msg_p">“Boa tarde. A consulta pública do PSZAER — que coloca a Serra da Gardunha na região mais visada do país para megacentrais solares — está a terminar. Reunimos os factos, todos dos documentos oficiais do Governo, e a tradução dos 12 documentos em salvargardunha.com. Ficamos ao dispor para qualquer esclarecimento.”</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="kick">Onde partilhar</div>
-    <h2>Páginas e comunidades com muito alcance na região</h2>
-    <p>Partilha a campanha (ou comenta com o link) nestas páginas e grupos. Uma partilha numa página grande da Beira Baixa chega a milhares de vizinhos.</p>
+    <div class="kick" data-i18n="s4_k">Onde partilhar</div>
+    <h2 data-i18n="s4_h">Páginas e comunidades com muito alcance na região</h2>
+    <p data-i18n="s4_p">Partilha a campanha (ou comenta com o link) nestas páginas e grupos. Uma partilha numa página grande da Beira Baixa chega a milhares de vizinhos.</p>
     <div class="grid">
-      <div class="card"><h3><a href="https://www.facebook.com/BeiraBaixaPT/" target="_blank" rel="noopener">Beira Baixa: Terras de Excelência</a></h3><p>Página comunitária da Beira Baixa, com muito conteúdo sobre a Gardunha.</p><div class="reach">Facebook · ~27 000</div></div>
-      <div class="card"><h3><a href="https://instagram.com/beira.baixatv" target="_blank" rel="noopener">@beira.baixatv</a></h3><p>Conta de vídeo/media da Beira Baixa — a maior audiência regional geral encontrada.</p><div class="reach">Instagram · ~24 000</div></div>
-      <div class="card"><h3><a href="https://instagram.com/serradaestrela" target="_blank" rel="noopener">@serradaestrela</a></h3><p>Grande conta de paisagem e ecoturismo do interior, com ângulo de sustentabilidade.</p><div class="reach">Instagram · ~66 000</div></div>
-      <div class="card"><h3><a href="https://instagram.com/beirabaixapt" target="_blank" rel="noopener">@beirabaixapt</a></h3><p>Conta de promoção da Beira Baixa — “Onde nasce o sol e a felicidade”.</p><div class="reach">Instagram · ~13 000</div></div>
-      <div class="card"><h3><a href="https://instagram.com/fundao.turismo" target="_blank" rel="noopener">VisitFundão</a> · <a href="https://instagram.com/visitcastelobrancooficial" target="_blank" rel="noopener">Visit Castelo Branco</a></h3><p>Contas de turismo dos dois concelhos que partilham a serra.</p><div class="reach">Instagram</div></div>
-      <div class="card"><h3><a href="https://instagram.com/geopark_naturtejo" target="_blank" rel="noopener">@geopark_naturtejo</a></h3><p>Geopark UNESCO que cobre 7 concelhos da Beira Baixa — público conservacionista.</p><div class="reach">Instagram</div></div>
-      <div class="card"><h3><a href="https://www.youtube.com/@radiocovadabeira-rcb" target="_blank" rel="noopener">RCB — Rádio Cova da Beira</a></h3><p>Canal da rádio do Fundão; emite para todos os concelhos afetados.</p><div class="reach">YouTube</div></div>
-      <div class="card"><h3><a href="https://www.youtube.com/@JornalReconquistaTV" target="_blank" rel="noopener">Reconquista TV</a></h3><p>Braço em vídeo do semanário do distrito.</p><div class="reach">YouTube</div></div>
-      <div class="card"><h3><a href="https://www.facebook.com/coopcovadabeira/" target="_blank" rel="noopener">Cooperativa dos Fruticultores da Cova da Beira</a></h3><p>Comunidade das cerejas do Fundão / Gardunha — a terra ameaçada é a deles.</p><div class="reach">Facebook</div></div>
+      <div class="card"><h3><a href="https://www.facebook.com/BeiraBaixaPT/" target="_blank" rel="noopener">Beira Baixa: Terras de Excelência</a></h3><p data-i18n="d_bbterras">Página comunitária da Beira Baixa, com muito conteúdo sobre a Gardunha.</p><div class="reach">Facebook · ~27 000</div></div>
+      <div class="card"><h3><a href="https://instagram.com/beira.baixatv" target="_blank" rel="noopener">@beira.baixatv</a></h3><p data-i18n="d_igbbtv">Conta de vídeo/media da Beira Baixa — a maior audiência regional geral encontrada.</p><div class="reach">Instagram · ~24 000</div></div>
+      <div class="card"><h3><a href="https://instagram.com/serradaestrela" target="_blank" rel="noopener">@serradaestrela</a></h3><p data-i18n="d_igestrela">Grande conta de paisagem e ecoturismo do interior, com ângulo de sustentabilidade.</p><div class="reach">Instagram · ~66 000</div></div>
+      <div class="card"><h3><a href="https://instagram.com/beirabaixapt" target="_blank" rel="noopener">@beirabaixapt</a></h3><p data-i18n="d_igbbpt">Conta de promoção da Beira Baixa — “Onde nasce o sol e a felicidade”.</p><div class="reach">Instagram · ~13 000</div></div>
+      <div class="card"><h3><a href="https://instagram.com/fundao.turismo" target="_blank" rel="noopener">VisitFundão</a> · <a href="https://instagram.com/visitcastelobrancooficial" target="_blank" rel="noopener">Visit Castelo Branco</a></h3><p data-i18n="d_igvisit">Contas de turismo dos dois concelhos que partilham a serra.</p><div class="reach">Instagram</div></div>
+      <div class="card"><h3><a href="https://instagram.com/geopark_naturtejo" target="_blank" rel="noopener">@geopark_naturtejo</a></h3><p data-i18n="d_iggeo">Geopark UNESCO que cobre 7 concelhos da Beira Baixa — público conservacionista.</p><div class="reach">Instagram</div></div>
+      <div class="card"><h3><a href="https://www.youtube.com/@radiocovadabeira-rcb" target="_blank" rel="noopener">RCB — Rádio Cova da Beira</a></h3><p data-i18n="d_ytrcb">Canal da rádio do Fundão; emite para todos os concelhos afetados.</p><div class="reach">YouTube</div></div>
+      <div class="card"><h3><a href="https://www.youtube.com/@JornalReconquistaTV" target="_blank" rel="noopener">Reconquista TV</a></h3><p data-i18n="d_ytrec">Braço em vídeo do semanário do distrito.</p><div class="reach">YouTube</div></div>
+      <div class="card"><h3><a href="https://www.facebook.com/coopcovadabeira/" target="_blank" rel="noopener">Cooperativa dos Fruticultores da Cova da Beira</a></h3><p data-i18n="d_coop">Comunidade das cerejas do Fundão / Gardunha — a terra ameaçada é a deles.</p><div class="reach">Facebook</div></div>
     </div>
-    <p class="note">Dica: se és de um grupo local de compra-e-venda ou de aldeia no Facebook, é aí que a partilha faz mais diferença. Procura os grupos da tua freguesia e partilha lá.</p>
+    <p class="note" data-i18n="s4_note">Dica: se és de um grupo local de compra-e-venda ou de aldeia no Facebook, é aí que a partilha faz mais diferença. Procura os grupos da tua freguesia e partilha lá.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="kick">És criador, jornalista ou de um grupo?</div>
-    <h2>Ajuda-nos a chegar a mais gente</h2>
-    <p>Se tens uma página, um canal ou uma audiência na região — ou se pertences a um destes grupos — a coisa mais útil que podes fazer hoje é <b>partilhar a campanha e explicar aos teus como objetar</b>. A consulta termina hoje. Cada objeção tem de ser considerada por lei.</p>
+    <div class="kick" data-i18n="s5_k">És criador, jornalista ou de um grupo?</div>
+    <h2 data-i18n="s5_h">Ajuda-nos a chegar a mais gente</h2>
+    <p data-i18n="s5_p">Se tens uma página, um canal ou uma audiência na região — ou se pertences a um destes grupos — a coisa mais útil que podes fazer é <b>partilhar a campanha e explicar aos teus como objetar</b>. Cada objeção tem de ser considerada por lei.</p>
     <div class="cta">
-      <a class="btn btn-primary" href="/#passos">Ver como objetar →</a>
-      <a class="btn btn-ghost" href="/read/">Ler os documentos oficiais</a>
+      <a class="btn btn-primary" href="/#passos" data-i18n="s5_cta1">Ver como objetar →</a>
+      <a class="btn btn-ghost" href="/read/" data-i18n="s5_cta2">Ler os documentos oficiais</a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div><a href="/">salvargardunha.com</a> · <a href="/read/">Documentos em inglês</a></div>
-    <p class="disc">Diretório reunido por pesquisa pública (notícias, sites e redes sociais). As ligações vão para páginas públicas; não publicamos contactos pessoais privados. Alguns dados (contas, número de seguidores) podem estar desatualizados — confirma antes de usar. Página informativa e cívica, sem fins lucrativos, não filiada em nenhum partido, empresa ou entidade pública. Estes grupos e meios são mencionados como referência; não implica que apoiem esta página específica.</p>
+    <div><a href="/">salvargardunha.com</a> · <a href="/read/" data-i18n="f_read">Documentos em inglês</a></div>
+    <p class="disc" data-i18n="f_disc">Diretório reunido por pesquisa pública (notícias, sites e redes sociais). As ligações vão para páginas públicas; não publicamos contactos pessoais privados. Alguns dados (contas, número de seguidores) podem estar desatualizados — confirma antes de usar. Página informativa e cívica, sem fins lucrativos, não filiada em nenhum partido, empresa ou entidade pública. Estes grupos e meios são mencionados como referência; não implica que apoiem esta página específica.</p>
   </div>
 </footer>
+
+<script>
+  var I18N={
+    en:{
+      eyebrow:'Spread the word',
+      h1:'We are not alone.<br>Help reach more people.',
+      lede:'People are already fighting the mega-plants in the Beira Baixa — civic movements, environmental associations, councils and journalists. Here we gather <b>those already on the ground</b>, the <b>media covering the issue</b>, and the <b>communities where you can share</b> the campaign before the consultation closes.',
+      cta_object:'Object in the consultation →', cta_camp:'See the campaign',
+      s1_k:'Who is already fighting', s1_h:'Movements and associations — contact them, join, share',
+      s1_p:'These groups already publicly oppose the large-scale solar and wind plants and the acceleration zones (ZAER) in the region. They are the most valuable allies — many have already filed opinions, petitions and submissions to the consultation.',
+      d_gsul:'The frontline movement, from Vale de Prazeres / Mata da Rainha (Fundão). It organised the protests against the “Sophia” mega-plant, right over our mountains.',
+      d_cbc:'A Cova da Beira (Fundão/Covilhã) citizens’ movement for territorial resilience. Co-organised the demonstrations and has its own website and manifesto.',
+      d_cpbb:'A citizens’ movement that filed a critical submission on the PSZAER itself — not just individual projects. Active on social media.',
+      d_pnti:'Author of the parliamentary petition against the “Sophia” and “Beira” plants and of the national demonstration in Lisbon. The most organised actor in the region.',
+      d_quercus:'The regional branch of the country’s largest environmental NGO. It has formally opposed the Beira Baixa plants and demands a regional environmental assessment.',
+      d_rewild:'Filed an official position against the “Sophia” project and its associated 400 kV lines, over the impact on ecological connectivity and 231 vertebrate species.',
+      d_mejs:'A national platform of civic movements against solar and wind mega-projects, uniting the Beira Baixa groups with peers in the Alentejo and Algarve, demanding proper planning of renewables.',
+      d_spea:'BirdLife’s partner in Portugal and the national authority on bird mortality from power lines — a central argument against the plants’ lines.',
+      d_geota:'A land-planning NGO that argues for a renewables plan first, prioritising rooftops and energy communities — exactly the critique of the PSZAER.',
+      d_camin:'A mountain association whose mission is to defend and cherish the Serra da Gardunha. A large local following that loves the mountains we want to protect.',
+      s1_note:'Personal contacts (activists’ mobile numbers) are not published here out of respect for privacy — use the pages and the petition above.',
+      s2_k:'Councils that already said no', s2_h:'Municipalities that filed an unfavourable opinion on the PSZAER',
+      s2_p:'These councils already objected formally in the institutional consultation. They are natural allies — worth asking them to reinforce and publicise their position.',
+      tag_no:'Unfavourable opinion',
+      d_idanha:'One of the “Sophia” municipalities. It filed an unfavourable opinion on the PSZAER; the proposal violates its master plan and the Naturtejo Geopark.',
+      d_serta:'A neighbouring municipality in the Castelo Branco district that filed an unfavourable opinion on the PSZAER.',
+      d_oleiros:'Also gave an unfavourable opinion, citing the environmental specificity of the territory.',
+      d_fundao:'The two councils that share the Serra da Gardunha raised reservations and conflicts (the Gardunha Sul irrigation scheme, distances to villages). Worth pressing for a firm position.',
+      s3_k:'Regional media', s3_h:'Newspapers, radio and portals — ask them to cover it',
+      s3_p:'Beira Baixa and interior outlets, some already covering the consultation. If you’re a journalist, every fact in this campaign comes from the <a href="/read/">official documents</a>. Send them the page and the summary.',
+      tag_cov:'Already covered',
+      d_jf:'A weekly based in Fundão, at the foot of the Gardunha — the epicentre of the campaign.',
+      d_reconq:'The largest weekly in the Castelo Branco district (since 1945).',
+      d_ndc:'Has already published on the PSZAER and on the demonstrations against the mega-plants.',
+      d_ddcb:'Covered “Sophia” and the PSZAER (“omits cartography”). Active on the district’s energy conflicts.',
+      d_rcb:'A Fundão radio station whose transmitter sits on the Serra da Gardunha itself. It aired “The interior is not for sale”.',
+      d_rcastelo:'Covers Castelo Branco, Idanha-a-Nova, Penamacor, Proença, Oleiros, Vila Velha de Ródão — municipalities in the acceleration zones.',
+      d_rcovilha:'Radio and online news for Covilhã / Cova da Beira.',
+      d_bbtv:'Regional web-TV in Castelo Branco; already relayed the CPBB communiqué against the zones.',
+      l_news:'News →', l_sign:'Sign the petition →', l_contact:'Contacts →', l_contact2:'Contact →', l_site:'Website →',
+      msg_h:'Suggested message for the press',
+      msg_p:'“Hello. The PSZAER public consultation — which places the Serra da Gardunha in the most targeted region of the country for mega solar plants — is closing. We have gathered the facts, all from the Government’s own official documents, and translated all 12 documents at salvargardunha.com. We are happy to answer any questions.”',
+      s4_k:'Where to share', s4_h:'Pages and communities with wide reach in the region',
+      s4_p:'Share the campaign (or comment with the link) on these pages and groups. One share on a large Beira Baixa page reaches thousands of neighbours.',
+      d_bbterras:'A Beira Baixa community page, with lots of content about the Gardunha.',
+      d_igbbtv:'A Beira Baixa video/media account — the largest general regional audience found.',
+      d_igestrela:'A large landscape and ecotourism account for the interior, with a sustainability angle.',
+      d_igbbpt:'A Beira Baixa promotion account — “Where the sun and happiness are born”.',
+      d_igvisit:'Tourism accounts of the two municipalities that share the mountains.',
+      d_iggeo:'A UNESCO Geopark covering 7 Beira Baixa municipalities — a conservation-minded audience.',
+      d_ytrcb:'The Fundão radio station’s channel; broadcasts to every affected municipality.',
+      d_ytrec:'The video arm of the district’s weekly.',
+      d_coop:'The Fundão / Gardunha cherry-growers’ community — the threatened land is theirs.',
+      s4_note:'Tip: if you’re in a local buy-and-sell or village Facebook group, that is where a share makes the most difference. Find your parish’s groups and share there.',
+      s5_k:'Are you a creator, journalist or part of a group?', s5_h:'Help us reach more people',
+      s5_p:'If you have a page, a channel or an audience in the region — or you belong to one of these groups — the most useful thing you can do is <b>share the campaign and explain to your people how to object</b>. Every objection must be considered by law.',
+      s5_cta1:'See how to object →', s5_cta2:'Read the official documents',
+      f_read:'Documents in English',
+      f_disc:'Directory compiled from public research (news, websites and social media). Links go to public pages; we do not publish private personal contacts. Some data (accounts, follower counts) may be out of date — verify before using. Informative, civic, non-profit page, not affiliated with any party, company or public body. These groups and outlets are listed as a reference; it does not imply they endorse this specific page.'
+    },
+    de:{
+      eyebrow:'Das Wort verbreiten',
+      h1:'Wir sind nicht allein.<br>Hilf mit, mehr Menschen zu erreichen.',
+      lede:'Es gibt bereits Menschen, die gegen die Großkraftwerke in der Beira Baixa kämpfen — Bürgerbewegungen, Umweltverbände, Gemeinden und Journalisten. Hier bündeln wir <b>diejenigen, die schon vor Ort sind</b>, die <b>Medien, die das Thema behandeln</b>, und die <b>Gemeinschaften, in denen du</b> die Kampagne teilen kannst, bevor die Konsultation endet.',
+      cta_object:'In der Konsultation Einspruch erheben →', cta_camp:'Zur Kampagne',
+      s1_k:'Wer bereits kämpft', s1_h:'Bewegungen und Verbände — kontaktiere sie, mach mit, teile',
+      s1_p:'Diese Gruppen lehnen die Solar- und Windgroßkraftwerke und die Beschleunigungszonen (ZAER) in der Region bereits öffentlich ab. Sie sind die wertvollsten Verbündeten — viele haben schon Stellungnahmen, Petitionen und Eingaben zur Konsultation eingereicht.',
+      d_gsul:'Die Bewegung an vorderster Front, aus Vale de Prazeres / Mata da Rainha (Fundão). Sie organisierte die Proteste gegen das Großkraftwerk „Sophia“, direkt über unserem Gebirge.',
+      d_cbc:'Eine Bürgerbewegung der Cova da Beira (Fundão/Covilhã) für die Resilienz des Gebiets. Mitorganisatorin der Demonstrationen, mit eigener Website und Manifest.',
+      d_cpbb:'Eine Bürgerbewegung, die eine kritische Eingabe zum PSZAER selbst einreichte — nicht nur zu einzelnen Projekten. Aktiv in den sozialen Medien.',
+      d_pnti:'Verfasserin der Parlamentspetition gegen die Kraftwerke „Sophia“ und „Beira“ und der landesweiten Demonstration in Lissabon. Der am besten organisierte Akteur der Region.',
+      d_quercus:'Die Regionalgruppe der größten Umwelt-NGO des Landes. Sie hat sich formell gegen die Kraftwerke der Beira Baixa ausgesprochen und fordert eine regionale Umweltprüfung.',
+      d_rewild:'Reichte eine offizielle Stellungnahme gegen das Projekt „Sophia“ und die zugehörigen 400-kV-Leitungen ein — wegen der Auswirkungen auf die ökologische Vernetzung und 231 Wirbeltierarten.',
+      d_mejs:'Eine landesweite Plattform von Bürgerbewegungen gegen Solar- und Wind-Megaprojekte, die die Gruppen der Beira Baixa mit denen im Alentejo und in der Algarve vereint und eine echte Planung der Erneuerbaren fordert.',
+      d_spea:'BirdLife-Partner in Portugal und die nationale Autorität für Vogelsterblichkeit an Stromleitungen — ein zentrales Argument gegen die Leitungen der Kraftwerke.',
+      d_geota:'Eine Raumordnungs-NGO, die zuerst einen Plan für die Erneuerbaren fordert, mit Vorrang für Dächer und Energiegemeinschaften — genau die Kritik am PSZAER.',
+      d_camin:'Ein Bergverein, dessen Auftrag es ist, die Serra da Gardunha zu schützen und wertzuschätzen. Eine große lokale Gefolgschaft, die das Gebirge liebt, das wir schützen wollen.',
+      s1_note:'Persönliche Kontakte (Handynummern von Aktivisten) werden hier aus Respekt vor der Privatsphäre nicht veröffentlicht — nutze die Seiten und die Petition oben.',
+      s2_k:'Gemeinden, die bereits Nein gesagt haben', s2_h:'Gemeinden mit ablehnender Stellungnahme zum PSZAER',
+      s2_p:'Diese Gemeinden haben in der institutionellen Konsultation bereits formell Einspruch erhoben. Sie sind natürliche Verbündete — bitte sie, ihre Position zu bekräftigen und zu verbreiten.',
+      tag_no:'Ablehnende Stellungnahme',
+      d_idanha:'Eine der „Sophia“-Gemeinden. Sie gab eine ablehnende Stellungnahme zum PSZAER ab; der Entwurf verstößt gegen ihren Flächennutzungsplan und den Naturtejo-Geopark.',
+      d_serta:'Eine Nachbargemeinde im Kreis Castelo Branco mit ablehnender Stellungnahme zum PSZAER.',
+      d_oleiros:'Ebenfalls ablehnende Stellungnahme unter Verweis auf die ökologische Besonderheit des Gebiets.',
+      d_fundao:'Die beiden Gemeinden, die sich die Serra da Gardunha teilen, äußerten Vorbehalte und Konflikte (Bewässerung Gardunha Sul, Abstände zu Ortschaften). Ein Drängen auf eine klare Position lohnt sich.',
+      s3_k:'Regionale Medien', s3_h:'Zeitungen, Radios und Portale — bitte sie zu berichten',
+      s3_p:'Medien der Beira Baixa und des Landesinneren, einige berichten bereits über die Konsultation. Wenn du Journalist bist: Alle Fakten dieser Kampagne stammen aus den <a href="/read/">offiziellen Dokumenten</a>. Schick ihnen die Seite und die Zusammenfassung.',
+      tag_cov:'Bereits berichtet',
+      d_jf:'Eine Wochenzeitung mit Sitz in Fundão, am Fuß der Gardunha — dem Epizentrum der Kampagne.',
+      d_reconq:'Die größte Wochenzeitung im Kreis Castelo Branco (seit 1945).',
+      d_ndc:'Hat bereits über das PSZAER und die Demonstrationen gegen die Großkraftwerke berichtet.',
+      d_ddcb:'Berichtete über „Sophia“ und das PSZAER („verschweigt Kartografie“). Aktiv bei den Energiekonflikten des Kreises.',
+      d_rcb:'Ein Radiosender aus Fundão, dessen Sender auf der Serra da Gardunha selbst steht. Er sendete „Das Landesinnere ist nicht käuflich“.',
+      d_rcastelo:'Deckt Castelo Branco, Idanha-a-Nova, Penamacor, Proença, Oleiros, Vila Velha de Ródão ab — Gemeinden in den Beschleunigungszonen.',
+      d_rcovilha:'Radio und Online-Nachrichten für Covilhã / Cova da Beira.',
+      d_bbtv:'Regionales Web-TV in Castelo Branco; hat bereits das CPBB-Kommuniqué gegen die Zonen verbreitet.',
+      l_news:'Nachricht →', l_sign:'Petition unterschreiben →', l_contact:'Kontakte →', l_contact2:'Kontakt →', l_site:'Website →',
+      msg_h:'Vorschlag für eine Nachricht an die Presse',
+      msg_p:'„Guten Tag. Die öffentliche Konsultation zum PSZAER — die die Serra da Gardunha zur meistanvisierten Region des Landes für Solar-Großkraftwerke macht — geht zu Ende. Wir haben die Fakten zusammengetragen, alle aus den offiziellen Regierungsunterlagen, und alle 12 Dokumente auf salvargardunha.com übersetzt. Für Rückfragen stehen wir gerne zur Verfügung.“',
+      s4_k:'Wo teilen', s4_h:'Seiten und Gemeinschaften mit großer Reichweite in der Region',
+      s4_p:'Teile die Kampagne (oder kommentiere mit dem Link) auf diesen Seiten und in diesen Gruppen. Eine Teilung auf einer großen Beira-Baixa-Seite erreicht Tausende Nachbarn.',
+      d_bbterras:'Eine Gemeinschaftsseite der Beira Baixa mit viel Inhalt über die Gardunha.',
+      d_igbbtv:'Ein Video-/Medienkonto der Beira Baixa — die größte allgemeine Regionalreichweite, die gefunden wurde.',
+      d_igestrela:'Ein großes Landschafts- und Ökotourismus-Konto des Landesinneren, mit Nachhaltigkeitsfokus.',
+      d_igbbpt:'Ein Werbekonto der Beira Baixa — „Wo die Sonne und das Glück geboren werden“.',
+      d_igvisit:'Tourismuskonten der beiden Gemeinden, die sich das Gebirge teilen.',
+      d_iggeo:'Ein UNESCO-Geopark, der 7 Gemeinden der Beira Baixa abdeckt — ein naturschutzbewusstes Publikum.',
+      d_ytrcb:'Der Kanal des Radiosenders aus Fundão; sendet an alle betroffenen Gemeinden.',
+      d_ytrec:'Der Videoableger der Wochenzeitung des Kreises.',
+      d_coop:'Die Gemeinschaft der Kirschbauern von Fundão / Gardunha — das bedrohte Land ist ihres.',
+      s4_note:'Tipp: Wenn du in einer lokalen Kauf-und-Verkauf- oder Dorf-Facebook-Gruppe bist, macht eine Teilung dort den größten Unterschied. Suche die Gruppen deiner Gemeinde und teile dort.',
+      s5_k:'Bist du Creator, Journalist oder Teil einer Gruppe?', s5_h:'Hilf uns, mehr Menschen zu erreichen',
+      s5_p:'Wenn du eine Seite, einen Kanal oder ein Publikum in der Region hast — oder zu einer dieser Gruppen gehörst — ist das Nützlichste, was du tun kannst: <b>die Kampagne teilen und deinen Leuten erklären, wie man Einspruch erhebt</b>. Jeder Einspruch muss laut Gesetz berücksichtigt werden.',
+      s5_cta1:'So erhebst du Einspruch →', s5_cta2:'Die offiziellen Dokumente lesen',
+      f_read:'Dokumente auf Englisch',
+      f_disc:'Verzeichnis aus öffentlicher Recherche (Nachrichten, Websites und soziale Medien). Die Links führen zu öffentlichen Seiten; wir veröffentlichen keine privaten persönlichen Kontakte. Einige Daten (Konten, Follower-Zahlen) können veraltet sein — vor Gebrauch prüfen. Informative, bürgerliche, gemeinnützige Seite, keiner Partei, keinem Unternehmen und keiner öffentlichen Stelle zugehörig. Diese Gruppen und Medien werden als Referenz genannt; das bedeutet nicht, dass sie diese Seite unterstützen.'
+    },
+    fr:{
+      eyebrow:'Faire passer le mot',
+      h1:'Nous ne sommes pas seuls.<br>Aide à toucher plus de monde.',
+      lede:'Des gens luttent déjà contre les méga-centrales en Beira Baixa — mouvements citoyens, associations environnementales, municipalités et journalistes. Nous réunissons ici <b>ceux qui sont déjà sur le terrain</b>, les <b>médias qui couvrent le sujet</b>, et les <b>communautés où tu peux partager</b> la campagne avant la fin de la consultation.',
+      cta_object:'Objecter dans la consultation →', cta_camp:'Voir la campagne',
+      s1_k:'Qui lutte déjà', s1_h:'Mouvements et associations — contacte-les, rejoins, partage',
+      s1_p:'Ces groupes s’opposent déjà publiquement aux méga-centrales solaires et éoliennes et aux zones d’accélération (ZAER) de la région. Ce sont les alliés les plus précieux — beaucoup ont déjà déposé des avis, des pétitions et des contributions à la consultation.',
+      d_gsul:'Le mouvement de première ligne, de Vale de Prazeres / Mata da Rainha (Fundão). Il a organisé les manifestations contre la méga-centrale « Sophia », juste au-dessus de notre montagne.',
+      d_cbc:'Un mouvement citoyen de la Cova da Beira (Fundão/Covilhã) pour la résilience du territoire. Co-organisateur des manifestations, avec son propre site et manifeste.',
+      d_cpbb:'Un mouvement citoyen qui a déposé une contribution critique sur le PSZAER lui-même — pas seulement sur des projets isolés. Actif sur les réseaux sociaux.',
+      d_pnti:'Auteur de la pétition au Parlement contre les centrales « Sophia » et « Beira » et de la manifestation nationale à Lisbonne. L’acteur le mieux organisé de la région.',
+      d_quercus:'L’antenne régionale de la plus grande ONG environnementale du pays. Elle s’est opposée formellement aux centrales de la Beira Baixa et exige une évaluation environnementale régionale.',
+      d_rewild:'A déposé une position officielle contre le projet « Sophia » et ses lignes de 400 kV, pour l’impact sur la connectivité écologique et 231 espèces de vertébrés.',
+      d_mejs:'Une plateforme nationale de mouvements citoyens contre les méga-projets solaires et éoliens, qui unit les groupes de la Beira Baixa à ceux de l’Alentejo et de l’Algarve, exigeant une véritable planification des renouvelables.',
+      d_spea:'Partenaire de BirdLife au Portugal et l’autorité nationale sur la mortalité des oiseaux due aux lignes électriques — un argument central contre les lignes des centrales.',
+      d_geota:'Une ONG d’aménagement du territoire qui plaide pour un plan des renouvelables d’abord, priorisant les toitures et les communautés d’énergie — exactement la critique du PSZAER.',
+      d_camin:'Une association de montagne dont la mission est de défendre et valoriser la Serra da Gardunha. Une grande communauté locale qui aime la montagne que nous voulons protéger.',
+      s1_note:'Les contacts personnels (numéros de portable des militants) ne sont pas publiés ici par respect de la vie privée — utilise les pages et la pétition ci-dessus.',
+      s2_k:'Communes qui ont déjà dit non', s2_h:'Communes ayant émis un avis défavorable au PSZAER',
+      s2_p:'Ces communes se sont déjà opposées formellement lors de la consultation institutionnelle. Ce sont des alliées naturelles — il vaut la peine de leur demander de renforcer et de diffuser leur position.',
+      tag_no:'Avis défavorable',
+      d_idanha:'L’une des communes de « Sophia ». Elle a émis un avis défavorable au PSZAER ; la proposition viole son plan d’urbanisme et le Géoparc Naturtejo.',
+      d_serta:'Une commune voisine du district de Castelo Branco ayant émis un avis défavorable au PSZAER.',
+      d_oleiros:'A également donné un avis défavorable, invoquant la spécificité environnementale du territoire.',
+      d_fundao:'Les deux communes qui partagent la Serra da Gardunha ont exprimé réserves et conflits (périmètre irrigué de Gardunha Sul, distances aux villages). Il vaut la peine de faire pression pour une position ferme.',
+      s3_k:'Presse régionale', s3_h:'Journaux, radios et portails — demande-leur de couvrir le sujet',
+      s3_p:'Médias de la Beira Baixa et de l’intérieur, certains couvrant déjà la consultation. Si tu es journaliste, tous les faits de cette campagne viennent des <a href="/read/">documents officiels</a>. Envoie-leur la page et le résumé.',
+      tag_cov:'Déjà couvert',
+      d_jf:'Un hebdomadaire basé à Fundão, au pied de la Gardunha — l’épicentre de la campagne.',
+      d_reconq:'Le plus grand hebdomadaire du district de Castelo Branco (depuis 1945).',
+      d_ndc:'A déjà publié sur le PSZAER et sur les manifestations contre les méga-centrales.',
+      d_ddcb:'A couvert « Sophia » et le PSZAER (« omet la cartographie »). Actif sur les conflits énergétiques du district.',
+      d_rcb:'Une radio de Fundão dont l’émetteur se trouve sur la Serra da Gardunha elle-même. Elle a diffusé « L’intérieur n’est pas à vendre ».',
+      d_rcastelo:'Couvre Castelo Branco, Idanha-a-Nova, Penamacor, Proença, Oleiros, Vila Velha de Ródão — des communes des zones d’accélération.',
+      d_rcovilha:'Radio et actualités en ligne pour Covilhã / Cova da Beira.',
+      d_bbtv:'Web-TV régionale à Castelo Branco ; a déjà relayé le communiqué du CPBB contre les zones.',
+      l_news:'Article →', l_sign:'Signer la pétition →', l_contact:'Contacts →', l_contact2:'Contact →', l_site:'Site →',
+      msg_h:'Suggestion de message pour la presse',
+      msg_p:'« Bonjour. La consultation publique du PSZAER — qui place la Serra da Gardunha dans la région la plus visée du pays pour les méga-centrales solaires — touche à sa fin. Nous avons rassemblé les faits, tous issus des documents officiels du gouvernement, et traduit les 12 documents sur salvargardunha.com. Nous restons à disposition pour toute question. »',
+      s4_k:'Où partager', s4_h:'Pages et communautés à forte audience dans la région',
+      s4_p:'Partage la campagne (ou commente avec le lien) sur ces pages et groupes. Un partage sur une grande page de la Beira Baixa touche des milliers de voisins.',
+      d_bbterras:'Une page communautaire de la Beira Baixa, avec beaucoup de contenu sur la Gardunha.',
+      d_igbbtv:'Un compte vidéo/média de la Beira Baixa — la plus grande audience régionale générale trouvée.',
+      d_igestrela:'Un grand compte de paysage et d’écotourisme de l’intérieur, avec un angle durabilité.',
+      d_igbbpt:'Un compte de promotion de la Beira Baixa — « Là où naissent le soleil et le bonheur ».',
+      d_igvisit:'Comptes de tourisme des deux communes qui partagent la montagne.',
+      d_iggeo:'Un géoparc UNESCO couvrant 7 communes de la Beira Baixa — un public sensible à la conservation.',
+      d_ytrcb:'La chaîne de la radio de Fundão ; émet vers toutes les communes affectées.',
+      d_ytrec:'Le bras vidéo de l’hebdomadaire du district.',
+      d_coop:'La communauté des producteurs de cerises de Fundão / Gardunha — la terre menacée est la leur.',
+      s4_note:'Astuce : si tu es dans un groupe Facebook local d’achat-vente ou de village, c’est là qu’un partage fait le plus de différence. Cherche les groupes de ta paroisse et partage-les.',
+      s5_k:'Tu es créateur, journaliste ou membre d’un groupe ?', s5_h:'Aide-nous à toucher plus de monde',
+      s5_p:'Si tu as une page, une chaîne ou une audience dans la région — ou si tu appartiens à l’un de ces groupes — la chose la plus utile que tu puisses faire est de <b>partager la campagne et d’expliquer aux tiens comment objecter</b>. Chaque objection doit être prise en compte par la loi.',
+      s5_cta1:'Voir comment objecter →', s5_cta2:'Lire les documents officiels',
+      f_read:'Documents en anglais',
+      f_disc:'Répertoire compilé par recherche publique (presse, sites et réseaux sociaux). Les liens mènent à des pages publiques ; nous ne publions pas de contacts personnels privés. Certaines données (comptes, nombre d’abonnés) peuvent être obsolètes — vérifie avant d’utiliser. Page informative et civique, sans but lucratif, non affiliée à un parti, une entreprise ou une entité publique. Ces groupes et médias sont cités à titre de référence ; cela n’implique pas qu’ils soutiennent cette page.'
+    }
+  };
+  var PT={}; document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
+  var lang=localStorage.getItem('nf_lang')||'pt';
+  function tr(l,k){return (l==='pt')?PT[k]:((I18N[l]&&I18N[l][k]!=null)?I18N[l][k]:PT[k]);}
+  function applyLang(l){
+    lang=l; document.documentElement.lang=l;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=tr(l,el.getAttribute('data-i18n'));});
+    document.querySelectorAll('#langsw button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
+    localStorage.setItem('nf_lang',l);
+  }
+  document.querySelectorAll('#langsw button').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang'));});});
+  applyLang(lang);
+</script>
 </body>
 </html>

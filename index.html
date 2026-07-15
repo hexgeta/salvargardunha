@@ -31,7 +31,7 @@
   .langsw button{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:11.5px;letter-spacing:.05em;padding:5px 9px;border-radius:999px;cursor:pointer}
   .langsw button.on{background:var(--green-d);color:#05230f}
 
-  .bar{position:sticky;top:0;z-index:50;background:#1a1206;border-bottom:1px solid #3a2a08;color:var(--amber);font-size:14.5px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:14px;padding:8px 165px 8px 16px}
+  .bar{position:sticky;top:0;z-index:50;background:#1a1206;border-bottom:1px solid #3a2a08;color:var(--amber);font-size:14.5px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:14px;padding:8px 165px}
   .bar-content{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .bar .btn{font-size:12.5px;padding:6px 13px;white-space:nowrap;flex:0 0 auto}
   @media(max-width:640px){
@@ -990,10 +990,10 @@
     }
   };
   var STR={
-    pt:{left:function(d,h){return 'faltam <b>'+d+' dias e '+h+'h</b>'}, ended:'<b>a consulta terminou</b> — assina a petição', gen:'A gerar…', copied:'Copiado ✓', linkcopied:'Link copiado ✓', objections:function(n){return '✍️ <b>'+n+'</b> contributos já submetidos na consulta — junta o teu.'}, shareMsg:'A Serra da Gardunha é das áreas mais visadas do país por megacentrais solares. Objeta na consulta pública até 15 de julho: '},
-    en:{left:function(d,h){return '<b>'+d+' days and '+h+'h</b> left'}, ended:'<b>the consultation has ended</b> — sign the petition', gen:'Generating…', copied:'Copied ✓', linkcopied:'Link copied ✓', objections:function(n){return '✍️ <b>'+n+'</b> contributions already submitted to the consultation — add yours.'}, shareMsg:'The Serra da Gardunha is one of the areas most targeted by mega solar plants in Portugal. Object in the public consultation by 15 July: '},
-    de:{left:function(d,h){return 'noch <b>'+d+' Tage und '+h+'h</b>'}, ended:'<b>die Konsultation ist beendet</b> — unterschreibe die Petition', gen:'Wird erstellt…', copied:'Kopiert ✓', linkcopied:'Link kopiert ✓', objections:function(n){return '✍️ <b>'+n+'</b> Beiträge bereits eingereicht — füge deinen hinzu.'}, shareMsg:'Die Serra da Gardunha gehört zu den am stärksten von Solar-Großkraftwerken bedrohten Gebieten Portugals. Nimm bis 15. Juli an der Konsultation teil: '},
-    fr:{left:function(d,h){return 'encore <b>'+d+' jours et '+h+'h</b>'}, ended:'<b>la consultation est terminée</b> — signe la pétition', gen:'Génération…', copied:'Copié ✓', linkcopied:'Lien copié ✓', objections:function(n){return '✍️ <b>'+n+'</b> contributions déjà soumises à la consultation — ajoute la tienne.'}, shareMsg:'La Serra da Gardunha est l’une des zones les plus visées du pays par les méga-centrales solaires. Participe à la consultation avant le 15 juillet : '}
+    pt:{left:function(d,h,m){return d>0?'faltam <b>'+d+' dias e '+h+'h</b>':'faltam <b>'+h+'h '+m+'m</b>'}, ended:'<b>a consulta terminou</b> — assina a petição', gen:'A gerar…', copied:'Copiado ✓', linkcopied:'Link copiado ✓', objections:function(n){return '✍️ <b>'+n+'</b> contributos já submetidos na consulta — junta o teu.'}, shareMsg:'A Serra da Gardunha é das áreas mais visadas do país por megacentrais solares. Objeta na consulta pública até 15 de julho: '},
+    en:{left:function(d,h,m){return d>0?'<b>'+d+' days and '+h+'h</b> left':'<b>'+h+'h '+m+'m</b> left'}, ended:'<b>the consultation has ended</b> — sign the petition', gen:'Generating…', copied:'Copied ✓', linkcopied:'Link copied ✓', objections:function(n){return '✍️ <b>'+n+'</b> contributions already submitted to the consultation — add yours.'}, shareMsg:'The Serra da Gardunha is one of the areas most targeted by mega solar plants in Portugal. Object in the public consultation by 15 July: '},
+    de:{left:function(d,h,m){return d>0?'noch <b>'+d+' Tage und '+h+'h</b>':'noch <b>'+h+'h '+m+'m</b>'}, ended:'<b>die Konsultation ist beendet</b> — unterschreibe die Petition', gen:'Wird erstellt…', copied:'Kopiert ✓', linkcopied:'Link kopiert ✓', objections:function(n){return '✍️ <b>'+n+'</b> Beiträge bereits eingereicht — füge deinen hinzu.'}, shareMsg:'Die Serra da Gardunha gehört zu den am stärksten von Solar-Großkraftwerken bedrohten Gebieten Portugals. Nimm bis 15. Juli an der Konsultation teil: '},
+    fr:{left:function(d,h,m){return d>0?'encore <b>'+d+' jours et '+h+'h</b>':'encore <b>'+h+'h '+m+'m</b>'}, ended:'<b>la consultation est terminée</b> — signe la pétition', gen:'Génération…', copied:'Copié ✓', linkcopied:'Lien copié ✓', objections:function(n){return '✍️ <b>'+n+'</b> contributions déjà soumises à la consultation — ajoute la tienne.'}, shareMsg:'La Serra da Gardunha est l’une des zones les plus visées du pays par les méga-centrales solaires. Participe à la consultation avant le 15 juillet : '}
   };
 
   var PT={}; document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
@@ -1027,8 +1027,8 @@
     if(diff<=0){d.textContent='0';h.textContent='00';m.textContent='00';s.textContent='00';d.classList.add('over');barleft.innerHTML=t.ended;divs.forEach(function(el){el.innerHTML=t.ended;});return;}
     var days=Math.floor(diff/864e5),hrs=Math.floor(diff%864e5/36e5),min=Math.floor(diff%36e5/6e4),sec=Math.floor(diff%6e4/1e3);
     d.textContent=days;h.textContent=pad(hrs);m.textContent=pad(min);s.textContent=pad(sec);
-    barleft.innerHTML=t.left(days,hrs);
-    divs.forEach(function(el){el.innerHTML=t.left(days,hrs);});
+    barleft.innerHTML=t.left(days,hrs,min);
+    divs.forEach(function(el){el.innerHTML=t.left(days,hrs,min);});
   }
   var url='https://salvargardunha.com/';
   function langUrl(){return url+(lang==='pt'?'':lang);}
