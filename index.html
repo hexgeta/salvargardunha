@@ -203,11 +203,14 @@
   .cta-urgent b{color:#fff}
   .cta-band .cta{margin-top:16px}
 
-  footer{padding:44px 0 70px;color:var(--muted);font-size:14px}
-  footer a{color:var(--green);text-decoration:none}
-  footer a:hover{text-decoration:underline}
-  .srcs{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px 18px}
-  .disclaimer{margin-top:26px;font-size:12.5px;color:#6f7a6f;border-top:1px solid var(--line);padding-top:18px}
+  footer{padding:44px 0 70px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+  .foot-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:26px}
+  .foot-col h4{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:11px}
+  .foot-col a{display:block;color:#dfe6da;text-decoration:none;padding:5px 0;font-size:14px;line-height:1.35}
+  .foot-col a:hover{color:var(--green)}
+  .disclaimer{margin-top:24px;font-size:12.5px;color:#6f7a6f;border-top:1px solid var(--line);padding-top:16px;line-height:1.6}
+  .foot-fine{margin-top:12px;font-size:12.5px;color:#6f7a6f}
+  .foot-fine a{color:#8a9486;text-decoration:none}.foot-fine a:hover{color:var(--green)}
   @media(max-width:520px){ .step{grid-template-columns:1fr} .step .num{display:none} }
 </style>
 <script defer data-domain="salvargardunha.com" src="https://analytics.hexgeta.com/script.js"></script>
@@ -541,18 +544,25 @@
 
 <footer>
   <div class="wrap">
-    <div data-i18n="foot_made">Feito por vizinhos da Beira Baixa que querem a serra de pé.</div>
-    <div class="srcs">
-      <a href="/social" data-i18n="foot_allies">Espalhar a palavra — aliados e imprensa</a>
-      <a href="/mapa" data-i18n="foot_maps">Os mapas das áreas propostas</a>
-      <a href="/objecoes" data-i18n="foot_obj">As 172 objeções e as respostas do Governo</a>
-      <a href="/read/" data-i18n="foot_read">Documentos oficiais em inglês</a>
-      <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener" data-i18n="foot_s1">Consulta e documentos oficiais (participa.pt)</a>
-      <a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="foot_s2">Petição no Parlamento</a>
-      <a href="https://www.publico.pt/2026/06/20/azul/perguntaserespostas/vai-funcionar-plano-acelerar-energia-eolica-solar-portugal-2178537" target="_blank" rel="noopener" data-i18n="foot_s3">Explicação (Público)</a>
-      <a href="https://commons.wikimedia.org/wiki/File:Serra_da_Gardunha_-_Nascer_do_Sol.jpg" target="_blank" rel="noopener" data-i18n="foot_photo">Foto de capa: Jocehcap11, CC BY-SA 4.0 (Wikimedia Commons)</a>
+    <div class="foot-cols">
+      <div class="foot-col"><h4 data-i18n="fcol_campaign">A campanha</h4>
+        <a href="/" data-i18n="fl_home">Início</a>
+        <a href="#passos" data-i18n="fl_act">Agir na consulta</a>
+        <a href="/social" data-i18n="foot_allies">Espalhar a palavra — aliados e imprensa</a>
+      </div>
+      <div class="foot-col"><h4 data-i18n="fcol_docs">Documentos e dados</h4>
+        <a href="/read/" data-i18n="foot_read">Documentos oficiais em inglês</a>
+        <a href="/objecoes" data-i18n="foot_obj">As 172 objeções e as respostas do Governo</a>
+        <a href="/mapa" data-i18n="foot_maps">Os mapas das áreas propostas</a>
+      </div>
+      <div class="foot-col"><h4 data-i18n="fcol_official">Fontes oficiais</h4>
+        <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener" data-i18n="foot_s1">Consulta e documentos oficiais (participa.pt)</a>
+        <a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="foot_s2">Petição no Parlamento</a>
+        <a href="https://www.publico.pt/2026/06/20/azul/perguntaserespostas/vai-funcionar-plano-acelerar-energia-eolica-solar-portugal-2178537" target="_blank" rel="noopener" data-i18n="foot_s3">Explicação (Público)</a>
+      </div>
     </div>
     <p class="disclaimer" data-i18n="foot_disc">Todos os números e citações são retirados dos documentos oficiais em consulta pública no participa.pt (Proposta de PSZAER e Relatórios Temáticos, maio de 2026). Página informativa e cívica, sem fins lucrativos, não filiada em nenhum partido, empresa ou entidade pública.</p>
+    <div class="foot-fine"><span data-i18n="foot_made">Feito por vizinhos da Beira Baixa que querem a serra de pé.</span> · <a href="https://commons.wikimedia.org/wiki/File:Serra_da_Gardunha_-_Nascer_do_Sol.jpg" target="_blank" rel="noopener" data-i18n="foot_photo">Foto de capa: Jocehcap11, CC BY-SA 4.0 (Wikimedia Commons)</a></div>
   </div>
 </footer>
 
@@ -697,6 +707,7 @@
       pet_next:'Next goal: <b>7,500</b> — forces a full debate in Parliament’s plenary.',
       pet_btn:'Sign the petition →',
       foot_made:'Made by neighbours of the Beira Baixa who want the mountains left standing.',
+      fcol_campaign:'The campaign', fcol_docs:'Documents & data', fcol_official:'Official sources', fl_home:'Home', fl_act:'Take action',
       foot_maps:'The maps of the proposed areas', foot_obj:'The 172 objections & the Government’s responses',
       foot_allies:'Spread the word — allies &amp; media',
       foot_read:'Official documents in English',
@@ -842,6 +853,7 @@
       pet_next:'Nächstes Ziel: <b>7&nbsp;500</b> — erzwingt eine Debatte im Plenum des Parlaments.',
       pet_btn:'Petition unterschreiben →',
       foot_made:'Gemacht von Nachbarn der Beira Baixa, die das Gebirge stehen lassen wollen.',
+      fcol_campaign:'Die Kampagne', fcol_docs:'Dokumente & Daten', fcol_official:'Offizielle Quellen', fl_home:'Startseite', fl_act:'Handeln',
       foot_maps:'Die Karten der vorgeschlagenen Flächen', foot_obj:'Die 172 Einwände & die Antworten der Regierung',
       foot_allies:'Wort verbreiten — Verbündete &amp; Presse',
       foot_read:'Offizielle Dokumente auf Englisch',
@@ -987,6 +999,7 @@
       pet_next:'Prochain objectif : <b>7&nbsp;500</b> — impose un débat en plénière au Parlement.',
       pet_btn:'Signer la pétition →',
       foot_made:'Fait par des voisins de la Beira Baixa qui veulent la montagne debout.',
+      fcol_campaign:'La campagne', fcol_docs:'Documents et données', fcol_official:'Sources officielles', fl_home:'Accueil', fl_act:'Agir',
       foot_maps:'Les cartes des zones proposées', foot_obj:'Les 172 objections & les réponses du Gouvernement',
       foot_allies:'Faire passer le mot — alliés &amp; presse',
       foot_read:'Documents officiels en anglais',

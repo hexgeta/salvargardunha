@@ -43,9 +43,13 @@
   .foot-cta{margin:34px 0;background:linear-gradient(180deg,#0d2412,#153920);border:1px solid #2e6b3c;border-radius:14px;padding:22px}
   .foot-cta p{color:var(--amber);margin:0 0 14px;font-size:16px}
   .foot-cta p b{color:#fff}
-  footer{padding:26px 0 60px;color:var(--muted);font-size:13px}
+  footer{padding:40px 0 60px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:20px}
   footer a{color:var(--green);text-decoration:none}
-  .disc{margin-top:14px;font-size:12.5px;color:#6f7a6f;border-top:1px solid var(--line);padding-top:14px}
+  .foot-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:26px}
+  .foot-col h4{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:11px}
+  .foot-col a{display:block;color:#dfe6da;text-decoration:none;padding:5px 0;font-size:14px;line-height:1.35}
+  .foot-col a:hover{color:var(--green)}
+  .disc{margin-top:26px;font-size:12.5px;color:#6f7a6f;border-top:1px solid var(--line);padding-top:16px;line-height:1.6}
 </style>
 <script defer data-domain="salvargardunha.com" src="https://analytics.hexgeta.com/script.js"></script>
 </head>
@@ -135,8 +139,24 @@
 
 <footer>
   <div class="wrap">
-    <div><a href="/read/">All documents</a> · <a href="/">salvargardunha.com</a></div>
-    <p class="disc">Faithful English rendering of an official document published for public consultation on participa.pt (mirrored at <a href="/docs/aae-relatorio-preliminar.pdf">/docs/aae-relatorio-preliminar.pdf</a>). Summarised and translated section by section for readability — it is not an official translation, and quoted passages are our translation of the Portuguese original. Where a figure matters, check it against the source PDF. Informative, civic, non-profit page.</p>
+    <div class="foot-cols">
+      <div class="foot-col"><h4>The campaign</h4>
+        <a href="/">Home</a>
+        <a href="/#passos">Take action in the consultation</a>
+        <a href="/social">Spread the word</a>
+      </div>
+      <div class="foot-col"><h4>Documents &amp; data</h4>
+        <a href="/read/">Documents in English</a>
+        <a href="/objecoes">The 172 objections</a>
+        <a href="/mapa">The maps of the areas</a>
+      </div>
+      <div class="foot-col"><h4>Official sources</h4>
+        <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">PSZAER consultation (participa.pt)</a>
+        <a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener">Petition in Parliament</a>
+        <a href="https://renovaveisparticipa.pt/" target="_blank" rel="noopener">Renováveis Participa (EMER)</a>
+      </div>
+    </div>
+    <p class="disc">Made by neighbours of the Beira Baixa who want the mountain left standing. Informative, civic, non-profit page, not affiliated with any party, company or public body. Faithful English rendering of an official document published for public consultation on participa.pt (mirrored at <a href="/docs/aae-relatorio-preliminar.pdf">/docs/aae-relatorio-preliminar.pdf</a>) — not an official translation; quoted passages are our translation of the Portuguese original. Where a figure matters, check it against the source PDF.</p>
   </div>
 </footer>
 </body>
