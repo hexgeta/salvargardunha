@@ -30,7 +30,9 @@
   h2{font-size:clamp(21px,3.4vw,29px);font-weight:800;letter-spacing:-.01em;line-height:1.12}
   section>.wrap>p{color:#ccd3c9;margin-top:12px;font-size:16px}
   section p b{color:#fff}
-  .grid{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .subh{margin-top:24px;font-size:15px;font-weight:800;color:#fff;letter-spacing:.01em}
+  .subh:first-of-type{margin-top:18px}
+  .grid{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
   @media(max-width:620px){.grid{grid-template-columns:1fr}}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 17px}
   .card.hot{border-color:#3a5c2a;background:#101a0f}
@@ -51,6 +53,9 @@
   .msgbox{margin-top:16px;background:#10160f;border:1px dashed var(--line);border-radius:12px;padding:16px 18px}
   .msgbox h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:9px}
   .msgbox p{color:#dfe6da;font-size:14.5px;font-style:italic;margin:0}
+  .msgcopy{margin-top:13px;font-size:13.5px;padding:9px 15px;cursor:pointer}
+  .paste{color:#e7ecdf;font-size:14.5px;line-height:1.6;white-space:pre-line;margin-top:4px}
+  .card .paste+.msgcopy{margin-top:14px}
   footer{padding:30px 0 64px;color:var(--muted);font-size:13px}
   footer a{color:var(--green);text-decoration:none}
   .disc{margin-top:14px;font-size:12.5px;color:#6f7a6f;border-top:1px solid var(--line);padding-top:14px}
@@ -71,10 +76,29 @@
     <p class="lede" data-i18n="lede">Já há quem lute contra as megacentrais na Beira Baixa — movimentos cívicos, associações ambientais, autarquias e jornalistas. Aqui reunimos <b>quem já está no terreno</b>, a <b>imprensa que cobre o tema</b>, e as <b>comunidades onde podes partilhar</b> a campanha antes do fim da consulta.</p>
     <div class="cta">
       <a class="btn btn-primary" href="/#passos" data-i18n="cta_object">Objetar na consulta →</a>
-      <a class="btn btn-ghost" href="/" data-i18n="cta_camp">Ver a campanha</a>
     </div>
   </div>
 </header>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="kit_k">Partilha em 30 segundos</div>
+    <h2 data-i18n="kit_h">Textos prontos — copia e cola</h2>
+    <p data-i18n="kit_p">Usa estes textos para comentar, publicar, enviar a grupos, ou para contactar por mensagem as páginas e criadores da região. Toca em copiar.</p>
+    <div class="grid">
+      <div class="card"><h3 data-i18n="cm_h">💬 Comentário curto</h3><p id="cmtxt" class="paste" data-i18n="cm_txt">⚠️ A Serra da Gardunha é das áreas mais visadas do país para megacentrais solares e eólicas — que podem ser licenciadas sem avaliação de impacte ambiental. A consulta pública termina a 15 de julho. Faz-te ouvir 👉 salvargardunha.com</p><button class="btn btn-primary msgcopy copybtn" type="button" data-copy="#cmtxt" data-i18n="kit_copy">📋 Copiar</button></div>
+      <div class="card"><h3 data-i18n="fb_h">📣 Publicação para Facebook</h3><p id="fbtxt" class="paste" data-i18n="fb_txt">🌄 A nossa serra não está à venda.
+
+O Governo colocou a Serra da Gardunha na região mais visada do país para megacentrais solares e eólicas — está nos próprios documentos oficiais. Podem avançar SEM avaliação de impacte ambiental e a apenas 200 m de casas.
+
+A consulta pública termina a 15 de julho e cada objeção tem de ser considerada por lei. Demora 2 minutos.
+
+Sabe tudo e objeta 👉 salvargardunha.com</p><button class="btn btn-primary msgcopy copybtn" type="button" data-copy="#fbtxt" data-i18n="kit_copy">📋 Copiar</button></div>
+      <div class="card"><h3 data-i18n="dm_h">✉️ Mensagem para páginas e criadores (DM)</h3><p id="dmtxt" class="paste" data-i18n="dm_txt">Olá! Somos vizinhos que criámos a campanha salvargardunha.com contra as megacentrais solares e eólicas sobre a Serra da Gardunha. A consulta pública termina a 15 de julho. Como têm uma grande audiência na região, seria uma enorme ajuda se pudessem partilhar. Obrigado por tudo o que fazem pela nossa terra! 🌄</p><button class="btn btn-primary msgcopy copybtn" type="button" data-copy="#dmtxt" data-i18n="kit_copy">📋 Copiar</button></div>
+      <div class="card"><h3 data-i18n="msg_h">📰 Mensagem para a imprensa</h3><p id="prtxt" class="paste" data-i18n="msg_p">“Boa tarde. A consulta pública do PSZAER — que coloca a Serra da Gardunha na região mais visada do país para megacentrais solares — está a terminar. Reunimos os factos, todos dos documentos oficiais do Governo, e a tradução dos 12 documentos em salvargardunha.com. Ficamos ao dispor para qualquer esclarecimento.”</p><button class="btn btn-primary msgcopy copybtn" type="button" data-copy="#prtxt" data-i18n="kit_copy">📋 Copiar</button></div>
+    </div>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -135,10 +159,6 @@
       <div class="card"><h3><a href="https://radio-covilha.pt/" target="_blank" rel="noopener">Rádio Clube da Covilhã</a></h3><p data-i18n="d_rcovilha">Rádio e notícias online da Covilhã / Cova da Beira.</p><div class="links"><a href="mailto:redacao@radio-covilha.pt">redacao@radio-covilha.pt</a></div></div>
       <div class="card"><h3><a href="https://www.beirabaixatv.pt/" target="_blank" rel="noopener">Beira Baixa TV</a> <span class="tag tag-covered" data-i18n="tag_cov">Já cobriu</span></h3><p data-i18n="d_bbtv">Web-TV regional em Castelo Branco; já divulgou o comunicado do CPBB contra as ZAER.</p><div class="links"><a href="https://www.beirabaixatv.pt/contact" target="_blank" rel="noopener" data-i18n="l_contact2">Contacto →</a> <a href="https://www.youtube.com/user/BeiraBaixaTv" target="_blank" rel="noopener">YouTube →</a></div></div>
     </div>
-    <div class="msgbox">
-      <h4 data-i18n="msg_h">Sugestão de mensagem para a imprensa</h4>
-      <p data-i18n="msg_p">“Boa tarde. A consulta pública do PSZAER — que coloca a Serra da Gardunha na região mais visada do país para megacentrais solares — está a terminar. Reunimos os factos, todos dos documentos oficiais do Governo, e a tradução dos 12 documentos em salvargardunha.com. Ficamos ao dispor para qualquer esclarecimento.”</p>
-    </div>
   </div>
 </section>
 
@@ -146,31 +166,34 @@
   <div class="wrap">
     <div class="kick" data-i18n="s4_k">Onde partilhar</div>
     <h2 data-i18n="s4_h">Páginas e comunidades com muito alcance na região</h2>
-    <p data-i18n="s4_p">Partilha a campanha (ou comenta com o link) nestas páginas e grupos. Uma partilha numa página grande da Beira Baixa chega a milhares de vizinhos.</p>
+    <p data-i18n="s4_p">Partilha a campanha (ou comenta com o link) nestas páginas, grupos e contas. Uma partilha numa página grande da Beira Baixa chega a milhares de vizinhos.</p>
+
+    <div class="subh" data-i18n="sub_fb">📘 Facebook — grupos e páginas</div>
     <div class="grid">
+      <div class="card"><h3><a href="https://www.facebook.com/groups/239389466640897" target="_blank" rel="noopener">Grupo da Beira Baixa (1)</a></h3><p data-i18n="d_grp1">Grupo comunitário da região — partilha e comenta com o link.</p><div class="reach">Facebook · grupo</div></div>
+      <div class="card"><h3><a href="https://www.facebook.com/groups/893692574152551" target="_blank" rel="noopener">Grupo da Beira Baixa (2)</a></h3><p data-i18n="d_grp2">Grupo comunitário da região — partilha e comenta com o link.</p><div class="reach">Facebook · grupo</div></div>
+      <div class="card"><h3><a href="https://www.facebook.com/groups/454377661250826" target="_blank" rel="noopener">Grupo da Beira Baixa (3)</a></h3><p data-i18n="d_grp2">Grupo comunitário da região — partilha e comenta com o link.</p><div class="reach">Facebook · grupo</div></div>
       <div class="card"><h3><a href="https://www.facebook.com/BeiraBaixaPT/" target="_blank" rel="noopener">Beira Baixa: Terras de Excelência</a></h3><p data-i18n="d_bbterras">Página comunitária da Beira Baixa, com muito conteúdo sobre a Gardunha.</p><div class="reach">Facebook · ~27 000</div></div>
-      <div class="card"><h3><a href="https://instagram.com/beira.baixatv" target="_blank" rel="noopener">@beira.baixatv</a></h3><p data-i18n="d_igbbtv">Conta de vídeo/media da Beira Baixa — a maior audiência regional geral encontrada.</p><div class="reach">Instagram · ~24 000</div></div>
-      <div class="card"><h3><a href="https://instagram.com/serradaestrela" target="_blank" rel="noopener">@serradaestrela</a></h3><p data-i18n="d_igestrela">Grande conta de paisagem e ecoturismo do interior, com ângulo de sustentabilidade.</p><div class="reach">Instagram · ~66 000</div></div>
-      <div class="card"><h3><a href="https://instagram.com/beirabaixapt" target="_blank" rel="noopener">@beirabaixapt</a></h3><p data-i18n="d_igbbpt">Conta de promoção da Beira Baixa — “Onde nasce o sol e a felicidade”.</p><div class="reach">Instagram · ~13 000</div></div>
-      <div class="card"><h3><a href="https://instagram.com/fundao.turismo" target="_blank" rel="noopener">VisitFundão</a> · <a href="https://instagram.com/visitcastelobrancooficial" target="_blank" rel="noopener">Visit Castelo Branco</a></h3><p data-i18n="d_igvisit">Contas de turismo dos dois concelhos que partilham a serra.</p><div class="reach">Instagram</div></div>
-      <div class="card"><h3><a href="https://instagram.com/geopark_naturtejo" target="_blank" rel="noopener">@geopark_naturtejo</a></h3><p data-i18n="d_iggeo">Geopark UNESCO que cobre 7 concelhos da Beira Baixa — público conservacionista.</p><div class="reach">Instagram</div></div>
-      <div class="card"><h3><a href="https://www.youtube.com/@radiocovadabeira-rcb" target="_blank" rel="noopener">RCB — Rádio Cova da Beira</a></h3><p data-i18n="d_ytrcb">Canal da rádio do Fundão; emite para todos os concelhos afetados.</p><div class="reach">YouTube</div></div>
-      <div class="card"><h3><a href="https://www.youtube.com/@JornalReconquistaTV" target="_blank" rel="noopener">Reconquista TV</a></h3><p data-i18n="d_ytrec">Braço em vídeo do semanário do distrito.</p><div class="reach">YouTube</div></div>
       <div class="card"><h3><a href="https://www.facebook.com/coopcovadabeira/" target="_blank" rel="noopener">Cooperativa dos Fruticultores da Cova da Beira</a></h3><p data-i18n="d_coop">Comunidade das cerejas do Fundão / Gardunha — a terra ameaçada é a deles.</p><div class="reach">Facebook</div></div>
     </div>
-    <p class="note" data-i18n="s4_note">Dica: se és de um grupo local de compra-e-venda ou de aldeia no Facebook, é aí que a partilha faz mais diferença. Procura os grupos da tua freguesia e partilha lá.</p>
-  </div>
-</section>
 
-<section>
-  <div class="wrap">
-    <div class="kick" data-i18n="s5_k">És criador, jornalista ou de um grupo?</div>
-    <h2 data-i18n="s5_h">Ajuda-nos a chegar a mais gente</h2>
-    <p data-i18n="s5_p">Se tens uma página, um canal ou uma audiência na região — ou se pertences a um destes grupos — a coisa mais útil que podes fazer é <b>partilhar a campanha e explicar aos teus como objetar</b>. Cada objeção tem de ser considerada por lei.</p>
-    <div class="cta">
-      <a class="btn btn-primary" href="/#passos" data-i18n="s5_cta1">Ver como objetar →</a>
-      <a class="btn btn-ghost" href="/read/" data-i18n="s5_cta2">Ler os documentos oficiais</a>
+    <div class="subh" data-i18n="sub_ig">📸 Instagram</div>
+    <div class="grid">
+      <div class="card"><h3><a href="https://instagram.com/serradaestrela" target="_blank" rel="noopener">@serradaestrela</a></h3><p data-i18n="d_igestrela">Grande conta de paisagem e ecoturismo do interior, com ângulo de sustentabilidade.</p><div class="reach">Instagram · ~66 000</div></div>
+      <div class="card"><h3><a href="https://instagram.com/beira.baixatv" target="_blank" rel="noopener">@beira.baixatv</a></h3><p data-i18n="d_igbbtv">Conta de vídeo/media da Beira Baixa — a maior audiência regional geral encontrada.</p><div class="reach">Instagram · ~24 000</div></div>
+      <div class="card"><h3><a href="https://instagram.com/beirabaixapt" target="_blank" rel="noopener">@beirabaixapt</a></h3><p data-i18n="d_igbbpt">Conta de promoção da Beira Baixa — “Onde nasce o sol e a felicidade”.</p><div class="reach">Instagram · ~13 000</div></div>
+      <div class="card"><h3><a href="https://instagram.com/geopark_naturtejo" target="_blank" rel="noopener">@geopark_naturtejo</a></h3><p data-i18n="d_iggeo">Geopark UNESCO que cobre 7 concelhos da Beira Baixa — público conservacionista.</p><div class="reach">Instagram</div></div>
+      <div class="card"><h3><a href="https://instagram.com/fundao.turismo" target="_blank" rel="noopener">VisitFundão</a> · <a href="https://instagram.com/visitcastelobrancooficial" target="_blank" rel="noopener">Visit Castelo Branco</a></h3><p data-i18n="d_igvisit">Contas de turismo dos dois concelhos que partilham a serra.</p><div class="reach">Instagram</div></div>
     </div>
+
+    <div class="subh" data-i18n="sub_yt">▶️ YouTube</div>
+    <div class="grid">
+      <div class="card"><h3><a href="https://www.youtube.com/user/BeiraBaixaTv" target="_blank" rel="noopener">Beira Baixa TV</a></h3><p data-i18n="d_ytbbtv">Web-TV regional em Castelo Branco; já cobriu o tema.</p><div class="reach">YouTube</div></div>
+      <div class="card"><h3><a href="https://www.youtube.com/@radiocovadabeira-rcb" target="_blank" rel="noopener">RCB — Rádio Cova da Beira</a></h3><p data-i18n="d_ytrcb">Canal da rádio do Fundão; emite para todos os concelhos afetados.</p><div class="reach">YouTube</div></div>
+      <div class="card"><h3><a href="https://www.youtube.com/@JornalReconquistaTV" target="_blank" rel="noopener">Reconquista TV</a></h3><p data-i18n="d_ytrec">Braço em vídeo do semanário do distrito.</p><div class="reach">YouTube</div></div>
+    </div>
+
+    <p class="note" data-i18n="s4_note">Dica: se és de um grupo local de compra-e-venda ou de aldeia no Facebook, é aí que a partilha faz mais diferença. Procura os grupos da tua freguesia e partilha lá.</p>
   </div>
 </section>
 
@@ -188,6 +211,13 @@
       h1:'We are not alone.<br>Help reach more people.',
       lede:'People are already fighting the mega-plants in the Beira Baixa — civic movements, environmental associations, councils and journalists. Here we gather <b>those already on the ground</b>, the <b>media covering the issue</b>, and the <b>communities where you can share</b> the campaign before the consultation closes.',
       cta_object:'Object in the consultation →', cta_camp:'See the campaign',
+      kit_k:'Share in 30 seconds', kit_h:'Ready-to-paste texts — copy and paste', kit_p:'Use these to comment, post, message groups, or reach out to the region’s pages and creators. Tap to copy.', kit_copy:'📋 Copy',
+      cm_h:'💬 Short comment',
+      cm_txt:'⚠️ The Serra da Gardunha is one of the areas most targeted in the country for mega solar and wind plants — which can be licensed without an environmental impact assessment. The public consultation closes on 15 July. Make yourself heard 👉 salvargardunha.com',
+      fb_h:'📣 Facebook post',
+      fb_txt:'🌄 Our mountains are not for sale.\n\nThe Government has placed the Serra da Gardunha in the most targeted region of the country for mega solar and wind plants — it’s in their own official documents. They can go ahead WITHOUT an environmental impact assessment, and just 200 m from homes.\n\nThe public consultation closes on 15 July, and every objection must be considered by law. It takes 2 minutes.\n\nLearn everything and object 👉 salvargardunha.com',
+      dm_h:'✉️ Message for pages & creators (DM)',
+      dm_txt:'Hi! We’re neighbours who created the campaign salvargardunha.com against the mega solar and wind plants over the Serra da Gardunha. The public consultation closes on 15 July. Since you have a big audience in the region, it would be a huge help if you could share it. Thank you for all you do for our land! 🌄',
       s1_k:'Who is already fighting', s1_h:'Movements and associations — contact them, join, share',
       s1_p:'These groups already publicly oppose the large-scale solar and wind plants and the acceleration zones (ZAER) in the region. They are the most valuable allies — many have already filed opinions, petitions and submissions to the consultation.',
       d_gsul:'The frontline movement, from Vale de Prazeres / Mata da Rainha (Fundão). It organised the protests against the “Sophia” mega-plant, right over our mountains.',
@@ -220,6 +250,7 @@
       d_rcovilha:'Radio and online news for Covilhã / Cova da Beira.',
       d_bbtv:'Regional web-TV in Castelo Branco; already relayed the CPBB communiqué against the zones.',
       l_news:'News →', l_sign:'Sign the petition →', l_contact:'Contacts →', l_contact2:'Contact →', l_site:'Website →',
+      c_lbl:'Contact', c_dm:'direct message on the page above (DM)', c_viapet:'via the petition or a local movement',
       msg_h:'Suggested message for the press',
       msg_p:'“Hello. The PSZAER public consultation — which places the Serra da Gardunha in the most targeted region of the country for mega solar plants — is closing. We have gathered the facts, all from the Government’s own official documents, and translated all 12 documents at salvargardunha.com. We are happy to answer any questions.”',
       s4_k:'Where to share', s4_h:'Pages and communities with wide reach in the region',
@@ -233,6 +264,9 @@
       d_ytrcb:'The Fundão radio station’s channel; broadcasts to every affected municipality.',
       d_ytrec:'The video arm of the district’s weekly.',
       d_coop:'The Fundão / Gardunha cherry-growers’ community — the threatened land is theirs.',
+      sub_fb:'📘 Facebook — groups & pages', sub_ig:'📸 Instagram', sub_yt:'▶️ YouTube',
+      d_grp1:'A regional community group — share and comment with the link.', d_grp2:'A regional community group — share and comment with the link.',
+      d_ytbbtv:'Regional web-TV in Castelo Branco; has already covered the issue.',
       s4_note:'Tip: if you’re in a local buy-and-sell or village Facebook group, that is where a share makes the most difference. Find your parish’s groups and share there.',
       s5_k:'Are you a creator, journalist or part of a group?', s5_h:'Help us reach more people',
       s5_p:'If you have a page, a channel or an audience in the region — or you belong to one of these groups — the most useful thing you can do is <b>share the campaign and explain to your people how to object</b>. Every objection must be considered by law.',
@@ -245,6 +279,13 @@
       h1:'Wir sind nicht allein.<br>Hilf mit, mehr Menschen zu erreichen.',
       lede:'Es gibt bereits Menschen, die gegen die Großkraftwerke in der Beira Baixa kämpfen — Bürgerbewegungen, Umweltverbände, Gemeinden und Journalisten. Hier bündeln wir <b>diejenigen, die schon vor Ort sind</b>, die <b>Medien, die das Thema behandeln</b>, und die <b>Gemeinschaften, in denen du</b> die Kampagne teilen kannst, bevor die Konsultation endet.',
       cta_object:'In der Konsultation Einspruch erheben →', cta_camp:'Zur Kampagne',
+      kit_k:'In 30 Sekunden teilen', kit_h:'Fertige Texte — kopieren und einfügen', kit_p:'Nutze sie zum Kommentieren, Posten, für Gruppen-Nachrichten oder um die Seiten und Creator der Region anzuschreiben. Zum Kopieren tippen.', kit_copy:'📋 Kopieren',
+      cm_h:'💬 Kurzer Kommentar',
+      cm_txt:'⚠️ Die Serra da Gardunha gehört zu den am stärksten bedrohten Gebieten des Landes für Solar- und Wind-Großkraftwerke — die ohne Umweltverträglichkeitsprüfung genehmigt werden können. Die öffentliche Konsultation endet am 15. Juli. Mach dich gehört 👉 salvargardunha.com',
+      fb_h:'📣 Facebook-Beitrag',
+      fb_txt:'🌄 Unser Gebirge ist nicht käuflich.\n\nDie Regierung hat die Serra da Gardunha zur meistanvisierten Region des Landes für Solar- und Wind-Großkraftwerke gemacht — es steht in ihren eigenen offiziellen Unterlagen. Sie können OHNE Umweltverträglichkeitsprüfung voranschreiten, und nur 200 m von Wohnhäusern entfernt.\n\nDie öffentliche Konsultation endet am 15. Juli, und jeder Einspruch muss laut Gesetz berücksichtigt werden. Es dauert 2 Minuten.\n\nErfahre alles und erhebe Einspruch 👉 salvargardunha.com',
+      dm_h:'✉️ Nachricht für Seiten & Creator (DM)',
+      dm_txt:'Hallo! Wir sind Nachbarn, die die Kampagne salvargardunha.com gegen die Solar- und Wind-Großkraftwerke über der Serra da Gardunha gestartet haben. Die öffentliche Konsultation endet am 15. Juli. Da ihr eine große Reichweite in der Region habt, wäre es eine enorme Hilfe, wenn ihr sie teilen könntet. Danke für alles, was ihr für unsere Region tut! 🌄',
       s1_k:'Wer bereits kämpft', s1_h:'Bewegungen und Verbände — kontaktiere sie, mach mit, teile',
       s1_p:'Diese Gruppen lehnen die Solar- und Windgroßkraftwerke und die Beschleunigungszonen (ZAER) in der Region bereits öffentlich ab. Sie sind die wertvollsten Verbündeten — viele haben schon Stellungnahmen, Petitionen und Eingaben zur Konsultation eingereicht.',
       d_gsul:'Die Bewegung an vorderster Front, aus Vale de Prazeres / Mata da Rainha (Fundão). Sie organisierte die Proteste gegen das Großkraftwerk „Sophia“, direkt über unserem Gebirge.',
@@ -277,6 +318,7 @@
       d_rcovilha:'Radio und Online-Nachrichten für Covilhã / Cova da Beira.',
       d_bbtv:'Regionales Web-TV in Castelo Branco; hat bereits das CPBB-Kommuniqué gegen die Zonen verbreitet.',
       l_news:'Nachricht →', l_sign:'Petition unterschreiben →', l_contact:'Kontakte →', l_contact2:'Kontakt →', l_site:'Website →',
+      c_lbl:'Kontakt', c_dm:'Direktnachricht auf der Seite oben (DM)', c_viapet:'über die Petition oder eine lokale Bewegung',
       msg_h:'Vorschlag für eine Nachricht an die Presse',
       msg_p:'„Guten Tag. Die öffentliche Konsultation zum PSZAER — die die Serra da Gardunha zur meistanvisierten Region des Landes für Solar-Großkraftwerke macht — geht zu Ende. Wir haben die Fakten zusammengetragen, alle aus den offiziellen Regierungsunterlagen, und alle 12 Dokumente auf salvargardunha.com übersetzt. Für Rückfragen stehen wir gerne zur Verfügung.“',
       s4_k:'Wo teilen', s4_h:'Seiten und Gemeinschaften mit großer Reichweite in der Region',
@@ -290,6 +332,9 @@
       d_ytrcb:'Der Kanal des Radiosenders aus Fundão; sendet an alle betroffenen Gemeinden.',
       d_ytrec:'Der Videoableger der Wochenzeitung des Kreises.',
       d_coop:'Die Gemeinschaft der Kirschbauern von Fundão / Gardunha — das bedrohte Land ist ihres.',
+      sub_fb:'📘 Facebook — Gruppen & Seiten', sub_ig:'📸 Instagram', sub_yt:'▶️ YouTube',
+      d_grp1:'Eine regionale Gemeinschaftsgruppe — teile und kommentiere mit dem Link.', d_grp2:'Eine regionale Gemeinschaftsgruppe — teile und kommentiere mit dem Link.',
+      d_ytbbtv:'Regionales Web-TV in Castelo Branco; hat bereits über das Thema berichtet.',
       s4_note:'Tipp: Wenn du in einer lokalen Kauf-und-Verkauf- oder Dorf-Facebook-Gruppe bist, macht eine Teilung dort den größten Unterschied. Suche die Gruppen deiner Gemeinde und teile dort.',
       s5_k:'Bist du Creator, Journalist oder Teil einer Gruppe?', s5_h:'Hilf uns, mehr Menschen zu erreichen',
       s5_p:'Wenn du eine Seite, einen Kanal oder ein Publikum in der Region hast — oder zu einer dieser Gruppen gehörst — ist das Nützlichste, was du tun kannst: <b>die Kampagne teilen und deinen Leuten erklären, wie man Einspruch erhebt</b>. Jeder Einspruch muss laut Gesetz berücksichtigt werden.',
@@ -302,6 +347,13 @@
       h1:'Nous ne sommes pas seuls.<br>Aide à toucher plus de monde.',
       lede:'Des gens luttent déjà contre les méga-centrales en Beira Baixa — mouvements citoyens, associations environnementales, municipalités et journalistes. Nous réunissons ici <b>ceux qui sont déjà sur le terrain</b>, les <b>médias qui couvrent le sujet</b>, et les <b>communautés où tu peux partager</b> la campagne avant la fin de la consultation.',
       cta_object:'Objecter dans la consultation →', cta_camp:'Voir la campagne',
+      kit_k:'Partager en 30 secondes', kit_h:'Textes prêts à coller — copie et colle', kit_p:'Utilise-les pour commenter, publier, envoyer à des groupes, ou contacter les pages et créateurs de la région. Touche pour copier.', kit_copy:'📋 Copier',
+      cm_h:'💬 Commentaire court',
+      cm_txt:'⚠️ La Serra da Gardunha est l’une des zones les plus visées du pays par les méga-centrales solaires et éoliennes — qui peuvent être autorisées sans évaluation d’impact environnemental. La consultation publique se termine le 15 juillet. Fais entendre ta voix 👉 salvargardunha.com',
+      fb_h:'📣 Publication Facebook',
+      fb_txt:'🌄 Notre montagne n’est pas à vendre.\n\nLe gouvernement a placé la Serra da Gardunha dans la région la plus visée du pays par les méga-centrales solaires et éoliennes — c’est dans ses propres documents officiels. Elles peuvent avancer SANS évaluation d’impact environnemental, à seulement 200 m des maisons.\n\nLa consultation publique se termine le 15 juillet, et chaque objection doit être prise en compte par la loi. Cela prend 2 minutes.\n\nRenseigne-toi et objecte 👉 salvargardunha.com',
+      dm_h:'✉️ Message pour pages et créateurs (DM)',
+      dm_txt:'Bonjour ! Nous sommes des voisins qui avons créé la campagne salvargardunha.com contre les méga-centrales solaires et éoliennes au-dessus de la Serra da Gardunha. La consultation publique se termine le 15 juillet. Comme vous avez une grande audience dans la région, ce serait une aide énorme si vous pouviez la partager. Merci pour tout ce que vous faites pour notre terre ! 🌄',
       s1_k:'Qui lutte déjà', s1_h:'Mouvements et associations — contacte-les, rejoins, partage',
       s1_p:'Ces groupes s’opposent déjà publiquement aux méga-centrales solaires et éoliennes et aux zones d’accélération (ZAER) de la région. Ce sont les alliés les plus précieux — beaucoup ont déjà déposé des avis, des pétitions et des contributions à la consultation.',
       d_gsul:'Le mouvement de première ligne, de Vale de Prazeres / Mata da Rainha (Fundão). Il a organisé les manifestations contre la méga-centrale « Sophia », juste au-dessus de notre montagne.',
@@ -334,6 +386,7 @@
       d_rcovilha:'Radio et actualités en ligne pour Covilhã / Cova da Beira.',
       d_bbtv:'Web-TV régionale à Castelo Branco ; a déjà relayé le communiqué du CPBB contre les zones.',
       l_news:'Article →', l_sign:'Signer la pétition →', l_contact:'Contacts →', l_contact2:'Contact →', l_site:'Site →',
+      c_lbl:'Contact', c_dm:'message direct sur la page ci-dessus (DM)', c_viapet:'via la pétition ou un mouvement local',
       msg_h:'Suggestion de message pour la presse',
       msg_p:'« Bonjour. La consultation publique du PSZAER — qui place la Serra da Gardunha dans la région la plus visée du pays pour les méga-centrales solaires — touche à sa fin. Nous avons rassemblé les faits, tous issus des documents officiels du gouvernement, et traduit les 12 documents sur salvargardunha.com. Nous restons à disposition pour toute question. »',
       s4_k:'Où partager', s4_h:'Pages et communautés à forte audience dans la région',
@@ -347,6 +400,9 @@
       d_ytrcb:'La chaîne de la radio de Fundão ; émet vers toutes les communes affectées.',
       d_ytrec:'Le bras vidéo de l’hebdomadaire du district.',
       d_coop:'La communauté des producteurs de cerises de Fundão / Gardunha — la terre menacée est la leur.',
+      sub_fb:'📘 Facebook — groupes et pages', sub_ig:'📸 Instagram', sub_yt:'▶️ YouTube',
+      d_grp1:'Un groupe communautaire régional — partage et commente avec le lien.', d_grp2:'Un groupe communautaire régional — partage et commente avec le lien.',
+      d_ytbbtv:'Web-TV régionale à Castelo Branco ; a déjà couvert le sujet.',
       s4_note:'Astuce : si tu es dans un groupe Facebook local d’achat-vente ou de village, c’est là qu’un partage fait le plus de différence. Cherche les groupes de ta paroisse et partage-les.',
       s5_k:'Tu es créateur, journaliste ou membre d’un groupe ?', s5_h:'Aide-nous à toucher plus de monde',
       s5_p:'Si tu as une page, une chaîne ou une audience dans la région — ou si tu appartiens à l’un de ces groupes — la chose la plus utile que tu puisses faire est de <b>partager la campagne et d’expliquer aux tiens comment objecter</b>. Chaque objection doit être prise en compte par la loi.',
@@ -365,6 +421,17 @@
     localStorage.setItem('nf_lang',l);
   }
   document.querySelectorAll('#langsw button').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang'));});});
+  var COPIED={pt:'Copiado ✓',en:'Copied ✓',de:'Kopiert ✓',fr:'Copié ✓'};
+  document.querySelectorAll('.copybtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=document.querySelector(b.getAttribute('data-copy'));
+      if(!t)return;
+      navigator.clipboard.writeText(t.textContent.trim()).then(function(){
+        b.textContent=COPIED[lang]||'✓';
+        setTimeout(function(){applyLang(lang);},1600);
+      });
+    });
+  });
   applyLang(lang);
 </script>
 </body>
