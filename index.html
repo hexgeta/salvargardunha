@@ -344,15 +344,6 @@
   </div>
 </section>
 
-<section class="cta-band">
-  <div class="wrap">
-    <p class="cta-urgent"><span data-i18n="band1_line">Isto é o plano para a nossa serra. Faz ouvir a tua voz e ajuda a travar estas megacentrais —</span> <span class="divleft">…</span></p>
-    <div class="cta">
-      <a class="btn btn-primary" href="#assinar" data-i18n="hero_cta1">Assinar a petição →</a>
-    </div>
-  </div>
-</section>
-
 <section>
   <div class="wrap">
     <div class="kicker" data-i18n="hap_k">O que está a acontecer</div>
@@ -535,7 +526,6 @@
     <div class="kicker" data-i18n="pet_k">Petição no Parlamento</div>
     <div class="pet-nums"><span class="pet-count">5&nbsp;323</span><span class="pet-total" data-i18n="pet_total">/ 7&nbsp;500 assinaturas</span></div>
     <div class="pet-track"><div class="pet-fill" style="width:70%"></div><div class="pet-goal" title="1 000"></div></div>
-    <p class="pet-done" data-i18n="pet_done">✅ <b>Meta das 1&nbsp;000 atingida</b> — a audição dos peticionários está garantida.</p>
     <p class="pet-next" data-i18n="pet_next">Próxima meta: <b>7&nbsp;500</b> — obriga ao debate em Plenário na Assembleia da República.</p>
     <div class="cta"><a class="btn btn-primary" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="pet_btn">Assinar a petição →</a></div>
   </div>
@@ -1024,10 +1014,10 @@
     }
   };
   var STR={
-    pt:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'faltam <b>'+d+' dias e '+h+'h</b>':'faltam <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>a consulta terminou</b> — assina a petição', gen:'A gerar…', copied:'Copiado ✓', linkcopied:'Link copiado ✓', objections:function(n){return '✍️ <b>'+n+'</b> contributos já submetidos na consulta — junta o teu.'}, shareMsg:'A Serra da Gardunha é das áreas mais visadas do país por megacentrais solares. Objeta na consulta pública até 15 de julho: '},
-    en:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'<b>'+d+' days and '+h+'h</b> left':'<b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b> left'}, ended:'<b>the consultation has ended</b> — sign the petition', gen:'Generating…', copied:'Copied ✓', linkcopied:'Link copied ✓', objections:function(n){return '✍️ <b>'+n+'</b> contributions already submitted to the consultation — add yours.'}, shareMsg:'The Serra da Gardunha is one of the areas most targeted by mega solar plants in Portugal. Object in the public consultation by 15 July: '},
-    de:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'noch <b>'+d+' Tage und '+h+'h</b>':'noch <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>die Konsultation ist beendet</b> — unterschreibe die Petition', gen:'Wird erstellt…', copied:'Kopiert ✓', linkcopied:'Link kopiert ✓', objections:function(n){return '✍️ <b>'+n+'</b> Beiträge bereits eingereicht — füge deinen hinzu.'}, shareMsg:'Die Serra da Gardunha gehört zu den am stärksten von Solar-Großkraftwerken bedrohten Gebieten Portugals. Nimm bis 15. Juli an der Konsultation teil: '},
-    fr:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'encore <b>'+d+' jours et '+h+'h</b>':'encore <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>la consultation est terminée</b> — signe la pétition', gen:'Génération…', copied:'Copié ✓', linkcopied:'Lien copié ✓', objections:function(n){return '✍️ <b>'+n+'</b> contributions déjà soumises à la consultation — ajoute la tienne.'}, shareMsg:'La Serra da Gardunha est l’une des zones les plus visées du pays par les méga-centrales solaires. Participe à la consultation avant le 15 juillet : '}
+    pt:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'faltam <b>'+d+' dias e '+h+'h</b>':'faltam <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>assina a petição</b> — força um debate no Parlamento', gen:'A gerar…', copied:'Copiado ✓', linkcopied:'Link copiado ✓', objections:function(n){return '✍️ <b>'+n+'</b> assinaturas na petição — junta a tua.'}, shareMsg:'A Serra da Gardunha é das áreas mais visadas do país por megacentrais solares. Objeta na consulta pública até 15 de julho: '},
+    en:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'<b>'+d+' days and '+h+'h</b> left':'<b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b> left'}, ended:'<b>sign the petition</b> — force a debate in Parliament', gen:'Generating…', copied:'Copied ✓', linkcopied:'Link copied ✓', objections:function(n){return '✍️ <b>'+n+'</b> signatures on the petition — add yours.'}, shareMsg:'The Serra da Gardunha is one of the areas most targeted by mega solar plants in Portugal. Object in the public consultation by 15 July: '},
+    de:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'noch <b>'+d+' Tage und '+h+'h</b>':'noch <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>unterschreibe die Petition</b> — erzwinge eine Debatte im Parlament', gen:'Wird erstellt…', copied:'Kopiert ✓', linkcopied:'Link kopiert ✓', objections:function(n){return '✍️ <b>'+n+'</b> Unterschriften für die Petition — füge deine hinzu.'}, shareMsg:'Die Serra da Gardunha gehört zu den am stärksten von Solar-Großkraftwerken bedrohten Gebieten Portugals. Nimm bis 15. Juli an der Konsultation teil: '},
+    fr:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'encore <b>'+d+' jours et '+h+'h</b>':'encore <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>signe la pétition</b> — impose un débat au Parlement', gen:'Génération…', copied:'Copié ✓', linkcopied:'Lien copié ✓', objections:function(n){return '✍️ <b>'+n+'</b> signatures sur la pétition — ajoute la tienne.'}, shareMsg:'La Serra da Gardunha est l’une des zones les plus visées du pays par les méga-centrales solaires. Participe à la consultation avant le 15 juillet : '}
   };
 
   var PT={}; document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
@@ -1078,19 +1068,19 @@
   var partCount=null;
   function renderLive(){
     var el=document.getElementById('livecount');
-    if(!el||!partCount) return;
-    el.innerHTML=STR[lang].objections(fmtCount(partCount));
+    if(!el||!petCount) return;
+    el.innerHTML=STR[lang].objections(fmtCount(petCount));
     el.hidden=false;
   }
   fetch('/api/participations').then(function(r){return r.json()}).then(function(j){ if(j&&j.count){partCount=j.count; renderLive();} }).catch(function(){});
-  var PET_NEXT=7500, petCount=5311;
+  var PET_NEXT=7500, petCount=5323;
   function fmtCount(n){var sep=(lang==='en')?',':'\u00a0';return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,sep);}
   function renderPet(){
     var pct=Math.min(100,petCount/PET_NEXT*100);
     document.querySelectorAll('.pet-count').forEach(function(el){el.textContent=fmtCount(petCount);});
     document.querySelectorAll('.pet-fill').forEach(function(el){el.style.width=pct+'%';});
   }
-  fetch('/api/petition').then(function(r){return r.json()}).then(function(j){ if(j&&j.count){petCount=j.count;} renderPet(); }).catch(function(){ renderPet(); });
+  fetch('/api/petition').then(function(r){return r.json()}).then(function(j){ if(j&&j.count){petCount=j.count;} renderPet(); renderLive(); }).catch(function(){ renderPet(); renderLive(); });
   applyLang(lang); setInterval(tick,1000);
   // In-page anchor navigation (CTA clicks AND #hash deep-links) with a sticky-bar
   // offset, plus a few re-scrolls to counter lazy-loaded images above the target
