@@ -222,7 +222,7 @@
 <div class="bar mono">
   <div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></div>
   <div class="bar-content">⚠️ <span id="barleft">…</span></div>
-  <a class="btn btn-primary" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="hero_cta1">Assinar a petição →</a>
+  <a class="btn btn-primary" href="#assinar" data-i18n="hero_cta1">Assinar a petição →</a>
 </div>
 
 <header>
@@ -238,7 +238,7 @@
     </div>
 
     <div class="cta">
-      <a class="btn btn-primary" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="hero_cta1">Assinar a petição →</a>
+      <a class="btn btn-primary" href="#assinar" data-i18n="hero_cta1">Assinar a petição →</a>
     </div>
     <p class="livecount" id="livecount" hidden></p>
   </div>
@@ -364,7 +364,7 @@
   <div class="wrap">
     <p class="cta-urgent"><span data-i18n="band1_line">Isto é o plano para a nossa serra. Faz ouvir a tua voz e ajuda a travar estas megacentrais —</span> <span class="divleft">…</span></p>
     <div class="cta">
-      <a class="btn btn-primary" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="hero_cta1">Assinar a petição →</a>
+      <a class="btn btn-primary" href="#assinar" data-i18n="hero_cta1">Assinar a petição →</a>
     </div>
   </div>
 </section>
@@ -443,7 +443,7 @@
   <div class="wrap">
     <p class="cta-urgent"><span data-i18n="band2_line">Não deixes que decidam por nós. A objeção é oficial e tem de ser considerada por lei —</span> <span class="divleft">…</span></p>
     <div class="cta">
-      <a class="btn btn-primary" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="hero_cta1">Assinar a petição →</a>
+      <a class="btn btn-primary" href="#assinar" data-i18n="hero_cta1">Assinar a petição →</a>
     </div>
   </div>
 </section>
@@ -540,7 +540,7 @@
     </div>
 
     <div class="cta">
-      <a class="btn btn-primary" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="hero_cta1">Assinar a petição →</a>
+      <a class="btn btn-primary" href="#assinar" data-i18n="hero_cta1">Assinar a petição →</a>
       <a class="btn btn-ghost" href="/read/" data-i18n="read_cta">Ler os documentos →</a>
     </div>
   </div>
@@ -1108,25 +1108,31 @@
   }
   fetch('/api/petition').then(function(r){return r.json()}).then(function(j){ if(j&&j.count){petCount=j.count;} renderPet(); }).catch(function(){ renderPet(); });
   applyLang(lang); setInterval(tick,1000);
-  // After translation reflows the page, re-honour a #hash the browser jumped to too early.
-  // Lazy-loaded images ABOVE the target keep shifting layout as they load, and the sticky
-  // .bar overlaps the top — so re-scroll a few times (and on window load) with a bar-height
-  // offset, rather than a single early scrollIntoView.
+  // In-page anchor navigation (CTA clicks AND #hash deep-links) with a sticky-bar
+  // offset, plus a few re-scrolls to counter lazy-loaded images above the target
+  // shifting the layout after the jump — which otherwise lands "too early" in Safari
+  // and Telegram's in-app browser. The native jump has no handler, so we do it here.
+  function anchorOffset(){var bar=document.querySelector('.bar');return (bar?bar.getBoundingClientRect().height:0)+10;}
+  function scrollToEl(target,smooth){
+    var y=target.getBoundingClientRect().top+window.pageYOffset-anchorOffset();
+    try{window.scrollTo(smooth?{top:y,behavior:'smooth'}:{top:y,behavior:'auto'});}catch(_){window.scrollTo(0,y);}
+    [700,1400,2400].forEach(function(ms){setTimeout(function(){
+      var y2=target.getBoundingClientRect().top+window.pageYOffset-anchorOffset();
+      if(Math.abs(y2-window.pageYOffset)>12){window.scrollTo(0,y2);}
+    },ms);});
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest?e.target.closest('a[href^="#"]'):null;
+    if(!a||a.getAttribute('href').length<2) return;
+    var target=document.getElementById(a.getAttribute('href').slice(1));
+    if(!target) return;
+    e.preventDefault();
+    try{history.replaceState(null,'',(lang==='pt'?'/':'/'+lang)+a.getAttribute('href'));}catch(_){}
+    scrollToEl(target,true);
+  });
   if(location.hash.length>1){
-    var hashTarget=document.getElementById(location.hash.slice(1));
-    if(hashTarget){
-      var scrollToHash=function(){
-        var bar=document.querySelector('.bar');
-        var offset=(bar?bar.getBoundingClientRect().height:0)+8;
-        var y=hashTarget.getBoundingClientRect().top+window.pageYOffset-offset;
-        window.scrollTo(0,y);
-      };
-      requestAnimationFrame(function(){
-        scrollToHash();
-        [80,300,800].forEach(function(ms){setTimeout(scrollToHash,ms);});
-      });
-      window.addEventListener('load',function(){setTimeout(scrollToHash,50);});
-    }
+    var ht=document.getElementById(location.hash.slice(1));
+    if(ht){requestAnimationFrame(function(){scrollToEl(ht,false);});window.addEventListener('load',function(){setTimeout(function(){scrollToEl(ht,false);},60);});}
   }
 
   var GENFB={
