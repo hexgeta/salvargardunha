@@ -73,6 +73,22 @@
   figcaption{color:#334;font-size:13.5px;padding:12px 8px 8px;line-height:1.5}
   .lg{display:inline-flex;gap:6px;align-items:center;margin-right:14px;color:#111;font-weight:600}
   .sw{width:14px;height:14px;border-radius:3px;display:inline-block}
+  .big{font-size:clamp(30px,6vw,46px);font-weight:900;color:var(--green);letter-spacing:-.02em;line-height:1.05}
+  .hl{color:var(--green)}
+  .facts{list-style:none;margin-top:24px;display:grid;gap:14px}
+  .facts li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;color:#ccd3c9;font-size:16px}
+  .facts li b{color:#fff}
+  .tbl-h{font-weight:700;color:#fff;margin-top:28px;font-size:15px}
+  .gup{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}
+  .gup th,.gup td{padding:7px 12px;text-align:right;white-space:nowrap}
+  .gup th:first-child,.gup td:first-child{text-align:left;white-space:normal}
+  .gup thead th{background:#10200f;color:var(--green);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+  .gup tr.hl{background:#241503}
+  .gup tr.hl td{color:#fff;font-weight:700}
+  .gtag{color:var(--amber);font-weight:700;font-size:11px;letter-spacing:.06em;margin-left:8px;white-space:nowrap}
+  .tbl-note{color:var(--muted);font-size:13.5px;margin-top:10px}
+  .quote{margin-top:24px;border-left:3px solid var(--amber);padding:6px 0 6px 18px;color:#e7ecdf;font-size:18px;font-style:italic}
+  .quote span{display:block;margin-top:8px;font-style:normal;font-size:13.5px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -217,6 +233,53 @@
   </div>
 </section>
 
+<section>
+  <div class="wrap">
+    <div class="kicker" data-i18n="tgt_k">Porque é a NOSSA serra o alvo</div>
+    <h2 data-i18n="tgt_h">A Beira Baixa é a região #1 do país para solar</h2>
+    <p class="big" data-i18n="tgt_big">57&nbsp;758 ha</p>
+    <p style="margin-top:6px" data-i18n="tgt_p">de zonas solares na Beira Baixa — <b>11% de toda a região</b>, a maior percentagem de qualquer região de Portugal. Mais <b>19&nbsp;295 ha</b> para eólica. Só o concelho do Fundão soma <b>~6&nbsp;237 ha de solar e ~4&nbsp;947 ha de eólica</b>.</p>
+    <ul class="facts">
+      <li data-i18n="tgt_f1"><b>#1 solar, #2/#3/#4 eólica</b>No ranking nacional, a região lidera o solar (Sertã e Proença-a-Nova no topo) e domina a eólica: Castelo Branco (#2), Oleiros (#3), Fundão (#4).</li>
+      <li data-i18n="tgt_f2"><b>A Gardunha está lá nomeada</b>Os consultores do Governo destacam o grupo de paisagem <i>“Pinhal do Centro”</i> — que integra as <b>“Serras da Gardunha, Alvelos e Moradal”</b> e o <b>“Maciço agro-florestal de Castelo Branco”</b> — como o de <b>maior potencial solar do país</b> (~34% do grupo).</li>
+    </ul>
+    <p class="tbl-h" data-i18n="tab_h">Potencial solar ZAER por grupo de paisagem</p>
+    <div class="tbl-scroll">
+      <table class="gup">
+        <thead><tr><th data-i18n="tab_th1">Grupo de Unidades de Paisagem (GUP)</th><th data-i18n="tab_th2">Solar (km²)</th><th data-i18n="tab_th3">Área do grupo (km²)</th><th data-i18n="tab_th4">% do grupo</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td>Pinhal do Centro<span class="gtag" data-i18n="tab_gard">← inclui a Gardunha</span></td><td>1&nbsp;371,82</td><td>4&nbsp;014,86</td><td>34,17%</td></tr>
+          <tr><td>Beira Alta</td><td>1&nbsp;201,22</td><td>7&nbsp;922,24</td><td>15,16%</td></tr>
+          <tr><td>Beira Litoral</td><td>528,33</td><td>4&nbsp;445,99</td><td>11,88%</td></tr>
+          <tr><td>Ribatejo</td><td>734,00</td><td>7&nbsp;428,93</td><td>9,88%</td></tr>
+          <tr><td>Beira Interior</td><td>613,81</td><td>7&nbsp;317,97</td><td>8,39%</td></tr>
+          <tr><td>Estremadura – Oeste</td><td>179,77</td><td>2&nbsp;159,81</td><td>8,32%</td></tr>
+          <tr><td>Área Metropolitana do Porto</td><td>62,38</td><td>846,25</td><td>7,37%</td></tr>
+          <tr><td>Alentejo Central</td><td>425,83</td><td>6&nbsp;358,37</td><td>6,70%</td></tr>
+          <tr><td>Maciço Central</td><td>138,14</td><td>2&nbsp;075,20</td><td>6,66%</td></tr>
+          <tr><td>Entre Douro e Minho</td><td>417,62</td><td>6&nbsp;370,96</td><td>6,56%</td></tr>
+          <tr><td>Terras do Sado</td><td>296,06</td><td>4&nbsp;812,82</td><td>6,15%</td></tr>
+          <tr><td>Alto Alentejo</td><td>207,19</td><td>4&nbsp;144,51</td><td>5,00%</td></tr>
+          <tr><td>Maciços Calcários da Estremadura</td><td>95,03</td><td>2&nbsp;178,88</td><td>4,36%</td></tr>
+          <tr><td>Baixo Alentejo</td><td>261,94</td><td>7&nbsp;209,85</td><td>3,63%</td></tr>
+          <tr><td>Serras do Algarve e do Litoral Alentejano</td><td>179,83</td><td>5&nbsp;310,68</td><td>3,39%</td></tr>
+          <tr><td>Trás-os-Montes</td><td>218,42</td><td>8&nbsp;315,71</td><td>2,63%</td></tr>
+          <tr><td>Montes Entre Larouco e Marão</td><td>39,28</td><td>2&nbsp;089,42</td><td>1,88%</td></tr>
+          <tr><td>Ribatejo; Área Metropolitana de Lisboa – Norte</td><td>1,45</td><td>86,27</td><td>1,68%</td></tr>
+          <tr><td>Área Metropolitana de Lisboa – Norte</td><td>8,96</td><td>644,44</td><td>1,39%</td></tr>
+          <tr><td>Área Metropolitana de Lisboa – Sul</td><td>10,85</td><td>786,48</td><td>1,38%</td></tr>
+          <tr><td>Douro</td><td>20,23</td><td>1&nbsp;933,19</td><td>1,05%</td></tr>
+          <tr><td>Área Metropolitana do Porto + Douro</td><td>0,21</td><td>34,46</td><td>0,60%</td></tr>
+          <tr><td>Algarve</td><td>1,29</td><td>1&nbsp;639,94</td><td>0,08%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note" data-i18n="tgt_tab_cap">O grupo <i>“Pinhal do Centro”</i> — onde os consultores incluem a Gardunha — lidera o potencial solar do país, com <b>34%</b> da sua área. Fonte: Relatório de Paisagem do PSZAER, Tabela 1.</p>
+    <div class="quote" data-i18n="tgt_quote">“É por isso natural que as áreas territoriais sobrantes sejam as que têm menores valores atuais de qualidade de paisagem.”
+      <span>— Relatório de Paisagem do PSZAER, sobre o interior. Ou seja: tratam a nossa terra como o “sobrante” do país. Não é.</span></div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div data-i18n="foot_made">Feito por vizinhos da Beira Baixa que querem a serra de pé. · <a href="/">salvargardunha.com</a></div>
@@ -229,6 +292,13 @@
   var LANGS=['pt','en','de','fr'];
   var I18N={
     en:{
+      tgt_k:'Why OUR mountains are the target', tgt_h:'The Beira Baixa is the country’s #1 region for solar', tgt_big:'57,758 ha',
+      tgt_p:'of solar zones in the Beira Baixa — <b>11% of the entire region</b>, the highest share of any region in Portugal. Plus <b>19,295 ha</b> for wind. The municipality of Fundão alone adds up to <b>~6,237 ha of solar and ~4,947 ha of wind</b>.',
+      tgt_f1:'<b>#1 solar, #2/#3/#4 wind</b>In the national ranking, the region leads on solar (Sertã and Proença-a-Nova at the top) and dominates wind: Castelo Branco (#2), Oleiros (#3), Fundão (#4).',
+      tgt_f2:'<b>The Gardunha is named in there</b>The Government’s consultants single out the <i>“Pinhal do Centro”</i> landscape group — which includes the <b>“Serras da Gardunha, Alvelos e Moradal”</b> and the <b>“agro-forestry massif of Castelo Branco”</b> — as the one with the <b>highest solar potential in the country</b> (~34% of the group).',
+      tab_h:'ZAER solar potential by landscape group', tab_th1:'Landscape Unit Group (GUP)', tab_th2:'Solar (km²)', tab_th3:'Group area (km²)', tab_th4:'% of group', tab_gard:'← includes the Gardunha',
+      tgt_tab_cap:'The <i>“Pinhal do Centro”</i> group — where the consultants place the Gardunha — leads the country’s solar potential, with <b>34%</b> of its area. Source: PSZAER Landscape Report, Table 1.',
+      tgt_quote:'“It is therefore natural that the remaining land areas are those with the lowest current landscape-quality values.”<span>— PSZAER Landscape Report, on the interior. In other words: they treat our land as the country’s “leftovers”. It is not.</span>',
       hap_k:'What is happening', hap_h:'7% of the country opened to power plants — with no environmental assessment',
       hap_p1:'The Government has put the <b>PSZAER</b> — the <i>Sectoral Programme for Renewable Energy Acceleration Zones</i> — out for public consultation. In the words of its own summary, the process <b>“made available for acceleration around 7% of the mainland territory”</b>, where projects can be licensed <b>“without going through environmental impact assessment (EIA)”</b>.',
       hap_p2:'Inside these zones, environmental assessment is replaced by a simple <b>“verification sub-procedure”</b> and a <b>“single window”</b> with tight deadlines. The mapped potential is enormous: <b>~578,777 ha for solar</b> and <b>~84,618 ha for wind</b>. And these are not rooftops — <b>78.9% of the solar-potential area is forest land</b>.',
@@ -317,6 +387,13 @@
       disc:'Plain-language explanation of the PSZAER drafting procedure, based on the official consultation documents (participa.pt / EMER 2030, 2026) and on the Legal Regime for Territorial Management Instruments. Informative, civic, non-profit, not affiliated with any party, company or public entity.'
     },
     de:{
+      tgt_k:'Warum UNSER Gebirge das Ziel ist', tgt_h:'Die Beira Baixa ist die Solar-Region #1 des Landes',
+      tgt_p:'Solarzonen in der Beira Baixa — <b>11% der gesamten Region</b>, der höchste Anteil aller Regionen Portugals. Dazu <b>19&nbsp;295 ha</b> für Wind. Allein der Kreis Fundão hat <b>~6&nbsp;237 ha Solar und ~4&nbsp;947 ha Wind</b>.',
+      tgt_f1:'<b>#1 Solar, #2/#3/#4 Wind</b>Im nationalen Ranking führt die Region bei Solar (Sertã und Proença-a-Nova an der Spitze) und dominiert bei Wind: Castelo Branco (#2), Oleiros (#3), Fundão (#4).',
+      tgt_f2:'<b>Die Gardunha wird dort namentlich genannt</b>Die Berater der Regierung heben die Landschaftsgruppe <i>„Pinhal do Centro“</i> hervor — die die <b>„Serras da Gardunha, Alvelos e Moradal“</b> und das <b>„agroforstliche Massiv von Castelo Branco“</b> umfasst — als die mit dem <b>größten Solarpotenzial des Landes</b> (~34% der Gruppe).',
+      tab_h:'ZAER-Solarpotenzial nach Landschaftsgruppe', tab_th1:'Landschaftsgruppe (GUP)', tab_th2:'Solar (km²)', tab_th3:'Fläche der Gruppe (km²)', tab_th4:'% der Gruppe', tab_gard:'← umfasst die Gardunha',
+      tgt_tab_cap:'Die Gruppe <i>„Pinhal do Centro“</i> — zu der die Berater die Gardunha zählen — führt das Solarpotenzial des Landes an, mit <b>34%</b> ihrer Fläche. Quelle: Landschaftsbericht des PSZAER, Tabelle 1.',
+      tgt_quote:'„Es ist daher natürlich, dass die übrig gebliebenen Flächen jene mit den derzeit geringsten Landschaftsqualitätswerten sind.“<span>— Landschaftsbericht des PSZAER über das Landesinnere. Mit anderen Worten: Sie behandeln unser Land als den „Rest“ des Landes. Das ist es nicht.</span>',
       hap_k:'Was gerade passiert', hap_h:'7% des Landes für Kraftwerke geöffnet — ohne Umweltprüfung',
       hap_p1:'Die Regierung hat das <b>PSZAER</b> — das <i>Sektorprogramm für Beschleunigungszonen erneuerbarer Energien</i> — zur öffentlichen Konsultation gestellt. In den Worten der eigenen Zusammenfassung wurden <b>„rund 7% des portugiesischen Festlandgebiets zur Beschleunigung freigegeben“</b>, wo Projekte <b>„ohne Umweltverträglichkeitsprüfung (UVP)“</b> genehmigt werden können.',
       hap_p2:'In diesen Zonen wird die Umweltprüfung durch ein einfaches <b>„Prüfverfahren“</b> und ein <b>„einziges Fenster“</b> mit engen Fristen ersetzt. Das kartierte Potenzial ist riesig: <b>~578&nbsp;777&nbsp;ha für Solar</b> und <b>~84&nbsp;618&nbsp;ha für Wind</b>. Und es sind keine Dächer — <b>78,9% der Solar-Potenzialfläche ist Waldfläche</b>.',
@@ -405,6 +482,13 @@
       disc:'Erklärung in einfacher Sprache des Verfahrens zur Ausarbeitung des PSZAER, auf Grundlage der offiziellen Konsultationsdokumente (participa.pt / EMER 2030, 2026) und des Rechtsregimes der Instrumente der Raumordnung. Informativ, bürgerschaftlich, gemeinnützig, keiner Partei, keinem Unternehmen und keiner öffentlichen Stelle angeschlossen.'
     },
     fr:{
+      tgt_k:'Pourquoi NOTRE montagne est la cible', tgt_h:'La Beira Baixa est la région #1 du pays pour le solaire',
+      tgt_p:'de zones solaires en Beira Baixa — <b>11% de toute la région</b>, le plus fort pourcentage de toutes les régions du Portugal. Plus <b>19&nbsp;295 ha</b> pour l’éolien. Le seul canton de Fundão totalise <b>~6&nbsp;237 ha de solaire et ~4&nbsp;947 ha d’éolien</b>.',
+      tgt_f1:'<b>#1 solaire, #2/#3/#4 éolien</b>Au classement national, la région est en tête pour le solaire (Sertã et Proença-a-Nova en haut) et domine l’éolien : Castelo Branco (#2), Oleiros (#3), Fundão (#4).',
+      tgt_f2:'<b>La Gardunha y est nommée</b>Les consultants du gouvernement désignent le groupe de paysage <i>« Pinhal do Centro »</i> — qui intègre les <b>« Serras da Gardunha, Alvelos e Moradal »</b> et le <b>« massif agro-forestier de Castelo Branco »</b> — comme celui au <b>plus fort potentiel solaire du pays</b> (~34% du groupe).',
+      tab_h:'Potentiel solaire ZAER par groupe de paysage', tab_th1:'Groupe d’unités de paysage (GUP)', tab_th2:'Solaire (km²)', tab_th3:'Surface du groupe (km²)', tab_th4:'% du groupe', tab_gard:'← inclut la Gardunha',
+      tgt_tab_cap:'Le groupe <i>« Pinhal do Centro »</i> — où les consultants placent la Gardunha — mène le potentiel solaire du pays, avec <b>34%</b> de sa surface. Source : Rapport Paysage du PSZAER, Tableau 1.',
+      tgt_quote:'« Il est donc naturel que les surfaces restantes soient celles qui ont aujourd’hui les plus faibles valeurs de qualité paysagère. »<span>— Rapport Paysage du PSZAER, à propos de l’intérieur. Autrement dit : ils traitent notre terre comme le « reste » du pays. Elle ne l’est pas.</span>',
       hap_k:'Ce qui se passe', hap_h:'7% du pays ouvert aux centrales — sans évaluation environnementale',
       hap_p1:'Le gouvernement a mis en consultation publique le <b>PSZAER</b> — le <i>Programme sectoriel des zones d’accélération des énergies renouvelables</i>. Selon son propre résumé, le processus <b>« a rendu disponibles pour l’accélération environ 7% du territoire continental national »</b>, où les projets peuvent être autorisés <b>« sans passer par l’évaluation d’impact environnemental (EIE) »</b>.',
       hap_p2:'Dans ces zones, l’évaluation environnementale est remplacée par une simple <b>« sous-procédure de vérification »</b> et un <b>« guichet unique »</b> aux délais serrés. Le potentiel cartographié est énorme : <b>~578&nbsp;777&nbsp;ha pour le solaire</b> et <b>~84&nbsp;618&nbsp;ha pour l’éolien</b>. Et ce ne sont pas des toits — <b>78,9% de la surface de potentiel solaire est un espace forestier</b>.',
