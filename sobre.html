@@ -68,6 +68,11 @@
   footer a{color:var(--green);text-decoration:none}
   .disc{margin-top:16px;font-size:12.5px;color:#6f7a6f;border-top:1px solid var(--line);padding-top:16px}
   @media(max-width:640px){ th,td{padding:10px 12px;font-size:13.5px} .langsw{top:8px;right:8px} .langsw button{font-size:10.5px;padding:4px 7px} }
+  figure{margin:26px auto 6px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 12px 4px;overflow:hidden;max-width:460px}
+  figure img{display:block;width:100%;height:auto;border-radius:8px}
+  figcaption{color:#334;font-size:13.5px;padding:12px 8px 8px;line-height:1.5}
+  .lg{display:inline-flex;gap:6px;align-items:center;margin-right:14px;color:#111;font-weight:600}
+  .sw{width:14px;height:14px;border-radius:3px;display:inline-block}
 </style>
 </head>
 <body>
@@ -186,6 +191,22 @@
   </div>
 </section>
 
+<section>
+  <div class="wrap">
+    <div class="kicker" data-i18n="map_k">O mapa oficial do Governo</div>
+    <h2 data-i18n="map_h">Isto é o plano — e a Gardunha está no meio</h2>
+    <p data-i18n="map_p">Cada mancha é uma zona onde o Governo quer acelerar centrais renováveis. O interior centro é a área mais coberta do país. A Serra da Gardunha e o maciço de Castelo Branco estão no coração dessa mancha.</p>
+    <figure>
+      <img src="mapa-oficial.png" alt="Mapa oficial das zonas de aceleração de energias renováveis (ZAER) em Portugal.">
+      <figcaption>
+        <span class="lg"><span class="sw" style="background:#ffe600;border:1px solid #ccc"></span><span data-i18n="map_lg_solar">Zonas solares</span></span>
+        <span class="lg"><span class="sw" style="background:#1f6fff"></span><span data-i18n="map_lg_wind">Zonas eólicas</span></span><br>
+        <span data-i18n="map_src">Fonte: <i>Proposta PSZAER — Relatório Temático de Integração de Informação Espacializada</i> (LNEG / EMER 2030), Figura 39. Assinalação nossa.</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div data-i18n="foot_made">Feito por vizinhos da Beira Baixa que querem a serra de pé. · <a href="/">salvargardunha.com</a></div>
@@ -198,6 +219,10 @@
   var LANGS=['pt','en','de','fr'];
   var I18N={
     en:{
+      map_k:'The Government’s official map', map_h:'This is the plan — and the Gardunha is right in the middle',
+      map_p:'Every patch is a zone where the Government wants to fast-track renewable power plants. The central interior is the most covered area in the country. The Serra da Gardunha and the Castelo Branco massif sit at the heart of that patch.',
+      map_lg_solar:'Solar zones', map_lg_wind:'Wind zones',
+      map_src:'Source: <i>PSZAER Proposal — Thematic Report on the Integration of Spatial Information</i> (LNEG / EMER 2030), Figure 39. Marking ours.',
       back:'← Salvar a Gardunha',
       eyebrow:'PSZAER · Quick guide',
       h1:'Who decides, what and when —<br>the process in plain language',
@@ -278,6 +303,10 @@
       disc:'Plain-language explanation of the PSZAER drafting procedure, based on the official consultation documents (participa.pt / EMER 2030, 2026) and on the Legal Regime for Territorial Management Instruments. Informative, civic, non-profit, not affiliated with any party, company or public entity.'
     },
     de:{
+      map_k:'Die offizielle Karte der Regierung', map_h:'Das ist der Plan — und die Gardunha liegt mittendrin',
+      map_p:'Jeder Fleck ist eine Zone, in der die Regierung erneuerbare Kraftwerke beschleunigen will. Das zentrale Landesinnere ist das am dichtesten belegte Gebiet des Landes. Die Serra da Gardunha und das Massiv von Castelo Branco liegen im Herzen dieses Flecks.',
+      map_lg_solar:'Solarzonen', map_lg_wind:'Windzonen',
+      map_src:'Quelle: <i>PSZAER-Vorschlag — Themenbericht zur Integration räumlicher Informationen</i> (LNEG / EMER 2030), Abbildung 39. Markierung von uns.',
       back:'← Salvar a Gardunha',
       eyebrow:'PSZAER · Kurzanleitung',
       h1:'Wer entscheidet, was und wann —<br>der Prozess in einfachen Worten',
@@ -358,6 +387,10 @@
       disc:'Erklärung in einfacher Sprache des Verfahrens zur Ausarbeitung des PSZAER, auf Grundlage der offiziellen Konsultationsdokumente (participa.pt / EMER 2030, 2026) und des Rechtsregimes der Instrumente der Raumordnung. Informativ, bürgerschaftlich, gemeinnützig, keiner Partei, keinem Unternehmen und keiner öffentlichen Stelle angeschlossen.'
     },
     fr:{
+      map_k:'La carte officielle du gouvernement', map_h:'Voici le plan — et la Gardunha est au milieu',
+      map_p:'Chaque tache est une zone où le gouvernement veut accélérer les centrales renouvelables. L’intérieur centre est la zone la plus couverte du pays. La Serra da Gardunha et le massif de Castelo Branco sont au cœur de cette tache.',
+      map_lg_solar:'Zones solaires', map_lg_wind:'Zones éoliennes',
+      map_src:'Source : <i>Proposition PSZAER — Rapport thématique d’intégration de l’information spatialisée</i> (LNEG / EMER 2030), Figure 39. Marquage par nos soins.',
       back:'← Salvar a Gardunha',
       eyebrow:'PSZAER · Guide rapide',
       h1:'Qui décide, quoi et quand —<br>le processus en langage simple',
