@@ -54,8 +54,8 @@ fi
 if [ ! -f "$STATE_DIR/docs.list" ]; then
   printf '%s\n' "$docs" > "$STATE_DIR/docs.list"
   LOG "baseline recorded: $ndocs documents (no alert on first run)"
-  send_tg "✅ <b>Monitor PSZAER ativo</b>
-A vigiar a página da consulta no participa.pt ($ndocs documentos registados). Recebes um alerta aqui assim que aparecer o <b>relatório de ponderação</b> (a resposta do Governo aos contributos) ou a aprovação final.
+  send_tg "✅ <b>PSZAER monitor active</b>
+Watching the participa.pt consultation page ($ndocs documents recorded). You'll get an alert here the moment a new document appears — the <b>relatório de ponderação</b> (the Government's reply to the public contributions) or the final approval.
 
 $CONSULT_URL"
   exit 0
@@ -66,8 +66,8 @@ newdocs=$(comm -13 "$STATE_DIR/docs.list" <(printf '%s\n' "$docs") \
 
 if [ -n "$newdocs" ]; then
   LOG "NEW DOCUMENTS: $newdocs"
-  send_tg "🚨 <b>PSZAER — documento novo na consulta</b>
-Apareceu documento(s) novo(s) no participa.pt — possivelmente o <b>relatório de ponderação</b> (a resposta do Governo aos contributos da consulta pública):
+  send_tg "🚨 <b>PSZAER — new document on the consultation</b>
+A new document has appeared on participa.pt — likely the <b>relatório de ponderação</b> (the Government's reply to the public-consultation contributions):
 
 $newdocs
 
