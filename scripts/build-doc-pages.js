@@ -46,7 +46,7 @@ const CSS = `
   .sum p{color:#dfe6da;font-size:16.5px}
   .figs{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
   .figs .f{flex:1;min-width:140px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-  .figs .n{font-size:23px;font-weight:900;color:var(--green);line-height:1.1;font-variant-numeric:tabular-nums}
+  .figs .n{font-size:23px;font-weight:900;color:var(--ink);line-height:1.1;font-variant-numeric:tabular-nums}
   .figs .l{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.4}
   .cta{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}
   .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14.5px;padding:11px 17px;border-radius:11px;text-decoration:none;border:1px solid transparent}
@@ -84,7 +84,7 @@ function footer(extra) {
         <a href="/social">Spread the word</a>
       </div>
       <div class="foot-col"><h4>Documents &amp; data</h4>
-        <a href="/read/">Documents in English</a>
+        <a href="/read/">Documents explained</a>
         <a href="/objecoes">The 172 objections</a>
         <a href="/mapa">The maps of the areas</a>
       </div>
@@ -119,7 +119,7 @@ function page(d) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(d.title)} — PSZAER in English</title>
+<title>${esc(d.title)} — PSZAER</title>
 <meta name="description" content="${plain(d.summary || '').slice(0, 180)}">
 <link rel="canonical" href="https://salvargardunha.com/read/${esc(d.slug)}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
@@ -128,11 +128,11 @@ function page(d) {
 </head>
 <body>
 
-<div class="top"><div class="wrap"><a href="/read/">← All documents in English</a> · <a href="/">salvargardunha.com</a></div></div>
+<div class="top"><div class="wrap"><a href="/read/">← All documents</a> · <a href="/">salvargardunha.com</a></div></div>
 
 <header>
   <div class="wrap">
-    <div class="eyebrow">PSZAER consultation · document in English</div>
+    <div class="eyebrow">PSZAER consultation · document</div>
     <h1>${rich(d.title)}</h1>
     <p class="meta"><span class="pt">${esc(d.titlePt || '')}</span><br>${esc(d.authors || '')}${d.authors && d.date ? ' · ' : ''}${esc(d.date || '')}${d.pages ? ' · ' + esc(d.pages) + ' pages' : ''}</p>
 
@@ -178,8 +178,8 @@ function indexPage(docs) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The PSZAER consultation documents — in English</title>
-<meta name="description" content="All ${docs.length} official documents of the Portuguese PSZAER renewable-acceleration-zones consultation, rendered in readable English with summaries.">
+<title>The PSZAER consultation documents</title>
+<meta name="description" content="All ${docs.length} official documents of the Portuguese PSZAER renewable-acceleration-zones consultation, rendered section by section with summaries.">
 <link rel="canonical" href="https://salvargardunha.com/read/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <style>${CSS}
@@ -200,8 +200,8 @@ function indexPage(docs) {
 <header>
   <div class="wrap">
     <div class="eyebrow">PSZAER consultation</div>
-    <h1>The official documents,<br>in readable English</h1>
-    <p class="meta">All ${docs.length} documents of the public consultation on Portugal's renewable-energy acceleration zones — the plan that puts the Serra da Gardunha in the most targeted region of the country. Each one summarised and rendered section by section in English, with the original Portuguese PDF linked.</p>
+    <h1>The official documents,<br>summarised and explained</h1>
+    <p class="meta">All ${docs.length} documents of the public consultation on Portugal's renewable-energy acceleration zones — the plan that puts the Serra da Gardunha in the most targeted region of the country. Each one summarised and rendered section by section, with the original Portuguese PDF linked.</p>
     <div class="cta">
       <a class="btn btn-primary" href="/#passos">Object in the consultation →</a>
     </div>
@@ -223,6 +223,23 @@ ${footer('Faithful English renderings of official documents published for public
 }
 
 // ---- build ----
+// This generator emits ENGLISH-ONLY pages. The pages under /read/ have since been
+// hand-upgraded to fully quadrilingual (PT/EN/DE/FR + language switcher), and that
+// translation data lives in the HTML, NOT in content/docs/*.json — so a plain
+// rebuild would silently REVERT every page to English-only (it has happened once).
+// Guard: never overwrite a file that already contains a language switcher unless
+// run with --force. Use --force only to scaffold a NEW page you will then translate.
+const FORCE = process.argv.includes('--force');
+const isQuad = (p) => fs.existsSync(p) && fs.readFileSync(p, 'utf8').includes('id="langsw"');
+function writePage(p, html) {
+  if (isQuad(p) && !FORCE) {
+    console.log('SKIP (quadrilingual, would clobber): ' + path.relative(ROOT, p) + '  — pass --force to overwrite');
+    return;
+  }
+  fs.writeFileSync(p, html);
+  console.log('built ' + path.relative(ROOT, p));
+}
+
 if (!fs.existsSync(SRC)) { console.error('no content/docs — nothing to build'); process.exit(0); }
 fs.mkdirSync(OUT, { recursive: true });
 
@@ -251,8 +268,6 @@ const docs = fs.readdirSync(SRC).filter((f) => f.endsWith('.json'))
   });
 
 for (const d of docs) {
-  fs.writeFileSync(path.join(OUT, d.slug + '.html'), page(d));
-  console.log('built read/' + d.slug + '.html');
+  writePage(path.join(OUT, d.slug + '.html'), page(d));
 }
-fs.writeFileSync(path.join(OUT, 'index.html'), indexPage(docs));
-console.log('built read/index.html  (' + docs.length + ' documents)');
+writePage(path.join(OUT, 'index.html'), indexPage(docs));

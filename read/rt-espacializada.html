@@ -1,11 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-PT">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Integration of Spatialised Information — the report that drew the maps — PSZAER</title>
-<meta name="description" content="The GIS report that actually drew the maps — including the one reproduced on this site. It filtered the whole mainland through exclusion criteria, leaving ~578,777 ha for solar (fa">
+<title data-i18n="pgtitle">Integração da Informação Espacializada — o relatório que desenhou os mapas — PSZAER</title>
+<meta name="description" content="O relatório SIG que desenhou de facto os mapas — incluindo o reproduzido neste site. Filtrou todo o continente através de critérios de exclusão, deixando ~578,777 ha para solar (a descer para 371,348 ha quando se exige uma subestação a menos de 10 km) e ~84,489 ha para eólica.">
 <link rel="canonical" href="https://salvargardunha.com/read/rt-espacializada">
+<link rel="alternate" hreflang="pt-PT" href="https://salvargardunha.com/read/rt-espacializada">
+<link rel="alternate" hreflang="en" href="https://salvargardunha.com/en/read/rt-espacializada">
+<link rel="alternate" hreflang="de" href="https://salvargardunha.com/de/read/rt-espacializada">
+<link rel="alternate" hreflang="fr" href="https://salvargardunha.com/fr/read/rt-espacializada">
+<link rel="alternate" hreflang="x-default" href="https://salvargardunha.com/read/rt-espacializada">
+<script src="/lang-url.js"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <style>
   :root{--bg:#0a0d0a;--panel:#141a14;--line:#243024;--ink:#f3f5f1;--muted:#9aa79a;--green:#4ade80;--green-d:#22c55e;--amber:#fbbf24;--max:820px}
@@ -15,7 +21,12 @@
   .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
   a{color:var(--green)}
   .top{border-bottom:1px solid var(--line);padding:16px 0;font-size:14px}
+  .top .wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
   .top a{text-decoration:none;color:var(--muted)}.top a:hover{color:var(--green)}
+  .langsw{margin-left:auto;display:flex;gap:2px}
+  .langsw button{font:inherit;font-size:12.5px;font-weight:700;padding:5px 9px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;border-radius:7px;text-transform:uppercase;letter-spacing:.04em}
+  .langsw button:hover{color:var(--green);border-color:var(--green)}
+  .langsw button.on{background:var(--green-d);color:#05230f;border-color:var(--green-d)}
   header{padding:40px 0 30px;border-bottom:1px solid var(--line)}
   .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:12px}
   h1{font-size:clamp(26px,4.4vw,40px);line-height:1.1;font-weight:900;letter-spacing:-.02em}
@@ -55,24 +66,24 @@
 </head>
 <body>
 
-<div class="top"><div class="wrap"><a href="/read/">← All documents</a> · <a href="/">salvargardunha.com</a></div></div>
+<div class="top"><div class="wrap"><a href="/read/" data-i18n="top_all">← Todos os documentos</a> · <a href="/" data-i18n="top_home">salvargardunha.com</a><span class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></span></div></div>
 
 <header>
   <div class="wrap">
-    <div class="eyebrow">PSZAER consultation · document</div>
-    <h1>Integration of Spatialised Information — the report that drew the maps</h1>
-    <p class="meta"><span class="pt">Relatório Temático – Integração da Informação Espacializada</span><br>LNEG (coordination: Sofia Simões) · May 2026 · 115 pages</p>
+    <div class="eyebrow" data-i18n="eyebrow">Consulta PSZAER · documento</div>
+    <h1 data-i18n="h1">Integração da Informação Espacializada — o relatório que desenhou os mapas</h1>
+    <p class="meta" data-i18n="meta_line"><span class="pt">Relatório Temático – Integração da Informação Espacializada</span><br>LNEG (coordenação: Sofia Simões) · maio de 2026 · 115 páginas</p>
 
     <div class="sum">
-      <h2>Summary</h2>
-      <p>The GIS report that actually <b>drew the maps</b> — including the one reproduced on this site. It filtered the whole mainland through exclusion criteria, leaving ~578,777 ha for solar (falling to 371,348 ha once a substation must be within 10 km) and ~84,489 ha for wind. Its own limitations chapter is the most valuable part: the base land-cover map has a resolution of only <b>1 hectare</b>, <b>municipal plans were never consulted</b>, and aeronautical restrictions could only be approximated. It also confirms the <b>Beira Baixa</b> is among the most heavily mapped regions in the country.</p>
+      <h2 data-i18n="sum_h">Resumo</h2>
+      <p data-i18n="sum_p">O relatório SIG que na realidade <b>desenhou os mapas</b> — incluindo o que é reproduzido neste site. Filtrou todo o continente através de critérios de exclusão, deixando ~578,777 ha para solar (a descer para 371,348 ha quando se exige uma subestação a menos de 10 km) e ~84,489 ha para eólica. O seu próprio capítulo de limitações é a parte mais valiosa: a carta de ocupação do solo de base tem uma resolução de apenas <b>1 hectare</b>, os <b>planos municipais nunca foram consultados</b> e as restrições aeronáuticas só puderam ser aproximadas. Confirma também que a <b>Beira Baixa</b> está entre as regiões mais fortemente cartografadas do país.</p>
     </div>
 
-    <div class="figs"><div class="f"><div class="n">11.0%</div><div class="l">of the <b>whole Beira Baixa region</b> mapped as potential solar zone — rising to <b>22.1%</b> without the grid-distance filter</div></div><div class="f"><div class="n">1 ha</div><div class="l">resolution of the land-cover map used to draw the zones — called <b>insufficient</b> by the report itself</div></div><div class="f"><div class="n">0</div><div class="l">municipal master plans (PDM) consulted when drawing the maps</div></div><div class="f"><div class="n">21%</div><div class="l">of the mapped solar land is actually near a substation <b>with capacity available</b> — the rest has nowhere to connect</div></div></div>
+    <div class="figs"><div class="f"><div class="n">11.0%</div><div class="l" data-i18n="fig1_l">de <b>toda a região da Beira Baixa</b> cartografada como potencial zona solar — subindo para <b>22.1%</b> sem o filtro de distância à rede</div></div><div class="f"><div class="n">1 ha</div><div class="l" data-i18n="fig2_l">resolução da carta de ocupação do solo usada para desenhar as zonas — considerada <b>insuficiente</b> pelo próprio relatório</div></div><div class="f"><div class="n">0</div><div class="l" data-i18n="fig3_l">planos diretores municipais (PDM) consultados ao desenhar os mapas</div></div><div class="f"><div class="n">21%</div><div class="l" data-i18n="fig4_l">do solo solar cartografado está de facto perto de uma subestação <b>com capacidade disponível</b> — o resto não tem onde ligar</div></div></div>
 
     <div class="cta">
-      <a class="btn btn-primary" href="/#passos">Object in the consultation →</a>
-      <a class="btn btn-ghost" href="/docs/rt-espacializada.pdf" target="_blank" rel="noopener">Original PDF (Portuguese)</a>
+      <a class="btn btn-primary" href="/#passos" data-i18n="cta_object">Contestar na consulta →</a>
+      <a class="btn btn-ghost" href="/docs/rt-espacializada.pdf" target="_blank" rel="noopener" data-i18n="cta_pdf">PDF original (português)</a>
     </div>
   </div>
 </header>
@@ -80,54 +91,54 @@
 <main>
   <div class="wrap">
       <section>
-        <h3>How the maps were made</h3>
-        <p>The whole mainland was put through a GIS filter: compile every environmental and heritage constraint that would block a zone, assemble the best available national data for each, then remove from the map every area covered by at least one constraint. What survives is what you see shaded on the map.</p>
-        <p>Different criteria were applied to solar and to wind, producing two separate maps. Areas below 20 ha were generally discarded.</p>
-        
+        <h3 data-i18n="s1_h">Como os mapas foram feitos</h3>
+        <p data-i18n="s1_p1">Todo o continente foi submetido a um filtro SIG: compilar todas as condicionantes ambientais e patrimoniais que impediriam uma zona, reunir os melhores dados nacionais disponíveis para cada uma e depois remover do mapa todas as áreas abrangidas por, pelo menos, uma condicionante. O que sobrevive é o que se vê sombreado no mapa.</p>
+        <p data-i18n="s1_p2">Foram aplicados critérios diferentes ao solar e à eólica, produzindo dois mapas distintos. As áreas inferiores a 20 ha foram, em geral, descartadas.</p>
+
       </section>
       <section>
-        <h3>The admissions that matter</h3>
-        <p>The report is honest about its own limits, and these admissions are among the strongest grounds for objecting. It was done in seven months, constrained by what data happened to exist.</p>
-        <p>Most strikingly: <b>municipal master plans were not consulted at all</b>. The plans that actually govern land use in Fundão, Castelo Branco and Covilhã played no part in drawing these zones.</p>
-        <blockquote>“The work was carried out over a period of 7 months, and was limited by time and by data availability.”<span class="cite">p. 12</span></blockquote>
-        <blockquote>“Accordingly, the information contained in the various Municipal Master Plans (PDM) was not considered, since it was not possible to consult each of them individually.”<span class="cite">p. 12</span></blockquote>
+        <h3 data-i18n="s2_h">As admissões que importam</h3>
+        <p data-i18n="s2_p1">O relatório é honesto quanto aos seus próprios limites, e estas admissões estão entre os fundamentos mais fortes para contestar. Foi feito em sete meses, condicionado pelos dados que por acaso existiam.</p>
+        <p data-i18n="s2_p2">O mais impressionante: os <b>planos diretores municipais não foram de todo consultados</b>. Os planos que efetivamente regem o uso do solo no Fundão, em Castelo Branco e na Covilhã não tiveram qualquer papel no desenho destas zonas.</p>
+        <blockquote data-i18n="s2_q1">“O trabalho foi realizado num período de 7 meses, tendo sido limitado pelo tempo e pela disponibilidade de dados.”<span class="cite">p. 12</span></blockquote>
+        <blockquote data-i18n="s2_q2">“Assim, não foi considerada a informação constante dos vários Planos Diretores Municipais (PDM), uma vez que não foi possível consultar cada um deles individualmente.”<span class="cite">p. 12</span></blockquote>
       </section>
       <section>
-        <h3>The base map is too coarse to trust at this scale</h3>
-        <p>The land-cover map underpinning everything works at <b>1 hectare resolution</b> — and the report itself says that is not good enough for questions of detail, precisely because much of the analysis works with smaller polygons.</p>
-        <p>It also warns the land-cover map <b>is not legally binding</b>, so legally protected trees such as cork oak may in fact be standing in areas the map classified as something else entirely.</p>
-        <blockquote>“The current COS (COS2023) works at a resolution of 1 ha, which is insufficient to deal properly with questions of detail… This issue is especially relevant since in this report, and especially in the case of wind, we work with polygons smaller than 100 ha.”<span class="cite">p. 72</span></blockquote>
-        <blockquote>“COS is not a legally binding instrument, and some specimens of protected species (e.g. cork oak, holly) may occur in areas classified by COS as, for example, “forests of invasive species”.”<span class="cite">p. 72</span></blockquote>
-        <blockquote>“The whole exercise under way is a function of the limitations of the cartographic information for the country, and these must be borne in mind.”<span class="cite">p. 72</span></blockquote>
+        <h3 data-i18n="s3_h">A carta de base é demasiado grosseira para ser fiável a esta escala</h3>
+        <p data-i18n="s3_p1">A carta de ocupação do solo que sustenta tudo funciona a uma <b>resolução de 1 hectare</b> — e o próprio relatório afirma que isso não é suficiente para questões de detalhe, precisamente porque grande parte da análise trabalha com polígonos mais pequenos.</p>
+        <p data-i18n="s3_p2">Avisa ainda que a carta de ocupação do solo <b>não tem valor legal vinculativo</b>, pelo que árvores legalmente protegidas, como o sobreiro, podem de facto estar em áreas que o mapa classificou como algo completamente diferente.</p>
+        <blockquote data-i18n="s3_q1">“A atual COS (COS2023) trabalha a uma resolução de 1 ha, o que é insuficiente para tratar devidamente questões de detalhe… Esta questão é especialmente relevante uma vez que neste relatório, e sobretudo no caso da eólica, se trabalha com polígonos inferiores a 100 ha.”<span class="cite">p. 72</span></blockquote>
+        <blockquote data-i18n="s3_q2">“A COS não é um instrumento com valor legal vinculativo, e alguns exemplares de espécies protegidas (por exemplo, sobreiro, azevinho) podem ocorrer em áreas classificadas pela COS como, por exemplo, “florestas de espécies invasoras”.”<span class="cite">p. 72</span></blockquote>
+        <blockquote data-i18n="s3_q3">“Todo o exercício em curso é função das limitações da informação cartográfica existente para o país, e estas têm de ser tidas em conta.”<span class="cite">p. 72</span></blockquote>
       </section>
       <section>
-        <h3>Aeronautical restrictions were guessed</h3>
-        <p>The aeronautical servitudes for wind could not be processed in time, so the team substituted rough circles around airports and aerodromes. The report states the resulting wind figures should be treated with reservation, with an uncertainty of about <b>±6.9%</b> on the mapped area.</p>
-        <blockquote>“It was not possible to consider the aeronautical servitudes in detail. A simplified analysis was carried out, which should be treated with reservations.”<span class="cite">p. 73</span></blockquote>
+        <h3 data-i18n="s4_h">As restrições aeronáuticas foram estimadas</h3>
+        <p data-i18n="s4_p1">As servidões aeronáuticas para a eólica não puderam ser processadas a tempo, pelo que a equipa as substituiu por círculos aproximados em torno de aeroportos e aeródromos. O relatório declara que os valores de eólica daí resultantes devem ser tratados com reserva, com uma incerteza de cerca de <b>±6.9%</b> sobre a área cartografada.</p>
+        <blockquote data-i18n="s4_q1">“Não foi possível considerar em detalhe as servidões aeronáuticas. Foi realizada uma análise simplificada, que deve ser tratada com reservas.”<span class="cite">p. 73</span></blockquote>
       </section>
       <section>
-        <h3>The Beira Baixa, in the numbers</h3>
-        <p>The report confirms what the map shows. <b>11.0% of the entire Beira Baixa region</b> is mapped as potential solar zone and 3.7% as wind — and without the grid-distance filter the solar figure rises to <b>22.1%</b>, more than a fifth of the region.</p>
-        <p>By municipality: <b>Fundão</b> has 6,237 ha of solar zone (8.9% of the municipality) and 4,947 ha of wind (7.1%). <b>Castelo Branco</b> has 8,836 ha solar and 7,183 ha wind. <b>Covilhã</b> has 3,317 ha solar and 4,659 ha wind (8.4%).</p>
-        <p>Nationally, <b>Castelo Branco is the #2 municipality for wind</b> (8.7% of all mapped wind area), with <b>Oleiros #3</b>, <b>Fundão #4</b> and <b>Covilhã #6</b>. The report concedes this concentration “may raise questions about possible acceptability in some territories.”</p>
-        <blockquote>“The mapped areas are unevenly distributed across NUTS III regions and municipalities, which may raise questions about possible acceptability in some territories.”<span class="cite">p. 72</span></blockquote>
+        <h3 data-i18n="s5_h">A Beira Baixa, em números</h3>
+        <p data-i18n="s5_p1">O relatório confirma o que o mapa mostra. <b>11.0% de toda a região da Beira Baixa</b> está cartografado como potencial zona solar e 3.7% como eólica — e sem o filtro de distância à rede o valor do solar sobe para <b>22.1%</b>, mais de um quinto da região.</p>
+        <p data-i18n="s5_p2">Por concelho: o <b>Fundão</b> tem 6,237 ha de zona solar (8.9% do concelho) e 4,947 ha de eólica (7.1%). <b>Castelo Branco</b> tem 8,836 ha de solar e 7,183 ha de eólica. A <b>Covilhã</b> tem 3,317 ha de solar e 4,659 ha de eólica (8.4%).</p>
+        <p data-i18n="s5_p3">A nível nacional, <b>Castelo Branco é o concelho n.º 2 em eólica</b> (8.7% de toda a área eólica cartografada), com <b>Oleiros em n.º 3</b>, o <b>Fundão em n.º 4</b> e a <b>Covilhã em n.º 6</b>. O relatório admite que esta concentração “pode levantar questões sobre a possível aceitabilidade em alguns territórios.”</p>
+        <blockquote data-i18n="s5_q1">“As áreas cartografadas distribuem-se de forma desigual pelas regiões NUTS III e pelos concelhos, o que pode levantar questões sobre a possível aceitabilidade em alguns territórios.”<span class="cite">p. 72</span></blockquote>
       </section>
       <section>
-        <h3>Most of the mapped land has nowhere to plug in</h3>
-        <p>Requiring a substation within 10 km cuts the solar area from 578,777 ha to 371,348 ha. But requiring that substation to actually have <b>capacity available</b> cuts it to just <b>118,669 ha — 21%</b> of the mapped land.</p>
-        <p>For wind it is starker: only <b>4,579 ha (5%)</b> of the mapped area is within 10 km of a substation with available capacity.</p>
-        <p>In other words, the vast majority of the land being opened up cannot currently be connected to anything.</p>
-        
+        <h3 data-i18n="s6_h">A maior parte do solo cartografado não tem onde ligar-se</h3>
+        <p data-i18n="s6_p1">Exigir uma subestação a menos de 10 km reduz a área solar de 578,777 ha para 371,348 ha. Mas exigir que essa subestação tenha efetivamente <b>capacidade disponível</b> reduz-a para apenas <b>118,669 ha — 21%</b> do solo cartografado.</p>
+        <p data-i18n="s6_p2">Na eólica é ainda mais gritante: apenas <b>4,579 ha (5%)</b> da área cartografada está a menos de 10 km de uma subestação com capacidade disponível.</p>
+        <p data-i18n="s6_p3">Por outras palavras, a grande maioria do solo que está a ser aberto não pode, atualmente, ser ligado a nada.</p>
+
       </section>
       <section>
-        <h3>The map on this site (Figure 39)</h3>
-        <p>Figure 39 — the map reproduced on this site — shows the solar and wind zones falling within 20 km of a grid substation. On that analysis, 98% of solar zones and 96% of wind zones lie near a substation, which the report reads as favourable for combining wind and solar on shared connections, with the <b>Centro and Norte regions</b> the most suitable.</p>
-        
+        <h3 data-i18n="s7_h">O mapa neste site (Figura 39)</h3>
+        <p data-i18n="s7_p1">A Figura 39 — o mapa reproduzido neste site — mostra as zonas solar e eólica situadas a menos de 20 km de uma subestação da rede. Nessa análise, 98% das zonas solar e 96% das zonas eólica ficam perto de uma subestação, o que o relatório interpreta como favorável à combinação de eólica e solar em ligações partilhadas, sendo as <b>regiões Centro e Norte</b> as mais adequadas.</p>
+
       </section>
 
     <div class="foot-cta">
-      <p><b>The public consultation is how this gets challenged.</b> Objections are part of the official decision process and must be considered by law.</p>
-      <a class="btn btn-primary" href="/#passos">See how to object →</a>
+      <p data-i18n="fc_p"><b>A consulta pública é a forma de contestar isto.</b> As objeções fazem parte do processo oficial de decisão e têm de ser consideradas por lei.</p>
+      <a class="btn btn-primary" href="/#passos" data-i18n="fc_a">Ver como contestar →</a>
     </div>
   </div>
 </main>
@@ -135,24 +146,229 @@
 <footer>
   <div class="wrap">
     <div class="foot-cols">
-      <div class="foot-col"><h4>The campaign</h4>
-        <a href="/">Home</a>
-        <a href="/#passos">Take action in the consultation</a>
-        <a href="/social">Spread the word</a>
+      <div class="foot-col"><h4 data-i18n="f_c1_h">A campanha</h4>
+        <a href="/" data-i18n="f_home">Início</a>
+        <a href="/#passos" data-i18n="f_action">Participar na consulta</a>
+        <a href="/social" data-i18n="f_spread">Divulgar</a>
       </div>
-      <div class="foot-col"><h4>Documents &amp; data</h4>
-        <a href="/read/">Documents explained</a>
-        <a href="/objecoes">The 172 objections</a>
-        <a href="/mapa">The maps of the areas</a>
+      <div class="foot-col"><h4 data-i18n="f_c2_h">Documentos e dados</h4>
+        <a href="/sobre" data-i18n="foot_about">Perceber o processo — quem decide</a>
+        <a href="/read/" data-i18n="f_docs">Documentos explicados</a>
+        <a href="/objecoes" data-i18n="f_obj">As 172 objeções</a>
+        <a href="/mapa" data-i18n="f_maps">Os mapas das áreas</a>
       </div>
-      <div class="foot-col"><h4>Official sources</h4>
-        <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">PSZAER consultation (participa.pt)</a>
-        <a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener">Petition in Parliament</a>
-        <a href="https://renovaveisparticipa.pt/" target="_blank" rel="noopener">Renováveis Participa (EMER)</a>
+      <div class="foot-col"><h4 data-i18n="f_c3_h">Fontes oficiais</h4>
+        <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener" data-i18n="f_src1">Consulta PSZAER (participa.pt)</a>
+        <a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="f_src2">Petição no Parlamento</a>
+        <a href="https://renovaveisparticipa.pt/" target="_blank" rel="noopener" data-i18n="f_src3">Renováveis Participa (EMER)</a>
       </div>
     </div>
-    <p class="disc">Made by neighbours of the Beira Baixa who want the mountain left standing. Informative, civic, non-profit page, not affiliated with any party, company or public body. Faithful English rendering of an official document published for public consultation on participa.pt (mirrored at <a href="/docs/rt-espacializada.pdf">/docs/rt-espacializada.pdf</a>) — not an official translation; quoted passages are our translation of the Portuguese original. Where a figure matters, check it against the source PDF.</p>
+    <p class="disc" data-i18n="f_disc">Feito por vizinhos da Beira Baixa que querem a serra de pé. Página informativa, cívica, sem fins lucrativos, não afiliada a qualquer partido, empresa ou entidade pública. Síntese fiel de um documento oficial publicado para consulta pública no participa.pt (espelhado em <a href="/docs/rt-espacializada.pdf">/docs/rt-espacializada.pdf</a>). Onde um valor for importante, confirme-o no PDF original.</p>
   </div>
 </footer>
+
+<script>
+(function(){
+  var LANGS=['pt','en','de','fr'];
+  var I18N={
+    en:{
+      pgtitle:'Integration of Spatialised Information — the report that drew the maps — PSZAER',
+      top_all:'← All documents',
+      top_home:'salvargardunha.com',
+      eyebrow:'PSZAER consultation · document',
+      h1:'Integration of Spatialised Information — the report that drew the maps',
+      meta_line:'<span class="pt">Relatório Temático – Integração da Informação Espacializada</span><br>LNEG (coordination: Sofia Simões) · May 2026 · 115 pages',
+      sum_h:'Summary',
+      sum_p:'The GIS report that actually <b>drew the maps</b> — including the one reproduced on this site. It filtered the whole mainland through exclusion criteria, leaving ~578,777 ha for solar (falling to 371,348 ha once a substation must be within 10 km) and ~84,489 ha for wind. Its own limitations chapter is the most valuable part: the base land-cover map has a resolution of only <b>1 hectare</b>, <b>municipal plans were never consulted</b>, and aeronautical restrictions could only be approximated. It also confirms the <b>Beira Baixa</b> is among the most heavily mapped regions in the country.',
+      fig1_l:'of the <b>whole Beira Baixa region</b> mapped as potential solar zone — rising to <b>22.1%</b> without the grid-distance filter',
+      fig2_l:'resolution of the land-cover map used to draw the zones — called <b>insufficient</b> by the report itself',
+      fig3_l:'municipal master plans (PDM) consulted when drawing the maps',
+      fig4_l:'of the mapped solar land is actually near a substation <b>with capacity available</b> — the rest has nowhere to connect',
+      cta_object:'Object in the consultation →',
+      cta_pdf:'Original PDF (Portuguese)',
+      s1_h:'How the maps were made',
+      s1_p1:'The whole mainland was put through a GIS filter: compile every environmental and heritage constraint that would block a zone, assemble the best available national data for each, then remove from the map every area covered by at least one constraint. What survives is what you see shaded on the map.',
+      s1_p2:'Different criteria were applied to solar and to wind, producing two separate maps. Areas below 20 ha were generally discarded.',
+      s2_h:'The admissions that matter',
+      s2_p1:'The report is honest about its own limits, and these admissions are among the strongest grounds for objecting. It was done in seven months, constrained by what data happened to exist.',
+      s2_p2:'Most strikingly: <b>municipal master plans were not consulted at all</b>. The plans that actually govern land use in Fundão, Castelo Branco and Covilhã played no part in drawing these zones.',
+      s2_q1:'“The work was carried out over a period of 7 months, and was limited by time and by data availability.”<span class="cite">p. 12</span>',
+      s2_q2:'“Accordingly, the information contained in the various Municipal Master Plans (PDM) was not considered, since it was not possible to consult each of them individually.”<span class="cite">p. 12</span>',
+      s3_h:'The base map is too coarse to trust at this scale',
+      s3_p1:'The land-cover map underpinning everything works at <b>1 hectare resolution</b> — and the report itself says that is not good enough for questions of detail, precisely because much of the analysis works with smaller polygons.',
+      s3_p2:'It also warns the land-cover map <b>is not legally binding</b>, so legally protected trees such as cork oak may in fact be standing in areas the map classified as something else entirely.',
+      s3_q1:'“The current COS (COS2023) works at a resolution of 1 ha, which is insufficient to deal properly with questions of detail… This issue is especially relevant since in this report, and especially in the case of wind, we work with polygons smaller than 100 ha.”<span class="cite">p. 72</span>',
+      s3_q2:'“COS is not a legally binding instrument, and some specimens of protected species (e.g. cork oak, holly) may occur in areas classified by COS as, for example, “forests of invasive species”.”<span class="cite">p. 72</span>',
+      s3_q3:'“The whole exercise under way is a function of the limitations of the cartographic information for the country, and these must be borne in mind.”<span class="cite">p. 72</span>',
+      s4_h:'Aeronautical restrictions were guessed',
+      s4_p1:'The aeronautical servitudes for wind could not be processed in time, so the team substituted rough circles around airports and aerodromes. The report states the resulting wind figures should be treated with reservation, with an uncertainty of about <b>±6.9%</b> on the mapped area.',
+      s4_q1:'“It was not possible to consider the aeronautical servitudes in detail. A simplified analysis was carried out, which should be treated with reservations.”<span class="cite">p. 73</span>',
+      s5_h:'The Beira Baixa, in the numbers',
+      s5_p1:'The report confirms what the map shows. <b>11.0% of the entire Beira Baixa region</b> is mapped as potential solar zone and 3.7% as wind — and without the grid-distance filter the solar figure rises to <b>22.1%</b>, more than a fifth of the region.',
+      s5_p2:'By municipality: <b>Fundão</b> has 6,237 ha of solar zone (8.9% of the municipality) and 4,947 ha of wind (7.1%). <b>Castelo Branco</b> has 8,836 ha solar and 7,183 ha wind. <b>Covilhã</b> has 3,317 ha solar and 4,659 ha wind (8.4%).',
+      s5_p3:'Nationally, <b>Castelo Branco is the #2 municipality for wind</b> (8.7% of all mapped wind area), with <b>Oleiros #3</b>, <b>Fundão #4</b> and <b>Covilhã #6</b>. The report concedes this concentration “may raise questions about possible acceptability in some territories.”',
+      s5_q1:'“The mapped areas are unevenly distributed across NUTS III regions and municipalities, which may raise questions about possible acceptability in some territories.”<span class="cite">p. 72</span>',
+      s6_h:'Most of the mapped land has nowhere to plug in',
+      s6_p1:'Requiring a substation within 10 km cuts the solar area from 578,777 ha to 371,348 ha. But requiring that substation to actually have <b>capacity available</b> cuts it to just <b>118,669 ha — 21%</b> of the mapped land.',
+      s6_p2:'For wind it is starker: only <b>4,579 ha (5%)</b> of the mapped area is within 10 km of a substation with available capacity.',
+      s6_p3:'In other words, the vast majority of the land being opened up cannot currently be connected to anything.',
+      s7_h:'The map on this site (Figure 39)',
+      s7_p1:'Figure 39 — the map reproduced on this site — shows the solar and wind zones falling within 20 km of a grid substation. On that analysis, 98% of solar zones and 96% of wind zones lie near a substation, which the report reads as favourable for combining wind and solar on shared connections, with the <b>Centro and Norte regions</b> the most suitable.',
+      fc_p:'<b>The public consultation is how this gets challenged.</b> Objections are part of the official decision process and must be considered by law.',
+      fc_a:'See how to object →',
+      f_c1_h:'The campaign',
+      f_home:'Home',
+      f_action:'Take action in the consultation',
+      f_spread:'Spread the word',
+      foot_about:'Understand the process — who decides',
+      f_c2_h:'Documents & data',
+      f_docs:'Documents explained',
+      f_obj:'The 172 objections',
+      f_maps:'The maps of the areas',
+      f_c3_h:'Official sources',
+      f_src1:'PSZAER consultation (participa.pt)',
+      f_src2:'Petition in Parliament',
+      f_src3:'Renováveis Participa (EMER)',
+      f_disc:'Made by neighbours of the Beira Baixa who want the mountain left standing. Informative, civic, non-profit page, not affiliated with any party, company or public body. Faithful English rendering of an official document published for public consultation on participa.pt (mirrored at <a href="/docs/rt-espacializada.pdf">/docs/rt-espacializada.pdf</a>) — not an official translation; quoted passages are our translation of the Portuguese original. Where a figure matters, check it against the source PDF.'
+    },
+    de:{
+      pgtitle:'Integration räumlicher Informationen — der Bericht, der die Karten zeichnete — PSZAER',
+      top_all:'← Alle Dokumente',
+      top_home:'salvargardunha.com',
+      eyebrow:'PSZAER-Konsultation · Dokument',
+      h1:'Integration räumlicher Informationen — der Bericht, der die Karten zeichnete',
+      meta_line:'<span class="pt">Relatório Temático – Integração da Informação Espacializada</span><br>LNEG (Koordination: Sofia Simões) · Mai 2026 · 115 Seiten',
+      sum_h:'Zusammenfassung',
+      sum_p:'Der GIS-Bericht, der die <b>Karten tatsächlich zeichnete</b> — einschließlich der auf dieser Seite wiedergegebenen. Er filterte das gesamte Festland anhand von Ausschlusskriterien und ließ ~578,777 ha für Solar (fallend auf 371,348 ha, sobald ein Umspannwerk innerhalb von 10 km liegen muss) und ~84,489 ha für Wind übrig. Sein eigenes Kapitel über Grenzen ist der wertvollste Teil: die zugrunde liegende Bodenbedeckungskarte hat eine Auflösung von nur <b>1 Hektar</b>, die <b>kommunalen Pläne wurden nie konsultiert</b>, und luftfahrtrechtliche Beschränkungen konnten nur näherungsweise erfasst werden. Er bestätigt außerdem, dass die <b>Beira Baixa</b> zu den am stärksten kartierten Regionen des Landes gehört.',
+      fig1_l:'der <b>gesamten Region Beira Baixa</b>, die als potenzielle Solarzone kartiert ist — steigend auf <b>22.1%</b> ohne den Netzabstandsfilter',
+      fig2_l:'Auflösung der zur Zeichnung der Zonen verwendeten Bodenbedeckungskarte — vom Bericht selbst als <b>unzureichend</b> bezeichnet',
+      fig3_l:'kommunale Flächennutzungspläne (PDM), die beim Zeichnen der Karten konsultiert wurden',
+      fig4_l:'der kartierten Solarfläche liegt tatsächlich nahe einem Umspannwerk <b>mit verfügbarer Kapazität</b> — der Rest hat keinen Anschluss',
+      cta_object:'In der Konsultation Einwände erheben →',
+      cta_pdf:'Original-PDF (Portugiesisch)',
+      s1_h:'Wie die Karten erstellt wurden',
+      s1_p1:'Das gesamte Festland wurde durch einen GIS-Filter geführt: alle umwelt- und kulturerbebezogenen Restriktionen zusammentragen, die eine Zone ausschließen würden, für jede die besten verfügbaren nationalen Daten zusammenstellen und dann jede Fläche von der Karte entfernen, die von mindestens einer Restriktion betroffen ist. Was übrig bleibt, ist das, was Sie auf der Karte schattiert sehen.',
+      s1_p2:'Für Solar und für Wind wurden unterschiedliche Kriterien angewandt, was zwei getrennte Karten ergab. Flächen unter 20 ha wurden im Allgemeinen verworfen.',
+      s2_h:'Die Eingeständnisse, auf die es ankommt',
+      s2_p1:'Der Bericht ist ehrlich in Bezug auf seine eigenen Grenzen, und diese Eingeständnisse gehören zu den stärksten Gründen für Einwände. Er wurde in sieben Monaten erstellt, begrenzt durch die zufällig vorhandenen Daten.',
+      s2_p2:'Am auffälligsten: die <b>kommunalen Flächennutzungspläne wurden überhaupt nicht konsultiert</b>. Die Pläne, die tatsächlich die Bodennutzung in Fundão, Castelo Branco und Covilhã regeln, spielten beim Zeichnen dieser Zonen keine Rolle.',
+      s2_q1:'„Die Arbeit wurde über einen Zeitraum von 7 Monaten durchgeführt und war durch die Zeit und die Datenverfügbarkeit begrenzt.“<span class="cite">p. 12</span>',
+      s2_q2:'„Dementsprechend wurde die in den verschiedenen kommunalen Flächennutzungsplänen (PDM) enthaltene Information nicht berücksichtigt, da es nicht möglich war, jeden einzelnen davon zu konsultieren.“<span class="cite">p. 12</span>',
+      s3_h:'Die Grundkarte ist zu grob, um ihr auf dieser Skala zu vertrauen',
+      s3_p1:'Die Bodenbedeckungskarte, die allem zugrunde liegt, arbeitet mit einer <b>Auflösung von 1 Hektar</b> — und der Bericht selbst sagt, dass dies für Detailfragen nicht ausreicht, gerade weil ein Großteil der Analyse mit kleineren Polygonen arbeitet.',
+      s3_p2:'Er warnt außerdem, dass die Bodenbedeckungskarte <b>rechtlich nicht bindend ist</b>, sodass gesetzlich geschützte Bäume wie die Korkeiche tatsächlich in Gebieten stehen können, die die Karte als etwas ganz anderes eingestuft hat.',
+      s3_q1:'„Die aktuelle COS (COS2023) arbeitet mit einer Auflösung von 1 ha, was unzureichend ist, um Detailfragen angemessen zu behandeln… Dieses Problem ist besonders relevant, da in diesem Bericht, und vor allem im Fall des Windes, mit Polygonen unter 100 ha gearbeitet wird.“<span class="cite">p. 72</span>',
+      s3_q2:'„Die COS ist kein rechtlich bindendes Instrument, und einige Exemplare geschützter Arten (z. B. Korkeiche, Stechpalme) können in Gebieten vorkommen, die von der COS beispielsweise als „Wälder invasiver Arten“ eingestuft werden.“<span class="cite">p. 72</span>',
+      s3_q3:'„Das gesamte laufende Vorhaben ist eine Funktion der Grenzen der kartografischen Information für das Land, und diese müssen berücksichtigt werden.“<span class="cite">p. 72</span>',
+      s4_h:'Luftfahrtrechtliche Beschränkungen wurden geschätzt',
+      s4_p1:'Die luftfahrtrechtlichen Servitute für Wind konnten nicht rechtzeitig verarbeitet werden, daher ersetzte das Team sie durch grobe Kreise um Flughäfen und Flugplätze. Der Bericht erklärt, dass die daraus resultierenden Windzahlen mit Vorbehalt zu behandeln sind, mit einer Unsicherheit von etwa <b>±6.9%</b> bei der kartierten Fläche.',
+      s4_q1:'„Es war nicht möglich, die luftfahrtrechtlichen Servitute im Detail zu berücksichtigen. Es wurde eine vereinfachte Analyse durchgeführt, die mit Vorbehalten zu behandeln ist.“<span class="cite">p. 73</span>',
+      s5_h:'Die Beira Baixa in Zahlen',
+      s5_p1:'Der Bericht bestätigt, was die Karte zeigt. <b>11.0% der gesamten Region Beira Baixa</b> sind als potenzielle Solarzone kartiert und 3.7% als Wind — und ohne den Netzabstandsfilter steigt der Solarwert auf <b>22.1%</b>, mehr als ein Fünftel der Region.',
+      s5_p2:'Nach Gemeinde: <b>Fundão</b> hat 6,237 ha Solarzone (8.9% der Gemeinde) und 4,947 ha Wind (7.1%). <b>Castelo Branco</b> hat 8,836 ha Solar und 7,183 ha Wind. <b>Covilhã</b> hat 3,317 ha Solar und 4,659 ha Wind (8.4%).',
+      s5_p3:'National ist <b>Castelo Branco die Gemeinde Nr. 2 für Wind</b> (8.7% der gesamten kartierten Windfläche), mit <b>Oleiros Nr. 3</b>, <b>Fundão Nr. 4</b> und <b>Covilhã Nr. 6</b>. Der Bericht räumt ein, dass diese Konzentration „Fragen zur möglichen Akzeptanz in einigen Gebieten aufwerfen kann.“',
+      s5_q1:'„Die kartierten Flächen sind ungleichmäßig über die NUTS-III-Regionen und Gemeinden verteilt, was Fragen zur möglichen Akzeptanz in einigen Gebieten aufwerfen kann.“<span class="cite">p. 72</span>',
+      s6_h:'Der Großteil des kartierten Landes hat keinen Anschluss',
+      s6_p1:'Die Anforderung eines Umspannwerks innerhalb von 10 km reduziert die Solarfläche von 578,777 ha auf 371,348 ha. Aber die Anforderung, dass dieses Umspannwerk tatsächlich <b>verfügbare Kapazität</b> hat, reduziert sie auf nur <b>118,669 ha — 21%</b> des kartierten Landes.',
+      s6_p2:'Bei Wind ist es krasser: nur <b>4,579 ha (5%)</b> der kartierten Fläche liegen innerhalb von 10 km von einem Umspannwerk mit verfügbarer Kapazität.',
+      s6_p3:'Mit anderen Worten: die überwiegende Mehrheit des erschlossenen Landes kann derzeit an nichts angeschlossen werden.',
+      s7_h:'Die Karte auf dieser Seite (Abbildung 39)',
+      s7_p1:'Abbildung 39 — die auf dieser Seite wiedergegebene Karte — zeigt die Solar- und Windzonen innerhalb von 20 km von einem Netzumspannwerk. Nach dieser Analyse liegen 98% der Solarzonen und 96% der Windzonen nahe einem Umspannwerk, was der Bericht als günstig für die Kombination von Wind und Solar an gemeinsamen Anschlüssen liest, wobei die <b>Regionen Centro und Norte</b> am geeignetsten sind.',
+      fc_p:'<b>Die öffentliche Konsultation ist der Weg, dies anzufechten.</b> Einwände sind Teil des offiziellen Entscheidungsprozesses und müssen von Gesetzes wegen berücksichtigt werden.',
+      fc_a:'Sehen, wie man Einwände erhebt →',
+      f_c1_h:'Die Kampagne',
+      f_home:'Startseite',
+      f_action:'In der Konsultation aktiv werden',
+      f_spread:'Weitersagen',
+      foot_about:'Den Prozess verstehen — wer entscheidet',
+      f_c2_h:'Dokumente & Daten',
+      f_docs:'Dokumente erklärt',
+      f_obj:'Die 172 Einwände',
+      f_maps:'Die Karten der Gebiete',
+      f_c3_h:'Offizielle Quellen',
+      f_src1:'PSZAER-Konsultation (participa.pt)',
+      f_src2:'Petition im Parlament',
+      f_src3:'Renováveis Participa (EMER)',
+      f_disc:'Erstellt von Nachbarn der Beira Baixa, die den Berg stehen lassen wollen. Informative, bürgerliche, gemeinnützige Seite, keiner Partei, keinem Unternehmen und keiner öffentlichen Stelle zugehörig. Getreue Wiedergabe eines offiziellen Dokuments, das zur öffentlichen Konsultation auf participa.pt veröffentlicht wurde (gespiegelt unter <a href="/docs/rt-espacializada.pdf">/docs/rt-espacializada.pdf</a>) — keine offizielle Übersetzung; zitierte Passagen sind unsere Übersetzung des portugiesischen Originals. Wo eine Zahl wichtig ist, prüfen Sie sie anhand des Quell-PDFs.'
+    },
+    fr:{
+      pgtitle:'Intégration de l’information spatialisée — le rapport qui a dessiné les cartes — PSZAER',
+      top_all:'← Tous les documents',
+      top_home:'salvargardunha.com',
+      eyebrow:'Consultation PSZAER · document',
+      h1:'Intégration de l’information spatialisée — le rapport qui a dessiné les cartes',
+      meta_line:'<span class="pt">Relatório Temático – Integração da Informação Espacializada</span><br>LNEG (coordination : Sofia Simões) · mai 2026 · 115 pages',
+      sum_h:'Résumé',
+      sum_p:'Le rapport SIG qui a réellement <b>dessiné les cartes</b> — y compris celle reproduite sur ce site. Il a filtré tout le continent à travers des critères d’exclusion, laissant ~578,777 ha pour le solaire (tombant à 371,348 ha dès qu’un poste électrique doit se trouver à moins de 10 km) et ~84,489 ha pour l’éolien. Son propre chapitre sur les limites est la partie la plus précieuse : la carte d’occupation des sols de base n’a qu’une résolution de <b>1 hectare</b>, les <b>plans municipaux n’ont jamais été consultés</b>, et les restrictions aéronautiques n’ont pu être qu’approximées. Il confirme aussi que la <b>Beira Baixa</b> figure parmi les régions les plus fortement cartographiées du pays.',
+      fig1_l:'de <b>toute la région de la Beira Baixa</b> cartographiée comme zone solaire potentielle — montant à <b>22.1%</b> sans le filtre de distance au réseau',
+      fig2_l:'résolution de la carte d’occupation des sols utilisée pour dessiner les zones — qualifiée d’<b>insuffisante</b> par le rapport lui-même',
+      fig3_l:'plans directeurs municipaux (PDM) consultés lors du tracé des cartes',
+      fig4_l:'du terrain solaire cartographié est réellement proche d’un poste électrique <b>avec capacité disponible</b> — le reste n’a nulle part où se raccorder',
+      cta_object:'S’opposer dans la consultation →',
+      cta_pdf:'PDF original (portugais)',
+      s1_h:'Comment les cartes ont été faites',
+      s1_p1:'Tout le continent a été passé au crible d’un filtre SIG : compiler toutes les contraintes environnementales et patrimoniales qui bloqueraient une zone, réunir les meilleures données nationales disponibles pour chacune, puis retirer de la carte toute zone couverte par au moins une contrainte. Ce qui subsiste est ce que vous voyez ombré sur la carte.',
+      s1_p2:'Des critères différents ont été appliqués au solaire et à l’éolien, produisant deux cartes distinctes. Les zones inférieures à 20 ha ont généralement été écartées.',
+      s2_h:'Les aveux qui comptent',
+      s2_p1:'Le rapport est honnête sur ses propres limites, et ces aveux comptent parmi les motifs d’opposition les plus solides. Il a été réalisé en sept mois, contraint par les données qui existaient.',
+      s2_p2:'Le plus frappant : les <b>plans directeurs municipaux n’ont pas du tout été consultés</b>. Les plans qui régissent réellement l’usage des sols à Fundão, Castelo Branco et Covilhã n’ont joué aucun rôle dans le tracé de ces zones.',
+      s2_q1:'« Le travail a été réalisé sur une période de 7 mois et a été limité par le temps et par la disponibilité des données. »<span class="cite">p. 12</span>',
+      s2_q2:'« En conséquence, l’information contenue dans les différents Plans directeurs municipaux (PDM) n’a pas été prise en compte, car il n’a pas été possible de consulter chacun d’eux individuellement. »<span class="cite">p. 12</span>',
+      s3_h:'La carte de base est trop grossière pour être fiable à cette échelle',
+      s3_p1:'La carte d’occupation des sols qui sous-tend tout fonctionne à une <b>résolution de 1 hectare</b> — et le rapport lui-même affirme que ce n’est pas suffisant pour les questions de détail, précisément parce qu’une grande partie de l’analyse travaille avec des polygones plus petits.',
+      s3_p2:'Il avertit aussi que la carte d’occupation des sols <b>n’a pas de valeur juridique contraignante</b>, de sorte que des arbres légalement protégés comme le chêne-liège peuvent en réalité se trouver dans des zones que la carte a classées comme tout autre chose.',
+      s3_q1:'« La COS actuelle (COS2023) fonctionne à une résolution de 1 ha, ce qui est insuffisant pour traiter correctement les questions de détail… Cette question est particulièrement pertinente puisque dans ce rapport, et surtout dans le cas de l’éolien, on travaille avec des polygones inférieurs à 100 ha. »<span class="cite">p. 72</span>',
+      s3_q2:'« La COS n’est pas un instrument juridiquement contraignant, et certains spécimens d’espèces protégées (par ex. chêne-liège, houx) peuvent se trouver dans des zones classées par la COS comme, par exemple, « forêts d’espèces envahissantes ». »<span class="cite">p. 72</span>',
+      s3_q3:'« Tout l’exercice en cours est fonction des limites de l’information cartographique pour le pays, et celles-ci doivent être gardées à l’esprit. »<span class="cite">p. 72</span>',
+      s4_h:'Les restrictions aéronautiques ont été estimées',
+      s4_p1:'Les servitudes aéronautiques pour l’éolien n’ont pas pu être traitées à temps, l’équipe les a donc remplacées par des cercles approximatifs autour des aéroports et aérodromes. Le rapport indique que les chiffres de l’éolien qui en résultent doivent être traités avec réserve, avec une incertitude d’environ <b>±6.9%</b> sur la surface cartographiée.',
+      s4_q1:'« Il n’a pas été possible de considérer en détail les servitudes aéronautiques. Une analyse simplifiée a été réalisée, qui doit être traitée avec réserves. »<span class="cite">p. 73</span>',
+      s5_h:'La Beira Baixa, en chiffres',
+      s5_p1:'Le rapport confirme ce que montre la carte. <b>11.0% de toute la région de la Beira Baixa</b> est cartographié comme zone solaire potentielle et 3.7% comme éolien — et sans le filtre de distance au réseau, le chiffre du solaire monte à <b>22.1%</b>, plus d’un cinquième de la région.',
+      s5_p2:'Par municipalité : <b>Fundão</b> compte 6,237 ha de zone solaire (8.9% de la municipalité) et 4,947 ha d’éolien (7.1%). <b>Castelo Branco</b> compte 8,836 ha de solaire et 7,183 ha d’éolien. <b>Covilhã</b> compte 3,317 ha de solaire et 4,659 ha d’éolien (8.4%).',
+      s5_p3:'À l’échelle nationale, <b>Castelo Branco est la municipalité n° 2 pour l’éolien</b> (8.7% de toute la surface éolienne cartographiée), avec <b>Oleiros n° 3</b>, <b>Fundão n° 4</b> et <b>Covilhã n° 6</b>. Le rapport concède que cette concentration « peut soulever des questions sur une possible acceptabilité dans certains territoires ».',
+      s5_q1:'« Les zones cartographiées sont réparties de manière inégale entre les régions NUTS III et les municipalités, ce qui peut soulever des questions sur une possible acceptabilité dans certains territoires. »<span class="cite">p. 72</span>',
+      s6_h:'La majeure partie du terrain cartographié n’a nulle part où se raccorder',
+      s6_p1:'Exiger un poste électrique à moins de 10 km réduit la surface solaire de 578,777 ha à 371,348 ha. Mais exiger que ce poste dispose réellement d’une <b>capacité disponible</b> la réduit à seulement <b>118,669 ha — 21%</b> du terrain cartographié.',
+      s6_p2:'Pour l’éolien, c’est plus net encore : seulement <b>4,579 ha (5%)</b> de la surface cartographiée se trouvent à moins de 10 km d’un poste électrique disposant d’une capacité disponible.',
+      s6_p3:'En d’autres termes, l’immense majorité du terrain ouvert ne peut actuellement être raccordée à rien.',
+      s7_h:'La carte sur ce site (Figure 39)',
+      s7_p1:'La Figure 39 — la carte reproduite sur ce site — montre les zones solaire et éolienne situées à moins de 20 km d’un poste électrique du réseau. Selon cette analyse, 98% des zones solaires et 96% des zones éoliennes se trouvent près d’un poste, ce que le rapport interprète comme favorable à la combinaison de l’éolien et du solaire sur des raccordements partagés, les <b>régions Centro et Norte</b> étant les plus adaptées.',
+      fc_p:'<b>La consultation publique est le moyen de contester cela.</b> Les objections font partie du processus officiel de décision et doivent être prises en compte par la loi.',
+      fc_a:'Voir comment s’opposer →',
+      f_c1_h:'La campagne',
+      f_home:'Accueil',
+      f_action:'Agir dans la consultation',
+      f_spread:'Faire passer le mot',
+      foot_about:'Comprendre le processus — qui décide',
+      f_c2_h:'Documents et données',
+      f_docs:'Documents expliqués',
+      f_obj:'Les 172 objections',
+      f_maps:'Les cartes des zones',
+      f_c3_h:'Sources officielles',
+      f_src1:'Consultation PSZAER (participa.pt)',
+      f_src2:'Pétition au Parlement',
+      f_src3:'Renováveis Participa (EMER)',
+      f_disc:'Réalisé par des voisins de la Beira Baixa qui veulent que la montagne reste debout. Page informative, civique, à but non lucratif, non affiliée à aucun parti, entreprise ou organisme public. Reproduction fidèle d’un document officiel publié pour consultation publique sur participa.pt (miroir sur <a href="/docs/rt-espacializada.pdf">/docs/rt-espacializada.pdf</a>) — ce n’est pas une traduction officielle ; les passages cités sont notre traduction de l’original portugais. Là où un chiffre compte, vérifiez-le dans le PDF source.'
+    }
+  };
+  var PT={}, PTA={};
+  document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
+  document.querySelectorAll('[data-i18n-alt]').forEach(function(el){PTA[el.getAttribute('data-i18n-alt')]=el.getAttribute('alt')||'';});
+  function tr(l,k){ if(l==='pt')return PT[k]; return (I18N[l]&&I18N[l][k]!=null)?I18N[l][k]:PT[k]; }
+  function trA(l,k){ if(l==='pt')return PTA[k]; return (I18N[l]&&I18N[l]['@alt:'+k]!=null)?I18N[l]['@alt:'+k]:PTA[k]; }
+  function applyLang(l){
+    if(LANGS.indexOf(l)<0)l='pt';
+    document.documentElement.lang=(l==='pt'?'pt-PT':l);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=tr(l,el.getAttribute('data-i18n'));});
+    document.querySelectorAll('[data-i18n-alt]').forEach(function(el){el.setAttribute('alt',trA(l,el.getAttribute('data-i18n-alt')));});
+    document.querySelectorAll('#langsw button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
+    try{localStorage.setItem('nf_lang',l);}catch(e){}
+  }
+  document.querySelectorAll('#langsw button').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang'));});});
+  var saved; try{saved=localStorage.getItem('nf_lang');}catch(e){}
+  applyLang(saved||'pt');
+})();
+</script>
 </body>
 </html>
