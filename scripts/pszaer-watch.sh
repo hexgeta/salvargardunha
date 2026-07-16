@@ -1,6 +1,6 @@
 #!/bin/bash
 # PSZAER consultation watcher.
-# Alerts via Telegram (the shared "VPS notifications" bot) the moment the
+# Alerts via Telegram (the "inbound leads" chat — HEXGETAFORMSBOT) the moment the
 # participa.pt consultation page gains a NEW document — which is how the
 # Government publishes its "relatório de ponderação" (its reply to all the
 # public contributions) and, eventually, the final approved programme.
@@ -23,8 +23,9 @@ set +u
 [ -f "$STATE_DIR/.env" ] && { set -a; . "$STATE_DIR/.env"; set +a; }
 [ -f "$HOME/.profile" ] && { set -a; . "$HOME/.profile" 2>/dev/null; set +a; }
 set -u
-BOT="${TELEGRAM_BOT_TOKEN_VPSNOTIFICATIONS:-}"
-CHAT="${TELEGRAM_CHAT_ID_VPSNOTIFICATIONS:-}"
+# Route to the "inbound leads" chat (HEXGETAFORMSBOT — same as aima/twospouts leads)
+BOT="${TELEGRAM_BOT_TOKEN_HEXGETAFORMSBOT:-}"
+CHAT="${TELEGRAM_CHAT_ID_HEXGETAFORMSBOT:-}"
 PROXY="${WEBSHARE_PROXY_URL:-}"
 
 CONSULT_URL="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer"
@@ -38,9 +39,14 @@ send_tg() {
     && LOG "telegram sent" || LOG "telegram FAILED"
 }
 
-# --- fetch the consultation page via the proxy ---
-html=$(curl -s --max-time 45 --insecure --proxy "$PROXY" "$CONSULT_URL" || true)
-if [ -z "$html" ]; then LOG "warn: empty fetch (proxy/block?) — will retry next run"; exit 0; fi
+# --- fetch the consultation page via the proxy (retry: exits are flaky) ---
+html=""
+for attempt in 1 2 3; do
+  html=$(curl -s --max-time 45 --insecure --proxy "$PROXY" "$CONSULT_URL" || true)
+  [ -n "$html" ] && break
+  LOG "fetch attempt $attempt empty; retrying"; sleep 5
+done
+if [ -z "$html" ]; then LOG "warn: empty fetch after 3 tries — will retry next cron"; exit 0; fi
 
 docs=$(printf '%s' "$html" \
   | grep -oiE 'contents/consultationdocument/[^"]+' \
