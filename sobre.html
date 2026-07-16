@@ -89,6 +89,19 @@
   .tbl-note{color:var(--muted);font-size:13.5px;margin-top:10px}
   .quote{margin-top:24px;border-left:3px solid var(--amber);padding:6px 0 6px 18px;color:#e7ecdf;font-size:18px;font-style:italic}
   .quote span{display:block;margin-top:8px;font-style:normal;font-size:13.5px;color:var(--muted)}
+  .tl{margin-top:26px;position:relative;padding-left:26px}
+  .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .tl-i{position:relative;padding:0 0 20px}
+  .tl-i::before{content:"";position:absolute;left:-25px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--panel);border:2px solid var(--line)}
+  .tl-i.done::before{background:var(--green-d);border-color:var(--green-d)}
+  .tl-i.now::before{background:var(--amber);border-color:var(--amber);box-shadow:0 0 0 5px rgba(251,191,36,.18)}
+  .tl-d{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700}
+  .tl-i.now .tl-d{color:var(--amber)}
+  .tl-i.next .tl-d{color:var(--muted)}
+  .tl-t{color:#fff;font-weight:700;font-size:16px;margin-top:3px}
+  .tl-p{color:#ccd3c9;font-size:14.5px;margin-top:3px;line-height:1.55}
+  .tl-p b{color:#fff}
+  .tl-i.now .tl-t{color:var(--amber)}
 </style>
 </head>
 <body>
@@ -293,6 +306,66 @@
   </div>
 </section>
 
+<section id="timeline">
+  <div class="wrap">
+    <div class="kicker" data-i18n="tl_k">Como chegámos aqui</div>
+    <h2 data-i18n="tl_h">Cronologia</h2>
+    <p data-i18n="tl_p">Todas as datas vêm dos documentos oficiais. Repara em quanto tempo o processo levou — e em quão pouco tempo nos deram para responder.</p>
+    <div class="tl">
+      <div class="tl-i done">
+        <div class="tl-d" data-i18n="tl1_d">6 de fevereiro de 2026</div>
+        <div class="tl-t" data-i18n="tl1_t">O Governo manda fazer o PSZAER</div>
+        <div class="tl-p" data-i18n="tl1_p">O Despacho n.º 1532-B/2026 encarrega a EMER 2030 de preparar o programa, com <b>seis meses</b> para concluir tudo.</div>
+      </div>
+      <div class="tl-i done">
+        <div class="tl-d" data-i18n="tl2_d">Fevereiro – março de 2026</div>
+        <div class="tl-t" data-i18n="tl2_t">Define-se o âmbito da avaliação ambiental</div>
+        <div class="tl-p" data-i18n="tl2_p">As entidades com responsabilidades ambientais são ouvidas sobre os «Fatores Críticos para a Decisão» — o que a avaliação vai, e não vai, analisar.</div>
+      </div>
+      <div class="tl-i done">
+        <div class="tl-d" data-i18n="tl3_d">2 – 5 de maio de 2026</div>
+        <div class="tl-t" data-i18n="tl3_t">Saem a proposta, a avaliação ambiental e os 6 relatórios temáticos</div>
+        <div class="tl-p" data-i18n="tl3_p">O <a href="/read/rt-paisagem" target="_blank" rel="noopener">Relatório de Paisagem</a> nomeia expressamente as <b>«Serras da Gardunha, Alvelos e Moradal»</b> dentro do grupo <b>mais visado do país</b> (~34% da área). O <a href="/read/rt-energia" target="_blank" rel="noopener">Relatório de Energia</a> conclui que o travão não é a falta de terreno — é a rede.</div>
+      </div>
+      <div class="tl-i done">
+        <div class="tl-d" data-i18n="tl4_d">5 de maio de 2026</div>
+        <div class="tl-t" data-i18n="tl4_t">As entidades públicas são consultadas — 20 dias para responder</div>
+        <div class="tl-p" data-i18n="tl4_p">Câmaras, CCDR, ICNF, APA, Património Cultural e agricultura recebem centenas de páginas técnicas. Quem não responder em 20 dias considera-se que <b>nada tem a opor</b>.</div>
+      </div>
+      <div class="tl-i done">
+        <div class="tl-d" data-i18n="tl5_d">16 de junho de 2026</div>
+        <div class="tl-t" data-i18n="tl5_t">Os pareceres: quatro entidades dizem NÃO</div>
+        <div class="tl-p" data-i18n="tl5_p">Desfavoráveis: <b>Património Cultural</b>, <b>Agricultura (DGADR)</b>, a <b>Associação Nacional de Municípios</b> (ao conteúdo <i>e</i> ao processo) e um município. O <b>ICNF exige a remoção</b> das áreas que se sobrepõem à faixa de 1 km em redor da <b>Paisagem Protegida Regional da Serra da Gardunha</b>.</div>
+      </div>
+      <div class="tl-i done">
+        <div class="tl-d" data-i18n="tl6_d">17 de junho de 2026</div>
+        <div class="tl-t" data-i18n="tl6_t">Abre a consulta pública</div>
+        <div class="tl-p" data-i18n="tl6_p">Anunciada pelo Aviso n.º 14136-B/2026/2. <b>Menos de um mês</b> para os cidadãos lerem e responderem a mais de mil páginas.</div>
+      </div>
+      <div class="tl-i done">
+        <div class="tl-d" data-i18n="tl7_d">23 de junho de 2026</div>
+        <div class="tl-t" data-i18n="tl7_t">O Governo pondera os pareceres — e a maioria fica pelo caminho</div>
+        <div class="tl-p" data-i18n="tl7_p">Dos <b><a href="/objecoes" target="_blank" rel="noopener">172 contributos</a></b>, 45 são apenas «registados» (não mudam nada) e 62 só «parcialmente acolhidos». A crítica da Direção-Geral do Território — de que as zonas são <b>muito maiores do que as metas exigem</b> — fica «registada». A exigência do ICNF sobre a Gardunha <b>nem sequer é mencionada</b>. <a href="/objecoes" target="_blank" rel="noopener">Vê as 172 e as respostas →</a></div>
+      </div>
+      <div class="tl-i done">
+        <div class="tl-d" data-i18n="tl8_d">15 de julho de 2026</div>
+        <div class="tl-t" data-i18n="tl8_t">Terminou a consulta pública — 8&nbsp;053 contributos</div>
+        <div class="tl-p" data-i18n="tl8_p">Encerrou com <b>8&nbsp;053 contributos</b> submetidos. Por lei, todos <b>têm de ser considerados</b> no relatório de ponderação do Governo.</div>
+      </div>
+      <div class="tl-i now">
+        <div class="tl-d" data-i18n="tl9_d">Julho – agosto de 2026</div>
+        <div class="tl-t" data-i18n="tl9_t">O Governo analisa os contributos e fecha a proposta</div>
+        <div class="tl-p" data-i18n="tl9_p">Segue-se o processo legislativo. Depois disto, discutir deixa de ser uma opção.</div>
+      </div>
+      <div class="tl-i next">
+        <div class="tl-d" data-i18n="tl10_d">2026 – 2028</div>
+        <div class="tl-t" data-i18n="tl10_t">As zonas descem aos PDM municipais</div>
+        <div class="tl-p" data-i18n="tl10_p">Só quando forem transpostas para os planos das câmaras é que as regras de proteção passam a obrigar as empresas — e é aí que as centrais se tornam possíveis no terreno.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div data-i18n="foot_made">Feito por vizinhos da Beira Baixa que querem a serra de pé. · <a href="/">salvargardunha.com</a></div>
@@ -305,6 +378,28 @@
   var LANGS=['pt','en','de','fr'];
   var I18N={
     en:{
+      tl_k:'How we got here', tl_h:'Timeline',
+      tl_p:'Every date comes from the official documents. Notice how long the process took — and how little time we were given to answer.',
+      tl1_d:'6 February 2026', tl1_t:'The Government orders the programme',
+      tl1_p:'Order no. 1532-B/2026 tasks EMER 2030 with preparing it, giving <b>six months</b> to complete everything.',
+      tl2_d:'February – March 2026', tl2_t:'The scope of the environmental assessment is set',
+      tl2_p:'Environmental bodies are consulted on the “Critical Decision Factors” — what the assessment will, and will not, examine.',
+      tl3_d:'2 – 5 May 2026', tl3_t:'The proposal, the environmental assessment and 6 thematic reports appear',
+      tl3_p:'The <a href="/read/rt-paisagem" target="_blank" rel="noopener">Landscape Report</a> expressly names the <b>“Serras da Gardunha, Alvelos e Moradal”</b> inside the <b>most targeted group in the country</b> (~34% of its area). The <a href="/read/rt-energia" target="_blank" rel="noopener">Energy Report</a> concludes the brake is not a lack of land — it is the grid.',
+      tl4_d:'5 May 2026', tl4_t:'Public bodies are consulted — 20 days to reply',
+      tl4_p:'Municipalities, regional commissions, the nature, environment, heritage and agriculture authorities receive hundreds of technical pages. Anyone who does not answer within 20 days is deemed to have <b>no objection</b>.',
+      tl5_d:'16 June 2026', tl5_t:'The opinions: four bodies say NO',
+      tl5_p:'Unfavourable: <b>Cultural Heritage</b>, <b>Agriculture (DGADR)</b>, the <b>National Association of Municipalities</b> (to the content <i>and</i> the process) and one municipality. The <b>ICNF demands the removal</b> of the areas overlapping the 1 km buffer around the <b>Serra da Gardunha Regional Protected Landscape</b>.',
+      tl6_d:'17 June 2026', tl6_t:'The public consultation opens',
+      tl6_p:'Announced by Notice no. 14136-B/2026/2. <b>Less than a month</b> for citizens to read and answer more than a thousand pages.',
+      tl7_d:'23 June 2026', tl7_t:'The Government weighs the opinions — and most fall by the wayside',
+      tl7_p:'Of the <b><a href="/objecoes" target="_blank" rel="noopener">172 contributions</a></b>, 45 are merely “noted” (changing nothing) and 62 only “partially accepted”. The territorial authority’s criticism — that the zones are <b>far larger than the targets require</b> — is “noted”. The ICNF’s demand about the Gardunha <b>is not even mentioned</b>. <a href="/objecoes" target="_blank" rel="noopener">See all 172 and the responses →</a>',
+      tl8_d:'15 July 2026', tl8_t:'The public consultation closed — 8,053 contributions',
+      tl8_p:'It closed with <b>8,053 contributions</b> submitted. By law, all of them <b>must be considered</b> in the Government’s weighing report.',
+      tl9_d:'July – August 2026', tl9_t:'The Government analyses the contributions and finalises the proposal',
+      tl9_p:'Then comes the legislative process. After that, arguing is no longer an option.',
+      tl10_d:'2026 – 2028', tl10_t:'The zones pass down into municipal plans',
+      tl10_p:'Only once they are written into the municipalities’ plans do the protective rules actually bind companies — and that is when the plants become possible on the ground.',
       risk_k:'What is at stake', risk_h:'Blankets of glass over the mountains',
       risk_f1:'<b>The landscape</b>The Government’s own PSZAER Landscape Report (an official document of this consultation) admits that large-scale solar creates <i>“blankets of glass”</i> and is felt as <i>“a significant visual degradation”</i>. There is a limit of <b>25 contiguous ha</b> per solar field — which the mega-projects ignore.',
       risk_f2:'<b>No environmental screening</b>Inside the acceleration zones there is no EIA. Without that screening, projects go ahead without the assessment that protects water, soil, forest and biodiversity.',
@@ -405,6 +500,28 @@
       disc:'Plain-language explanation of the PSZAER drafting procedure, based on the official consultation documents (participa.pt / EMER 2030, 2026) and on the Legal Regime for Territorial Management Instruments. Informative, civic, non-profit, not affiliated with any party, company or public entity.'
     },
     de:{
+      tl_k:'Wie wir hierher kamen', tl_h:'Chronologie',
+      tl_p:'Alle Daten stammen aus den offiziellen Dokumenten. Beachte, wie lange der Prozess dauerte — und wie wenig Zeit man uns zum Antworten ließ.',
+      tl1_d:'6. Februar 2026', tl1_t:'Die Regierung ordnet das Programm an',
+      tl1_p:'Der Erlass Nr. 1532-B/2026 beauftragt EMER 2030 mit der Ausarbeitung — mit <b>sechs Monaten</b> für alles.',
+      tl2_d:'Februar – März 2026', tl2_t:'Der Umfang der Umweltprüfung wird festgelegt',
+      tl2_p:'Umweltbehörden werden zu den „Kritischen Entscheidungsfaktoren“ angehört — also dazu, was die Prüfung untersuchen wird und was nicht.',
+      tl3_d:'2. – 5. Mai 2026', tl3_t:'Der Entwurf, die Umweltprüfung und 6 Themenberichte erscheinen',
+      tl3_p:'Der <a href="/read/rt-paisagem" target="_blank" rel="noopener">Landschaftsbericht</a> nennt ausdrücklich die <b>„Serras da Gardunha, Alvelos e Moradal“</b> innerhalb der <b>am stärksten betroffenen Gruppe des Landes</b> (~34% der Fläche). Der <a href="/read/rt-energia" target="_blank" rel="noopener">Energiebericht</a> kommt zum Schluss: Nicht fehlendes Land bremst — sondern das Netz.',
+      tl4_d:'5. Mai 2026', tl4_t:'Öffentliche Stellen werden angehört — 20 Tage für eine Antwort',
+      tl4_p:'Gemeinden, Regionalbehörden, Naturschutz-, Umwelt-, Denkmalschutz- und Agrarbehörden erhalten hunderte Fachseiten. Wer nicht binnen 20 Tagen antwortet, gilt als <b>einverstanden</b>.',
+      tl5_d:'16. Juni 2026', tl5_t:'Die Stellungnahmen: vier Stellen sagen NEIN',
+      tl5_p:'Ablehnend: <b>Denkmalschutz</b>, <b>Landwirtschaft (DGADR)</b>, der <b>Nationale Gemeindeverband</b> (gegen Inhalt <i>und</i> Verfahren) und eine Gemeinde. Das <b>ICNF verlangt die Streichung</b> der Flächen, die sich mit dem 1-km-Puffer um die <b>regionale Schutzlandschaft Serra da Gardunha</b> überschneiden.',
+      tl6_d:'17. Juni 2026', tl6_t:'Die öffentliche Konsultation beginnt',
+      tl6_p:'Angekündigt durch Bekanntmachung Nr. 14136-B/2026/2. <b>Weniger als ein Monat</b>, um über tausend Seiten zu lesen und zu beantworten.',
+      tl7_d:'23. Juni 2026', tl7_t:'Die Regierung bewertet die Stellungnahmen — die meisten bleiben auf der Strecke',
+      tl7_p:'Von den <b><a href="/objecoes" target="_blank" rel="noopener">172 Beiträgen</a></b> werden 45 nur „zur Kenntnis genommen“ (ohne Änderung) und 62 nur „teilweise berücksichtigt“. Die Kritik der Raumordnungsbehörde — die Zonen seien <b>weit größer als nötig</b> — wird „zur Kenntnis genommen“. Die ICNF-Forderung zur Gardunha wird <b>nicht einmal erwähnt</b>. <a href="/objecoes" target="_blank" rel="noopener">Alle 172 und die Antworten ansehen →</a>',
+      tl8_d:'15. Juli 2026', tl8_t:'Die öffentliche Konsultation endete — 8&nbsp;053 Beiträge',
+      tl8_p:'Sie endete mit <b>8&nbsp;053 eingereichten Beiträgen</b>. Laut Gesetz <b>müssen</b> alle im Abwägungsbericht der Regierung berücksichtigt werden.',
+      tl9_d:'Juli – August 2026', tl9_t:'Die Regierung wertet die Beiträge aus und finalisiert den Entwurf',
+      tl9_p:'Danach folgt das Gesetzgebungsverfahren. Dann ist Widerspruch keine Option mehr.',
+      tl10_d:'2026 – 2028', tl10_t:'Die Zonen wandern in die kommunalen Pläne',
+      tl10_p:'Erst wenn sie in die Gemeindepläne übernommen sind, binden die Schutzregeln die Unternehmen — und genau dann werden die Anlagen vor Ort möglich.',
       risk_k:'Was auf dem Spiel steht', risk_h:'Glasteppiche über dem Gebirge',
       risk_f1:'<b>Die Landschaft</b>Der Landschaftsbericht des PSZAER (ein offizielles Dokument dieser Konsultation) räumt selbst ein, dass Solar in großem Maßstab <i>„Glasteppiche“</i> schafft und als <i>„erhebliche visuelle Beeinträchtigung“</i> empfunden wird. Es gibt eine Grenze von <b>25 ha zusammenhängend</b> pro Solarfeld — die Großprojekte ignorieren.',
       risk_f2:'<b>Ohne Umweltfilter</b>In den Beschleunigungszonen gibt es keine UVP. Ohne diesen Filter schreiten Projekte ohne die Prüfung voran, die Wasser, Boden, Wald und Artenvielfalt schützt.',
@@ -505,6 +622,28 @@
       disc:'Erklärung in einfacher Sprache des Verfahrens zur Ausarbeitung des PSZAER, auf Grundlage der offiziellen Konsultationsdokumente (participa.pt / EMER 2030, 2026) und des Rechtsregimes der Instrumente der Raumordnung. Informativ, bürgerschaftlich, gemeinnützig, keiner Partei, keinem Unternehmen und keiner öffentlichen Stelle angeschlossen.'
     },
     fr:{
+      tl_k:'Comment nous en sommes arrivés là', tl_h:'Chronologie',
+      tl_p:'Toutes les dates proviennent des documents officiels. Regarde le temps qu’a pris le processus — et le peu de temps qu’on nous a laissé pour répondre.',
+      tl1_d:'6 février 2026', tl1_t:'Le gouvernement commande le programme',
+      tl1_p:'L’arrêté n° 1532-B/2026 charge l’EMER 2030 de le préparer, avec <b>six mois</b> pour tout achever.',
+      tl2_d:'Février – mars 2026', tl2_t:'Le périmètre de l’évaluation environnementale est fixé',
+      tl2_p:'Les autorités environnementales sont consultées sur les « Facteurs Critiques de Décision » — ce que l’évaluation examinera, et ce qu’elle n’examinera pas.',
+      tl3_d:'2 – 5 mai 2026', tl3_t:'La proposition, l’évaluation environnementale et 6 rapports thématiques paraissent',
+      tl3_p:'Le <a href="/read/rt-paisagem" target="_blank" rel="noopener">Rapport Paysage</a> nomme expressément les <b>« Serras da Gardunha, Alvelos e Moradal »</b> dans le groupe <b>le plus visé du pays</b> (~34% de sa superficie). Le <a href="/read/rt-energia" target="_blank" rel="noopener">Rapport Énergie</a> conclut que le frein n’est pas le manque de terrain — c’est le réseau.',
+      tl4_d:'5 mai 2026', tl4_t:'Les entités publiques sont consultées — 20 jours pour répondre',
+      tl4_p:'Communes, commissions régionales, autorités de la nature, de l’environnement, du patrimoine et de l’agriculture reçoivent des centaines de pages techniques. Qui ne répond pas sous 20 jours est réputé <b>ne rien avoir à objecter</b>.',
+      tl5_d:'16 juin 2026', tl5_t:'Les avis : quatre entités disent NON',
+      tl5_p:'Défavorables : le <b>Patrimoine culturel</b>, l’<b>Agriculture (DGADR)</b>, l’<b>Association nationale des municipalités</b> (au contenu <i>et</i> au processus) et une commune. L’<b>ICNF exige le retrait</b> des zones chevauchant la bande de 1 km autour du <b>Paysage protégé régional de la Serra da Gardunha</b>.',
+      tl6_d:'17 juin 2026', tl6_t:'La consultation publique s’ouvre',
+      tl6_p:'Annoncée par l’avis n° 14136-B/2026/2. <b>Moins d’un mois</b> pour que les citoyens lisent et répondent à plus de mille pages.',
+      tl7_d:'23 juin 2026', tl7_t:'Le gouvernement pondère les avis — la plupart restent lettre morte',
+      tl7_p:'Sur les <b><a href="/objecoes" target="_blank" rel="noopener">172 contributions</a></b>, 45 sont simplement « prises en note » (sans rien changer) et 62 seulement « partiellement retenues ». La critique de l’autorité du territoire — les zones sont <b>bien plus vastes que nécessaire</b> — est « prise en note ». L’exigence de l’ICNF sur la Gardunha <b>n’est même pas mentionnée</b>. <a href="/objecoes" target="_blank" rel="noopener">Voir les 172 et les réponses →</a>',
+      tl8_d:'15 juillet 2026', tl8_t:'La consultation publique s’est terminée — 8&nbsp;053 contributions',
+      tl8_p:'Elle s’est terminée avec <b>8&nbsp;053 contributions</b> soumises. Par la loi, toutes <b>doivent être prises en compte</b> dans le rapport de pondération du gouvernement.',
+      tl9_d:'Juillet – août 2026', tl9_t:'Le gouvernement analyse les contributions et finalise la proposition',
+      tl9_p:'Vient ensuite le processus législatif. Après cela, contester n’est plus une option.',
+      tl10_d:'2026 – 2028', tl10_t:'Les zones descendent dans les plans municipaux',
+      tl10_p:'Ce n’est qu’une fois inscrites dans les plans des communes que les règles de protection s’imposent aux entreprises — et c’est là que les centrales deviennent possibles sur le terrain.',
       risk_k:'Ce qui est en jeu', risk_h:'Des tapis de verre sur la montagne',
       risk_f1:'<b>Le paysage</b>Le propre Rapport Paysage du PSZAER (document officiel de cette consultation) admet que le solaire à grande échelle crée des <i>« tapis de verre »</i> et est ressenti comme une <i>« dégradation visuelle significative »</i>. Il existe une limite de <b>25 ha continus</b> par champ solaire — que les méga-projets ignorent.',
       risk_f2:'<b>Sans filtre environnemental</b>Dans les zones d’accélération, il n’y a pas d’EIE. Sans ce filtre, les projets avancent sans l’évaluation qui protège l’eau, le sol, la forêt et la biodiversité.',
