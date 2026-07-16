@@ -9,16 +9,18 @@ const SITE = 'https://salvargardunha.com';
 const LANGS = ['en', 'de', 'fr'];
 const ALL = ['pt', 'en', 'de', 'fr'];
 
-// Only pages that actually have client-side translations. slug -> file.
-const TRANSLATED = {
-  'index': 'index.html',
-  'sobre': 'sobre.html',
-  'analise-pareceres': 'analise-pareceres.html',
-  'objecoes': 'objecoes.html',
-  'mapa': 'mapa.html',
-  'social': 'social.html',
-  'nao-responderam': 'nao-responderam.html'
-};
+// Root pages that have client-side translations.
+const ROOT = new Set(['sobre', 'analise-pareceres', 'objecoes', 'mapa', 'social', 'nao-responderam']);
+
+// Resolve a URL slug to a file on disk, or null if it isn't a known translated page.
+// Covers the home page, the root campaign pages, and the /read/ document section.
+function resolveFile(page) {
+  if (page === 'index') return 'index.html';
+  if (ROOT.has(page)) return page + '.html';
+  if (page === 'read') return 'read/index.html';
+  if (/^read\/[a-z0-9-]+$/.test(page)) return page + '.html';
+  return null;
+}
 
 // Full share/meta for the home page (the most-shared surface).
 const HOME_META = {
@@ -51,7 +53,9 @@ module.exports = (req, res) => {
   const page = (String(req.query.page || 'index').replace(/^\/+|\/+$/g, '')) || 'index';
 
   // Unknown / untranslated slug: send crawlers and users to the Portuguese version.
-  if (!Object.prototype.hasOwnProperty.call(TRANSLATED, page)) {
+  const file = resolveFile(page);
+  if (!file) {
+    // Unknown / untranslated slug: send crawlers and users to the Portuguese version.
     res.statusCode = 308;
     res.setHeader('Location', langPath(page, 'pt'));
     res.end();
@@ -60,7 +64,7 @@ module.exports = (req, res) => {
 
   let html;
   try {
-    html = fs.readFileSync(path.join(process.cwd(), TRANSLATED[page]), 'utf8');
+    html = fs.readFileSync(path.join(process.cwd(), file), 'utf8');
   } catch (e) {
     res.statusCode = 404;
     res.end('Not found');
