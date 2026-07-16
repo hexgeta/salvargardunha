@@ -194,9 +194,7 @@
   .pet-count{font-size:clamp(38px,7vw,56px);font-weight:900;color:#fff;line-height:1;font-variant-numeric:tabular-nums}
   .pet-total{color:var(--green);font-weight:700;font-size:clamp(15px,2.6vw,19px)}
   .pet-track{position:relative;height:14px;border-radius:999px;background:#07140a;border:1px solid #275c33;margin:18px auto 4px;max-width:540px}
-  .pet-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--green-d),var(--green));transition:width .9s ease}
-  .pet-goal{position:absolute;top:-5px;bottom:-5px;left:13.33%;width:2px;background:var(--amber)}
-  .pet-band .pet-done{color:#dcf5e3;font-size:15.5px;margin-top:12px}
+  .pet-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--green-d),var(--green));transition:width .9s ease}  .pet-band .pet-done{color:#dcf5e3;font-size:15.5px;margin-top:12px}
   .pet-band .pet-done b{color:#fff}
   .pet-band .pet-next{color:#9fbfa8;font-size:14px;margin-top:2px}
   .pet-band .cta{justify-content:center;margin-top:18px}
@@ -272,6 +270,16 @@
   </div>
 </section>
 
+<section class="pet-band">
+  <div class="wrap">
+    <div class="kicker" data-i18n="pet_k">Petição no Parlamento</div>
+    <div class="pet-nums"><span class="pet-count">5&nbsp;323</span><span class="pet-total" data-i18n="pet_total">/ 7&nbsp;500 assinaturas</span></div>
+    <div class="pet-track"><div class="pet-fill" style="width:70%"></div></div>
+    <p class="pet-next" data-i18n="pet_next">Próxima meta: <b>7&nbsp;500</b> — obriga ao debate em Plenário na Assembleia da República.</p>
+    <div class="cta"><a class="btn btn-primary" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="pet_btn">Assinar a petição →</a></div>
+  </div>
+</section>
+
 <section id="assinar">
   <div class="wrap">
     <div class="kicker" data-i18n="sign_k">Assinar em 1 minuto</div>
@@ -344,15 +352,6 @@
   </div>
 </section>
 
-<section class="cta-band">
-  <div class="wrap">
-    <p class="cta-urgent"><span data-i18n="band2_line">Não deixes que decidam por nós. A objeção é oficial e tem de ser considerada por lei —</span> <span class="divleft">…</span></p>
-    <div class="cta">
-      <a class="btn btn-primary" href="#assinar" data-i18n="hero_cta1">Assinar a petição →</a>
-    </div>
-  </div>
-</section>
-
 <section style="display:none">
   <div class="wrap">
     <div class="kicker" data-i18n="docs_k">Documentos da consulta</div>
@@ -373,17 +372,6 @@
       <a class="doc" href="docs/rt-juridico.pdf" target="_blank" rel="noopener"><span class="doc-top"><span class="doc-t">Relatório Temático — Jurídico</span><span class="doc-s">02.05.2026 · PDF</span></span><span class="doc-sum" data-i18n="sum_juridico">Relatório da AMMC Legal que desenha o regime de licenciamento dentro das ZAER: janela única, avaliação ambiental ao nível do plano e não do projeto — dispensando, em regra, a AIA completa e substituindo-a por um mero procedimento de verificação de conformidade, com prazos máximos de 12 meses (6 em repowering).</span></a>
       <a class="doc" href="docs/rt-ordenamento.pdf" target="_blank" rel="noopener"><span class="doc-top"><span class="doc-t">Relatório Temático — Ordenamento e Economia do Território</span><span class="doc-s">02.05.2026 · PDF</span></span><span class="doc-sum" data-i18n="sum_ordenamento">Relatório do CEDRU que admite que a área identificada excede largamente as necessidades das metas de 2030 — e que a área ocupada por centrais solares já saltou de ~1 290 para ~4 740 ha em cinco anos. Alerta para especulação fundiária e «monofuncionalidade energética» no interior, e recomenda priorizar áreas artificializadas e degradadas, não solos rústicos.</span></a>
     </div>
-  </div>
-</section>
-
-
-<section class="pet-band">
-  <div class="wrap">
-    <div class="kicker" data-i18n="pet_k">Petição no Parlamento</div>
-    <div class="pet-nums"><span class="pet-count">5&nbsp;323</span><span class="pet-total" data-i18n="pet_total">/ 7&nbsp;500 assinaturas</span></div>
-    <div class="pet-track"><div class="pet-fill" style="width:70%"></div><div class="pet-goal" title="1 000"></div></div>
-    <p class="pet-next" data-i18n="pet_next">Próxima meta: <b>7&nbsp;500</b> — obriga ao debate em Plenário na Assembleia da República.</p>
-    <div class="cta"><a class="btn btn-primary" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="pet_btn">Assinar a petição →</a></div>
   </div>
 </section>
 
