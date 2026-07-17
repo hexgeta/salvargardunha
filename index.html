@@ -273,8 +273,8 @@
 <section class="pet-band">
   <div class="wrap">
     <div class="kicker" data-i18n="pet_k">Petição no Parlamento</div>
-    <div class="pet-nums"><span class="pet-count">5&nbsp;323</span><span class="pet-total" data-i18n="pet_total">/ 7&nbsp;500 assinaturas</span></div>
-    <div class="pet-track"><div class="pet-fill" style="width:70%"></div></div>
+    <div class="pet-nums" style="display:none"><span class="pet-count"></span><span class="pet-total" data-i18n="pet_total">/ 7&nbsp;500 assinaturas</span></div>
+    <div class="pet-track" style="display:none"><div class="pet-fill" style="width:0"></div></div>
     <p class="pet-next" data-i18n="pet_next">Próxima meta: <b>7&nbsp;500</b> — obriga ao debate em Plenário na Assembleia da República.</p>
     <div class="cta"><a class="btn btn-primary" href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener" data-i18n="pet_btn">Assinar a petição →</a></div>
   </div>
@@ -921,9 +921,13 @@
     el.hidden=false;
   }
   fetch('/api/participations').then(function(r){return r.json()}).then(function(j){ if(j&&j.count){partCount=j.count; renderLive();} }).catch(function(){});
-  var PET_NEXT=7500, petCount=5323;
+  var PET_NEXT=7500, petCount=null;
   function fmtCount(n){var sep=(lang==='en')?',':'\u00a0';return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,sep);}
   function renderPet(){
+    // No fallback: until a live count is read, hide the number + bar (keep the CTA).
+    var ok=(typeof petCount==='number'&&petCount>0);
+    document.querySelectorAll('.pet-nums, .pet-track').forEach(function(el){el.style.display=ok?'':'none';});
+    if(!ok) return;
     var pct=Math.min(100,petCount/PET_NEXT*100);
     document.querySelectorAll('.pet-count').forEach(function(el){el.textContent=fmtCount(petCount);});
     document.querySelectorAll('.pet-fill').forEach(function(el){el.style.width=pct+'%';});
