@@ -18,6 +18,70 @@ const { ProxyAgent } = require('undici');
 const TARGET = 'https://participacao.parlamento.pt/initiatives/5569';
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
 
+// Time-series of the count, for 1h/24h/7d "increase" stats. Stored in Supabase.
+// We snapshot lazily on each live scrape (the endpoint is edge-cached 30 min, so
+// this runs ~twice an hour), throttled so we never write more than one row per
+// ~20 min. Deltas are the current count minus the newest snapshot at-or-before
+// (now − window); null until enough history has accrued.
+const SUPA_URL = process.env.SUPABASE_URL;
+const SUPA_KEY = process.env.SUPABASE_SERVICE_KEY;
+const TABLE = 'petition_snapshots';
+const INSERT_THROTTLE_MS = 20 * 60 * 1000;
+const WINDOWS = { h1: 3600e3, h24: 86400e3, d7: 7 * 86400e3 };
+
+function supaHeaders() {
+  return { apikey: SUPA_KEY, Authorization: 'Bearer ' + SUPA_KEY, 'Content-Type': 'application/json' };
+}
+
+// Newest-first snapshots from the last 7 days (a couple hundred rows at most).
+async function fetchSnapshots() {
+  const since = new Date(Date.now() - WINDOWS.d7 - 3600e3).toISOString();
+  const url = SUPA_URL + '/rest/v1/' + TABLE +
+    '?select=captured_at,count&captured_at=gte.' + since + '&order=captured_at.desc';
+  const r = await fetch(url, { headers: supaHeaders(), signal: AbortSignal.timeout(3000) });
+  if (!r.ok) return [];
+  return (await r.json()).map((s) => ({ t: new Date(s.captured_at).getTime(), count: s.count }));
+}
+
+async function insertSnapshot(count) {
+  await fetch(SUPA_URL + '/rest/v1/' + TABLE, {
+    method: 'POST',
+    headers: Object.assign(supaHeaders(), { Prefer: 'return=minimal' }),
+    body: JSON.stringify({ count }),
+    signal: AbortSignal.timeout(3000),
+  });
+}
+
+// snaps is newest-first. For each window, the delta is current minus the newest
+// snapshot whose timestamp is <= (now - window). null if none is old enough.
+function computeDeltas(snaps, current, now) {
+  const out = { h1: null, h24: null, d7: null };
+  for (const key of Object.keys(WINDOWS)) {
+    const target = now - WINDOWS[key];
+    const past = snaps.find((s) => s.t <= target);
+    if (past) out[key] = current - past.count;
+  }
+  return out;
+}
+
+// Record + diff the live count without ever letting a storage hiccup break the
+// count response. Returns the deltas object (all-null if storage is unavailable).
+async function trackAndDeltas(count) {
+  if (!SUPA_URL || !SUPA_KEY) return { h1: null, h24: null, d7: null };
+  try {
+    const now = Date.now();
+    const snaps = await fetchSnapshots();
+    const newest = snaps.length ? snaps[0].t : 0;
+    if (now - newest >= INSERT_THROTTLE_MS) {
+      await insertSnapshot(count);
+      snaps.unshift({ t: now, count });
+    }
+    return computeDeltas(snaps, count, now);
+  } catch (e) {
+    return { h1: null, h24: null, d7: null };
+  }
+}
+
 function proxyAgent(raw, exit) {
   const u = new URL(raw);
   const user = decodeURIComponent(u.username) + (exit ? '-' + exit : '');
@@ -68,8 +132,9 @@ module.exports = async (req, res) => {
     try {
       const count = await attempt(a.proxy, a.exit, 4000);
       if (count) {
+        const deltas = await trackAndDeltas(count);
         res.setHeader('Cache-Control', 's-maxage=1800, stale-while-revalidate=3600');
-        res.status(200).json({ count, source: a.proxy ? 'live-proxy' : 'live' });
+        res.status(200).json({ count, deltas, source: a.proxy ? 'live-proxy' : 'live' });
         return;
       }
       tried.push({ via: a.proxy ? 'proxy-' + a.exit : 'bare', err: 'no-count-in-html' });
@@ -80,7 +145,7 @@ module.exports = async (req, res) => {
 
   // Never invent a number — hide the counter instead.
   res.setHeader('Cache-Control', 'no-store');
-  const body = { count: null, source: 'unavailable' };
+  const body = { count: null, deltas: null, source: 'unavailable' };
   if (debug) { body.hasProxy = Boolean(proxy); body.tried = tried; }
   res.status(200).json(body);
 };
