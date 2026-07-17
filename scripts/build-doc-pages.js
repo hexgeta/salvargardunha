@@ -34,7 +34,7 @@ const CSS = `
   body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
   a{color:var(--green)}
-  .top{border-bottom:1px solid var(--line);padding:16px 0;font-size:14px}
+  .top{position:sticky;top:0;z-index:50;background:rgba(10,13,10,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:14px 0;font-size:14px}
   .top a{text-decoration:none;color:var(--muted)}.top a:hover{color:var(--green)}
   header{padding:40px 0 30px;border-bottom:1px solid var(--line)}
   .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:12px}
