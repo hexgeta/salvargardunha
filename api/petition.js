@@ -53,13 +53,18 @@ async function insertSnapshot(count) {
 }
 
 // snaps is newest-first. For each window, the delta is current minus the newest
-// snapshot whose timestamp is <= (now - window). null if none is old enough.
+// snapshot at-or-before (now - window) — i.e. at least the full window has
+// elapsed. To keep the "in 1h/24h/7d" label honest when snapshots are sparse,
+// that reference must not be much OLDER than the target either: we allow it to
+// be stale by at most 20% of the window (min 30 min, cap 24 h). Otherwise null.
 function computeDeltas(snaps, current, now) {
   const out = { h1: null, h24: null, d7: null };
   for (const key of Object.keys(WINDOWS)) {
-    const target = now - WINDOWS[key];
+    const w = WINDOWS[key];
+    const target = now - w;
+    const tol = Math.min(Math.max(w * 0.2, 30 * 60e3), 24 * 3600e3);
     const past = snaps.find((s) => s.t <= target);
-    if (past) out[key] = current - past.count;
+    if (past && target - past.t <= tol) out[key] = current - past.count;
   }
   return out;
 }
