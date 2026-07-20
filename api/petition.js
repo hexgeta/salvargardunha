@@ -39,17 +39,20 @@ async function fetchSnapshots() {
   const url = SUPA_URL + '/rest/v1/' + TABLE +
     '?select=captured_at,count&captured_at=gte.' + since + '&order=captured_at.desc';
   const r = await fetch(url, { headers: supaHeaders(), signal: AbortSignal.timeout(3000) });
-  if (!r.ok) return [];
+  // Throw rather than return [] — a silently-empty read is indistinguishable from
+  // "no history yet" and once hid a disabled API key for days.
+  if (!r.ok) throw new Error('read ' + r.status + ': ' + (await r.text()).slice(0, 140));
   return (await r.json()).map((s) => ({ t: new Date(s.captured_at).getTime(), count: s.count }));
 }
 
 async function insertSnapshot(count) {
-  await fetch(SUPA_URL + '/rest/v1/' + TABLE, {
+  const r = await fetch(SUPA_URL + '/rest/v1/' + TABLE, {
     method: 'POST',
     headers: Object.assign(supaHeaders(), { Prefer: 'return=minimal' }),
     body: JSON.stringify({ count }),
     signal: AbortSignal.timeout(3000),
   });
+  if (!r.ok) throw new Error('write ' + r.status + ': ' + (await r.text()).slice(0, 140));
 }
 
 // snaps is newest-first. For each window, the delta is current minus the newest
@@ -72,7 +75,8 @@ function computeDeltas(snaps, current, now) {
 // Record + diff the live count without ever letting a storage hiccup break the
 // count response. Returns the deltas object (all-null if storage is unavailable).
 async function trackAndDeltas(count) {
-  if (!SUPA_URL || !SUPA_KEY) return { h1: null, h24: null, d7: null };
+  const none = { h1: null, h24: null, d7: null };
+  if (!SUPA_URL || !SUPA_KEY) return { deltas: none, storage: 'no-supabase-env' };
   try {
     const now = Date.now();
     const snaps = await fetchSnapshots();
@@ -81,9 +85,9 @@ async function trackAndDeltas(count) {
       await insertSnapshot(count);
       snaps.unshift({ t: now, count });
     }
-    return computeDeltas(snaps, count, now);
+    return { deltas: computeDeltas(snaps, count, now), storage: 'ok (' + snaps.length + ' snapshots)' };
   } catch (e) {
-    return { h1: null, h24: null, d7: null };
+    return { deltas: none, storage: String(e && e.message) };
   }
 }
 
@@ -137,9 +141,11 @@ module.exports = async (req, res) => {
     try {
       const count = await attempt(a.proxy, a.exit, 4000);
       if (count) {
-        const deltas = await trackAndDeltas(count);
+        const { deltas, storage } = await trackAndDeltas(count);
         res.setHeader('Cache-Control', 's-maxage=1800, stale-while-revalidate=3600');
-        res.status(200).json({ count, deltas, source: a.proxy ? 'live-proxy' : 'live' });
+        const ok = { count, deltas, source: a.proxy ? 'live-proxy' : 'live' };
+        if (debug) ok.storage = storage;
+        res.status(200).json(ok);
         return;
       }
       tried.push({ via: a.proxy ? 'proxy-' + a.exit : 'bare', err: 'no-count-in-html' });
