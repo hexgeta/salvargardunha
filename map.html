@@ -58,19 +58,18 @@
   .plan{background:#4a1414;color:#fca5a5}
   .ok{background:#0f3d1e;color:#86efac}.unk{background:#2a332a;color:#9aa79a}
   .note-small{font-size:12.5px;color:var(--muted);margin-top:10px}
-  /* leaflet dark popups */
-  .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#161d16;color:var(--ink);border:1px solid var(--line)}
-  /* The popup body scrolls when a project has a long field list (e.g. a grid line
-     crossing ten municipalities). The title must stay pinned or you lose track of
-     WHAT you clicked; the close button sits at 12px, so pad the title around it. */
-  .leaflet-popup-content{font-size:13px;line-height:1.5;margin:12px 14px;max-height:min(46vh,340px);overflow:auto;overscroll-behavior:contain}
-  .leaflet-popup-content h3{position:sticky;top:-12px;z-index:1;background:#161d16;
-    margin:-12px -14px 7px;padding:12px 32px 7px 14px;font-size:14.5px;font-weight:800;
-    border-bottom:1px solid var(--line)}
-  .leaflet-popup-content table{border-collapse:collapse;margin:6px 0}
-  .leaflet-popup-content td{padding:1px 10px 1px 0;vertical-align:top}
-  .leaflet-popup-content td:first-child{color:var(--muted)}
-  .leaflet-popup-content .note{font-size:11.5px;color:var(--muted);margin-top:8px}
+  /* clean dark popups */
+  .leaflet-popup-content-wrapper{background:#141a14;color:#e7ecdf;border:1px solid #2a352a;border-radius:14px;box-shadow:0 12px 38px rgba(0,0,0,.6)}
+  .leaflet-popup-tip{background:#141a14;border:1px solid #2a352a}
+  .leaflet-popup-content{font-size:13px;line-height:1.55;margin:0;padding:14px 16px;max-height:min(48vh,360px);overflow:auto;overscroll-behavior:contain}
+  .leaflet-popup-content h3{margin:0 0 9px;padding:0 22px 9px 0;font-size:15px;font-weight:800;letter-spacing:-.01em;color:#fff;border-bottom:1px solid #24302a}
+  .leaflet-popup-content table{border-collapse:collapse;margin:8px 0 0;width:100%}
+  .leaflet-popup-content td{padding:2px 12px 2px 0;vertical-align:top}
+  .leaflet-popup-content td:first-child{color:var(--muted);white-space:nowrap}
+  .leaflet-popup-content .note{font-size:11.5px;color:var(--muted);margin-top:10px;line-height:1.5}
+  .leaflet-popup-content a{color:var(--green)}
+  .leaflet-popup-close-button{color:var(--muted)!important;font-size:20px!important;padding:9px 10px 0 0!important}
+  .leaflet-popup-close-button:hover{color:#fff!important}
   .leaflet-control-layers,.leaflet-bar a{background:#161d16;color:var(--ink);border-color:var(--line)}
   .leaflet-control-layers-expanded{font-size:12.5px;color:var(--ink)}
   .leaflet-bar a{color:var(--ink)}
@@ -121,25 +120,50 @@
   .panel-link.home{color:var(--muted)}
   .panel-link:hover{text-decoration:underline}
   #panel .langsw{margin:14px 0 0;display:flex;gap:2px}
+  #burnbox{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 14px}
+  #burnbox h3{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:800;margin:0 0 9px}
+  #burnbox .row{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;padding:4px 0;border-top:1px solid var(--line)}
+  #burnbox .row:first-of-type{border-top:0}
+  #burnbox .row b{color:#fff;font-weight:700;white-space:nowrap}
+  #burnbox .x{color:var(--green)}
+  #burnbox .x.over{color:#f87171}
+  #burnbox .cav{font-size:11.5px;color:var(--muted);line-height:1.45;margin-top:9px}
+
+  /* top-right overlay controls: language toggle + stats button */
+  #topctrls{position:fixed;top:12px;right:12px;z-index:1000;display:flex;gap:8px;align-items:center}
+  #topctrls .langsw{margin:0;background:rgba(20,26,20,.92);border:1px solid var(--line);border-radius:10px;padding:3px;backdrop-filter:blur(6px)}
+  #topctrls .langsw button{border:0;border-radius:7px;padding:6px 8px;font-size:11.5px}
+  #topctrls .langsw button.on{background:var(--green-d);color:#05230f;border-color:transparent}
+  /* stats panel: headline totals + per-type tabs */
+  #panel .tots{display:flex;gap:10px;margin:0 0 14px}
+  #panel .tot{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  #panel .tot-n{font-size:26px;font-weight:900;color:#fff;line-height:1;letter-spacing:-.02em}
+  #panel .tot-l{font-size:12px;color:var(--muted);margin-top:5px;text-transform:capitalize}
+  #panel .tabbtns{display:flex;gap:6px;margin-bottom:12px}
+  #panel .tabbtn{flex:1;font:inherit;font-size:12.5px;font-weight:700;padding:7px 8px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;text-transform:capitalize}
+  #panel .tabbtn:hover{color:var(--ink)}
+  #panel .tabbtn.on{background:var(--green-d);color:#05230f;border-color:var(--green-d)}
+  #panel .kpis-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 </style>
 <script defer data-domain="salvargardunha.com" src="https://analytics.hexgeta.com/script.js"></script>
 </head>
 <body>
 <div id="map"></div>
 
+<div id="topctrls"><span class="langsw" id="langsw"><button data-l="pt">PT</button><button data-l="en">EN</button><button data-l="de">DE</button><button data-l="fr">FR</button></span>
 <button id="panelBtn" aria-label="Stats &amp; layers">
 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"/></svg>
-</button>
+</button></div>
 
 <div id="panel" hidden>
 <button id="panelClose" aria-label="Close">&#10005;</button>
-<div class="kpis" id="kpis"></div>
+<div id="kpis"></div>
+<div id="burnbox" hidden></div>
 <div id="panel-layers"></div>
 <div class="panel-links">
 <a class="panel-link" href="https://salvargardunha.com/verificacao" data-i18n="method_more">Como o mapa &eacute; verificado &rarr;</a>
 <a class="panel-link home" href="/" data-i18n="top_home">&larr; salvargardunha.com</a>
 </div>
-<span class="langsw" id="langsw"><button data-l="pt">PT</button><button data-l="en">EN</button><button data-l="de">DE</button><button data-l="fr">FR</button></span>
 </div>
 
 <div id="stubs" hidden>
@@ -167,7 +191,7 @@ pt:{
  loading:'A carregar os dados…',
  zoomhint:'Clique no mapa para ampliar com o scroll',
  k_turb:'aerogeradores mapeados', k_conf:'confirmados em duas fontes', k_off:'desvio mediano entre fontes',
- k_only:'só no registo DGEG (recentes)', k_plan:'projetos no registo da APA', k_unbuilt:'aprovados e por construir',
+ k_only:'só no registo DGEG (recentes)', k_plan:'projetos no registo da APA', k_unbuilt:'aprovados e por construir', tab_plan:'Planeados',
  built_note:function(d){return 'Dados reconstruídos automaticamente todas as segundas-feiras a partir dos registos oficiais. Última atualização: '+d.stats.built+'.';},
  base_map:'Mapa', base_dark:'Escuro', base_sat:'Satélite', base_topo:'Relevo',
  l_wind:'Parques eólicos (área)', l_turb:'Aerogeradores (OSM)', l_dturb:'Aerogeradores só no registo DGEG',
@@ -182,6 +206,13 @@ pt:{
  f_installed:'potência instalada', f_blocks:'blocos licenciados', f_blockarea:'área dos blocos', f_situation:'situação',
  f_aia:'processo AIA', f_decision:'decisão', f_cp:'consulta pública', f_promoter:'promotor', f_licensor:'licenciador',
  f_munis:'concelhos', f_studyarea:'área de estudo',
+ f_burn:'sobre área ardida',
+ bw_pre:'ardeu antes de entrar em serviço', bw_post:'ardeu depois de entrar em serviço',
+ bw_both:'ardeu antes e depois', bw_unk:'data de entrada em serviço desconhecida',
+ b_h:'Solar, eólico e áreas ardidas',
+ dec:',', b_country:'ardeu no país', b_exp:'esperado na vizinhança',
+ b_ratio:function(x){return x+'× o esperado';},
+ b_cav:'Comparação da área de cada central com as áreas ardidas do ICNF (2014–2025), e com o que ardeu na terra num raio de 20 km à volta dela. Mede coincidência no espaço e no tempo — não diz nada sobre a causa de nenhum incêndio.',
  wind:'eólico', solar:'solar', pv:'solar fotovoltaico',
  source:'Fonte', sources:'Fontes', src_link:'fonte', to:' a ',
  fromcentre:function(k){return 'a '+k+' km do centro OSM';},
@@ -225,7 +256,7 @@ en:{
  loading:'Loading the data…',
  zoomhint:'Click the map to zoom with the scroll wheel',
  k_turb:'turbines mapped', k_conf:'confirmed in two sources', k_off:'median offset between sources',
- k_only:'only in the DGEG register (recent)', k_plan:'projects in the APA register', k_unbuilt:'approved and unbuilt',
+ k_only:'only in the DGEG register (recent)', k_plan:'projects in the APA register', k_unbuilt:'approved and unbuilt', tab_plan:'Planned',
  built_note:function(d){return 'Data rebuilt automatically every Monday from the official registers. Last updated: '+d.stats.built+'.';},
  base_map:'Map', base_dark:'Dark', base_sat:'Satellite', base_topo:'Terrain',
  l_wind:'Wind farms (extent)', l_turb:'Turbines (OSM)', l_dturb:'Turbines only in the DGEG register',
@@ -240,6 +271,13 @@ en:{
  f_installed:'installed capacity', f_blocks:'licensed blocks', f_blockarea:'area of blocks', f_situation:'status',
  f_aia:'EIA file', f_decision:'decision', f_cp:'public consultation', f_promoter:'promoter', f_licensor:'licensing body',
  f_munis:'municipalities', f_studyarea:'study area',
+ f_burn:'on burned land',
+ bw_pre:'burned before it entered service', bw_post:'burned after it entered service',
+ bw_both:'burned before and after', bw_unk:'commissioning date unknown',
+ b_h:'Solar, wind and burned land',
+ dec:'.', b_country:'burned nationally', b_exp:'expected from the surroundings',
+ b_ratio:function(x){return x+'× the expected rate';},
+ b_cav:'Each plant’s footprint compared with the ICNF burned-area record (2014–2025), and with how much of the land within 20 km of it burned. This measures coincidence in space and time — it says nothing about the cause of any fire.',
  wind:'wind', solar:'solar', pv:'solar photovoltaic',
  source:'Source', sources:'Sources', src_link:'source', to:' to ',
  fromcentre:function(k){return k+' km from the OSM centre';},
@@ -283,7 +321,7 @@ de:{
  loading:'Daten werden geladen…',
  zoomhint:'Karte anklicken, um mit dem Scrollrad zu zoomen',
  k_turb:'erfasste Windräder', k_conf:'in zwei Quellen bestätigt', k_off:'mittlere Abweichung zwischen Quellen',
- k_only:'nur im DGEG-Register (neu)', k_plan:'Projekte im APA-Register', k_unbuilt:'genehmigt und ungebaut',
+ k_only:'nur im DGEG-Register (neu)', k_plan:'Projekte im APA-Register', k_unbuilt:'genehmigt und ungebaut', tab_plan:'Geplant',
  built_note:function(d){return 'Daten werden jeden Montag automatisch aus den amtlichen Registern neu erstellt. Letzte Aktualisierung: '+d.stats.built+'.';},
  base_map:'Karte', base_dark:'Dunkel', base_sat:'Satellit', base_topo:'Gelände',
  l_wind:'Windparks (Fläche)', l_turb:'Windräder (OSM)', l_dturb:'Windräder nur im DGEG-Register',
@@ -298,6 +336,13 @@ de:{
  f_installed:'installierte Leistung', f_blocks:'genehmigte Blöcke', f_blockarea:'Fläche der Blöcke', f_situation:'Status',
  f_aia:'UVP-Akte', f_decision:'Entscheidung', f_cp:'öffentliche Konsultation', f_promoter:'Vorhabenträger',
  f_licensor:'Genehmigungsbehörde', f_munis:'Gemeinden', f_studyarea:'Untersuchungsgebiet',
+ f_burn:'auf Brandfläche',
+ bw_pre:'brannte vor der Inbetriebnahme', bw_post:'brannte nach der Inbetriebnahme',
+ bw_both:'brannte davor und danach', bw_unk:'Inbetriebnahme unbekannt',
+ b_h:'Solar, Wind und Brandflächen',
+ dec:',', b_country:'landesweit gebrannt', b_exp:'in der Umgebung zu erwarten',
+ b_ratio:function(x){return x+'× des Erwarteten';},
+ b_cav:'Die Fläche jeder Anlage verglichen mit dem ICNF-Brandflächenregister (2014–2025) und damit, wie viel Land im Umkreis von 20 km gebrannt hat. Gemessen wird räumliches und zeitliches Zusammentreffen — über die Ursache eines Brandes sagt das nichts aus.',
  wind:'Wind', solar:'Solar', pv:'Photovoltaik',
  source:'Quelle', sources:'Quellen', src_link:'Quelle', to:' bis ',
  fromcentre:function(k){return k+' km vom OSM-Mittelpunkt';},
@@ -341,7 +386,7 @@ fr:{
  loading:'Chargement des données…',
  zoomhint:'Cliquez sur la carte pour zoomer à la molette',
  k_turb:'éoliennes cartographiées', k_conf:'confirmées dans deux sources', k_off:'écart médian entre sources',
- k_only:'uniquement au registre DGEG (récentes)', k_plan:'projets au registre de l’APA', k_unbuilt:'approuvés et non construits',
+ k_only:'uniquement au registre DGEG (récentes)', k_plan:'projets au registre de l’APA', k_unbuilt:'approuvés et non construits', tab_plan:'Planifiés',
  built_note:function(d){return 'Données reconstruites automatiquement chaque lundi à partir des registres officiels. Dernière mise à jour : '+d.stats.built+'.';},
  base_map:'Carte', base_dark:'Sombre', base_sat:'Satellite', base_topo:'Relief',
  l_wind:'Parcs éoliens (emprise)', l_turb:'Éoliennes (OSM)', l_dturb:'Éoliennes uniquement au registre DGEG',
@@ -356,6 +401,13 @@ fr:{
  f_installed:'puissance installée', f_blocks:'blocs autorisés', f_blockarea:'surface des blocs', f_situation:'situation',
  f_aia:'dossier EIE', f_decision:'décision', f_cp:'consultation publique', f_promoter:'promoteur',
  f_licensor:'autorité délivrante', f_munis:'communes', f_studyarea:'aire d’étude',
+ f_burn:'sur zone brûlée',
+ bw_pre:'a brûlé avant la mise en service', bw_post:'a brûlé après la mise en service',
+ bw_both:'a brûlé avant et après', bw_unk:'date de mise en service inconnue',
+ b_h:'Solaire, éolien et zones brûlées',
+ dec:',', b_country:'brûlé dans le pays', b_exp:'attendu d’après les environs',
+ b_ratio:function(x){return x+'× l’attendu';},
+ b_cav:'La surface de chaque centrale comparée au registre des zones brûlées de l’ICNF (2014–2025), et à ce qui a brûlé dans un rayon de 20 km autour d’elle. Cela mesure une coïncidence dans l’espace et dans le temps — cela ne dit rien de la cause d’un incendie.',
  wind:'éolien', solar:'solaire', pv:'solaire photovoltaïque',
  source:'Source', sources:'Sources', src_link:'source', to:' à ',
  fromcentre:function(k){return 'à '+k+' km du centre OSM';},
@@ -584,25 +636,10 @@ function rowsOf(pairs){
 }
 
 /* ----------------------------------------------------------------- map */
-var map=L.map('map',{center:[40.08,-7.53],zoom:10,scrollWheelZoom:false,preferCanvas:true,
+var map=L.map('map',{center:[40.08,-7.53],zoom:10,preferCanvas:true,
   minZoom:7,maxBounds:[[36.8,-9.9],[42.3,-6.0]],maxBoundsViscosity:1});
 
-/* Scroll-wheel zoom is off until you click the map once, so that scrolling PAST
-   the map doesn't trap the page. Once armed it follows the pointer: on over the
-   map, off when you leave, so the page scrolls normally again. A hint overlay
-   says so, and disappears the moment it is armed. */
-var zoomArmed=false;
-var hint=L.control({position:'bottomleft'});
-hint.onAdd=function(){var el=L.DomUtil.create('div','lgd zoomhint');el.setAttribute('data-i18n','zoomhint');
-  el.textContent=t('zoomhint');return el;};
-hint.addTo(map);
-map.on('click',function(){
-  if(zoomArmed) return;
-  zoomArmed=true; map.scrollWheelZoom.enable();
-  map.removeControl(hint);
-});
-map.getContainer().addEventListener('mouseenter',function(){if(zoomArmed) map.scrollWheelZoom.enable();});
-map.getContainer().addEventListener('mouseleave',function(){map.scrollWheelZoom.disable();});
+
 
 /* Long field lists (a grid line crossing ten municipalities) make a tall popup.
    Leave room for the sticky top nav when auto-panning, keep it in view while the
@@ -661,6 +698,34 @@ function buildControls(){
   var _pl=document.getElementById('panel-layers'); if(_pl){_pl.innerHTML='';_pl.appendChild(ctlLayers.getContainer());}
 }
 
+// Burned-land overlap, computed offline by burn_join.py against the full ICNF
+// record and merged into data.json. `frac` is the share of the plant's own
+// footprint that sits on a scar; `when` compares the fire years with the year
+// the plant entered service.
+function burnRow(b){
+  if(!b) return null;
+  var when={burned_then_built:'bw_pre',burned_after_built:'bw_post',both:'bw_both',date_unknown:'bw_unk'}[b.when];
+  return Math.round(b.frac*100)+'% · '+b.ha+' ha · '+b.years.join(', ')
+    +'<br><span class="note" style="font-size:11.5px">'+t(when)+'</span>';
+}
+
+function burnBox(s){
+  var el=document.getElementById('burnbox'); if(!el) return;
+  if(!s||!s.by_kind){el.hidden=true;return;}
+  var pc=function(x){return x==null?'—':(x*100).toFixed(1).replace('.',t('dec'))+'%';};
+  var line=function(label,k){
+    var b=s.by_kind[k]; if(!b||b.observed_share==null) return '';
+    var over=b.ratio_local>1;
+    return '<div class="row"><span>'+label+'</span><b>'+pc(b.observed_share)
+      +' <span class="x'+(over?' over':'')+'">'+t('b_ratio')(String(b.ratio_local).replace('.',t('dec')))+'</span></b></div>'
+      +'<div class="row" style="border-top:0;padding-top:0;color:var(--muted)"><span>'+t('b_exp')+'</span><span>'+pc(b.expected_share_local)+'</span></div>';};
+  el.innerHTML='<h3>'+t('b_h')+'</h3>'
+    +'<div class="row"><span>'+t('b_country')+' '+s.years[0]+'–'+s.years[1]+'</span><b>'+pc(s.baseline_burned_share)+'</b></div>'
+    +line(t('solar'),'solar')+line(t('wind'),'wind')
+    +'<div class="cav">'+t('b_cav')+'</div>';
+  el.hidden=false;
+}
+
 var STATE={'construído':{c:'#7a8a7a',fill:.05,dash:'2 6'},
   'aprovado, por construir':{c:'#f87171',fill:.22,dash:null},
   'linha/subestação — não verificável':{c:'#a78bfa',fill:.08,dash:'8 6'},
@@ -683,6 +748,7 @@ function render(){
       [t('f_type'),w?t('wind'):t('solar')],[t('f_power'),p.mw?p.mw+' MW':null],[t('f_operator'),esc(p.operator)],
       [t('f_since'),esc(p.start)],[t('f_turbines'),p.n_turbines],[t('f_area'),p.area_ha+' ha'],
       [t('f_centre'),p.centre[0].toFixed(5)+', '+p.centre[1].toFixed(5)],
+      [t('f_burn'),burnRow(p.burn)],
       [t('f_subparkof'),esc(p.parent)]])+'</table>'
       +'<div>'+t('source')+': <a href="'+p.url+'" target="_blank" rel="noopener">OpenStreetMap '+esc(p.id)+'</a></div>'
       +(xr?'<div class="note">'+t('confirmed_by')+'<ul style="margin:4px 0 0;padding-left:18px">'+xr+'</ul></div>'
@@ -725,7 +791,8 @@ function render(){
       [t('f_type'),t('pv')],[t('f_installed'),s.mva?s.mva+' MVA':null],[t('f_owner'),esc(s.owner)],
       [t('f_blocks'),s.blocks],[t('f_blockarea'),s.area_ha+' ha'],[t('f_concelho'),esc(s.concelho)],
       [t('f_since'),esc(s.since)],[t('f_processo'),esc(s.processo)],
-      [t('f_centre'),s.centre[0].toFixed(5)+', '+s.centre[1].toFixed(5)]])+'</table>'
+      [t('f_centre'),s.centre[0].toFixed(5)+', '+s.centre[1].toFixed(5)],
+      [t('f_burn'),burnRow(s.burn)]])+'</table>'
       +'<div>'+t('source')+': <a href="https://servergeo.dgeg.gov.pt/arcgis/rest/services/Visualizadores/CS/MapServer" target="_blank" rel="noopener">DGEG — Centrais Solares</a> '+t('reg_note')+'</div>');
     poly.addTo(gDgegSolar); targets['d'+i]=poly;
   });
@@ -793,16 +860,28 @@ function render(){
   /* ---- KPIs, prose, sources */
   var s=d.stats;
   var unbuilt=byState('aprovado, por construir').length;
-  document.getElementById('kpis').innerHTML=[
-    [s.turbines,t('k_turb'),''],[s.turbines_confirmed,t('k_conf'),''],[s.median_offset_m+' m',t('k_off'),''],
-    [s.dgeg_only,t('k_only'),''],[d.planned.length,t('k_plan'),''],[unbuilt,t('k_unbuilt'),'hot']
-  ].map(function(k){return '<div class="kpi '+k[2]+'"><div class="n">'+k[0]+'</div><div class="l">'+k[1]+'</div></div>';}).join('');
+  var solarOSM=d.plants.filter(function(p){return p.kind==='solar';}).length;
+  var kpi=function(n,l,c){return '<div class="kpi '+(c||'')+'"><div class="n">'+n+'</div><div class="l">'+l+'</div></div>';};
+  var TAB={
+    wind:[kpi(s.turbines,t('k_turb')),kpi(s.turbines_confirmed,t('k_conf')),kpi(s.dgeg_only,t('k_only')),kpi(s.median_offset_m+' m',t('k_off'))],
+    solar:[kpi(solarOSM,t('l_solar')),kpi((d.dgeg_solar||[]).length,t('l_dsolar'))],
+    plan:[kpi(d.planned.length,t('k_plan')),kpi(unbuilt,t('k_unbuilt'),'hot')]
+  };
+  var meta=[['wind',t('wind'),s.turbines+s.dgeg_only],['solar',t('solar'),solarOSM+(d.dgeg_solar||[]).length],['plan',t('tab_plan'),d.planned.length]];
+  var tots=meta.map(function(m){return '<div class="tot"><div class="tot-n">'+m[2]+'</div><div class="tot-l">'+m[1]+'</div></div>';}).join('');
+  var tbtns=meta.map(function(m,i){return '<button class="tabbtn'+(i===0?' on':'')+'" data-tab="'+m[0]+'">'+m[1]+'</button>';}).join('');
+  document.getElementById('kpis').innerHTML='<div class="tots">'+tots+'</div><div class="tabbtns">'+tbtns+'</div><div class="kpis-grid" id="tabbody"></div>';
+  var showTab=function(k){document.getElementById('tabbody').innerHTML=TAB[k].join('');
+    document.querySelectorAll('#kpis .tabbtn').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-tab')===k);});};
+  document.querySelectorAll('#kpis .tabbtn').forEach(function(b){b.addEventListener('click',function(){showTab(b.getAttribute('data-tab'));});});
+  showTab('wind');
   document.getElementById('method1').innerHTML=t('method1')(d);
   document.getElementById('method2').innerHTML=t('method2')(d);
   document.querySelector('[data-i18n="built_note"]').innerHTML=t('built_note')(d);
   document.getElementById('srcgrid').innerHTML=(SRC[lang]||SRC.pt).map(function(c){
     return '<div class="srccard"><div class="who">'+c.who+'</div><h4><a href="'+c.u+'" target="_blank" rel="noopener">'+c.h+'</a></h4><p>'+c.p+'</p></div>';}).join('');
   document.getElementById('limits').innerHTML=t('limits').map(function(x){return '<li>'+x+'</li>';}).join('');
+  burnBox(d.burn_stats);
   drawArdidas();
 }
 
