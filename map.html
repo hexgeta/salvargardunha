@@ -156,6 +156,7 @@
 <script>
 (function(){
 var DATA_URL = 'https://mapa.salvargardunha.com/data.json';
+var ARDIDAS_URL = 'https://mapa.salvargardunha.com/ardidas.json';
 
 /* ------------------------------------------------------------ interface */
 var STR = {
@@ -171,7 +172,7 @@ pt:{
  built_note:function(d){return 'Dados reconstruídos automaticamente todas as segundas-feiras a partir dos registos oficiais. Última atualização: '+d.stats.built+'.';},
  base_map:'Mapa', base_dark:'Escuro', base_sat:'Satélite', base_topo:'Relevo',
  l_wind:'Parques eólicos (área)', l_turb:'Aerogeradores (OSM)', l_dturb:'Aerogeradores só no registo DGEG',
- l_solar:'Centrais solares (OSM)', l_dsolar:'Centrais solares (DGEG)', l_plan:'Projetos planeados',
+ l_solar:'Centrais solares (OSM)', l_dsolar:'Centrais solares (DGEG)', l_plan:'Projetos planeados', l_ardidas:'Áreas ardidas (2011–2025)',
  lg_turb:'aerogerador (OSM + DGEG)', lg_dturb:'aerogerador só no registo DGEG', lg_solar:'central solar em exploração',
  lg_plan:'aprovado e ainda por construir', lg_line:'linha / subestação', lg_built:'licenciamento já construído',
  peak:'Cume da Gardunha', turbine:'Aerogerador', turbine_lic:'Aerogerador licenciado', noname:'sem nome',
@@ -226,7 +227,7 @@ en:{
  built_note:function(d){return 'Data rebuilt automatically every Monday from the official registers. Last updated: '+d.stats.built+'.';},
  base_map:'Map', base_dark:'Dark', base_sat:'Satellite', base_topo:'Terrain',
  l_wind:'Wind farms (extent)', l_turb:'Turbines (OSM)', l_dturb:'Turbines only in the DGEG register',
- l_solar:'Solar plants (OSM)', l_dsolar:'Solar plants (DGEG)', l_plan:'Planned projects',
+ l_solar:'Solar plants (OSM)', l_dsolar:'Solar plants (DGEG)', l_plan:'Planned projects', l_ardidas:'Burned areas (2011–2025)',
  lg_turb:'turbine (OSM + DGEG)', lg_dturb:'turbine only in the DGEG register', lg_solar:'solar plant in operation',
  lg_plan:'approved and still unbuilt', lg_line:'line / substation', lg_built:'consent already built',
  peak:'Gardunha summit', turbine:'Wind turbine', turbine_lic:'Licensed turbine', noname:'unnamed',
@@ -281,7 +282,7 @@ de:{
  built_note:function(d){return 'Daten werden jeden Montag automatisch aus den amtlichen Registern neu erstellt. Letzte Aktualisierung: '+d.stats.built+'.';},
  base_map:'Karte', base_dark:'Dunkel', base_sat:'Satellit', base_topo:'Gelände',
  l_wind:'Windparks (Fläche)', l_turb:'Windräder (OSM)', l_dturb:'Windräder nur im DGEG-Register',
- l_solar:'Solarkraftwerke (OSM)', l_dsolar:'Solarkraftwerke (DGEG)', l_plan:'Geplante Projekte',
+ l_solar:'Solarkraftwerke (OSM)', l_dsolar:'Solarkraftwerke (DGEG)', l_plan:'Geplante Projekte', l_ardidas:'Brandflächen (2011–2025)',
  lg_turb:'Windrad (OSM + DGEG)', lg_dturb:'Windrad nur im DGEG-Register', lg_solar:'Solarkraftwerk in Betrieb',
  lg_plan:'genehmigt und noch ungebaut', lg_line:'Leitung / Umspannwerk', lg_built:'Genehmigung bereits gebaut',
  peak:'Gipfel der Gardunha', turbine:'Windkraftanlage', turbine_lic:'Genehmigte Anlage', noname:'ohne Namen',
@@ -336,7 +337,7 @@ fr:{
  built_note:function(d){return 'Données reconstruites automatiquement chaque lundi à partir des registres officiels. Dernière mise à jour : '+d.stats.built+'.';},
  base_map:'Carte', base_dark:'Sombre', base_sat:'Satellite', base_topo:'Relief',
  l_wind:'Parcs éoliens (emprise)', l_turb:'Éoliennes (OSM)', l_dturb:'Éoliennes uniquement au registre DGEG',
- l_solar:'Centrales solaires (OSM)', l_dsolar:'Centrales solaires (DGEG)', l_plan:'Projets planifiés',
+ l_solar:'Centrales solaires (OSM)', l_dsolar:'Centrales solaires (DGEG)', l_plan:'Projets planifiés', l_ardidas:'Zones brûlées (2011–2025)',
  lg_turb:'éolienne (OSM + DGEG)', lg_dturb:'éolienne uniquement au registre DGEG', lg_solar:'centrale solaire en exploitation',
  lg_plan:'approuvé et encore non construit', lg_line:'ligne / poste', lg_built:'autorisation déjà construite',
  peak:'Sommet de la Gardunha', turbine:'Éolienne', turbine_lic:'Éolienne autorisée', noname:'sans nom',
@@ -527,7 +528,8 @@ function rowsOf(pairs){
 }
 
 /* ----------------------------------------------------------------- map */
-var map=L.map('map',{center:[40.08,-7.53],zoom:10,scrollWheelZoom:false});
+var map=L.map('map',{center:[40.08,-7.53],zoom:10,scrollWheelZoom:false,
+  minZoom:7,maxBounds:[[36.8,-9.9],[42.3,-6.0]],maxBoundsViscosity:1});
 map.on('click',function(){map.scrollWheelZoom.enable();});
 // Same basemap product as pipocas.hexgeta.com — CartoCDN (keyless). Voyager is
 // the default; a dark variant, satellite and terrain stay available to switch to.
@@ -538,6 +540,23 @@ var topo=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom
 var gPeak=L.layerGroup().addTo(map), gWind=L.layerGroup().addTo(map), gTurb=L.layerGroup().addTo(map),
     gSolar=L.layerGroup().addTo(map), gDgegSolar=L.layerGroup().addTo(map),
     gDgegTurb=L.layerGroup().addTo(map), gPlan=L.layerGroup().addTo(map);
+// Historic burned-area scars (ICNF, 2011–2025). Off by default; its ~500 KB of
+// polygons is fetched from our own mirror only when the layer is first switched
+// on, and drawn in a pane beneath the project markers.
+map.createPane('burn'); map.getPane('burn').style.zIndex=350;
+var gArdidas=L.layerGroup(), ardidasLoaded=false;
+map.on('overlayadd', function(e){
+  if(e.layer!==gArdidas || ardidasLoaded) return;
+  ardidasLoaded=true;
+  fetch(ARDIDAS_URL).then(function(r){return r.json();}).then(function(d){
+    (d.areas||[]).forEach(function(a){
+      L.polygon(a.rings,{pane:'burn',color:'#b45309',weight:1,fillColor:'#c2410c',fillOpacity:.28})
+        .bindPopup('<b>'+t('l_ardidas').split(' (')[0]+' · '+a.year+'</b>'
+          +(a.concelho?'<br>'+esc(a.concelho):'')+(a.area_ha?' · '+a.area_ha+' ha':'')
+          +(a.cause?'<br>'+esc(a.cause):'')).addTo(gArdidas);
+    });
+  });
+});
 
 // Colour swatch prepended to each overlay label, so the toggle control doubles
 // as the legend — every row is a colour key AND a checkbox to show/hide it.
@@ -550,6 +569,7 @@ function buildControls(){
   b[t('base_map')]=carto; b[t('base_dark')]=cartoDark; b[t('base_sat')]=sat; b[t('base_topo')]=topo;
   o[sw('#4a9eff')+t('l_wind')]=gWind; o[sw('#4a9eff')+t('l_turb')]=gTurb; o[sw('#c94f7c')+t('l_dturb')]=gDgegTurb;
   o[sw('#fbbf24')+t('l_solar')]=gSolar; o[sw('#fbbf24')+t('l_dsolar')]=gDgegSolar; o[sw('#f87171')+t('l_plan')]=gPlan;
+  o[sw('#c2410c')+t('l_ardidas')]=gArdidas;
   ctlLayers=L.control.layers(b,o,{collapsed:false}).addTo(map);
 }
 
