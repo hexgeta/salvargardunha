@@ -112,9 +112,11 @@
   #panel .kpis{grid-template-columns:1fr 1fr;gap:8px;margin:2px 0 14px}
   #panel .kpi{padding:10px 12px}
   #panel .kpi .n{font-size:20px}
+  #panel-layers{overflow:hidden}
+  #panel-layers .leaflet-control{float:none;clear:both}
   #panel-layers .leaflet-control-layers{box-shadow:none;border:0;background:transparent;width:100%;margin:0}
   #panel-layers .leaflet-control-layers-expanded{padding:0}
-  .panel-links{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+  .panel-links{clear:both;margin-top:12px;display:flex;flex-direction:column;gap:8px}
   .panel-link{color:var(--green);text-decoration:none;font-size:13.5px;line-height:1.4}
   .panel-link.home{color:var(--muted)}
   .panel-link:hover{text-decoration:underline}
@@ -536,14 +538,17 @@ var TPL = {
  en:{dia:'EIA decision ', cp:'under assessment — public consultation until ',
      turb:function(n){return n+' turbines licensed by DGEG inside the area';},
      sol:function(x){return 'DGEG solar plants in the area: '+x;},
+     aia:function(n){return 'APA/SIAIA — EIA file no. '+n;},
      near:function(k){return 'nearest farm ('+k+') — inferred';}},
  de:{dia:'UVP-Entscheidung ', cp:'in Prüfung — öffentliche Konsultation bis ',
      turb:function(n){return n+' von der DGEG genehmigte Windräder innerhalb der Fläche';},
      sol:function(x){return 'DGEG-Solarkraftwerke in der Fläche: '+x;},
+     aia:function(n){return 'APA/SIAIA — UVP-Akte Nr. '+n;},
      near:function(k){return 'nächstgelegener Park ('+k+') — abgeleitet';}},
  fr:{dia:'décision EIE ', cp:'en évaluation — consultation publique jusqu’au ',
      turb:function(n){return n+' éoliennes autorisées par la DGEG dans l’aire';},
      sol:function(x){return 'centrales solaires DGEG dans l’aire : '+x;},
+     aia:function(n){return 'APA/SIAIA — dossier EIE n° '+n;},
      near:function(k){return 'parc le plus proche ('+k+') — déduit';}},
  pt:{near:function(k){return 'parque mais próximo ('+k+') — inferido';}}
 };
@@ -560,6 +565,7 @@ function tr(s){
   if(P[s]) return P[s];
   if((m=/^DIA (.+) \((.+)\)$/.exec(s))) return L.dia+(W[m[1]]||m[1])+' ('+(W[m[2]]||m[2])+')';
   if((m=/^em avaliação — consulta pública até (.+)$/.exec(s))) return L.cp+m[1];
+  if((m=/^APA\/SIAIA — processo AIA n\.º (\d+)$/.exec(s))) return L.aia(m[1]);
   if(s.indexOf('; ')>-1) return s.split('; ').map(tr).join('; ');
   if((m=/^(\d+) aerogeradores licenciados pela DGEG dentro da área$/.exec(s))) return L.turb(m[1]);
   if((m=/^centrais solares DGEG na área: (.+)$/.exec(s))) return L.sol(m[1]);
@@ -621,18 +627,22 @@ var gWind=L.layerGroup().addTo(map), gTurb=L.layerGroup().addTo(map),
 // polygons is fetched from our own mirror only when the layer is first switched
 // on, and drawn in a pane beneath the project markers.
 map.createPane('burn'); map.getPane('burn').style.zIndex=350;
-var gArdidas=L.layerGroup(), ardidasLoaded=false;
+var gArdidas=L.layerGroup(), ardidasLoaded=false, ARDIDAS=null;
+// Redrawn on every language switch too — the popups carry a translated cause.
+function drawArdidas(){
+  if(!ARDIDAS) return;
+  gArdidas.clearLayers();
+  (ARDIDAS.areas||[]).forEach(function(a){
+    L.polygon(a.rings,{pane:'burn',color:'#b45309',weight:1,fillColor:'#c2410c',fillOpacity:.28})
+      .bindPopup('<b>'+t('l_ardidas').split(' (')[0]+' · '+a.year+'</b>'
+        +(a.concelho?'<br>'+esc(a.concelho):'')+(a.area_ha?' · '+a.area_ha+' ha':'')
+        +(a.cause?'<br>'+esc(tr(a.cause)):'')).addTo(gArdidas);
+  });
+}
 map.on('overlayadd', function(e){
   if(e.layer!==gArdidas || ardidasLoaded) return;
   ardidasLoaded=true;
-  fetch(ARDIDAS_URL).then(function(r){return r.json();}).then(function(d){
-    (d.areas||[]).forEach(function(a){
-      L.polygon(a.rings,{pane:'burn',color:'#b45309',weight:1,fillColor:'#c2410c',fillOpacity:.28})
-        .bindPopup('<b>'+t('l_ardidas').split(' (')[0]+' · '+a.year+'</b>'
-          +(a.concelho?'<br>'+esc(a.concelho):'')+(a.area_ha?' · '+a.area_ha+' ha':'')
-          +(a.cause?'<br>'+esc(a.cause):'')).addTo(gArdidas);
-    });
-  });
+  fetch(ARDIDAS_URL).then(function(r){return r.json();}).then(function(d){ARDIDAS=d;drawArdidas();});
 });
 
 // Colour swatch prepended to each overlay label, so the toggle control doubles
@@ -734,7 +744,7 @@ function render(){
       +'<div class="note">'+t('precision')+' '+esc(tr(p.precision))+'</div>'
       +'<div class="note">'+esc(tr(p.notes||''))+'</div>'
       +'<div class="note">'+t('sources')+':<br>'+(p.sources||[]).map(function(s){
-          return '<a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.title)+'</a>'+(s.date?' — '+esc(s.date):'');}).join('<br>')+'</div>';
+          return '<a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(tr(s.title))+'</a>'+(s.date?' — '+esc(s.date):'');}).join('<br>')+'</div>';
     var obj = (p.rings&&p.rings.length)
       ? L.polygon(p.rings,{color:st.c,weight:2,dashArray:st.dash,fillOpacity:st.fill})
       : L.circleMarker([p.lat,p.lon],{radius:9,color:st.c,weight:2,fillOpacity:.35});
@@ -793,6 +803,7 @@ function render(){
   document.getElementById('srcgrid').innerHTML=(SRC[lang]||SRC.pt).map(function(c){
     return '<div class="srccard"><div class="who">'+c.who+'</div><h4><a href="'+c.u+'" target="_blank" rel="noopener">'+c.h+'</a></h4><p>'+c.p+'</p></div>';}).join('');
   document.getElementById('limits').innerHTML=t('limits').map(function(x){return '<li>'+x+'</li>';}).join('');
+  drawArdidas();
 }
 
 document.getElementById('side').addEventListener('click',function(ev){
