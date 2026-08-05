@@ -44,7 +44,7 @@
   /* map shell */
   #shell{display:flex;gap:0;height:78vh;min-height:520px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
   #map{flex:1;min-width:0;background:#0d110d}
-  #side{width:370px;flex:none;overflow-y:auto;border-left:1px solid var(--line);padding:12px 14px 26px}
+  #side{display:none}
   @media(max-width:900px){#shell{flex-direction:column;height:auto}#map{height:60vh;min-height:380px}#side{width:auto;border-left:0;border-top:1px solid var(--line);max-height:60vh}}
   #side h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:800;
     margin:18px 0 7px;border-top:1px solid var(--line);padding-top:12px}
@@ -169,7 +169,7 @@ pt:{
  k_turb:'aerogeradores mapeados', k_conf:'confirmados em duas fontes', k_off:'desvio mediano entre fontes',
  k_only:'só no registo DGEG (recentes)', k_plan:'projetos no registo da APA', k_unbuilt:'aprovados e por construir',
  built_note:function(d){return 'Dados reconstruídos automaticamente todas as segundas-feiras a partir dos registos oficiais. Última atualização: '+d.stats.built+'.';},
- base_map:'Mapa', base_sat:'Satélite', base_topo:'Relevo',
+ base_map:'Mapa', base_dark:'Escuro', base_sat:'Satélite', base_topo:'Relevo',
  l_wind:'Parques eólicos (área)', l_turb:'Aerogeradores (OSM)', l_dturb:'Aerogeradores só no registo DGEG',
  l_solar:'Centrais solares (OSM)', l_dsolar:'Centrais solares (DGEG)', l_plan:'Projetos planeados',
  lg_turb:'aerogerador (OSM + DGEG)', lg_dturb:'aerogerador só no registo DGEG', lg_solar:'central solar em exploração',
@@ -224,7 +224,7 @@ en:{
  k_turb:'turbines mapped', k_conf:'confirmed in two sources', k_off:'median offset between sources',
  k_only:'only in the DGEG register (recent)', k_plan:'projects in the APA register', k_unbuilt:'approved and unbuilt',
  built_note:function(d){return 'Data rebuilt automatically every Monday from the official registers. Last updated: '+d.stats.built+'.';},
- base_map:'Map', base_sat:'Satellite', base_topo:'Terrain',
+ base_map:'Map', base_dark:'Dark', base_sat:'Satellite', base_topo:'Terrain',
  l_wind:'Wind farms (extent)', l_turb:'Turbines (OSM)', l_dturb:'Turbines only in the DGEG register',
  l_solar:'Solar plants (OSM)', l_dsolar:'Solar plants (DGEG)', l_plan:'Planned projects',
  lg_turb:'turbine (OSM + DGEG)', lg_dturb:'turbine only in the DGEG register', lg_solar:'solar plant in operation',
@@ -279,7 +279,7 @@ de:{
  k_turb:'erfasste Windräder', k_conf:'in zwei Quellen bestätigt', k_off:'mittlere Abweichung zwischen Quellen',
  k_only:'nur im DGEG-Register (neu)', k_plan:'Projekte im APA-Register', k_unbuilt:'genehmigt und ungebaut',
  built_note:function(d){return 'Daten werden jeden Montag automatisch aus den amtlichen Registern neu erstellt. Letzte Aktualisierung: '+d.stats.built+'.';},
- base_map:'Karte', base_sat:'Satellit', base_topo:'Gelände',
+ base_map:'Karte', base_dark:'Dunkel', base_sat:'Satellit', base_topo:'Gelände',
  l_wind:'Windparks (Fläche)', l_turb:'Windräder (OSM)', l_dturb:'Windräder nur im DGEG-Register',
  l_solar:'Solarkraftwerke (OSM)', l_dsolar:'Solarkraftwerke (DGEG)', l_plan:'Geplante Projekte',
  lg_turb:'Windrad (OSM + DGEG)', lg_dturb:'Windrad nur im DGEG-Register', lg_solar:'Solarkraftwerk in Betrieb',
@@ -334,7 +334,7 @@ fr:{
  k_turb:'éoliennes cartographiées', k_conf:'confirmées dans deux sources', k_off:'écart médian entre sources',
  k_only:'uniquement au registre DGEG (récentes)', k_plan:'projets au registre de l’APA', k_unbuilt:'approuvés et non construits',
  built_note:function(d){return 'Données reconstruites automatiquement chaque lundi à partir des registres officiels. Dernière mise à jour : '+d.stats.built+'.';},
- base_map:'Carte', base_sat:'Satellite', base_topo:'Relief',
+ base_map:'Carte', base_dark:'Sombre', base_sat:'Satellite', base_topo:'Relief',
  l_wind:'Parcs éoliens (emprise)', l_turb:'Éoliennes (OSM)', l_dturb:'Éoliennes uniquement au registre DGEG',
  l_solar:'Centrales solaires (OSM)', l_dsolar:'Centrales solaires (DGEG)', l_plan:'Projets planifiés',
  lg_turb:'éolienne (OSM + DGEG)', lg_dturb:'éolienne uniquement au registre DGEG', lg_solar:'centrale solaire en exploitation',
@@ -529,30 +529,28 @@ function rowsOf(pairs){
 /* ----------------------------------------------------------------- map */
 var map=L.map('map',{center:[40.08,-7.53],zoom:10,scrollWheelZoom:false});
 map.on('click',function(){map.scrollWheelZoom.enable();});
-var osmTiles=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(map);
+// Same basemap product as pipocas.hexgeta.com — CartoCDN (keyless). Voyager is
+// the default; a dark variant, satellite and terrain stay available to switch to.
+var carto=L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:20,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+var cartoDark=L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:20,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'});
 var sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Esri, Maxar'});
 var topo=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'&copy; OpenTopoMap'});
 var gPeak=L.layerGroup().addTo(map), gWind=L.layerGroup().addTo(map), gTurb=L.layerGroup().addTo(map),
     gSolar=L.layerGroup().addTo(map), gDgegSolar=L.layerGroup().addTo(map),
     gDgegTurb=L.layerGroup().addTo(map), gPlan=L.layerGroup().addTo(map);
 
+// Colour swatch prepended to each overlay label, so the toggle control doubles
+// as the legend — every row is a colour key AND a checkbox to show/hide it.
+function sw(c){return '<span style="display:inline-block;width:11px;height:11px;background:'+c
+  +';border-radius:3px;margin:0 7px 0 1px;vertical-align:-1px"></span>';}
+
 function buildControls(){
   if(ctlLayers) map.removeControl(ctlLayers);
-  if(ctlLegend) map.removeControl(ctlLegend);
   var b={},o={};
-  b[t('base_map')]=osmTiles; b[t('base_sat')]=sat; b[t('base_topo')]=topo;
-  o[t('l_wind')]=gWind; o[t('l_turb')]=gTurb; o[t('l_dturb')]=gDgegTurb;
-  o[t('l_solar')]=gSolar; o[t('l_dsolar')]=gDgegSolar; o[t('l_plan')]=gPlan;
-  ctlLayers=L.control.layers(b,o,{collapsed:true}).addTo(map);
-  ctlLegend=L.control({position:'bottomleft'});
-  ctlLegend.onAdd=function(){
-    var el=L.DomUtil.create('div','lgd');
-    el.innerHTML=[['#4a9eff',t('lg_turb')],['#c94f7c',t('lg_dturb')],['#fbbf24',t('lg_solar')],
-      ['#f87171',t('lg_plan')],['#a78bfa',t('lg_line')],['#7a8a7a',t('lg_built')]]
-      .map(function(p){return '<div><i style="background:'+p[0]+'"></i>'+p[1]+'</div>';}).join('');
-    return el;
-  };
-  ctlLegend.addTo(map);
+  b[t('base_map')]=carto; b[t('base_dark')]=cartoDark; b[t('base_sat')]=sat; b[t('base_topo')]=topo;
+  o[sw('#4a9eff')+t('l_wind')]=gWind; o[sw('#4a9eff')+t('l_turb')]=gTurb; o[sw('#c94f7c')+t('l_dturb')]=gDgegTurb;
+  o[sw('#fbbf24')+t('l_solar')]=gSolar; o[sw('#fbbf24')+t('l_dsolar')]=gDgegSolar; o[sw('#f87171')+t('l_plan')]=gPlan;
+  ctlLayers=L.control.layers(b,o,{collapsed:false}).addTo(map);
 }
 
 var STATE={'construído':{c:'#7a8a7a',fill:.05,dash:'2 6'},
