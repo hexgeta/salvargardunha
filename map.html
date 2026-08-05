@@ -98,11 +98,11 @@
   html,body{height:100%}
   body{margin:0;overflow:hidden}
   #map{position:fixed;inset:0;width:100vw;height:100vh;background:#0d110d;z-index:0}
-  #panelBtn{flex:none;width:42px;height:42px;border-radius:10px;
-    background:rgba(20,26,20,.92);border:1px solid var(--line);color:var(--ink);cursor:pointer;
-    display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
-  #panelBtn:hover{border-color:var(--green);color:var(--green)}
-  #panel{position:fixed;top:62px;right:12px;z-index:1000;width:340px;max-width:calc(100vw - 24px);
+  #panelBtn{flex:none;width:30px;height:30px;border-radius:8px;
+    background:transparent;border:0;color:var(--muted);cursor:pointer;
+    display:flex;align-items:center;justify-content:center}
+  #panelBtn:hover{background:rgba(255,255,255,.07);color:var(--ink)}
+  #panel{position:fixed;top:58px;right:12px;z-index:1000;width:340px;max-width:calc(100vw - 24px);
     max-height:calc(100vh - 80px);overflow:auto;background:rgba(16,20,16,.97);border:1px solid var(--line);
     border-radius:14px;padding:16px;backdrop-filter:blur(10px);box-shadow:0 12px 40px rgba(0,0,0,.55)}
   #panel[hidden]{display:none}
@@ -130,10 +130,20 @@
   #burnbox .cav{font-size:11.5px;color:var(--muted);line-height:1.45;margin-top:9px}
 
   /* top-right overlay controls: language toggle + stats button */
-  #topctrls{position:fixed;top:12px;right:12px;z-index:1000;display:flex;gap:8px;align-items:center}
-  #topctrls .langsw{margin:0;background:rgba(20,26,20,.92);border:1px solid var(--line);border-radius:10px;padding:3px;backdrop-filter:blur(6px)}
-  #topctrls .langsw button{border:0;border-radius:7px;padding:6px 8px;font-size:11.5px}
-  #topctrls .langsw button.on{background:var(--green-d);color:#05230f;border-color:transparent}
+  #topctrls{position:fixed;top:12px;right:12px;z-index:1000;display:flex;align-items:center;gap:2px;
+    background:rgba(16,20,16,.9);border:1px solid var(--line);border-radius:11px;padding:4px;
+    backdrop-filter:blur(10px);box-shadow:0 6px 22px rgba(0,0,0,.45)}
+  #topctrls .langsw{margin:0;gap:1px}
+  #topctrls .langsw button{border:0;border-radius:8px;padding:0 9px;height:30px;background:transparent;
+    color:var(--muted);font-size:11.5px;letter-spacing:.06em;transition:background .12s,color .12s}
+  #topctrls .langsw button:hover{background:rgba(255,255,255,.07);color:var(--ink);border-color:transparent}
+  #topctrls .langsw button.on{background:rgba(34,197,94,.16);color:var(--green);border-color:transparent}
+  #topctrls .sep{flex:none;width:1px;height:18px;background:var(--line);margin:0 4px}
+  /* the credit line the tile licences require, at the smallest it can honestly be */
+  .leaflet-control-attribution{background:transparent!important;color:#5d675d;font-size:10px;
+    padding:0 6px 2px 0;text-shadow:0 1px 2px rgba(0,0,0,.7);box-shadow:none}
+  .leaflet-control-attribution a{color:#77836f;text-decoration:none}
+  .leaflet-control-attribution a:hover{color:var(--green)}
   /* stats panel: headline totals + per-type tabs */
   #panel .tots{display:flex;gap:10px;margin:0 0 14px}
   #panel .tot{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
@@ -151,8 +161,9 @@
 <div id="map"></div>
 
 <div id="topctrls"><span class="langsw" id="langsw"><button data-l="pt">PT</button><button data-l="en">EN</button><button data-l="de">DE</button><button data-l="fr">FR</button></span>
+<span class="sep" aria-hidden="true"></span>
 <button id="panelBtn" aria-label="Stats &amp; layers">
-<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"/></svg>
+<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"/></svg>
 </button></div>
 
 <div id="panel" hidden>
@@ -162,6 +173,7 @@
 <div id="panel-layers"></div>
 <div class="panel-links">
 <a class="panel-link" href="https://salvargardunha.com/verificacao" data-i18n="method_more">Como o mapa &eacute; verificado &rarr;</a>
+<a class="panel-link" href="https://salvargardunha.com/ardidas" data-i18n="burn_more">Solar, e&oacute;lico e &aacute;reas ardidas: o que os dados dizem &rarr;</a>
 <a class="panel-link home" href="/" data-i18n="top_home">&larr; salvargardunha.com</a>
 </div>
 </div>
@@ -177,8 +189,8 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 (function(){
-var DATA_URL = 'https://mapa.salvargardunha.com/data.json';
-var ARDIDAS_URL = 'https://mapa.salvargardunha.com/ardidas.json';
+var DATA_URL = '/dados/data.json';
+var ARDIDAS_URL = '/dados/ardidas.json';
 
 /* ------------------------------------------------------------ interface */
 var STR = {
@@ -244,6 +256,7 @@ pt:{
  fl_home:'Início', fl_act:'Agir na consulta', fl_share:'Espalhar a palavra', fl_map:'Mapa verificado',
  fl_maps:'Os mapas das áreas', foot_about:'Perceber o processo — quem decide', fl_obj:'As 172 objeções',
  fl_method:'Como o mapa é verificado',
+ burn_more:'Instala-se solar em terreno que ardeu? A sobreposição medida em todo o país, e o que ela mostra →',
  method_more:'Quem conta os aerogeradores, quem confirma e como se cruzam as quatro fontes — o método explicado passo a passo →',
  fdisc:'Feito por vizinhos da Beira Baixa que querem a serra de pé. Página informativa e cívica, sem fins lucrativos, não afiliada a nenhum partido, empresa ou entidade pública.'
 },
@@ -309,6 +322,7 @@ en:{
  fl_home:'Home', fl_act:'Take action', fl_share:'Spread the word', fl_map:'The verified map',
  fl_maps:'The maps of the areas', foot_about:'Understand the process — who decides', fl_obj:'The 172 objections',
  fl_method:'How the map is verified',
+ burn_more:'Is solar built on land that burned? The overlap measured nationwide, and what it shows →',
  method_more:'Who counts the turbines, who confirms them, and how the four sources are cross-checked — the method, step by step →',
  fdisc:'Made by neighbours of the Beira Baixa who want the mountain left standing. Informative, civic, non-profit page, not affiliated with any party, company or public body.'
 },
@@ -374,6 +388,7 @@ de:{
  fl_home:'Startseite', fl_act:'Handeln', fl_share:'Wort verbreiten', fl_map:'Die geprüfte Karte',
  fl_maps:'Die Karten der Flächen', foot_about:'Den Prozess verstehen — wer entscheidet', fl_obj:'Die 172 Einwände',
  fl_method:'Wie die Karte geprüft wird',
+ burn_more:'Wird Solar auf Brandflächen gebaut? Die landesweit gemessene Überlagerung und was sie zeigt →',
  method_more:'Wer die Windräder zählt, wer sie bestätigt und wie die vier Quellen abgeglichen werden — die Methode, Schritt für Schritt →',
  fdisc:'Von Nachbarn der Beira Baixa gemacht, die den Bergzug erhalten wollen. Informative, zivilgesellschaftliche, gemeinnützige Seite, keiner Partei, Firma oder Behörde zugehörig.'
 },
@@ -439,6 +454,7 @@ fr:{
  fl_home:'Accueil', fl_act:'Agir', fl_share:'Faire passer le mot', fl_map:'La carte vérifiée',
  fl_maps:'Les cartes des zones', foot_about:'Comprendre le processus — qui décide', fl_obj:'Les 172 objections',
  fl_method:'Comment la carte est vérifiée',
+ burn_more:'Le solaire s’installe-t-il sur des terres brûlées ? La superposition mesurée dans tout le pays, et ce qu’elle montre →',
  method_more:'Qui compte les éoliennes, qui les confirme et comment les quatre sources sont recoupées — la méthode, pas à pas →',
  fdisc:'Fait par des voisins de la Beira Baixa qui veulent garder la montagne debout. Page informative, citoyenne, à but non lucratif, non affiliée à un parti, une entreprise ou un organisme public.'
 }};
@@ -636,8 +652,13 @@ function rowsOf(pairs){
 }
 
 /* ----------------------------------------------------------------- map */
+// OpenStreetMap (ODbL) and CARTO both require visible credit, so the control
+// stays — but only the credit itself. prefix:false drops Leaflet's own flag and
+// branding, which nothing obliges us to carry.
 var map=L.map('map',{center:[40.08,-7.53],zoom:10,preferCanvas:true,
-  minZoom:7,maxBounds:[[36.8,-9.9],[42.3,-6.0]],maxBoundsViscosity:1});
+  minZoom:7,maxBounds:[[36.8,-9.9],[42.3,-6.0]],maxBoundsViscosity:1,
+  attributionControl:false});
+L.control.attribution({prefix:false,position:'bottomright'}).addTo(map);
 
 
 

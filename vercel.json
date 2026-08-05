@@ -1,6 +1,7 @@
 {
   "cleanUrls": true,
   "rewrites": [
+    { "source": "/dados/:file", "destination": "https://mapa.salvargardunha.com/:file" },
     { "source": "/en", "destination": "/api/page?lang=en" },
     { "source": "/de", "destination": "/api/page?lang=de" },
     { "source": "/fr", "destination": "/api/page?lang=fr" },

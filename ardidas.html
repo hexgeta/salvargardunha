@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solar, eólico e áreas ardidas — o que os dados oficiais dizem · Salvar a Gardunha</title>
+<meta name="description" content="Testámos a suspeita mais repetida sobre as renováveis em Portugal: instala-se solar em terreno que ardeu? Cruzámos a área de todas as centrais licenciadas com as áreas ardidas do ICNF de 2014 a 2025 — e comparámos com o que ardeu à volta de cada uma. O resultado, e os poucos casos que fogem à regra.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://salvargardunha.com/ardidas">
+<link rel="alternate" hreflang="pt-PT" href="https://salvargardunha.com/ardidas">
+<link rel="alternate" hreflang="en" href="https://salvargardunha.com/en/ardidas">
+<link rel="alternate" hreflang="de" href="https://salvargardunha.com/de/ardidas">
+<link rel="alternate" hreflang="fr" href="https://salvargardunha.com/fr/ardidas">
+<link rel="alternate" hreflang="x-default" href="https://salvargardunha.com/ardidas">
+<script src="/lang-url.js"></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<style>
+  :root{--bg:#0a0d0a;--panel:#141a14;--line:#243024;--ink:#f3f5f1;--muted:#9aa79a;--green:#4ade80;--green-d:#22c55e;--amber:#fbbf24;--burn:#c2410c;--red:#f87171;--max:900px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+  a{color:var(--green)}
+  .top{position:sticky;top:0;z-index:60;background:rgba(10,13,10,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:14px 0;font-size:14px}
+  .top .wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .top a{text-decoration:none;color:var(--muted)}.top a:hover{color:var(--green)}
+  .langsw{margin-left:auto;display:flex;gap:2px}
+  .langsw button{font:inherit;font-size:12.5px;font-weight:700;padding:5px 9px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;border-radius:7px;text-transform:uppercase;letter-spacing:.04em}
+  .langsw button:hover{color:var(--green);border-color:var(--green)}
+  .langsw button.on{background:var(--green-d);color:#05230f;border-color:var(--green-d)}
+  header{padding:44px 0 30px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:14px}
+  h1{font-size:clamp(27px,5vw,42px);line-height:1.07;font-weight:900;letter-spacing:-.02em}
+  .lede{font-size:clamp(16px,2.4vw,19px);color:#d7ddd4;margin-top:18px;max-width:740px}
+  .lede b{color:#fff}
+  section{padding:36px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:clamp(20px,3.4vw,27px);font-weight:800;letter-spacing:-.01em}
+  .kick{font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:12px}
+  section p{color:#ccd3c9;margin-top:14px;font-size:16px}
+  section p b{color:#fff}
+  .verdict{margin-top:22px;background:#0f1b12;border:1px solid #1f4d2c;border-left:3px solid var(--green-d);border-radius:12px;padding:18px 20px}
+  .verdict .vk{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:800}
+  .verdict p{margin-top:9px;color:#dfe7dc;font-size:16.5px}
+  .scoreboard{margin-top:22px;display:grid;gap:10px}
+  .sb{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 18px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline}
+  .sb .who{font-weight:800;color:#fff;font-size:16px;flex:none;min-width:104px}
+  .sb .num{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.02em}
+  .sb .vs{color:var(--muted);font-size:14px}
+  .sb .ratio{margin-left:auto;font-weight:800;font-size:15px;color:var(--green);white-space:nowrap}
+  .sb .ratio.over{color:var(--red)}
+  .sb .cap{flex-basis:100%;color:var(--muted);font-size:13.5px}
+  .tbl-scroll{margin-top:20px;border:1px solid var(--line);border-radius:12px;overflow-x:auto;background:var(--panel)}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+  th,td{padding:11px 14px;text-align:left;vertical-align:top;line-height:1.45}
+  thead th{background:#10200f;color:var(--green);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+  tbody tr{border-top:1px solid var(--line)}
+  tbody td{color:#ccd3c9}
+  td b{color:#fff;font-weight:700}
+  td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .own{color:var(--muted);font-size:13px;display:block;margin-top:2px}
+  .steps{margin-top:22px;display:flex;flex-direction:column;gap:2px}
+  .step{display:flex;gap:16px;background:var(--panel);border:1px solid var(--line);padding:16px 18px}
+  .step:first-child{border-radius:12px 12px 0 0}
+  .step:last-child{border-radius:0 0 12px 12px}
+  .step .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--green-d);color:#05230f;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .step .body h3{font-size:16px;color:#fff;font-weight:700}
+  .step .body p{margin-top:5px;font-size:14.5px;color:#b7c0b5}
+  .callout{margin-top:22px;background:#241708;border:1px solid #5c4a12;border-radius:12px;padding:16px 19px}
+  .callout p{color:#f0e2c0;margin-top:0;font-size:15px}
+  .callout p b{color:#fff}
+  ul.lim{margin:16px 0 0 19px;font-size:15.5px;color:#ccd3c9}
+  ul.lim li{margin-bottom:9px}
+  ul.lim li b{color:#fff}
+  .srcs{list-style:none;margin-top:18px;display:grid;gap:8px}
+  .srcs li{font-size:14.5px;color:var(--muted)}
+  .srcs a{text-decoration:none;font-weight:700}
+  .srcs a:hover{text-decoration:underline}
+  .cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:13px 20px;border-radius:12px;text-decoration:none;border:1px solid transparent}
+  .btn-primary{background:var(--green-d);color:#05230f}.btn-primary:hover{background:var(--green)}
+  .btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}.btn-ghost:hover{border-color:var(--green);color:var(--green)}
+  footer{padding:34px 0 60px;color:var(--muted);font-size:13.5px}
+  footer a{color:var(--green);text-decoration:none}
+  .disc{margin-top:16px;font-size:12.5px;color:#6f7a6f;border-top:1px solid var(--line);padding-top:16px;line-height:1.6}
+  @media(max-width:640px){ th,td{padding:9px 11px;font-size:13.5px} }
+</style>
+<script defer data-domain="salvargardunha.com" src="https://analytics.hexgeta.com/script.js"></script>
+</head>
+<body>
+
+<div class="top"><div class="wrap"><a href="/" data-i18n="top_home">← salvargardunha.com</a> · <a href="/map" data-i18n="top_map">Mapa verificado</a> · <a href="/verificacao" data-i18n="top_method">Como foi verificado</a> · <a href="/read/" data-i18n="top_docs">Documentos</a><span class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></span></div></div>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="eyebrow">Análise · registos oficiais, país inteiro</div>
+    <h1 data-i18n="h1">Instala-se solar em terreno que ardeu?</h1>
+    <p class="lede" data-i18n="lede">É a suspeita mais repetida em qualquer aldeia com um projeto à porta: primeiro arde, depois aparece o parque. É uma afirmação <b>testável</b> — a área de cada central está publicada, e as áreas ardidas também. Sobrepusemos as duas em todo o continente. Esta página diz o que saiu, incluindo a parte que não dá jeito a ninguém.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s1_kick">A pergunta</div>
+    <h2 data-i18n="s1_h2">Uma sobreposição não chega</h2>
+    <p data-i18n="s1_p1">Mostrar que uma central solar assenta sobre uma mancha ardida não prova nada por si só. <b data-stat="baseline_pct">14,8</b>% de Portugal continental ardeu pelo menos uma vez entre <b data-stat="y0">2014</b> e <b data-stat="y1">2025</b>. Num país assim, encontrar centrais em terreno ardido é o que se espera <b>mesmo que ninguém escolha terreno ardido</b>.</p>
+    <p data-i18n="s1_p2">A pergunta com resposta é outra: <b>as centrais assentam em terreno ardido mais vezes do que a terra à volta delas ardeu?</b> Se sim, alguém está a escolher. Se não, é geografia. Foi essa a comparação que se fez.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s2_kick">O método</div>
+    <h2 data-i18n="s2_h2">Quatro passos, dados públicos, nenhum número inventado</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div class="body">
+        <h3 data-i18n="st1_t">A área real de cada central</h3>
+        <p data-i18n="st1_p">Não o ponto no meio: o polígono. <b data-stat="solar_plants">1018</b> centrais solares e <b data-stat="wind_plants">264</b> parques eólicos, do registo de licenciamento da DGEG e do OpenStreetMap. Quem só tem um ponto publicado fica de fora — não se mede uma sobreposição a partir de um ponto.</p>
+      </div></div>
+      <div class="step"><div class="num">2</div><div class="body">
+        <h3 data-i18n="st2_t">Todas as áreas ardidas do ICNF, à resolução máxima</h3>
+        <p data-i18n="st2_p">Os polígonos oficiais dos incêndios de <b data-stat="y0">2014</b> a <b data-stat="y1">2025</b>, ano a ano, no país inteiro — mais de vinte mil manchas. Nenhuma foi simplificada para este cálculo.</p>
+      </div></div>
+      <div class="step"><div class="num">3</div><div class="body">
+        <h3 data-i18n="st3_t">Quanto de cada central assenta sobre cicatriz</h3>
+        <p data-i18n="st3_p">Interseção geométrica, central a central, incêndio a incêndio. Guarda-se a percentagem da área da central que ardeu e em que anos — e compara-se o ano do fogo com o ano de entrada em serviço, para separar «ardeu e depois construiu-se» de «construiu-se e depois ardeu».</p>
+      </div></div>
+      <div class="step"><div class="num">4</div><div class="body">
+        <h3 data-i18n="st4_t">A comparação justa: a terra à volta</h3>
+        <p data-i18n="st4_p">O solar constrói-se sobretudo no sul, e o sul arde pouco; o eólico faz-se em cumeada, e a cumeada arde muito. Comparar cada tecnologia com a média nacional dá uma resposta errada. Por isso mede-se também <b>quanto ardeu da terra num raio de 20 km à volta de cada central</b>, numa grelha de 1 km sobre o território continental, e é contra esse valor que a central é avaliada.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s3_kick">O resultado</div>
+    <h2 data-i18n="s3_h2">Não. Os dados nacionais não mostram essa escolha</h2>
+    <div class="scoreboard" id="scoreboard"></div>
+    <div class="verdict">
+      <div class="vk" data-i18n="v_kick">Conclusão</div>
+      <p data-i18n="v_p">A área solar licenciada em Portugal assenta em terreno ardido a cerca de <b>metade</b> da taxa a que ardeu a terra à sua volta. O eólico assenta em cicatriz constantemente — mas exatamente na proporção em que ardem as serras onde está. <b>Nenhuma das duas tecnologias mostra, à escala do país, preferência por terreno queimado.</b></p>
+    </div>
+    <p data-i18n="s3_p1">Publicamos isto porque a alternativa seria escolher os números que assentam na narrativa — que é precisamente aquilo de que acusamos, e com razão, os relatórios da consulta pública. Um mapa que só confirma quem o faz não serve para nada.</p>
+    <p data-i18n="s3_p2">Vale a pena registar o que o eólico revela: <b data-stat="wind_on_scar">186</b> dos <b data-stat="wind_plants">264</b> parques eólicos tocam uma mancha ardida, e <b data-stat="wind_obs">35,0</b>% da sua área total já ardeu. Não porque alguém escolha cicatrizes, mas porque <b>o eólico ocupa exatamente o tipo de terreno que arde</b>: cumeada de mato, sem gente. O que a serra tem de perigoso é o que a torna atraente para quem a quer licenciar.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s4_kick">A exceção</div>
+    <h2 data-i18n="s4_h2">Onde há, de facto, alguma coisa a explicar</h2>
+    <p data-i18n="s4_p1">A média nacional fecha a porta a uma teoria geral. Não fecha a porta a casos concretos — e há-os. Estas são as centrais solares cuja área ardeu <b>muito acima</b> do que ardeu a terra à volta delas: a última coluna é quantas vezes mais. Uma central inteiramente sobre uma mancha de 2022, numa zona onde 2% do território ardeu, não é coincidência banal.</p>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr>
+          <th data-i18n="th_plant">Central</th><th class="n" data-i18n="th_area">Área</th>
+          <th class="n" data-i18n="th_burned">Ardida</th><th class="n" data-i18n="th_local">Vizinhança</th>
+          <th class="n" data-i18n="th_x">Excesso</th><th data-i18n="th_when">Cronologia</th>
+        </tr></thead>
+        <tbody id="tb-excess"><tr><td colspan="6" data-i18n="loading">A carregar os dados…</td></tr></tbody>
+      </table>
+    </div>
+    <div class="callout"><p data-i18n="s4_note"><b>Isto é um ponto de partida, não uma acusação.</b> Uma coincidência no espaço e no tempo mede-se; uma causa investiga-se. O passo seguinte para qualquer um destes casos é documental — quando foi pedida a licença, quem era dono do terreno antes do incêndio, o que diz o processo de investigação do fogo. Nada disso está nesta página, e enquanto não estiver, não há aqui nenhuma acusação a ninguém.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s5_kick">A ordem dos acontecimentos</div>
+    <h2 data-i18n="s5_h2">Ardeu primeiro, construiu-se depois</h2>
+    <p data-i18n="s5_p1">De todas as centrais solares que tocam uma cicatriz, <b data-stat="pre">26</b> entraram em serviço <b>depois</b> do incêndio que passou pelo seu terreno, <b data-stat="post">27</b> já lá estavam quando o fogo chegou, e <b data-stat="unk">62</b> não têm data de entrada em serviço publicada — dessas, simplesmente não se pode dizer.</p>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr>
+          <th data-i18n="th_plant">Central</th><th data-i18n="th_fire">Incêndio</th>
+          <th class="n" data-i18n="th_since">Em serviço</th><th class="n" data-i18n="th_burnedha">Área ardida</th>
+          <th class="n" data-i18n="th_share">% da central</th>
+        </tr></thead>
+        <tbody id="tb-pre"><tr><td colspan="5" data-i18n="loading">A carregar os dados…</td></tr></tbody>
+      </table>
+    </div>
+    <p data-i18n="s5_p2">A leitura inocente desta lista é a mais provável e a mais aborrecida: terreno ardido é terreno barato, desarborizado e sem oposição de ninguém — exatamente o que um promotor procura. Isso explica a lista inteira sem precisar de nenhum criminoso. Explica-a, note-se, <b>sem a tornar aceitável</b>: significa que arder valoriza a serra para quem a quer ocupar.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s6_kick">Os limites</div>
+    <h2 data-i18n="s6_h2">O que este cálculo não prova</h2>
+    <ul class="lim">
+      <li data-i18n="lim1"><b>Não prova causas.</b> Mede coincidência no espaço e no tempo. Não diz quem ateou nenhum incêndio, nem sugere que alguém o tenha feito.</li>
+      <li data-i18n="lim2">O ICNF <b>não publica polígonos anteriores a 2014</b> neste serviço. A janela é essa; um fogo de 2005 no mesmo terreno não entra na conta.</li>
+      <li data-i18n="lim3"><b data-stat="unk">62</b> centrais solares sobre cicatriz <b>não têm data de entrada em serviço</b> no registo da DGEG. Não entram em nenhum dos dois lados da cronologia.</li>
+      <li data-i18n="lim4">O polígono da DGEG é a <b>área licenciada</b>, não a área efetivamente coberta por painéis. Sobrestima ligeiramente a sobreposição das centrais grandes.</li>
+      <li data-i18n="lim5">O raio de 20 km da comparação local é uma <b>escolha declarada</b>. Mais apertado, cada central compara-se com terreno mais parecido; mais largo, com a região. O ficheiro de dados publica a taxa local de cada central para que o teste possa ser refeito de outra maneira.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s7_kick">Refazer o teste</div>
+    <h2 data-i18n="s7_h2">Está tudo aberto</h2>
+    <p data-i18n="s7_p">O resultado completo — as <b data-stat="onscar">301</b> centrais e parques que tocam uma mancha ardida, com a sobreposição por ano de incêndio, a taxa local e o excesso de cada um — está publicado em bruto. As fontes são as mesmas do mapa.</p>
+    <ul class="srcs">
+      <li><a href="/dados/burns.json" data-i18n="src_json">O resultado completo (JSON)</a> <span data-i18n="src_json_d">· uma linha por central, recalculado semanalmente</span></li>
+      <li><a href="https://sigservices.icnf.pt/server/rest/services/BDG/areas_ardidas/MapServer" target="_blank" rel="noopener">ICNF — Áreas Ardidas</a> <span data-i18n="src_icnf">· polígonos oficiais dos incêndios, um serviço por ano</span></li>
+      <li><a href="https://servergeo.dgeg.gov.pt/arcgis/rest/services/Visualizadores/CS/MapServer" target="_blank" rel="noopener">DGEG — Centrais Solares</a> <span data-i18n="src_dgeg">· registo de licenciamento, um polígono por bloco</span></li>
+      <li><a href="https://www.openstreetmap.org" target="_blank" rel="noopener">OpenStreetMap</a> <span data-i18n="src_osm">· contornos das centrais e dos parques, via API Overpass</span></li>
+    </ul>
+    <div class="cta">
+      <a class="btn btn-primary" href="/map" data-i18n="cta1">Ver o mapa →</a>
+      <a class="btn btn-ghost" href="/verificacao" data-i18n="cta2">Como o mapa é verificado</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p data-i18n="foot_made">Feito por vizinhos da Beira Baixa que querem a serra de pé. · <a href="/">salvargardunha.com</a></p>
+    <p data-i18n="built_note">Recalculado semanalmente a partir dos registos públicos. Última atualização: <b data-stat="built">—</b>.</p>
+    <p class="disc" data-i18n="disc">Análise de dados públicos. Todos os números desta página são recalculados a partir dos registos citados e podem ser refeitos por qualquer pessoa. Página informativa, cívica, sem fins lucrativos, não filiada em nenhum partido, empresa ou entidade pública.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var LANGS=['pt','en','de','fr'];
+  var DATA_URL='/dados/burns.json';
+
+  var I18N={
+    en:{
+      top_home:'← salvargardunha.com', top_map:'The verified map', top_method:'How it was verified', top_docs:'Documents',
+      eyebrow:'Analysis · official registers, the whole country',
+      h1:'Is solar built on land that burned?',
+      lede:'It is the suspicion repeated in every village with a project at its door: first it burns, then the plant appears. That claim is <b>testable</b> — the footprint of every plant is published, and so are the burned areas. We overlaid the two across the whole mainland. This page reports what came out, including the part that suits nobody.',
+      s1_kick:'The question', s1_h2:'An overlap on its own proves nothing',
+      s1_p1:'Showing that a solar plant sits on a burn scar proves nothing by itself. <b data-stat="baseline_pct">14.8</b>% of mainland Portugal burned at least once between <b data-stat="y0">2014</b> and <b data-stat="y1">2025</b>. In a country like that, finding plants on burned ground is what you would expect <b>even if nobody ever chose burned ground</b>.',
+      s1_p2:'The answerable question is a different one: <b>do plants sit on burned ground more often than the land around them burned?</b> If yes, somebody is choosing. If no, it is geography. That is the comparison we ran.',
+      s2_kick:'The method', s2_h2:'Four steps, public data, no invented numbers',
+      st1_t:'The real footprint of every plant',
+      st1_p:'Not the centre point: the polygon. <b data-stat="solar_plants">1018</b> solar plants and <b data-stat="wind_plants">264</b> wind farms, from the DGEG licensing register and OpenStreetMap. Anything published as a bare point is excluded — you cannot measure an overlap from a point.',
+      st2_t:'Every ICNF burned area, at full resolution',
+      st2_p:'The official fire polygons from <b data-stat="y0">2014</b> to <b data-stat="y1">2025</b>, year by year, nationwide — over twenty thousand scars. None was simplified for this calculation.',
+      st3_t:'How much of each plant sits on a scar',
+      st3_p:'Geometric intersection, plant by plant, fire by fire. We keep the share of the plant’s own area that burned and in which years — and compare the fire year with the year it entered service, to separate “burned, then built” from “built, then burned”.',
+      st4_t:'The fair comparison: the land around it',
+      st4_p:'Solar is built mostly in the south, and the south barely burns; wind goes on ridges, and ridges burn constantly. Comparing either against the national average gives the wrong answer. So we also measure <b>how much of the land within 20 km of each plant burned</b>, on a 1 km grid clipped to the mainland, and score the plant against that.',
+      s3_kick:'The result', s3_h2:'No. The national data does not show that choice',
+      v_kick:'Conclusion',
+      v_p:'Licensed solar in Portugal sits on burned ground at about <b>half</b> the rate at which the land around it burned. Wind sits on scars constantly — but in exactly the proportion in which the ranges it occupies burn. <b>Neither technology shows, at national scale, a preference for burned land.</b>',
+      s3_p1:'We publish this because the alternative would be picking the numbers that fit the story — which is precisely what we accuse the consultation reports of doing, and rightly. A map that only ever confirms the people who made it is worth nothing.',
+      s3_p2:'What wind reveals is worth recording: <b data-stat="wind_on_scar">186</b> of <b data-stat="wind_plants">264</b> wind farms touch a burn scar, and <b data-stat="wind_obs">35.0</b>% of their combined footprint has burned. Not because anyone picks scars, but because <b>wind occupies exactly the kind of ground that burns</b>: scrub ridges, empty of people. What makes the range dangerous is what makes it attractive to whoever wants to license it.',
+      s4_kick:'The exception', s4_h2:'Where there is, in fact, something to explain',
+      s4_p1:'The national average closes the door on a general theory. It does not close the door on individual cases — and there are some. These are the solar plants whose footprint burned <b>far more</b> than the land around them: the last column is how many times more. A plant sitting entirely on a 2022 scar, in an area where 2% of the land burned, is not an ordinary coincidence.',
+      th_plant:'Plant', th_area:'Area', th_burned:'Burned', th_local:'Surroundings', th_x:'Excess', th_when:'Sequence',
+      s4_note:'<b>This is a starting point, not an accusation.</b> A coincidence in space and time can be measured; a cause has to be investigated. The next step for any of these cases is documentary — when the licence was applied for, who owned the land before the fire, what the fire investigation found. None of that is on this page, and until it is, nothing here accuses anyone of anything.',
+      s5_kick:'The order of events', s5_h2:'Burned first, built afterwards',
+      s5_p1:'Of all the solar plants touching a scar, <b data-stat="pre">26</b> entered service <b>after</b> the fire that crossed their ground, <b data-stat="post">27</b> were already there when the fire came, and <b data-stat="unk">62</b> have no commissioning date on record — for those, nothing can be said.',
+      th_fire:'Fire', th_since:'In service', th_burnedha:'Burned area', th_share:'% of plant',
+      s5_p2:'The innocent reading of this list is both the likeliest and the dullest: burned land is cheap, already cleared, and nobody objects to it — exactly what a developer looks for. That explains the whole list without needing a criminal in it. It explains it, note, <b>without making it acceptable</b>: it means burning makes the range more valuable to whoever wants to occupy it.',
+      s6_kick:'The limits', s6_h2:'What this calculation does not prove',
+      lim1:'<b>It does not prove causes.</b> It measures coincidence in space and time. It does not say who started any fire, nor suggest that anyone did.',
+      lim2:'ICNF <b>publishes no polygons before 2014</b> in this service. That is the window; a 2005 fire on the same ground is not in the count.',
+      lim3:'<b data-stat="unk">62</b> solar plants on scars have <b>no commissioning date</b> in the DGEG register. They fall on neither side of the sequence.',
+      lim4:'The DGEG polygon is the <b>licensed area</b>, not the area actually covered by panels. It slightly overstates the overlap of the larger plants.',
+      lim5:'The 20 km radius of the local comparison is a <b>declared choice</b>. Tighter, and each plant is compared with more similar ground; wider, and it is compared with its region. The data file publishes every plant’s local rate so the test can be redone differently.',
+      s7_kick:'Redo the test', s7_h2:'All of it is open',
+      s7_p:'The full result — all <b data-stat="onscar">301</b> plants and farms touching a scar, with the overlap per fire year, the local rate and the excess for each — is published raw. The sources are the map’s own.',
+      src_json:'The full result (JSON)', src_json_d:'· one row per plant, recalculated weekly',
+      src_icnf:'· official fire polygons, one service per year',
+      src_dgeg:'· licensing register, one polygon per block',
+      src_osm:'· plant and farm outlines, via the Overpass API',
+      cta1:'See the map →', cta2:'How the map is verified',
+      foot_made:'Made by neighbours in the Beira Baixa who want the range left standing. · <a href="/">salvargardunha.com</a>',
+      built_note:'Recalculated weekly from the public registers. Last update: <b data-stat="built">—</b>.',
+      loading:'Loading the data…',
+      disc:'Analysis of public data. Every figure on this page is recomputed from the registers cited and can be reproduced by anyone. Informative, civic, non-profit page, unaffiliated with any party, company or public body.'
+    },
+    de:{
+      top_home:'← salvargardunha.com', top_map:'Die geprüfte Karte', top_method:'Wie geprüft wurde', top_docs:'Dokumente',
+      eyebrow:'Analyse · amtliche Register, das ganze Land',
+      h1:'Wird Solar auf Brandflächen gebaut?',
+      lede:'Es ist der Verdacht, den jedes Dorf mit einem Projekt vor der Tür ausspricht: erst brennt es, dann kommt die Anlage. Diese Behauptung ist <b>überprüfbar</b> — die Fläche jeder Anlage ist veröffentlicht, die Brandflächen ebenso. Wir haben beides für das gesamte Festland übereinandergelegt. Diese Seite berichtet, was dabei herauskam, auch den Teil, der niemandem passt.',
+      s1_kick:'Die Frage', s1_h2:'Eine Überlagerung allein beweist nichts',
+      s1_p1:'Zu zeigen, dass eine Solaranlage auf einer Brandfläche liegt, beweist für sich genommen nichts. <b data-stat="baseline_pct">14,8</b>% des portugiesischen Festlands haben zwischen <b data-stat="y0">2014</b> und <b data-stat="y1">2025</b> mindestens einmal gebrannt. In einem solchen Land sind Anlagen auf Brandflächen genau das, was zu erwarten ist — <b>auch wenn niemand je Brandflächen auswählt</b>.',
+      s1_p2:'Die beantwortbare Frage lautet anders: <b>liegen die Anlagen häufiger auf Brandflächen, als das Land um sie herum gebrannt hat?</b> Wenn ja, wählt jemand aus. Wenn nein, ist es Geografie. Genau dieser Vergleich wurde gerechnet.',
+      s2_kick:'Die Methode', s2_h2:'Vier Schritte, öffentliche Daten, keine erfundene Zahl',
+      st1_t:'Die tatsächliche Fläche jeder Anlage',
+      st1_p:'Nicht der Mittelpunkt, sondern das Polygon. <b data-stat="solar_plants">1018</b> Solaranlagen und <b data-stat="wind_plants">264</b> Windparks aus dem DGEG-Genehmigungsregister und aus OpenStreetMap. Was nur als Punkt veröffentlicht ist, bleibt draußen — aus einem Punkt lässt sich keine Überlagerung messen.',
+      st2_t:'Alle ICNF-Brandflächen, in voller Auflösung',
+      st2_p:'Die amtlichen Brandpolygone von <b data-stat="y0">2014</b> bis <b data-stat="y1">2025</b>, Jahr für Jahr, landesweit — über zwanzigtausend Flächen. Für diese Rechnung wurde keine davon vereinfacht.',
+      st3_t:'Wie viel jeder Anlage auf Brandfläche liegt',
+      st3_p:'Geometrischer Schnitt, Anlage für Anlage, Brand für Brand. Festgehalten wird der Anteil der Anlagenfläche, der gebrannt hat, und in welchen Jahren — und das Brandjahr wird mit dem Jahr der Inbetriebnahme verglichen, um „gebrannt, dann gebaut“ von „gebaut, dann gebrannt“ zu trennen.',
+      st4_t:'Der faire Vergleich: das Land ringsum',
+      st4_p:'Solar entsteht vor allem im Süden, und der Süden brennt kaum; Wind steht auf Kämmen, und Kämme brennen ständig. Beide gegen den Landesdurchschnitt zu halten, ergibt die falsche Antwort. Deshalb wird auch gemessen, <b>wie viel des Landes im Umkreis von 20 km um jede Anlage gebrannt hat</b> — auf einem 1-km-Raster über dem Festland — und die Anlage daran gemessen.',
+      s3_kick:'Das Ergebnis', s3_h2:'Nein. Die landesweiten Daten zeigen diese Auswahl nicht',
+      v_kick:'Fazit',
+      v_p:'Genehmigte Solarfläche in Portugal liegt etwa <b>halb so oft</b> auf Brandfläche, wie das Land um sie herum gebrannt hat. Wind liegt ständig auf Brandflächen — aber genau in dem Maß, in dem die Bergzüge brennen, auf denen er steht. <b>Keine der beiden Technologien zeigt auf Landesebene eine Vorliebe für verbranntes Land.</b>',
+      s3_p1:'Wir veröffentlichen das, weil die Alternative wäre, die passenden Zahlen auszusuchen — genau das, was wir den Berichten der öffentlichen Konsultation vorwerfen, zu Recht. Eine Karte, die nur bestätigt, wer sie gemacht hat, ist nichts wert.',
+      s3_p2:'Was der Wind zeigt, ist festhaltenswert: <b data-stat="wind_on_scar">186</b> von <b data-stat="wind_plants">264</b> Windparks berühren eine Brandfläche, und <b data-stat="wind_obs">35,0</b>% ihrer Gesamtfläche hat gebrannt. Nicht weil jemand Brandflächen wählt, sondern weil <b>Wind genau das Gelände besetzt, das brennt</b>: Buschkämme ohne Menschen. Was den Bergzug gefährlich macht, macht ihn für die Genehmigungswilligen attraktiv.',
+      s4_kick:'Die Ausnahme', s4_h2:'Wo es tatsächlich etwas zu erklären gibt',
+      s4_p1:'Der Landesdurchschnitt schließt eine allgemeine Theorie aus. Einzelfälle schließt er nicht aus — und es gibt sie. Das sind die Solaranlagen, deren Fläche <b>weit stärker</b> gebrannt hat als das Land um sie herum: die letzte Spalte zeigt, um das Wievielfache. Eine Anlage, die vollständig auf einer Brandfläche von 2022 liegt, in einer Gegend, in der 2% des Landes gebrannt hat, ist kein gewöhnlicher Zufall.',
+      th_plant:'Anlage', th_area:'Fläche', th_burned:'Gebrannt', th_local:'Umgebung', th_x:'Überschuss', th_when:'Abfolge',
+      s4_note:'<b>Das ist ein Ausgangspunkt, keine Anschuldigung.</b> Ein räumliches und zeitliches Zusammentreffen lässt sich messen; eine Ursache muss ermittelt werden. Der nächste Schritt ist in jedem dieser Fälle aktenkundig — wann der Antrag gestellt wurde, wem das Land vor dem Brand gehörte, was die Brandermittlung ergab. Nichts davon steht auf dieser Seite, und solange das so ist, wird hier niemand beschuldigt.',
+      s5_kick:'Die Reihenfolge', s5_h2:'Erst gebrannt, dann gebaut',
+      s5_p1:'Von allen Solaranlagen, die eine Brandfläche berühren, gingen <b data-stat="pre">26</b> <b>nach</b> dem Brand auf ihrem Gelände in Betrieb, <b data-stat="post">27</b> standen schon da, als das Feuer kam, und für <b data-stat="unk">62</b> ist kein Inbetriebnahmedatum veröffentlicht — über die lässt sich nichts sagen.',
+      th_fire:'Brand', th_since:'In Betrieb', th_burnedha:'Brandfläche', th_share:'% der Anlage',
+      s5_p2:'Die unschuldige Lesart dieser Liste ist zugleich die wahrscheinlichste und die langweiligste: Brandland ist billig, bereits geräumt und niemand legt Widerspruch ein — genau das, was ein Projektierer sucht. Das erklärt die ganze Liste ohne jeden Täter. Es erklärt sie allerdings, <b>ohne sie hinnehmbar zu machen</b>: Brennen steigert den Wert des Bergzugs für alle, die ihn besetzen wollen.',
+      s6_kick:'Die Grenzen', s6_h2:'Was diese Rechnung nicht beweist',
+      lim1:'<b>Sie beweist keine Ursachen.</b> Sie misst räumliches und zeitliches Zusammentreffen. Sie sagt nicht, wer einen Brand gelegt hat, und legt es auch niemandem nahe.',
+      lim2:'Das ICNF <b>veröffentlicht in diesem Dienst keine Polygone vor 2014</b>. Das ist das Zeitfenster; ein Brand von 2005 auf demselben Boden fehlt.',
+      lim3:'<b data-stat="unk">62</b> Solaranlagen auf Brandflächen haben <b>kein Inbetriebnahmedatum</b> im DGEG-Register. Sie stehen auf keiner der beiden Seiten der Abfolge.',
+      lim4:'Das DGEG-Polygon ist die <b>genehmigte Fläche</b>, nicht die tatsächlich mit Modulen belegte. Bei großen Anlagen überschätzt es die Überlagerung leicht.',
+      lim5:'Der 20-km-Radius des lokalen Vergleichs ist eine <b>offengelegte Wahl</b>. Enger gefasst wird jede Anlage mit ähnlicherem Gelände verglichen, weiter gefasst mit ihrer Region. Die Datendatei veröffentlicht die lokale Rate jeder Anlage, damit der Test anders wiederholt werden kann.',
+      s7_kick:'Test wiederholen', s7_h2:'Alles liegt offen',
+      s7_p:'Das vollständige Ergebnis — alle <b data-stat="onscar">301</b> Anlagen und Parks, die eine Brandfläche berühren, mit der Überlagerung je Brandjahr, der lokalen Rate und dem Überschuss — ist als Rohdatei veröffentlicht. Die Quellen sind dieselben wie bei der Karte.',
+      src_json:'Das vollständige Ergebnis (JSON)', src_json_d:'· eine Zeile je Anlage, wöchentlich neu berechnet',
+      src_icnf:'· amtliche Brandpolygone, ein Dienst pro Jahr',
+      src_dgeg:'· Genehmigungsregister, ein Polygon je Block',
+      src_osm:'· Umrisse der Anlagen und Parks, über die Overpass-API',
+      cta1:'Zur Karte →', cta2:'Wie die Karte geprüft wird',
+      foot_made:'Gemacht von Nachbarn in der Beira Baixa, die den Bergzug stehen lassen wollen. · <a href="/">salvargardunha.com</a>',
+      built_note:'Wöchentlich aus den öffentlichen Registern neu berechnet. Letzte Aktualisierung: <b data-stat="built">—</b>.',
+      loading:'Daten werden geladen…',
+      disc:'Auswertung öffentlicher Daten. Jede Zahl auf dieser Seite wird aus den genannten Registern neu berechnet und ist von jedem reproduzierbar. Informative, zivilgesellschaftliche, gemeinnützige Seite, keiner Partei, keinem Unternehmen und keiner Behörde zugehörig.'
+    },
+    fr:{
+      top_home:'← salvargardunha.com', top_map:'La carte vérifiée', top_method:'Comment c’a été vérifié', top_docs:'Documents',
+      eyebrow:'Analyse · registres officiels, tout le pays',
+      h1:'Le solaire s’installe-t-il sur des terres brûlées ?',
+      lede:'C’est le soupçon que répète chaque village ayant un projet à sa porte : d’abord ça brûle, ensuite la centrale arrive. Cette affirmation est <b>vérifiable</b> — l’emprise de chaque centrale est publiée, les zones brûlées aussi. Nous avons superposé les deux sur tout le continent. Cette page dit ce qui en est sorti, y compris la part qui n’arrange personne.',
+      s1_kick:'La question', s1_h2:'Une superposition ne prouve rien à elle seule',
+      s1_p1:'Montrer qu’une centrale solaire repose sur une zone brûlée ne prouve rien en soi. <b data-stat="baseline_pct">14,8</b>% du Portugal continental a brûlé au moins une fois entre <b data-stat="y0">2014</b> et <b data-stat="y1">2025</b>. Dans un pays pareil, trouver des centrales sur des terres brûlées est ce à quoi il faut s’attendre <b>même si personne ne choisit jamais des terres brûlées</b>.',
+      s1_p2:'La question à laquelle on peut répondre est autre : <b>les centrales reposent-elles sur des terres brûlées plus souvent que la terre autour d’elles n’a brûlé ?</b> Si oui, quelqu’un choisit. Sinon, c’est de la géographie. C’est cette comparaison qui a été faite.',
+      s2_kick:'La méthode', s2_h2:'Quatre étapes, données publiques, aucun chiffre inventé',
+      st1_t:'L’emprise réelle de chaque centrale',
+      st1_p:'Pas le point central : le polygone. <b data-stat="solar_plants">1018</b> centrales solaires et <b data-stat="wind_plants">264</b> parcs éoliens, issus du registre d’autorisation de la DGEG et d’OpenStreetMap. Ce qui n’est publié que comme un point est écarté — on ne mesure pas une superposition à partir d’un point.',
+      st2_t:'Toutes les zones brûlées de l’ICNF, en pleine résolution',
+      st2_p:'Les polygones officiels des incendies de <b data-stat="y0">2014</b> à <b data-stat="y1">2025</b>, année par année, sur tout le pays — plus de vingt mille taches. Aucune n’a été simplifiée pour ce calcul.',
+      st3_t:'Quelle part de chaque centrale repose sur une zone brûlée',
+      st3_p:'Intersection géométrique, centrale par centrale, incendie par incendie. On retient la part de la surface de la centrale qui a brûlé et les années concernées — et on compare l’année du feu à l’année de mise en service, pour séparer « a brûlé puis a été construite » de « construite puis brûlée ».',
+      st4_t:'La comparaison équitable : la terre alentour',
+      st4_p:'Le solaire se construit surtout au sud, et le sud brûle peu ; l’éolien s’installe sur les crêtes, et les crêtes brûlent sans cesse. Comparer l’un ou l’autre à la moyenne nationale donne une réponse fausse. On mesure donc aussi <b>ce qui a brûlé dans un rayon de 20 km autour de chaque centrale</b>, sur une grille de 1 km couvrant le continent, et c’est à cette valeur que la centrale est comparée.',
+      s3_kick:'Le résultat', s3_h2:'Non. Les données nationales ne montrent pas ce choix',
+      v_kick:'Conclusion',
+      v_p:'La surface solaire autorisée au Portugal repose sur des terres brûlées à environ <b>la moitié</b> du taux auquel la terre autour d’elle a brûlé. L’éolien repose constamment sur des zones brûlées — mais exactement dans la proportion où brûlent les massifs qu’il occupe. <b>Aucune des deux technologies ne montre, à l’échelle du pays, de préférence pour les terres brûlées.</b>',
+      s3_p1:'Nous publions cela parce que l’alternative serait de choisir les chiffres qui collent au récit — précisément ce que nous reprochons, à juste titre, aux rapports de la consultation publique. Une carte qui ne fait que confirmer ceux qui l’ont faite ne vaut rien.',
+      s3_p2:'Ce que révèle l’éolien mérite d’être noté : <b data-stat="wind_on_scar">186</b> des <b data-stat="wind_plants">264</b> parcs éoliens touchent une zone brûlée, et <b data-stat="wind_obs">35,0</b>% de leur surface totale a brûlé. Non parce que quelqu’un choisirait les zones brûlées, mais parce que <b>l’éolien occupe exactement le type de terrain qui brûle</b> : des crêtes de broussailles, vides d’habitants. Ce qui rend le massif dangereux est ce qui le rend attirant pour qui veut l’autoriser.',
+      s4_kick:'L’exception', s4_h2:'Là où il y a effectivement quelque chose à expliquer',
+      s4_p1:'La moyenne nationale ferme la porte à une théorie générale. Elle ne la ferme pas à des cas particuliers — et il y en a. Voici les centrales solaires dont l’emprise a brûlé <b>bien davantage</b> que la terre autour d’elles : la dernière colonne indique combien de fois plus. Une centrale entièrement posée sur une tache de 2022, dans une zone où 2% du territoire a brûlé, n’est pas une coïncidence banale.',
+      th_plant:'Centrale', th_area:'Surface', th_burned:'Brûlée', th_local:'Alentours', th_x:'Excès', th_when:'Chronologie',
+      s4_note:'<b>C’est un point de départ, pas une accusation.</b> Une coïncidence dans l’espace et dans le temps se mesure ; une cause s’enquête. L’étape suivante, pour chacun de ces cas, est documentaire — quand l’autorisation a été demandée, à qui appartenait le terrain avant l’incendie, ce qu’a conclu l’enquête sur le feu. Rien de tout cela ne figure sur cette page, et tant que ce sera le cas, personne n’y est accusé de quoi que ce soit.',
+      s5_kick:'L’ordre des faits', s5_h2:'Brûlé d’abord, construit ensuite',
+      s5_p1:'Parmi toutes les centrales solaires touchant une zone brûlée, <b data-stat="pre">26</b> sont entrées en service <b>après</b> l’incendie qui a traversé leur terrain, <b data-stat="post">27</b> étaient déjà là quand le feu est arrivé, et <b data-stat="unk">62</b> n’ont aucune date de mise en service publiée — pour celles-là, on ne peut rien dire.',
+      th_fire:'Incendie', th_since:'En service', th_burnedha:'Surface brûlée', th_share:'% de la centrale',
+      s5_p2:'La lecture innocente de cette liste est la plus probable et la plus ennuyeuse : une terre brûlée est bon marché, déjà dégagée, et personne ne s’y oppose — exactement ce que cherche un promoteur. Cela explique toute la liste sans y mettre le moindre criminel. Cela l’explique, notons-le, <b>sans la rendre acceptable</b> : brûler augmente la valeur du massif pour qui veut l’occuper.',
+      s6_kick:'Les limites', s6_h2:'Ce que ce calcul ne prouve pas',
+      lim1:'<b>Il ne prouve aucune cause.</b> Il mesure une coïncidence dans l’espace et dans le temps. Il ne dit pas qui a allumé un incendie, et ne suggère pas que quiconque l’ait fait.',
+      lim2:'L’ICNF <b>ne publie aucun polygone antérieur à 2014</b> dans ce service. La fenêtre est celle-là ; un feu de 2005 sur le même terrain n’entre pas dans le compte.',
+      lim3:'<b data-stat="unk">62</b> centrales solaires situées sur une zone brûlée <b>n’ont pas de date de mise en service</b> au registre de la DGEG. Elles ne comptent d’aucun côté de la chronologie.',
+      lim4:'Le polygone de la DGEG est la <b>surface autorisée</b>, non la surface réellement couverte de panneaux. Il surestime légèrement la superposition des grandes centrales.',
+      lim5:'Le rayon de 20 km de la comparaison locale est un <b>choix déclaré</b>. Plus resserré, chaque centrale se compare à un terrain plus semblable ; plus large, à sa région. Le fichier de données publie le taux local de chaque centrale afin que le test puisse être refait autrement.',
+      s7_kick:'Refaire le test', s7_h2:'Tout est ouvert',
+      s7_p:'Le résultat complet — les <b data-stat="onscar">301</b> centrales et parcs touchant une zone brûlée, avec la superposition par année d’incendie, le taux local et l’excès de chacun — est publié brut. Les sources sont celles de la carte.',
+      src_json:'Le résultat complet (JSON)', src_json_d:'· une ligne par centrale, recalculé chaque semaine',
+      src_icnf:'· polygones officiels des incendies, un service par année',
+      src_dgeg:'· registre d’autorisation, un polygone par bloc',
+      src_osm:'· contours des centrales et des parcs, via l’API Overpass',
+      cta1:'Voir la carte →', cta2:'Comment la carte est vérifiée',
+      foot_made:'Fait par des voisins de la Beira Baixa qui veulent la serra debout. · <a href="/">salvargardunha.com</a>',
+      built_note:'Recalculé chaque semaine à partir des registres publics. Dernière mise à jour : <b data-stat="built">—</b>.',
+      loading:'Chargement des données…',
+      disc:'Analyse de données publiques. Tous les chiffres de cette page sont recalculés à partir des registres cités et peuvent être reproduits par quiconque. Page informative, civique, sans but lucratif, non affiliée à un parti, une entreprise ou une entité publique.'
+    }
+  };
+
+  /* Sequence labels and the small strings the tables are built from. PT lives
+     here too, because these strings are generated by JS and never appear in the
+     markup the way the section text does. */
+  var STR={
+    pt:{dec:',', pre:'ardeu, depois construiu-se', post:'construiu-se, depois ardeu', both:'ardeu antes e depois',
+        unk:'sem data de entrada em serviço', none:'—', empty:'Sem casos a assinalar.', x:'×'},
+    en:{dec:'.', pre:'burned, then built', post:'built, then burned', both:'burned before and after',
+        unk:'no commissioning date', none:'—', empty:'No cases to flag.', x:'×'},
+    de:{dec:',', pre:'gebrannt, dann gebaut', post:'gebaut, dann gebrannt', both:'davor und danach gebrannt',
+        unk:'kein Inbetriebnahmedatum', none:'—', empty:'Keine Fälle zu melden.', x:'×'},
+    fr:{dec:',', pre:'brûlé, puis construit', post:'construit, puis brûlé', both:'brûlé avant et après',
+        unk:'pas de date de mise en service', none:'—', empty:'Aucun cas à signaler.', x:'×'}
+  };
+
+  var PT={};
+  document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
+  function tr(l,k){ if(l==='pt')return PT[k]; return (I18N[l]&&I18N[l][k]!=null)?I18N[l][k]:PT[k]; }
+  function s(l,k){ return (STR[l]||STR.pt)[k]; }
+
+  var lang='pt', BURNS=null;
+  function esc(v){ return String(v==null?'':v).replace(/[&<>"]/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function num(v,dp){ if(v==null||isNaN(v)) return s(lang,'none');
+    return Number(v).toFixed(dp==null?1:dp).replace('.',s(lang,'dec')); }
+  function pct(v,dp){ return v==null?s(lang,'none'):num(v*100,dp==null?1:dp)+'%'; }
+
+  /* The page never hard-codes a figure it can read. The values in the markup are
+     the last known good ones and stay put if the fetch fails. */
+  function fillStats(){
+    if(!BURNS) return;
+    var st=BURNS.stats, so=st.by_kind.solar, wi=st.by_kind.wind;
+    var v={ baseline_pct:num(st.baseline_burned_share*100), y0:st.years[0], y1:st.years[1],
+            solar_plants:so.plants, wind_plants:wi.plants, wind_on_scar:wi.on_scar,
+            wind_obs:num(wi.observed_share*100), pre:st.burned_then_built,
+            post:st.burned_after_built, unk:st.date_unknown,
+            onscar:so.on_scar+wi.on_scar, built:st.built };
+    document.querySelectorAll('[data-stat]').forEach(function(el){
+      var k=el.getAttribute('data-stat');
+      if(v[k]!==undefined&&v[k]!==null) el.textContent=v[k];
+    });
+  }
+
+  function scoreboard(){
+    var el=document.getElementById('scoreboard'); if(!el||!BURNS) return;
+    var st=BURNS.stats;
+    var row=function(who,b){
+      if(!b||b.observed_share==null) return '';
+      var over=b.ratio_local>1;
+      return '<div class="sb"><span class="who">'+who+'</span>'
+        +'<span class="num">'+pct(b.observed_share)+'</span>'
+        +'<span class="vs">'+tr(lang,'sb_vs')+' '+pct(b.expected_share_local)+'</span>'
+        +'<span class="ratio'+(over?' over':'')+'">'+num(b.ratio_local,2)+s(lang,'x')+'</span>'
+        +'<span class="cap">'+tr(lang,'sb_cap')
+          .replace('{n}',b.on_scar).replace('{t}',b.plants)
+          .replace('{ha}',Math.round(b.on_scar_ha).toLocaleString(lang==='en'?'en':'pt'))+'</span></div>';};
+    el.innerHTML='<div class="sb"><span class="who">'+tr(lang,'sb_country')+'</span>'
+      +'<span class="num">'+pct(st.baseline_burned_share)+'</span>'
+      +'<span class="vs">'+st.years[0]+'–'+st.years[1]+'</span>'
+      +'<span class="cap">'+tr(lang,'sb_country_cap').replace('{km2}',
+          Number(st.baseline_burned_km2).toLocaleString(lang==='en'?'en':'pt'))+'</span></div>'
+      +row(tr(lang,'sb_solar'),st.by_kind.solar)+row(tr(lang,'sb_wind'),st.by_kind.wind);
+  }
+
+  function nameCell(r){
+    return '<b>'+esc(r.name||s(lang,'none'))+'</b>'
+      +(r.owner?'<span class="own">'+esc(r.owner)+'</span>':'')
+      +(r.concelho?'<span class="own">'+esc(r.concelho)+'</span>':'');
+  }
+  function whenLabel(w){
+    return s(lang,{burned_then_built:'pre',burned_after_built:'post',both:'both',date_unknown:'unk'}[w]||'unk');
+  }
+
+  function tables(){
+    if(!BURNS) return;
+    var solar=BURNS.plants.filter(function(r){return r.kind==='solar';});
+
+    var ex=solar.filter(function(r){return r.excess!=null&&r.area_ha>=5&&r.burned_frac>=0.5;})
+                .sort(function(a,b){return b.excess-a.excess;}).slice(0,10);
+    document.getElementById('tb-excess').innerHTML = ex.length ? ex.map(function(r){
+      return '<tr><td>'+nameCell(r)+'</td>'
+        +'<td class="n">'+num(r.area_ha,0)+' ha</td>'
+        +'<td class="n">'+pct(r.burned_frac,0)+'</td>'
+        +'<td class="n">'+pct(r.local_rate,0)+'</td>'
+        +'<td class="n"><b>'+num(r.excess,0)+s(lang,'x')+'</b></td>'
+        +'<td>'+whenLabel(r.when)+'</td></tr>';}).join('')
+      : '<tr><td colspan="6">'+s(lang,'empty')+'</td></tr>';
+
+    var pre=solar.filter(function(r){return r.when==='burned_then_built'||r.when==='both';})
+                 .sort(function(a,b){return b.burned_ha-a.burned_ha;}).slice(0,12);
+    document.getElementById('tb-pre').innerHTML = pre.length ? pre.map(function(r){
+      var fires=r.burns.filter(function(b){return r.since&&b.year<r.since;})
+                       .map(function(b){return b.year;}).join(', ');
+      return '<tr><td>'+nameCell(r)+'</td>'
+        +'<td>'+esc(fires||s(lang,'none'))+'</td>'
+        +'<td class="n">'+esc(r.since||s(lang,'none'))+'</td>'
+        +'<td class="n">'+num(r.burned_ha,0)+' ha</td>'
+        +'<td class="n">'+pct(r.burned_frac,0)+'</td></tr>';}).join('')
+      : '<tr><td colspan="5">'+s(lang,'empty')+'</td></tr>';
+  }
+
+  /* Scoreboard strings live in the dictionaries above via tr(); these are the PT
+     originals, kept here because the scoreboard has no markup to read them from. */
+  PT.sb_country='ardeu no país';   PT.sb_country_cap='{km2} km² arderam pelo menos uma vez';
+  PT.sb_solar='Solar';             PT.sb_wind='Eólico';
+  PT.sb_vs='esperado na vizinhança:';
+  PT.sb_cap='{n} de {t} tocam uma mancha ardida · {ha} ha sobre cicatriz';
+  I18N.en.sb_country='burned nationally'; I18N.en.sb_country_cap='{km2} km² burned at least once';
+  I18N.en.sb_solar='Solar'; I18N.en.sb_wind='Wind';
+  I18N.en.sb_vs='expected from the surroundings:';
+  I18N.en.sb_cap='{n} of {t} touch a scar · {ha} ha on burned ground';
+  I18N.de.sb_country='landesweit gebrannt'; I18N.de.sb_country_cap='{km2} km² brannten mindestens einmal';
+  I18N.de.sb_solar='Solar'; I18N.de.sb_wind='Wind';
+  I18N.de.sb_vs='in der Umgebung zu erwarten:';
+  I18N.de.sb_cap='{n} von {t} berühren eine Brandfläche · {ha} ha auf Brandfläche';
+  I18N.fr.sb_country='brûlé dans le pays'; I18N.fr.sb_country_cap='{km2} km² ont brûlé au moins une fois';
+  I18N.fr.sb_solar='Solaire'; I18N.fr.sb_wind='Éolien';
+  I18N.fr.sb_vs='attendu d’après les environs :';
+  I18N.fr.sb_cap='{n} sur {t} touchent une zone brûlée · {ha} ha sur zone brûlée';
+
+  function applyLang(l){
+    if(LANGS.indexOf(l)<0)l='pt';
+    lang=l;
+    document.documentElement.lang=(l==='pt'?'pt-PT':l);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=tr(l,el.getAttribute('data-i18n'));});
+    document.querySelectorAll('#langsw button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
+    try{localStorage.setItem('nf_lang',l);}catch(e){}
+    fillStats(); scoreboard(); tables();   /* the swap rewrote the placeholders */
+  }
+  document.querySelectorAll('#langsw button').forEach(function(b){
+    b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang'));});});
+  var saved; try{saved=localStorage.getItem('nf_lang');}catch(e){}
+  applyLang(saved||'pt');
+
+  fetch(DATA_URL).then(function(r){return r.json();}).then(function(d){
+    if(d&&d.stats){BURNS=d;fillStats();scoreboard();tables();}
+  }).catch(function(){});
+})();
+</script>
+
+</body>
+</html>

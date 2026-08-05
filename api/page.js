@@ -10,7 +10,7 @@ const LANGS = ['en', 'de', 'fr'];
 const ALL = ['pt', 'en', 'de', 'fr'];
 
 // Root pages that have client-side translations.
-const ROOT = new Set(['sobre', 'analise-pareceres', 'objecoes', 'mapa', 'map', 'social', 'nao-responderam', 'verificacao']);
+const ROOT = new Set(['sobre', 'analise-pareceres', 'objecoes', 'mapa', 'map', 'social', 'nao-responderam', 'verificacao', 'ardidas']);
 
 // Resolve a URL slug to a file on disk, or null if it isn't a known translated page.
 // Covers the home page, the root campaign pages, and the /read/ document section.
