@@ -94,72 +94,59 @@
   .foot-col a{display:block;color:#dfe6da;text-decoration:none;padding:5px 0;font-size:14px;line-height:1.35}
   .foot-col a:hover{color:var(--green)}
   .disc{margin-top:24px;font-size:12.5px;color:#6f7a6f;border-top:1px solid var(--line);padding-top:16px;line-height:1.6}
+
+  /* --- full-screen map shell + slide-in panel --- */
+  html,body{height:100%}
+  body{margin:0;overflow:hidden}
+  #map{position:fixed;inset:0;width:100vw;height:100vh;background:#0d110d;z-index:0}
+  #panelBtn{position:fixed;top:12px;right:12px;z-index:1000;width:42px;height:42px;border-radius:10px;
+    background:rgba(20,26,20,.92);border:1px solid var(--line);color:var(--ink);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+  #panelBtn:hover{border-color:var(--green);color:var(--green)}
+  #panel{position:fixed;top:62px;right:12px;z-index:1000;width:340px;max-width:calc(100vw - 24px);
+    max-height:calc(100vh - 80px);overflow:auto;background:rgba(16,20,16,.97);border:1px solid var(--line);
+    border-radius:14px;padding:16px;backdrop-filter:blur(10px);box-shadow:0 12px 40px rgba(0,0,0,.55)}
+  #panel[hidden]{display:none}
+  #panelClose{position:absolute;top:8px;right:10px;background:none;border:0;color:var(--muted);font-size:16px;cursor:pointer;line-height:1}
+  #panelClose:hover{color:var(--ink)}
+  #panel .kpis{grid-template-columns:1fr 1fr;gap:8px;margin:2px 0 14px}
+  #panel .kpi{padding:10px 12px}
+  #panel .kpi .n{font-size:20px}
+  #panel-layers .leaflet-control-layers{box-shadow:none;border:0;background:transparent;width:100%;margin:0}
+  #panel-layers .leaflet-control-layers-expanded{padding:0}
+  .panel-links{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+  .panel-link{color:var(--green);text-decoration:none;font-size:13.5px;line-height:1.4}
+  .panel-link.home{color:var(--muted)}
+  .panel-link:hover{text-decoration:underline}
+  #panel .langsw{margin:14px 0 0;display:flex;gap:2px}
 </style>
 <script defer data-domain="salvargardunha.com" src="https://analytics.hexgeta.com/script.js"></script>
 </head>
 <body>
+<div id="map"></div>
 
-<div class="top"><div class="wrap wide"><a href="/" data-i18n="top_home">← salvargardunha.com</a> · <a href="/mapa" data-i18n="top_maps">Mapas oficiais</a> · <a href="/read/" data-i18n="top_docs">Documentos</a> · <a href="/objecoes" data-i18n="top_obj">As 172 objeções</a><span class="langsw" id="langsw"><button data-l="pt">PT</button><button data-l="en">EN</button><button data-l="de">DE</button><button data-l="fr">FR</button></span></div></div>
+<button id="panelBtn" aria-label="Stats &amp; layers">
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"/></svg>
+</button>
 
-<header>
-  <div class="wrap wide">
-    <div class="eyebrow" data-i18n="eyebrow">Dados verificados · registos oficiais</div>
-    <h1 data-i18n="h1">O mapa que o Governo não publicou</h1>
-    <p class="lede" data-i18n="lede">Todos os parques eólicos e centrais solares <b>já construídos, licenciados e aprovados</b> à volta da Serra da Gardunha, com a posição de cada aerogerador. Construído a partir dos registos oficiais e verificado cruzando-os uns contra os outros.</p>
-    <p class="callout" data-i18n="callout">⚠️ <b>Nenhuma coordenada foi inventada.</b> Cada posição vem de um registo público. Os projetos que existem no papel mas sem geometria publicada estão listados e assinalados como <b>sem localização</b> — não são colocados num sítio plausível.</p>
-  </div>
-</header>
+<div id="panel" hidden>
+<button id="panelClose" aria-label="Close">&#10005;</button>
+<div class="kpis" id="kpis"></div>
+<div id="panel-layers"></div>
+<div class="panel-links">
+<a class="panel-link" href="https://salvargardunha.com/verificacao" data-i18n="method_more">Como o mapa &eacute; verificado &rarr;</a>
+<a class="panel-link home" href="/" data-i18n="top_home">&larr; salvargardunha.com</a>
+</div>
+<span class="langsw" id="langsw"><button data-l="pt">PT</button><button data-l="en">EN</button><button data-l="de">DE</button><button data-l="fr">FR</button></span>
+</div>
 
-<main>
-  <div class="wrap wide">
-    <div class="kpis" id="kpis"></div>
-    <div id="shell">
-      <div id="map"></div>
-      <div id="side"><p class="meta" data-i18n="loading">A carregar os dados…</p></div>
-    </div>
-    <p class="note-small" data-i18n="built_note">&nbsp;</p>
-
-    <h2 class="sec" data-i18n="sec_sources">De onde vêm estes dados</h2>
-    <p class="sect-sub" data-i18n="sec_sources_s">Quatro registos públicos independentes. Onde discordam, isso é dito no mapa.</p>
-    <div class="srcgrid" id="srcgrid"></div>
-
-    <h2 class="sec" data-i18n="sec_method">Como foi verificado</h2>
-    <p class="sect-sub" data-i18n="sec_method_s">Um mapa só vale o que vale a sua verificação.</p>
-    <p class="lede" id="method1"></p>
-    <p class="lede" id="method2" style="margin-top:12px"></p>
-    <p class="note-small" style="margin-top:14px;font-size:14.5px"><a href="/verificacao" data-i18n="method_more">Quem conta os aerogeradores, quem confirma e como se cruzam as quatro fontes — o método explicado passo a passo →</a></p>
-
-    <h2 class="sec" data-i18n="sec_limits">O que este mapa não pode dizer</h2>
-    <p class="sect-sub" data-i18n="sec_limits_s">Os limites, declarados à partida.</p>
-    <ul class="lim" id="limits"></ul>
-  </div>
-</main>
-
-<footer>
-  <div class="wrap wide">
-    <div class="foot-cols">
-      <div class="foot-col"><h4 data-i18n="fcol_campaign">A campanha</h4>
-        <a href="/" data-i18n="fl_home">Início</a>
-        <a href="/#passos" data-i18n="fl_act">Agir na consulta</a>
-        <a href="/social" data-i18n="fl_share">Espalhar a palavra</a>
-      </div>
-      <div class="foot-col"><h4 data-i18n="fcol_docs">Documentos e dados</h4>
-        <a href="/map" data-i18n="fl_map">Mapa verificado</a>
-        <a href="/verificacao" data-i18n="fl_method">Como o mapa é verificado</a>
-        <a href="/mapa" data-i18n="fl_maps">Os mapas das áreas</a>
-        <a href="/sobre" data-i18n="foot_about">Perceber o processo — quem decide</a>
-        <a href="/objecoes" data-i18n="fl_obj">As 172 objeções</a>
-      </div>
-      <div class="foot-col"><h4 data-i18n="fcol_official">Fontes oficiais</h4>
-        <a href="https://servergeo.dgeg.gov.pt/arcgis/rest/services/Visualizadores/CE/MapServer" target="_blank" rel="noopener">DGEG — Centrais Eólicas</a>
-        <a href="https://siaia.apambiente.pt/" target="_blank" rel="noopener">APA / SIAIA — processos de AIA</a>
-        <a href="https://e2p.inegi.up.pt/" target="_blank" rel="noopener">INEGI e2p</a>
-        <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a>
-      </div>
-    </div>
-    <p class="disc" data-i18n="fdisc">Feito por vizinhos da Beira Baixa que querem a serra de pé. Página informativa e cívica, sem fins lucrativos, não afiliada a nenhum partido, empresa ou entidade pública.</p>
-  </div>
-</footer>
+<div id="stubs" hidden>
+<div id="side"></div>
+<div id="srcgrid"></div>
+<p id="method1"></p><p id="method2"></p>
+<ul id="limits"></ul>
+<p data-i18n="built_note">&nbsp;</p>
+</div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -185,9 +172,9 @@ pt:{
  l_solar:'Centrais solares (OSM)', l_dsolar:'Centrais solares (DGEG)', l_plan:'Projetos planeados', l_ardidas:'Áreas ardidas (2011–2025)',
  lg_turb:'aerogerador (OSM + DGEG)', lg_dturb:'aerogerador só no registo DGEG', lg_solar:'central solar em exploração',
  lg_plan:'aprovado e ainda por construir', lg_line:'linha / subestação', lg_built:'licenciamento já construído',
- peak:'Cume da Gardunha', turbine:'Aerogerador', turbine_lic:'Aerogerador licenciado', noname:'sem nome',
+ turbine:'Aerogerador', turbine_lic:'Aerogerador licenciado', noname:'sem nome',
  f_type:'tipo', f_power:'potência', f_operator:'operador', f_since:'em serviço desde', f_turbines:'aerogeradores',
- f_area:'área', f_centre:'centro', f_frompeak:'do cume', f_subparkof:'sub-parque de', f_park:'parque',
+ f_area:'área', f_centre:'centro', f_subparkof:'sub-parque de', f_park:'parque',
  f_park_osm:'parque (OSM)', f_height:'altura', f_model:'modelo', f_coords:'coordenadas', f_attrib:'atribuição ao parque',
  f_owner:'proprietário', f_blade:'raio da pá', f_over:'sobre-equipamento', f_concelho:'concelho', f_processo:'processo',
  f_installed:'potência instalada', f_blocks:'blocos licenciados', f_blockarea:'área dos blocos', f_situation:'situação',
@@ -208,7 +195,7 @@ pt:{
  s_wind:'Parques eólicos', s_dsolar:'Centrais solares — registo DGEG', s_subs:'Sub-parques eólicos',
  s_osmsolar:'Centrais solares — traçadas no OSM',
  p_conf:'confirmado', p_osmonly:'só OSM', p_official:'oficial',
- m_turbines:'aerogeradores', m_blocks:'blocos', m_frompeak:'km do cume', m_subpark:'sub-parque',
+ m_turbines:'aerogeradores', m_blocks:'blocos', m_subpark:'sub-parque',
  m_nocoords:'sem coordenadas publicadas',
  sec_sources:'De onde vêm estes dados', sec_sources_s:'Quatro registos públicos independentes. Onde discordam, isso é dito no mapa.',
  sec_method:'Como foi verificado', sec_method_s:'Um mapa só vale o que vale a sua verificação.',
@@ -243,9 +230,9 @@ en:{
  l_solar:'Solar plants (OSM)', l_dsolar:'Solar plants (DGEG)', l_plan:'Planned projects', l_ardidas:'Burned areas (2011–2025)',
  lg_turb:'turbine (OSM + DGEG)', lg_dturb:'turbine only in the DGEG register', lg_solar:'solar plant in operation',
  lg_plan:'approved and still unbuilt', lg_line:'line / substation', lg_built:'consent already built',
- peak:'Gardunha summit', turbine:'Wind turbine', turbine_lic:'Licensed turbine', noname:'unnamed',
+ turbine:'Wind turbine', turbine_lic:'Licensed turbine', noname:'unnamed',
  f_type:'type', f_power:'capacity', f_operator:'operator', f_since:'in service since', f_turbines:'turbines',
- f_area:'area', f_centre:'centre', f_frompeak:'from summit', f_subparkof:'sub-park of', f_park:'farm',
+ f_area:'area', f_centre:'centre', f_subparkof:'sub-park of', f_park:'farm',
  f_park_osm:'farm (OSM)', f_height:'height', f_model:'model', f_coords:'coordinates', f_attrib:'farm attribution',
  f_owner:'owner', f_blade:'blade radius', f_over:'repowering', f_concelho:'municipality', f_processo:'file no.',
  f_installed:'installed capacity', f_blocks:'licensed blocks', f_blockarea:'area of blocks', f_situation:'status',
@@ -266,7 +253,7 @@ en:{
  s_wind:'Wind farms', s_dsolar:'Solar plants — DGEG register', s_subs:'Wind sub-parks',
  s_osmsolar:'Solar plants — mapped in OSM',
  p_conf:'confirmed', p_osmonly:'OSM only', p_official:'official',
- m_turbines:'turbines', m_blocks:'blocks', m_frompeak:'km from summit', m_subpark:'sub-park',
+ m_turbines:'turbines', m_blocks:'blocks', m_subpark:'sub-park',
  m_nocoords:'no published coordinates',
  sec_sources:'Where this data comes from', sec_sources_s:'Four independent public registers. Where they disagree, the map says so.',
  sec_method:'How it was verified', sec_method_s:'A map is only worth as much as its verification.',
@@ -301,9 +288,9 @@ de:{
  l_solar:'Solarkraftwerke (OSM)', l_dsolar:'Solarkraftwerke (DGEG)', l_plan:'Geplante Projekte', l_ardidas:'Brandflächen (2011–2025)',
  lg_turb:'Windrad (OSM + DGEG)', lg_dturb:'Windrad nur im DGEG-Register', lg_solar:'Solarkraftwerk in Betrieb',
  lg_plan:'genehmigt und noch ungebaut', lg_line:'Leitung / Umspannwerk', lg_built:'Genehmigung bereits gebaut',
- peak:'Gipfel der Gardunha', turbine:'Windkraftanlage', turbine_lic:'Genehmigte Anlage', noname:'ohne Namen',
+ turbine:'Windkraftanlage', turbine_lic:'Genehmigte Anlage', noname:'ohne Namen',
  f_type:'Typ', f_power:'Leistung', f_operator:'Betreiber', f_since:'in Betrieb seit', f_turbines:'Windräder',
- f_area:'Fläche', f_centre:'Mittelpunkt', f_frompeak:'vom Gipfel', f_subparkof:'Teilpark von', f_park:'Park',
+ f_area:'Fläche', f_centre:'Mittelpunkt', f_subparkof:'Teilpark von', f_park:'Park',
  f_park_osm:'Park (OSM)', f_height:'Höhe', f_model:'Modell', f_coords:'Koordinaten', f_attrib:'Parkzuordnung',
  f_owner:'Eigentümer', f_blade:'Rotorradius', f_over:'Repowering', f_concelho:'Gemeinde', f_processo:'Akte Nr.',
  f_installed:'installierte Leistung', f_blocks:'genehmigte Blöcke', f_blockarea:'Fläche der Blöcke', f_situation:'Status',
@@ -324,7 +311,7 @@ de:{
  s_wind:'Windparks', s_dsolar:'Solarkraftwerke — DGEG-Register', s_subs:'Wind-Teilparks',
  s_osmsolar:'Solarkraftwerke — in OSM erfasst',
  p_conf:'bestätigt', p_osmonly:'nur OSM', p_official:'amtlich',
- m_turbines:'Windräder', m_blocks:'Blöcke', m_frompeak:'km vom Gipfel', m_subpark:'Teilpark',
+ m_turbines:'Windräder', m_blocks:'Blöcke', m_subpark:'Teilpark',
  m_nocoords:'keine veröffentlichten Koordinaten',
  sec_sources:'Woher diese Daten stammen', sec_sources_s:'Vier unabhängige öffentliche Register. Wo sie sich widersprechen, sagt die Karte es.',
  sec_method:'Wie geprüft wurde', sec_method_s:'Eine Karte ist nur so viel wert wie ihre Überprüfung.',
@@ -359,9 +346,9 @@ fr:{
  l_solar:'Centrales solaires (OSM)', l_dsolar:'Centrales solaires (DGEG)', l_plan:'Projets planifiés', l_ardidas:'Zones brûlées (2011–2025)',
  lg_turb:'éolienne (OSM + DGEG)', lg_dturb:'éolienne uniquement au registre DGEG', lg_solar:'centrale solaire en exploitation',
  lg_plan:'approuvé et encore non construit', lg_line:'ligne / poste', lg_built:'autorisation déjà construite',
- peak:'Sommet de la Gardunha', turbine:'Éolienne', turbine_lic:'Éolienne autorisée', noname:'sans nom',
+ turbine:'Éolienne', turbine_lic:'Éolienne autorisée', noname:'sans nom',
  f_type:'type', f_power:'puissance', f_operator:'exploitant', f_since:'en service depuis', f_turbines:'éoliennes',
- f_area:'surface', f_centre:'centre', f_frompeak:'du sommet', f_subparkof:'sous-parc de', f_park:'parc',
+ f_area:'surface', f_centre:'centre', f_subparkof:'sous-parc de', f_park:'parc',
  f_park_osm:'parc (OSM)', f_height:'hauteur', f_model:'modèle', f_coords:'coordonnées', f_attrib:'rattachement au parc',
  f_owner:'propriétaire', f_blade:'rayon de pale', f_over:'rééquipement', f_concelho:'commune', f_processo:'dossier n°',
  f_installed:'puissance installée', f_blocks:'blocs autorisés', f_blockarea:'surface des blocs', f_situation:'situation',
@@ -382,7 +369,7 @@ fr:{
  s_wind:'Parcs éoliens', s_dsolar:'Centrales solaires — registre DGEG', s_subs:'Sous-parcs éoliens',
  s_osmsolar:'Centrales solaires — tracées dans OSM',
  p_conf:'confirmé', p_osmonly:'OSM seul', p_official:'officiel',
- m_turbines:'éoliennes', m_blocks:'blocs', m_frompeak:'km du sommet', m_subpark:'sous-parc',
+ m_turbines:'éoliennes', m_blocks:'blocs', m_subpark:'sous-parc',
  m_nocoords:'aucune coordonnée publiée',
  sec_sources:'D’où viennent ces données', sec_sources_s:'Quatre registres publics indépendants. Là où ils divergent, la carte le dit.',
  sec_method:'Comment cela a été vérifié', sec_method_s:'Une carte ne vaut que ce que vaut sa vérification.',
@@ -457,7 +444,21 @@ var PHRASE = {
   'eólico':'wind','solar':'solar','linha/subestação':'line/substation','armazenamento':'storage','híbrido':'hybrid',
   'híbrido (solar + eólico)':'hybrid (solar + wind)','programa setorial':'sector programme',
   'nacional (cluster «Pinhal do Centro» abrange a Gardunha)':'national (the «Pinhal do Centro» cluster covers the Gardunha)',
-  'DGEG (registo oficial)':'DGEG (official register)','relation membership':'OSM relation membership'},
+  'DGEG (registo oficial)':'DGEG (official register)','relation membership':'OSM relation membership',
+  'APA/SNIAmb — áreas de estudo de processos de AIA':'APA/SNIAmb — study areas of EIA files',
+  'DGEG — registo de centrais eólicas e solares':'DGEG — register of wind and solar power stations',
+  'participa.pt — consulta pública do PSZAER':'participa.pt — PSZAER public consultation',
+  'Incendiarismo - Imputáveis':'Arson — offender criminally liable',
+  'Incendiarismo - Inimputáveis':'Arson — offender not criminally liable',
+  'Incendiarismo - Sem motivação conhecida':'Arson — no known motive',
+  'Naturais':'Natural','Indeterminadas':'Undetermined','Reacendimentos':'Rekindles',
+  'Queimadas de sobrantes florestais ou agrícolas':'Burning of forest or agricultural residues',
+  'Queimas amontoados de sobrantes florestais ou agrícolas':'Burning of piled forest or agricultural residues',
+  'Queimadas para gestão de pasto para gado':'Pasture burning for livestock management',
+  'Acidentais - Transportes e Comunicações':'Accidental — transport and power lines',
+  'Acidentais - Maquinaria':'Accidental — machinery','Acidentais - Outros':'Accidental — other',
+  'Uso do fogo - Fumar':'Use of fire — smoking','Uso do fogo - Fogueiras':'Use of fire — campfires',
+  'Uso do fogo - Queima de lixo':'Use of fire — burning rubbish','Uso do fogo - Outros':'Use of fire — other'},
  de:{'submetido, sem consulta pública marcada':'eingereicht, keine öffentliche Konsultation angesetzt',
   'consulta pública encerrada 15/07/2026, em análise':'öffentliche Konsultation am 15.07.2026 beendet, in Prüfung',
   'proposta rejeitada pelo executivo municipal em junho de 2026; sem processo de AIA aberto':'im Juni 2026 vom Gemeindevorstand abgelehnt; kein UVP-Verfahren eröffnet',
@@ -475,7 +476,21 @@ var PHRASE = {
   'eólico':'Wind','solar':'Solar','linha/subestação':'Leitung/Umspannwerk','armazenamento':'Speicher','híbrido':'hybrid',
   'híbrido (solar + eólico)':'hybrid (Solar + Wind)','programa setorial':'Sektorprogramm',
   'nacional (cluster «Pinhal do Centro» abrange a Gardunha)':'national (das Cluster „Pinhal do Centro“ umfasst die Gardunha)',
-  'DGEG (registo oficial)':'DGEG (amtliches Register)','relation membership':'Mitglied der OSM-Relation'},
+  'DGEG (registo oficial)':'DGEG (amtliches Register)','relation membership':'Mitglied der OSM-Relation',
+  'APA/SNIAmb — áreas de estudo de processos de AIA':'APA/SNIAmb — Untersuchungsgebiete von UVP-Verfahren',
+  'DGEG — registo de centrais eólicas e solares':'DGEG — Register der Wind- und Solarkraftwerke',
+  'participa.pt — consulta pública do PSZAER':'participa.pt — öffentliche Konsultation zum PSZAER',
+  'Incendiarismo - Imputáveis':'Brandstiftung — schuldfähig',
+  'Incendiarismo - Inimputáveis':'Brandstiftung — schuldunfähig',
+  'Incendiarismo - Sem motivação conhecida':'Brandstiftung — kein bekanntes Motiv',
+  'Naturais':'Natürliche Ursache','Indeterminadas':'Unbestimmt','Reacendimentos':'Wiederaufflammen',
+  'Queimadas de sobrantes florestais ou agrícolas':'Abbrennen von Forst- oder Agrarresten',
+  'Queimas amontoados de sobrantes florestais ou agrícolas':'Verbrennen aufgeschichteter Forst- oder Agrarreste',
+  'Queimadas para gestão de pasto para gado':'Weidebrennen für die Viehhaltung',
+  'Acidentais - Transportes e Comunicações':'Unfall — Verkehr und Leitungen',
+  'Acidentais - Maquinaria':'Unfall — Maschinen','Acidentais - Outros':'Unfall — Sonstige',
+  'Uso do fogo - Fumar':'Feuernutzung — Rauchen','Uso do fogo - Fogueiras':'Feuernutzung — Lagerfeuer',
+  'Uso do fogo - Queima de lixo':'Feuernutzung — Müllverbrennung','Uso do fogo - Outros':'Feuernutzung — Sonstige'},
  fr:{'submetido, sem consulta pública marcada':'déposé, aucune consultation publique programmée',
   'consulta pública encerrada 15/07/2026, em análise':'consultation publique close le 15/07/2026, en analyse',
   'proposta rejeitada pelo executivo municipal em junho de 2026; sem processo de AIA aberto':'proposition rejetée par l’exécutif municipal en juin 2026 ; aucune procédure EIE ouverte',
@@ -493,7 +508,21 @@ var PHRASE = {
   'eólico':'éolien','solar':'solaire','linha/subestação':'ligne/poste','armazenamento':'stockage','híbrido':'hybride',
   'híbrido (solar + eólico)':'hybride (solaire + éolien)','programa setorial':'programme sectoriel',
   'nacional (cluster «Pinhal do Centro» abrange a Gardunha)':'national (le cluster « Pinhal do Centro » couvre la Gardunha)',
-  'DGEG (registo oficial)':'DGEG (registre officiel)','relation membership':'appartenance à la relation OSM'}
+  'DGEG (registo oficial)':'DGEG (registre officiel)','relation membership':'appartenance à la relation OSM',
+  'APA/SNIAmb — áreas de estudo de processos de AIA':'APA/SNIAmb — aires d’étude des dossiers EIE',
+  'DGEG — registo de centrais eólicas e solares':'DGEG — registre des centrales éoliennes et solaires',
+  'participa.pt — consulta pública do PSZAER':'participa.pt — consultation publique du PSZAER',
+  'Incendiarismo - Imputáveis':'Incendie criminel — auteur responsable',
+  'Incendiarismo - Inimputáveis':'Incendie criminel — auteur irresponsable',
+  'Incendiarismo - Sem motivação conhecida':'Incendie criminel — sans motif connu',
+  'Naturais':'Cause naturelle','Indeterminadas':'Indéterminée','Reacendimentos':'Reprise de feu',
+  'Queimadas de sobrantes florestais ou agrícolas':'Brûlage de résidus forestiers ou agricoles',
+  'Queimas amontoados de sobrantes florestais ou agrícolas':'Brûlage d’andains de résidus forestiers ou agricoles',
+  'Queimadas para gestão de pasto para gado':'Brûlage de pâturages pour l’élevage',
+  'Acidentais - Transportes e Comunicações':'Accidentelle — transports et lignes',
+  'Acidentais - Maquinaria':'Accidentelle — machines','Acidentais - Outros':'Accidentelle — autre',
+  'Uso do fogo - Fumar':'Usage du feu — cigarette','Uso do fogo - Fogueiras':'Usage du feu — feux de camp',
+  'Uso do fogo - Queima de lixo':'Usage du feu — brûlage de déchets','Uso do fogo - Outros':'Usage du feu — autre'}
 };
 var DIAW = {
  en:{'favorável condicionado':'favourable, with conditions','favorável':'favourable','desfavorável':'unfavourable',
@@ -581,11 +610,11 @@ map.on('popupopen',function(e){
 });
 // Same basemap product as pipocas.hexgeta.com — CartoCDN (keyless). Voyager is
 // the default; a dark variant, satellite and terrain stay available to switch to.
-var carto=L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:20,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
-var cartoDark=L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:20,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'});
+var carto=L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:20,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'});
+var cartoDark=L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:20,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
 var sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Esri, Maxar'});
 var topo=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'&copy; OpenTopoMap'});
-var gPeak=L.layerGroup().addTo(map), gWind=L.layerGroup().addTo(map), gTurb=L.layerGroup().addTo(map),
+var gWind=L.layerGroup().addTo(map), gTurb=L.layerGroup().addTo(map),
     gSolar=L.layerGroup().addTo(map), gDgegSolar=L.layerGroup().addTo(map),
     gDgegTurb=L.layerGroup().addTo(map), gPlan=L.layerGroup().addTo(map);
 // Historic burned-area scars (ICNF, 2011–2025). Off by default; its ~500 KB of
@@ -619,6 +648,7 @@ function buildControls(){
   o[sw('#fbbf24')+t('l_solar')]=gSolar; o[sw('#fbbf24')+t('l_dsolar')]=gDgegSolar; o[sw('#f87171')+t('l_plan')]=gPlan;
   o[sw('#c2410c')+t('l_ardidas')]=gArdidas;
   ctlLayers=L.control.layers(b,o,{collapsed:false}).addTo(map);
+  var _pl=document.getElementById('panel-layers'); if(_pl){_pl.innerHTML='';_pl.appendChild(ctlLayers.getContainer());}
 }
 
 var STATE={'construído':{c:'#7a8a7a',fill:.05,dash:'2 6'},
@@ -628,11 +658,9 @@ var STATE={'construído':{c:'#7a8a7a',fill:.05,dash:'2 6'},
 
 function render(){
   var d=DATA; if(!d) return;
-  [gPeak,gWind,gTurb,gSolar,gDgegSolar,gDgegTurb,gPlan].forEach(function(g){g.clearLayers();});
+  [gWind,gTurb,gSolar,gDgegSolar,gDgegTurb,gPlan].forEach(function(g){g.clearLayers();});
   targets={};
   buildControls();
-
-  L.marker(d.peak).addTo(gPeak).bindPopup('<h3>'+t('peak')+'</h3>1227 m');
 
   d.plants.forEach(function(p,i){
     var w=p.kind==='wind', col=w?'#4a9eff':'#fbbf24';
@@ -644,7 +672,7 @@ function render(){
     poly.bindPopup('<h3>'+esc(p.name||t('noname'))+'</h3><table>'+rowsOf([
       [t('f_type'),w?t('wind'):t('solar')],[t('f_power'),p.mw?p.mw+' MW':null],[t('f_operator'),esc(p.operator)],
       [t('f_since'),esc(p.start)],[t('f_turbines'),p.n_turbines],[t('f_area'),p.area_ha+' ha'],
-      [t('f_centre'),p.centre[0].toFixed(5)+', '+p.centre[1].toFixed(5)],[t('f_frompeak'),p.dist_km+' km'],
+      [t('f_centre'),p.centre[0].toFixed(5)+', '+p.centre[1].toFixed(5)],
       [t('f_subparkof'),esc(p.parent)]])+'</table>'
       +'<div>'+t('source')+': <a href="'+p.url+'" target="_blank" rel="noopener">OpenStreetMap '+esc(p.id)+'</a></div>'
       +(xr?'<div class="note">'+t('confirmed_by')+'<ul style="margin:4px 0 0;padding-left:18px">'+xr+'</ul></div>'
@@ -660,7 +688,7 @@ function render(){
      .bindPopup('<h3>'+t('turbine')+'</h3><table>'+rowsOf([
        [t('f_park_osm'),esc(x.park)],[t('f_power'),x.mw?x.mw+' MW':null],[t('f_height'),esc(x.height)],
        [t('f_model'),esc(x.model)],[t('f_coords'),x.lat.toFixed(5)+', '+x.lon.toFixed(5)],
-       [t('f_frompeak'),x.dist_km+' km'],[t('f_attrib'),esc(trSrc(x.park_src))]])+'</table>'
+       [t('f_attrib'),esc(trSrc(x.park_src))]])+'</table>'
        +'<div>'+t('source')+': <a href="https://www.openstreetmap.org/'+x.id+'" target="_blank" rel="noopener">OSM '+esc(x.id)+'</a></div>'
        +(ok?'<div class="note">'+t('dgeg_ok')+' <b>'+esc(x.dgeg.park)+(x.dgeg.sub?' / '+esc(x.dgeg.sub):'')+'</b>, '
             +t('dgeg_proc')+' '+esc(x.dgeg.processo)+', '+esc(x.dgeg.owner)+', '
@@ -676,8 +704,7 @@ function render(){
        [t('f_park'),esc(x.park)+(x.sub?' / '+esc(x.sub):'')],[t('f_owner'),esc(x.owner)],
        [t('f_power'),x.kw?x.kw+' kW':null],[t('f_blade'),x.blade_r?x.blade_r+' m':null],
        [t('f_over'),esc(x.over)],[t('f_since'),esc(x.since)],[t('f_concelho'),esc(x.concelho)],
-       [t('f_processo'),esc(x.processo)],[t('f_coords'),x.lat.toFixed(5)+', '+x.lon.toFixed(5)],
-       [t('f_frompeak'),x.dist_km+' km']])+'</table>'
+       [t('f_processo'),esc(x.processo)],[t('f_coords'),x.lat.toFixed(5)+', '+x.lon.toFixed(5)]])+'</table>'
        +'<div>'+t('source')+': <a href="https://servergeo.dgeg.gov.pt/arcgis/rest/services/Visualizadores/CE/MapServer" target="_blank" rel="noopener">DGEG — Centrais Eólicas</a></div>')
      .addTo(gDgegTurb);
   });
@@ -688,7 +715,7 @@ function render(){
       [t('f_type'),t('pv')],[t('f_installed'),s.mva?s.mva+' MVA':null],[t('f_owner'),esc(s.owner)],
       [t('f_blocks'),s.blocks],[t('f_blockarea'),s.area_ha+' ha'],[t('f_concelho'),esc(s.concelho)],
       [t('f_since'),esc(s.since)],[t('f_processo'),esc(s.processo)],
-      [t('f_centre'),s.centre[0].toFixed(5)+', '+s.centre[1].toFixed(5)],[t('f_frompeak'),s.dist_km+' km']])+'</table>'
+      [t('f_centre'),s.centre[0].toFixed(5)+', '+s.centre[1].toFixed(5)]])+'</table>'
       +'<div>'+t('source')+': <a href="https://servergeo.dgeg.gov.pt/arcgis/rest/services/Visualizadores/CS/MapServer" target="_blank" rel="noopener">DGEG — Centrais Solares</a> '+t('reg_note')+'</div>');
     poly.addTo(gDgegSolar); targets['d'+i]=poly;
   });
@@ -702,7 +729,7 @@ function render(){
       [t('f_cp'),p.cp_start?esc(p.cp_start)+t('to')+esc(p.cp_end||'?'):null],
       [t('f_promoter'),esc(p.promoter)],[t('f_licensor'),esc(p.licensor)],[t('f_munis'),esc(tr(p.municipality))],
       [t('f_studyarea'),p.area_ha?p.area_ha+' ha':null],
-      [t('f_centre'),p.lat.toFixed(5)+', '+p.lon.toFixed(5)],[t('f_frompeak'),p.dist_km+' km']])+'</table>'
+      [t('f_centre'),p.lat.toFixed(5)+', '+p.lon.toFixed(5)]])+'</table>'
       +'<div class="note">'+esc(tr(p.built_note||''))+'</div>'
       +'<div class="note">'+t('precision')+' '+esc(tr(p.precision))+'</div>'
       +'<div class="note">'+esc(tr(p.notes||''))+'</div>'
@@ -721,15 +748,19 @@ function render(){
       +'<b>'+esc(p.name||t('noname'))+'</b>'
       +'<span class="pill '+((p.xref||[]).length?'ok':'unk')+'">'+((p.xref||[]).length?t('p_conf'):t('p_osmonly'))+'</span>'
       +'<div class="meta">'+(p.mw?p.mw+' MW · ':'')+(p.n_turbines?p.n_turbines+' '+t('m_turbines')+' · ':'')
-      +p.area_ha+' ha · '+p.dist_km+' '+t('m_frompeak')+(p.parent?' · '+t('m_subpark'):'')+'</div></div>';};
-  var planItem=function(p,i){return '<div class="item" data-t="n'+i+'">'
+      +p.area_ha+' ha'+(p.parent?' · '+t('m_subpark'):'')+'</div></div>';};
+  var planItem=function(p,i){
+    var meta=[];
+    if(p.area_ha) meta.push(p.area_ha+' ha');
+    if(p.dist_km==null) meta.push(t('m_nocoords'));
+    if(p.n_aia) meta.push('AIA '+p.n_aia);
+    return '<div class="item" data-t="n'+i+'">'
       +'<span class="pill plan">'+esc(tr(p.type))+'</span><b>'+esc(p.name)+'</b>'
       +'<div class="meta">'+(p.promoter?esc(p.promoter)+' · ':'')+esc(tr(p.status))+'</div>'
-      +'<div class="meta">'+(p.area_ha?p.area_ha+' ha · ':'')
-      +(p.dist_km!=null?p.dist_km+' '+t('m_frompeak'):t('m_nocoords'))+(p.n_aia?' · AIA '+p.n_aia:'')+'</div></div>';};
+      +'<div class="meta">'+meta.join(' · ')+'</div></div>';};
   var idx=d.plants.map(function(p,i){return [p,i];});
   var byKind=function(k,sub){return idx.filter(function(a){return a[0].kind===k && (sub?a[0].parent:!a[0].parent);})
-    .sort(function(a,b){return a[0].dist_km-b[0].dist_km;});};
+    .sort(function(a,b){return (b[0].area_ha||0)-(a[0].area_ha||0);});};
   var pIdx=d.planned.map(function(p,i){return [p,i];});
   var byState=function(s){return pIdx.filter(function(a){return a[0].state===s;});};
   document.getElementById('side').innerHTML=
@@ -745,7 +776,7 @@ function render(){
     sec(t('s_dsolar')+' ('+(d.dgeg_solar||[]).length+')',(d.dgeg_solar||[]).map(function(s,i){
       return '<div class="item" data-t="d'+i+'"><span class="pill solar">'+t('solar')+'</span><b>'+esc(s.name)+'</b>'
         +'<span class="pill ok">'+t('p_official')+'</span><div class="meta">'+(s.mva?s.mva+' MVA · ':'')
-        +s.area_ha+' ha · '+s.blocks+' '+t('m_blocks')+' · '+s.dist_km+' '+t('m_frompeak')+'</div></div>';}))+
+        +s.area_ha+' ha · '+s.blocks+' '+t('m_blocks')+'</div></div>';}))+
     sec(t('s_subs')+' ('+byKind('wind',true).length+')',byKind('wind',true).map(function(a){return plantItem(a[0],a[1]);}))+
     sec(t('s_osmsolar')+' ('+byKind('solar',false).length+')',byKind('solar',false).map(function(a){return plantItem(a[0],a[1]);}));
 
@@ -784,6 +815,7 @@ document.querySelectorAll('#langsw button').forEach(function(b){
   b.addEventListener('click',function(){applyLang(b.getAttribute('data-l'));});});
 
 applyLang(lang);
+(function(){var pn=document.getElementById('panel');document.getElementById('panelBtn').addEventListener('click',function(){pn.hidden=!pn.hidden;});document.getElementById('panelClose').addEventListener('click',function(){pn.hidden=true;});})();
 fetch(DATA_URL).then(function(r){return r.json();}).then(function(d){DATA=d;render();})
   .catch(function(){document.getElementById('side').innerHTML='<p class="meta">—</p>';});
 })();
