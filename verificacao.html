@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Como este mapa foi verificado — método, fontes e limites · Salvar a Gardunha</title>
+<meta name="description" content="Quem conta os aerogeradores, quem confirma, e como se cruzam quatro registos públicos independentes — OpenStreetMap, o registo de licenciamento da DGEG, o e2p do INEGI e as áreas de estudo da APA — para verificar cada posição do mapa da Gardunha.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://salvargardunha.com/verificacao">
+<link rel="alternate" hreflang="pt-PT" href="https://salvargardunha.com/verificacao">
+<link rel="alternate" hreflang="en" href="https://salvargardunha.com/en/verificacao">
+<link rel="alternate" hreflang="de" href="https://salvargardunha.com/de/verificacao">
+<link rel="alternate" hreflang="fr" href="https://salvargardunha.com/fr/verificacao">
+<link rel="alternate" hreflang="x-default" href="https://salvargardunha.com/verificacao">
+<script src="/lang-url.js"></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<style>
+  :root{--bg:#0a0d0a;--panel:#141a14;--line:#243024;--ink:#f3f5f1;--muted:#9aa79a;--green:#4ade80;--green-d:#22c55e;--amber:#fbbf24;--pink:#f472b6;--max:900px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+  a{color:var(--green)}
+  .top{position:sticky;top:0;z-index:60;background:rgba(10,13,10,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:14px 0;font-size:14px}
+  .top .wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .top a{text-decoration:none;color:var(--muted)}.top a:hover{color:var(--green)}
+  .langsw{margin-left:auto;display:flex;gap:2px}
+  .langsw button{font:inherit;font-size:12.5px;font-weight:700;padding:5px 9px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;border-radius:7px;text-transform:uppercase;letter-spacing:.04em}
+  .langsw button:hover{color:var(--green);border-color:var(--green)}
+  .langsw button.on{background:var(--green-d);color:#05230f;border-color:var(--green-d)}
+  header{padding:44px 0 30px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:14px}
+  h1{font-size:clamp(27px,5vw,42px);line-height:1.07;font-weight:900;letter-spacing:-.02em}
+  .lede{font-size:clamp(16px,2.4vw,19px);color:#d7ddd4;margin-top:18px;max-width:730px}
+  .lede b{color:#fff}
+  section{padding:36px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:clamp(20px,3.4vw,27px);font-weight:800;letter-spacing:-.01em}
+  .kick{font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:12px}
+  section p{color:#ccd3c9;margin-top:14px;font-size:16px}
+  section p b{color:#fff}
+  .tbl-scroll{margin-top:20px;border:1px solid var(--line);border-radius:12px;overflow-x:auto;background:var(--panel)}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+  th,td{padding:12px 15px;text-align:left;vertical-align:top;line-height:1.5}
+  thead th{background:#10200f;color:var(--green);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase}
+  tbody tr{border-top:1px solid var(--line)}
+  tbody td{color:#ccd3c9}
+  td b{color:#fff;font-weight:700}
+  .steps{margin-top:22px;display:flex;flex-direction:column;gap:2px}
+  .step{display:flex;gap:16px;background:var(--panel);border:1px solid var(--line);padding:16px 18px}
+  .step:first-child{border-radius:12px 12px 0 0}
+  .step:last-child{border-radius:0 0 12px 12px}
+  .step .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--green-d);color:#05230f;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .step .body h3{font-size:16px;color:#fff;font-weight:700}
+  .step .body p{margin-top:5px;font-size:14.5px;color:#b7c0b5}
+  .callout{margin-top:22px;background:#241708;border:1px solid #5c4a12;border-radius:12px;padding:16px 19px}
+  .callout p{color:#f0e2c0;margin-top:0;font-size:15px}
+  .callout p b{color:#fff}
+  .facts{list-style:none;margin-top:18px;display:grid;gap:10px}
+  .facts li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 17px;color:#ccd3c9;font-size:15.5px}
+  .facts li b{color:#fff}
+  ul.lim{margin:16px 0 0 19px;font-size:15.5px;color:#ccd3c9}
+  ul.lim li{margin-bottom:9px}
+  ul.lim li b{color:#fff}
+  .srcs{list-style:none;margin-top:18px;display:grid;gap:8px}
+  .srcs li{font-size:14.5px;color:var(--muted)}
+  .srcs a{text-decoration:none;font-weight:700}
+  .srcs a:hover{text-decoration:underline}
+  .pinkdot{display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--pink);vertical-align:0}
+  .cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:13px 20px;border-radius:12px;text-decoration:none;border:1px solid transparent}
+  .btn-primary{background:var(--green-d);color:#05230f}.btn-primary:hover{background:var(--green)}
+  .btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}.btn-ghost:hover{border-color:var(--green);color:var(--green)}
+  footer{padding:34px 0 60px;color:var(--muted);font-size:13.5px}
+  footer a{color:var(--green);text-decoration:none}
+  .disc{margin-top:16px;font-size:12.5px;color:#6f7a6f;border-top:1px solid var(--line);padding-top:16px;line-height:1.6}
+  @media(max-width:640px){ th,td{padding:10px 12px;font-size:13.5px} }
+</style>
+<script defer data-domain="salvargardunha.com" src="https://analytics.hexgeta.com/script.js"></script>
+</head>
+<body>
+
+<div class="top"><div class="wrap"><a href="/" data-i18n="top_home">← salvargardunha.com</a> · <a href="/map" data-i18n="top_map">Mapa verificado</a> · <a href="/read/" data-i18n="top_docs">Documentos</a><span class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></span></div></div>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="eyebrow">Metodologia · como sabemos o que sabemos</div>
+    <h1 data-i18n="h1">Como é que este mapa foi verificado</h1>
+    <p class="lede" data-i18n="lede">«Verificado» aqui não quer dizer que alguém carimbou os dados. Quer dizer que <b>quatro registos independentes</b>, feitos por entidades que nunca falaram umas com as outras, dizem a mesma coisa — e que se mediu a distância entre as respostas.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s1_kick">O ponto de partida</div>
+    <h2 data-i18n="s1_h2">Quem é que conta os aerogeradores?</h2>
+    <p data-i18n="s1_p1">Não existe em Portugal uma lista oficial única que diga «estes são todos os aerogeradores, nestas coordenadas, confirmadas no terreno». Existem <b>duas</b> listas, feitas por razões completamente diferentes, por gente que nunca falou uma com a outra. É precisamente isso que as torna úteis.</p>
+    <p data-i18n="s1_p2">Uma é feita por voluntários que olham para imagens de satélite. A outra é feita pelo Estado, porque quem produz eletricidade precisa de licença. <b>Nenhuma delas basta sozinha.</b> Juntas, verificam-se uma à outra.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s2_kick">Fonte 1</div>
+    <h2 data-i18n="s2_h2">OpenStreetMap — voluntários a decalcar imagens de satélite</h2>
+    <p data-i18n="s2_p1">O OpenStreetMap é a Wikipédia dos mapas. Qualquer pessoa abre o editor, carrega a imagem de satélite, reconhece a assinatura inconfundível de um aerogerador — a torre, as três pás, a sombra comprida — e marca um ponto com as etiquetas <b>power=generator</b> e <b>generator:source=wind</b>. Há também quem mapeie no terreno, com GPS.</p>
+    <p data-i18n="s2_p2">E quem é que confirma? <b>Ninguém, oficialmente.</b> É a resposta honesta. A qualidade do OpenStreetMap não vem de uma autoridade que carimba: vem de tudo ser público e reescrevível. Cada edição fica registada com o nome de quem a fez e a data, e qualquer pessoa pode ir ver a mesma imagem e corrigir ou apagar o que estiver errado.</p>
+    <p data-i18n="s2_p3">Ajuda que um aerogerador seja dos objetos mais fáceis de identificar do mundo: enorme, isolado, muito contrastado e com uma sombra que não se confunde com nada. Edifícios são mal mapeados a toda a hora; aerogeradores, raramente.</p>
+    <p data-i18n="s2_p4">O que o OSM prova: que ali está, fisicamente, uma torre. Sozinho, continua a ser uma afirmação por confirmar. É dele que vêm também os contornos dos parques, os operadores, os modelos e as alturas — coisas que a DGEG não publica. É recolhido pela API Overpass, numa caixa entre 39,85° e 40,30° de latitude norte e entre 7,20° e 7,90° de longitude oeste, à volta da serra.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s3_kick">Fonte 2</div>
+    <h2 data-i18n="s3_h2">DGEG — o registo de licenciamento do Estado</h2>
+    <p data-i18n="s3_p1">A Direção-Geral de Energia e Geologia é o regulador do setor. Toda a central que produz eletricidade precisa de licença, e a DGEG publica essas licenças num serviço de mapas aberto: <b>um polígono por bloco de aerogerador</b>, com número de processo, proprietário, potência em kW e data de entrada em exploração.</p>
+    <p data-i18n="s3_p2">Aqui há, de facto, quem confirme: o <b>Estado</b>, como condição para a central poder funcionar. Não é a afirmação de um voluntário — é um registo legal com o nome do promotor.</p>
+    <p data-i18n="s3_p3">O que a DGEG prova: que existe uma licença naquele sítio. Não prova que a obra foi feita. <b>Papel não é betão.</b></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s4_kick">Fontes 3 e 4</div>
+    <h2 data-i18n="s4_h2">A segunda opinião, e a forma do que ainda não existe</h2>
+    <p data-i18n="s4_p1"><b>INEGI e2p</b> — Energias Endógenas de Portugal, mantido pela Universidade do Porto. Um ponto por central, sem posições de aerogeradores: nome, promotor, potência instalada, ano. É compilado a partir de informação dos promotores e da DGEG, mas mantido em separado — por isso, quando concorda no nome e na potência, é confirmação a sério e não uma cópia. Serve apenas para corroborar parques; nunca coloca nada no mapa.</p>
+    <p data-i18n="s4_p2"><b>APA / SNIAmb</b> — a Agência Portuguesa do Ambiente. Todo o projeto sujeito a Avaliação de Impacte Ambiental entrega um polígono da área de estudo. É a única fonte pública que dá uma <b>forma real</b> aos projetos ainda por construir, em vez de um adjetivo de comunicado de imprensa. É daí que vêm os projetos planeados desenhados no mapa.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s5_kick">Porquê cruzar</div>
+    <h2 data-i18n="s5_h2">Porque é que a concordância vale como verificação</h2>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr>
+          <th data-i18n="th_src">Fonte</th><th data-i18n="th_proves">O que prova</th><th data-i18n="th_weak">O que não prova</th>
+        </tr></thead>
+        <tbody>
+          <tr><td data-i18n="r1_a"><b>OpenStreetMap</b></td><td data-i18n="r1_b">Que existe ali uma torre, visível em imagem de satélite</td><td data-i18n="r1_c">Que é legal, ou que alguém com autoridade confirmou a posição</td></tr>
+          <tr><td data-i18n="r2_a"><b>Registo da DGEG</b></td><td data-i18n="r2_b">Que existe uma licença, com número de processo e proprietário</td><td data-i18n="r2_c">Que a obra chegou a ser feita — a licença é papel</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p data-i18n="s5_p1">As duas fraquezas anulam-se. Um voluntário a decalcar imagens de satélite noutro país e um técnico a arquivar polígonos de licenciamento em Lisboa <b>não têm como copiar um do outro</b>: para o cruzamento enganar, teriam de estar ambos errados no mesmo sítio, ao metro. É isto que separa uma verificação de uma afirmação.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s6_kick">O teste</div>
+    <h2 data-i18n="s6_h2">O cruzamento, aerogerador a aerogerador</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div class="body">
+        <h3 data-i18n="st1_t">Procurar o bloco licenciado mais próximo</h3>
+        <p data-i18n="st1_p">Para cada aerogerador do OpenStreetMap, calcula-se a distância a todos os blocos do registo da DGEG e guarda-se o mais próximo.</p></div></div>
+      <div class="step"><div class="num">2</div><div class="body">
+        <h3 data-i18n="st2_t">A menos de 250 metros, é o mesmo aerogerador</h3>
+        <p data-i18n="st2_p">A tolerância é uma escolha, e por isso fica declarada: o polígono da DGEG é um bloco de licenciamento e o ponto do OSM é a torre decalcada — não foram feitos para coincidir ao centímetro.</p></div></div>
+      <div class="step"><div class="num">3</div><div class="body">
+        <h3 data-i18n="st3_t">Coincidem <b data-stat="turbines_confirmed">224</b> de <b data-stat="turbines">229</b></h3>
+        <p data-i18n="st3_p">O desvio mediano entre as duas fontes é de <b data-stat="median_offset_m">1</b> m; o pior par está a <b data-stat="max_offset_m">232</b> m. Metade dos pares está a menos de um metro — menos do que a largura da base da torre que ambos descrevem.</p></div></div>
+      <div class="step"><div class="num">4</div><div class="body">
+        <h3 data-i18n="st4_t">Os que não coincidem ficam marcados como tal</h3>
+        <p data-i18n="st4_p"><b data-stat="unmatched">5</b> aerogeradores do OSM não têm licença a menos de 250 m. No mapa aparecem com a posição assinalada como <b>não verificada</b> — não são escondidos nem contados como confirmados.</p></div></div>
+    </div>
+    <div class="callout"><p data-i18n="s6_note"><b>Uma honestidade sobre o número máximo:</b> os <b data-stat="max_offset_m">232</b> m estão limitados pela própria tolerância. Acima de 250 m nada é contado como coincidência «má» — é contado como não coincidência. O que o desvio mediano de <b data-stat="median_offset_m">1</b> m mostra é que a esmagadora maioria dos pares não está no limite: está em cima um do outro.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s7_kick">O sentido inverso</div>
+    <h2 data-i18n="s7_h2">Os aerogeradores cor-de-rosa <span class="pinkdot"></span></h2>
+    <p data-i18n="s7_p1">O mesmo teste ao contrário: <b data-stat="dgeg_only">19</b> aerogeradores constam do registo da DGEG e não têm equivalente nenhum no OpenStreetMap. A explicação mais provável é <b>construção recente</b> — as imagens de satélite disponíveis aos voluntários chegam com atraso, às vezes de mais de um ano. Aparecem no mapa a cor-de-rosa, com a etiqueta a dizer exatamente isso: constam do registo oficial, ainda não foram vistos por uma segunda fonte.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s8_kick">Ao nível do parque</div>
+    <h2 data-i18n="s8_h2"><b data-stat="plants_confirmed">35</b> de <b data-stat="plants">37</b> parques com confirmação independente</h2>
+    <p data-i18n="s8_p1">A mesma ideia um andar acima. Cada parque do OSM é ligado a um parque da DGEG — pela contagem de quantos dos seus aerogeradores coincidiram e sob que nome — e ao registo e2p do INEGI, por proximidade e tipo. Os que não têm confirmação independente assentam apenas no OSM, e a ficha do mapa di-lo.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s9_kick">Construído ou só aprovado</div>
+    <h2 data-i18n="s9_h2">Como se sabe se um projeto aprovado foi mesmo feito</h2>
+    <p data-i18n="s9_p1">Esta é uma pergunta diferente, e responde-se com geometria. A APA publica a área de estudo de cada projeto. Pergunta-se então: <b>existe algum aerogerador ou bloco solar licenciado pela DGEG dentro desse polígono?</b></p>
+    <ul class="facts">
+      <li data-i18n="s9_l1">Há alguma coisa lá dentro → <b>construído</b>.</li>
+      <li data-i18n="s9_l2">Não há nada → <b>aprovado e ainda por construir</b>. É esta a categoria que interessa: a autorização existe, a serra ainda está de pé.</li>
+      <li data-i18n="s9_l3">Não há polígono publicado, ou trata-se de linhas e subestações (que o registo de centrais da DGEG não cobre) → <b>não é possível dizer</b>, e é isso que fica escrito. Mais vale admitir do que sugerir.</li>
+    </ul>
+    <p data-i18n="s9_p2">Uma obra a meio lê-se como por construir. É uma <b>inferência</b>, não uma certidão — e está declarada como tal no mapa.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s10_kick">A rotina</div>
+    <h2 data-i18n="s10_h2">O que corre, e com que frequência</h2>
+    <p data-i18n="s10_p1">Uma vez por semana, no servidor, sempre pela mesma ordem: recolher a geometria e as etiquetas do OpenStreetMap; recolher o registo de licenciamento da DGEG; recolher o e2p do INEGI; cruzar tudo e medir os desvios; recolher as áreas de estudo da APA; determinar o que está construído; recolher as áreas ardidas de 2011 a 2025; escrever um único ficheiro de dados.</p>
+    <p data-i18n="s10_p2">Cada passo reescreve o seu próprio resultado — nada se acumula, nada fica para trás de uma semana anterior. O mapa não faz contas: limita-se a desenhar esse ficheiro. Última reconstrução: <b data-stat="built">—</b>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s11_kick">Os limites</div>
+    <h2 data-i18n="s11_h2">O que isto não prova</h2>
+    <ul class="lim">
+      <li data-i18n="lim1">A tolerância de <b>250 m</b> é uma escolha do método. Com um valor mais apertado, alguns pares deixariam de coincidir; com um mais largo, coincidiriam mais. O valor está declarado precisamente para que o teste possa ser repetido com outro.</li>
+      <li data-i18n="lim2"><b>«Aprovado e por construir»</b> é uma inferência a partir da ausência de registo, não uma certidão de não-execução.</li>
+      <li data-i18n="lim3">Os dados são uma <b>fotografia semanal</b>. Uma licença emitida ontem só entra na próxima reconstrução.</li>
+    </ul>
+    <p data-i18n="s11_p">A lista completa das limitações do mapa — a camada da APA que pára no processo n.º 3762, os contornos que são invólucros convexos dos aerogeradores e não limites legais, as linhas e subestações que não constam do registo de centrais — está no fim da própria <a href="/map">página do mapa</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick" data-i18n="s12_kick">Repetir o teste</div>
+    <h2 data-i18n="s12_h2">Todas as fontes são públicas</h2>
+    <p data-i18n="s12_p">Nada disto depende de acesso privilegiado. Os quatro registos estão abertos a qualquer pessoa — é por isso que os endereços ficam aqui. Quem quiser refazer o cruzamento, com outra tolerância ou outra área, chega aos mesmos números.</p>
+    <ul class="srcs">
+      <li><a href="https://servergeo.dgeg.gov.pt/arcgis/rest/services/Visualizadores/CE/MapServer" target="_blank" rel="noopener">DGEG — Centrais Eólicas</a> <span data-i18n="src_dgeg">· o registo de licenciamento, um polígono por bloco</span></li>
+      <li><a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a> <span data-i18n="src_osm">· via API Overpass</span></li>
+      <li><a href="https://siaia.apambiente.pt/" target="_blank" rel="noopener">APA / SIAIA</a> <span data-i18n="src_apa">· processos de Avaliação de Impacte Ambiental e áreas de estudo</span></li>
+      <li><a href="https://e2p.inegi.up.pt/" target="_blank" rel="noopener">INEGI e2p</a> <span data-i18n="src_inegi">· registo académico, uma central por ponto</span></li>
+    </ul>
+    <div class="cta">
+      <a class="btn btn-primary" href="/map" data-i18n="cta1">Ver o mapa →</a>
+      <a class="btn btn-ghost" href="/" data-i18n="cta2">Voltar à campanha</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p data-i18n="foot_made">Feito por vizinhos da Beira Baixa que querem a serra de pé. · <a href="/">salvargardunha.com</a></p>
+    <p class="disc" data-i18n="disc">Página metodológica do mapa verificado. Todos os números são recalculados semanalmente a partir dos registos públicos citados. Informativa e cívica, sem fins lucrativos, não afiliada a nenhum partido, empresa ou entidade pública.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var LANGS=['pt','en','de','fr'];
+  var DATA_URL='https://mapa.salvargardunha.com/data.json';
+  var I18N={
+    en:{
+      top_home:'← salvargardunha.com', top_map:'The verified map', top_docs:'Documents',
+      eyebrow:'Method · how we know what we know',
+      h1:'How this map was verified',
+      lede:'“Verified” here does not mean somebody stamped the data. It means <b>four independent registers</b>, compiled by bodies that never spoke to each other, say the same thing — and that the distance between their answers was measured.',
+      s1_kick:'The starting point', s1_h2:'Who counts the turbines?',
+      s1_p1:'There is no single official list in Portugal saying “these are all the turbines, at these coordinates, confirmed on the ground”. There are <b>two</b> lists, made for completely different reasons, by people who never spoke to one another. That is precisely what makes them useful.',
+      s1_p2:'One is made by volunteers looking at satellite imagery. The other is made by the State, because anyone generating electricity needs a licence. <b>Neither is enough on its own.</b> Together, they verify each other.',
+      s2_kick:'Source 1', s2_h2:'OpenStreetMap — volunteers tracing satellite imagery',
+      s2_p1:'OpenStreetMap is Wikipedia for maps. Anyone opens the editor, loads the satellite imagery, recognises the unmistakable signature of a wind turbine — the tower, the three blades, the long shadow — and drops a point tagged <b>power=generator</b> and <b>generator:source=wind</b>. Some map on the ground, by GPS.',
+      s2_p2:'And who confirms it? <b>Nobody, officially.</b> That is the honest answer. OpenStreetMap’s quality does not come from an authority signing it off: it comes from everything being public and rewritable. Every edit is recorded with the name of whoever made it and the date, and anyone can look at the same imagery and correct or delete what is wrong.',
+      s2_p3:'It helps that a wind turbine is one of the easiest objects on Earth to identify: enormous, isolated, high-contrast, and casting a shadow you cannot mistake for anything else. Buildings get mismapped constantly; turbines rarely do.',
+      s2_p4:'What OSM proves: that a tower physically stands there. On its own it remains an unconfirmed claim. It also supplies the farm outlines, the operators, the models and the heights — things DGEG does not publish. It is collected through the Overpass API, over a box from 39.85° to 40.30° north and from 7.20° to 7.90° west, around the range.',
+      s3_kick:'Source 2', s3_h2:'DGEG — the State licensing register',
+      s3_p1:'The Directorate-General for Energy and Geology is the sector’s regulator. Every plant generating electricity needs a licence, and DGEG publishes those licences through an open map service: <b>one polygon per turbine block</b>, with file number, owner, rated power in kW and the date it entered service.',
+      s3_p2:'Here there genuinely is someone confirming: the <b>State</b>, as a condition of the plant being allowed to operate. This is not a volunteer’s claim — it is a legal record with the promoter’s name on it.',
+      s3_p3:'What DGEG proves: that a licence exists at that spot. It does not prove anything was built. <b>Paper is not concrete.</b>',
+      s4_kick:'Sources 3 and 4', s4_h2:'The second opinion, and the shape of what does not exist yet',
+      s4_p1:'<b>INEGI e2p</b> — Energias Endógenas de Portugal, maintained by the University of Porto. One point per station, no turbine positions: name, promoter, installed power, year. It is compiled from promoter and DGEG filings but maintained separately — so when it agrees on a name and a rated power, that is real confirmation and not a copy. It is used only to corroborate farms; it never places anything on the map.',
+      s4_p2:'<b>APA / SNIAmb</b> — the Portuguese Environment Agency. Every project needing an environmental impact assessment files a study-area polygon. It is the only public source that gives an <b>actual shape</b> to projects that have not been built, instead of a press-release adjective. The planned projects drawn on the map come from here.',
+      s5_kick:'Why cross-check', s5_h2:'Why agreement counts as verification',
+      th_src:'Source', th_proves:'What it proves', th_weak:'What it does not prove',
+      r1_a:'<b>OpenStreetMap</b>', r1_b:'That a tower stands there, visible in satellite imagery', r1_c:'That it is legal, or that anyone in authority confirmed the position',
+      r2_a:'<b>DGEG register</b>', r2_b:'That a licence exists, with file number and owner', r2_c:'That anything was actually built — a licence is paper',
+      s5_p1:'The two weaknesses cancel out. A volunteer tracing satellite imagery in another country and a clerk filing licensing polygons in Lisbon <b>have no way of copying each other</b>: for the cross-check to mislead, both would have to be wrong in the same place, to the metre. That is what separates a verification from an assertion.',
+      s6_kick:'The test', s6_h2:'The cross-check, turbine by turbine',
+      st1_t:'Find the nearest licensed block',
+      st1_p:'For each OpenStreetMap turbine, the distance to every block in the DGEG register is computed and the nearest one kept.',
+      st2_t:'Under 250 metres, it is the same turbine',
+      st2_p:'The tolerance is a choice, so it is stated: the DGEG polygon is a licensing block and the OSM point is the traced tower — they were never meant to agree to the centimetre.',
+      st3_t:'<b data-stat="turbines_confirmed">224</b> of <b data-stat="turbines">229</b> agree',
+      st3_p:'The median offset between the two sources is <b data-stat="median_offset_m">1</b> m; the worst pair sits <b data-stat="max_offset_m">232</b> m apart. Half the pairs are within a metre — less than the width of the tower base both are describing.',
+      st4_t:'The ones that do not match are labelled as such',
+      st4_p:'<b data-stat="unmatched">5</b> OSM turbines have no licence within 250 m. On the map their position is flagged as <b>unverified</b> — they are neither hidden nor counted as confirmed.',
+      s6_note:'<b>An honest word about the maximum:</b> those <b data-stat="max_offset_m">232</b> m are bounded by the tolerance itself. Beyond 250 m nothing is counted as a “bad” match — it is counted as no match at all. What the median offset of <b data-stat="median_offset_m">1</b> m shows is that the overwhelming majority of pairs are nowhere near the limit: they sit on top of each other.',
+      s7_kick:'The other direction', s7_h2:'The pink turbines <span class="pinkdot"></span>',
+      s7_p1:'The same test run backwards: <b data-stat="dgeg_only">19</b> turbines appear in the DGEG register with no counterpart at all in OpenStreetMap. The likeliest explanation is <b>recent construction</b> — the satellite imagery available to volunteers lags reality, sometimes by more than a year. They are drawn pink, labelled with exactly that: in the official register, not yet seen by a second source.',
+      s8_kick:'At farm level', s8_h2:'<b data-stat="plants_confirmed">35</b> of <b data-stat="plants">37</b> farms independently confirmed',
+      s8_p1:'The same idea one storey up. Each OSM farm is matched to a DGEG park — by how many of its turbines matched, and under what name — and to INEGI’s e2p register, by proximity and type. Those without independent confirmation rest on OSM alone, and the map’s panel says so.',
+      s9_kick:'Built, or only approved', s9_h2:'How we tell whether an approved project was actually built',
+      s9_p1:'This is a different question, and geometry answers it. APA publishes the study area of each project. So the question becomes: <b>is there any DGEG-licensed turbine or solar block inside that polygon?</b>',
+      s9_l1:'Something inside → <b>built</b>.',
+      s9_l2:'Nothing at all → <b>approved and still unbuilt</b>. This is the interesting category: the consent exists, the mountain is still standing.',
+      s9_l3:'No polygon published, or the project is lines and substations (which DGEG’s power-station register does not cover) → <b>it cannot be said</b>, and that is what gets written. Better to admit it than to imply.',
+      s9_p2:'A project mid-construction reads as unbuilt. It is an <b>inference</b>, not a certificate — and the map states it as one.',
+      s10_kick:'The routine', s10_h2:'What runs, and how often',
+      s10_p1:'Once a week, on the server, always in the same order: collect the geometry and tags from OpenStreetMap; collect the DGEG licensing register; collect INEGI’s e2p; cross-check everything and measure the offsets; collect APA’s study areas; work out what has been built; collect the burned areas from 2011 to 2025; write a single data file.',
+      s10_p2:'Each step overwrites its own output — nothing accumulates, nothing survives from a previous week. The map does no arithmetic: it simply draws that file. Last rebuild: <b data-stat="built">—</b>.',
+      s11_kick:'The limits', s11_h2:'What this does not prove',
+      lim1:'The <b>250 m</b> tolerance is a choice of method. Tighter, and some pairs would stop matching; looser, and more would match. The value is stated precisely so the test can be repeated with a different one.',
+      lim2:'<b>“Approved and unbuilt”</b> is an inference from the absence of a record, not a certificate that nothing was built.',
+      lim3:'The data is a <b>weekly snapshot</b>. A licence issued yesterday only appears at the next rebuild.',
+      s11_p:'The full list of the map’s limitations — the APA layer stopping at file no. 3762, the outlines that are convex hulls of the turbines rather than legal boundaries, the lines and substations absent from the power-station register — is at the foot of the <a href="/map">map page</a> itself.',
+      s12_kick:'Repeat the test', s12_h2:'Every source is public',
+      s12_p:'None of this depends on privileged access. All four registers are open to anyone — which is why the addresses are here. Anyone who wants to redo the cross-check, with a different tolerance or a different area, will arrive at the same numbers.',
+      src_dgeg:'· the licensing register, one polygon per block',
+      src_osm:'· through the Overpass API',
+      src_apa:'· environmental impact assessment files and study areas',
+      src_inegi:'· academic register, one point per station',
+      cta1:'See the map →', cta2:'Back to the campaign',
+      foot_made:'Made by neighbours of the Beira Baixa who want the mountain left standing. · <a href="/">salvargardunha.com</a>',
+      disc:'Method page for the verified map. Every number is recomputed weekly from the public registers cited above. Informative, civic, non-profit, not affiliated with any party, company or public body.'
+    },
+    de:{
+      top_home:'← salvargardunha.com', top_map:'Die geprüfte Karte', top_docs:'Dokumente',
+      eyebrow:'Methode · woher wir wissen, was wir wissen',
+      h1:'Wie diese Karte geprüft wurde',
+      lede:'„Geprüft“ heißt hier nicht, dass jemand die Daten abgestempelt hat. Es heißt, dass <b>vier unabhängige Register</b>, erstellt von Stellen, die nie miteinander gesprochen haben, dasselbe sagen — und dass der Abstand zwischen ihren Antworten gemessen wurde.',
+      s1_kick:'Der Ausgangspunkt', s1_h2:'Wer zählt eigentlich die Windräder?',
+      s1_p1:'Es gibt in Portugal keine einzige amtliche Liste, die sagt: „Das sind alle Windräder, an diesen Koordinaten, vor Ort bestätigt.“ Es gibt <b>zwei</b> Listen, aus völlig unterschiedlichen Gründen erstellt, von Menschen, die nie miteinander gesprochen haben. Genau das macht sie brauchbar.',
+      s1_p2:'Die eine stammt von Freiwilligen, die Satellitenbilder auswerten. Die andere vom Staat, weil jede Stromerzeugung eine Genehmigung braucht. <b>Keine reicht für sich allein.</b> Zusammen prüfen sie einander.',
+      s2_kick:'Quelle 1', s2_h2:'OpenStreetMap — Freiwillige zeichnen Satellitenbilder nach',
+      s2_p1:'OpenStreetMap ist die Wikipedia der Karten. Jede und jeder öffnet den Editor, lädt das Satellitenbild, erkennt die unverwechselbare Signatur einer Windkraftanlage — Turm, drei Rotorblätter, langer Schatten — und setzt einen Punkt mit den Merkmalen <b>power=generator</b> und <b>generator:source=wind</b>. Manche kartieren auch vor Ort, per GPS.',
+      s2_p2:'Und wer bestätigt das? <b>Niemand, amtlich.</b> Das ist die ehrliche Antwort. Die Qualität von OpenStreetMap kommt nicht von einer abstempelnden Behörde, sondern davon, dass alles öffentlich und überschreibbar ist. Jede Bearbeitung wird mit Namen und Datum festgehalten, und jede Person kann dasselbe Bild ansehen und Falsches korrigieren oder löschen.',
+      s2_p3:'Hilfreich ist, dass eine Windkraftanlage zu den am leichtesten erkennbaren Objekten der Welt gehört: riesig, freistehend, kontrastreich, mit einem Schatten, den man mit nichts verwechselt. Gebäude werden ständig falsch erfasst; Windräder selten.',
+      s2_p4:'Was OSM belegt: dass dort physisch ein Turm steht. Für sich genommen bleibt es eine unbestätigte Angabe. Von dort stammen auch die Parkumrisse, die Betreiber, die Anlagentypen und die Höhen — Dinge, die die DGEG nicht veröffentlicht. Erhoben wird es über die Overpass-API, in einem Ausschnitt von 39,85° bis 40,30° nördlicher Breite und von 7,20° bis 7,90° westlicher Länge rund um die Serra.',
+      s3_kick:'Quelle 2', s3_h2:'DGEG — das staatliche Genehmigungsregister',
+      s3_p1:'Die Generaldirektion für Energie und Geologie ist die Aufsichtsbehörde. Jede stromerzeugende Anlage braucht eine Genehmigung, und die DGEG veröffentlicht diese über einen offenen Kartendienst: <b>ein Polygon je Anlagenblock</b>, mit Aktennummer, Eigentümer, Leistung in kW und Datum der Inbetriebnahme.',
+      s3_p2:'Hier bestätigt tatsächlich jemand: der <b>Staat</b>, als Bedingung dafür, dass die Anlage betrieben werden darf. Das ist keine Angabe von Freiwilligen — es ist ein amtlicher Eintrag mit dem Namen des Vorhabenträgers.',
+      s3_p3:'Was die DGEG belegt: dass an dieser Stelle eine Genehmigung existiert. Nicht, dass gebaut wurde. <b>Papier ist kein Beton.</b>',
+      s4_kick:'Quellen 3 und 4', s4_h2:'Die Zweitmeinung — und die Form dessen, was es noch nicht gibt',
+      s4_p1:'<b>INEGI e2p</b> — Energias Endógenas de Portugal, geführt von der Universität Porto. Ein Punkt je Kraftwerk, keine Anlagenpositionen: Name, Vorhabenträger, installierte Leistung, Jahr. Zusammengestellt aus Angaben der Vorhabenträger und der DGEG, aber getrennt gepflegt — wenn es also bei Name und Leistung übereinstimmt, ist das echte Bestätigung und keine Kopie. Es dient nur der Bestätigung von Parks; auf die Karte setzt es nie etwas.',
+      s4_p2:'<b>APA / SNIAmb</b> — die portugiesische Umweltagentur. Jedes UVP-pflichtige Vorhaben reicht ein Polygon des Untersuchungsgebiets ein. Es ist die einzige öffentliche Quelle, die noch nicht gebauten Projekten eine <b>tatsächliche Form</b> gibt statt eines Pressemitteilungs-Adjektivs. Von dort stammen die geplanten Projekte auf der Karte.',
+      s5_kick:'Warum abgleichen', s5_h2:'Warum Übereinstimmung als Prüfung zählt',
+      th_src:'Quelle', th_proves:'Was sie belegt', th_weak:'Was sie nicht belegt',
+      r1_a:'<b>OpenStreetMap</b>', r1_b:'Dass dort ein Turm steht, sichtbar im Satellitenbild', r1_c:'Dass er genehmigt ist oder die Position amtlich bestätigt wurde',
+      r2_a:'<b>DGEG-Register</b>', r2_b:'Dass eine Genehmigung existiert, mit Aktennummer und Eigentümer', r2_c:'Dass tatsächlich gebaut wurde — eine Genehmigung ist Papier',
+      s5_p1:'Die beiden Schwächen heben einander auf. Eine freiwillige Person, die in einem anderen Land Satellitenbilder nachzeichnet, und ein Sachbearbeiter, der in Lissabon Genehmigungspolygone ablegt, <b>können nicht voneinander abschreiben</b>: Damit der Abgleich in die Irre führt, müssten beide am selben Ort auf den Meter genau falsch liegen. Das unterscheidet eine Prüfung von einer Behauptung.',
+      s6_kick:'Der Test', s6_h2:'Der Abgleich, Anlage für Anlage',
+      st1_t:'Den nächstgelegenen genehmigten Block suchen',
+      st1_p:'Für jede OpenStreetMap-Anlage wird der Abstand zu allen Blöcken im DGEG-Register berechnet und der nächstgelegene behalten.',
+      st2_t:'Unter 250 Metern ist es dieselbe Anlage',
+      st2_p:'Die Toleranz ist eine Entscheidung, deshalb wird sie genannt: Das DGEG-Polygon ist ein Genehmigungsblock, der OSM-Punkt der nachgezeichnete Turm — sie waren nie dafür gedacht, auf den Zentimeter übereinzustimmen.',
+      st3_t:'<b data-stat="turbines_confirmed">224</b> von <b data-stat="turbines">229</b> stimmen überein',
+      st3_p:'Die mediane Abweichung zwischen beiden Quellen beträgt <b data-stat="median_offset_m">1</b> m; das schlechteste Paar liegt <b data-stat="max_offset_m">232</b> m auseinander. Die Hälfte aller Paare liegt unter einem Meter — weniger als die Breite des Turmfußes, den beide beschreiben.',
+      st4_t:'Was nicht übereinstimmt, wird als solches gekennzeichnet',
+      st4_p:'<b data-stat="unmatched">5</b> OSM-Anlagen haben im Umkreis von 250 m keine Genehmigung. Auf der Karte ist ihre Position als <b>ungeprüft</b> markiert — sie werden weder versteckt noch als bestätigt gezählt.',
+      s6_note:'<b>Ehrlich zum Maximalwert:</b> Diese <b data-stat="max_offset_m">232</b> m sind durch die Toleranz selbst begrenzt. Jenseits von 250 m gilt nichts als „schlechte“ Übereinstimmung — es gilt als gar keine. Die mediane Abweichung von <b data-stat="median_offset_m">1</b> m zeigt, dass die überwältigende Mehrheit der Paare weit von dieser Grenze entfernt ist: Sie liegen aufeinander.',
+      s7_kick:'Die Gegenrichtung', s7_h2:'Die rosa Windräder <span class="pinkdot"></span>',
+      s7_p1:'Derselbe Test rückwärts: <b data-stat="dgeg_only">19</b> Anlagen stehen im DGEG-Register und haben in OpenStreetMap überhaupt keine Entsprechung. Die wahrscheinlichste Erklärung ist <b>jüngster Bau</b> — die den Freiwilligen verfügbaren Satellitenbilder hinken der Wirklichkeit hinterher, manchmal um mehr als ein Jahr. Sie sind rosa eingezeichnet, mit genau diesem Hinweis: im amtlichen Register vorhanden, von einer zweiten Quelle noch nicht gesehen.',
+      s8_kick:'Auf Parkebene', s8_h2:'<b data-stat="plants_confirmed">35</b> von <b data-stat="plants">37</b> Parks unabhängig bestätigt',
+      s8_p1:'Dieselbe Idee eine Ebene höher. Jeder OSM-Park wird einem DGEG-Park zugeordnet — darüber, wie viele seiner Anlagen übereinstimmten und unter welchem Namen — und dem e2p-Register des INEGI, über Nähe und Anlagentyp. Wo keine unabhängige Bestätigung vorliegt, stützt sich der Eintrag allein auf OSM, und die Karte sagt das.',
+      s9_kick:'Gebaut oder nur genehmigt', s9_h2:'Woran man erkennt, ob ein genehmigtes Projekt gebaut wurde',
+      s9_p1:'Das ist eine andere Frage, und die Geometrie beantwortet sie. Die APA veröffentlicht das Untersuchungsgebiet jedes Vorhabens. Die Frage lautet also: <b>Liegt innerhalb dieses Polygons eine von der DGEG genehmigte Anlage oder ein Solarblock?</b>',
+      s9_l1:'Es liegt etwas darin → <b>gebaut</b>.',
+      s9_l2:'Es liegt nichts darin → <b>genehmigt und noch nicht gebaut</b>. Das ist die interessante Kategorie: Die Zustimmung liegt vor, der Berg steht noch.',
+      s9_l3:'Kein Polygon veröffentlicht, oder es geht um Leitungen und Umspannwerke (die das DGEG-Kraftwerksregister nicht abdeckt) → <b>keine Aussage möglich</b>, und genau das wird geschrieben. Lieber zugeben als andeuten.',
+      s9_p2:'Ein Vorhaben im Bau erscheint als nicht gebaut. Es ist eine <b>Schlussfolgerung</b>, keine Bescheinigung — und die Karte sagt das so.',
+      s10_kick:'Die Routine', s10_h2:'Was läuft, und wie oft',
+      s10_p1:'Einmal pro Woche, auf dem Server, immer in derselben Reihenfolge: Geometrie und Merkmale aus OpenStreetMap holen; das DGEG-Genehmigungsregister holen; das e2p des INEGI holen; alles abgleichen und die Abweichungen messen; die Untersuchungsgebiete der APA holen; ermitteln, was gebaut ist; die Brandflächen von 2011 bis 2025 holen; eine einzige Datendatei schreiben.',
+      s10_p2:'Jeder Schritt überschreibt sein eigenes Ergebnis — nichts sammelt sich an, nichts bleibt aus einer Vorwoche übrig. Die Karte rechnet nicht: Sie zeichnet nur diese Datei. Letzter Neuaufbau: <b data-stat="built">—</b>.',
+      s11_kick:'Die Grenzen', s11_h2:'Was das nicht belegt',
+      lim1:'Die Toleranz von <b>250 m</b> ist eine methodische Entscheidung. Enger, und manche Paare stimmten nicht mehr überein; weiter, und es wären mehr. Der Wert wird genannt, damit der Test mit einem anderen wiederholt werden kann.',
+      lim2:'<b>„Genehmigt und nicht gebaut“</b> ist ein Schluss aus dem Fehlen eines Eintrags, keine Bescheinigung, dass nichts gebaut wurde.',
+      lim3:'Die Daten sind eine <b>Wochenaufnahme</b>. Eine gestern erteilte Genehmigung erscheint erst beim nächsten Neuaufbau.',
+      s11_p:'Die vollständige Liste der Einschränkungen der Karte — die APA-Ebene, die bei Akte Nr. 3762 endet, die Umrisse, die konvexe Hüllen der Anlagen und keine rechtlichen Grenzen sind, die im Kraftwerksregister fehlenden Leitungen und Umspannwerke — steht am Fuß der <a href="/map">Kartenseite</a> selbst.',
+      s12_kick:'Den Test wiederholen', s12_h2:'Alle Quellen sind öffentlich',
+      s12_p:'Nichts davon hängt von privilegiertem Zugang ab. Alle vier Register stehen jedem offen — deshalb stehen die Adressen hier. Wer den Abgleich mit einer anderen Toleranz oder einem anderen Gebiet wiederholen will, kommt auf dieselben Zahlen.',
+      src_dgeg:'· das Genehmigungsregister, ein Polygon je Block',
+      src_osm:'· über die Overpass-API',
+      src_apa:'· UVP-Akten und Untersuchungsgebiete',
+      src_inegi:'· akademisches Register, ein Punkt je Kraftwerk',
+      cta1:'Zur Karte →', cta2:'Zurück zur Kampagne',
+      foot_made:'Gemacht von Nachbarn der Beira Baixa, die den Berg stehen lassen wollen. · <a href="/">salvargardunha.com</a>',
+      disc:'Methodenseite zur geprüften Karte. Alle Zahlen werden wöchentlich aus den genannten öffentlichen Registern neu berechnet. Informativ, zivilgesellschaftlich, gemeinnützig, keiner Partei, keinem Unternehmen und keiner Behörde verbunden.'
+    },
+    fr:{
+      top_home:'← salvargardunha.com', top_map:'La carte vérifiée', top_docs:'Documents',
+      eyebrow:'Méthode · comment nous savons ce que nous savons',
+      h1:'Comment cette carte a été vérifiée',
+      lede:'« Vérifié » ne veut pas dire ici que quelqu’un a tamponné les données. Cela veut dire que <b>quatre registres indépendants</b>, établis par des organismes qui ne se sont jamais parlé, disent la même chose — et que l’écart entre leurs réponses a été mesuré.',
+      s1_kick:'Le point de départ', s1_h2:'Qui compte les éoliennes ?',
+      s1_p1:'Il n’existe au Portugal aucune liste officielle unique disant « voici toutes les éoliennes, à ces coordonnées, confirmées sur le terrain ». Il existe <b>deux</b> listes, établies pour des raisons totalement différentes, par des gens qui ne se sont jamais parlé. C’est précisément ce qui les rend utiles.',
+      s1_p2:'L’une est faite par des bénévoles qui examinent des images satellite. L’autre par l’État, parce que produire de l’électricité exige une autorisation. <b>Aucune ne suffit seule.</b> Ensemble, elles se vérifient mutuellement.',
+      s2_kick:'Source 1', s2_h2:'OpenStreetMap — des bénévoles qui décalquent l’image satellite',
+      s2_p1:'OpenStreetMap est le Wikipédia des cartes. N’importe qui ouvre l’éditeur, charge l’image satellite, reconnaît la signature caractéristique d’une éolienne — le mât, les trois pales, l’ombre allongée — et pose un point étiqueté <b>power=generator</b> et <b>generator:source=wind</b>. Certains cartographient aussi sur le terrain, au GPS.',
+      s2_p2:'Et qui confirme ? <b>Personne, officiellement.</b> C’est la réponse honnête. La qualité d’OpenStreetMap ne vient pas d’une autorité qui valide : elle vient de ce que tout est public et réinscriptible. Chaque modification est enregistrée avec le nom de son auteur et la date, et n’importe qui peut regarder la même image et corriger ou supprimer ce qui est faux.',
+      s2_p3:'Il se trouve qu’une éolienne est l’un des objets les plus faciles à identifier au monde : énorme, isolée, très contrastée, avec une ombre qu’on ne confond avec rien. Les bâtiments sont mal cartographiés en permanence ; les éoliennes, rarement.',
+      s2_p4:'Ce qu’OSM prouve : qu’un mât se dresse physiquement là. Seul, cela reste une affirmation non confirmée. C’est de là que viennent aussi les emprises des parcs, les exploitants, les modèles et les hauteurs — ce que la DGEG ne publie pas. La collecte passe par l’API Overpass, sur une emprise de 39,85° à 40,30° de latitude nord et de 7,20° à 7,90° de longitude ouest, autour de la serra.',
+      s3_kick:'Source 2', s3_h2:'DGEG — le registre d’autorisation de l’État',
+      s3_p1:'La Direction générale de l’énergie et de la géologie est le régulateur du secteur. Toute centrale produisant de l’électricité doit être autorisée, et la DGEG publie ces autorisations via un service cartographique ouvert : <b>un polygone par bloc d’éolienne</b>, avec numéro de dossier, propriétaire, puissance en kW et date de mise en service.',
+      s3_p2:'Là, quelqu’un confirme réellement : l’<b>État</b>, comme condition d’exploitation de la centrale. Ce n’est pas l’affirmation d’un bénévole — c’est un acte administratif portant le nom du promoteur.',
+      s3_p3:'Ce que la DGEG prouve : qu’une autorisation existe à cet endroit. Pas que les travaux ont été faits. <b>Le papier n’est pas du béton.</b>',
+      s4_kick:'Sources 3 et 4', s4_h2:'Le deuxième avis, et la forme de ce qui n’existe pas encore',
+      s4_p1:'<b>INEGI e2p</b> — Energias Endógenas de Portugal, tenu par l’Université de Porto. Un point par centrale, sans position d’éolienne : nom, promoteur, puissance installée, année. Compilé à partir des déclarations des promoteurs et de la DGEG, mais tenu séparément — donc lorsqu’il concorde sur le nom et la puissance, c’est une vraie confirmation et non une copie. Il sert uniquement à corroborer les parcs ; il ne place jamais rien sur la carte.',
+      s4_p2:'<b>APA / SNIAmb</b> — l’Agence portugaise de l’environnement. Tout projet soumis à évaluation d’impact environnemental dépose un polygone d’aire d’étude. C’est la seule source publique qui donne une <b>forme réelle</b> aux projets non construits, au lieu d’un adjectif de communiqué de presse. Les projets planifiés dessinés sur la carte en proviennent.',
+      s5_kick:'Pourquoi recouper', s5_h2:'Pourquoi la concordance vaut vérification',
+      th_src:'Source', th_proves:'Ce qu’elle prouve', th_weak:'Ce qu’elle ne prouve pas',
+      r1_a:'<b>OpenStreetMap</b>', r1_b:'Qu’un mât se dresse là, visible sur l’image satellite', r1_c:'Qu’il est légal, ou qu’une autorité a confirmé la position',
+      r2_a:'<b>Registre DGEG</b>', r2_b:'Qu’une autorisation existe, avec numéro de dossier et propriétaire', r2_c:'Que quelque chose a bien été construit — une autorisation est du papier',
+      s5_p1:'Les deux faiblesses s’annulent. Un bénévole qui décalque des images satellite dans un autre pays et un agent qui archive des polygones d’autorisation à Lisbonne <b>n’ont aucun moyen de se copier</b> : pour que le recoupement trompe, il faudrait qu’ils se trompent tous deux au même endroit, au mètre près. C’est ce qui sépare une vérification d’une affirmation.',
+      s6_kick:'Le test', s6_h2:'Le recoupement, éolienne par éolienne',
+      st1_t:'Chercher le bloc autorisé le plus proche',
+      st1_p:'Pour chaque éolienne d’OpenStreetMap, la distance à tous les blocs du registre DGEG est calculée et la plus proche retenue.',
+      st2_t:'À moins de 250 mètres, c’est la même éolienne',
+      st2_p:'La tolérance est un choix, elle est donc déclarée : le polygone DGEG est un bloc d’autorisation et le point OSM le mât décalqué — ils n’ont jamais été faits pour coïncider au centimètre.',
+      st3_t:'<b data-stat="turbines_confirmed">224</b> sur <b data-stat="turbines">229</b> concordent',
+      st3_p:'L’écart médian entre les deux sources est de <b data-stat="median_offset_m">1</b> m ; la pire paire est distante de <b data-stat="max_offset_m">232</b> m. La moitié des paires tient dans un mètre — moins que la largeur du pied du mât que toutes deux décrivent.',
+      st4_t:'Ce qui ne concorde pas est signalé comme tel',
+      st4_p:'<b data-stat="unmatched">5</b> éoliennes d’OSM n’ont aucune autorisation à moins de 250 m. Sur la carte, leur position est signalée comme <b>non vérifiée</b> — elles ne sont ni cachées ni comptées comme confirmées.',
+      s6_note:'<b>Une honnêteté sur le maximum :</b> ces <b data-stat="max_offset_m">232</b> m sont bornés par la tolérance elle-même. Au-delà de 250 m, rien n’est compté comme « mauvaise » concordance — c’est compté comme absence de concordance. Ce que montre l’écart médian de <b data-stat="median_offset_m">1</b> m, c’est que l’immense majorité des paires est loin de cette limite : elles se superposent.',
+      s7_kick:'Le sens inverse', s7_h2:'Les éoliennes roses <span class="pinkdot"></span>',
+      s7_p1:'Le même test à l’envers : <b data-stat="dgeg_only">19</b> éoliennes figurent au registre DGEG sans aucun équivalent dans OpenStreetMap. L’explication la plus probable est une <b>construction récente</b> — les images satellite dont disposent les bénévoles ont du retard, parfois de plus d’un an. Elles sont dessinées en rose, avec exactement cette mention : présentes au registre officiel, pas encore vues par une seconde source.',
+      s8_kick:'À l’échelle du parc', s8_h2:'<b data-stat="plants_confirmed">35</b> parcs sur <b data-stat="plants">37</b> confirmés indépendamment',
+      s8_p1:'La même idée un étage plus haut. Chaque parc OSM est rattaché à un parc DGEG — par le nombre de ses éoliennes qui concordent, et sous quel nom — et au registre e2p de l’INEGI, par proximité et par type. Ceux qui n’ont pas de confirmation indépendante reposent sur le seul OSM, et la fiche de la carte le dit.',
+      s9_kick:'Construit, ou seulement approuvé', s9_h2:'Comment savoir si un projet approuvé a réellement été construit',
+      s9_p1:'C’est une autre question, et c’est la géométrie qui y répond. L’APA publie l’aire d’étude de chaque projet. La question devient donc : <b>y a-t-il, à l’intérieur de ce polygone, une éolienne ou un bloc solaire autorisé par la DGEG ?</b>',
+      s9_l1:'Il y a quelque chose dedans → <b>construit</b>.',
+      s9_l2:'Il n’y a rien → <b>approuvé et encore à construire</b>. C’est la catégorie intéressante : l’autorisation existe, la montagne est encore debout.',
+      s9_l3:'Aucun polygone publié, ou il s’agit de lignes et de postes (que le registre des centrales de la DGEG ne couvre pas) → <b>impossible de se prononcer</b>, et c’est ce qui est écrit. Mieux vaut l’admettre que le suggérer.',
+      s9_p2:'Un chantier en cours se lit comme non construit. C’est une <b>déduction</b>, pas un certificat — et la carte le dit ainsi.',
+      s10_kick:'La routine', s10_h2:'Ce qui tourne, et à quelle fréquence',
+      s10_p1:'Une fois par semaine, sur le serveur, toujours dans le même ordre : récupérer la géométrie et les étiquettes d’OpenStreetMap ; récupérer le registre d’autorisation de la DGEG ; récupérer l’e2p de l’INEGI ; tout recouper et mesurer les écarts ; récupérer les aires d’étude de l’APA ; déterminer ce qui est construit ; récupérer les zones brûlées de 2011 à 2025 ; écrire un unique fichier de données.',
+      s10_p2:'Chaque étape réécrit son propre résultat — rien ne s’accumule, rien ne subsiste d’une semaine précédente. La carte ne calcule rien : elle se contente de dessiner ce fichier. Dernière reconstruction : <b data-stat="built">—</b>.',
+      s11_kick:'Les limites', s11_h2:'Ce que cela ne prouve pas',
+      lim1:'La tolérance de <b>250 m</b> est un choix de méthode. Plus serrée, certaines paires cesseraient de concorder ; plus large, davantage concorderaient. La valeur est déclarée précisément pour que le test puisse être refait avec une autre.',
+      lim2:'<b>« Approuvé et à construire »</b> est une déduction tirée de l’absence d’enregistrement, non un certificat de non-exécution.',
+      lim3:'Les données sont un <b>instantané hebdomadaire</b>. Une autorisation délivrée hier n’apparaît qu’à la reconstruction suivante.',
+      s11_p:'La liste complète des limites de la carte — la couche APA qui s’arrête au dossier n° 3762, les emprises qui sont des enveloppes convexes des éoliennes et non des limites légales, les lignes et postes absents du registre des centrales — figure au bas de la <a href="/map">page de la carte</a> elle-même.',
+      s12_kick:'Refaire le test', s12_h2:'Toutes les sources sont publiques',
+      s12_p:'Rien de tout cela ne dépend d’un accès privilégié. Les quatre registres sont ouverts à tous — c’est pourquoi les adresses sont ici. Qui veut refaire le recoupement, avec une autre tolérance ou une autre emprise, arrivera aux mêmes chiffres.',
+      src_dgeg:'· le registre d’autorisation, un polygone par bloc',
+      src_osm:'· via l’API Overpass',
+      src_apa:'· dossiers d’évaluation d’impact environnemental et aires d’étude',
+      src_inegi:'· registre académique, un point par centrale',
+      cta1:'Voir la carte →', cta2:'Retour à la campagne',
+      foot_made:'Fait par des voisins de la Beira Baixa qui veulent la serra debout. · <a href="/">salvargardunha.com</a>',
+      disc:'Page de méthode de la carte vérifiée. Tous les chiffres sont recalculés chaque semaine à partir des registres publics cités. Informative, civique, sans but lucratif, non affiliée à un parti, une entreprise ou une entité publique.'
+    }
+  };
+
+  var PT={};
+  document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
+  function tr(l,k){ if(l==='pt')return PT[k]; return (I18N[l]&&I18N[l][k]!=null)?I18N[l][k]:PT[k]; }
+
+  /* The live numbers come from the same file the map draws, so this page can never
+     quote a figure the map itself has moved past. The hard-coded values in the markup
+     are the last known good ones and stay put if the fetch fails. */
+  var STATS=null;
+  function fillStats(){
+    if(!STATS) return;
+    document.querySelectorAll('[data-stat]').forEach(function(el){
+      var k=el.getAttribute('data-stat');
+      var v=(k==='unmatched') ? (STATS.turbines-STATS.turbines_confirmed) : STATS[k];
+      if(v!==undefined&&v!==null) el.textContent=v;
+    });
+  }
+  function applyLang(l){
+    if(LANGS.indexOf(l)<0)l='pt';
+    document.documentElement.lang=(l==='pt'?'pt-PT':l);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=tr(l,el.getAttribute('data-i18n'));});
+    document.querySelectorAll('#langsw button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
+    try{localStorage.setItem('nf_lang',l);}catch(e){}
+    fillStats();   /* the swap rewrote the placeholders — put the live numbers back */
+  }
+  document.querySelectorAll('#langsw button').forEach(function(b){
+    b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang'));});});
+  var saved; try{saved=localStorage.getItem('nf_lang');}catch(e){}
+  applyLang(saved||'pt');
+
+  fetch(DATA_URL).then(function(r){return r.json();}).then(function(d){
+    if(d&&d.stats){STATS=d.stats;fillStats();}
+  }).catch(function(){});
+})();
+</script>
+
+</body>
+</html>

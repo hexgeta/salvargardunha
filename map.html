@@ -60,8 +60,13 @@
   .note-small{font-size:12.5px;color:var(--muted);margin-top:10px}
   /* leaflet dark popups */
   .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#161d16;color:var(--ink);border:1px solid var(--line)}
-  .leaflet-popup-content{font-size:13px;line-height:1.5;margin:12px 14px;max-height:60vh;overflow:auto}
-  .leaflet-popup-content h3{margin:0 0 7px;font-size:14.5px;font-weight:800}
+  /* The popup body scrolls when a project has a long field list (e.g. a grid line
+     crossing ten municipalities). The title must stay pinned or you lose track of
+     WHAT you clicked; the close button sits at 12px, so pad the title around it. */
+  .leaflet-popup-content{font-size:13px;line-height:1.5;margin:12px 14px;max-height:min(46vh,340px);overflow:auto;overscroll-behavior:contain}
+  .leaflet-popup-content h3{position:sticky;top:-12px;z-index:1;background:#161d16;
+    margin:-12px -14px 7px;padding:12px 32px 7px 14px;font-size:14.5px;font-weight:800;
+    border-bottom:1px solid var(--line)}
   .leaflet-popup-content table{border-collapse:collapse;margin:6px 0}
   .leaflet-popup-content td{padding:1px 10px 1px 0;vertical-align:top}
   .leaflet-popup-content td:first-child{color:var(--muted)}
@@ -72,6 +77,8 @@
   .leaflet-container{background:#0d110d}
   .lgd{background:rgba(10,13,10,.9);border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:12px;line-height:1.65;color:var(--ink)}
   .lgd i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:7px}
+  .zoomhint{max-width:230px;color:var(--muted);cursor:pointer}
+  @media(pointer:coarse){.zoomhint{display:none}}
   h2.sec{font-size:clamp(19px,2.6vw,24px);font-weight:800;letter-spacing:-.01em;margin:34px 0 4px;padding-top:20px;border-top:1px solid var(--line)}
   .sect-sub{color:var(--muted);font-size:13.5px;margin-bottom:16px}
   .srcgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
@@ -120,6 +127,7 @@
     <p class="sect-sub" data-i18n="sec_method_s">Um mapa só vale o que vale a sua verificação.</p>
     <p class="lede" id="method1"></p>
     <p class="lede" id="method2" style="margin-top:12px"></p>
+    <p class="note-small" style="margin-top:14px;font-size:14.5px"><a href="/verificacao" data-i18n="method_more">Quem conta os aerogeradores, quem confirma e como se cruzam as quatro fontes — o método explicado passo a passo →</a></p>
 
     <h2 class="sec" data-i18n="sec_limits">O que este mapa não pode dizer</h2>
     <p class="sect-sub" data-i18n="sec_limits_s">Os limites, declarados à partida.</p>
@@ -137,6 +145,7 @@
       </div>
       <div class="foot-col"><h4 data-i18n="fcol_docs">Documentos e dados</h4>
         <a href="/map" data-i18n="fl_map">Mapa verificado</a>
+        <a href="/verificacao" data-i18n="fl_method">Como o mapa é verificado</a>
         <a href="/mapa" data-i18n="fl_maps">Os mapas das áreas</a>
         <a href="/sobre" data-i18n="foot_about">Perceber o processo — quem decide</a>
         <a href="/objecoes" data-i18n="fl_obj">As 172 objeções</a>
@@ -167,6 +176,7 @@ pt:{
  lede:'Todos os parques eólicos e centrais solares <b>já construídos, licenciados e aprovados</b> à volta da Serra da Gardunha, com a posição de cada aerogerador. Construído a partir dos registos oficiais e verificado cruzando-os uns contra os outros.',
  callout:'⚠️ <b>Nenhuma coordenada foi inventada.</b> Cada posição vem de um registo público. Os projetos que existem no papel mas sem geometria publicada estão listados e assinalados como <b>sem localização</b> — não são colocados num sítio plausível.',
  loading:'A carregar os dados…',
+ zoomhint:'Clique no mapa para ampliar com o scroll',
  k_turb:'aerogeradores mapeados', k_conf:'confirmados em duas fontes', k_off:'desvio mediano entre fontes',
  k_only:'só no registo DGEG (recentes)', k_plan:'projetos no registo da APA', k_unbuilt:'aprovados e por construir',
  built_note:function(d){return 'Dados reconstruídos automaticamente todas as segundas-feiras a partir dos registos oficiais. Última atualização: '+d.stats.built+'.';},
@@ -213,6 +223,8 @@ pt:{
  fcol_campaign:'A campanha', fcol_docs:'Documentos e dados', fcol_official:'Fontes oficiais',
  fl_home:'Início', fl_act:'Agir na consulta', fl_share:'Espalhar a palavra', fl_map:'Mapa verificado',
  fl_maps:'Os mapas das áreas', foot_about:'Perceber o processo — quem decide', fl_obj:'As 172 objeções',
+ fl_method:'Como o mapa é verificado',
+ method_more:'Quem conta os aerogeradores, quem confirma e como se cruzam as quatro fontes — o método explicado passo a passo →',
  fdisc:'Feito por vizinhos da Beira Baixa que querem a serra de pé. Página informativa e cívica, sem fins lucrativos, não afiliada a nenhum partido, empresa ou entidade pública.'
 },
 en:{
@@ -222,6 +234,7 @@ en:{
  lede:'Every wind farm and solar plant <b>already built, licensed and approved</b> around the Serra da Gardunha, down to the position of each individual turbine. Built from the official registers and verified by cross-checking them against each other.',
  callout:'⚠️ <b>No coordinate here was invented.</b> Every position comes from a public register. Projects that exist on paper but have no published geometry are listed and flagged as <b>having no location</b> — they are not dropped somewhere plausible.',
  loading:'Loading the data…',
+ zoomhint:'Click the map to zoom with the scroll wheel',
  k_turb:'turbines mapped', k_conf:'confirmed in two sources', k_off:'median offset between sources',
  k_only:'only in the DGEG register (recent)', k_plan:'projects in the APA register', k_unbuilt:'approved and unbuilt',
  built_note:function(d){return 'Data rebuilt automatically every Monday from the official registers. Last updated: '+d.stats.built+'.';},
@@ -268,6 +281,8 @@ en:{
  fcol_campaign:'The campaign', fcol_docs:'Documents & data', fcol_official:'Official sources',
  fl_home:'Home', fl_act:'Take action', fl_share:'Spread the word', fl_map:'The verified map',
  fl_maps:'The maps of the areas', foot_about:'Understand the process — who decides', fl_obj:'The 172 objections',
+ fl_method:'How the map is verified',
+ method_more:'Who counts the turbines, who confirms them, and how the four sources are cross-checked — the method, step by step →',
  fdisc:'Made by neighbours of the Beira Baixa who want the mountain left standing. Informative, civic, non-profit page, not affiliated with any party, company or public body.'
 },
 de:{
@@ -277,6 +292,7 @@ de:{
  lede:'Alle Windparks und Solarkraftwerke rund um die Serra da Gardunha, die <b>bereits gebaut, genehmigt oder lizenziert</b> sind — bis auf die Position jeder einzelnen Windkraftanlage. Aus den amtlichen Registern erstellt und durch deren gegenseitigen Abgleich geprüft.',
  callout:'⚠️ <b>Keine Koordinate wurde erfunden.</b> Jede Position stammt aus einem öffentlichen Register. Projekte, die auf dem Papier bestehen, aber keine veröffentlichte Geometrie haben, sind aufgeführt und als <b>ohne Standort</b> gekennzeichnet — sie werden nicht an einen plausiblen Ort gesetzt.',
  loading:'Daten werden geladen…',
+ zoomhint:'Karte anklicken, um mit dem Scrollrad zu zoomen',
  k_turb:'erfasste Windräder', k_conf:'in zwei Quellen bestätigt', k_off:'mittlere Abweichung zwischen Quellen',
  k_only:'nur im DGEG-Register (neu)', k_plan:'Projekte im APA-Register', k_unbuilt:'genehmigt und ungebaut',
  built_note:function(d){return 'Daten werden jeden Montag automatisch aus den amtlichen Registern neu erstellt. Letzte Aktualisierung: '+d.stats.built+'.';},
@@ -323,6 +339,8 @@ de:{
  fcol_campaign:'Die Kampagne', fcol_docs:'Dokumente & Daten', fcol_official:'Offizielle Quellen',
  fl_home:'Startseite', fl_act:'Handeln', fl_share:'Wort verbreiten', fl_map:'Die geprüfte Karte',
  fl_maps:'Die Karten der Flächen', foot_about:'Den Prozess verstehen — wer entscheidet', fl_obj:'Die 172 Einwände',
+ fl_method:'Wie die Karte geprüft wird',
+ method_more:'Wer die Windräder zählt, wer sie bestätigt und wie die vier Quellen abgeglichen werden — die Methode, Schritt für Schritt →',
  fdisc:'Von Nachbarn der Beira Baixa gemacht, die den Bergzug erhalten wollen. Informative, zivilgesellschaftliche, gemeinnützige Seite, keiner Partei, Firma oder Behörde zugehörig.'
 },
 fr:{
@@ -332,6 +350,7 @@ fr:{
  lede:'Tous les parcs éoliens et centrales solaires <b>déjà construits, autorisés et approuvés</b> autour de la Serra da Gardunha, jusqu’à la position de chaque éolienne. Construite à partir des registres officiels et vérifiée en les recoupant les uns avec les autres.',
  callout:'⚠️ <b>Aucune coordonnée n’a été inventée.</b> Chaque position provient d’un registre public. Les projets qui existent sur le papier mais sans géométrie publiée sont listés et signalés comme <b>sans localisation</b> — ils ne sont pas placés à un endroit plausible.',
  loading:'Chargement des données…',
+ zoomhint:'Cliquez sur la carte pour zoomer à la molette',
  k_turb:'éoliennes cartographiées', k_conf:'confirmées dans deux sources', k_off:'écart médian entre sources',
  k_only:'uniquement au registre DGEG (récentes)', k_plan:'projets au registre de l’APA', k_unbuilt:'approuvés et non construits',
  built_note:function(d){return 'Données reconstruites automatiquement chaque lundi à partir des registres officiels. Dernière mise à jour : '+d.stats.built+'.';},
@@ -378,6 +397,8 @@ fr:{
  fcol_campaign:'La campagne', fcol_docs:'Documents et données', fcol_official:'Sources officielles',
  fl_home:'Accueil', fl_act:'Agir', fl_share:'Faire passer le mot', fl_map:'La carte vérifiée',
  fl_maps:'Les cartes des zones', foot_about:'Comprendre le processus — qui décide', fl_obj:'Les 172 objections',
+ fl_method:'Comment la carte est vérifiée',
+ method_more:'Qui compte les éoliennes, qui les confirme et comment les quatre sources sont recoupées — la méthode, pas à pas →',
  fdisc:'Fait par des voisins de la Beira Baixa qui veulent garder la montagne debout. Page informative, citoyenne, à but non lucratif, non affiliée à un parti, une entreprise ou un organisme public.'
 }};
 
@@ -528,9 +549,36 @@ function rowsOf(pairs){
 }
 
 /* ----------------------------------------------------------------- map */
-var map=L.map('map',{center:[40.08,-7.53],zoom:10,scrollWheelZoom:false,
+var map=L.map('map',{center:[40.08,-7.53],zoom:10,scrollWheelZoom:false,preferCanvas:true,
   minZoom:7,maxBounds:[[36.8,-9.9],[42.3,-6.0]],maxBoundsViscosity:1});
-map.on('click',function(){map.scrollWheelZoom.enable();});
+
+/* Scroll-wheel zoom is off until you click the map once, so that scrolling PAST
+   the map doesn't trap the page. Once armed it follows the pointer: on over the
+   map, off when you leave, so the page scrolls normally again. A hint overlay
+   says so, and disappears the moment it is armed. */
+var zoomArmed=false;
+var hint=L.control({position:'bottomleft'});
+hint.onAdd=function(){var el=L.DomUtil.create('div','lgd zoomhint');el.setAttribute('data-i18n','zoomhint');
+  el.textContent=t('zoomhint');return el;};
+hint.addTo(map);
+map.on('click',function(){
+  if(zoomArmed) return;
+  zoomArmed=true; map.scrollWheelZoom.enable();
+  map.removeControl(hint);
+});
+map.getContainer().addEventListener('mouseenter',function(){if(zoomArmed) map.scrollWheelZoom.enable();});
+map.getContainer().addEventListener('mouseleave',function(){map.scrollWheelZoom.disable();});
+
+/* Long field lists (a grid line crossing ten municipalities) make a tall popup.
+   Leave room for the sticky top nav when auto-panning, keep it in view while the
+   user drags, and always open scrolled to the title rather than mid-table. */
+L.Popup.mergeOptions({maxWidth:340,keepInView:true,
+  autoPanPaddingTopLeft:[14,72],autoPanPaddingBottomRight:[14,14]});
+map.on('popupopen',function(e){
+  var c=e.popup.getElement();
+  var body=c&&c.querySelector('.leaflet-popup-content');
+  if(body) body.scrollTop=0;
+});
 // Same basemap product as pipocas.hexgeta.com — CartoCDN (keyless). Voyager is
 // the default; a dark variant, satellite and terrain stay available to switch to.
 var carto=L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:20,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
