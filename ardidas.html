@@ -139,7 +139,7 @@
     <div class="scoreboard" id="scoreboard"></div>
     <div class="verdict">
       <div class="vk" data-i18n="v_kick">Conclusão</div>
-      <p data-i18n="v_p">A área solar licenciada em Portugal assenta em terreno ardido a cerca de <b>metade</b> da taxa a que ardeu a terra à sua volta. O eólico assenta em cicatriz constantemente — mas exatamente na proporção em que ardem as serras onde está. <b>Nenhuma das duas tecnologias mostra, à escala do país, preferência por terreno queimado.</b></p>
+      <p data-i18n="v_p">A área solar licenciada em Portugal assenta em terreno ardido a <b data-stat="solar_ratio">0,94</b>× a taxa a que ardeu a terra à sua volta; o eólico, a <b data-stat="wind_ratio">0,98</b>×. Um valor abaixo de 1 significa <b>menos</b> terreno ardido do que a própria vizinhança teria dado por acaso. <b>Nenhuma das duas tecnologias mostra, à escala do país, preferência por terreno queimado.</b></p>
     </div>
     <p data-i18n="s3_p1">Publicamos isto porque a alternativa seria escolher os números que assentam na narrativa — que é precisamente aquilo de que acusamos, e com razão, os relatórios da consulta pública. Um mapa que só confirma quem o faz não serve para nada.</p>
     <p data-i18n="s3_p2">Vale a pena registar o que o eólico revela: <b data-stat="wind_on_scar">186</b> dos <b data-stat="wind_plants">264</b> parques eólicos tocam uma mancha ardida, e <b data-stat="wind_obs">35,0</b>% da sua área total já ardeu. Não porque alguém escolha cicatrizes, mas porque <b>o eólico ocupa exatamente o tipo de terreno que arde</b>: cumeada de mato, sem gente. O que a serra tem de perigoso é o que a torna atraente para quem a quer licenciar.</p>
@@ -249,7 +249,7 @@
       st4_p:'Solar is built mostly in the south, and the south barely burns; wind goes on ridges, and ridges burn constantly. Comparing either against the national average gives the wrong answer. So we also measure <b>how much of the land within 20 km of each plant burned</b>, on a 1 km grid clipped to the mainland, and score the plant against that.',
       s3_kick:'The result', s3_h2:'No. The national data does not show that choice',
       v_kick:'Conclusion',
-      v_p:'Licensed solar in Portugal sits on burned ground at about <b>half</b> the rate at which the land around it burned. Wind sits on scars constantly — but in exactly the proportion in which the ranges it occupies burn. <b>Neither technology shows, at national scale, a preference for burned land.</b>',
+      v_p:'Licensed solar in Portugal sits on burned ground at <b data-stat="solar_ratio">0.94</b>× the rate at which the land around it burned; wind at <b data-stat="wind_ratio">0.98</b>×. Anything below 1 means <b>less</b> burned ground than the plant’s own neighbourhood would have handed it by chance. <b>Neither technology shows, at national scale, a preference for burned land.</b>',
       s3_p1:'We publish this because the alternative would be picking the numbers that fit the story — which is precisely what we accuse the consultation reports of doing, and rightly. A map that only ever confirms the people who made it is worth nothing.',
       s3_p2:'What wind reveals is worth recording: <b data-stat="wind_on_scar">186</b> of <b data-stat="wind_plants">264</b> wind farms touch a burn scar, and <b data-stat="wind_obs">35.0</b>% of their combined footprint has burned. Not because anyone picks scars, but because <b>wind occupies exactly the kind of ground that burns</b>: scrub ridges, empty of people. What makes the range dangerous is what makes it attractive to whoever wants to license it.',
       s4_kick:'The exception', s4_h2:'Where there is, in fact, something to explain',
@@ -297,7 +297,7 @@
       st4_p:'Solar entsteht vor allem im Süden, und der Süden brennt kaum; Wind steht auf Kämmen, und Kämme brennen ständig. Beide gegen den Landesdurchschnitt zu halten, ergibt die falsche Antwort. Deshalb wird auch gemessen, <b>wie viel des Landes im Umkreis von 20 km um jede Anlage gebrannt hat</b> — auf einem 1-km-Raster über dem Festland — und die Anlage daran gemessen.',
       s3_kick:'Das Ergebnis', s3_h2:'Nein. Die landesweiten Daten zeigen diese Auswahl nicht',
       v_kick:'Fazit',
-      v_p:'Genehmigte Solarfläche in Portugal liegt etwa <b>halb so oft</b> auf Brandfläche, wie das Land um sie herum gebrannt hat. Wind liegt ständig auf Brandflächen — aber genau in dem Maß, in dem die Bergzüge brennen, auf denen er steht. <b>Keine der beiden Technologien zeigt auf Landesebene eine Vorliebe für verbranntes Land.</b>',
+      v_p:'Genehmigte Solarfläche in Portugal liegt zum <b data-stat="solar_ratio">0,94</b>-fachen der Rate auf Brandfläche, mit der das Land ringsum gebrannt hat; Wind zum <b data-stat="wind_ratio">0,98</b>-fachen. Ein Wert unter 1 bedeutet <b>weniger</b> Brandfläche, als die eigene Umgebung dem Zufall nach ergeben hätte. <b>Keine der beiden Technologien zeigt auf Landesebene eine Vorliebe für verbranntes Land.</b>',
       s3_p1:'Wir veröffentlichen das, weil die Alternative wäre, die passenden Zahlen auszusuchen — genau das, was wir den Berichten der öffentlichen Konsultation vorwerfen, zu Recht. Eine Karte, die nur bestätigt, wer sie gemacht hat, ist nichts wert.',
       s3_p2:'Was der Wind zeigt, ist festhaltenswert: <b data-stat="wind_on_scar">186</b> von <b data-stat="wind_plants">264</b> Windparks berühren eine Brandfläche, und <b data-stat="wind_obs">35,0</b>% ihrer Gesamtfläche hat gebrannt. Nicht weil jemand Brandflächen wählt, sondern weil <b>Wind genau das Gelände besetzt, das brennt</b>: Buschkämme ohne Menschen. Was den Bergzug gefährlich macht, macht ihn für die Genehmigungswilligen attraktiv.',
       s4_kick:'Die Ausnahme', s4_h2:'Wo es tatsächlich etwas zu erklären gibt',
@@ -345,7 +345,7 @@
       st4_p:'Le solaire se construit surtout au sud, et le sud brûle peu ; l’éolien s’installe sur les crêtes, et les crêtes brûlent sans cesse. Comparer l’un ou l’autre à la moyenne nationale donne une réponse fausse. On mesure donc aussi <b>ce qui a brûlé dans un rayon de 20 km autour de chaque centrale</b>, sur une grille de 1 km couvrant le continent, et c’est à cette valeur que la centrale est comparée.',
       s3_kick:'Le résultat', s3_h2:'Non. Les données nationales ne montrent pas ce choix',
       v_kick:'Conclusion',
-      v_p:'La surface solaire autorisée au Portugal repose sur des terres brûlées à environ <b>la moitié</b> du taux auquel la terre autour d’elle a brûlé. L’éolien repose constamment sur des zones brûlées — mais exactement dans la proportion où brûlent les massifs qu’il occupe. <b>Aucune des deux technologies ne montre, à l’échelle du pays, de préférence pour les terres brûlées.</b>',
+      v_p:'La surface solaire autorisée au Portugal repose sur des terres brûlées à <b data-stat="solar_ratio">0,94</b>× le taux auquel la terre autour d’elle a brûlé ; l’éolien à <b data-stat="wind_ratio">0,98</b>×. Une valeur inférieure à 1 signifie <b>moins</b> de terres brûlées que le voisinage de la centrale n’en aurait donné par hasard. <b>Aucune des deux technologies ne montre, à l’échelle du pays, de préférence pour les terres brûlées.</b>',
       s3_p1:'Nous publions cela parce que l’alternative serait de choisir les chiffres qui collent au récit — précisément ce que nous reprochons, à juste titre, aux rapports de la consultation publique. Une carte qui ne fait que confirmer ceux qui l’ont faite ne vaut rien.',
       s3_p2:'Ce que révèle l’éolien mérite d’être noté : <b data-stat="wind_on_scar">186</b> des <b data-stat="wind_plants">264</b> parcs éoliens touchent une zone brûlée, et <b data-stat="wind_obs">35,0</b>% de leur surface totale a brûlé. Non parce que quelqu’un choisirait les zones brûlées, mais parce que <b>l’éolien occupe exactement le type de terrain qui brûle</b> : des crêtes de broussailles, vides d’habitants. Ce qui rend le massif dangereux est ce qui le rend attirant pour qui veut l’autoriser.',
       s4_kick:'L’exception', s4_h2:'Là où il y a effectivement quelque chose à expliquer',
@@ -411,7 +411,8 @@
             solar_plants:so.plants, wind_plants:wi.plants, wind_on_scar:wi.on_scar,
             wind_obs:num(wi.observed_share*100), pre:st.burned_then_built,
             post:st.burned_after_built, unk:st.date_unknown,
-            onscar:so.on_scar+wi.on_scar, built:st.built };
+            onscar:so.on_scar+wi.on_scar, built:st.built,
+            solar_ratio:num(so.ratio_local,2), wind_ratio:num(wi.ratio_local,2) };
     document.querySelectorAll('[data-stat]').forEach(function(el){
       var k=el.getAttribute('data-stat');
       if(v[k]!==undefined&&v[k]!==null) el.textContent=v[k];

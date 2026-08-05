@@ -116,26 +116,65 @@
   #panel::-webkit-scrollbar-corner{background:transparent}
   #panelClose{position:absolute;top:8px;right:10px;background:none;border:0;color:var(--muted);font-size:16px;cursor:pointer;line-height:1}
   #panelClose:hover{color:var(--ink)}
-  #panel .kpis{grid-template-columns:1fr 1fr;gap:8px;margin:2px 0 14px}
-  #panel .kpi{padding:10px 12px}
-  #panel .kpi .n{font-size:20px}
+  /* --- stats panel -----------------------------------------------------
+     One spacing scale for the whole panel: 8px inside a card, 10px between
+     cards, 16px between blocks. Every number is tabular so columns of digits
+     line up instead of shimmering as the data changes. */
+  #panel > * + *{margin-top:16px}
+  /* #kpis carries the page-level .kpis grid class; inside the panel it is just a
+     stack of three blocks, and the inherited auto-fit grid was what made the
+     totals, the tabs and the cards sit at odd distances from each other. */
+  #panel .kpis{display:block;margin:0;gap:0}
+  #panel .kpis > * + *{margin-top:12px}
+  #panel .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 13px}
+  #panel .n,#panel .tot-n{font-variant-numeric:tabular-nums}
+
+  #panel .tots{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0}
+  #panel .tot{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 13px}
+  #panel .tot-n{font-size:24px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.02em}
+  #panel .tot-l{font-size:12px;color:var(--muted);margin-top:3px;text-transform:capitalize}
+
+  /* segmented control: one track, the active item is a pill inside it */
+  #panel .tabbtns{display:flex;gap:2px;background:rgba(255,255,255,.04);
+    border:1px solid var(--line);border-radius:10px;padding:3px;margin:0}
+  #panel .tabbtn{flex:1;font:inherit;font-size:12.5px;font-weight:600;padding:6px 8px;border-radius:7px;
+    border:0;background:transparent;color:var(--muted);cursor:pointer;text-transform:capitalize;
+    transition:background .12s,color .12s}
+  #panel .tabbtn:hover{color:var(--ink);background:rgba(255,255,255,.05)}
+  #panel .tabbtn.on{background:rgba(34,197,94,.16);color:var(--green)}
+  #panel .kpis-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+  #panel .kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 13px}
+  #panel .kpi .n{font-size:20px;font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.02em}
+  #panel .kpi .l{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.35}
+  #panel .kpi.hot .n{color:var(--red,#f87171)}
+  #panel .foot-note{grid-column:1/-1;font-size:11.5px;line-height:1.45;color:var(--muted);margin-top:2px}
+
+  /* layer control — the browser defaults look pasted in, so: real rows */
   #panel-layers{overflow:hidden}
   #panel-layers .leaflet-control{float:none;clear:both}
-  #panel-layers .leaflet-control-layers{box-shadow:none;border:0;background:transparent;width:100%;margin:0}
+  #panel-layers .leaflet-control-layers{box-shadow:none;border:0;background:transparent;width:100%;margin:0;
+    color:var(--ink);font:inherit}
   #panel-layers .leaflet-control-layers-expanded{padding:0}
-  .panel-links{clear:both;margin-top:12px;display:flex;flex-direction:column;gap:8px}
-  .panel-link{color:var(--green);text-decoration:none;font-size:13.5px;line-height:1.4}
-  .panel-link.home{color:var(--muted)}
-  .panel-link:hover{text-decoration:underline}
-  #panel .langsw{margin:14px 0 0;display:flex;gap:2px}
-  #burnbox{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 14px}
-  #burnbox h3{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:800;margin:0 0 9px}
-  #burnbox .row{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;padding:4px 0;border-top:1px solid var(--line)}
-  #burnbox .row:first-of-type{border-top:0}
-  #burnbox .row b{color:#fff;font-weight:700;white-space:nowrap}
+  #panel-layers .leaflet-control-layers-list{margin:0}
+  #panel-layers label{display:block;margin:0;border-radius:8px;cursor:pointer;transition:background .12s}
+  #panel-layers label:hover{background:rgba(255,255,255,.05)}
+  #panel-layers label > span,#panel-layers label > div{display:flex;align-items:center;gap:9px;padding:6px 8px}
+  #panel-layers label span span{display:flex;align-items:center;gap:0;font-size:13px;line-height:1.3}
+  #panel-layers input[type=checkbox],#panel-layers input[type=radio]{flex:none;width:15px;height:15px;margin:0;
+    accent-color:var(--green-d);cursor:pointer}
+  #panel-layers .leaflet-control-layers-separator{border-top:1px solid var(--line);margin:8px 0;height:0}
+  #panel-layers .leaflet-control-layers-overlays{margin-top:2px}
+
+  #burnbox{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 13px}
+  #burnbox h3{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:700;margin:0 0 8px}
+  #burnbox .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12.5px;
+    padding:6px 0;border-top:1px solid var(--line)}
+  #burnbox .row:first-of-type{border-top:0;padding-top:0}
+  #burnbox .row b{color:#fff;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
   #burnbox .x{color:var(--green)}
   #burnbox .x.over{color:#f87171}
-  #burnbox .cav{font-size:11.5px;color:var(--muted);line-height:1.45;margin-top:9px}
+  #burnbox .cav{font-size:11.5px;color:var(--muted);line-height:1.45;margin-top:10px;
+    padding-top:10px;border-top:1px solid var(--line)}
 
   /* top-right overlay controls: language toggle + stats button */
   #topctrls{position:fixed;top:12px;right:12px;z-index:1000;display:flex;align-items:center;gap:2px;
@@ -149,21 +188,17 @@
   #topctrls .sep{flex:none;width:1px;height:18px;background:var(--line);margin:0 4px}
   .detailhint{margin-top:9px;padding-top:9px;border-top:1px solid var(--line);
     font-size:11.5px;line-height:1.45;color:var(--muted)}
+  #burnnote b{color:var(--ink);font-weight:700}
   /* the credit line the tile licences require, at the smallest it can honestly be */
   .leaflet-control-attribution{background:transparent!important;color:#5d675d;font-size:10px;
     padding:0 6px 2px 0;text-shadow:0 1px 2px rgba(0,0,0,.7);box-shadow:none}
   .leaflet-control-attribution a{color:#77836f;text-decoration:none}
   .leaflet-control-attribution a:hover{color:var(--green)}
-  /* stats panel: headline totals + per-type tabs */
-  #panel .tots{display:flex;gap:10px;margin:0 0 14px}
-  #panel .tot{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-  #panel .tot-n{font-size:26px;font-weight:900;color:#fff;line-height:1;letter-spacing:-.02em}
-  #panel .tot-l{font-size:12px;color:var(--muted);margin-top:5px;text-transform:capitalize}
-  #panel .tabbtns{display:flex;gap:6px;margin-bottom:12px}
-  #panel .tabbtn{flex:1;font:inherit;font-size:12.5px;font-weight:700;padding:7px 8px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;text-transform:capitalize}
-  #panel .tabbtn:hover{color:var(--ink)}
-  #panel .tabbtn.on{background:var(--green-d);color:#05230f;border-color:var(--green-d)}
-  #panel .kpis-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .panel-links{clear:both;display:flex;flex-direction:column;gap:8px}
+  .panel-link{color:var(--green);text-decoration:none;font-size:13.5px;line-height:1.4}
+  .panel-link.home{color:var(--muted)}
+  .panel-link:hover{text-decoration:underline}
+  #panel .langsw{margin:0;display:flex;gap:2px}
 </style>
 <script defer data-domain="salvargardunha.com" src="https://analytics.hexgeta.com/script.js"></script>
 </head>
@@ -201,6 +236,8 @@
 (function(){
 var DATA_URL = '/dados/data.json';
 var ARDIDAS_URL = '/dados/ardidas.json';
+var BURNS_URL = '/dados/burns.json';
+var ARD25_URL   = '/dados/ardidas-2025.json';
 
 /* ------------------------------------------------------------ interface */
 var STR = {
@@ -214,11 +251,14 @@ pt:{
  zoomhint:'Clique no mapa para ampliar com o scroll',
  detailhint:'Cada aerogerador aparece ao aproximar. Vista de país mostra só as áreas dos parques.',
  k_turb:'aerogeradores mapeados', k_conf:'confirmados em duas fontes', k_off:'desvio mediano entre fontes',
- k_only:'só no registo DGEG (recentes)', k_plan:'projetos no registo da APA', k_unbuilt:'aprovados e por construir', tab_plan:'Planeados',
+ k_only:'só no registo DGEG (recentes)', k_plan:'projetos planeados (APA)', k_unbuilt:'aprovados e por construir',
+ k_lines:'planeados que não são de uma só tecnologia — linhas, subestações e o próprio programa', thou:'.',
  built_note:function(d){return 'Dados reconstruídos automaticamente todas as segundas-feiras a partir dos registos oficiais. Última atualização: '+d.stats.built+'.';},
  base_map:'Mapa', base_dark:'Escuro', base_sat:'Satélite', base_topo:'Relevo',
  l_wind:'Parques eólicos (área)', l_turb:'Aerogeradores (OSM)', l_dturb:'Aerogeradores só no registo DGEG',
- l_solar:'Centrais solares (OSM)', l_dsolar:'Centrais solares (DGEG)', l_plan:'Projetos planeados', l_ardidas:'Áreas ardidas (2011–2025)',
+ l_solar:'Centrais solares (OSM)', l_dsolar:'Centrais solares (DGEG)', l_plan:'Projetos planeados', l_ardidas:'Áreas ardidas 2014–2025 (Gardunha)', l_ard25:'Áreas ardidas 2025 (país inteiro)',
+ burn_pop:'Área ardida',
+ burnnote:'<b>O que estas camadas mostram.</b> A da Gardunha traz todos os incêndios de 2014 a 2025 numa janela à volta da serra, ao pormenor. A de 2025 cobre o país inteiro, mas só as manchas com 5 ha ou mais e com o contorno simplificado a ~100 m: são 533 das 2 084 do registo — as 1 551 omitidas valem 0,8% da área ardida. O ficheiro completo tem 19 MB, demasiado para carregar num telemóvel. Fonte: ICNF.',
  lg_turb:'aerogerador (OSM + DGEG)', lg_dturb:'aerogerador só no registo DGEG', lg_solar:'central solar em exploração',
  lg_plan:'aprovado e ainda por construir', lg_line:'linha / subestação', lg_built:'licenciamento já construído',
  turbine:'Aerogerador', turbine_lic:'Aerogerador licenciado', noname:'sem nome',
@@ -281,11 +321,14 @@ en:{
  zoomhint:'Click the map to zoom with the scroll wheel',
  detailhint:'Individual turbines appear as you zoom in. At country view only the farm areas are drawn.',
  k_turb:'turbines mapped', k_conf:'confirmed in two sources', k_off:'median offset between sources',
- k_only:'only in the DGEG register (recent)', k_plan:'projects in the APA register', k_unbuilt:'approved and unbuilt', tab_plan:'Planned',
+ k_only:'only in the DGEG register (recent)', k_plan:'planned projects (APA)', k_unbuilt:'approved and unbuilt',
+ k_lines:'planned entries belonging to neither technology — lines, substations and the programme itself', thou:',',
  built_note:function(d){return 'Data rebuilt automatically every Monday from the official registers. Last updated: '+d.stats.built+'.';},
  base_map:'Map', base_dark:'Dark', base_sat:'Satellite', base_topo:'Terrain',
  l_wind:'Wind farms (extent)', l_turb:'Turbines (OSM)', l_dturb:'Turbines only in the DGEG register',
- l_solar:'Solar plants (OSM)', l_dsolar:'Solar plants (DGEG)', l_plan:'Planned projects', l_ardidas:'Burned areas (2011–2025)',
+ l_solar:'Solar plants (OSM)', l_dsolar:'Solar plants (DGEG)', l_plan:'Planned projects', l_ardidas:'Burned areas 2014–2025 (Gardunha)', l_ard25:'Burned areas 2025 (nationwide)',
+ burn_pop:'Burned area',
+ burnnote:'<b>What these layers show.</b> The Gardunha one carries every fire from 2014 to 2025 inside a window around the range, at full detail. The 2025 one covers the whole country, but only scars of 5 ha or more, with outlines simplified to ~100 m: 533 of the 2,084 on record — the 1,551 left out are 0.8% of the burned area. The complete file is 19 MB, too much to load on a phone. Source: ICNF.',
  lg_turb:'turbine (OSM + DGEG)', lg_dturb:'turbine only in the DGEG register', lg_solar:'solar plant in operation',
  lg_plan:'approved and still unbuilt', lg_line:'line / substation', lg_built:'consent already built',
  turbine:'Wind turbine', turbine_lic:'Licensed turbine', noname:'unnamed',
@@ -348,11 +391,14 @@ de:{
  zoomhint:'Karte anklicken, um mit dem Scrollrad zu zoomen',
  detailhint:'Einzelne Windräder erscheinen beim Hineinzoomen. In der Landesansicht werden nur die Parkflächen gezeichnet.',
  k_turb:'erfasste Windräder', k_conf:'in zwei Quellen bestätigt', k_off:'mittlere Abweichung zwischen Quellen',
- k_only:'nur im DGEG-Register (neu)', k_plan:'Projekte im APA-Register', k_unbuilt:'genehmigt und ungebaut', tab_plan:'Geplant',
+ k_only:'nur im DGEG-Register (neu)', k_plan:'geplante Projekte (APA)', k_unbuilt:'genehmigt und ungebaut',
+ k_lines:'geplante Einträge ohne eigene Technologie — Leitungen, Umspannwerke und das Programm selbst', thou:'.',
  built_note:function(d){return 'Daten werden jeden Montag automatisch aus den amtlichen Registern neu erstellt. Letzte Aktualisierung: '+d.stats.built+'.';},
  base_map:'Karte', base_dark:'Dunkel', base_sat:'Satellit', base_topo:'Gelände',
  l_wind:'Windparks (Fläche)', l_turb:'Windräder (OSM)', l_dturb:'Windräder nur im DGEG-Register',
- l_solar:'Solarkraftwerke (OSM)', l_dsolar:'Solarkraftwerke (DGEG)', l_plan:'Geplante Projekte', l_ardidas:'Brandflächen (2011–2025)',
+ l_solar:'Solarkraftwerke (OSM)', l_dsolar:'Solarkraftwerke (DGEG)', l_plan:'Geplante Projekte', l_ardidas:'Brandflächen 2014–2025 (Gardunha)', l_ard25:'Brandflächen 2025 (landesweit)',
+ burn_pop:'Brandfläche',
+ burnnote:'<b>Was diese Ebenen zeigen.</b> Die Gardunha-Ebene enthält alle Brände von 2014 bis 2025 in einem Ausschnitt rund um den Bergzug, in voller Auflösung. Die Ebene 2025 deckt das ganze Land ab, aber nur Flächen ab 5 ha und mit auf ~100 m vereinfachten Umrissen: 533 von 2 084 im Register — die 1 551 ausgelassenen machen 0,8% der Brandfläche aus. Die vollständige Datei hat 19 MB, zu viel für ein Mobiltelefon. Quelle: ICNF.',
  lg_turb:'Windrad (OSM + DGEG)', lg_dturb:'Windrad nur im DGEG-Register', lg_solar:'Solarkraftwerk in Betrieb',
  lg_plan:'genehmigt und noch ungebaut', lg_line:'Leitung / Umspannwerk', lg_built:'Genehmigung bereits gebaut',
  turbine:'Windkraftanlage', turbine_lic:'Genehmigte Anlage', noname:'ohne Namen',
@@ -415,11 +461,14 @@ fr:{
  zoomhint:'Cliquez sur la carte pour zoomer à la molette',
  detailhint:'Les éoliennes apparaissent en zoomant. En vue nationale, seules les emprises des parcs sont dessinées.',
  k_turb:'éoliennes cartographiées', k_conf:'confirmées dans deux sources', k_off:'écart médian entre sources',
- k_only:'uniquement au registre DGEG (récentes)', k_plan:'projets au registre de l’APA', k_unbuilt:'approuvés et non construits', tab_plan:'Planifiés',
+ k_only:'uniquement au registre DGEG (récentes)', k_plan:'projets planifiés (APA)', k_unbuilt:'approuvés et non construits',
+ k_lines:'entrées planifiées ne relevant d’aucune des deux technologies — lignes, postes et le programme lui-même', thou:'\u00a0',
  built_note:function(d){return 'Données reconstruites automatiquement chaque lundi à partir des registres officiels. Dernière mise à jour : '+d.stats.built+'.';},
  base_map:'Carte', base_dark:'Sombre', base_sat:'Satellite', base_topo:'Relief',
  l_wind:'Parcs éoliens (emprise)', l_turb:'Éoliennes (OSM)', l_dturb:'Éoliennes uniquement au registre DGEG',
- l_solar:'Centrales solaires (OSM)', l_dsolar:'Centrales solaires (DGEG)', l_plan:'Projets planifiés', l_ardidas:'Zones brûlées (2011–2025)',
+ l_solar:'Centrales solaires (OSM)', l_dsolar:'Centrales solaires (DGEG)', l_plan:'Projets planifiés', l_ardidas:'Zones brûlées 2014–2025 (Gardunha)', l_ard25:'Zones brûlées 2025 (tout le pays)',
+ burn_pop:'Zone brûlée',
+ burnnote:'<b>Ce que montrent ces couches.</b> Celle de la Gardunha contient tous les incendies de 2014 à 2025 dans une fenêtre autour de la serra, en pleine résolution. Celle de 2025 couvre tout le pays, mais seulement les taches de 5 ha ou plus, aux contours simplifiés à ~100 m : 533 sur les 2 084 du registre — les 1 551 omises représentent 0,8% de la surface brûlée. Le fichier complet fait 19 Mo, trop lourd pour un téléphone. Source : ICNF.',
  lg_turb:'éolienne (OSM + DGEG)', lg_dturb:'éolienne uniquement au registre DGEG', lg_solar:'centrale solaire en exploitation',
  lg_plan:'approuvé et encore non construit', lg_line:'ligne / poste', lg_built:'autorisation déjà construite',
  turbine:'Éolienne', turbine_lic:'Éolienne autorisée', noname:'sans nom',
@@ -660,6 +709,15 @@ function trSrc(s){
   return s;
 }
 var esc=function(s){return (s==null?'':String(s)).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});};
+// Thousands separator per language — "3,548" in English, "3.548" in Portuguese
+// and German, a thin space in French. Long digit strings are unreadable without it.
+function fmtN(n){
+  if(n==null||isNaN(n)) return n;
+  var neg=n<0, p=String(Math.abs(Math.round(n))), out='', sep=t('thou');
+  for(var i=0;i<p.length;i++){ if(i&&(p.length-i)%3===0) out+=sep; out+=p[i]; }
+  return (neg?'-':'')+out;
+}
+
 function rowsOf(pairs){
   return pairs.filter(function(p){return p[1]!=null&&p[1]!=='';})
     .map(function(p){return '<tr><td>'+esc(p[0])+'</td><td>'+p[1]+'</td></tr>';}).join('');
@@ -695,27 +753,54 @@ var topo=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom
 var gWind=L.layerGroup().addTo(map), gTurb=L.layerGroup().addTo(map),
     gSolar=L.layerGroup().addTo(map), gDgegSolar=L.layerGroup().addTo(map),
     gDgegTurb=L.layerGroup().addTo(map), gPlan=L.layerGroup().addTo(map);
-// Historic burned-area scars (ICNF, 2011–2025). Off by default; its ~500 KB of
-// polygons is fetched from our own mirror only when the layer is first switched
-// on, and drawn in a pane beneath the project markers.
+// Historic burned-area scars (ICNF). Two layers, because one file cannot be both
+// complete and loadable: the Gardunha one is every fire 2014–2025 at full
+// resolution but only around the range (~500 KB), the 2025 one is the whole
+// country but thinned to scars >=5 ha with ~100 m outlines (~350 KB). Both are
+// off by default, fetched from our own mirror the first time they are switched
+// on, and drawn in a pane beneath the project markers. What each one leaves out
+// is spelled out in `burnnote` under the layer control — a reader who sees an
+// empty Alentejo has to be able to tell "nothing burned" from "not loaded".
 map.createPane('burn'); map.getPane('burn').style.zIndex=350;
-var gArdidas=L.layerGroup(), ardidasLoaded=false, ARDIDAS=null;
+var gArdidas=L.layerGroup(), gArd25=L.layerGroup(),
+    ardidasLoaded=false, ard25Loaded=false, ARDIDAS=null, ARD25=null;
 // Redrawn on every language switch too — the popups carry a translated cause.
+function scar(a, year, group, style){
+  L.polygon(a.rings,{pane:'burn',color:style.line,weight:1,fillColor:style.fill,fillOpacity:.28})
+    .bindPopup('<b>'+t('burn_pop')+' · '+year+'</b>'
+      +(a.concelho?'<br>'+esc(a.concelho):'')+(a.area_ha?' · '+a.area_ha+' ha':'')
+      +(a.cause?'<br>'+esc(tr(a.cause)):'')).addTo(group);
+}
 function drawArdidas(){
   if(!ARDIDAS) return;
   gArdidas.clearLayers();
   (ARDIDAS.areas||[]).forEach(function(a){
-    L.polygon(a.rings,{pane:'burn',color:'#b45309',weight:1,fillColor:'#c2410c',fillOpacity:.28})
-      .bindPopup('<b>'+t('l_ardidas').split(' (')[0]+' · '+a.year+'</b>'
-        +(a.concelho?'<br>'+esc(a.concelho):'')+(a.area_ha?' · '+a.area_ha+' ha':'')
-        +(a.cause?'<br>'+esc(tr(a.cause)):'')).addTo(gArdidas);
+    scar(a,a.year,gArdidas,{line:'#b45309',fill:'#c2410c'});
+  });
+}
+function drawArd25(){
+  if(!ARD25) return;
+  gArd25.clearLayers();
+  (ARD25.areas||[]).forEach(function(a){
+    scar(a,ARD25.year,gArd25,{line:'#9a3412',fill:'#ea580c'});
   });
 }
 map.on('overlayadd', function(e){
-  if(e.layer!==gArdidas || ardidasLoaded) return;
-  ardidasLoaded=true;
-  fetch(ARDIDAS_URL).then(function(r){return r.json();}).then(function(d){ARDIDAS=d;drawArdidas();});
+  if(e.layer===gArdidas && !ardidasLoaded){
+    ardidasLoaded=true;
+    fetch(ARDIDAS_URL).then(function(r){return r.json();}).then(function(d){ARDIDAS=d;drawArdidas();});
+  }
+  if(e.layer===gArd25 && !ard25Loaded){
+    ard25Loaded=true;
+    fetch(ARD25_URL).then(function(r){return r.json();}).then(function(d){ARD25=d;drawArd25();});
+  }
 });
+// The note is only worth its space while a scar layer is actually on.
+function syncBurnNote(){
+  var n=document.getElementById('burnnote');
+  if(n) n.hidden=!(map.hasLayer(gArdidas)||map.hasLayer(gArd25));
+}
+map.on('overlayadd overlayremove', syncBurnNote);
 
 // Zoomed out to the whole country, 3 500 individual turbines and 200 licensed
 // points stop being information and become texture — the farm outlines already
@@ -759,7 +844,7 @@ function buildControls(){
   b[t('base_map')]=carto; b[t('base_dark')]=cartoDark; b[t('base_sat')]=sat; b[t('base_topo')]=topo;
   o[sw('#4a9eff')+t('l_wind')]=gWind; o[sw('#4a9eff')+t('l_turb')]=gTurb; o[sw('#c94f7c')+t('l_dturb')]=gDgegTurb;
   o[sw('#fbbf24')+t('l_solar')]=gSolar; o[sw('#fbbf24')+t('l_dsolar')]=gDgegSolar; o[sw('#f87171')+t('l_plan')]=gPlan;
-  o[sw('#c2410c')+t('l_ardidas')]=gArdidas;
+  o[sw('#c2410c')+t('l_ardidas')]=gArdidas; o[sw('#ea580c')+t('l_ard25')]=gArd25;
   ctlLayers=L.control.layers(b,o,{collapsed:false}).addTo(map);
   var _pl=document.getElementById('panel-layers');
   if(_pl){
@@ -769,18 +854,28 @@ function buildControls(){
     h.id='detailhint'; h.className='detailhint'; h.innerHTML=t('detailhint');
     h.hidden=map.getZoom()>=DETAIL_ZOOM;
     _pl.appendChild(h);
+    var bn=document.createElement('div');
+    bn.id='burnnote'; bn.className='detailhint'; bn.innerHTML=t('burnnote');
+    _pl.appendChild(bn);
   }
-  syncDetail();
+  syncDetail(); syncBurnNote();
 }
 
 // Burned-land overlap, computed offline by burn_join.py against the full ICNF
-// record and merged into data.json. `frac` is the share of the plant's own
-// footprint that sits on a scar; `when` compares the fire years with the year
-// the plant entered service.
-function burnRow(b){
-  if(!b) return null;
-  var when={burned_then_built:'bw_pre',burned_after_built:'bw_post',both:'bw_both',date_unknown:'bw_unk'}[b.when];
-  return Math.round(b.frac*100)+'% · '+b.ha+' ha · '+b.years.join(', ')
+// record. It is read from its OWN file rather than from fields merged into
+// data.json: build_map.py rewrites data.json wholesale, so anything merged in
+// afterwards disappears the moment someone runs the builder on its own. Keyed
+// exactly as burn_join.py writes it — "dgeg:<name>" / "osm:<id>".
+var BURNS=null, BURNIDX={};
+function burnIndex(b){
+  BURNIDX={};
+  (b&&b.plants||[]).forEach(function(r){BURNIDX[r.key]=r;});
+}
+function burnRow(key){
+  var r=BURNIDX[key]; if(!r) return null;
+  var when={burned_then_built:'bw_pre',burned_after_built:'bw_post',both:'bw_both',date_unknown:'bw_unk'}[r.when];
+  var years=(r.burns||[]).map(function(x){return x.year;});
+  return Math.round(r.burned_frac*100)+'% · '+r.burned_ha+' ha · '+years.join(', ')
     +'<br><span class="note" style="font-size:11.5px">'+t(when)+'</span>';
 }
 
@@ -825,7 +920,7 @@ function render(){
       [t('f_type'),w?t('wind'):t('solar')],[t('f_power'),p.mw?p.mw+' MW':null],[t('f_operator'),esc(p.operator)],
       [t('f_since'),esc(p.start)],[t('f_turbines'),p.n_turbines],[t('f_area'),p.area_ha+' ha'],
       [t('f_centre'),p.centre[0].toFixed(5)+', '+p.centre[1].toFixed(5)],
-      [t('f_burn'),burnRow(p.burn)],
+      [t('f_burn'),burnRow('osm:'+p.id)],
       [t('f_subparkof'),esc(p.parent)]])+'</table>'
       +'<div>'+t('source')+': <a href="'+p.url+'" target="_blank" rel="noopener">OpenStreetMap '+esc(p.id)+'</a></div>'
       +(xr?'<div class="note">'+t('confirmed_by')+'<ul style="margin:4px 0 0;padding-left:18px">'+xr+'</ul></div>'
@@ -869,7 +964,7 @@ function render(){
       [t('f_blocks'),s.blocks],[t('f_blockarea'),s.area_ha+' ha'],[t('f_concelho'),esc(s.concelho)],
       [t('f_since'),esc(s.since)],[t('f_processo'),esc(s.processo)],
       [t('f_centre'),s.centre[0].toFixed(5)+', '+s.centre[1].toFixed(5)],
-      [t('f_burn'),burnRow(s.burn)]])+'</table>'
+      [t('f_burn'),burnRow('dgeg:'+s.name)]])+'</table>'
       +'<div>'+t('source')+': <a href="https://servergeo.dgeg.gov.pt/arcgis/rest/services/Visualizadores/CS/MapServer" target="_blank" rel="noopener">DGEG — Centrais Solares</a> '+t('reg_note')+'</div>');
     poly.addTo(gDgegSolar); targets['d'+i]=poly;
   });
@@ -936,16 +1031,34 @@ function render(){
 
   /* ---- KPIs, prose, sources */
   var s=d.stats;
-  var unbuilt=byState('aprovado, por construir').length;
   var solarOSM=d.plants.filter(function(p){return p.kind==='solar';}).length;
   var kpi=function(n,l,c){return '<div class="kpi '+(c||'')+'"><div class="n">'+n+'</div><div class="l">'+l+'</div></div>';};
-  var TAB={
-    wind:[kpi(s.turbines,t('k_turb')),kpi(s.turbines_confirmed,t('k_conf')),kpi(s.dgeg_only,t('k_only')),kpi(s.median_offset_m+' m',t('k_off'))],
-    solar:[kpi(solarOSM,t('l_solar')),kpi((d.dgeg_solar||[]).length,t('l_dsolar'))],
-    plan:[kpi(d.planned.length,t('k_plan')),kpi(unbuilt,t('k_unbuilt'),'hot')]
+
+  // Planned projects are not a third technology — every one of them is a wind
+  // farm, a solar plant or the grid that carries them away. So they are counted
+  // inside the tab they belong to; a hybrid is genuinely both and is counted in
+  // both. Lines and substations belong to neither and are noted under both.
+  var plKind=function(p,k){
+    var ty=String(p.type||'');
+    if(ty.indexOf('híbrido')>=0) return true;
+    return k==='wind' ? ty.indexOf('eólico')>=0 : ty.indexOf('solar')>=0;
   };
-  var meta=[['wind',t('wind'),s.turbines+s.dgeg_only],['solar',t('solar'),solarOSM+(d.dgeg_solar||[]).length],['plan',t('tab_plan'),d.planned.length]];
-  var tots=meta.map(function(m){return '<div class="tot"><div class="tot-n">'+m[2]+'</div><div class="tot-l">'+m[1]+'</div></div>';}).join('');
+  var plannedOf=function(k){return d.planned.filter(function(p){return plKind(p,k);});};
+  var unbuiltOf=function(k){return plannedOf(k).filter(function(p){return p.state==='aprovado, por construir';});};
+  var other=d.planned.filter(function(p){return !plKind(p,'wind')&&!plKind(p,'solar');}).length;
+  var note=other?'<div class="foot-note">'+fmtN(other)+' · '+t('k_lines')+'</div>':'';
+
+  var TAB={
+    wind:[kpi(fmtN(s.turbines),t('k_turb')),kpi(fmtN(s.turbines_confirmed),t('k_conf')),
+          kpi(fmtN(s.dgeg_only),t('k_only')),kpi(s.median_offset_m+' m',t('k_off')),
+          kpi(fmtN(plannedOf('wind').length),t('k_plan')),
+          kpi(fmtN(unbuiltOf('wind').length),t('k_unbuilt'),'hot'),note],
+    solar:[kpi(fmtN(solarOSM),t('l_solar')),kpi(fmtN((d.dgeg_solar||[]).length),t('l_dsolar')),
+          kpi(fmtN(plannedOf('solar').length),t('k_plan')),
+          kpi(fmtN(unbuiltOf('solar').length),t('k_unbuilt'),'hot'),note]
+  };
+  var meta=[['wind',t('wind'),s.turbines+s.dgeg_only],['solar',t('solar'),solarOSM+(d.dgeg_solar||[]).length]];
+  var tots=meta.map(function(m){return '<div class="tot"><div class="tot-n">'+fmtN(m[2])+'</div><div class="tot-l">'+m[1]+'</div></div>';}).join('');
   var tbtns=meta.map(function(m,i){return '<button class="tabbtn'+(i===0?' on':'')+'" data-tab="'+m[0]+'">'+m[1]+'</button>';}).join('');
   document.getElementById('kpis').innerHTML='<div class="tots">'+tots+'</div><div class="tabbtns">'+tbtns+'</div><div class="kpis-grid" id="tabbody"></div>';
   var showTab=function(k){document.getElementById('tabbody').innerHTML=TAB[k].join('');
@@ -958,7 +1071,7 @@ function render(){
   document.getElementById('srcgrid').innerHTML=(SRC[lang]||SRC.pt).map(function(c){
     return '<div class="srccard"><div class="who">'+c.who+'</div><h4><a href="'+c.u+'" target="_blank" rel="noopener">'+c.h+'</a></h4><p>'+c.p+'</p></div>';}).join('');
   document.getElementById('limits').innerHTML=t('limits').map(function(x){return '<li>'+x+'</li>';}).join('');
-  burnBox(d.burn_stats);
+  burnBox(BURNS&&BURNS.stats);
   drawArdidas();
 }
 
@@ -983,7 +1096,13 @@ document.querySelectorAll('#langsw button').forEach(function(b){
 
 applyLang(lang);
 (function(){var pn=document.getElementById('panel');document.getElementById('panelBtn').addEventListener('click',function(){pn.hidden=!pn.hidden;});document.getElementById('panelClose').addEventListener('click',function(){pn.hidden=true;});})();
-fetch(DATA_URL).then(function(r){return r.json();}).then(function(d){DATA=d;render();})
+// Both files are wanted before the first draw — the popups are built once, so a
+// late burns.json would leave them without the burned-land row. A failed burns
+// fetch is not fatal: the map draws, the burn row and the panel card stay away.
+Promise.all([
+  fetch(DATA_URL).then(function(r){return r.json();}),
+  fetch(BURNS_URL).then(function(r){return r.json();}).catch(function(){return null;})
+]).then(function(x){DATA=x[0];BURNS=x[1];burnIndex(BURNS);render();})
   .catch(function(){document.getElementById('side').innerHTML='<p class="meta">—</p>';});
 })();
 </script>

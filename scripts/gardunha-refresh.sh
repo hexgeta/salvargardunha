@@ -14,5 +14,8 @@ python3 -W ignore fetch_ardidas.py
 python3 -W ignore build_map.py
 # 2017 national scars 500 on a single query — tiled fetch fills the gap if missing
 [ -s ext/ardidas_pt/ardidas_2017.geojson ] || python3 -W ignore fetch_ardidas_tiled.py 2017
+# the Gardunha scar layer above is cropped to the serra; this is the national
+# 2025 complement, thinned enough to load in a browser
+.venv/bin/python build_ardidas_nacional.py 2025
 .venv/bin/python burn_join.py
 echo "gardunha map rebuilt $(date '+%F %T')"
