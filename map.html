@@ -106,6 +106,14 @@
     max-height:calc(100vh - 80px);overflow:auto;background:rgba(16,20,16,.97);border:1px solid var(--line);
     border-radius:14px;padding:16px;backdrop-filter:blur(10px);box-shadow:0 12px 40px rgba(0,0,0,.55)}
   #panel[hidden]{display:none}
+  /* dark scrollbar — the default light one cuts a white stripe down the panel */
+  #panel{scrollbar-width:thin;scrollbar-color:#334133 transparent}
+  #panel::-webkit-scrollbar{width:10px;height:10px}
+  #panel::-webkit-scrollbar-track{background:transparent}
+  #panel::-webkit-scrollbar-thumb{background:#334133;border-radius:8px;
+    border:3px solid transparent;background-clip:content-box}
+  #panel::-webkit-scrollbar-thumb:hover{background:#4a5c4a;border:3px solid transparent;background-clip:content-box}
+  #panel::-webkit-scrollbar-corner{background:transparent}
   #panelClose{position:absolute;top:8px;right:10px;background:none;border:0;color:var(--muted);font-size:16px;cursor:pointer;line-height:1}
   #panelClose:hover{color:var(--ink)}
   #panel .kpis{grid-template-columns:1fr 1fr;gap:8px;margin:2px 0 14px}
@@ -139,6 +147,8 @@
   #topctrls .langsw button:hover{background:rgba(255,255,255,.07);color:var(--ink);border-color:transparent}
   #topctrls .langsw button.on{background:rgba(34,197,94,.16);color:var(--green);border-color:transparent}
   #topctrls .sep{flex:none;width:1px;height:18px;background:var(--line);margin:0 4px}
+  .detailhint{margin-top:9px;padding-top:9px;border-top:1px solid var(--line);
+    font-size:11.5px;line-height:1.45;color:var(--muted)}
   /* the credit line the tile licences require, at the smallest it can honestly be */
   .leaflet-control-attribution{background:transparent!important;color:#5d675d;font-size:10px;
     padding:0 6px 2px 0;text-shadow:0 1px 2px rgba(0,0,0,.7);box-shadow:none}
@@ -202,6 +212,7 @@ pt:{
  callout:'⚠️ <b>Nenhuma coordenada foi inventada.</b> Cada posição vem de um registo público. Os projetos que existem no papel mas sem geometria publicada estão listados e assinalados como <b>sem localização</b> — não são colocados num sítio plausível.',
  loading:'A carregar os dados…',
  zoomhint:'Clique no mapa para ampliar com o scroll',
+ detailhint:'Cada aerogerador aparece ao aproximar. Vista de país mostra só as áreas dos parques.',
  k_turb:'aerogeradores mapeados', k_conf:'confirmados em duas fontes', k_off:'desvio mediano entre fontes',
  k_only:'só no registo DGEG (recentes)', k_plan:'projetos no registo da APA', k_unbuilt:'aprovados e por construir', tab_plan:'Planeados',
  built_note:function(d){return 'Dados reconstruídos automaticamente todas as segundas-feiras a partir dos registos oficiais. Última atualização: '+d.stats.built+'.';},
@@ -268,6 +279,7 @@ en:{
  callout:'⚠️ <b>No coordinate here was invented.</b> Every position comes from a public register. Projects that exist on paper but have no published geometry are listed and flagged as <b>having no location</b> — they are not dropped somewhere plausible.',
  loading:'Loading the data…',
  zoomhint:'Click the map to zoom with the scroll wheel',
+ detailhint:'Individual turbines appear as you zoom in. At country view only the farm areas are drawn.',
  k_turb:'turbines mapped', k_conf:'confirmed in two sources', k_off:'median offset between sources',
  k_only:'only in the DGEG register (recent)', k_plan:'projects in the APA register', k_unbuilt:'approved and unbuilt', tab_plan:'Planned',
  built_note:function(d){return 'Data rebuilt automatically every Monday from the official registers. Last updated: '+d.stats.built+'.';},
@@ -334,6 +346,7 @@ de:{
  callout:'⚠️ <b>Keine Koordinate wurde erfunden.</b> Jede Position stammt aus einem öffentlichen Register. Projekte, die auf dem Papier bestehen, aber keine veröffentlichte Geometrie haben, sind aufgeführt und als <b>ohne Standort</b> gekennzeichnet — sie werden nicht an einen plausiblen Ort gesetzt.',
  loading:'Daten werden geladen…',
  zoomhint:'Karte anklicken, um mit dem Scrollrad zu zoomen',
+ detailhint:'Einzelne Windräder erscheinen beim Hineinzoomen. In der Landesansicht werden nur die Parkflächen gezeichnet.',
  k_turb:'erfasste Windräder', k_conf:'in zwei Quellen bestätigt', k_off:'mittlere Abweichung zwischen Quellen',
  k_only:'nur im DGEG-Register (neu)', k_plan:'Projekte im APA-Register', k_unbuilt:'genehmigt und ungebaut', tab_plan:'Geplant',
  built_note:function(d){return 'Daten werden jeden Montag automatisch aus den amtlichen Registern neu erstellt. Letzte Aktualisierung: '+d.stats.built+'.';},
@@ -400,6 +413,7 @@ fr:{
  callout:'⚠️ <b>Aucune coordonnée n’a été inventée.</b> Chaque position provient d’un registre public. Les projets qui existent sur le papier mais sans géométrie publiée sont listés et signalés comme <b>sans localisation</b> — ils ne sont pas placés à un endroit plausible.',
  loading:'Chargement des données…',
  zoomhint:'Cliquez sur la carte pour zoomer à la molette',
+ detailhint:'Les éoliennes apparaissent en zoomant. En vue nationale, seules les emprises des parcs sont dessinées.',
  k_turb:'éoliennes cartographiées', k_conf:'confirmées dans deux sources', k_off:'écart médian entre sources',
  k_only:'uniquement au registre DGEG (récentes)', k_plan:'projets au registre de l’APA', k_unbuilt:'approuvés et non construits', tab_plan:'Planifiés',
  built_note:function(d){return 'Données reconstruites automatiquement chaque lundi à partir des registres officiels. Dernière mise à jour : '+d.stats.built+'.';},
@@ -703,6 +717,37 @@ map.on('overlayadd', function(e){
   fetch(ARDIDAS_URL).then(function(r){return r.json();}).then(function(d){ARDIDAS=d;drawArdidas();});
 });
 
+// Zoomed out to the whole country, 3 500 individual turbines and 200 licensed
+// points stop being information and become texture — the farm outlines already
+// say where the wind estate is. So the per-unit layers are held back until the
+// view is regional, and the checkbox state the reader chose is remembered:
+// `wanted` is what they asked for, the map shows it only when the zoom earns it.
+var DETAIL_ZOOM=9;
+var detail=[gTurb,gDgegTurb], wanted=[true,true], syncing=false;
+function syncDetail(){
+  var show=map.getZoom()>=DETAIL_ZOOM;
+  syncing=true;
+  detail.forEach(function(g,i){
+    var has=map.hasLayer(g);
+    if(show&&wanted[i]&&!has) map.addLayer(g);
+    else if((!show||!wanted[i])&&has) map.removeLayer(g);
+  });
+  syncing=false;
+  // A wind farm outline is a 6%-fill dashed hull: legible when you are on top of
+  // it, invisible from orbit. With the turbines hidden it has to carry the layer
+  // on its own, so from country view it becomes a solid patch.
+  gWind.eachLayer(function(l){
+    if(l._near&&l.setStyle) l.setStyle(show?l._near:{weight:1,dashArray:null,fillOpacity:.34});
+  });
+  var h=document.getElementById('detailhint'); if(h) h.hidden=show;
+}
+map.on('zoomend', syncDetail);
+map.on('overlayadd overlayremove', function(e){
+  if(syncing) return;
+  var i=detail.indexOf(e.layer); if(i<0) return;
+  wanted[i]=(e.type==='overlayadd');
+});
+
 // Colour swatch prepended to each overlay label, so the toggle control doubles
 // as the legend — every row is a colour key AND a checkbox to show/hide it.
 function sw(c){return '<span style="display:inline-block;width:11px;height:11px;background:'+c
@@ -716,7 +761,16 @@ function buildControls(){
   o[sw('#fbbf24')+t('l_solar')]=gSolar; o[sw('#fbbf24')+t('l_dsolar')]=gDgegSolar; o[sw('#f87171')+t('l_plan')]=gPlan;
   o[sw('#c2410c')+t('l_ardidas')]=gArdidas;
   ctlLayers=L.control.layers(b,o,{collapsed:false}).addTo(map);
-  var _pl=document.getElementById('panel-layers'); if(_pl){_pl.innerHTML='';_pl.appendChild(ctlLayers.getContainer());}
+  var _pl=document.getElementById('panel-layers');
+  if(_pl){
+    _pl.innerHTML='';
+    _pl.appendChild(ctlLayers.getContainer());
+    var h=document.createElement('div');
+    h.id='detailhint'; h.className='detailhint'; h.innerHTML=t('detailhint');
+    h.hidden=map.getZoom()>=DETAIL_ZOOM;
+    _pl.appendChild(h);
+  }
+  syncDetail();
 }
 
 // Burned-land overlap, computed offline by burn_join.py against the full ICNF
@@ -761,6 +815,8 @@ function render(){
   d.plants.forEach(function(p,i){
     var w=p.kind==='wind', col=w?'#4a9eff':'#fbbf24';
     var poly=L.polygon(p.rings,{color:col,weight:p.parent?1:2,dashArray:w?'6 5':null,fillOpacity:w?0.06:0.28});
+    // close-up style, restored by syncDetail() once the view is regional again
+    poly._near={weight:p.parent?1:2,dashArray:w?'6 5':null,fillOpacity:w?0.06:0.28};
     var xr=(p.xref||[]).map(function(x){
       return '<li>'+esc(tr(x.source))+': '+esc(x.name||'—')+(x.mw?' · '+x.mw+' MW':'')
         +(x.dist_km!=null?' · '+t('fromcentre')(x.dist_km):'')
