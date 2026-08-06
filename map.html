@@ -215,6 +215,12 @@
      the only visible sign of the background prefetch, and it needs no explaining. */
   #yearstrip button.ready{color:var(--ink);border-color:#3d4d3d}
   #yearstrip button.on{background:#ea580c;border-color:#ea580c;color:#fff;font-weight:700}
+  /* "All" is a mode, not a year — set apart from the run of dates so the strip
+     does not read as though 2014-2025 had a thirteenth member. */
+  #yearstrip button.all{margin-left:6px;letter-spacing:.02em}
+  #yearstrip button.all::before{content:"";display:inline-block;width:1px;height:11px;
+    background:var(--line);vertical-align:-2px;margin-right:8px}
+  #yearstrip button.all.on::before{background:rgba(255,255,255,.45)}
   #yearstrip button.loading{opacity:.55}
   #yearstrip button:focus-visible{outline:2px solid var(--green);outline-offset:1px}
   /* the credit line the tile licences require, at the smallest it can honestly be */
@@ -263,7 +269,6 @@
 <script>
 (function(){
 var DATA_URL = '/dados/data.json';
-var ARDIDAS_URL = '/dados/ardidas.json';
 var BURNS_URL = '/dados/burns.json';
 var ARD_NAT_URL = '/dados/ardidas-{y}.json';
 
@@ -284,10 +289,10 @@ pt:{
  built_note:function(d){return 'Dados reconstruídos automaticamente todas as segundas-feiras a partir dos registos oficiais. Última atualização: '+d.stats.built+'.';},
  base_map:'Mapa', base_sat:'Satélite', base_topo:'Relevo',
  l_wind:'Parques eólicos (área)', l_turb:'Aerogeradores (OSM)', l_dturb:'Aerogeradores só no registo DGEG',
- l_solar:'Centrais solares (OSM)', l_dsolar:'Centrais solares (DGEG)', l_plan:'Projetos planeados', l_ardidas:'Áreas ardidas 2014–2025 (Gardunha)', l_ardnat:'Áreas ardidas por ano (país inteiro)',
- burn_year:'Ano:',
+ l_solar:'Centrais solares (OSM)', l_dsolar:'Centrais solares (DGEG)', l_plan:'Projetos planeados', l_ardnat:'Áreas ardidas por ano (país inteiro)',
+ burn_year:'Ano:', burn_all:'Todos',
  burn_pop:'Área ardida',
- burnnote:'<b>O que estas camadas mostram.</b> A da Gardunha traz todos os incêndios de 2014 a 2025 numa janela à volta da serra, ao pormenor. A do país mostra <b>um ano de cada vez</b> — escolha-o acima. Um ano de cada vez porque doze sobrepostos dariam um mapa ilegível, e não por peso: os doze são descarregados em segundo plano assim que o mapa abre, por isso trocar de ano é instantâneo. Nessa camada só entram as manchas com 5 ha ou mais, com o contorno simplificado a ~100 m; as pequenas omitidas valem 0,4% a 5% da área ardida, conforme o ano. Fonte: ICNF.',
+ burnnote:'<b>O que esta camada mostra.</b> As áreas ardidas do país inteiro, <b>um ano de cada vez</b> ou <b>todos os anos juntos</b> — escolha acima. Em «Todos», quanto mais antigo o ano, mais escura a mancha. Os doze anos são descarregados em segundo plano assim que o mapa abre, por isso trocar é instantâneo. Só entram as manchas com 5 ha ou mais, com o contorno simplificado a ~100 m; as pequenas omitidas valem 0,4% a 5% da área ardida, conforme o ano. Fonte: ICNF.',
  lg_turb:'aerogerador (OSM + DGEG)', lg_dturb:'aerogerador só no registo DGEG', lg_solar:'central solar em exploração',
  lg_plan:'aprovado e ainda por construir', lg_line:'linha / subestação', lg_built:'licenciamento já construído',
  turbine:'Aerogerador', turbine_lic:'Aerogerador licenciado', noname:'sem nome',
@@ -355,10 +360,10 @@ en:{
  built_note:function(d){return 'Data rebuilt automatically every Monday from the official registers. Last updated: '+d.stats.built+'.';},
  base_map:'Map', base_sat:'Satellite', base_topo:'Terrain',
  l_wind:'Wind farms (extent)', l_turb:'Turbines (OSM)', l_dturb:'Turbines only in the DGEG register',
- l_solar:'Solar plants (OSM)', l_dsolar:'Solar plants (DGEG)', l_plan:'Planned projects', l_ardidas:'Burned areas 2014–2025 (Gardunha)', l_ardnat:'Burned areas by year (nationwide)',
- burn_year:'Year:',
+ l_solar:'Solar plants (OSM)', l_dsolar:'Solar plants (DGEG)', l_plan:'Planned projects', l_ardnat:'Burned areas by year (nationwide)',
+ burn_year:'Year:', burn_all:'All',
  burn_pop:'Burned area',
- burnnote:'<b>What these layers show.</b> The Gardunha one carries every fire from 2014 to 2025 inside a window around the range, at full detail. The national one shows <b>one year at a time</b> — pick it above. One year at a time because twelve stacked would be an unreadable map, not because of weight: all twelve are downloaded in the background as soon as the map opens, so switching years is instant. That layer keeps only scars of 5 ha or more, with outlines simplified to ~100 m; the small ones left out are 0.4% to 5% of the burned area depending on the year. Source: ICNF.',
+ burnnote:'<b>What this layer shows.</b> Burned areas for the whole country, <b>one year at a time</b> or <b>every year at once</b> — pick above. Under “All”, the older the year the darker the scar. All twelve years are downloaded in the background as soon as the map opens, so switching is instant. Only scars of 5 ha or more are kept, with outlines simplified to ~100 m; the small ones left out are 0.4% to 5% of the burned area depending on the year. Source: ICNF.',
  lg_turb:'turbine (OSM + DGEG)', lg_dturb:'turbine only in the DGEG register', lg_solar:'solar plant in operation',
  lg_plan:'approved and still unbuilt', lg_line:'line / substation', lg_built:'consent already built',
  turbine:'Wind turbine', turbine_lic:'Licensed turbine', noname:'unnamed',
@@ -426,10 +431,10 @@ de:{
  built_note:function(d){return 'Daten werden jeden Montag automatisch aus den amtlichen Registern neu erstellt. Letzte Aktualisierung: '+d.stats.built+'.';},
  base_map:'Karte', base_sat:'Satellit', base_topo:'Gelände',
  l_wind:'Windparks (Fläche)', l_turb:'Windräder (OSM)', l_dturb:'Windräder nur im DGEG-Register',
- l_solar:'Solarkraftwerke (OSM)', l_dsolar:'Solarkraftwerke (DGEG)', l_plan:'Geplante Projekte', l_ardidas:'Brandflächen 2014–2025 (Gardunha)', l_ardnat:'Brandflächen nach Jahr (landesweit)',
- burn_year:'Jahr:',
+ l_solar:'Solarkraftwerke (OSM)', l_dsolar:'Solarkraftwerke (DGEG)', l_plan:'Geplante Projekte', l_ardnat:'Brandflächen nach Jahr (landesweit)',
+ burn_year:'Jahr:', burn_all:'Alle',
  burn_pop:'Brandfläche',
- burnnote:'<b>Was diese Ebenen zeigen.</b> Die Gardunha-Ebene enthält alle Brände von 2014 bis 2025 in einem Ausschnitt rund um den Bergzug, in voller Auflösung. Die landesweite Ebene zeigt <b>ein Jahr auf einmal</b> — oben auswählen. Ein Jahr auf einmal, weil zwölf übereinander eine unlesbare Karte ergäben, nicht wegen der Dateigröße: alle zwölf werden im Hintergrund geladen, sobald die Karte öffnet, der Jahreswechsel ist also sofort da. Dort erscheinen nur Flächen ab 5 ha, mit auf ~100 m vereinfachten Umrissen; die ausgelassenen kleinen machen je nach Jahr 0,4% bis 5% der Brandfläche aus. Quelle: ICNF.',
+ burnnote:'<b>Was diese Ebene zeigt.</b> Brandflächen im ganzen Land, <b>ein Jahr auf einmal</b> oder <b>alle Jahre zusammen</b> — oben auswählen. Unter „Alle“ gilt: je älter das Jahr, desto dunkler die Fläche. Alle zwölf Jahre werden im Hintergrund geladen, sobald die Karte öffnet, der Wechsel ist also sofort da. Es erscheinen nur Flächen ab 5 ha, mit auf ~100 m vereinfachten Umrissen; die ausgelassenen kleinen machen je nach Jahr 0,4% bis 5% der Brandfläche aus. Quelle: ICNF.',
  lg_turb:'Windrad (OSM + DGEG)', lg_dturb:'Windrad nur im DGEG-Register', lg_solar:'Solarkraftwerk in Betrieb',
  lg_plan:'genehmigt und noch ungebaut', lg_line:'Leitung / Umspannwerk', lg_built:'Genehmigung bereits gebaut',
  turbine:'Windkraftanlage', turbine_lic:'Genehmigte Anlage', noname:'ohne Namen',
@@ -497,10 +502,10 @@ fr:{
  built_note:function(d){return 'Données reconstruites automatiquement chaque lundi à partir des registres officiels. Dernière mise à jour : '+d.stats.built+'.';},
  base_map:'Carte', base_sat:'Satellite', base_topo:'Relief',
  l_wind:'Parcs éoliens (emprise)', l_turb:'Éoliennes (OSM)', l_dturb:'Éoliennes uniquement au registre DGEG',
- l_solar:'Centrales solaires (OSM)', l_dsolar:'Centrales solaires (DGEG)', l_plan:'Projets planifiés', l_ardidas:'Zones brûlées 2014–2025 (Gardunha)', l_ardnat:'Zones brûlées par année (tout le pays)',
- burn_year:'Année :',
+ l_solar:'Centrales solaires (OSM)', l_dsolar:'Centrales solaires (DGEG)', l_plan:'Projets planifiés', l_ardnat:'Zones brûlées par année (tout le pays)',
+ burn_year:'Année :', burn_all:'Tous',
  burn_pop:'Zone brûlée',
- burnnote:'<b>Ce que montrent ces couches.</b> Celle de la Gardunha contient tous les incendies de 2014 à 2025 dans une fenêtre autour de la serra, en pleine résolution. Celle du pays montre <b>une année à la fois</b> — à choisir ci-dessus. Une seule à la fois parce que douze superposées donneraient une carte illisible, et non pour une question de poids : les douze années sont téléchargées en arrière-plan dès l’ouverture de la carte, le changement d’année est donc instantané. Cette couche ne retient que les taches de 5 ha ou plus, aux contours simplifiés à ~100 m ; les petites omises représentent de 0,4% à 5% de la surface brûlée selon l’année. Source : ICNF.',
+ burnnote:'<b>Ce que montre cette couche.</b> Les zones brûlées de tout le pays, <b>une année à la fois</b> ou <b>toutes les années ensemble</b> — à choisir ci-dessus. Sous « Tous », plus l’année est ancienne, plus la tache est foncée. Les douze années sont téléchargées en arrière-plan dès l’ouverture de la carte, le changement est donc instantané. Seules les taches de 5 ha ou plus sont retenues, aux contours simplifiés à ~100 m ; les petites omises représentent de 0,4% à 5% de la surface brûlée selon l’année. Source : ICNF.',
  lg_turb:'éolienne (OSM + DGEG)', lg_dturb:'éolienne uniquement au registre DGEG', lg_solar:'centrale solaire en exploitation',
  lg_plan:'approuvé et encore non construit', lg_line:'ligne / poste', lg_built:'autorisation déjà construite',
  turbine:'Éolienne', turbine_lic:'Éolienne autorisée', noname:'sans nom',
@@ -610,6 +615,11 @@ var PHRASE = {
   'híbrido (solar + eólico)':'hybrid (solar + wind)','programa setorial':'sector programme',
   'nacional (cluster «Pinhal do Centro» abrange a Gardunha)':'national (the «Pinhal do Centro» cluster covers the Gardunha)',
   'DGEG (registo oficial)':'DGEG (official register)','relation membership':'OSM relation membership',
+  'DGEG - Direcção-Geral de Energia e Geologia':'DGEG — Directorate-General for Energy and Geology',
+  'Estrutura de Missão para o Licenciamento de Projetos de Energias Renováveis 2030':'Mission Structure for the Licensing of Renewable Energy Projects 2030',
+  'Direcção-Geral de Geologia e Energia':'Directorate-General for Geology and Energy',
+  'Direcção Geral de Energia':'Directorate-General for Energy',
+  'Gazeta do Interior — Câmara não quer parque solar e eólico na Gardunha':'Gazeta do Interior — council does not want a solar and wind park on the Gardunha',
   'APA/SNIAmb — áreas de estudo de processos de AIA':'APA/SNIAmb — study areas of EIA files',
   'DGEG — registo de centrais eólicas e solares':'DGEG — register of wind and solar power stations',
   'participa.pt — consulta pública do PSZAER':'participa.pt — PSZAER public consultation',
@@ -642,6 +652,11 @@ var PHRASE = {
   'híbrido (solar + eólico)':'hybrid (Solar + Wind)','programa setorial':'Sektorprogramm',
   'nacional (cluster «Pinhal do Centro» abrange a Gardunha)':'national (das Cluster „Pinhal do Centro“ umfasst die Gardunha)',
   'DGEG (registo oficial)':'DGEG (amtliches Register)','relation membership':'Mitglied der OSM-Relation',
+  'DGEG - Direcção-Geral de Energia e Geologia':'DGEG — Generaldirektion für Energie und Geologie',
+  'Estrutura de Missão para o Licenciamento de Projetos de Energias Renováveis 2030':'Missionsstruktur für die Genehmigung von Projekten erneuerbarer Energien 2030',
+  'Direcção-Geral de Geologia e Energia':'Generaldirektion für Geologie und Energie',
+  'Direcção Geral de Energia':'Generaldirektion für Energie',
+  'Gazeta do Interior — Câmara não quer parque solar e eólico na Gardunha':'Gazeta do Interior — Stadtrat will keinen Solar- und Windpark auf der Gardunha',
   'APA/SNIAmb — áreas de estudo de processos de AIA':'APA/SNIAmb — Untersuchungsgebiete von UVP-Verfahren',
   'DGEG — registo de centrais eólicas e solares':'DGEG — Register der Wind- und Solarkraftwerke',
   'participa.pt — consulta pública do PSZAER':'participa.pt — öffentliche Konsultation zum PSZAER',
@@ -674,6 +689,11 @@ var PHRASE = {
   'híbrido (solar + eólico)':'hybride (solaire + éolien)','programa setorial':'programme sectoriel',
   'nacional (cluster «Pinhal do Centro» abrange a Gardunha)':'national (le cluster « Pinhal do Centro » couvre la Gardunha)',
   'DGEG (registo oficial)':'DGEG (registre officiel)','relation membership':'appartenance à la relation OSM',
+  'DGEG - Direcção-Geral de Energia e Geologia':'DGEG — Direction générale de l’énergie et de la géologie',
+  'Estrutura de Missão para o Licenciamento de Projetos de Energias Renováveis 2030':'Structure de mission pour l’autorisation des projets d’énergies renouvelables 2030',
+  'Direcção-Geral de Geologia e Energia':'Direction générale de la géologie et de l’énergie',
+  'Direcção Geral de Energia':'Direction générale de l’énergie',
+  'Gazeta do Interior — Câmara não quer parque solar e eólico na Gardunha':'Gazeta do Interior — la mairie ne veut pas de parc solaire et éolien sur la Gardunha',
   'APA/SNIAmb — áreas de estudo de processos de AIA':'APA/SNIAmb — aires d’étude des dossiers EIE',
   'DGEG — registo de centrais eólicas e solares':'DGEG — registre des centrales éoliennes et solaires',
   'participa.pt — consulta pública do PSZAER':'participa.pt — consultation publique du PSZAER',
@@ -715,6 +735,197 @@ var TPL = {
      near:function(k){return 'parc le plus proche ('+k+') — déduit';}},
  pt:{near:function(k){return 'parque mais próximo ('+k+') — inferido';}}
 };
+
+/* ---- project names ------------------------------------------------------
+   Official designations, filed in Portuguese. Translating them wholesale would
+   cut the link back to the register; leaving them raw makes an English popup
+   read as Portuguese. So translate only the generic descriptor — park, plant,
+   line, substation, repowering — and leave every toponym, company and file code
+   exactly as filed. Anything that matches no known shape comes back untouched. */
+var NM = {
+ en:{and:' and ',
+   head:function(w,x){return x?x+' '+w:w.charAt(0).toUpperCase()+w.slice(1);},
+   t:{wind:'wind farm',winds:'wind farms',subwind:'wind sub-park',floatwind:'floating wind farm',
+      solar:'solar plant',solarpark:'solar park',floating:'floating solar plant',
+      cpv:'concentrating solar plant',complex:'power complex',hcomplex:'hybrid power complex',
+      subst:'substation',selfc:'self-consumption plant',smallgen:'small-generation unit'},
+   mod:{sobre:'repowering',ree:'re-equipping',amp:'extension',alt:'amendment',exp:'expansion',
+        rooftops:'rooftops',phase:function(n){return 'phase '+n;},
+        cluster:function(n){return 'cluster '+n;},south:'south cluster',north:'north cluster',
+        sobre2:'2nd repowering',eurowind:'Eurowind proposal'}},
+ de:{and:' und ',
+   head:function(w,x){return x?w+' '+x:w;},
+   t:{wind:'Windpark',winds:'Windparks',subwind:'Teilwindpark',floatwind:'schwimmender Windpark',
+      solar:'Solarkraftwerk',solarpark:'Solarpark',floating:'schwimmendes Solarkraftwerk',
+      cpv:'Konzentrator-Solarkraftwerk',complex:'Kraftwerkszentrum',hcomplex:'Hybrid-Kraftwerkszentrum',
+      subst:'Umspannwerk',selfc:'Eigenverbrauchsanlage',smallgen:'Kleinerzeugungsanlage'},
+   mod:{sobre:'Repowering',ree:'Neuausrüstung',amp:'Erweiterung',alt:'Änderung',exp:'Ausbau',
+        rooftops:'Dächer',phase:function(n){return n+'. Phase';},
+        cluster:function(n){return 'Kern '+n;},south:'Südkern',north:'Nordkern',
+        sobre2:'2. Repowering',eurowind:'Vorschlag Eurowind'}},
+ fr:{and:' et ',
+   head:function(w,x){return x?w+' '+(/^[AEIOUÁÉÍÓÚÀÂÊÔaeiou]/.test(x)?'d’':'de ')+x:w;},
+   t:{wind:'parc éolien',winds:'parcs éoliens',subwind:'sous-parc éolien',floatwind:'parc éolien flottant',
+      solar:'centrale solaire',solarpark:'parc solaire',floating:'centrale solaire flottante',
+      cpv:'centrale solaire à concentration',complex:'centre électroproducteur',hcomplex:'centre électroproducteur hybride',
+      subst:'poste',selfc:'unité d’autoconsommation',smallgen:'unité de petite production'},
+   mod:{sobre:'suréquipement',ree:'rééquipement',amp:'extension',alt:'modification',exp:'expansion',
+        rooftops:'toitures',phase:function(n){return 'phase '+n;},
+        cluster:function(n){return 'noyau '+n;},south:'noyau sud',north:'noyau nord',
+        sobre2:'2ᵉ suréquipement',eurowind:'proposition Eurowind'}}
+};
+/* the handful of names no rule should try to parse */
+var NFIXED = {
+ 'Parque solar e eólico na Serra da Gardunha':
+   {en:'solar and wind park on the Serra da Gardunha',
+    de:'Solar- und Windpark auf der Serra da Gardunha',
+    fr:'parc solaire et éolien sur la Serra da Gardunha'},
+ 'PSZAER — Zonas de Aceleração de Energias Renováveis':
+   {en:'PSZAER — Renewable Energy Acceleration Zones',
+    de:'PSZAER — Beschleunigungsgebiete für erneuerbare Energien',
+    fr:'PSZAER — zones d’accélération des énergies renouvelables'}
+};
+/* head noun → key in NM[lang].t. Order matters: most specific first. */
+var NHEAD = [
+  [/^Sub-?parques? Eólicos? d[oaeu]s? /i,'subwind'], [/^Sub-?parques? Eólicos? /i,'subwind'],
+  [/^Parques? Eólicos? Flutuantes? d[oaeu]s? /i,'floatwind'], [/^Parques? Eólicos? Flutuantes? /i,'floatwind'],
+  [/^Parques Eólicos d[oaeu]s? /i,'winds'],
+  [/^Parques? Eólicos? d[oaeu]s? /i,'wind'], [/^Parques? Eólicos? /i,'wind'],
+  [/^Centra(?:l|is) (?:Solar(?:es)? )?(?:Fotov[oó]?lt?[áa]icas?|Ftovoltaicas?) de Alta Concentração d[oaeu]s? /i,'cpv'],
+  [/^Centra(?:l|is) (?:Solar(?:es)? )?(?:Fotov[oó]?lt?[áa]icas?|Ftovoltaicas?) de Alta Concentração /i,'cpv'],
+  [/^Centra(?:l|is) (?:Solar(?:es)? )?(?:Fotov[oó]?lt?[áa]icas?|Ftovoltaicas?) Flutuantes? d[oaeu]s? /i,'floating'],
+  [/^Centra(?:l|is) Solar(?:es)? Flutuantes? d[oaeu]s? /i,'floating'],
+  [/^Centra(?:l|is) Solar(?:es)? Flutuantes? /i,'floating'],
+  [/^Centra(?:l|is) (?:Solar(?:es)? )?(?:Fotov[oó]?lt?[áa]icas?|Ftovoltaicas?) d[oaeu]s? /i,'solar'],
+  [/^Centra(?:l|is) (?:Solar(?:es)? )?(?:Fotov[oó]?lt?[áa]icas?|Ftovoltaicas?) /i,'solar'],
+  [/^Centra(?:l|is) Solar(?:es)? d[oaeu]s? /i,'solar'], [/^Centra(?:l|is) Solar(?:es)? /i,'solar'],
+  [/^Parques? (?:Solar(?:es)? Fotov[oó]?lt?[áa]icos?|Fotov[oó]?lt?[áa]icos?|Solar(?:es)?) d[oaeu]s? /i,'solarpark'],
+  [/^Parques? (?:Solar(?:es)? Fotov[oó]?lt?[áa]icos?|Fotov[oó]?lt?[áa]icos?|Solar(?:es)?) /i,'solarpark'],
+  [/^Centros? Electroprodutor(?:es)? H[íi]bridos? d[oaeu]s? /i,'hcomplex'],
+  [/^Centros? Electroprodutor(?:es)? d[oaeu]s? /i,'complex'],
+  [/^Subestaç(?:ão|ões) d[oaeu]s? /i,'subst'],
+  [/^(?:UPAC|Unidades? de Produção para Autoconsumo) d[oaeu]s? /i,'selfc'],
+  [/^(?:UPAC|Unidades? de Produção para Autoconsumo) /i,'selfc'],
+  [/^(?:UPPs?|Unidades? de Pequena Produção) d[oaeu]s? /i,'smallgen'],
+  [/^(?:UPPs?|Unidades? de Pequena Produção) /i,'smallgen']
+];
+/* fragment pass — the compound line/substation names, rewritten in place.
+   Compound phrases first: a bare "Linha" rule would eat their leading words. */
+var NFRAG = {
+ en:[[/\bSubestaç(?:ão|ões) e Linhas? El[ée]c?tricas? d[oa] /gi,'Substation and power line of the '],
+     [/\bLinhas? de Alta Tensão\b/gi,'High-voltage line'],[/\bLinhas? El[ée]c?tricas?\b/gi,'Power line'],
+     [/\bLinhas?\b/gi,'Line'],[/\bRamal d[oa] /gi,'spur line off the '],[/\bRamal\b/gi,'spur line'],
+     [/\bpara a Subestação d[oae] /gi,'to substation '],[/\bentre a subestação /gi,'between substation '],
+     [/\be a subestação d[oae] /gi,'and substation '],[/\bSubestaç(?:ão|ões) d[oae] /gi,'substation '],
+     [/\bSubestaç(?:ão|ões)\b/gi,'substation'],[/\bAbertura d[ao] /gi,'opening of the '],
+     [/\bde ligação à RESP\b/gi,'connecting to the RESP grid'],[/\bLigação\b/g,'Link'],[/\bEixo\b/gi,'Axis'],
+     [/\bProjeto H[íi]brido d[oa] /gi,'hybrid project of the '],
+     [/\bParques? Eólicos? d[oae]s? /gi,'wind farm of '],
+     [/\bCentra(?:l|is) (?:Solar(?:es)? )?Fotov[oó]?lt?[áa]icas? d[oae]s? /gi,'solar plant of '],
+     [/\bCentra(?:l|is) Solar(?:es)? /gi,'solar plant '],
+     [/ a (\d[\d/.,]*) ?kV/gi,' at $1 kV'],[/\btroço\b/gi,'section'],[/\bn[.]?[ºo]\s?(\d+)/gi,'no. $1'],
+     [/\bEstudo Pr[ée]vio\b/gi,'preliminary study']],
+ de:[[/\bSubestaç(?:ão|ões) e Linhas? El[ée]c?tricas? d[oa] /gi,'Umspannwerk und Stromleitung des '],
+     [/\bLinhas? de Alta Tensão\b/gi,'Hochspannungsleitung'],[/\bLinhas? El[ée]c?tricas?\b/gi,'Stromleitung'],
+     [/\bLinhas?\b/gi,'Leitung'],[/\bRamal d[oa] /gi,'Stichleitung der '],[/\bRamal\b/gi,'Stichleitung'],
+     [/\bpara a Subestação d[oae] /gi,'zum Umspannwerk '],[/\bentre a subestação /gi,'zwischen Umspannwerk '],
+     [/\be a subestação d[oae] /gi,'und Umspannwerk '],[/\bSubestaç(?:ão|ões) d[oae] /gi,'Umspannwerk '],
+     [/\bSubestaç(?:ão|ões)\b/gi,'Umspannwerk'],[/\bAbertura d[ao] /gi,'Öffnung der '],
+     [/\bde ligação à RESP\b/gi,'zum Anschluss an das RESP-Netz'],[/\bLigação\b/g,'Verbindung'],[/\bEixo\b/gi,'Achse'],
+     [/\bProjeto H[íi]brido d[oa] /gi,'Hybridprojekt des '],
+     [/\bParques? Eólicos? d[oae]s? /gi,'Windpark '],
+     [/\bCentra(?:l|is) (?:Solar(?:es)? )?Fotov[oó]?lt?[áa]icas? d[oae]s? /gi,'Solarkraftwerk '],
+     [/\bCentra(?:l|is) Solar(?:es)? /gi,'Solarkraftwerk '],
+     [/ a (\d[\d/.,]*) ?kV/gi,' mit $1 kV'],[/\btroço\b/gi,'Abschnitt'],[/\bn[.]?[ºo]\s?(\d+)/gi,'Nr. $1'],
+     [/\bEstudo Pr[ée]vio\b/gi,'Vorstudie']],
+ fr:[[/\bSubestaç(?:ão|ões) e Linhas? El[ée]c?tricas? d[oa] /gi,'Poste et ligne électrique du '],
+     [/\bLinhas? de Alta Tensão\b/gi,'Ligne à haute tension'],[/\bLinhas? El[ée]c?tricas?\b/gi,'Ligne électrique'],
+     [/\bLinhas?\b/gi,'Ligne'],[/\bRamal d[oa] /gi,'antenne de la '],[/\bRamal\b/gi,'antenne'],
+     [/\bpara a Subestação d[oae] /gi,'vers le poste '],[/\bentre a subestação /gi,'entre le poste '],
+     [/\be a subestação d[oae] /gi,'et le poste '],[/\bSubestaç(?:ão|ões) d[oae] /gi,'poste '],
+     [/\bSubestaç(?:ão|ões)\b/gi,'poste'],[/\bAbertura d[ao] /gi,'ouverture de la '],
+     [/\bde ligação à RESP\b/gi,'de raccordement au réseau RESP'],[/\bLigação\b/g,'Liaison'],[/\bEixo\b/gi,'Axe'],
+     [/\bProjeto H[íi]brido d[oa] /gi,'projet hybride du '],
+     [/\bParques? Eólicos? d[oae]s? /gi,'parc éolien de '],
+     [/\bCentra(?:l|is) (?:Solar(?:es)? )?Fotov[oó]?lt?[áa]icas? d[oae]s? /gi,'centrale solaire de '],
+     [/\bCentra(?:l|is) Solar(?:es)? /gi,'centrale solaire '],
+     [/ a (\d[\d/.,]*) ?kV/gi,' à $1 kV'],[/\btroço\b/gi,'tronçon'],[/\bn[.]?[ºo]\s?(\d+)/gi,'n° $1'],
+     [/\bEstudo Pr[ée]vio\b/gi,'étude préalable']]
+};
+
+function nmMod(w,M){
+  var m;
+  if(/^sobreequipamento$/i.test(w)) return M.sobre;
+  if(/^reequipamento$/i.test(w)) return M.ree;
+  if(/^amplia[çc][ãa]o$/i.test(w)) return M.amp;
+  if(/^altera[çc][ãa]o$/i.test(w)) return M.alt;
+  if(/^expans[ãa]o$/i.test(w)) return M.exp;
+  if(/^telhados$/i.test(w)) return M.rooftops;
+  if(/^proposta Eurowind$/i.test(w)) return M.eurowind;
+  if(/^n[úu]cleo sul$/i.test(w)) return M.south;
+  if(/^n[úu]cleo norte$/i.test(w)) return M.north;
+  if((m=/^n[úu]cleo (.+)$/i.exec(w))) return M.cluster(m[1]);
+  if((m=/^(\d)\s*[ªa°.]*\s*fase de sobreequipamento$/i.exec(w))) return m[1]==='2'?M.sobre2:M.sobre+', '+M.phase(m[1]);
+  if((m=/^(\d)\s*[.ªa°]*\s*fase$/i.exec(w))) return M.phase(m[1]);
+  return null;
+}
+function trName(s){
+  if(lang==='pt'||s==null||s==='') return s;
+  var L=NM[lang]; if(!L) return s;
+  s=String(s).replace(/\s+/g,' ').trim();
+  var out=nmCore(s);
+  if(out==null) return s;
+  /* it is a title: if the Portuguese started with a capital, so does the translation */
+  if(/^[A-ZÁÉÍÓÚÂÊÔÃÕÇ]/.test(s)) out=out.charAt(0).toUpperCase()+out.slice(1);
+  return out;
+}
+/* returns a translation, or null when nothing recognisable was found */
+function nmCore(s){
+  var L=NM[lang], m, w, inner;
+  if(NFIXED[s]) return NFIXED[s][lang];
+  /* trailing "(Sobreequipamento)" / " - 1.ª Fase" — strip, translate the rest, re-append */
+  if((m=/^(.+?)\s*\(([^()]+)\)$/.exec(s)) && (w=nmMod(m[2],L.mod))){
+    inner=nmCore(m[1]); return (inner||m[1])+' ('+w+')';
+  }
+  if((m=/^(.+?)\s*[-–—]\s*([^-–—]+)$/.exec(s)) && (w=nmMod(m[2],L.mod))){
+    inner=nmCore(m[1]); return (inner||m[1])+' ('+w+')';
+  }
+  /* leading "Sobreequipamento do …" — same modifier, as a parenthetical */
+  if((m=/^(Sobreequipamento|Reequipamento|Amplia[çc][ãa]o|Altera[çc][ãa]o|Expans[ãa]o) d[oae]s? (.+)$/i.exec(s))){
+    w=nmMod(m[1],L.mod); inner=nmCore(m[2]);
+    return (inner||m[2])+' ('+w+')';
+  }
+  /* "A – B", where both halves are projects in their own right */
+  if((m=/^(.+?)\s+[–—]\s+(.+)$/.exec(s))){
+    var a=nmHead(m[1]), b=nmHead(m[2]);
+    if(a&&b) return a+' – '+b;
+  }
+  return nmHead(s) || nmFrag(s);
+}
+/* "<type> <de> <toponym>" — the shape almost every name has */
+function nmHead(s){
+  var L=NM[lang];
+  for(var i=0;i<NHEAD.length;i++){
+    var mm=NHEAD[i][0].exec(s+' ');
+    if(!mm||mm.index!==0) continue;
+    var rest=(s+' ').slice(mm[0].length).trim(), key=NHEAD[i][1];
+    /* leave anything with more structure in it to the fragment pass */
+    if(rest&&/\bkV\b|Subestaç|Linha|Ramal|Projeto|Parques? Eólic|Centra(?:l|is) (?:Solar|Fotov)|^[a-zà-ú]/.test(rest)) continue;
+    rest = key==='winds' ? rest.replace(/,? e d[oae]s? /g,L.and).replace(/,? e /g,L.and)
+                         : rest.replace(/ e d[oae]s? /g,L.and);
+    return L.head(L.t[key],rest);
+  }
+  return null;
+}
+/* compound engineering names: rewrite the vocabulary in place */
+function nmFrag(s){
+  var L=NM[lang], f=NFRAG[lang], out=s;
+  /* "X e Y" joins two structures — do it first, while the text is still Portuguese */
+  if(/\bkV\b|Linha|Subestaç|Ramal/i.test(s)) out=out.replace(/ e (?=[A-ZÁÉÍÓÚÂÊÔÃÕ])/g,L.and).replace(/ e (?=linhas?\b|subestaç|ramal)/gi,L.and);
+  for(var j=0;j<f.length;j++) out=out.replace(f[j][0],f[j][1]);
+  if(out===s) return null;
+  return out;
+}
 
 /* --------------------------------------------------------------- state */
 var lang = (function(){try{return localStorage.getItem('nf_lang')||'pt';}catch(e){return 'pt';}})();
@@ -803,30 +1014,50 @@ map.createPane('burn'); map.getPane('burn').style.zIndex=350;
 //     heavily, and a reader cannot tell a 2017 burn from a 2025 one, which is
 //     precisely the question the layer exists to answer.
 var ARD_YEARS=[2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
-var gArdidas=L.layerGroup(), gArdNat=L.layerGroup(),
-    ardidasLoaded=false, ARDIDAS=null,
+var gArdNat=L.layerGroup(),
     ardYear=2025, ardCache={}, ardInflight={}, ardPending=null;
+// Age ramp for the "all years" view. One hue, light to dark: the current year
+// keeps the layer's own orange and each step back is darker, so twelve years of
+// overlapping scars read as a depth of field instead of the mush a single colour
+// would give. Newer years are drawn last, so a recent burn is never buried under
+// an old one it overlaps.
+var ARD_NEW={line:'#9a3412',fill:'#ea580c'}, ARD_OLD={line:'#3f1206',fill:'#7c2d12'};
+function mix(a,b,f){
+  var pa=parseInt(a.slice(1),16), pb=parseInt(b.slice(1),16), o='#';
+  for(var i=16;i>=0;i-=8){
+    var ca=(pa>>i)&255, cb=(pb>>i)&255, c=Math.round(ca+(cb-ca)*f);
+    o+=(c<16?'0':'')+c.toString(16);
+  }
+  return o;
+}
+function ardStyle(y){
+  var i=ARD_YEARS.indexOf(y);
+  if(i<0 || ARD_YEARS.length<2) return ARD_NEW;
+  var f=1-(i/(ARD_YEARS.length-1));   // 0 for the newest year, 1 for the oldest
+  return {line:mix(ARD_NEW.line,ARD_OLD.line,f), fill:mix(ARD_NEW.fill,ARD_OLD.fill,f)};
+}
 // Redrawn on every language switch too — the popups carry a translated cause.
-function scar(a, year, group, style){
-  L.polygon(a.rings,{pane:'burn',color:style.line,weight:1,fillColor:style.fill,fillOpacity:.28})
+function scar(a, year, group, style, opacity){
+  L.polygon(a.rings,{pane:'burn',color:style.line,weight:1,fillColor:style.fill,
+                     fillOpacity:(opacity==null?.28:opacity)})
     .bindPopup('<b>'+t('burn_pop')+' · '+year+'</b>'
       +(a.concelho?'<br>'+esc(a.concelho):'')+(a.area_ha?' · '+a.area_ha+' ha':'')
       +(a.cause?'<br>'+esc(tr(a.cause)):'')).addTo(group);
 }
-function drawArdidas(){
-  if(!ARDIDAS) return;
-  gArdidas.clearLayers();
-  (ARDIDAS.areas||[]).forEach(function(a){
-    scar(a,a.year,gArdidas,{line:'#b45309',fill:'#c2410c'});
-  });
-}
 function drawArdNat(){
-  var d=ardCache[ardYear];
   gArdNat.clearLayers();
+  if(ardYear==='all'){
+    // Oldest first so the newest scar wins where they overlap.
+    ARD_YEARS.forEach(function(y){
+      var d=ardCache[y]; if(!d) return;
+      var st=ardStyle(y);
+      (d.areas||[]).forEach(function(a){ scar(a,d.year,gArdNat,st,.34); });
+    });
+    return;
+  }
+  var d=ardCache[ardYear];
   if(!d) return;
-  (d.areas||[]).forEach(function(a){
-    scar(a,d.year,gArdNat,{line:'#9a3412',fill:'#ea580c'});
-  });
+  (d.areas||[]).forEach(function(a){ scar(a,d.year,gArdNat,ARD_NEW); });
 }
 // One fetch per year, ever. Both the click path and the background prefetch go
 // through here, so clicking a year the prefetcher is already pulling joins that
@@ -849,6 +1080,17 @@ function loadYear(y){
 function selectArdYear(y){
   ardYear=y; ardPending=y;
   syncYearStrip();
+  if(y==='all'){
+    // Draw whatever is already in memory straight away, then fill the rest in as
+    // it lands — the prefetch usually means there is nothing left to wait for.
+    drawArdNat();
+    ARD_YEARS.forEach(function(yy){
+      if(ardCache[yy]) return;
+      loadYear(yy).then(function(){ if(ardPending==='all'){ drawArdNat(); syncYearStrip(); } },
+                        function(){});
+    });
+    return;
+  }
   if(ardCache[y]){ drawArdNat(); return; }
   gArdNat.clearLayers();
   loadYear(y).then(function(){ if(ardPending===y){ drawArdNat(); syncYearStrip(); } },
@@ -873,8 +1115,9 @@ function prefetchYears(){
   var c=navigator.connection;
   if(c && (c.saveData || /(^|\W)(slow-)?2g$/.test(c.effectiveType||''))) return;
   ardPrefetching=true;
+  var anchor=(ardYear==='all')?ARD_YEARS[ARD_YEARS.length-1]:ardYear;
   var queue=ARD_YEARS.slice().sort(function(a,b){
-    return Math.abs(a-ardYear)-Math.abs(b-ardYear);
+    return Math.abs(a-anchor)-Math.abs(b-anchor);
   });
   (function next(){
     var y=null;
@@ -885,16 +1128,12 @@ function prefetchYears(){
   })();
 }
 map.on('overlayadd', function(e){
-  if(e.layer===gArdidas && !ardidasLoaded){
-    ardidasLoaded=true;
-    fetch(ARDIDAS_URL).then(function(r){return r.json();}).then(function(d){ARDIDAS=d;drawArdidas();});
-  }
   if(e.layer===gArdNat){ selectArdYear(ardYear); idle(prefetchYears); }
 });
 // The note and the year strip are only worth their space while a scar layer is on.
 function syncBurnNote(){
   var n=document.getElementById('burnnote');
-  if(n) n.hidden=!(map.hasLayer(gArdidas)||map.hasLayer(gArdNat));
+  if(n) n.hidden=!map.hasLayer(gArdNat);
   var s=document.getElementById('yearstrip');
   if(s) s.hidden=!map.hasLayer(gArdNat);
 }
@@ -903,12 +1142,14 @@ function syncBurnNote(){
 // background prefetch legible: the strip fills in as the years land.
 function syncYearStrip(failed){
   var s=document.getElementById('yearstrip'); if(!s) return;
+  var allIn=ARD_YEARS.every(function(y){ return !!ardCache[y]; });
   [].forEach.call(s.querySelectorAll('button'), function(b){
-    var y=+b.getAttribute('data-year'), on=(y===ardYear);
+    var raw=b.getAttribute('data-year'), isAll=(raw==='all'), y=isAll?'all':+raw;
+    var on=(y===ardYear), have=isAll?allIn:!!ardCache[y];
     b.className = on ? 'on' : '';
     b.setAttribute('aria-pressed', on?'true':'false');
-    b.classList.toggle('ready', !!ardCache[y]);
-    b.classList.toggle('loading', on && !ardCache[y] && !failed);
+    b.classList.toggle('ready', have);
+    b.classList.toggle('loading', on && !have && !failed);
   });
 }
 map.on('overlayadd overlayremove', syncBurnNote);
@@ -955,7 +1196,7 @@ function buildControls(){
   b[t('base_map')]=cartoDark; b[t('base_sat')]=sat; b[t('base_topo')]=topo;
   o[sw('#4a9eff')+t('l_wind')]=gWind; o[sw('#4a9eff')+t('l_turb')]=gTurb; o[sw('#c94f7c')+t('l_dturb')]=gDgegTurb;
   o[sw('#fbbf24')+t('l_solar')]=gSolar; o[sw('#fbbf24')+t('l_dsolar')]=gDgegSolar; o[sw('#f87171')+t('l_plan')]=gPlan;
-  o[sw('#c2410c')+t('l_ardidas')]=gArdidas; o[sw('#ea580c')+t('l_ardnat')]=gArdNat;
+  o[sw('#ea580c')+t('l_ardnat')]=gArdNat;
   ctlLayers=L.control.layers(b,o,{collapsed:false}).addTo(map);
   var _pl=document.getElementById('panel-layers');
   if(_pl){
@@ -970,10 +1211,12 @@ function buildControls(){
     ys.innerHTML='<span class="lbl">'+t('burn_year')+'</span>'
       + ARD_YEARS.map(function(y){
           return '<button type="button" data-year="'+y+'">'+y+'</button>';
-        }).join('');
+        }).join('')
+      + '<button type="button" data-year="all" class="all">'+t('burn_all')+'</button>';
     ys.addEventListener('click', function(ev){
       var b=ev.target.closest('button[data-year]'); if(!b) return;
-      selectArdYear(+b.getAttribute('data-year'));
+      var raw=b.getAttribute('data-year');
+      selectArdYear(raw==='all'?'all':+raw);
     });
     _pl.appendChild(ys);
     var bn=document.createElement('div');
@@ -1038,12 +1281,12 @@ function render(){
       return '<li>'+esc(tr(x.source))+': '+esc(x.name||'—')+(x.mw?' · '+x.mw+' MW':'')
         +(x.dist_km!=null?' · '+t('fromcentre')(x.dist_km):'')
         +(x.url?' · <a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+t('src_link')+'</a>':'')+'</li>';}).join('');
-    poly.bindPopup('<h3>'+esc(p.name||t('noname'))+'</h3><table>'+rowsOf([
+    poly.bindPopup('<h3>'+esc(trName(p.name)||t('noname'))+'</h3><table>'+rowsOf([
       [t('f_type'),w?t('wind'):t('solar')],[t('f_power'),p.mw?p.mw+' MW':null],[t('f_operator'),esc(p.operator)],
       [t('f_since'),esc(p.start)],[t('f_turbines'),p.n_turbines],[t('f_area'),p.area_ha+' ha'],
       [t('f_centre'),p.centre[0].toFixed(5)+', '+p.centre[1].toFixed(5)],
       [t('f_burn'),burnRow('osm:'+p.id)],
-      [t('f_subparkof'),esc(p.parent)]])+'</table>'
+      [t('f_subparkof'),esc(trName(p.parent))]])+'</table>'
       +'<div>'+t('source')+': <a href="'+p.url+'" target="_blank" rel="noopener">OpenStreetMap '+esc(p.id)+'</a></div>'
       +(xr?'<div class="note">'+t('confirmed_by')+'<ul style="margin:4px 0 0;padding-left:18px">'+xr+'</ul></div>'
           :'<div class="note">'+t('no_indep')+'</div>')
@@ -1056,7 +1299,7 @@ function render(){
     L.circleMarker([x.lat,x.lon],{radius:3,color:ok?'#4a9eff':'#c08a2a',weight:1,
       fillColor:ok?'#0b2540':'#3a2a08',fillOpacity:.9})
      .bindPopup('<h3>'+t('turbine')+'</h3><table>'+rowsOf([
-       [t('f_park_osm'),esc(x.park)],[t('f_power'),x.mw?x.mw+' MW':null],[t('f_height'),esc(x.height)],
+       [t('f_park_osm'),esc(trName(x.park))],[t('f_power'),x.mw?x.mw+' MW':null],[t('f_height'),esc(x.height)],
        [t('f_model'),esc(x.model)],[t('f_coords'),x.lat.toFixed(5)+', '+x.lon.toFixed(5)],
        [t('f_attrib'),esc(trSrc(x.park_src))]])+'</table>'
        +'<div>'+t('source')+': <a href="https://www.openstreetmap.org/'+x.id+'" target="_blank" rel="noopener">OSM '+esc(x.id)+'</a></div>'
@@ -1094,11 +1337,11 @@ function render(){
   d.planned.forEach(function(p,i){
     if(p.lat==null) return;
     var st=STATE[p.state]||STATE['aprovado, por construir'];
-    var body='<h3>'+esc(p.name)+'</h3><table>'+rowsOf([
+    var body='<h3>'+esc(trName(p.name))+'</h3><table>'+rowsOf([
       [t('f_situation'),'<b style="color:'+st.c+'">'+esc(tr(p.state))+'</b>'],[t('f_type'),esc(tr(p.type))],
       [t('f_aia'),p.n_aia],[t('f_decision'),esc(tr(p.status))],
       [t('f_cp'),p.cp_start?esc(p.cp_start)+t('to')+esc(p.cp_end||'?'):null],
-      [t('f_promoter'),esc(p.promoter)],[t('f_licensor'),esc(p.licensor)],[t('f_munis'),esc(tr(p.municipality))],
+      [t('f_promoter'),esc(tr(p.promoter))],[t('f_licensor'),esc(tr(p.licensor))],[t('f_munis'),esc(tr(p.municipality))],
       [t('f_studyarea'),p.area_ha?p.area_ha+' ha':null],
       [t('f_centre'),p.lat.toFixed(5)+', '+p.lon.toFixed(5)]])+'</table>'
       +'<div class="note">'+esc(tr(p.built_note||''))+'</div>'
@@ -1116,7 +1359,7 @@ function render(){
   var sec=function(title,items){return items.length?'<h2>'+title+'</h2>'+items.join(''):'';};
   var plantItem=function(p,i){return '<div class="item" data-t="p'+i+'">'
       +'<span class="pill '+p.kind+'">'+(p.kind==='wind'?t('wind'):t('solar'))+'</span>'
-      +'<b>'+esc(p.name||t('noname'))+'</b>'
+      +'<b>'+esc(trName(p.name)||t('noname'))+'</b>'
       +'<span class="pill '+((p.xref||[]).length?'ok':'unk')+'">'+((p.xref||[]).length?t('p_conf'):t('p_osmonly'))+'</span>'
       +'<div class="meta">'+(p.mw?p.mw+' MW · ':'')+(p.n_turbines?p.n_turbines+' '+t('m_turbines')+' · ':'')
       +p.area_ha+' ha'+(p.parent?' · '+t('m_subpark'):'')+'</div></div>';};
@@ -1126,8 +1369,8 @@ function render(){
     if(p.dist_km==null) meta.push(t('m_nocoords'));
     if(p.n_aia) meta.push('AIA '+p.n_aia);
     return '<div class="item" data-t="n'+i+'">'
-      +'<span class="pill plan">'+esc(tr(p.type))+'</span><b>'+esc(p.name)+'</b>'
-      +'<div class="meta">'+(p.promoter?esc(p.promoter)+' · ':'')+esc(tr(p.status))+'</div>'
+      +'<span class="pill plan">'+esc(tr(p.type))+'</span><b>'+esc(trName(p.name))+'</b>'
+      +'<div class="meta">'+(p.promoter?esc(tr(p.promoter))+' · ':'')+esc(tr(p.status))+'</div>'
       +'<div class="meta">'+meta.join(' · ')+'</div></div>';};
   var idx=d.plants.map(function(p,i){return [p,i];});
   var byKind=function(k,sub){return idx.filter(function(a){return a[0].kind===k && (sub?a[0].parent:!a[0].parent);})
@@ -1194,7 +1437,7 @@ function render(){
     return '<div class="srccard"><div class="who">'+c.who+'</div><h4><a href="'+c.u+'" target="_blank" rel="noopener">'+c.h+'</a></h4><p>'+c.p+'</p></div>';}).join('');
   document.getElementById('limits').innerHTML=t('limits').map(function(x){return '<li>'+x+'</li>';}).join('');
   burnBox(BURNS&&BURNS.stats);
-  drawArdidas(); drawArdNat();
+  drawArdNat();
 }
 
 document.getElementById('side').addEventListener('click',function(ev){
