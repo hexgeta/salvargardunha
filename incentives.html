@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burned, then built? Testing the claim that developers set the fires · Salvar a Gardunha</title>
+<meta name="description" content="The strongest version of the suspicion is that big fires are set so the cleared land can be built on. We tested it against the official record — every ICNF fire perimeter from 2014 to 2025 against every solar plant with a known build date. Two tests, 60 configurations, and a result that does not go the way the campaign would have liked.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://salvargardunha.com/incentives">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<style>
+  :root{--bg:#0a0d0a;--panel:#141a14;--line:#243024;--ink:#f3f5f1;--muted:#9aa79a;
+        --green:#4ade80;--green-d:#22c55e;--burn:#ea580c;--cool:#3D9CBF;--red:#f87171;--max:900px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+  a{color:var(--green)}
+  .top{position:sticky;top:0;z-index:60;background:rgba(10,13,10,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:14px 0;font-size:14px}
+  .top .wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .top a{text-decoration:none;color:var(--muted)}.top a:hover{color:var(--green)}
+  header{padding:44px 0 30px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:14px}
+  h1{font-size:clamp(27px,5vw,42px);line-height:1.07;font-weight:900;letter-spacing:-.02em}
+  .lede{font-size:clamp(16px,2.4vw,19px);color:#d7ddd4;margin-top:18px;max-width:740px}
+  .lede b{color:#fff}
+  section{padding:36px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:clamp(20px,3.4vw,27px);font-weight:800;letter-spacing:-.01em}
+  .kick{font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:12px}
+  section p{color:#ccd3c9;margin-top:14px;font-size:16px;max-width:740px}
+  section p b{color:#fff}
+
+  .verdict{margin-top:22px;background:#0f1b12;border:1px solid #1f4d2c;border-left:3px solid var(--green-d);border-radius:12px;padding:18px 20px}
+  .verdict .vk{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:800}
+  .verdict p{margin-top:9px;color:#dfe7dc;font-size:16.5px;max-width:none}
+
+  .tallies{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  .tally{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .tally .n{font-size:26px;font-weight:900;color:#fff;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1}
+  .tally .n span{color:var(--muted);font-size:17px;font-weight:700}
+  .tally .k{margin-top:4px;color:var(--muted);font-size:12.5px;line-height:1.4}
+
+  figure{margin-top:24px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 18px 12px}
+  .figt{font-weight:800;color:#fff;font-size:15.5px;line-height:1.35}
+  .figs{color:var(--muted);font-size:13.5px;margin-top:5px;line-height:1.45}
+  .figwrap{overflow-x:auto;margin-top:16px}
+  svg{display:block;max-width:100%;height:auto}
+  figcaption{margin-top:12px;padding-top:11px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}
+  .legend{display:flex;flex-wrap:wrap;gap:7px 18px;margin-top:12px}
+  .lg{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:13px}
+  .lg i{width:11px;height:11px;border-radius:50%;flex:none;display:block}
+
+  .cases{margin-top:20px;display:grid;gap:10px}
+  .case{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 18px;display:flex;flex-wrap:wrap;gap:5px 18px;align-items:baseline}
+  .case .who{font-weight:800;color:#fff;font-size:15.5px}
+  .case .x{margin-left:auto;font-weight:900;font-size:16px;color:var(--burn);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .case .cap{flex-basis:100%;color:var(--muted);font-size:13.5px}
+
+  .tbl-scroll{margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow-x:auto;background:var(--panel)}
+  table{width:100%;border-collapse:collapse;font-size:14px;min-width:620px}
+  th,td{padding:9px 14px;text-align:right;line-height:1.45;white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  thead th{background:#10200f;color:var(--green);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;position:sticky;top:0}
+  tbody tr{border-top:1px solid var(--line)}
+  tbody td{color:#ccd3c9;font-variant-numeric:tabular-nums}
+  details{margin-top:18px;border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
+  summary{cursor:pointer;padding:13px 18px;color:var(--muted);font-size:14px;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"+ ";color:var(--green);font-weight:700}
+  details[open] summary::before{content:"– "}
+  summary:hover{color:var(--ink)}
+  summary:focus-visible{outline:2px solid var(--green);outline-offset:-2px}
+  details .tbl-scroll{margin:0;border:0;border-top:1px solid var(--line);border-radius:0}
+
+  ul.limits{margin-top:16px;list-style:none;display:grid;gap:13px;max-width:740px}
+  ul.limits li{display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start;color:#ccd3c9;font-size:15.5px}
+  ul.limits li::before{content:"";width:6px;height:6px;margin-top:.62em;background:var(--line);border-radius:50%}
+
+  footer{padding:32px 0 60px}
+  footer p{color:var(--muted);font-size:14px;margin-top:9px}
+  footer .disc{font-size:12.5px;color:#6f7b6f;max-width:760px}
+
+  #tip{position:fixed;pointer-events:none;opacity:0;transition:opacity .1s;background:#05230f;border:1px solid var(--line);
+    color:var(--ink);padding:8px 11px;font-size:12.5px;line-height:1.5;border-radius:8px;z-index:90;max-width:250px;
+    font-variant-numeric:tabular-nums;box-shadow:0 6px 20px rgba(0,0,0,.5)}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<script defer data-domain="salvargardunha.com" src="https://analytics.hexgeta.com/script.js"></script>
+</head>
+<body>
+
+<div class="top"><div class="wrap"><a href="/">← salvargardunha.com</a> · <a href="/map">Verified map</a> · <a href="/ardidas">Burned land</a> · <a href="/verificacao">How it was verified</a> · <a href="/read/">Documents</a></div></div>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Analysis · official records, whole country</div>
+    <h1>Burned, then built?</h1>
+    <p class="lede">There is a stronger version of the suspicion than the one usually tested, and it deserves testing properly: that big fires are <b>set</b>, as the first step of a development plan, so the cleared land can be built on. That claim makes a prediction sharp enough to check against public records. We checked it. <b>It does not hold</b> — and this page says so, because the case for the Gardunha does not need it.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kick">What we found</div>
+    <h2>The pattern is not in the data</h2>
+    <div class="verdict">
+      <div class="vk">Result</div>
+      <p>Solar plants are built <b>further</b> from recently burned land than chance would put them — not closer. And the big fires that solar does eventually follow are <b>less</b> often deliberate than the fires it never follows, not more.</p>
+    </div>
+    <div class="tallies">
+      <div class="tally"><div class="n">0<span>/48</span></div><div class="k">proximity tests above chance</div></div>
+      <div class="tally"><div class="n">1<span>/12</span></div><div class="k">arson tests favouring the claim</div></div>
+      <div class="tally"><div class="n">0</div><div class="k">results reaching significance</div></div>
+      <div class="tally"><div class="n">20 475</div><div class="k">mapped fires examined, 2014–2025</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick">The claim</div>
+    <h2>Stated as strongly as it deserves</h2>
+    <p>The weak version says developers take advantage of land that happens to have burned. That is unremarkable, and hard to object to. The strong version says the burning is <b>arranged</b> — that the fire is lit deliberately, before the land can be acquired, by or for whoever intends to build there.</p>
+    <p>Only the strong version is worth testing, and it predicts two things. Solar should cluster near land that big fires cleared a few years earlier. And those particular fires should be attributed to deliberate ignition more often than fires elsewhere. Both are measurable against ICNF's fire record and DGEG's licensing register.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick">Test 1 · proximity</div>
+    <h2>Is solar built near land that recently burned?</h2>
+    <p>For every solar plant with a known build year we asked whether a big fire had burned within a given distance in the years before. Then — and this is the half that matters — we compared it against how much <b>Portuguese land in general</b> sat near a recent big scar in that same year. Without that comparison the test is worthless: Portuguese solar boomed after 2018, so "built after a fire" is nearly free.</p>
+    <p>Rather than pick one definition and defend it, we ran every reasonable one: two fire-size thresholds, three lookback windows, four radii, and two independent plant samples kept separate instead of merged. Forty-eight combinations.</p>
+
+    <figure>
+      <div class="figt">Every configuration lands short of chance</div>
+      <div class="figs">Observed divided by expected. 1,0 means solar sits near recent burns exactly as often as the land allows.</div>
+      <div class="figwrap"><svg id="dots" viewBox="0 0 780 300" role="img" aria-label="Dot plot of 48 ratios, every one below the chance line at 1,0"></svg></div>
+      <div class="legend">
+        <span class="lg"><i style="background:var(--cool)"></i>DGEG register (n=86)</span>
+        <span class="lg"><i style="background:transparent;box-shadow:inset 0 0 0 2px var(--cool)"></i>OpenStreetMap (n=170)</span>
+      </div>
+      <figcaption>Highest of all 48 is 0,95. Lowest is 0,00. Not one reaches parity with the land, let alone exceeds it.</figcaption>
+    </figure>
+
+    <p>A ratio below 1 was always likely for an innocent reason: fires burn steep upland scrub, solar wants flat accessible ground. So the ratio alone settles nothing.</p>
+    <p>The permutation test is immune to that. It keeps every plant exactly where it is and shuffles only the build years — two thousand times per configuration — asking whether the real timing beats a random one. Terrain cancels out completely. <b>Nothing came close to significance.</b> The lowest p-value across all 48 was 0,23, which is what noise produces across that many tests. The p-values in fact cluster near 1,00, meaning the true build years placed plants <b>further</b> from recent fires than most random reshuffles managed.</p>
+
+    <details>
+      <summary>All 48 configurations, ranked by ratio</summary>
+      <div class="tbl-scroll"><table id="fulltable">
+        <thead><tr><th>Fire size</th><th>Lookback</th><th>Radius</th><th>Sample</th><th>n</th><th>Observed</th><th>Expected</th><th>Ratio</th><th>p</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+    </details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick">Test 2 · attribution</div>
+    <h2>Are the fires solar follows more often deliberate?</h2>
+    <p>ICNF assigns a cause to almost every fire it maps, deliberate ignition included. That turns the question into something much closer to the actual allegation: among big fires, are the ones later followed by nearby solar disproportionately arson?</p>
+
+    <figure>
+      <div class="figt">Fires followed by solar are mostly <i>less</i> often arson</div>
+      <div class="figs">Difference in arson share — fires later followed by nearby solar, minus fires never followed.</div>
+      <div class="figwrap"><svg id="diverge" viewBox="0 0 780 340" role="img" aria-label="Diverging bars for twelve configurations, eleven of them negative"></svg></div>
+      <div class="legend">
+        <span class="lg"><i style="background:var(--burn)"></i>Toward the claim</span>
+        <span class="lg"><i style="background:var(--cool)"></i>Against the claim</span>
+      </div>
+      <figcaption>Group sizes run from 4 to 53 fires, so this test is underpowered. Read it as no evidence of the pattern, not proof of its absence.</figcaption>
+    </figure>
+
+    <p>One cell does lean the claim's way: at 10 km with a five-year window, fires followed by solar are 60,0% arson against 47,3%. It does not survive inspection. It is one of twelve tests, its p-value is 0,15, and its own neighbours contradict it — tighten the radius to 5 km and it flips to −18 points, widen the window to ten years and it collapses to +1,5. A signal that appears only at 10 km is also a strange shape for the hypothesis. Burning land ten kilometres from where you build is not a plan.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick">What the record does show</div>
+    <h2>Three findings that survive</h2>
+    <p>A null result on one claim is not a clean bill of health for the landscape. Three things in the same data hold up, and two of them are serious.</p>
+
+    <figure>
+      <div class="figt">Portugal's big fires are disproportionately deliberate</div>
+      <div class="figs">Share attributed by ICNF to arson, 2014–2025.</div>
+      <div class="figwrap"><svg id="bars" viewBox="0 0 780 190" role="img" aria-label="22,4% of all fires attributed to arson against 46,6% of fires over 1000 hectares"></svg></div>
+      <figcaption>Of 20 475 mapped fires, 18 955 carry an attributed cause — including 174 of the 195 over 1 000 ha. Not a coverage artifact.</figcaption>
+    </figure>
+
+    <p><b>Deliberate ignition doubles its share among the big fires.</b> 22,4% of all fires against 46,6% of those over 1 000 ha — 454 048 hectares. Someone is lighting the large ones. What the record does not say is who: "imputável" is a legal category covering land clearing, grudges and pyromania alike, and it names no beneficiary.</p>
+    <p><b>Wind sits on land that burns at 2,42× the national rate.</b> Not because anyone chose scars — measured against its own neighbourhood wind is 0,98× — but because turbines take unpopulated ridge scrub, and ridge scrub is what burns. The timing settles the direction: <b>115 parks burned after they were built, against 2 before</b>. This is the finding that matters for the Gardunha, and it runs opposite to the burn-to-build story. Putting infrastructure on those ridges puts it in the path of the fire.</p>
+    <p><b>Individual cases remain, as cases.</b> They do not generalise into a pattern, but they are real and worth naming.</p>
+
+    <div class="cases">
+      <div class="case"><span class="who">Parque Solar Cibele — areas 2, 3 and 4</span><span class="x">48,3×</span><span class="cap">111 ha across three areas, 74–100% of each footprint on a single 2022 scar, in a district where 2,1% of the land burned. Built after the fire.</span></div>
+      <div class="case"><span class="who">Herdade dos Canhões</span><span class="x">30,4×</span><span class="cap">Footprint entirely on 2021 and 2025 scars, against a 3,3% local rate.</span></div>
+      <div class="case"><span class="who">26 plants, 831 ha in total</span><span class="x">—</span><span class="cap">Burned first, built afterward. Against 27 that burned after being built — a split indistinguishable from chance.</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick">Limits</div>
+    <h2>What this cannot tell you</h2>
+    <ul class="limits">
+      <li><span>Roughly half of Portugal's solar plants carry no build date in either register. The proximity test runs on 86 and 170 plants — enough to detect a strong nationwide pattern, not enough to catch a handful of individual cases.</span></li>
+      <li><span>The date available is commissioning, not siting. A plant switched on in 2023 was sited around 2019, so short lookback windows credit fires that arrived after every decision had been made. That is why the analysis reports 3, 5 and 10-year windows rather than one.</span></li>
+      <li><span>Correlation in space and time cannot separate arranged burning from opportunism, from cheap marginal land, or from coincidence. Even a positive result would not have named anyone.</span></li>
+      <li><span>Absence of a fingerprint in the geography is not proof that nothing ever happened. It means that if it happens, it is not happening at a scale this data can see.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kick">Conclusion</div>
+    <h2>Why publish a result that goes against us</h2>
+    <p>Because the case against covering the Gardunha in turbines does not need this claim, and is weakened by carrying it. The measured facts are strong enough on their own: wind occupies precisely the ground that burns, at nearly two and a half times the national rate, and the fires arrive after the parks are built rather than before.</p>
+    <p>Attaching an unproven arson allegation to that would hand the other side the easiest possible rebuttal — and when it fell, it would take the solid findings down with it. We tested the claim we would most have liked to be able to make. It did not hold. That is worth saying out loud.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Fire perimeters and cause attribution: ICNF, national mapped burned areas 2014–2025. Solar and wind: DGEG licensing register and OpenStreetMap, cross-checked against each other. Land baseline on a 0,02° grid clipped to the mainland boundary. Permutation tests: 2 000 iterations per configuration for proximity, 5 000 for attribution. Mainland Portugal only.</p>
+    <p>Made by neighbours in the Beira Baixa who want the range left standing. · <a href="/">salvargardunha.com</a></p>
+    <p class="disc">Analysis of public data. Every figure on this page is recomputed from the cited records and can be reproduced by anyone. Informational, civic, non-profit, not affiliated with any party, company or public body.</p>
+  </div>
+</footer>
+
+<div id="tip" role="status" aria-live="polite"></div>
+
+<script>
+var PROX=[[1000,3,1,"DGEG",86,1,0.0116,0.04,0.29,0.8991],[1000,3,1,"OSM",170,5,0.0294,0.04,0.74,0.7661],[1000,3,2,"DGEG",86,3,0.0349,0.054,0.65,0.7431],[1000,3,2,"OSM",170,8,0.0471,0.0539,0.87,0.7056],[1000,3,5,"DGEG",86,6,0.0698,0.0967,0.72,0.4808],[1000,3,5,"OSM",170,11,0.0647,0.0964,0.67,0.8711],[1000,3,10,"DGEG",86,9,0.1047,0.1708,0.61,0.7311],[1000,3,10,"OSM",170,18,0.1059,0.1705,0.62,0.9605],[1000,5,1,"DGEG",86,1,0.0116,0.06,0.19,0.994],[1000,5,1,"OSM",170,7,0.0412,0.0658,0.63,0.956],[1000,5,2,"DGEG",86,5,0.0581,0.0806,0.72,0.6882],[1000,5,2,"OSM",170,13,0.0765,0.0877,0.87,0.8321],[1000,5,5,"DGEG",86,7,0.0814,0.1401,0.58,0.7976],[1000,5,5,"OSM",170,15,0.0882,0.1506,0.59,0.991],[1000,5,10,"DGEG",86,10,0.1163,0.2368,0.49,0.9705],[1000,5,10,"OSM",170,24,0.1412,0.2518,0.56,0.9995],[1000,10,1,"DGEG",86,4,0.0465,0.0998,0.47,0.8831],[1000,10,1,"OSM",170,15,0.0882,0.1041,0.85,0.5642],[1000,10,2,"DGEG",86,8,0.093,0.131,0.71,0.6972],[1000,10,2,"OSM",170,22,0.1294,0.1366,0.95,0.2294],[1000,10,5,"DGEG",86,13,0.1512,0.2122,0.71,0.4653],[1000,10,5,"OSM",170,28,0.1647,0.2213,0.74,0.5382],[1000,10,10,"DGEG",86,17,0.1977,0.3233,0.61,0.8961],[1000,10,10,"OSM",170,40,0.2353,0.3375,0.7,0.8386],[5000,3,1,"DGEG",86,0,0,0.0268,0,1],[5000,3,1,"OSM",170,2,0.0118,0.0269,0.44,0.8446],[5000,3,2,"DGEG",86,2,0.0233,0.0338,0.69,0.4473],[5000,3,2,"OSM",170,3,0.0176,0.0339,0.52,0.7566],[5000,3,5,"DGEG",86,4,0.0465,0.0543,0.86,0.3838],[5000,3,5,"OSM",170,4,0.0235,0.0542,0.43,0.9385],[5000,3,10,"DGEG",86,4,0.0465,0.0914,0.51,0.4318],[5000,3,10,"OSM",170,8,0.0471,0.0906,0.52,0.948],[5000,5,1,"DGEG",86,0,0,0.0399,0,1],[5000,5,1,"OSM",170,3,0.0176,0.0448,0.39,0.9555],[5000,5,2,"DGEG",86,2,0.0233,0.05,0.47,0.6812],[5000,5,2,"OSM",170,4,0.0235,0.0558,0.42,0.953],[5000,5,5,"DGEG",86,4,0.0465,0.0783,0.59,0.7966],[5000,5,5,"OSM",170,6,0.0353,0.0864,0.41,0.9945],[5000,5,10,"DGEG",86,4,0.0465,0.1275,0.36,0.8106],[5000,5,10,"OSM",170,11,0.0647,0.1394,0.46,0.9985],[5000,10,1,"DGEG",86,2,0.0233,0.067,0.35,0.7891],[5000,10,1,"OSM",170,9,0.0529,0.0701,0.76,0.4023],[5000,10,2,"DGEG",86,4,0.0465,0.0827,0.56,0.6037],[5000,10,2,"OSM",170,11,0.0647,0.0864,0.75,0.2994],[5000,10,5,"DGEG",86,9,0.1047,0.1233,0.85,0.5742],[5000,10,5,"OSM",170,16,0.0941,0.1286,0.73,0.8706],[5000,10,10,"DGEG",86,9,0.1047,0.1877,0.56,0.5982],[5000,10,10,"OSM",170,22,0.1294,0.1959,0.66,0.977]];
+
+var CAUSE=[
+ [1000,2,5,10,30.0,132,51.5,-21.5,0.952],[1000,2,10,18,44.4,124,50.8,-6.4,0.774],
+ [1000,5,5,12,33.3,130,51.5,-18.2,0.936],[1000,5,10,27,44.4,115,51.3,-6.9,0.801],
+ [1000,10,5,30,60.0,112,47.3,12.7,0.152],[1000,10,10,53,50.9,89,49.4,1.5,0.513],
+ [5000,2,5,4,25.0,36,61.1,-36.1,0.971],[5000,2,10,9,55.6,31,58.1,-2.5,0.701],
+ [5000,5,5,5,20.0,35,62.9,-42.9,0.990],[5000,5,10,12,41.7,28,64.3,-22.6,0.953],
+ [5000,10,5,11,54.5,29,58.6,-4.1,0.720],[5000,10,10,19,42.1,21,71.4,-29.3,0.986]];
+
+var NS='http://www.w3.org/2000/svg';
+function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+function cs(k){return getComputedStyle(document.documentElement).getPropertyValue(k).trim();}
+function d2(v){return String(v).replace('.',',');}
+var MONO='ui-monospace,SFMono-Regular,Menlo,Consolas,monospace';
+var tip=document.getElementById('tip');
+function hover(node,html){
+  function show(e){
+    tip.innerHTML=html; tip.style.opacity='1';
+    var r=tip.getBoundingClientRect(), x=e.clientX+14, y=e.clientY-10;
+    if(x+r.width>innerWidth-8) x=e.clientX-r.width-14;
+    if(y+r.height>innerHeight-8) y=innerHeight-r.height-8;
+    tip.style.left=x+'px'; tip.style.top=Math.max(8,y)+'px';
+  }
+  node.addEventListener('mouseenter',show);
+  node.addEventListener('mousemove',show);
+  node.addEventListener('mouseleave',function(){tip.style.opacity='0';});
+}
+function txt(p){var t=el('text',p.a);t.setAttribute('font-family',p.mono?MONO:'inherit');t.textContent=p.s;return t;}
+
+function drawDots(){
+  var svg=document.getElementById('dots'); svg.textContent='';
+  var W=780,H=300,L=66,R=28,T=28,B=44, iw=W-L-R;
+  var radii=[1,2,5,10], rowH=(H-T-B)/radii.length;
+  function x(v){return L+(v/1.1)*iw;}
+  var muted=cs('--muted'), line=cs('--line'), cool=cs('--cool');
+  [0,0.25,0.5,0.75,1.0].forEach(function(v){
+    svg.appendChild(el('line',{x1:x(v),x2:x(v),y1:T-8,y2:H-B,stroke:v===1?muted:line,'stroke-width':v===1?1.5:1,'stroke-dasharray':v===1?'4 3':''}));
+    svg.appendChild(txt({a:{x:x(v),y:H-B+20,'text-anchor':'middle',fill:muted,'font-size':'11.5'},mono:1,s:d2(v.toFixed(2).replace(/0$/,'').replace(/\.$/,''))}));
+  });
+  svg.appendChild(txt({a:{x:x(1.0),y:T-14,'text-anchor':'middle',fill:cs('--ink'),'font-size':'11.5','font-weight':'700'},mono:1,s:'chance = 1,0'}));
+  radii.forEach(function(rad,ri){
+    var yc=T+rowH*ri+rowH/2;
+    svg.appendChild(txt({a:{x:L-14,y:yc+4,'text-anchor':'end',fill:muted,'font-size':'11.5'},mono:1,s:rad+' km'}));
+    if(ri) svg.appendChild(el('line',{x1:L,x2:W-R,y1:T+rowH*ri,y2:T+rowH*ri,stroke:line,'stroke-width':1}));
+    PROX.filter(function(p){return p[2]===rad;}).forEach(function(p,i){
+      var isD=(p[3]==='DGEG');
+      var c=el('circle',{cx:x(p[8]),cy:yc+((i%6)-2.5)*7.4,r:5.5,fill:isD?cool:'none',stroke:cool,'stroke-width':isD?0:2});
+      c.style.cursor='crosshair';
+      hover(c,'<b>'+p[3]+'</b> · ≥'+p[0].toLocaleString('pt-PT')+' ha<br>'+p[1]+'-year lookback · '+p[2]+' km<br>observed '+d2((p[6]*100).toFixed(1))+'% vs expected '+d2((p[7]*100).toFixed(1))+'%<br>ratio <b>'+d2(p[8].toFixed(2))+'</b> · p '+d2(p[9].toFixed(2)));
+      svg.appendChild(c);
+    });
+  });
+  svg.appendChild(txt({a:{x:L+iw/2,y:H-6,'text-anchor':'middle',fill:muted,'font-size':'11'},mono:1,s:'observed ÷ expected'}));
+}
+
+function drawDiverge(){
+  var svg=document.getElementById('diverge'); svg.textContent='';
+  var W=780,H=340,L=158,R=56,T=30,B=40, iw=W-L-R, rowH=(H-T-B)/CAUSE.length, mx=45;
+  function x(v){return L+iw/2+(v/mx)*(iw/2);}
+  var muted=cs('--muted'), line=cs('--line'), cool=cs('--cool'), burn=cs('--burn');
+  [-40,-20,0,20,40].forEach(function(v){
+    svg.appendChild(el('line',{x1:x(v),x2:x(v),y1:T-4,y2:H-B,stroke:v===0?muted:line,'stroke-width':v===0?1.5:1}));
+    svg.appendChild(txt({a:{x:x(v),y:H-B+19,'text-anchor':'middle',fill:muted,'font-size':'11'},mono:1,s:(v>0?'+':'')+v}));
+  });
+  CAUSE.forEach(function(c,i){
+    var y=T+rowH*i+2, h=rowH-6, v=c[7], neg=(v<0);
+    var bx=neg?x(v):x(0), bw=Math.abs(x(v)-x(0));
+    var r=el('rect',{x:bx,y:y,width:Math.max(bw,1.5),height:h,fill:neg?cool:burn,rx:3});
+    r.style.cursor='crosshair';
+    hover(r,'≥'+c[0].toLocaleString('pt-PT')+' ha · '+c[1]+' km · '+c[2]+'-year window<br>followed by solar: <b>'+d2(c[4].toFixed(1))+'%</b> arson (n='+c[3]+')<br>not followed: '+d2(c[6].toFixed(1))+'% arson (n='+c[5]+')<br>difference <b>'+(v>0?'+':'')+d2(v.toFixed(1))+'pp</b> · p '+d2(c[8].toFixed(2)));
+    svg.appendChild(r);
+    svg.appendChild(txt({a:{x:L-12,y:y+h/2+4,'text-anchor':'end',fill:muted,'font-size':'10.5'},mono:1,s:'≥'+(c[0]/1000)+'k ha · '+c[1]+'km · '+c[2]+'y'}));
+    svg.appendChild(txt({a:{x:neg?bx-7:bx+bw+7,y:y+h/2+4,'text-anchor':neg?'end':'start',fill:cs('--ink'),'font-size':'10.5','font-weight':'700'},mono:1,s:(v>0?'+':'')+d2(v.toFixed(1))}));
+  });
+  svg.appendChild(txt({a:{x:L+iw/2,y:H-6,'text-anchor':'middle',fill:muted,'font-size':'11'},mono:1,s:'difference in arson share (percentage points)'}));
+}
+
+function drawBars(){
+  var svg=document.getElementById('bars'); svg.textContent='';
+  var W=780,H=190,L=196,R=76,T=22,B=38, iw=W-L-R, rowH=(H-T-B)/2;
+  function x(v){return L+(v/60)*iw;}
+  var muted=cs('--muted'), line=cs('--line');
+  var data=[['All fires with a cause',22.4,18955,muted],['Fires over 1 000 ha',46.6,195,cs('--burn')]];
+  [0,15,30,45,60].forEach(function(v){
+    svg.appendChild(el('line',{x1:x(v),x2:x(v),y1:T-4,y2:H-B,stroke:line,'stroke-width':1}));
+    svg.appendChild(txt({a:{x:x(v),y:H-B+19,'text-anchor':'middle',fill:muted,'font-size':'11'},mono:1,s:v+'%'}));
+  });
+  data.forEach(function(d,i){
+    var y=T+rowH*i+rowH*0.24, h=rowH*0.52;
+    var r=el('rect',{x:L,y:y,width:x(d[1])-L,height:h,fill:d[3],rx:4});
+    r.style.cursor='crosshair';
+    hover(r,d[0]+'<br><b>'+d2(d[1].toFixed(1))+'%</b> attributed to arson<br>'+d[2].toLocaleString('pt-PT')+' fires, 2014–2025');
+    svg.appendChild(r);
+    svg.appendChild(txt({a:{x:L-14,y:y+h/2+5,'text-anchor':'end',fill:cs('--ink'),'font-size':'13.5'},s:d[0]}));
+    svg.appendChild(txt({a:{x:x(d[1])+11,y:y+h/2+5,fill:cs('--ink'),'font-size':'14.5','font-weight':'800'},mono:1,s:d2(d[1].toFixed(1))+'%'}));
+  });
+}
+
+function fillTable(){
+  var tb=document.querySelector('#fulltable tbody');
+  PROX.slice().sort(function(a,b){return a[8]-b[8];}).forEach(function(p){
+    var tr=document.createElement('tr');
+    tr.innerHTML='<td>≥'+p[0].toLocaleString('pt-PT')+' ha</td><td>'+p[1]+' y</td><td>'+p[2]+' km</td><td>'+p[3]+'</td><td>'+p[4]+'</td>'
+      +'<td>'+d2((p[6]*100).toFixed(1))+'%</td><td>'+d2((p[7]*100).toFixed(1))+'%</td><td>'+d2(p[8].toFixed(2))+'</td><td>'+d2(p[9].toFixed(2))+'</td>';
+    tb.appendChild(tr);
+  });
+}
+
+fillTable(); drawDots(); drawDiverge(); drawBars();
+</script>
+</body>
+</html>
