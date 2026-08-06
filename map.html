@@ -62,13 +62,22 @@
   .leaflet-popup-content-wrapper{background:#141a14;color:#e7ecdf;border:1px solid #2a352a;border-radius:14px;box-shadow:0 12px 38px rgba(0,0,0,.6)}
   .leaflet-popup-tip{background:#141a14;border:1px solid #2a352a}
   .leaflet-popup-content{font-size:13px;line-height:1.55;margin:0;padding:14px 16px;max-height:min(48vh,360px);overflow:auto;overscroll-behavior:contain}
-  .leaflet-popup-content h3{margin:0 0 9px;padding:0 22px 9px 0;font-size:15px;font-weight:800;letter-spacing:-.01em;color:#fff;border-bottom:1px solid #24302a}
+  /* dark scrollbar inside the popup, same as the panel — the default light one
+     cuts a white stripe down the right edge */
+  .leaflet-popup-content{scrollbar-width:thin;scrollbar-color:#334133 transparent}
+  .leaflet-popup-content::-webkit-scrollbar{width:8px}
+  .leaflet-popup-content::-webkit-scrollbar-track{background:transparent}
+  .leaflet-popup-content::-webkit-scrollbar-thumb{background:#334133;border-radius:8px;
+    border:2px solid transparent;background-clip:content-box}
+  .leaflet-popup-content::-webkit-scrollbar-thumb:hover{background:#4a5c4a;border:2px solid transparent;background-clip:content-box}
+  .leaflet-popup-content h3{margin:0 0 9px;padding:0 30px 9px 0;font-size:15px;font-weight:800;letter-spacing:-.01em;color:#fff;border-bottom:1px solid #24302a}
   .leaflet-popup-content table{border-collapse:collapse;margin:8px 0 0;width:100%}
   .leaflet-popup-content td{padding:2px 12px 2px 0;vertical-align:top}
   .leaflet-popup-content td:first-child{color:var(--muted);white-space:nowrap}
   .leaflet-popup-content .note{font-size:11.5px;color:var(--muted);margin-top:10px;line-height:1.5}
   .leaflet-popup-content a{color:var(--green)}
-  .leaflet-popup-close-button{color:var(--muted)!important;font-size:20px!important;padding:9px 10px 0 0!important}
+  /* sit the X to the left of the scrollbar, not on top of it */
+  .leaflet-popup-close-button{color:var(--muted)!important;font-size:20px!important;padding:9px 10px 0 0!important;right:8px!important;top:2px!important}
   .leaflet-popup-close-button:hover{color:#fff!important}
   .leaflet-control-layers,.leaflet-bar a{background:#161d16;color:var(--ink);border-color:var(--line)}
   .leaflet-control-layers-expanded{font-size:12.5px;color:var(--ink)}
@@ -189,6 +198,25 @@
   .detailhint{margin-top:9px;padding-top:9px;border-top:1px solid var(--line);
     font-size:11.5px;line-height:1.45;color:var(--muted)}
   #burnnote b{color:var(--ink);font-weight:700}
+  /* Year strip for the national scar layer: one year is loaded at a time, so this
+     is a single-select control, not twelve checkboxes — you cannot ask the map
+     for 3 MB by accident. */
+  #yearstrip{margin-top:9px;padding-top:9px;border-top:1px solid var(--line);
+    display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+  /* An ID selector setting display:flex outranks the UA sheet's [hidden]{display:none},
+     so the strip would show through even when the layer is off. Restate it. */
+  #yearstrip[hidden]{display:none}
+  #yearstrip .lbl{font-size:11.5px;color:var(--muted);margin-right:2px}
+  #yearstrip button{font:inherit;font-size:11.5px;line-height:1;padding:5px 7px;
+    border:1px solid var(--line);background:transparent;color:var(--muted);
+    border-radius:6px;cursor:pointer;transition:background .12s,color .12s,border-color .12s}
+  #yearstrip button:hover{border-color:#3d4d3d;color:var(--ink)}
+  /* Already in memory — clicking is instant. The strip brightening year by year is
+     the only visible sign of the background prefetch, and it needs no explaining. */
+  #yearstrip button.ready{color:var(--ink);border-color:#3d4d3d}
+  #yearstrip button.on{background:#ea580c;border-color:#ea580c;color:#fff;font-weight:700}
+  #yearstrip button.loading{opacity:.55}
+  #yearstrip button:focus-visible{outline:2px solid var(--green);outline-offset:1px}
   /* the credit line the tile licences require, at the smallest it can honestly be */
   .leaflet-control-attribution{background:transparent!important;color:#5d675d;font-size:10px;
     padding:0 6px 2px 0;text-shadow:0 1px 2px rgba(0,0,0,.7);box-shadow:none}
@@ -237,7 +265,7 @@
 var DATA_URL = '/dados/data.json';
 var ARDIDAS_URL = '/dados/ardidas.json';
 var BURNS_URL = '/dados/burns.json';
-var ARD25_URL   = '/dados/ardidas-2025.json';
+var ARD_NAT_URL = '/dados/ardidas-{y}.json';
 
 /* ------------------------------------------------------------ interface */
 var STR = {
@@ -254,11 +282,12 @@ pt:{
  k_only:'só no registo DGEG (recentes)', k_plan:'projetos planeados (APA)', k_unbuilt:'aprovados e por construir',
  k_lines:'planeados que não são de uma só tecnologia — linhas, subestações e o próprio programa', thou:'.',
  built_note:function(d){return 'Dados reconstruídos automaticamente todas as segundas-feiras a partir dos registos oficiais. Última atualização: '+d.stats.built+'.';},
- base_map:'Mapa', base_dark:'Escuro', base_sat:'Satélite', base_topo:'Relevo',
+ base_map:'Mapa', base_sat:'Satélite', base_topo:'Relevo',
  l_wind:'Parques eólicos (área)', l_turb:'Aerogeradores (OSM)', l_dturb:'Aerogeradores só no registo DGEG',
- l_solar:'Centrais solares (OSM)', l_dsolar:'Centrais solares (DGEG)', l_plan:'Projetos planeados', l_ardidas:'Áreas ardidas 2014–2025 (Gardunha)', l_ard25:'Áreas ardidas 2025 (país inteiro)',
+ l_solar:'Centrais solares (OSM)', l_dsolar:'Centrais solares (DGEG)', l_plan:'Projetos planeados', l_ardidas:'Áreas ardidas 2014–2025 (Gardunha)', l_ardnat:'Áreas ardidas por ano (país inteiro)',
+ burn_year:'Ano:',
  burn_pop:'Área ardida',
- burnnote:'<b>O que estas camadas mostram.</b> A da Gardunha traz todos os incêndios de 2014 a 2025 numa janela à volta da serra, ao pormenor. A de 2025 cobre o país inteiro, mas só as manchas com 5 ha ou mais e com o contorno simplificado a ~100 m: são 533 das 2 084 do registo — as 1 551 omitidas valem 0,8% da área ardida. O ficheiro completo tem 19 MB, demasiado para carregar num telemóvel. Fonte: ICNF.',
+ burnnote:'<b>O que estas camadas mostram.</b> A da Gardunha traz todos os incêndios de 2014 a 2025 numa janela à volta da serra, ao pormenor. A do país mostra <b>um ano de cada vez</b> — escolha-o acima. Um ano de cada vez porque doze sobrepostos dariam um mapa ilegível, e não por peso: os doze são descarregados em segundo plano assim que o mapa abre, por isso trocar de ano é instantâneo. Nessa camada só entram as manchas com 5 ha ou mais, com o contorno simplificado a ~100 m; as pequenas omitidas valem 0,4% a 5% da área ardida, conforme o ano. Fonte: ICNF.',
  lg_turb:'aerogerador (OSM + DGEG)', lg_dturb:'aerogerador só no registo DGEG', lg_solar:'central solar em exploração',
  lg_plan:'aprovado e ainda por construir', lg_line:'linha / subestação', lg_built:'licenciamento já construído',
  turbine:'Aerogerador', turbine_lic:'Aerogerador licenciado', noname:'sem nome',
@@ -324,11 +353,12 @@ en:{
  k_only:'only in the DGEG register (recent)', k_plan:'planned projects (APA)', k_unbuilt:'approved and unbuilt',
  k_lines:'planned entries belonging to neither technology — lines, substations and the programme itself', thou:',',
  built_note:function(d){return 'Data rebuilt automatically every Monday from the official registers. Last updated: '+d.stats.built+'.';},
- base_map:'Map', base_dark:'Dark', base_sat:'Satellite', base_topo:'Terrain',
+ base_map:'Map', base_sat:'Satellite', base_topo:'Terrain',
  l_wind:'Wind farms (extent)', l_turb:'Turbines (OSM)', l_dturb:'Turbines only in the DGEG register',
- l_solar:'Solar plants (OSM)', l_dsolar:'Solar plants (DGEG)', l_plan:'Planned projects', l_ardidas:'Burned areas 2014–2025 (Gardunha)', l_ard25:'Burned areas 2025 (nationwide)',
+ l_solar:'Solar plants (OSM)', l_dsolar:'Solar plants (DGEG)', l_plan:'Planned projects', l_ardidas:'Burned areas 2014–2025 (Gardunha)', l_ardnat:'Burned areas by year (nationwide)',
+ burn_year:'Year:',
  burn_pop:'Burned area',
- burnnote:'<b>What these layers show.</b> The Gardunha one carries every fire from 2014 to 2025 inside a window around the range, at full detail. The 2025 one covers the whole country, but only scars of 5 ha or more, with outlines simplified to ~100 m: 533 of the 2,084 on record — the 1,551 left out are 0.8% of the burned area. The complete file is 19 MB, too much to load on a phone. Source: ICNF.',
+ burnnote:'<b>What these layers show.</b> The Gardunha one carries every fire from 2014 to 2025 inside a window around the range, at full detail. The national one shows <b>one year at a time</b> — pick it above. One year at a time because twelve stacked would be an unreadable map, not because of weight: all twelve are downloaded in the background as soon as the map opens, so switching years is instant. That layer keeps only scars of 5 ha or more, with outlines simplified to ~100 m; the small ones left out are 0.4% to 5% of the burned area depending on the year. Source: ICNF.',
  lg_turb:'turbine (OSM + DGEG)', lg_dturb:'turbine only in the DGEG register', lg_solar:'solar plant in operation',
  lg_plan:'approved and still unbuilt', lg_line:'line / substation', lg_built:'consent already built',
  turbine:'Wind turbine', turbine_lic:'Licensed turbine', noname:'unnamed',
@@ -394,11 +424,12 @@ de:{
  k_only:'nur im DGEG-Register (neu)', k_plan:'geplante Projekte (APA)', k_unbuilt:'genehmigt und ungebaut',
  k_lines:'geplante Einträge ohne eigene Technologie — Leitungen, Umspannwerke und das Programm selbst', thou:'.',
  built_note:function(d){return 'Daten werden jeden Montag automatisch aus den amtlichen Registern neu erstellt. Letzte Aktualisierung: '+d.stats.built+'.';},
- base_map:'Karte', base_dark:'Dunkel', base_sat:'Satellit', base_topo:'Gelände',
+ base_map:'Karte', base_sat:'Satellit', base_topo:'Gelände',
  l_wind:'Windparks (Fläche)', l_turb:'Windräder (OSM)', l_dturb:'Windräder nur im DGEG-Register',
- l_solar:'Solarkraftwerke (OSM)', l_dsolar:'Solarkraftwerke (DGEG)', l_plan:'Geplante Projekte', l_ardidas:'Brandflächen 2014–2025 (Gardunha)', l_ard25:'Brandflächen 2025 (landesweit)',
+ l_solar:'Solarkraftwerke (OSM)', l_dsolar:'Solarkraftwerke (DGEG)', l_plan:'Geplante Projekte', l_ardidas:'Brandflächen 2014–2025 (Gardunha)', l_ardnat:'Brandflächen nach Jahr (landesweit)',
+ burn_year:'Jahr:',
  burn_pop:'Brandfläche',
- burnnote:'<b>Was diese Ebenen zeigen.</b> Die Gardunha-Ebene enthält alle Brände von 2014 bis 2025 in einem Ausschnitt rund um den Bergzug, in voller Auflösung. Die Ebene 2025 deckt das ganze Land ab, aber nur Flächen ab 5 ha und mit auf ~100 m vereinfachten Umrissen: 533 von 2 084 im Register — die 1 551 ausgelassenen machen 0,8% der Brandfläche aus. Die vollständige Datei hat 19 MB, zu viel für ein Mobiltelefon. Quelle: ICNF.',
+ burnnote:'<b>Was diese Ebenen zeigen.</b> Die Gardunha-Ebene enthält alle Brände von 2014 bis 2025 in einem Ausschnitt rund um den Bergzug, in voller Auflösung. Die landesweite Ebene zeigt <b>ein Jahr auf einmal</b> — oben auswählen. Ein Jahr auf einmal, weil zwölf übereinander eine unlesbare Karte ergäben, nicht wegen der Dateigröße: alle zwölf werden im Hintergrund geladen, sobald die Karte öffnet, der Jahreswechsel ist also sofort da. Dort erscheinen nur Flächen ab 5 ha, mit auf ~100 m vereinfachten Umrissen; die ausgelassenen kleinen machen je nach Jahr 0,4% bis 5% der Brandfläche aus. Quelle: ICNF.',
  lg_turb:'Windrad (OSM + DGEG)', lg_dturb:'Windrad nur im DGEG-Register', lg_solar:'Solarkraftwerk in Betrieb',
  lg_plan:'genehmigt und noch ungebaut', lg_line:'Leitung / Umspannwerk', lg_built:'Genehmigung bereits gebaut',
  turbine:'Windkraftanlage', turbine_lic:'Genehmigte Anlage', noname:'ohne Namen',
@@ -464,11 +495,12 @@ fr:{
  k_only:'uniquement au registre DGEG (récentes)', k_plan:'projets planifiés (APA)', k_unbuilt:'approuvés et non construits',
  k_lines:'entrées planifiées ne relevant d’aucune des deux technologies — lignes, postes et le programme lui-même', thou:'\u00a0',
  built_note:function(d){return 'Données reconstruites automatiquement chaque lundi à partir des registres officiels. Dernière mise à jour : '+d.stats.built+'.';},
- base_map:'Carte', base_dark:'Sombre', base_sat:'Satellite', base_topo:'Relief',
+ base_map:'Carte', base_sat:'Satellite', base_topo:'Relief',
  l_wind:'Parcs éoliens (emprise)', l_turb:'Éoliennes (OSM)', l_dturb:'Éoliennes uniquement au registre DGEG',
- l_solar:'Centrales solaires (OSM)', l_dsolar:'Centrales solaires (DGEG)', l_plan:'Projets planifiés', l_ardidas:'Zones brûlées 2014–2025 (Gardunha)', l_ard25:'Zones brûlées 2025 (tout le pays)',
+ l_solar:'Centrales solaires (OSM)', l_dsolar:'Centrales solaires (DGEG)', l_plan:'Projets planifiés', l_ardidas:'Zones brûlées 2014–2025 (Gardunha)', l_ardnat:'Zones brûlées par année (tout le pays)',
+ burn_year:'Année :',
  burn_pop:'Zone brûlée',
- burnnote:'<b>Ce que montrent ces couches.</b> Celle de la Gardunha contient tous les incendies de 2014 à 2025 dans une fenêtre autour de la serra, en pleine résolution. Celle de 2025 couvre tout le pays, mais seulement les taches de 5 ha ou plus, aux contours simplifiés à ~100 m : 533 sur les 2 084 du registre — les 1 551 omises représentent 0,8% de la surface brûlée. Le fichier complet fait 19 Mo, trop lourd pour un téléphone. Source : ICNF.',
+ burnnote:'<b>Ce que montrent ces couches.</b> Celle de la Gardunha contient tous les incendies de 2014 à 2025 dans une fenêtre autour de la serra, en pleine résolution. Celle du pays montre <b>une année à la fois</b> — à choisir ci-dessus. Une seule à la fois parce que douze superposées donneraient une carte illisible, et non pour une question de poids : les douze années sont téléchargées en arrière-plan dès l’ouverture de la carte, le changement d’année est donc instantané. Cette couche ne retient que les taches de 5 ha ou plus, aux contours simplifiés à ~100 m ; les petites omises représentent de 0,4% à 5% de la surface brûlée selon l’année. Source : ICNF.',
  lg_turb:'éolienne (OSM + DGEG)', lg_dturb:'éolienne uniquement au registre DGEG', lg_solar:'centrale solaire en exploitation',
  lg_plan:'approuvé et encore non construit', lg_line:'ligne / poste', lg_built:'autorisation déjà construite',
  turbine:'Éolienne', turbine_lic:'Éolienne autorisée', noname:'sans nom',
@@ -744,9 +776,8 @@ map.on('popupopen',function(e){
   var body=c&&c.querySelector('.leaflet-popup-content');
   if(body) body.scrollTop=0;
 });
-// Same basemap product as pipocas.hexgeta.com — CartoCDN (keyless). Voyager is
-// the default; a dark variant, satellite and terrain stay available to switch to.
-var carto=L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:20,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'});
+// Same basemap product as pipocas.hexgeta.com — CartoCDN (keyless). Dark only —
+// the page is dark, so no light variant; satellite and terrain stay switchable.
 var cartoDark=L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:20,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
 var sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Esri, Maxar'});
 var topo=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'&copy; OpenTopoMap'});
@@ -762,8 +793,19 @@ var gWind=L.layerGroup().addTo(map), gTurb=L.layerGroup().addTo(map),
 // is spelled out in `burnnote` under the layer control — a reader who sees an
 // empty Alentejo has to be able to tell "nothing burned" from "not loaded".
 map.createPane('burn'); map.getPane('burn').style.zIndex=350;
-var gArdidas=L.layerGroup(), gArd25=L.layerGroup(),
-    ardidasLoaded=false, ard25Loaded=false, ARDIDAS=null, ARD25=null;
+// The national layer is one year at a time, chosen on a year strip. Two reasons,
+// and the second is the stronger one:
+//   weight — the reader downloads only the year they are looking at. Gzipped that
+//     is 21 KB (2014) to 258 KB (2017), ~50 KB typically, against 904 KB for all
+//     twelve. A year already fetched stays in `ardCache`, so stepping back and
+//     forth through the record costs nothing after the first pass.
+//   legibility — twelve years of scars in one colour is mush. They overlap
+//     heavily, and a reader cannot tell a 2017 burn from a 2025 one, which is
+//     precisely the question the layer exists to answer.
+var ARD_YEARS=[2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
+var gArdidas=L.layerGroup(), gArdNat=L.layerGroup(),
+    ardidasLoaded=false, ARDIDAS=null,
+    ardYear=2025, ardCache={}, ardInflight={}, ardPending=null;
 // Redrawn on every language switch too — the popups carry a translated cause.
 function scar(a, year, group, style){
   L.polygon(a.rings,{pane:'burn',color:style.line,weight:1,fillColor:style.fill,fillOpacity:.28})
@@ -778,31 +820,100 @@ function drawArdidas(){
     scar(a,a.year,gArdidas,{line:'#b45309',fill:'#c2410c'});
   });
 }
-function drawArd25(){
-  if(!ARD25) return;
-  gArd25.clearLayers();
-  (ARD25.areas||[]).forEach(function(a){
-    scar(a,ARD25.year,gArd25,{line:'#9a3412',fill:'#ea580c'});
+function drawArdNat(){
+  var d=ardCache[ardYear];
+  gArdNat.clearLayers();
+  if(!d) return;
+  (d.areas||[]).forEach(function(a){
+    scar(a,d.year,gArdNat,{line:'#9a3412',fill:'#ea580c'});
   });
+}
+// One fetch per year, ever. Both the click path and the background prefetch go
+// through here, so clicking a year the prefetcher is already pulling joins that
+// request instead of starting a second one.
+function loadYear(y){
+  if(ardCache[y]) return Promise.resolve(ardCache[y]);
+  if(ardInflight[y]) return ardInflight[y];
+  var p=fetch(ARD_NAT_URL.replace('{y}',y))
+    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function(d){ ardCache[y]=d; delete ardInflight[y]; return d; },
+          function(e){ delete ardInflight[y]; throw e; });
+  ardInflight[y]=p;
+  return p;
+}
+// Selecting a year while an earlier one is still in flight is normal — the reader
+// clicks along the strip faster than 2017 downloads. `ardPending` is the year the
+// reader last asked for, so a response that arrives after they moved on is cached
+// but not drawn: the map always shows the year currently selected, never the last
+// one to finish loading.
+function selectArdYear(y){
+  ardYear=y; ardPending=y;
+  syncYearStrip();
+  if(ardCache[y]){ drawArdNat(); return; }
+  gArdNat.clearLayers();
+  loadYear(y).then(function(){ if(ardPending===y){ drawArdNat(); syncYearStrip(); } },
+                   function(){ if(ardPending===y) syncYearStrip(true); });
+}
+// All twelve years are pulled in the background as soon as the map's own data has
+// rendered, so the layer and every year switch are instant when the reader gets
+// there. Comparing planned wind and solar against the fire record is what this map
+// is FOR — treating the scar layer as an unlikely extra and making people wait for
+// it on first click would be optimising for the visitor who does not exist.
+//
+// Started after data.json resolves, not on DOMContentLoaded: that file is ~7 MB
+// and these 904 KB must not slow down the thing the reader is looking at first.
+// Nearest-year-first, because the next click is almost always a neighbour. One at
+// a time and on idle callbacks, so the prefetch never competes with map tiles or
+// with a year the reader actually asked for.
+var ardPrefetching=false;
+function idle(fn){ (window.requestIdleCallback||function(f){return setTimeout(f,300);})(fn,{timeout:3000}); }
+function prefetchYears(){
+  if(ardPrefetching) return;
+  // Metered or 2G connections keep the on-demand behaviour: one year, when asked.
+  var c=navigator.connection;
+  if(c && (c.saveData || /(^|\W)(slow-)?2g$/.test(c.effectiveType||''))) return;
+  ardPrefetching=true;
+  var queue=ARD_YEARS.slice().sort(function(a,b){
+    return Math.abs(a-ardYear)-Math.abs(b-ardYear);
+  });
+  (function next(){
+    var y=null;
+    while(queue.length && y===null){ var c2=queue.shift(); if(!ardCache[c2]) y=c2; }
+    if(y===null){ syncYearStrip(); return; }
+    loadYear(y).then(function(){ syncYearStrip(); }, function(){})
+               .then(function(){ idle(next); });
+  })();
 }
 map.on('overlayadd', function(e){
   if(e.layer===gArdidas && !ardidasLoaded){
     ardidasLoaded=true;
     fetch(ARDIDAS_URL).then(function(r){return r.json();}).then(function(d){ARDIDAS=d;drawArdidas();});
   }
-  if(e.layer===gArd25 && !ard25Loaded){
-    ard25Loaded=true;
-    fetch(ARD25_URL).then(function(r){return r.json();}).then(function(d){ARD25=d;drawArd25();});
-  }
+  if(e.layer===gArdNat){ selectArdYear(ardYear); idle(prefetchYears); }
 });
-// The note is only worth its space while a scar layer is actually on.
+// The note and the year strip are only worth their space while a scar layer is on.
 function syncBurnNote(){
   var n=document.getElementById('burnnote');
-  if(n) n.hidden=!(map.hasLayer(gArdidas)||map.hasLayer(gArd25));
+  if(n) n.hidden=!(map.hasLayer(gArdidas)||map.hasLayer(gArdNat));
+  var s=document.getElementById('yearstrip');
+  if(s) s.hidden=!map.hasLayer(gArdNat);
+}
+// Marks the selected year, flags a year still downloading so a slow 2017 does not
+// read as an empty one, and brightens years already in memory — which makes the
+// background prefetch legible: the strip fills in as the years land.
+function syncYearStrip(failed){
+  var s=document.getElementById('yearstrip'); if(!s) return;
+  [].forEach.call(s.querySelectorAll('button'), function(b){
+    var y=+b.getAttribute('data-year'), on=(y===ardYear);
+    b.className = on ? 'on' : '';
+    b.setAttribute('aria-pressed', on?'true':'false');
+    b.classList.toggle('ready', !!ardCache[y]);
+    b.classList.toggle('loading', on && !ardCache[y] && !failed);
+  });
 }
 map.on('overlayadd overlayremove', syncBurnNote);
 
-// Zoomed out to the whole country, 3 500 individual turbines and 200 licensed
+// Zoomed out to the whole country, 2 800 individual turbines and 200 licensed
 // points stop being information and become texture — the farm outlines already
 // say where the wind estate is. So the per-unit layers are held back until the
 // view is regional, and the checkbox state the reader chose is remembered:
@@ -841,10 +952,10 @@ function sw(c){return '<span style="display:inline-block;width:11px;height:11px;
 function buildControls(){
   if(ctlLayers) map.removeControl(ctlLayers);
   var b={},o={};
-  b[t('base_map')]=carto; b[t('base_dark')]=cartoDark; b[t('base_sat')]=sat; b[t('base_topo')]=topo;
+  b[t('base_map')]=cartoDark; b[t('base_sat')]=sat; b[t('base_topo')]=topo;
   o[sw('#4a9eff')+t('l_wind')]=gWind; o[sw('#4a9eff')+t('l_turb')]=gTurb; o[sw('#c94f7c')+t('l_dturb')]=gDgegTurb;
   o[sw('#fbbf24')+t('l_solar')]=gSolar; o[sw('#fbbf24')+t('l_dsolar')]=gDgegSolar; o[sw('#f87171')+t('l_plan')]=gPlan;
-  o[sw('#c2410c')+t('l_ardidas')]=gArdidas; o[sw('#ea580c')+t('l_ard25')]=gArd25;
+  o[sw('#c2410c')+t('l_ardidas')]=gArdidas; o[sw('#ea580c')+t('l_ardnat')]=gArdNat;
   ctlLayers=L.control.layers(b,o,{collapsed:false}).addTo(map);
   var _pl=document.getElementById('panel-layers');
   if(_pl){
@@ -854,11 +965,22 @@ function buildControls(){
     h.id='detailhint'; h.className='detailhint'; h.innerHTML=t('detailhint');
     h.hidden=map.getZoom()>=DETAIL_ZOOM;
     _pl.appendChild(h);
+    var ys=document.createElement('div');
+    ys.id='yearstrip';
+    ys.innerHTML='<span class="lbl">'+t('burn_year')+'</span>'
+      + ARD_YEARS.map(function(y){
+          return '<button type="button" data-year="'+y+'">'+y+'</button>';
+        }).join('');
+    ys.addEventListener('click', function(ev){
+      var b=ev.target.closest('button[data-year]'); if(!b) return;
+      selectArdYear(+b.getAttribute('data-year'));
+    });
+    _pl.appendChild(ys);
     var bn=document.createElement('div');
     bn.id='burnnote'; bn.className='detailhint'; bn.innerHTML=t('burnnote');
     _pl.appendChild(bn);
   }
-  syncDetail(); syncBurnNote();
+  syncDetail(); syncBurnNote(); syncYearStrip();
 }
 
 // Burned-land overlap, computed offline by burn_join.py against the full ICNF
@@ -1072,7 +1194,7 @@ function render(){
     return '<div class="srccard"><div class="who">'+c.who+'</div><h4><a href="'+c.u+'" target="_blank" rel="noopener">'+c.h+'</a></h4><p>'+c.p+'</p></div>';}).join('');
   document.getElementById('limits').innerHTML=t('limits').map(function(x){return '<li>'+x+'</li>';}).join('');
   burnBox(BURNS&&BURNS.stats);
-  drawArdidas();
+  drawArdidas(); drawArdNat();
 }
 
 document.getElementById('side').addEventListener('click',function(ev){
@@ -1102,7 +1224,7 @@ applyLang(lang);
 Promise.all([
   fetch(DATA_URL).then(function(r){return r.json();}),
   fetch(BURNS_URL).then(function(r){return r.json();}).catch(function(){return null;})
-]).then(function(x){DATA=x[0];BURNS=x[1];burnIndex(BURNS);render();})
+]).then(function(x){DATA=x[0];BURNS=x[1];burnIndex(BURNS);render();idle(prefetchYears);})
   .catch(function(){document.getElementById('side').innerHTML='<p class="meta">—</p>';});
 })();
 </script>

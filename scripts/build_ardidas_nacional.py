@@ -19,6 +19,7 @@ shape the map already knows how to draw.
 """
 import json, os, sys
 
+import ijson
 from shapely.geometry import shape
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -49,26 +50,30 @@ def build(year):
     if not os.path.exists(src) or os.path.getsize(src) < 100:
         raise SystemExit(f"missing mirror for {year} — run fetch_ardidas_tiled.py {year}")
 
-    feats = json.load(open(src))["features"]
-    areas, dropped_small, dropped_ha = [], 0, 0.0
-    for f in feats:
-        pr = f.get("properties") or {}
-        ha = pr.get("AreaHaPoly") or 0
-        if ha < MIN_HA:
-            dropped_small += 1
-            dropped_ha += ha
-            continue
-        try:
-            rings = rings_of(shape(f["geometry"]), TOL)
-        except Exception:
-            continue
-        if rings:
-            areas.append({"area_ha": round(ha, 1), "concelho": pr.get("PI_Conc"),
-                          "cause": pr.get("Causa_Desc"), "rings": rings})
+    # Streamed, not json.load'ed: 2017 is 125 MB on disk and would need well over
+    # a gigabyte as parsed Python on a 4 GB box. ijson keeps one feature in memory
+    # at a time, so the peak is whatever we choose to keep.
+    areas, seen, dropped_small, dropped_ha = [], 0, 0, 0.0
+    with open(src, "rb") as fh:
+        for f in ijson.items(fh, "features.item"):
+            seen += 1
+            pr = f.get("properties") or {}
+            ha = float(pr.get("AreaHaPoly") or 0)
+            if ha < MIN_HA:
+                dropped_small += 1
+                dropped_ha += ha
+                continue
+            try:
+                rings = rings_of(shape(f["geometry"]), TOL)
+            except Exception:
+                continue
+            if rings:
+                areas.append({"area_ha": round(ha, 1), "concelho": pr.get("PI_Conc"),
+                              "cause": pr.get("Causa_Desc"), "rings": rings})
 
     kept_ha = sum(a["area_ha"] for a in areas)
     doc = {"year": year, "min_ha": MIN_HA, "simplify_m": round(TOL * 111320),
-           "source_total": len(feats), "shown": len(areas),
+           "source_total": seen, "shown": len(areas),
            "shown_ha": round(kept_ha), "omitted": dropped_small,
            "omitted_ha": round(dropped_ha), "areas": areas}
 
@@ -76,7 +81,7 @@ def build(year):
     p = f"{OUT}/ardidas-{year}.json"
     json.dump(doc, open(p, "w"), ensure_ascii=False, separators=(",", ":"))
     pct = 100 * dropped_ha / (kept_ha + dropped_ha) if kept_ha + dropped_ha else 0
-    print(f"{year}: {len(areas)}/{len(feats)} scars kept ({kept_ha:.0f} ha); "
+    print(f"{year}: {len(areas)}/{seen} scars kept ({kept_ha:.0f} ha); "
           f"{dropped_small} under {MIN_HA:g} ha omitted = {pct:.1f}% of burned area "
           f"-> {p} ({os.path.getsize(p)//1024} KB)")
 
