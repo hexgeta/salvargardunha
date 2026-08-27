@@ -33,9 +33,12 @@ function supaHeaders() {
   return { apikey: SUPA_KEY, Authorization: 'Bearer ' + SUPA_KEY, 'Content-Type': 'application/json' };
 }
 
-// Newest-first snapshots from the last 7 days (a couple hundred rows at most).
+// Newest-first snapshots from the last 7 days plus a 24 h margin (a couple
+// hundred rows at most). The margin matters: the d7 reference row is allowed to
+// be up to 24 h stale (see computeDeltas), so a 7 d + 1 h window would exclude
+// nearly every row d7 could legitimately use and it would read as null forever.
 async function fetchSnapshots() {
-  const since = new Date(Date.now() - WINDOWS.d7 - 3600e3).toISOString();
+  const since = new Date(Date.now() - WINDOWS.d7 - 24 * 3600e3).toISOString();
   const url = SUPA_URL + '/rest/v1/' + TABLE +
     '?select=captured_at,count&captured_at=gte.' + since + '&order=captured_at.desc';
   const r = await fetch(url, { headers: supaHeaders(), signal: AbortSignal.timeout(3000) });
