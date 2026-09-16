@@ -14,6 +14,7 @@
 <script src="/lang-url.js"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css">
 <style>
   :root{--bg:#0a0d0a;--panel:#141a14;--line:#243024;--ink:#f3f5f1;--muted:#9aa79a;--green:#4ade80;--green-d:#22c55e;--amber:#fbbf24;--max:980px}
   *{box-sizing:border-box;margin:0;padding:0}
@@ -266,6 +267,8 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.1.4/leaflet-maplibre-gl.js"></script>
 <script>
 (function(){
 var DATA_URL = '/dados/data.json';
@@ -987,9 +990,12 @@ map.on('popupopen',function(e){
   var body=c&&c.querySelector('.leaflet-popup-content');
   if(body) body.scrollTop=0;
 });
-// Same basemap product as pipocas.hexgeta.com — CartoCDN (keyless). Dark only —
-// the page is dark, so no light variant; satellite and terrain stay switchable.
-var cartoDark=L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:20,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+// CARTO's Dark Matter style, served as keyless vector tiles by OpenFreeMap and
+// rendered through maplibre-gl-leaflet (CARTO's own raster tiles started
+// watermarking without an API key in Sep 2026). Dark only — the page is dark,
+// so no light variant; satellite and terrain stay switchable. The layer adds
+// the OSM/OpenFreeMap credit to the attribution control itself.
+var cartoDark=L.maplibreGL({style:'https://tiles.openfreemap.org/styles/dark',maxZoom:20}).addTo(map);
 var sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Esri, Maxar'});
 var topo=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'&copy; OpenTopoMap'});
 var gWind=L.layerGroup().addTo(map), gTurb=L.layerGroup().addTo(map),
