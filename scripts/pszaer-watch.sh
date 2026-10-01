@@ -1,6 +1,7 @@
 #!/bin/bash
 # PSZAER consultation watcher.
-# Alerts via Telegram (the "inbound leads" chat — HEXGETAFORMSBOT) the moment the
+# Alerts via Telegram (ops forum group, topic PSZAER, aima_notifications_bot via
+# ~/bin/tg-send; DM only if the topic send fails — 2026-10-01) the moment the
 # participa.pt consultation page gains a NEW document — which is how the
 # Government publishes its "relatório de ponderação" (its reply to all the
 # public contributions) and, eventually, the final approved programme.
@@ -9,8 +10,9 @@
 # fetch goes through the Webshare proxy; participa.pt also serves an incomplete
 # cert chain, hence --insecure on that read-only GET.
 #
-# Secrets: Telegram creds live in ~/.pszaer-watch/.env (chmod 600, untracked);
-# WEBSHARE_PROXY_URL comes from the login profile. No secrets in this file.
+# Secrets: Telegram creds come from ~/.config/notify/telegram.env via tg-send
+# (~/.pszaer-watch/.env is still sourced but its HEXGETAFORMSBOT lines are no
+# longer used); WEBSHARE_PROXY_URL comes from the login profile. No secrets here.
 
 set -uo pipefail
 
@@ -23,19 +25,13 @@ set +u
 [ -f "$STATE_DIR/.env" ] && { set -a; . "$STATE_DIR/.env"; set +a; }
 [ -f "$HOME/.profile" ] && { set -a; . "$HOME/.profile" 2>/dev/null; set +a; }
 set -u
-# Route to the "inbound leads" chat (HEXGETAFORMSBOT — same as aima/twospouts leads)
-BOT="${TELEGRAM_BOT_TOKEN_HEXGETAFORMSBOT:-}"
-CHAT="${TELEGRAM_CHAT_ID_HEXGETAFORMSBOT:-}"
 PROXY="${WEBSHARE_PROXY_URL:-}"
 
 CONSULT_URL="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer"
 
+# Topics are primary (2026-10-01): PSZAER topic first, DM only as a fallback.
 send_tg() {
-  if [ -z "$BOT" ] || [ -z "$CHAT" ]; then LOG "telegram not configured"; return 1; fi
-  curl -s --max-time 30 "https://api.telegram.org/bot${BOT}/sendMessage" \
-    --data-urlencode "chat_id=${CHAT}" \
-    --data-urlencode "text=$1" \
-    -d parse_mode=HTML -d disable_web_page_preview=true >/dev/null \
+  printf '%s' "$1" | /home/hexgetahetzner/bin/tg-send --parse-mode HTML pszaer \
     && LOG "telegram sent" || LOG "telegram FAILED"
 }
 
