@@ -3,6 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html.i18n-wait body{visibility:hidden}</style>
+<script>
+  // Non-PT visitors: hide the page until the inline switcher has translated it, so the
+  // Portuguese markup never flashes first. Revealed on DOMContentLoaded (the switcher at the
+  // end of <body> has run by then), with a timeout as a safety net.
+  (function(){try{var L=['en','de','fr'],p=location.pathname.split('/').filter(Boolean)[0],l=L.indexOf(p)>-1?p:localStorage.getItem('nf_lang');if(L.indexOf(l)<0)return;var d=document.documentElement,show=function(){d.classList.remove('i18n-wait');};d.classList.add('i18n-wait');document.addEventListener('DOMContentLoaded',show);setTimeout(show,2000);}catch(e){}})();
+</script>
 <title>Salvar a Gardunha — Não às megacentrais solares na serra</title>
 <meta name="description" content="Os próprios documentos do Governo colocam a Serra da Gardunha na região mais visada do país para centrais solares — sem avaliação de impacte ambiental. A consulta pública termina a 15 de julho de 2026.">
 <meta property="og:title" content="A Serra da Gardunha não está à venda">
