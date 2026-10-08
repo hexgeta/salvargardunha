@@ -31,7 +31,7 @@
   .langsw button{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:11.5px;letter-spacing:.05em;padding:5px 9px;border-radius:999px;cursor:pointer}
   .langsw button.on{background:var(--green-d);color:#05230f}
 
-  .bar{position:sticky;top:0;z-index:50;background:#1a1206;border-bottom:1px solid #3a2a08;color:var(--amber);font-size:14.5px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:14px;padding:8px 165px}
+  .bar{position:relative;background:#1a1206;border-bottom:1px solid #3a2a08;color:var(--amber);font-size:14.5px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:14px;padding:8px 165px}
   .bar-content{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .bar .btn{font-size:12.5px;padding:6px 13px;white-space:nowrap;flex:0 0 auto}
   @media(max-width:640px){
@@ -52,6 +52,13 @@
     ol.how li{font-size:15px}
   }
   .bar b{color:#fff}
+  .topstick{position:sticky;top:0;z-index:50}
+  .campnav{display:flex;justify-content:center;gap:6px;background:rgba(10,13,10,.94);border-bottom:1px solid var(--line);padding:7px 12px;backdrop-filter:blur(6px)}
+  .campnav a{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:999px;border:1px solid transparent;white-space:nowrap;transition:color .15s ease,border-color .15s ease}
+  .campnav a:hover{color:var(--ink)}
+  .campnav a.on{background:#10230f;color:var(--green);border-color:#275c33}
+  .campnav .live{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 3px rgba(251,191,36,.2)}
+  @media(max-width:640px){.campnav{gap:4px;padding:6px 8px}.campnav a{font-size:12.5px;padding:5px 10px}}
 
   header{padding:60px 0 40px;border-bottom:1px solid var(--line);background:linear-gradient(180deg, rgba(10,13,10,.82) 0%, rgba(10,13,10,.6) 55%, rgba(10,13,10,.88) 85%, var(--bg) 100%), url('img/gardunha-hero.jpg') center 32%/cover no-repeat var(--bg)}
   h1,.lede{text-shadow:0 1px 14px rgba(0,0,0,.45)}
@@ -219,10 +226,13 @@
 </head>
 <body>
 
+<div class="topstick">
 <div class="bar mono">
   <div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></div>
   <div class="bar-content">⚠️ <span id="barleft">…</span></div>
   <a class="btn btn-primary" href="#assinar" data-i18n="hero_cta1">Assinar a petição →</a>
+</div>
+<nav class="campnav" aria-label="Campanhas"><a data-path="/sophia" data-i18n="nav_sophia"><span class="live"></span>Megacentral Sophia</a><a data-path="/lourical" class="on" aria-current="page" data-i18n="nav_lourical">Louriçal e a Gardunha</a></nav>
 </div>
 
 <section class="cta-band">
@@ -414,6 +424,7 @@
     en:{
       bar_pre:'⚠️ The public consultation closes on <b>15 July 2026</b> —',
       eyebrow:'PSZAER public consultation · Beira Baixa',
+      nav_sophia:'<span class="live"></span>Sophia mega-plant', nav_lourical:'Louriçal &amp; the Gardunha',
       sophia_band:'⚠️ <b>Urgent:</b> the Sophia mega solar plant is in a new public consultation — only until <b>21 October</b>.', sophia_band_btn:'Object to Sophia →',
       h1a:'The Serra da Gardunha', h1b:'is not for sale',
       lede:'They plan to build <b>large-scale solar and wind farms</b> across our region — mega-projects that will <b>ruin our countryside</b>. This is not our opinion: the <b>Government’s own documents</b> make our mountains the most targeted region in the country, with fast-tracked licences and <b>no environmental impact assessment</b>. The consultation has closed — now our tool is the <b>petition in Parliament</b>: 7,500 signatures force a debate in the Assembleia da República.',
@@ -568,6 +579,7 @@
     de:{
       bar_pre:'⚠️ Die öffentliche Konsultation endet am <b>15. Juli 2026</b> —',
       eyebrow:'Öffentliche Konsultation PSZAER · Beira Baixa',
+      nav_sophia:'<span class="live"></span>Großkraftwerk Sophia', nav_lourical:'Louriçal &amp; die Gardunha',
       sophia_band:'⚠️ <b>Dringend:</b> Das Solar-Großkraftwerk Sophia ist in einer neuen öffentlichen Konsultation — nur bis <b>21. Oktober</b>.', sophia_band_btn:'Einspruch gegen Sophia →',
       h1a:'Die Serra da Gardunha', h1b:'ist nicht käuflich',
       lede:'Sie planen <b>Solar- und Windparks im großen Maßstab</b> in unserer Region — Megaprojekte, die <b>unsere Landschaft ruinieren</b> werden. Das ist nicht unsere Meinung: <b>die eigenen Regierungsunterlagen</b> machen unser Gebirge zur meistanvisierten Region des Landes — im Schnellverfahren genehmigt und <b>ohne Umweltverträglichkeitsprüfung</b>. Die Konsultation ist beendet — jetzt ist unser Mittel die <b>Petition im Parlament</b>: 7&nbsp;500 Unterschriften erzwingen eine Debatte in der Assembleia da República.',
@@ -721,6 +733,7 @@
     fr:{
       bar_pre:'⚠️ La consultation publique se termine le <b>15 juillet 2026</b> —',
       eyebrow:'Consultation publique PSZAER · Beira Baixa',
+      nav_sophia:'<span class="live"></span>Méga-centrale Sophia', nav_lourical:'Louriçal &amp; la Gardunha',
       sophia_band:'⚠️ <b>Urgent :</b> la méga-centrale solaire Sophia est en nouvelle consultation publique — seulement jusqu’au <b>21 octobre</b>.', sophia_band_btn:'S’opposer à Sophia →',
       h1a:'La Serra da Gardunha', h1b:'n’est pas à vendre',
       lede:'Ils prévoient de construire des <b>centrales solaires et éoliennes à grande échelle</b> dans notre région — des mégaprojets qui vont <b>défigurer nos paysages</b>. Ce n’est pas notre avis : <b>les propres documents du gouvernement</b> font de notre montagne la région la plus visée du pays — autorisée à la hâte et <b>sans évaluation d’impact environnemental</b>. La consultation est terminée — notre outil est désormais la <b>pétition au Parlement</b> : 7&nbsp;500 signatures imposent un débat à l’Assembleia da República.',
@@ -916,6 +929,7 @@
   }
   function langUrl(){return 'https://salvargardunha.com'+(lang==='pt'?'':'/'+lang)+BASE;}
   function render(){
+    document.querySelectorAll('.campnav a').forEach(function(a){a.href=(lang==='pt'?'':'/'+lang)+a.getAttribute('data-path');});
     tick();
     var msg=STR[lang].shareMsg, u=langUrl();
     document.getElementById('wa').href='https://wa.me/?text='+encodeURIComponent(msg+u);
@@ -952,7 +966,7 @@
   // offset, plus a few re-scrolls to counter lazy-loaded images above the target
   // shifting the layout after the jump — which otherwise lands "too early" in Safari
   // and Telegram's in-app browser. The native jump has no handler, so we do it here.
-  function anchorOffset(){var bar=document.querySelector('.bar');return (bar?bar.getBoundingClientRect().height:0)+10;}
+  function anchorOffset(){var bar=document.querySelector('.topstick');return (bar?bar.getBoundingClientRect().height:0)+10;}
   function scrollToEl(target,smooth){
     var y=target.getBoundingClientRect().top+window.pageYOffset-anchorOffset();
     try{window.scrollTo(smooth?{top:y,behavior:'smooth'}:{top:y,behavior:'auto'});}catch(_){window.scrollTo(0,y);}

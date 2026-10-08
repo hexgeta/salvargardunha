@@ -31,7 +31,7 @@
   .langsw button{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:11.5px;letter-spacing:.05em;padding:5px 9px;border-radius:999px;cursor:pointer}
   .langsw button.on{background:var(--green-d);color:#05230f}
 
-  .bar{position:sticky;top:0;z-index:50;background:#1a1206;border-bottom:1px solid #3a2a08;color:var(--amber);font-size:14.5px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:14px;padding:8px 165px}
+  .bar{position:relative;background:#1a1206;border-bottom:1px solid #3a2a08;color:var(--amber);font-size:14.5px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:14px;padding:8px 165px}
   .bar-content{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .bar .btn{font-size:12.5px;padding:6px 13px;white-space:nowrap;flex:0 0 auto}
   @media(max-width:640px){
@@ -52,6 +52,13 @@
     ol.how li{font-size:15px}
   }
   .bar b{color:#fff}
+  .topstick{position:sticky;top:0;z-index:50}
+  .campnav{display:flex;justify-content:center;gap:6px;background:rgba(10,13,10,.94);border-bottom:1px solid var(--line);padding:7px 12px;backdrop-filter:blur(6px)}
+  .campnav a{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:999px;border:1px solid transparent;white-space:nowrap;transition:color .15s ease,border-color .15s ease}
+  .campnav a:hover{color:var(--ink)}
+  .campnav a.on{background:#10230f;color:var(--green);border-color:#275c33}
+  .campnav .live{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 3px rgba(251,191,36,.2)}
+  @media(max-width:640px){.campnav{gap:4px;padding:6px 8px}.campnav a{font-size:12.5px;padding:5px 10px}}
 
   header{padding:60px 0 40px;border-bottom:1px solid var(--line);background:linear-gradient(180deg, rgba(10,13,10,.82) 0%, rgba(10,13,10,.6) 55%, rgba(10,13,10,.88) 85%, var(--bg) 100%), url('img/gardunha-hero.jpg') center 32%/cover no-repeat var(--bg)}
   h1,.lede{text-shadow:0 1px 14px rgba(0,0,0,.45)}
@@ -220,10 +227,13 @@
 </head>
 <body>
 
+<div class="topstick">
 <div class="bar mono">
   <div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></div>
   <div class="bar-content">⚠️ <span id="barleft">…</span></div>
   <a class="btn btn-primary" href="#passos" data-i18n="cta_obj">Objetar na consulta →</a>
+</div>
+<nav class="campnav" aria-label="Campanhas"><a data-path="/sophia" class="on" aria-current="page" data-i18n="nav_sophia"><span class="live"></span>Megacentral Sophia</a><a data-path="/lourical" data-i18n="nav_lourical">Louriçal e a Gardunha</a></nav>
 </div>
 
 <header>
@@ -400,6 +410,7 @@
     en:{
       bar_pre:'⚠️ The public consultation closes on <b>15 July 2026</b> —',
       eyebrow:'New public consultation · 8–21 October 2026',
+      nav_sophia:'<span class="live"></span>Sophia mega-plant', nav_lourical:'Louriçal &amp; the Gardunha',
       h1a:'Mega solar plant Sophia:', h1b:'say no again',
       lede:'The <b>Sophia mega solar plant</b> is back — “reformulated”, but still <b>573 MWp and 1,177 fenced hectares</b> in Idanha-a-Nova and Penamacor, with a <b>400 kV very-high-voltage line</b> crossing Fundão. In the first consultation, <b>12,693 people</b> took part — the most ever — and the Assessment Commission gave an <b>unfavourable opinion</b>. Now there is a <b>new public consultation of just 10 working days</b>, until <b>21 October</b>. Say no again.',
       cd_d:'Days', cd_h:'Hours', cd_m:'Min', cd_s:'Sec',
@@ -560,6 +571,7 @@
     de:{
       bar_pre:'⚠️ Die öffentliche Konsultation endet am <b>15. Juli 2026</b> —',
       eyebrow:'Neue öffentliche Konsultation · 8.–21. Oktober 2026',
+      nav_sophia:'<span class="live"></span>Großkraftwerk Sophia', nav_lourical:'Louriçal &amp; die Gardunha',
       h1a:'Solar-Großkraftwerk Sophia:', h1b:'sag wieder Nein',
       lede:'Das <b>Solar-Großkraftwerk Sophia</b> ist zurück — „überarbeitet“, aber immer noch mit <b>573 MWp und 1&nbsp;177 eingezäunten Hektar</b> in Idanha-a-Nova und Penamacor und einer <b>400-kV-Höchstspannungsleitung</b> quer durch Fundão. An der ersten Konsultation nahmen <b>12&nbsp;693 Menschen</b> teil — so viele wie nie zuvor — und die Bewertungskommission urteilte <b>ablehnend</b>. Jetzt gibt es eine <b>neue öffentliche Konsultation von nur 10 Werktagen</b>, bis zum <b>21. Oktober</b>. Sag wieder Nein.',
       cd_d:'Tage', cd_h:'Std.', cd_m:'Min.', cd_s:'Sek.',
@@ -719,6 +731,7 @@
     fr:{
       bar_pre:'⚠️ La consultation publique se termine le <b>15 juillet 2026</b> —',
       eyebrow:'Nouvelle consultation publique · 8–21 octobre 2026',
+      nav_sophia:'<span class="live"></span>Méga-centrale Sophia', nav_lourical:'Louriçal &amp; la Gardunha',
       h1a:'Méga-centrale Sophia :', h1b:'dis non encore',
       lede:'La <b>méga-centrale solaire Sophia</b> est de retour — « reformulée », mais toujours avec <b>573 MWc et 1&nbsp;177 hectares clôturés</b> à Idanha-a-Nova et Penamacor, et une <b>ligne très haute tension de 400 kV</b> qui traverse Fundão. Lors de la première consultation, <b>12&nbsp;693 personnes</b> ont participé — un record — et la Commission d’évaluation a rendu un <b>avis défavorable</b>. Il y a maintenant une <b>nouvelle consultation publique de seulement 10 jours ouvrés</b>, jusqu’au <b>21 octobre</b>. Dis non encore une fois.',
       cd_d:'Jours', cd_h:'Heures', cd_m:'Min', cd_s:'Sec',
@@ -920,6 +933,7 @@
   }
   function langUrl(){return 'https://salvargardunha.com'+(lang==='pt'?'':'/'+lang)+BASE;}
   function render(){
+    document.querySelectorAll('.campnav a').forEach(function(a){a.href=(lang==='pt'?'':'/'+lang)+a.getAttribute('data-path');});
     tick();
     var msg=STR[lang].shareMsg, u=langUrl();
     document.getElementById('wa').href='https://wa.me/?text='+encodeURIComponent(msg+u);
@@ -956,7 +970,7 @@
   // offset, plus a few re-scrolls to counter lazy-loaded images above the target
   // shifting the layout after the jump — which otherwise lands "too early" in Safari
   // and Telegram's in-app browser. The native jump has no handler, so we do it here.
-  function anchorOffset(){var bar=document.querySelector('.bar');return (bar?bar.getBoundingClientRect().height:0)+10;}
+  function anchorOffset(){var bar=document.querySelector('.topstick');return (bar?bar.getBoundingClientRect().height:0)+10;}
   function scrollToEl(target,smooth){
     var y=target.getBoundingClientRect().top+window.pageYOffset-anchorOffset();
     try{window.scrollTo(smooth?{top:y,behavior:'smooth'}:{top:y,behavior:'auto'});}catch(_){window.scrollTo(0,y);}
