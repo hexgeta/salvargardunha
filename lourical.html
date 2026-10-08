@@ -8,7 +8,7 @@
   // Non-PT visitors: hide the page until the inline switcher has translated it, so the
   // Portuguese markup never flashes first. Revealed on DOMContentLoaded (the switcher at the
   // end of <body> has run by then), with a timeout as a safety net.
-  (function(){try{var L=['en','de','fr'],p=location.pathname.split('/').filter(Boolean)[0],l=L.indexOf(p)>-1?p:localStorage.getItem('nf_lang');if(L.indexOf(l)<0)return;var d=document.documentElement,show=function(){d.classList.remove('i18n-wait');};d.classList.add('i18n-wait');document.addEventListener('DOMContentLoaded',show);setTimeout(show,2000);}catch(e){}})();
+  (function(){try{if(document.documentElement.hasAttribute('data-ssr'))return;var L=['en','de','fr'],p=location.pathname.split('/').filter(Boolean)[0],l=L.indexOf(p)>-1?p:localStorage.getItem('nf_lang');if(L.indexOf(l)<0)return;var d=document.documentElement,show=function(){d.classList.remove('i18n-wait');};d.classList.add('i18n-wait');document.addEventListener('DOMContentLoaded',show);setTimeout(show,2000);}catch(e){}})();
 </script>
 <title>Salvar a Gardunha — Não às megacentrais solares na serra</title>
 <meta name="description" content="Os próprios documentos do Governo colocam a Serra da Gardunha na região mais visada do país para centrais solares — sem avaliação de impacte ambiental. A consulta pública termina a 15 de julho de 2026.">
@@ -899,9 +899,14 @@
     fr:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'encore <b>'+d+' jours et '+h+'h</b>':'encore <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>Signe la pétition</b> — impose un débat au Parlement', gen:'Génération…', copied:'Copié ✓', linkcopied:'Lien copié ✓', objections:function(n){return '✍️ <b>'+n+'</b> signatures sur la pétition — ajoute la tienne.'}, grow:function(d,f){var n=d.d7;return n>0?'📈 <b>+'+f(n)+'</b> au cours des 7 derniers jours':'';}, shareMsg:'La Serra da Gardunha est l’une des zones les plus visées du pays par les méga-centrales solaires. Participe à la consultation avant le 15 juillet : '}
   };
 
-  var PT={}; document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
+  // PT strings: read from the markup — unless api/page.js already rendered this page in
+  // another language, in which case it ships the original PT strings as window.PT_SSR.
+  var PT=window.PT_SSR||{};
+  if(!window.PT_SSR){
+  document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
   document.querySelectorAll('[data-i18n-alt]').forEach(function(el){var k=el.getAttribute('data-i18n-alt');if(PT[k]==null)PT[k]=el.getAttribute('alt');});
   document.querySelectorAll('[data-i18n-aria]').forEach(function(el){var k=el.getAttribute('data-i18n-aria');if(PT[k]==null)PT[k]=el.getAttribute('aria-label');});
+  }
   var BASE='/lourical'; // this page's slug (also served at / when it's the default home — see vercel.json)
   var LANGS=['pt','en','de','fr'];
   var pathLang=location.pathname.split('/').filter(Boolean)[0]||'';

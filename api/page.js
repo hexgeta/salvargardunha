@@ -3,6 +3,7 @@
 // and search bots don't execute the client-side i18n. The visible strings are still swapped
 // client-side; here we only fix the crawler-visible <head> (+ full OG meta for the home page).
 const fs = require('fs');
+const vm = require('vm');
 const path = require('path');
 
 const SITE = 'https://salvargardunha.com';
@@ -43,6 +44,64 @@ const HOME_META = {
     img: SITE + '/img/og-fr.jpg'
   }
 };
+
+// Server-side translation for pages that carry the inline `var I18N={…}` dictionary
+// (sophia.html, lourical.html): fill every [data-i18n] element / alt / aria-label with the
+// target language so the HTML arrives already translated — no Portuguese flash, and
+// crawlers index the right language. The original PT strings ship as window.PT_SSR so the
+// client switcher can still go back to PT. Returns null if the page has no dictionary.
+function ssrTranslate(html, lang) {
+  const a = html.indexOf('var I18N=');
+  const b = html.indexOf('\n  var STR=', a);
+  if (a < 0 || b < 0) return null;
+  let dict;
+  try {
+    dict = vm.runInNewContext('(' + html.slice(a + 9, b).trim().replace(/;$/, '') + ')', {}, { timeout: 200 })[lang];
+  } catch (e) { return null; }
+  if (!dict) return null;
+
+  const pt = {};
+  const esc = (v) => String(v).replace(/"/g, '&quot;');
+  // Element contents. Outer-first; an element nested inside one already replaced is skipped.
+  const openRe = /<([a-z0-9]+)\b[^>]*\bdata-i18n="([^"]+)"[^>]*>/gi;
+  let out = '', cursor = 0, m;
+  while ((m = openRe.exec(html))) {
+    if (m.index < cursor) continue;
+    const tag = m[1].toLowerCase(), key = m[2];
+    const start = m.index + m[0].length;
+    // find the matching close tag, counting nested same-name tags
+    const tagRe = new RegExp('<(/?)' + tag + '\\b[^>]*>', 'gi');
+    tagRe.lastIndex = start;
+    let depth = 1, t, end = -1;
+    while ((t = tagRe.exec(html))) {
+      depth += t[1] ? -1 : 1;
+      if (depth === 0) { end = t.index; break; }
+    }
+    if (end < 0) continue;
+    if (pt[key] == null) pt[key] = html.slice(start, end);
+    if (dict[key] == null) continue;
+    out += html.slice(cursor, start) + dict[key];
+    cursor = end;
+    openRe.lastIndex = end;
+  }
+  html = out + html.slice(cursor);
+
+  // alt / aria-label attributes
+  html = html.replace(/<[a-z0-9]+\b[^>]*\bdata-i18n-(alt|aria)="([^"]+)"[^>]*>/gi, (tagStr, kind, key) => {
+    const attr = kind === 'alt' ? 'alt' : 'aria-label';
+    const re = new RegExp('\\b' + attr + '="([^"]*)"');
+    const cur = tagStr.match(re);
+    if (cur && pt[key] == null) pt[key] = cur[1].replace(/&quot;/g, '"');
+    if (dict[key] == null || !cur) return tagStr;
+    return tagStr.replace(re, attr + '="' + esc(dict[key]) + '"');
+  });
+
+  const ptJson = JSON.stringify(pt).replace(/</g, '\\u003c').replace(/[\u2028\u2029]/g, '');
+  html = html
+    .replace(/<html lang="[^"]*">/, '<html lang="' + lang + '" data-ssr="1">')
+    .replace('</head>', '<script>window.PT_SSR=' + ptJson + ';</script>\n</head>');
+  return html;
+}
 
 function langPath(page, lang) {
   const basep = (page === 'index') ? '' : '/' + page;
@@ -100,6 +159,8 @@ module.exports = (req, res) => {
       .replace(/(<meta property="og:image" content=")[^"]*(")/, '$1' + m.img + '$2')
       .replace(/(<meta property="og:url" content=")[^"]*(")/, '$1' + selfUrl + '$2');
   }
+
+  html = ssrTranslate(html, lang) || html;
 
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=86400');

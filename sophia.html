@@ -8,7 +8,7 @@
   // Non-PT visitors: hide the page until the inline switcher has translated it, so the
   // Portuguese markup never flashes first. Revealed on DOMContentLoaded (the switcher at the
   // end of <body> has run by then), with a timeout as a safety net.
-  (function(){try{var L=['en','de','fr'],p=location.pathname.split('/').filter(Boolean)[0],l=L.indexOf(p)>-1?p:localStorage.getItem('nf_lang');if(L.indexOf(l)<0)return;var d=document.documentElement,show=function(){d.classList.remove('i18n-wait');};d.classList.add('i18n-wait');document.addEventListener('DOMContentLoaded',show);setTimeout(show,2000);}catch(e){}})();
+  (function(){try{if(document.documentElement.hasAttribute('data-ssr'))return;var L=['en','de','fr'],p=location.pathname.split('/').filter(Boolean)[0],l=L.indexOf(p)>-1?p:localStorage.getItem('nf_lang');if(L.indexOf(l)<0)return;var d=document.documentElement,show=function(){d.classList.remove('i18n-wait');};d.classList.add('i18n-wait');document.addEventListener('DOMContentLoaded',show);setTimeout(show,2000);}catch(e){}})();
 </script>
 <title>Megacentral Sophia — diz não até 21 de outubro · Salvar a Gardunha</title>
 <meta name="description" content="A megacentral solar Sophia voltou, reformulada: 573 MWp e 1 177 hectares vedados em Idanha-a-Nova e Penamacor, com uma linha de 400 kV pelo Fundão. Nova consulta pública só até 21 de outubro de 2026 — objeta em 2 minutos.">
@@ -903,9 +903,14 @@
     fr:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'Consultation Sophia : encore <b>'+d+' jours et '+h+'h</b>':'Consultation Sophia : encore <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>La consultation Sophia est close</b> — merci d’avoir participé', gen:'Génération…', copied:'Copié ✓', linkcopied:'Lien copié ✓', objections:function(n){return '✍️ <b>'+n+'</b> participations à la consultation Sophia jusqu’ici — ajoute la tienne.'}, grow:function(d,f){var n=d.d7;return n>0?'📈 <b>+'+f(n)+'</b> au cours des 7 derniers jours':'';}, shareMsg:'La méga-centrale solaire Sophia est de retour : 573 MWc et 1 177 hectares clôturés en Beira Baixa, avec une ligne de 400 kV à travers Fundão. Nouvelle consultation seulement jusqu’au 21 octobre — participe en 2 minutes : '}
   };
 
-  var PT={}; document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
+  // PT strings: read from the markup — unless api/page.js already rendered this page in
+  // another language, in which case it ships the original PT strings as window.PT_SSR.
+  var PT=window.PT_SSR||{};
+  if(!window.PT_SSR){
+  document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
   document.querySelectorAll('[data-i18n-alt]').forEach(function(el){var k=el.getAttribute('data-i18n-alt');if(PT[k]==null)PT[k]=el.getAttribute('alt');});
   document.querySelectorAll('[data-i18n-aria]').forEach(function(el){var k=el.getAttribute('data-i18n-aria');if(PT[k]==null)PT[k]=el.getAttribute('aria-label');});
+  }
   var BASE='/sophia'; // this page's slug (also served at / when it's the default home — see vercel.json)
   var LANGS=['pt','en','de','fr'];
   var pathLang=location.pathname.split('/').filter(Boolean)[0]||'';
