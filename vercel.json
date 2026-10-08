@@ -42,6 +42,16 @@
   },
   "redirects": [
     {
+      "source": "/lourical",
+      "destination": "/pszaer",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|de|fr)/lourical",
+      "destination": "/:lang/pszaer",
+      "permanent": true
+    },
+    {
       "source": "/(.*)",
       "has": [
         {

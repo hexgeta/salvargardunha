@@ -48,7 +48,7 @@ Rules:
 ## Structure
 - **Two campaign pages (since 2026-10-08)** — there is no `index.html` any more:
   - `sophia.html` → **/sophia** — the Sophia solar plant consultation (details below).
-  - `lourical.html` → **/lourical** — the original Gardunha/Louriçal PSZAER page (zones,
+  - `pszaer.html` → **/pszaer** (was /pszaer, which 308-redirects) — the original Gardunha/Louriçal PSZAER page (zones,
     Marateca slider, petition), restored from commit e4bfeea, with an urgent Sophia banner.
   - **`/` is whichever page is the default**: the `{"source":"/","destination":"/sophia"}`
     rewrite in `vercel.json` + `HOME` in `api/page.js` (which also serves /en, /de, /fr).

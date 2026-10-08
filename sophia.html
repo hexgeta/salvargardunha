@@ -125,6 +125,44 @@
   .tbl-note{color:var(--muted);font-size:13.5px;margin-top:10px}
 
   .so-docs a{color:var(--green)}
+  .cmp{margin-top:24px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .cmp-row{display:grid;grid-template-columns:1.15fr 1fr 1fr;align-items:center;border-top:1px solid var(--line)}
+  .cmp-row:first-child{border-top:0}
+  .cmp-row>span{padding:11px 14px;font-variant-numeric:tabular-nums}
+  .cmp-l{color:var(--muted);font-size:14px}
+  .cmp-a{color:#c3cbbf;font-weight:700;font-size:16px}
+  .cmp-b{color:#fff;font-weight:800;font-size:16px;background:#1a1206;align-self:stretch;display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px}
+  .cmp-b em{font-style:normal;font-size:11.5px;font-weight:700;color:var(--amber);opacity:.85}
+  .cmp-head>span{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--muted);line-height:1.3;padding-top:13px;padding-bottom:13px}
+  .cmp-head .cmp-b{color:var(--amber);display:block}
+  .cmp-head small{display:block;font-size:11px;letter-spacing:.04em;text-transform:none;font-weight:600;opacity:.8;margin-top:2px}
+  section p.cmp-cap{font-size:13.5px;color:var(--muted);margin-top:10px}
+  @media(max-width:560px){.cmp-row>span{padding:10px 10px}.cmp-l{font-size:13px}.cmp-a,.cmp-b{font-size:14.5px}}
+  .red-sub{font-size:18px;font-weight:800;margin:34px 0 0;color:#fff}
+  .vids{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .vid{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .vid-play,.vid iframe{display:block;width:100%;aspect-ratio:16/9;border:0;padding:0;margin:0;background:#000;position:relative;cursor:pointer}
+  .vid-play img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:opacity .15s ease}
+  .vid-play:hover img{opacity:1}
+  .vid-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:60px;height:42px;border-radius:12px;background:rgba(220,30,30,.92);color:#fff;font-size:17px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.4)}
+  .vid-meta{padding:10px 13px 12px;font-size:12.5px;color:var(--muted);line-height:1.4}
+  .vid-meta b{display:block;color:var(--ink);font-size:14px;line-height:1.35;margin-bottom:4px}
+  .fbgrid{display:grid;grid-template-columns:320px 1fr;gap:18px;margin-top:14px;align-items:start}
+  .red-sub-in{margin-top:0;font-size:15px;color:var(--muted)}
+  .fbside .people{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+  .vid:first-child{grid-column:1/-1}
+  .fbcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .fbcard iframe{display:block;width:100%;border:0;background:#fff}
+  section p.fbcap{background:var(--panel);color:var(--muted);font-size:13px;padding:10px 13px;margin:0;border-top:1px solid var(--line)}
+  .fbcap b{color:var(--ink)}
+  .people{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:14px}
+  .person{display:flex;align-items:center;gap:11px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;text-decoration:none;transition:border-color .15s ease}
+  .person:hover{border-color:var(--green)}
+  .av{width:38px;height:38px;border-radius:50%;background:#1877f2;color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .person b{display:block;color:var(--ink);font-size:14px;line-height:1.3}
+  .person small{color:var(--muted);font-size:12px}
+  .red-more a{color:var(--green);font-weight:700}
+  @media(max-width:640px){.vids,.fbgrid{grid-template-columns:1fr}.fbgrid>.fbcard{max-width:340px;width:100%;margin:0 auto}}
   .tl{margin-top:26px;position:relative;padding-left:26px}
   .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
   .tl-i{position:relative;padding:0 0 20px}
@@ -240,14 +278,14 @@
   <div class="bar-content">⚠️ <span id="barleft">…</span></div>
   <a class="btn btn-primary" href="#passos" data-i18n="cta_obj">Objetar na consulta →</a>
 </div>
-<nav class="campnav" aria-label="Campanhas"><a data-path="/sophia" class="on" aria-current="page" data-i18n="nav_sophia"><span class="live"></span>Megacentral Sophia</a><a data-path="/lourical" data-i18n="nav_lourical">Louriçal e a Gardunha</a></nav>
+<nav class="campnav" aria-label="Campanhas"><a data-path="/sophia" class="on" aria-current="page" data-i18n="nav_sophia"><span class="live"></span>Megacentral Sophia</a><a data-path="/pszaer" data-i18n="nav_lourical">Louriçal e a Gardunha</a></nav>
 </div>
 
 <header>
   <div class="wrap">
     <div class="eyebrow" data-i18n="eyebrow">Nova consulta pública · 8 a 21 de outubro de 2026</div>
     <h1><span data-i18n="h1a">Megacentral Sophia:</span><br><span class="hl" data-i18n="h1b">diz não outra vez</span></h1>
-    <p class="lede" data-i18n="lede">A <b>megacentral solar Sophia</b> voltou — «reformulada», mas ainda com <b>573&nbsp;MWp e 1&nbsp;177 hectares vedados</b> em Idanha-a-Nova e Penamacor, e uma <b>linha de muito alta tensão de 400&nbsp;kV</b> a atravessar o Fundão. Na primeira consulta, <b>12&nbsp;693 pessoas</b> participaram — a mais participada de sempre — e a Comissão de Avaliação deu <b>parecer desfavorável</b>. Agora há uma <b>nova consulta pública de apenas 10 dias úteis</b>, até <b>21 de outubro</b>. Volta a dizer não.</p>
+    <p class="lede" data-i18n="lede">A <b>megacentral solar Sophia</b> voltou — «reformulada», mas ainda com <b>573&nbsp;MWp e 1&nbsp;177 hectares vedados</b> em Idanha-a-Nova e Penamacor, e uma <b>linha de muito alta tensão de 400&nbsp;kV</b> a atravessar o Fundão. Na primeira consulta, <b>12&nbsp;693 pessoas</b> participaram — a mais participada de sempre — e a Comissão de Avaliação deu <b>parecer desfavorável</b>. Agora há uma <b>nova consulta pública</b> — só <b>13 dias</b>, até <b>21 de outubro</b>. Volta a dizer não.</p>
 
     <div class="cd" id="cd">
       <div class="u"><div class="n" id="d">–</div><div class="l" data-i18n="cd_d">Dias</div></div>
@@ -269,11 +307,21 @@
     <div class="kicker" data-i18n="so_k">O que está em consulta</div>
     <h2 data-i18n="so_h">Encolheu no papel — mas continua uma megacentral</h2>
     <p data-i18n="so_p">Depois do parecer desfavorável, o promotor (a Lightsource bp; na consulta, «Coloursflow – Unipessoal, Lda.») apresentou um <b>projeto reformulado</b>. É sobre essa nova versão que a Agência Portuguesa do Ambiente abriu a consulta — e o que dissermos agora conta para a decisão final, a Declaração de Impacte Ambiental (DIA).</p>
+    <div class="cmp">
+      <div class="cmp-row cmp-head"><span></span><span class="cmp-a" data-i18n="cmp_was">Projeto original<small>outubro de 2025</small></span><span class="cmp-b" data-i18n="cmp_now">Projeto reformulado<small>outubro de 2026</small></span></div>
+      <div class="cmp-row"><span class="cmp-l" data-i18n="cmp_l1">Potência</span><span class="cmp-a">867&nbsp;MWp</span><span class="cmp-b">573&nbsp;MWp<em>−34%</em></span></div>
+      <div class="cmp-row"><span class="cmp-l" data-i18n="cmp_l2">Área vedada</span><span class="cmp-a"><span data-i18n="cmp_v2a">1&nbsp;737&nbsp;ha</span></span><span class="cmp-b"><span data-i18n="cmp_v2b">1&nbsp;177&nbsp;ha</span><em>−32%</em></span></div>
+      <div class="cmp-row"><span class="cmp-l" data-i18n="cmp_l3">Área de painéis</span><span class="cmp-a">390&nbsp;ha</span><span class="cmp-b">250&nbsp;ha<em>−36%</em></span></div>
+      <div class="cmp-row"><span class="cmp-l" data-i18n="cmp_l4">Núcleos vedados</span><span class="cmp-a">46</span><span class="cmp-b">22<em>−52%</em></span></div>
+      <div class="cmp-row"><span class="cmp-l" data-i18n="cmp_l5">Linhas de 400&nbsp;kV</span><span class="cmp-a">2</span><span class="cmp-b">1<em>−50%</em></span></div>
+      <div class="cmp-row"><span class="cmp-l" data-i18n="cmp_l6">No Fundão</span><span class="cmp-a"><span data-i18n="cmp_v6a">Painéis + linha</span></span><span class="cmp-b"><span data-i18n="cmp_v6b">Linha de 400&nbsp;kV</span></span></div>
+    </div>
+    <p class="cmp-cap" data-i18n="cmp_cap">Fonte: Resumo Não Técnico do projeto reformulado (APA, processo de AIA n.º 3800). Mais pequeno no papel — mas 1&nbsp;177 hectares vedados continuam a ser mais de 1&nbsp;600 campos de futebol.</p>
     <ul class="facts">
       <li data-i18n="so_f1"><b>Continua gigante</b><b>573&nbsp;MWp</b> e <b>1&nbsp;177 hectares vedados</b> em 22 núcleos — mais de 1&nbsp;600 campos de futebol — nos concelhos de Idanha-a-Nova e Penamacor, com um sistema de baterias (BESS) e uma subestação.</li>
       <li data-i18n="so_f2"><b>O Fundão continua na rota</b>Os painéis saíram do concelho do Fundão, mas <b>uma linha de muito alta tensão de 400&nbsp;kV</b> leva a energia até à Subestação do Fundão. Freguesias abrangidas, segundo o participa.pt: Alcaide, Fatela, Capinha, Três Povos, Enxames, Vale de Prazeres e Mata da Rainha, a união de freguesias do Fundão, Penamacor, Pedrógão de São Pedro e Bemposta, Aldeia de Santa Margarida e Proença-a-Velha.</li>
       <li data-i18n="so_f3"><b>Já foi chumbada uma vez</b>A Comissão de Avaliação deu <b>parecer desfavorável</b> ao projeto original (867&nbsp;MWp, 1&nbsp;737&nbsp;ha vedados): impactes «de grande magnitude e, em vários casos, permanentes e irreversíveis» na paisagem, nos solos, no ordenamento do território e na socioeconomia.</li>
-      <li data-i18n="so_f4"><b>12&nbsp;693 vozes contra</b>A primeira consulta (outubro–novembro de 2025) foi a mais participada de sempre. Agora há só <b>10 dias úteis</b> para mostrar que a oposição não mudou — cada nova participação conta.</li>
+      <li data-i18n="so_f4"><b>12&nbsp;693 vozes contra</b>A primeira consulta (outubro–novembro de 2025) teve <b>12&nbsp;693 participações</b> — a consulta pública mais participada de sempre em Portugal. Agora temos <b>até 21 de outubro</b> para mostrar que a oposição não mudou — cada nova participação conta.</li>
     </ul>
     <p class="so-docs" data-i18n="so_docs">Documentos oficiais: <a href="https://siaia.apambiente.pt/AIADOC/AIA3800/volume%204%20-%20rnt202610713592.pdf" target="_blank" rel="noopener">Resumo Não Técnico do projeto reformulado (PDF)</a> · <a href="https://siaia.apambiente.pt/AIADOC/AIA3800/csf%20sophia%20relatorio%20artigo%20162026107135927.pdf" target="_blank" rel="noopener">Relatório do artigo 16.º (PDF)</a> · <a href="https://siaia.apambiente.pt/ProcessoAIA/Detalhes/3800" target="_blank" rel="noopener">processo de AIA n.º 3800</a>.</p>
   </div>
@@ -306,7 +354,7 @@
           <button class="tp" type="button" data-topic="profits go to a multinational while the burdens stay in the region" data-i18n="obj11"><b>Lucro para fora</b>Os lucros vão para uma multinacional; os encargos ficam cá.</button>
           <button class="tp" type="button" data-topic="cumulative impact with other projects in the region (the Beira solar plant, the PSZAER acceleration zones)" data-i18n="obj12"><b>Impacto cumulativo</b>Soma-se à central Beira e às zonas de aceleração do PSZAER.</button>
           <button class="tp" type="button" data-topic="the first consultation had 12,693 participations, the most ever — the community has already said no" data-i18n="obj13"><b>A população já disse não</b>12 693 participações na primeira consulta — a mais participada de sempre.</button>
-          <button class="tp" type="button" data-topic="only 10 working days to analyse a reformulated project — inadequate public participation" data-i18n="obj14"><b>Prazo curto</b>Só 10 dias úteis para analisar um projeto reformulado.</button>
+          <button class="tp" type="button" data-topic="only 10 working days to analyse a reformulated project — inadequate public participation" data-i18n="obj14"><b>Prazo curto</b>Só 13 dias (10 úteis) para analisar um projeto reformulado.</button>
           <button class="tp" type="button" data-topic="alternatives ignored — rooftops, already built-up and degraded land, self-consumption" data-i18n="obj15"><b>Alternativas ignoradas</b>Telhados, áreas já construídas e degradadas, autoconsumo.</button>
         </div>
         </details>
@@ -330,6 +378,39 @@
         </div>
       </li>
     </ol>
+  </div>
+</section>
+
+<section id="redes">
+  <div class="wrap">
+    <div class="kicker" data-i18n="red_k">Nas redes</div>
+    <h2 data-i18n="red_h">Vê, comenta e partilha</h2>
+    <p data-i18n="red_p">Vídeos e publicações de quem está a lutar contra a Sophia. Um gosto, um comentário ou uma partilha fazem o algoritmo mostrá-los a mais gente — é dos gestos mais úteis que podes fazer em segundos.</p>
+    <h3 class="red-sub" data-i18n="red_vid">🎬 Vídeos sobre a Sophia</h3>
+    <div class="vids">
+      <div class="vid" data-yt="0VhIquFSC20"><button class="vid-play" type="button" aria-label="Ver o vídeo" data-i18n-aria="red_play"><img src="https://i.ytimg.com/vi/0VhIquFSC20/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="vid-btn" aria-hidden="true">▶</span></button><div class="vid-meta"><b>STOP SOPHIA - Como Discordar contra o Projecto Sophia</b>JusticaClimática · 05.11.2025</div></div>
+      <div class="vid" data-yt="D3NOaxhqPtU"><button class="vid-play" type="button" aria-label="Ver o vídeo" data-i18n-aria="red_play"><img src="https://i.ytimg.com/vi/D3NOaxhqPtU/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="vid-btn" aria-hidden="true">▶</span></button><div class="vid-meta"><b>Castelo Branco: População contra a Central Solar Sophia</b>Beira Baixa TV · 11.11.2025</div></div>
+      <div class="vid" data-yt="3qAwHedNXc8"><button class="vid-play" type="button" aria-label="Ver o vídeo" data-i18n-aria="red_play"><img src="https://i.ytimg.com/vi/3qAwHedNXc8/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="vid-btn" aria-hidden="true">▶</span></button><div class="vid-meta"><b>Salvem a Beira Baixa Protest 2026 📢 Stop Mega Solar Farms (Lisbon March)</b>Portugal Walking Tour · 31.01.2026</div></div>
+      <div class="vid" data-yt="_Ok2GWrsf58"><button class="vid-play" type="button" aria-label="Ver o vídeo" data-i18n-aria="red_play"><img src="https://i.ytimg.com/vi/_Ok2GWrsf58/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="vid-btn" aria-hidden="true">▶</span></button><div class="vid-meta"><b>Pensar Portugal - O Projeto Sophia e os desafios das grandes centrais fotovoltaicas</b>Conta Lá · 23.01.2026</div></div>
+      <div class="vid" data-yt="iMNs77lTQ8U"><button class="vid-play" type="button" aria-label="Ver o vídeo" data-i18n-aria="red_play"><img src="https://i.ytimg.com/vi/iMNs77lTQ8U/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="vid-btn" aria-hidden="true">▶</span></button><div class="vid-meta"><b>Lightsource BP promete alterar o projeto da megacentral solar Sophia após onda de descontentamento</b>i New(s) Portugal · 13.01.2026</div></div>
+    </div>
+    <h3 class="red-sub" data-i18n="red_fb">📣 No Facebook</h3>
+    <div class="fbgrid">
+      <div class="fbcard"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1555673026235763&amp;show_text=false&amp;width=320" height="560" loading="lazy" title="Facebook reel" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe><p class="fbcap" data-i18n="red_reel"><b>Reel sobre a serra</b> — dá gosto, comenta e partilha.</p></div>
+      <div class="fbside">
+      <h3 class="red-sub red-sub-in" data-i18n="red_people">🧑‍🌾 Vozes locais — segue, interage e partilha</h3>
+      <div class="people">
+        <a class="person" href="https://www.facebook.com/fernanda.botelho.393" target="_blank" rel="noopener"><span class="av">FB</span><span><b>Fernanda Botelho</b><small>Facebook</small></span></a>
+        <a class="person" href="https://www.facebook.com/guilherme.carreiro.566/" target="_blank" rel="noopener"><span class="av">GC</span><span><b>Guilherme Carreiro</b><small>Facebook</small></span></a>
+        <a class="person" href="https://www.facebook.com/joao.beles" target="_blank" rel="noopener"><span class="av">JB</span><span><b>João Beles</b><small>Facebook</small></span></a>
+        <a class="person" href="https://www.facebook.com/natjoaobeles" target="_blank" rel="noopener"><span class="av">NB</span><span><b>Nat João Beles</b><small>Facebook</small></span></a>
+        <a class="person" href="https://www.facebook.com/joaoneto1987/reels/" target="_blank" rel="noopener"><span class="av">JN</span><span><b>João Neto</b><small>Facebook · Reels</small></span></a>
+        <a class="person" href="https://www.facebook.com/p/Gardunha-Sul-100070183062069/" target="_blank" rel="noopener"><span class="av">GS</span><span><b>Movimento Cívico Gardunha Sul</b><small>Facebook</small></span></a>
+        <a class="person" href="https://www.facebook.com/groups/239389466640897/permalink/2110919629487862/" target="_blank" rel="noopener"><span class="av">💬</span><span><b data-i18n="red_post">Publicação no grupo Beira Baixa</b><small>Facebook · Grupo</small></span></a>
+      </div>
+      </div>
+    </div>
+    <p class="red-more"><a href="/social" data-i18n="red_more">Mais movimentos, autarcas, jornalistas e páginas →</a></p>
   </div>
 </section>
 
@@ -387,11 +468,10 @@
 <footer>
   <div class="wrap">
     <div class="foot-cols">
-      <div class="foot-col"><h4 data-i18n="fcol_campaign">A campanha</h4>
-        <a href="/" data-i18n="fl_home">Início</a>
-        <a href="#passos" data-i18n="fl_obj">Objetar na consulta da Sophia</a>
-        <a href="/lourical#assinar" data-i18n="fl_act">Assinar a petição</a>
-        <a href="/lourical" data-i18n="fl_lourical">Louriçal e a Gardunha — as zonas de aceleração</a>
+      <div class="foot-col"><h4 data-i18n="fcol_campaign">As campanhas</h4>
+        <a href="/sophia" data-i18n="fl_c_sophia">Megacentral Sophia — consulta até 21 de outubro</a>
+        <a href="/pszaer" data-i18n="fl_c_pszaer">Gardunha e as zonas de aceleração (PSZAER)</a>
+        <a href="/pszaer#assinar" data-i18n="fl_act">Assinar a petição</a>
         <a href="/social" data-i18n="foot_allies">Espalhar a palavra — aliados e imprensa</a>
       </div>
       <div class="foot-col"><h4 data-i18n="fcol_docs">Documentos e dados</h4>
@@ -418,7 +498,7 @@
       eyebrow:'New public consultation · 8–21 October 2026',
       nav_sophia:'<span class="live"></span>Sophia mega-plant', nav_lourical:'Louriçal &amp; the Gardunha',
       h1a:'Mega solar plant Sophia:', h1b:'say no again',
-      lede:'The <b>Sophia mega solar plant</b> is back — “reformulated”, but still <b>573 MWp and 1,177 fenced hectares</b> in Idanha-a-Nova and Penamacor, with a <b>400 kV very-high-voltage line</b> crossing Fundão. In the first consultation, <b>12,693 people</b> took part — the most ever — and the Assessment Commission gave an <b>unfavourable opinion</b>. Now there is a <b>new public consultation of just 10 working days</b>, until <b>21 October</b>. Say no again.',
+      lede:'The <b>Sophia mega solar plant</b> is back — “reformulated”, but still <b>573 MWp and 1,177 fenced hectares</b> in Idanha-a-Nova and Penamacor, with a <b>400 kV very-high-voltage line</b> crossing Fundão. In the first consultation, <b>12,693 people</b> took part — the most ever — and the Assessment Commission gave an <b>unfavourable opinion</b>. Now there is a <b>new public consultation</b> — just <b>13 days</b>, until <b>21 October</b>. Say no again.',
       cd_d:'Days', cd_h:'Hours', cd_m:'Min', cd_s:'Sec',
       hero_cta1:'Sign the petition →', hero_cta2:'Share ↓', read_cta:'Read the documents →',
       band1_line:'This is the plan for our mountains. Make your voice heard and help block these mega-plants —',
@@ -508,7 +588,7 @@
       obj11:'<b>Profits leave</b>The profits go to a multinational; the burdens stay here.',
       obj12:'<b>Cumulative impact</b>Adds to the Beira solar plant and the PSZAER acceleration zones.',
       obj13:'<b>People already said no</b>12,693 submissions in the first consultation — the most ever.',
-      obj14:'<b>Too little time</b>Only 10 working days to analyse a reformulated project.',
+      obj14:'<b>Too little time</b>Only 13 days (10 working days) to analyse a reformulated project.',
       obj15:'<b>Alternatives ignored</b>Rooftops, already built-up and degraded land, self-consumption.',
       cta_obj:'Object in the consultation →',
       cta_open:'Open on participa.pt ↗',
@@ -518,9 +598,33 @@
       so_f1:'<b>Still gigantic</b><b>573 MWp</b> and <b>1,177 fenced hectares</b> in 22 blocks — more than 1,600 football pitches — in the municipalities of Idanha-a-Nova and Penamacor, with a battery storage system (BESS) and a substation.',
       so_f2:'<b>Fundão is still on the route</b>The panels have left the municipality of Fundão, but <b>a 400 kV very-high-voltage line</b> carries the power to the Fundão substation. Parishes covered, according to participa.pt: Alcaide, Fatela, Capinha, Três Povos, Enxames, Vale de Prazeres e Mata da Rainha, the Fundão parish union, Penamacor, Pedrógão de São Pedro e Bemposta, Aldeia de Santa Margarida and Proença-a-Velha.',
       so_f3:'<b>Already rejected once</b>The Assessment Commission gave an <b>unfavourable opinion</b> on the original project (867 MWp, 1,737 fenced ha): impacts “of great magnitude and, in several cases, permanent and irreversible” on the landscape, soils, spatial planning and the socio-economy.',
-      so_f4:'<b>12,693 voices against</b>The first consultation (October–November 2025) was the most participated ever. Now there are only <b>10 working days</b> to show the opposition hasn’t changed — every new submission counts.',
+      so_f4:'<b>12,693 voices against</b>The first consultation (October–November 2025) drew <b>12,693 submissions</b> — the most participated public consultation ever in Portugal. Now we have <b>until 21 October</b> to show the opposition hasn’t changed — every new submission counts.',
       so_docs:'Official documents: <a href="https://siaia.apambiente.pt/AIADOC/AIA3800/volume%204%20-%20rnt202610713592.pdf" target="_blank" rel="noopener">Non-Technical Summary of the reformulated project (PDF, PT)</a> · <a href="https://siaia.apambiente.pt/AIADOC/AIA3800/csf%20sophia%20relatorio%20artigo%20162026107135927.pdf" target="_blank" rel="noopener">Article 16 report (PDF, PT)</a> · <a href="https://siaia.apambiente.pt/ProcessoAIA/Detalhes/3800" target="_blank" rel="noopener">EIA procedure no. 3800</a>.',
       fl_obj:'Object in the Sophia consultation',
+      cmp_was:'Original project<small>October 2025</small>',
+      cmp_now:'Reformulated project<small>October 2026</small>',
+      cmp_l1:'Capacity',
+      cmp_l2:'Fenced area',
+      cmp_l3:'Panel area',
+      cmp_l4:'Fenced blocks',
+      cmp_l5:'400&nbsp;kV lines',
+      cmp_l6:'In Fundão',
+      cmp_v2a:'1,737&nbsp;ha',
+      cmp_v2b:'1,177&nbsp;ha',
+      cmp_v6a:'Panels + line',
+      cmp_v6b:'400&nbsp;kV line',
+      cmp_cap:'Source: Non-Technical Summary of the reformulated project (APA, EIA procedure no. 3800). Smaller on paper — but 1,177 fenced hectares is still more than 1,600 football pitches.',
+      red_k:'On social media',
+      red_h:'Watch, comment and share',
+      red_p:'Videos and posts from the people fighting Sophia. A like, a comment or a share makes the algorithm show them to more people — one of the most useful things you can do in seconds.',
+      red_vid:'🎬 Videos about Sophia',
+      red_fb:'📣 On Facebook',
+      red_fb_gsul:'<b>Movimento Cívico Gardunha Sul</b> — organised the protests against Sophia. Their latest posts, live.',
+      red_reel:'<b>Reel about the mountains</b> — like, comment and share.',
+      red_people:'🧑‍🌾 Local voices — follow, engage and share',
+      red_more:'More movements, mayors, journalists and pages →',
+      red_post:'Post in the Beira Baixa group',
+      red_play:'Play the video',
       fl_lourical:'Louriçal and the Gardunha — the acceleration zones',
       docs_k:'Consultation documents', docs_h:'Read the official documents',
       docs_en:'📖 Read the documents — summarised and translated, section by section →',
@@ -565,7 +669,7 @@
       pet_next:'Next goal: <b>7,500</b> — forces a full debate in Parliament’s plenary.',
       pet_btn:'Sign the petition →',
       foot_made:'Made by neighbours of the Beira Baixa who want the mountains left standing.',
-      fcol_campaign:'The campaign', fcol_docs:'Documents & data', fcol_official:'Official sources', fl_home:'Home', fl_act:'Sign the petition',
+      fcol_campaign:'The campaigns', fl_c_sophia:'Sophia mega-plant — consultation until 21 October', fl_c_pszaer:'The Gardunha &amp; the acceleration zones (PSZAER)', fcol_docs:'Documents & data', fcol_official:'Official sources', fl_home:'Home', fl_act:'Sign the petition',
       foot_maps:'The maps of the proposed areas', foot_obj:'The 172 objections & the Government’s responses',
       foot_allies:'Spread the word — allies &amp; media',
       foot_about:'Understand the process — who decides',
@@ -579,7 +683,7 @@
       eyebrow:'Neue öffentliche Konsultation · 8.–21. Oktober 2026',
       nav_sophia:'<span class="live"></span>Großkraftwerk Sophia', nav_lourical:'Louriçal &amp; die Gardunha',
       h1a:'Solar-Großkraftwerk Sophia:', h1b:'sag wieder Nein',
-      lede:'Das <b>Solar-Großkraftwerk Sophia</b> ist zurück — „überarbeitet“, aber immer noch mit <b>573 MWp und 1&nbsp;177 eingezäunten Hektar</b> in Idanha-a-Nova und Penamacor und einer <b>400-kV-Höchstspannungsleitung</b> quer durch Fundão. An der ersten Konsultation nahmen <b>12&nbsp;693 Menschen</b> teil — so viele wie nie zuvor — und die Bewertungskommission urteilte <b>ablehnend</b>. Jetzt gibt es eine <b>neue öffentliche Konsultation von nur 10 Werktagen</b>, bis zum <b>21. Oktober</b>. Sag wieder Nein.',
+      lede:'Das <b>Solar-Großkraftwerk Sophia</b> ist zurück — „überarbeitet“, aber immer noch mit <b>573 MWp und 1&nbsp;177 eingezäunten Hektar</b> in Idanha-a-Nova und Penamacor und einer <b>400-kV-Höchstspannungsleitung</b> quer durch Fundão. An der ersten Konsultation nahmen <b>12&nbsp;693 Menschen</b> teil — so viele wie nie zuvor — und die Bewertungskommission urteilte <b>ablehnend</b>. Jetzt gibt es eine <b>neue öffentliche Konsultation</b> — nur <b>13 Tage</b>, bis zum <b>21. Oktober</b>. Sag wieder Nein.',
       cd_d:'Tage', cd_h:'Std.', cd_m:'Min.', cd_s:'Sek.',
       hero_cta1:'Petition unterschreiben →', hero_cta2:'Teilen ↓', read_cta:'Dokumente lesen →',
       band1_line:'Das ist der Plan für unser Gebirge. Erhebe deine Stimme und hilf, diese Großkraftwerke zu stoppen —',
@@ -668,7 +772,7 @@
       obj11:'<b>Gewinne gehen weg</b>Die Gewinne gehen an einen Konzern; die Lasten bleiben hier.',
       obj12:'<b>Kumulative Wirkung</b>Kommt zum Solarkraftwerk Beira und den PSZAER-Beschleunigungszonen hinzu.',
       obj13:'<b>Die Menschen sagten schon Nein</b>12 693 Beiträge in der ersten Konsultation — so viele wie nie.',
-      obj14:'<b>Zu wenig Zeit</b>Nur 10 Werktage, um ein überarbeitetes Projekt zu prüfen.',
+      obj14:'<b>Zu wenig Zeit</b>Nur 13 Tage (10 Werktage), um ein überarbeitetes Projekt zu prüfen.',
       obj15:'<b>Alternativen ignoriert</b>Dächer, bereits bebaute und degradierte Flächen, Eigenverbrauch.',
       cta_obj:'Einspruch erheben →',
       cta_open:'Auf participa.pt öffnen ↗',
@@ -678,9 +782,33 @@
       so_f1:'<b>Immer noch riesig</b><b>573 MWp</b> und <b>1&nbsp;177 eingezäunte Hektar</b> in 22 Teilflächen — mehr als 1&nbsp;600 Fußballfelder — in den Gemeinden Idanha-a-Nova und Penamacor, mit Batteriespeicher (BESS) und Umspannwerk.',
       so_f2:'<b>Fundão bleibt auf der Strecke</b>Die Paneele sind aus der Gemeinde Fundão verschwunden, aber <b>eine 400-kV-Höchstspannungsleitung</b> führt den Strom zum Umspannwerk Fundão. Betroffene Kirchspiele laut participa.pt: Alcaide, Fatela, Capinha, Três Povos, Enxames, Vale de Prazeres e Mata da Rainha, die Kirchspielunion Fundão, Penamacor, Pedrógão de São Pedro e Bemposta, Aldeia de Santa Margarida und Proença-a-Velha.',
       so_f3:'<b>Schon einmal abgelehnt</b>Die Bewertungskommission urteilte über das ursprüngliche Projekt (867 MWp, 1&nbsp;737 ha eingezäunt) <b>ablehnend</b>: Auswirkungen „von großem Ausmaß und in mehreren Fällen dauerhaft und irreversibel“ auf Landschaft, Böden, Raumordnung und Sozioökonomie.',
-      so_f4:'<b>12&nbsp;693 Stimmen dagegen</b>Die erste Konsultation (Oktober–November 2025) war die meistbeteiligte aller Zeiten. Jetzt bleiben nur <b>10 Werktage</b>, um zu zeigen, dass sich der Widerstand nicht geändert hat — jeder neue Beitrag zählt.',
+      so_f4:'<b>12&nbsp;693 Stimmen dagegen</b>Die erste Konsultation (Oktober–November 2025) erhielt <b>12&nbsp;693 Beiträge</b> — die meistbeteiligte öffentliche Konsultation, die es in Portugal je gab. Jetzt haben wir <b>bis zum 21. Oktober</b> Zeit zu zeigen, dass sich der Widerstand nicht geändert hat — jeder neue Beitrag zählt.',
       so_docs:'Offizielle Unterlagen: <a href="https://siaia.apambiente.pt/AIADOC/AIA3800/volume%204%20-%20rnt202610713592.pdf" target="_blank" rel="noopener">Nichttechnische Zusammenfassung des überarbeiteten Projekts (PDF, PT)</a> · <a href="https://siaia.apambiente.pt/AIADOC/AIA3800/csf%20sophia%20relatorio%20artigo%20162026107135927.pdf" target="_blank" rel="noopener">Bericht nach Artikel 16 (PDF, PT)</a> · <a href="https://siaia.apambiente.pt/ProcessoAIA/Detalhes/3800" target="_blank" rel="noopener">UVP-Verfahren Nr. 3800</a>.',
       fl_obj:'Einspruch in der Sophia-Konsultation',
+      cmp_was:'Ursprüngliches Projekt<small>Oktober 2025</small>',
+      cmp_now:'Überarbeitetes Projekt<small>Oktober 2026</small>',
+      cmp_l1:'Leistung',
+      cmp_l2:'Eingezäunte Fläche',
+      cmp_l3:'Modulfläche',
+      cmp_l4:'Eingezäunte Teilflächen',
+      cmp_l5:'400-kV-Leitungen',
+      cmp_l6:'In Fundão',
+      cmp_v2a:'1&nbsp;737&nbsp;ha',
+      cmp_v2b:'1&nbsp;177&nbsp;ha',
+      cmp_v6a:'Paneele + Leitung',
+      cmp_v6b:'400-kV-Leitung',
+      cmp_cap:'Quelle: Nichttechnische Zusammenfassung des überarbeiteten Projekts (APA, UVP-Verfahren Nr. 3800). Auf dem Papier kleiner — aber 1&nbsp;177 eingezäunte Hektar sind immer noch mehr als 1&nbsp;600 Fußballfelder.',
+      red_k:'In den sozialen Medien',
+      red_h:'Ansehen, kommentieren, teilen',
+      red_p:'Videos und Beiträge von denen, die gegen Sophia kämpfen. Ein Like, ein Kommentar oder ein Teilen sorgt dafür, dass der Algorithmus sie mehr Menschen zeigt — eine der nützlichsten Sekunden-Gesten.',
+      red_vid:'🎬 Videos über Sophia',
+      red_fb:'📣 Auf Facebook',
+      red_fb_gsul:'<b>Movimento Cívico Gardunha Sul</b> — hat die Proteste gegen Sophia organisiert. Die neuesten Beiträge, live.',
+      red_reel:'<b>Reel über das Gebirge</b> — liken, kommentieren und teilen.',
+      red_people:'🧑‍🌾 Lokale Stimmen — folgen, interagieren, teilen',
+      red_more:'Weitere Bewegungen, Bürgermeister, Journalisten und Seiten →',
+      red_post:'Beitrag in der Gruppe Beira Baixa',
+      red_play:'Video abspielen',
       fl_lourical:'Louriçal und die Gardunha — die Beschleunigungszonen',
       docs_k:'Unterlagen der Konsultation', docs_h:'Lies die offiziellen Unterlagen',
       docs_en:'📖 Lies die Dokumente — zusammengefasst und übersetzt, Abschnitt für Abschnitt →',
@@ -725,7 +853,7 @@
       pet_next:'Nächstes Ziel: <b>7&nbsp;500</b> — erzwingt eine Debatte im Plenum des Parlaments.',
       pet_btn:'Petition unterschreiben →',
       foot_made:'Gemacht von Nachbarn der Beira Baixa, die das Gebirge stehen lassen wollen.',
-      fcol_campaign:'Die Kampagne', fcol_docs:'Dokumente & Daten', fcol_official:'Offizielle Quellen', fl_home:'Startseite', fl_act:'Petition unterschreiben',
+      fcol_campaign:'Die Kampagnen', fl_c_sophia:'Großkraftwerk Sophia — Konsultation bis 21. Oktober', fl_c_pszaer:'Die Gardunha und die Beschleunigungszonen (PSZAER)', fcol_docs:'Dokumente & Daten', fcol_official:'Offizielle Quellen', fl_home:'Startseite', fl_act:'Petition unterschreiben',
       foot_maps:'Die Karten der vorgeschlagenen Flächen', foot_obj:'Die 172 Einwände & die Antworten der Regierung',
       foot_allies:'Wort verbreiten — Verbündete &amp; Presse',
       foot_about:'Den Prozess verstehen — wer entscheidet',
@@ -739,7 +867,7 @@
       eyebrow:'Nouvelle consultation publique · 8–21 octobre 2026',
       nav_sophia:'<span class="live"></span>Méga-centrale Sophia', nav_lourical:'Louriçal &amp; la Gardunha',
       h1a:'Méga-centrale Sophia :', h1b:'dis non encore',
-      lede:'La <b>méga-centrale solaire Sophia</b> est de retour — « reformulée », mais toujours avec <b>573 MWc et 1&nbsp;177 hectares clôturés</b> à Idanha-a-Nova et Penamacor, et une <b>ligne très haute tension de 400 kV</b> qui traverse Fundão. Lors de la première consultation, <b>12&nbsp;693 personnes</b> ont participé — un record — et la Commission d’évaluation a rendu un <b>avis défavorable</b>. Il y a maintenant une <b>nouvelle consultation publique de seulement 10 jours ouvrés</b>, jusqu’au <b>21 octobre</b>. Dis non encore une fois.',
+      lede:'La <b>méga-centrale solaire Sophia</b> est de retour — « reformulée », mais toujours avec <b>573 MWc et 1&nbsp;177 hectares clôturés</b> à Idanha-a-Nova et Penamacor, et une <b>ligne très haute tension de 400 kV</b> qui traverse Fundão. Lors de la première consultation, <b>12&nbsp;693 personnes</b> ont participé — un record — et la Commission d’évaluation a rendu un <b>avis défavorable</b>. Il y a maintenant une <b>nouvelle consultation publique</b> — seulement <b>13 jours</b>, jusqu’au <b>21 octobre</b>. Dis non encore une fois.',
       cd_d:'Jours', cd_h:'Heures', cd_m:'Min', cd_s:'Sec',
       hero_cta1:'Signer la pétition →', hero_cta2:'Partager ↓', read_cta:'Lire les documents →',
       band1_line:'Voici le plan pour notre montagne. Fais entendre ta voix et aide à bloquer ces méga-centrales —',
@@ -828,7 +956,7 @@
       obj11:'<b>Les profits partent</b>Les profits vont à une multinationale ; les charges restent ici.',
       obj12:'<b>Impact cumulé</b>S’ajoute à la centrale Beira et aux zones d’accélération du PSZAER.',
       obj13:'<b>La population a déjà dit non</b>12 693 participations à la première consultation — un record.',
-      obj14:'<b>Délai trop court</b>Seulement 10 jours ouvrés pour analyser un projet reformulé.',
+      obj14:'<b>Délai trop court</b>Seulement 13 jours (10 ouvrés) pour analyser un projet reformulé.',
       obj15:'<b>Alternatives ignorées</b>Toits, zones déjà bâties et dégradées, autoconsommation.',
       cta_obj:'Participer à la consultation →',
       cta_open:'Ouvrir sur participa.pt ↗',
@@ -838,9 +966,33 @@
       so_f1:'<b>Toujours gigantesque</b><b>573 MWc</b> et <b>1&nbsp;177 hectares clôturés</b> en 22 noyaux — plus de 1&nbsp;600 terrains de football — dans les communes d’Idanha-a-Nova et de Penamacor, avec un système de batteries (BESS) et un poste électrique.',
       so_f2:'<b>Fundão reste sur le tracé</b>Les panneaux ont quitté la commune de Fundão, mais <b>une ligne très haute tension de 400 kV</b> achemine l’énergie jusqu’au poste de Fundão. Paroisses concernées, selon participa.pt : Alcaide, Fatela, Capinha, Três Povos, Enxames, Vale de Prazeres e Mata da Rainha, l’union de paroisses de Fundão, Penamacor, Pedrógão de São Pedro e Bemposta, Aldeia de Santa Margarida et Proença-a-Velha.',
       so_f3:'<b>Déjà rejetée une fois</b>La Commission d’évaluation a rendu un <b>avis défavorable</b> sur le projet initial (867 MWc, 1&nbsp;737 ha clôturés) : des impacts « de grande ampleur et, dans plusieurs cas, permanents et irréversibles » sur le paysage, les sols, l’aménagement du territoire et la socio-économie.',
-      so_f4:'<b>12&nbsp;693 voix contre</b>La première consultation (octobre–novembre 2025) a été la plus suivie de l’histoire. Il ne reste que <b>10 jours ouvrés</b> pour montrer que l’opposition n’a pas changé — chaque nouvelle participation compte.',
+      so_f4:'<b>12&nbsp;693 voix contre</b>La première consultation (octobre–novembre 2025) a reçu <b>12&nbsp;693 participations</b> — la consultation publique la plus suivie de l’histoire du Portugal. Nous avons maintenant <b>jusqu’au 21 octobre</b> pour montrer que l’opposition n’a pas changé — chaque nouvelle participation compte.',
       so_docs:'Documents officiels : <a href="https://siaia.apambiente.pt/AIADOC/AIA3800/volume%204%20-%20rnt202610713592.pdf" target="_blank" rel="noopener">Résumé non technique du projet reformulé (PDF, PT)</a> · <a href="https://siaia.apambiente.pt/AIADOC/AIA3800/csf%20sophia%20relatorio%20artigo%20162026107135927.pdf" target="_blank" rel="noopener">Rapport de l’article 16 (PDF, PT)</a> · <a href="https://siaia.apambiente.pt/ProcessoAIA/Detalhes/3800" target="_blank" rel="noopener">procédure d’EIE n° 3800</a>.',
       fl_obj:'Participer à la consultation Sophia',
+      cmp_was:'Projet initial<small>octobre 2025</small>',
+      cmp_now:'Projet reformulé<small>octobre 2026</small>',
+      cmp_l1:'Puissance',
+      cmp_l2:'Surface clôturée',
+      cmp_l3:'Surface de panneaux',
+      cmp_l4:'Noyaux clôturés',
+      cmp_l5:'Lignes de 400&nbsp;kV',
+      cmp_l6:'À Fundão',
+      cmp_v2a:'1&nbsp;737&nbsp;ha',
+      cmp_v2b:'1&nbsp;177&nbsp;ha',
+      cmp_v6a:'Panneaux + ligne',
+      cmp_v6b:'Ligne de 400&nbsp;kV',
+      cmp_cap:'Source : Résumé non technique du projet reformulé (APA, procédure d’EIE n° 3800). Plus petit sur le papier — mais 1&nbsp;177 hectares clôturés, c’est encore plus de 1&nbsp;600 terrains de football.',
+      red_k:'Sur les réseaux',
+      red_h:'Regarde, commente et partage',
+      red_p:'Vidéos et publications de celles et ceux qui luttent contre Sophia. Un j’aime, un commentaire ou un partage pousse l’algorithme à les montrer à plus de monde — l’un des gestes les plus utiles en quelques secondes.',
+      red_vid:'🎬 Vidéos sur Sophia',
+      red_fb:'📣 Sur Facebook',
+      red_fb_gsul:'<b>Movimento Cívico Gardunha Sul</b> — a organisé les manifestations contre Sophia. Ses dernières publications, en direct.',
+      red_reel:'<b>Reel sur la montagne</b> — aime, commente et partage.',
+      red_people:'🧑‍🌾 Voix locales — suis, interagis et partage',
+      red_more:'Plus de mouvements, maires, journalistes et pages →',
+      red_post:'Publication dans le groupe Beira Baixa',
+      red_play:'Lire la vidéo',
       fl_lourical:'Louriçal et la Gardunha — les zones d’accélération',
       docs_k:'Documents de la consultation', docs_h:'Lis les documents officiels',
       docs_en:'📖 Lis les documents — résumés et traduits, section par section →',
@@ -885,7 +1037,7 @@
       pet_next:'Prochain objectif : <b>7&nbsp;500</b> — impose un débat en plénière au Parlement.',
       pet_btn:'Signer la pétition →',
       foot_made:'Fait par des voisins de la Beira Baixa qui veulent la montagne debout.',
-      fcol_campaign:'La campagne', fcol_docs:'Documents et données', fcol_official:'Sources officielles', fl_home:'Accueil', fl_act:'Signer la pétition',
+      fcol_campaign:'Les campagnes', fl_c_sophia:'Méga-centrale Sophia — consultation jusqu’au 21 octobre', fl_c_pszaer:'La Gardunha et les zones d’accélération (PSZAER)', fcol_docs:'Documents et données', fcol_official:'Sources officielles', fl_home:'Accueil', fl_act:'Signer la pétition',
       foot_maps:'Les cartes des zones proposées', foot_obj:'Les 172 objections & les réponses du Gouvernement',
       foot_allies:'Faire passer le mot — alliés &amp; presse',
       foot_about:'Comprendre le processus — qui décide',
@@ -1025,6 +1177,14 @@
   function copyBtn(id,txtFn){document.getElementById(id).addEventListener('click',function(){navigator.clipboard.writeText(txtFn()).then(function(){var b=document.getElementById(id);var t=b.textContent;b.textContent=(id==='copy')?STR[lang].linkcopied:STR[lang].copied;setTimeout(function(){b.textContent=t},1800);});});}
   copyBtn('copygen',function(){return genTxt.textContent});
   copyBtn('copy',function(){return langUrl()});
+
+  // Videos load as a thumbnail; the YouTube player is only fetched on click.
+  document.querySelectorAll('.vid-play').forEach(function(b){b.addEventListener('click',function(){
+    var id=b.closest('.vid').getAttribute('data-yt'), f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
+    f.title='YouTube'; f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen=true;
+    b.replaceWith(f);
+  });});
 
   (function(){
     var ba=document.getElementById('ba'), grip=document.getElementById('baGrip');

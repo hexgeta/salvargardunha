@@ -14,7 +14,7 @@ const ALL = ['pt', 'en', 'de', 'fr'];
 const HOME = 'sophia';
 
 // Root pages that have client-side translations.
-const ROOT = new Set(['sophia', 'lourical', 'sobre', 'analise-pareceres', 'objecoes', 'mapa', 'map', 'social', 'nao-responderam', 'verificacao', 'ardidas']);
+const ROOT = new Set(['sophia', 'pszaer', 'sobre', 'analise-pareceres', 'objecoes', 'mapa', 'map', 'social', 'nao-responderam', 'verificacao', 'ardidas']);
 
 // Resolve a URL slug to a file on disk, or null if it isn't a known translated page.
 // Covers the home page, the root campaign pages, and the /read/ document section.
@@ -46,7 +46,7 @@ const HOME_META = {
 };
 
 // Server-side translation for pages that carry the inline `var I18N={…}` dictionary
-// (sophia.html, lourical.html): fill every [data-i18n] element / alt / aria-label with the
+// (sophia.html, pszaer.html): fill every [data-i18n] element / alt / aria-label with the
 // target language so the HTML arrives already translated — no Portuguese flash, and
 // crawlers index the right language. The original PT strings ship as window.PT_SSR so the
 // client switcher can still go back to PT. Returns null if the page has no dictionary.
