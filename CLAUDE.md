@@ -46,7 +46,16 @@ Rules:
    and `grep -n '=”' index.html` must return nothing.
 
 ## Structure
-- **Since 2026-10-08 the home page is focused on the SOPHIA solar plant** (reformulated
+- **Two campaign pages (since 2026-10-08)** — there is no `index.html` any more:
+  - `sophia.html` → **/sophia** — the Sophia solar plant consultation (details below).
+  - `lourical.html` → **/lourical** — the original Gardunha/Louriçal PSZAER page (zones,
+    Marateca slider, petition), restored from commit e4bfeea, with an urgent Sophia banner.
+  - **`/` is whichever page is the default**: the `{"source":"/","destination":"/sophia"}`
+    rewrite in `vercel.json` + `HOME` in `api/page.js` (which also serves /en, /de, /fr).
+    Change both to switch the default. Each page has `var BASE='/<slug>'` so the language
+    switcher and share links keep its own slug (visiting / updates the bar to /sophia).
+  Everything below that says `index.html` now means these two files.
+- **The Sophia page** (reformulated
   project, participa.pt consultation 8–21 Oct 2026:
   https://participa.pt/pt/consulta/central-solar-fotovoltaica-de-sophia-e-lmat-associadas-projeto-reformulado).
   Hero + `#sophia` facts section + the participa step-by-step (`#passos`) come first; the

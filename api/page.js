@@ -9,13 +9,16 @@ const SITE = 'https://salvargardunha.com';
 const LANGS = ['en', 'de', 'fr'];
 const ALL = ['pt', 'en', 'de', 'fr'];
 
+// The page served at / (and /en, /de, /fr). Keep in sync with the "/" rewrite in vercel.json.
+const HOME = 'sophia';
+
 // Root pages that have client-side translations.
-const ROOT = new Set(['sobre', 'analise-pareceres', 'objecoes', 'mapa', 'map', 'social', 'nao-responderam', 'verificacao', 'ardidas']);
+const ROOT = new Set(['sophia', 'lourical', 'sobre', 'analise-pareceres', 'objecoes', 'mapa', 'map', 'social', 'nao-responderam', 'verificacao', 'ardidas']);
 
 // Resolve a URL slug to a file on disk, or null if it isn't a known translated page.
 // Covers the home page, the root campaign pages, and the /read/ document section.
 function resolveFile(page) {
-  if (page === 'index') return 'index.html';
+  if (page === 'index') return HOME + '.html';
   if (ROOT.has(page)) return page + '.html';
   if (page === 'read') return 'read/index.html';
   if (/^read\/[a-z0-9-]+$/.test(page)) return page + '.html';
@@ -87,7 +90,7 @@ module.exports = (req, res) => {
     }
   }
 
-  if (page === 'index') {
+  if (page === 'index' || page === HOME) {
     const m = HOME_META[lang] || HOME_META.en;
     html = html
       .replace(/(<title>)[^<]*(<\/title>)/, '$1' + m.title + '$2')
