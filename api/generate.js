@@ -1,32 +1,41 @@
-// Serverless function (Vercel) — generates a UNIQUE objection to the PSZAER
-// inclusion of the Serra da Gardunha / Beira Baixa, via OpenAI gpt-mini, in the
-// language selected on the page (pt | en | de | fr). Each visitor gets a distinct text.
+// Serverless function (Vercel) — generates a UNIQUE objection to the reformulated
+// Sophia solar plant (+ its 400 kV line), for the participa.pt consultation of
+// 8–21 Oct 2026, via OpenAI gpt-mini, in the language selected on the page
+// (pt | en | de | fr). Each visitor gets a distinct text.
 
 const MODEL = process.env.OPENAI_MODEL || 'gpt-4o-mini';
 
 const LANG_NAME = { pt: 'português de Portugal', en: 'English', de: 'Deutsch', fr: 'français' };
 
 const FALLBACK = {
-  pt: 'Venho manifestar a minha oposição à inclusão da Serra da Gardunha e da Beira Baixa nas Zonas de Aceleração de Energias Renováveis do PSZAER. Oponho-me à instalação de megacentrais solares e eólicas nesta região sem avaliação de impacte ambiental, pelos impactes na paisagem protegida, na água, no solo agrícola e florestal e nas espécies ameaçadas. Peço a exclusão desta área do programa.',
-  de: 'Hiermit erhebe ich Einspruch gegen die Aufnahme der Serra da Gardunha und der Beira Baixa in die Beschleunigungszonen für erneuerbare Energien des PSZAER. Ich lehne den Bau von Solar- und Windgroßkraftwerken in dieser Region ohne Umweltverträglichkeitsprüfung ab — wegen der Auswirkungen auf die geschützte Landschaft, das Wasser, den land- und forstwirtschaftlichen Boden und die bedrohten Arten. Ich fordere den Ausschluss dieses Gebiets aus dem Programm.',
-  fr: 'Je manifeste mon opposition à l’inclusion de la Serra da Gardunha et de la Beira Baixa dans les zones d’accélération des énergies renouvelables du PSZAER. Je m’oppose à l’installation de méga-centrales solaires et éoliennes dans cette région sans évaluation d’impact environnemental, en raison des impacts sur le paysage protégé, l’eau, les sols agricoles et forestiers et les espèces menacées. Je demande l’exclusion de cette zone du programme.',
-  en: 'I wish to express my opposition to the inclusion of the Serra da Gardunha and the Beira Baixa in the PSZAER renewable-energy acceleration zones. I oppose the installation of mega solar and wind power plants in this region without an environmental impact assessment, given the impacts on the protected landscape, water, agricultural and forest land, and threatened species. I ask that this area be excluded from the programme.',
+  pt: 'Venho manifestar a minha discordância com o projeto reformulado da Central Solar Fotovoltaica de Sophia e da LMAT associada. Mesmo reduzido, continua a ser uma central de 573 MWp com 1 177 hectares vedados em Idanha-a-Nova e Penamacor e uma linha de 400 kV a atravessar o Fundão. A Comissão de Avaliação reconheceu impactes de grande magnitude, em vários casos permanentes e irreversíveis, na paisagem, nos solos, no ordenamento do território e na socioeconomia — e a reformulação não os elimina. Peço a emissão de uma Declaração de Impacte Ambiental desfavorável.',
+  de: 'Hiermit erhebe ich Einspruch gegen das überarbeitete Projekt des Photovoltaik-Solarkraftwerks Sophia und der zugehörigen Höchstspannungsleitung (LMAT). Auch verkleinert bleibt es ein Kraftwerk mit 573 MWp und 1 177 eingezäunten Hektar in Idanha-a-Nova und Penamacor sowie einer 400-kV-Leitung quer durch Fundão. Die Bewertungskommission hat Auswirkungen von großem Ausmaß festgestellt, in mehreren Fällen dauerhaft und irreversibel, auf Landschaft, Böden, Raumordnung und Sozioökonomie — die Überarbeitung beseitigt sie nicht. Ich fordere eine ablehnende Umweltverträglichkeitserklärung (DIA).',
+  fr: 'Je manifeste mon désaccord avec le projet reformulé de la centrale solaire photovoltaïque de Sophia et de la ligne très haute tension (LMAT) associée. Même réduit, il reste une centrale de 573 MWc avec 1 177 hectares clôturés à Idanha-a-Nova et Penamacor et une ligne de 400 kV traversant Fundão. La Commission d’évaluation a reconnu des impacts de grande ampleur, dans plusieurs cas permanents et irréversibles, sur le paysage, les sols, l’aménagement du territoire et la socio-économie — la reformulation ne les supprime pas. Je demande l’émission d’une Déclaration d’impact environnemental défavorable.',
+  en: 'I wish to state my disagreement with the reformulated Sophia Photovoltaic Solar Plant project and its associated very-high-voltage line (LMAT). Even reduced, it is still a 573 MWp plant with 1,177 fenced hectares in Idanha-a-Nova and Penamacor and a 400 kV line crossing Fundão. The Assessment Commission recognised impacts of great magnitude, in several cases permanent and irreversible, on the landscape, soils, spatial planning and the socio-economy — and the reformulation does not remove them. I ask for an unfavourable Environmental Impact Declaration (DIA).',
 };
 
-const ANGLES = ['the protected mountain landscape', 'water courses and supply', 'threatened species', 'the absence of an environmental impact assessment', 'agricultural and forest land', 'refusing the "leftover land" framing', 'rooftops instead of the mountain', 'proximity to homes'];
+const ANGLES = ['the industrial scale that the reformulation keeps (573 MWp, 1,177 fenced ha)', 'the 400 kV very-high-voltage line across Fundão', 'the Assessment Commission’s unfavourable opinion on the original project', 'the rural landscape of the Beira Baixa', 'farmland and the rural economy', 'tourism and heritage (historic villages, Naturtejo Geopark)', 'wildfire risk and battery storage', 'the record 12,693 participations in the first consultation'];
 
 function systemPrompt(langName) {
-  return `You help citizens write a UNIQUE, sincere contribution to Portugal's public consultation "PSZAER" (renewable-energy acceleration zones), OPPOSING the inclusion of the Serra da Gardunha / Beira Baixa region as zones for large solar and wind power plants.
+  return `You help citizens write a UNIQUE, sincere contribution to a Portuguese public consultation (participa.pt, 8–21 October 2026) on the REFORMULATED "Central Solar Fotovoltaica de Sophia e LMAT associadas", OPPOSING the project.
 
 Write the entire contribution in ${langName}.
+
+Verified facts you may use (do not invent others):
+- Reformulated project: 573 MWp (down from 867 MWp), 1,177 fenced hectares in 22 fenced blocks (down from 1,737 ha), 250 ha of panels, a battery storage system (BESS) and a substation, in the municipalities of Idanha-a-Nova and Penamacor (Castelo Branco district).
+- One 400 kV very-high-voltage line (LMAT) carries the power to the Fundão substation, crossing the municipality of Fundão.
+- The Assessment Commission gave the original project an unfavourable opinion, finding impacts "of great magnitude and, in several cases, permanent and irreversible" on the landscape, soils, spatial planning and the socio-economy. The reformulation is the developer's response under article 16 of the EIA regime.
+- The first public consultation (Oct–Nov 2025) had 12,693 participations — the most participated ever.
+- The new consultation lasts only 10 working days.
 
 Rules:
 - First person, sincere and respectful tone (never aggressive or robotic).
 - 90 to 140 words, one or two short paragraphs.
 - Each text MUST be different: vary structure, vocabulary, order and emphasis. Never reuse stock phrases.
-- Use 2-3 arguments, combined in varied ways. If the citizen chose specific concerns, prioritise those; otherwise draw from: no environmental impact assessment (AIA/EIA); impact on the protected mountain landscape; loss of agricultural and forest land; water courses and supply; threatened species (birds of prey, black stork, bats, Iberian lynx, Iberian wolf); proximity to homes; refusing to treat the interior as "leftover" land; preferring rooftops and already-built-up areas instead of the mountain.
-- End with a clear request: exclude the Serra da Gardunha / Beira Baixa from the acceleration zones.
-- Keep the proper names "Serra da Gardunha", "Beira Baixa" and "PSZAER" as they are.
+- Use 2-3 arguments, combined in varied ways. If the citizen chose specific concerns, prioritise those.
+- Make clear that a smaller version does not resolve the impacts that led to the unfavourable opinion.
+- End with a clear request: an unfavourable Environmental Impact Declaration (DIA desfavorável) / rejection of the project.
+- Keep the proper names "Sophia", "Fundão", "Idanha-a-Nova", "Penamacor", "Beira Baixa", "LMAT" and "DIA" as they are.
 - Return ONLY the contribution text — no title, no quotes, no notes.`;
 }
 

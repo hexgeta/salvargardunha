@@ -1,5 +1,6 @@
 // Serverless function (Vercel) — live count of submitted contributions on the
-// PSZAER public consultation at participa.pt.
+// Sophia (reformulated project) public consultation at participa.pt, 8–21 Oct 2026.
+// (Was the PSZAER consultation until it closed.)
 //
 // There is no public JSON API, but the portal server-renders the counters
 // (<span class="value n-participations">) so we scrape them.
@@ -20,7 +21,7 @@
 
 const { ProxyAgent } = require('undici');
 
-const TARGET = 'https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer';
+const TARGET = 'https://participa.pt/pt/consulta/central-solar-fotovoltaica-de-sophia-e-lmat-associadas-projeto-reformulado';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
 

@@ -46,7 +46,19 @@ Rules:
    and `grep -n '=”' index.html` must return nothing.
 
 ## Structure
-- `index.html` — the page: i18n dict + switcher, countdown to 15 Jul 2026, the
+- **Since 2026-10-08 the home page is focused on the SOPHIA solar plant** (reformulated
+  project, participa.pt consultation 8–21 Oct 2026:
+  https://participa.pt/pt/consulta/central-solar-fotovoltaica-de-sophia-e-lmat-associadas-projeto-reformulado).
+  Hero + `#sophia` facts section + the participa step-by-step (`#passos`) come first; the
+  petition band/how-to sit below as the secondary action. Sophia figures come from the
+  official RNT of the reformulated project (AIA 3800 on siaia.apambiente.pt): 573 MWp,
+  1 177 ha fenced in 22 blocks, 250 ha panels, one 400 kV line to the Fundão substation
+  (panels removed from Fundão municipality); original 867 MWp / 1 737 ha got an unfavourable
+  CA opinion; 1st consultation had 12 693 participations. `api/participations.js` and
+  `api/generate.js` target Sophia too. Tip: participa.pt search is a POST to
+  `/requests/get_consultations.php` with `search_tf=<term>` (the HTML form is JS-only, and
+  unknown `/pt/consulta/<slug>` URLs return 200, so slug-guessing can't detect a new consult).
+- `index.html` — the page: i18n dict + switcher, countdown (now to 21 Oct 2026, Sophia), the
   draggable Marateca before/after slider + campaign gallery (under the hero), the
   map, the AI "gerar contributo" box, PDF downloads, share buttons, and the
   `.pet-band` petition progress band repeated 3× as a section divider (live count,

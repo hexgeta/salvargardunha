@@ -25,18 +25,18 @@ function resolveFile(page) {
 // Full share/meta for the home page (the most-shared surface).
 const HOME_META = {
   en: {
-    title: 'The Serra da Gardunha is not for sale',
-    desc: 'Large-scale solar and wind farms threaten to ruin our countryside — fast-tracked, with no environmental impact assessment. The public consultation closes on 15 July 2026. Object now.',
+    title: 'Mega solar plant Sophia: say no by 21 October',
+    desc: 'The Sophia mega solar plant is back, reformulated: 573 MWp and 1,177 fenced hectares in Idanha-a-Nova and Penamacor, with a 400 kV line through Fundão. New public consultation only until 21 October 2026 — object in 2 minutes.',
     img: SITE + '/img/og-en.jpg'
   },
   de: {
-    title: 'Die Serra da Gardunha ist nicht käuflich',
-    desc: 'Solar- und Windparks im großen Maßstab drohen unsere Landschaft zu ruinieren — im Schnellverfahren, ohne Umweltverträglichkeitsprüfung. Die öffentliche Konsultation endet am 15. Juli 2026. Jetzt Einspruch erheben.',
+    title: 'Solar-Großkraftwerk Sophia: bis 21. Oktober Nein sagen',
+    desc: 'Das Solar-Großkraftwerk Sophia ist zurück, überarbeitet: 573 MWp und 1 177 eingezäunte Hektar in Idanha-a-Nova und Penamacor, mit einer 400-kV-Leitung durch Fundão. Neue öffentliche Konsultation nur bis 21. Oktober 2026 — Einspruch in 2 Minuten.',
     img: SITE + '/img/og-de.jpg'
   },
   fr: {
-    title: 'La Serra da Gardunha n’est pas à vendre',
-    desc: 'Des centrales solaires et éoliennes à grande échelle menacent de défigurer nos paysages — à la hâte, sans évaluation d’impact environnemental. La consultation publique se termine le 15 juillet 2026. Objectez maintenant.',
+    title: 'Méga-centrale Sophia : dis non avant le 21 octobre',
+    desc: 'La méga-centrale solaire Sophia est de retour, reformulée : 573 MWc et 1 177 hectares clôturés à Idanha-a-Nova et Penamacor, avec une ligne de 400 kV à travers Fundão. Nouvelle consultation publique seulement jusqu’au 21 octobre 2026 — participe en 2 minutes.',
     img: SITE + '/img/og-fr.jpg'
   }
 };
