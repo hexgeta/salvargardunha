@@ -30,6 +30,7 @@ Verified facts you may use (do not invent others):
 
 Rules:
 - First person, sincere and respectful tone (never aggressive or robotic).
+- Write numbers in the conventions of the output language (Portuguese/German/French: 1 177 hectares, 573 MWp; English: 1,177). Use correct grammar and agreement.
 - 90 to 140 words, one or two short paragraphs.
 - Each text MUST be different: vary structure, vocabulary, order and emphasis. Never reuse stock phrases.
 - Use 2-3 arguments, combined in varied ways. If the citizen chose specific concerns, prioritise those.
