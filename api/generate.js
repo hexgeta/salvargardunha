@@ -1,16 +1,17 @@
 // Serverless function (Vercel) — generates a UNIQUE objection to the reformulated
 // Sophia solar plant (+ its 400 kV line), for the participa.pt consultation of
 // 8–21 Oct 2026, via OpenAI gpt-mini, in the language selected on the page
-// (pt | en | de | fr). Each visitor gets a distinct text.
+// (pt | en | de | fr | nl). Each visitor gets a distinct text.
 
 const MODEL = process.env.OPENAI_MODEL || 'gpt-4o-mini';
 
-const LANG_NAME = { pt: 'português de Portugal', en: 'English', de: 'Deutsch', fr: 'français' };
+const LANG_NAME = { pt: 'português de Portugal', en: 'English', de: 'Deutsch', fr: 'français', nl: 'Nederlands' };
 
 const FALLBACK = {
   pt: 'Venho manifestar a minha discordância com o projeto reformulado da Central Solar Fotovoltaica de Sophia e da LMAT associada. Mesmo reduzido, continua a ser uma central de 573 MWp com 1 177 hectares vedados em Idanha-a-Nova e Penamacor e uma linha de 400 kV a atravessar o Fundão. A Comissão de Avaliação reconheceu impactes de grande magnitude, em vários casos permanentes e irreversíveis, na paisagem, nos solos, no ordenamento do território e na socioeconomia — e a reformulação não os elimina. Peço a emissão de uma Declaração de Impacte Ambiental desfavorável.',
   de: 'Hiermit erhebe ich Einspruch gegen das überarbeitete Projekt des Photovoltaik-Solarkraftwerks Sophia und der zugehörigen Höchstspannungsleitung (LMAT). Auch verkleinert bleibt es ein Kraftwerk mit 573 MWp und 1 177 eingezäunten Hektar in Idanha-a-Nova und Penamacor sowie einer 400-kV-Leitung quer durch Fundão. Die Bewertungskommission hat Auswirkungen von großem Ausmaß festgestellt, in mehreren Fällen dauerhaft und irreversibel, auf Landschaft, Böden, Raumordnung und Sozioökonomie — die Überarbeitung beseitigt sie nicht. Ich fordere eine ablehnende Umweltverträglichkeitserklärung (DIA).',
   fr: 'Je manifeste mon désaccord avec le projet reformulé de la centrale solaire photovoltaïque de Sophia et de la ligne très haute tension (LMAT) associée. Même réduit, il reste une centrale de 573 MWc avec 1 177 hectares clôturés à Idanha-a-Nova et Penamacor et une ligne de 400 kV traversant Fundão. La Commission d’évaluation a reconnu des impacts de grande ampleur, dans plusieurs cas permanents et irréversibles, sur le paysage, les sols, l’aménagement du territoire et la socio-économie — la reformulation ne les supprime pas. Je demande l’émission d’une Déclaration d’impact environnemental défavorable.',
+  nl: 'Hierbij maak ik bezwaar tegen het herziene project van de fotovoltaïsche zonnecentrale Sophia en de bijbehorende zeer-hoogspanningslijn (LMAT). Ook in verkleinde vorm blijft het een centrale van 573 MWp met 1 177 omheinde hectare in Idanha-a-Nova en Penamacor en een 400 kV-lijn dwars door Fundão. De beoordelingscommissie stelde effecten van grote omvang vast, in verschillende gevallen blijvend en onomkeerbaar, op het landschap, de bodem, de ruimtelijke ordening en de sociaaleconomische situatie — en de herziening neemt die niet weg. Ik verzoek om een ongunstige milieueffectverklaring (DIA).',
   en: 'I wish to state my disagreement with the reformulated Sophia Photovoltaic Solar Plant project and its associated very-high-voltage line (LMAT). Even reduced, it is still a 573 MWp plant with 1,177 fenced hectares in Idanha-a-Nova and Penamacor and a 400 kV line crossing Fundão. The Assessment Commission recognised impacts of great magnitude, in several cases permanent and irreversible, on the landscape, soils, spatial planning and the socio-economy — and the reformulation does not remove them. I ask for an unfavourable Environmental Impact Declaration (DIA).',
 };
 
@@ -30,7 +31,7 @@ Verified facts you may use (do not invent others):
 
 Rules:
 - First person, sincere and respectful tone (never aggressive or robotic).
-- Write numbers in the conventions of the output language (Portuguese/German/French: 1 177 hectares, 573 MWp; English: 1,177). Use correct grammar and agreement.
+- Write numbers in the conventions of the output language (Portuguese/German/French/Dutch: 1 177 hectares, 573 MWp; English: 1,177). Use correct grammar and agreement.
 - 90 to 140 words, one or two short paragraphs.
 - Each text MUST be different: vary structure, vocabulary, order and emphasis. Never reuse stock phrases.
 - Use 2-3 arguments, combined in varied ways. If the citizen chose specific concerns, prioritise those.

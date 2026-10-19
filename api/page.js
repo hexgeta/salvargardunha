@@ -1,4 +1,4 @@
-// Serves any translated page for /en, /de, /fr (and /en/<page> etc.) with the correct
+// Serves any translated page for /en, /de, /fr, /nl (and /en/<page> etc.) with the correct
 // <html lang>, self-referencing canonical and hreflang alternates — because social crawlers
 // and search bots don't execute the client-side i18n. The visible strings are still swapped
 // client-side; here we only fix the crawler-visible <head> (+ full OG meta for the home page).
@@ -7,10 +7,10 @@ const vm = require('vm');
 const path = require('path');
 
 const SITE = 'https://salvargardunha.com';
-const LANGS = ['en', 'de', 'fr'];
-const ALL = ['pt', 'en', 'de', 'fr'];
+const LANGS = ['en', 'de', 'fr', 'nl'];
+const ALL = ['pt', 'en', 'de', 'fr', 'nl'];
 
-// The page served at / (and /en, /de, /fr). Keep in sync with the "/" rewrite in vercel.json.
+// The page served at / (and /en, /de, /fr, /nl). Keep in sync with the "/" rewrite in vercel.json.
 const HOME = 'sophia';
 
 // Root pages that have client-side translations.
@@ -42,6 +42,11 @@ const HOME_META = {
     title: 'Méga-centrale Sophia : dis non avant le 21 octobre',
     desc: 'La méga-centrale solaire Sophia est de retour, reformulée : 573 MWc et 1 177 hectares clôturés à Idanha-a-Nova et Penamacor, avec une ligne de 400 kV à travers Fundão. Nouvelle consultation publique seulement jusqu’au 21 octobre 2026 — participe en 2 minutes.',
     img: SITE + '/img/og-fr.jpg'
+  },
+  nl: {
+    title: 'Zonne-megacentrale Sophia: zeg uiterlijk 21 oktober nee',
+    desc: 'De zonne-megacentrale Sophia is terug, in herziene vorm: 573 MWp en 1 177 omheinde hectare in Idanha-a-Nova en Penamacor, met een 400 kV-lijn door Fundão. Nieuwe openbare raadpleging alleen tot 21 oktober 2026 — maak in 2 minuten bezwaar.',
+    img: SITE + '/img/og-nl.jpg'
   }
 };
 

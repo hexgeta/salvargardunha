@@ -23,6 +23,10 @@
       "destination": "/api/page?lang=fr"
     },
     {
+      "source": "/nl",
+      "destination": "/api/page?lang=nl"
+    },
+    {
       "source": "/en/:page*",
       "destination": "/api/page?lang=en&page=:page*"
     },
@@ -33,6 +37,10 @@
     {
       "source": "/fr/:page*",
       "destination": "/api/page?lang=fr&page=:page*"
+    },
+    {
+      "source": "/nl/:page*",
+      "destination": "/api/page?lang=nl&page=:page*"
     }
   ],
   "functions": {
@@ -47,7 +55,7 @@
       "permanent": true
     },
     {
-      "source": "/:lang(en|de|fr)/lourical",
+      "source": "/:lang(en|de|fr|nl)/lourical",
       "destination": "/:lang/pszaer",
       "permanent": true
     },

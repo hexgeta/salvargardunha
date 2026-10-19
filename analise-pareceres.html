@@ -11,6 +11,7 @@
 <link rel="alternate" hreflang="en" href="https://salvargardunha.com/en/analise-pareceres">
 <link rel="alternate" hreflang="de" href="https://salvargardunha.com/de/analise-pareceres">
 <link rel="alternate" hreflang="fr" href="https://salvargardunha.com/fr/analise-pareceres">
+<link rel="alternate" hreflang="nl" href="https://salvargardunha.com/nl/analise-pareceres">
 <link rel="alternate" hreflang="x-default" href="https://salvargardunha.com/analise-pareceres">
 <script src="/lang-url.js"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
@@ -75,7 +76,7 @@
 </head>
 <body>
 
-<div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></div>
+<div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button><button data-lang="nl">NL</button></div>
 
 <header>
   <div class="wrap">
@@ -183,7 +184,7 @@
 </script>
 <script>
 (function(){
-  var LANGS=['pt','en','de','fr'];
+  var LANGS=['pt','en','de','fr','nl'];
   var I18N={
     en:{
       back:'← Salvar a Gardunha',
@@ -358,6 +359,64 @@
       cta2:'Lire le PDF original',
       foot:'Fait par des voisins de la Beira Baixa qui veulent que la serra reste debout. · <a href="/">salvargardunha.com</a>',
       disc:'Cette page est un résumé fidèle, en langage simple, d’un document de la consultation publique («Análise e Ponderação dos Pareceres das Entidades», EMER 2030, juin 2026) hébergé sur participa.pt et mis en miroir sous /docs/. Ce n’est pas une transcription officielle. Les citations des «sens» des avis sont tirées du tableau de synthèse du document lui-même (p. 8). Informatif, citoyen, à but non lucratif, non affilié à un quelconque parti, entreprise ou organisme public.'
+    },
+    nl:{
+      back:'← Salvar a Gardunha',
+      eyebrow:'PSZAER · Adviezen van instanties',
+      h1:'Wat de officiële instanties zeiden —<br>en hoe de regering reageerde',
+      lede:'Nog voordat de openbare raadpleging openging, werden de eigen overheidsinstanties van de Portugese staat formeel geraadpleegd over het PSZAER. <b>Verschillende brachten een ongunstig of sterk voorwaardelijk advies uit</b> — en het eigen afwegingsdocument van de regering laat zien dat bijna twee derde van de bijdragen slechts <b>gedeeltelijk aanvaard</b> of alleen maar <b>genoteerd</b> werd, zonder enige wijziging van het programma.',
+      src:'Bron, in eenvoudige taal samengevat op basis van: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">“Análise e Ponderação dos Pareceres das Entidades”</a> (EMER 2030, 23 juni 2026, 47 blz.). Dit is onze getrouwe samenvatting, geen officiële transcriptie.',
+      s1_kick:'De kern',
+      s1_h2:'36 instanties, 172 bijdragen — en een patroon',
+      stat1:'overheidsinstanties brachten een <b style="color:#fca5a5">ongunstig</b> advies uit — waaronder de erfgoedautoriteit en de landbouwautoriteit',
+      stat2:'van de bijdragen werd slechts <b style="color:var(--amber)">gedeeltelijk aanvaard</b> of alleen maar <b>genoteerd</b> — zonder enige zelfstandige wijziging van het programma',
+      stat3:'de beschermingsstrook rond het beschermde landschap van de <b>Serra da Gardunha</b> waaruit het ICNF de zones geschrapt wilde zien',
+      s1_p:'De regering stelt dit voor als een “aanzienlijke overeenstemming” over het belang van het programma. Maar je hoeft alleen de kolom te lezen die ertoe doet — de <b>strekking van elk advies</b> — om een beeld te zien van brede bedenkingen bij juist de instanties die het erfgoed, de landbouwgrond, de natuur en het lokale bestuur moeten beschermen.',
+      s2_kick:'Tabel 1',
+      s2_h2:'Elke instantie en de strekking van haar advies',
+      s2_p:'Rechtstreeks uit de eigen overzichtstabel van de regering (blz. 8). “Voorwaardelijk” betekent dat de instantie het doel alleen steunde als het voorstel wordt herzien of grondig gecorrigeerd.',
+      th_ent:'Overheidsinstantie', th_type:'Type', th_sense:'Strekking van het advies',
+      e1_d:'erfgoedautoriteit',
+      e11_d:'+ ~12 andere gemeenten en 2 intergemeentelijke samenwerkingsverbanden',
+      t_set:'Sectoraal', t_assoc:'Gemeentevereniging', t_muni:'Gemeente', t_reg:'Regionaal (×5)', t_municipal:'Gemeentelijk',
+      p_unfav:'Ongunstig', p_cond:'Voorwaardelijk', p_favcond:'Gunstig onder voorwaarden', p_none:'Bracht geen advies uit', p_res:'Voorbehouden en aanbevelingen',
+      '@t:tt_patrimonio':'Overheidsinstituut dat het cultureel en archeologisch erfgoed van het land beschermt — monumenten, vindplaatsen en beschermde landschappen.',
+      '@t:tt_dgadr':'Direção-Geral de Agricultura e Desenvolvimento Rural — de overheidsinstantie die verantwoordelijk is voor landbouwgrond, irrigatie en plattelandsontwikkeling.',
+      '@t:tt_anmp':'Associação Nacional de Municípios Portugueses — de vereniging die alle gemeentebesturen van het land vertegenwoordigt en namens hen spreekt tegenover de regering.',
+      '@t:tt_feira':'Câmara Municipal de Santa Maria da Feira — het lokale bestuur (gemeentebestuur) van deze gemeente.',
+      '@t:tt_dgt':'Direção-Geral do Território — de overheidsinstantie die verantwoordelijk is voor de ruimtelijke ordening en de officiële cartografie.',
+      '@t:tt_dgeg':'Direção-Geral de Energia e Geologia — de overheidsinstantie die toezicht houdt op de sectoren energie en geologische hulpbronnen.',
+      '@t:tt_icnf':'Instituto da Conservação da Natureza e das Florestas — de overheidsinstantie die de beschermde gebieden, de biodiversiteit en de bossen beheert.',
+      '@t:tt_apa':'Agência Portuguesa do Ambiente — de overheidsinstantie die verantwoordelijk is voor het milieubeleid en de milieubeoordeling van plannen en projecten.',
+      '@t:tt_clima':'Overheidsinstantie die zich toelegt op het klimaatbeleid en de overgang naar koolstofneutraliteit.',
+      '@t:tt_ccdr':'Comissões de Coordenação e Desenvolvimento Regional — overheidsinstanties die in elke regio de ontwikkeling en de ruimtelijke ordening coördineren.',
+      '@t:tt_fundao':'Gemeentebesturen van de Beira Baixa (het lokale bestuur van deze gemeenten) — enkele van de gebieden die rechtstreeks onder de zones vallen.',
+      '@t:tt_covilha':'Câmara Municipal da Covilhã — het lokale bestuur van deze gemeente in de Beira Baixa.',
+      '@t:tt_acss':'Administração Central do Sistema de Saúde — de overheidsinstantie die de financiële middelen en de bezittingen van de nationale gezondheidsdienst beheert.',
+      s2r2:'over het voorstel (afhankelijk van het milieurapport)',
+      s2r3:'over zowel de inhoud als het verloop van de procedure',
+      s2r4:'/ tegengesteld standpunt',
+      s2r5:'mits het voorstel wordt herzien',
+      s2r6:'— technische aanbevelingen en sectorale voorwaarden',
+      s2r7:'— o.a. de strook van 1&nbsp;km rond het beschermde landschap van de Serra da Gardunha vrijhouden van zones',
+      s2r9:'— beveelt herziening en aanvulling aan',
+      note1:'De volledige lijst van de 36 instanties staat op blz. 8 van het brondocument. De gemeenten Almada en Lissabon en de Área Metropolitana de Lisboa waren gunstig, met aanbevelingen; voor sommige had de ZAER geen directe gevolgen.',
+      co_kick:'Het verzoek dat onbeantwoord bleef',
+      co_p1:'In zijn advies vroeg het <b>ICNF</b> — de eigen natuurbeschermingsautoriteit van de staat — uitdrukkelijk om de gebieden die overlappen met de <b>buffer van 1&nbsp;km rond het regionaal beschermd landschap van de Serra da Gardunha</b> (en het natuurpark Serra da Estrela) uit de zones te <b>verwijderen</b>: “Deze gebieden moeten uit de voorgestelde gebieden worden verwijderd.” Het ICNF noemt die overlapping zelf <b>marginaal</b> — maar het verzoek is ondubbelzinnig.',
+      co_p2:'Toch wordt de Gardunha in de <b>47 pagina’s</b> waarin de adviezen worden afgewogen, in het antwoord van de regering <b>geen enkele keer genoemd</b>. De enige vermelding van “Gardunha” gaat over de <b>Regadio Gardunha Sul</b>, een afzonderlijk irrigatieproject dat de gemeente Fundão aankaartte. Het verzoek om de buffer rond de Gardunha te schrappen, kreeg <b>geen enkel specifiek antwoord</b>.',
+      s3_kick:'Tabel 2',
+      s3_h2:'De belangrijkste bezwaren — en het antwoord van de regering',
+      s3_p:'De bezorgdheden die steeds terugkeren in de adviezen (hoofdstuk 6, blz. 9–46), telkens met de manier waarop de regering ze heeft afgewogen. “Resultaat” geeft het oordeel van de regering zelf weer: <b>Aanvaard</b>, <b>Gedeeltelijk aanvaard</b>, <b>Genoteerd</b> (genoteerd, geen wijziging) of <b>Verworpen</b>.',
+      th_obj:'Bezwaar', th_by:'Ingebracht door', th_concern:'De bezorgdheid', th_reply:'Antwoord van de regering', th_result:'Resultaat',
+      loading:'Details worden geladen…',
+      note2:'Een getrouwe samenvatting in eenvoudige taal van het Portugese origineel. Waar de bewoording van de regering procedureel was, vatten we de inhoud samen. Lees het volledige document via de link hieronder.',
+      s4_kick:'Wat dit betekent',
+      s4_h2:'Wie ons erfgoed, onze grond en onze natuur bewaakt, heeft zich al verzet',
+      s4_p:'De erfgoedautoriteit, de landbouwautoriteit, de nationale vereniging van gemeenten en het natuurbeschermingsinstituut (ICNF) lieten allemaal hun verzet blijken — het ICNF vroeg uitdrukkelijk om de zones rond het <b>beschermde landschap van de Serra da Gardunha</b> te schrappen. Toch aanvaardde de regering bij haar afweging de meeste bezorgdheden slechts “gedeeltelijk” of beperkte ze zich ertoe ze te “noteren”. <b>De openbare raadpleging is de volgende kans om gehoord te worden — en ook de bezwaren van burgers moeten worden afgewogen.</b>',
+      cta1:'Maak bezwaar in de openbare raadpleging →',
+      cta2:'Lees de originele pdf',
+      foot:'Gemaakt door buren uit de Beira Baixa die de berg overeind willen houden. · <a href="/">salvargardunha.com</a>',
+      disc:'Deze pagina is een getrouwe samenvatting in eenvoudige taal van een document uit de openbare raadpleging (“Análise e Ponderação dos Pareceres das Entidades”, EMER 2030, juni 2026), gepubliceerd op participa.pt en gespiegeld onder /docs/. Het is geen officiële transcriptie. De aangehaalde “strekkingen” van de adviezen komen uit de overzichtstabel in het document zelf (blz. 8). Informatief, maatschappelijk, zonder winstoogmerk, niet verbonden aan een partij, bedrijf of overheidsinstantie.'
     }
   };
   var PT={};

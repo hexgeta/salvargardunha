@@ -224,7 +224,7 @@ ${footer('Faithful English renderings of official documents published for public
 
 // ---- build ----
 // This generator emits ENGLISH-ONLY pages. The pages under /read/ have since been
-// hand-upgraded to fully quadrilingual (PT/EN/DE/FR + language switcher), and that
+// hand-upgraded to fully multilingual (PT/EN/DE/FR/NL + language switcher), and that
 // translation data lives in the HTML, NOT in content/docs/*.json — so a plain
 // rebuild would silently REVERT every page to English-only (it has happened once).
 // Guard: never overwrite a file that already contains a language switcher unless

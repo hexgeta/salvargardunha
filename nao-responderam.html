@@ -35,7 +35,7 @@
 </style>
 </head>
 <body>
-<div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></div>
+<div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button><button data-lang="nl">NL</button></div>
 <header>
   <div class="wrap">
     <div class="eyebrow" data-i18n="eyebrow">Nota interna · não ligada publicamente</div>
@@ -105,7 +105,7 @@
 </footer>
 <script>
 (function(){
-  var LANGS=['pt','en','de','fr'];
+  var LANGS=['pt','en','de','fr','nl'];
   var I18N={
     en:{
       title:"Who did (and didn't) reply — PSZAER consultation · internal",
@@ -154,6 +154,22 @@
       tag_icnf:'— Gardunha, zone tampon de 1 km',
       tag_anmp:'— défavorable (fond + procédure)',
       footer:'Référence interne pour la campagne Salvar a Gardunha. Données extraites de l’« Análise e Ponderação dos Pareceres das Entidades » officielle (23 juin 2026), page 8. Non liée depuis le site ; <code>noindex</code>.'
+    },
+    nl:{
+      title:'Wie wel (en niet) reageerde — raadpleging PSZAER · intern',
+      eyebrow:'Interne notitie · niet openbaar gelinkt',
+      h1:'Wie reageerde — en wie niet — in de raadpleging van de instanties over het PSZAER',
+      note:'<b>Belangrijk voorbehoud.</b> De documenten van de raadpleging sommen <b>niet</b> alle uitgenodigde instanties op. De regering (raadpleging volgens art. 48.º RJIGT, geopend op 5 mei 2026) beschrijft de geraadpleegde instanties alleen <i>per categorie</i> — sectorale instanties, de vijf CCDR’s, diensten van de centrale overheid, intergemeentelijke instanties, verenigingen van gemeenten en de betrokken gemeenten — en stelt dat elke instantie <b>die 20 dagen stil blijft, geacht wordt “niets in te brengen te hebben”</b>. Wie niet reageerde, is dus nooit afzonderlijk genoemd of geteld. Een volledige lijst van wie “niet reageerde” valt daarom <b>niet</b> uit de documenten af te leiden. De enige harde gegevens staan in de tabel op pagina 8 van <b>analise-pareceres.pdf</b> (“Entidades — Sentido do Parecer Emitido”), die 37 deelnemende instanties noemt. Bron: <a href="/docs/analise-pareceres.pdf" target="_blank" rel="noopener">/docs/analise-pareceres.pdf</a>, p. 8.',
+      h2_recorded:'Uitdrukkelijk geregistreerd als: heeft GEEN advies uitgebracht',
+      big_sub:'De enige van de 37 genoemde instanties die in de tabel op pagina 8 als “Não emitiu parecer” is aangemerkt. Alle andere vermelde instanties brachten een of ander advies of een bijdrage uit.',
+      h2_twolittle:'Twee die reageerden maar vrijwel niets zeiden',
+      tag_penacova:'— geen schriftelijk advies; alleen een geografische bijdrage',
+      tag_loule:'— “geen directe weerslag van ZAER”',
+      h2_36:'De 36 instanties die wel advies uitbrachten',
+      tag_unfav:'— ongunstig',
+      tag_icnf:'— Gardunha, bufferzone van 1 km',
+      tag_anmp:'— ongunstig (inhoud + procedure)',
+      footer:'Interne referentie voor de campagne Salvar a Gardunha. Gegevens overgenomen uit de officiële “Análise e Ponderação dos Pareceres das Entidades” (23 juni 2026), pagina 8. Niet gelinkt vanaf de site; <code>noindex</code>.'
     }
   };
   var PT={};

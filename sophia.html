@@ -8,7 +8,7 @@
   // Non-PT visitors: hide the page until the inline switcher has translated it, so the
   // Portuguese markup never flashes first. Revealed on DOMContentLoaded (the switcher at the
   // end of <body> has run by then), with a timeout as a safety net.
-  (function(){try{if(document.documentElement.hasAttribute('data-ssr'))return;var L=['en','de','fr'],p=location.pathname.split('/').filter(Boolean)[0],l=L.indexOf(p)>-1?p:localStorage.getItem('nf_lang');if(L.indexOf(l)<0)return;var d=document.documentElement,show=function(){d.classList.remove('i18n-wait');};d.classList.add('i18n-wait');document.addEventListener('DOMContentLoaded',show);setTimeout(show,2000);}catch(e){}})();
+  (function(){try{if(document.documentElement.hasAttribute('data-ssr'))return;var L=['en','de','fr','nl'],p=location.pathname.split('/').filter(Boolean)[0],l=L.indexOf(p)>-1?p:localStorage.getItem('nf_lang');if(L.indexOf(l)<0)return;var d=document.documentElement,show=function(){d.classList.remove('i18n-wait');};d.classList.add('i18n-wait');document.addEventListener('DOMContentLoaded',show);setTimeout(show,2000);}catch(e){}})();
 </script>
 <title>Megacentral Sophia — diz não até 21 de outubro · Salvar a Gardunha</title>
 <meta name="description" content="A megacentral solar Sophia voltou, reformulada: 573 MWp e 1 177 hectares vedados em Idanha-a-Nova e Penamacor, com uma linha de 400 kV pelo Fundão. Nova consulta pública só até 21 de outubro de 2026 — objeta em 2 minutos.">
@@ -23,6 +23,7 @@
 <link rel="alternate" hreflang="en" href="https://salvargardunha.com/en/sophia">
 <link rel="alternate" hreflang="de" href="https://salvargardunha.com/de/sophia">
 <link rel="alternate" hreflang="fr" href="https://salvargardunha.com/fr/sophia">
+<link rel="alternate" hreflang="nl" href="https://salvargardunha.com/nl/sophia">
 <link rel="alternate" hreflang="x-default" href="https://salvargardunha.com/sophia">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <style>
@@ -38,13 +39,14 @@
   .langsw button{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:11.5px;letter-spacing:.05em;padding:5px 9px;border-radius:999px;cursor:pointer}
   .langsw button.on{background:var(--green-d);color:#05230f}
 
-  .bar{position:relative;background:#1a1206;border-bottom:1px solid #3a2a08;color:var(--amber);font-size:14.5px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:14px;padding:8px 165px}
+  .bar{position:relative;background:#1a1206;border-bottom:1px solid #3a2a08;color:var(--amber);font-size:14.5px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:14px;padding:8px 200px}
   .bar-content{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .bar .btn{font-size:12.5px;padding:6px 13px;white-space:nowrap;flex:0 0 auto}
   @media(max-width:640px){
-    .bar{font-size:13px;justify-content:flex-start;padding:10px 140px 10px 12px}
+    .bar{font-size:12px;flex-wrap:wrap;row-gap:5px;padding:7px 10px}
     .bar .btn{display:none}
-    .langsw{right:6px}
+    .bar-content{flex:1 1 100%;white-space:normal;text-align:center}
+    .langsw{position:static;transform:none;order:1}
     .langsw button{font-size:10.5px;padding:4px 7px}
     .wrap{padding:0 18px}
     header{padding:44px 0 32px}
@@ -275,7 +277,7 @@
 
 <div class="topstick">
 <div class="bar mono">
-  <div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></div>
+  <div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button><button data-lang="nl">NL</button></div>
   <div class="bar-content">⚠️ <span id="barleft">…</span></div>
   <a class="btn btn-primary" href="#passos" data-i18n="cta_obj">Objetar na consulta →</a>
 </div>
@@ -1050,13 +1052,199 @@
       foot_s1:'Consultation Sophia (participa.pt)', foot_s2:'Pétition au Parlement', foot_s3:'Explication (Público)',
       foot_photo:'Photo de couverture : Jocehcap11, CC BY-SA 4.0 (Wikimedia Commons)',
       foot_disc:'Les chiffres sur Sophia proviennent des documents officiels de la nouvelle consultation (Résumé non technique du projet reformulé, octobre 2026), de participa.pt et de la presse sur l’avis de la Commission d’évaluation ; ceux du PSZAER des documents officiels de mai 2026. Page informative et civique, sans but lucratif, non affiliée à un parti, une entreprise ou une entité publique.'
+    },
+    nl:{
+      bar_pre:'⚠️ De openbare raadpleging sluit op <b>15 juli 2026</b> —',
+      eyebrow:'Nieuwe openbare raadpleging · 8–21 oktober 2026',
+      nav_sophia:'<span class="live"></span>Megacentrale Sophia', nav_lourical:'PSZAER · Gardunha',
+      h1a:'Megacentrale Sophia:', h1b:'zeg opnieuw nee',
+      lede:'De <b>zonne-megacentrale Sophia</b> is terug — “herzien”, maar nog altijd met <b>573&nbsp;MWp en 1&nbsp;177 omheinde hectare</b> in Idanha-a-Nova en Penamacor, en een <b>zeer-hoogspanningslijn van 400&nbsp;kV</b> dwars door Fundão. Aan de eerste raadpleging deden <b>12&nbsp;693 mensen</b> mee — meer dan ooit — en de beoordelingscommissie gaf een <b>ongunstig advies</b>. Nu is er een <b>nieuwe openbare raadpleging</b> — van slechts <b>13 dagen</b>, tot <b>21 oktober</b>. Zeg opnieuw nee.',
+      cd_d:'Dagen', cd_h:'Uren', cd_m:'Min', cd_s:'Sec',
+      hero_cta1:'Teken de petitie →', hero_cta2:'Delen ↓', read_cta:'Lees de documenten →',
+      band1_line:'Dit is het plan voor onze berg. Laat je stem horen en help deze megacentrales tegen te houden —',
+      band2_line:'Laat hen niet voor ons beslissen. Een bezwaar is officieel en moet volgens de wet worden meegewogen —',
+      map_k:'De officiële kaart van de regering', map_h:'Dit is het plan — en de Gardunha ligt er middenin',
+      map_p:'Elke vlek is een gebied waar de regering centrales voor hernieuwbare energie versneld wil laten bouwen. Het centrale binnenland is het dichtst bedekte gebied van het land. De Serra da Gardunha en het massief van Castelo Branco liggen in het hart van die vlek.',
+      map_lg_solar:'Zonnezones', map_lg_wind:'Windzones',
+      map_src:'Bron: <i>PSZAER-voorstel — Thematisch rapport over de integratie van ruimtelijke informatie</i> (LNEG / EMER 2030), figuur 39. Markering door ons.',
+      hap_k:'Wat er gebeurt', hap_h:'7% van het land opengesteld voor centrales — zonder milieubeoordeling',
+      hap_p1:'De regering heeft het <b>PSZAER</b> — het <i>sectorale programma voor versnellingsgebieden voor hernieuwbare energie</i> — in openbare raadpleging gebracht. In de woorden van de eigen samenvatting heeft het proces <b>“ongeveer 7% van het Portugese vasteland beschikbaar gesteld voor versnelling”</b>, waar projecten een vergunning kunnen krijgen <b>“zonder een milieueffectbeoordeling (MER-procedure) te doorlopen”</b>.',
+      hap_p2:'Binnen deze gebieden wordt de milieubeoordeling vervangen door een eenvoudige <b>“verificatie-subprocedure”</b> en <b>“één loket”</b> met krappe termijnen. Het in kaart gebrachte potentieel is enorm: <b>~578&nbsp;777&nbsp;ha voor zonne-energie</b> en <b>~84&nbsp;618&nbsp;ha voor windenergie</b>. En het gaat niet om daken — <b>78,9% van het gebied met zonnepotentieel is bosgebied</b>.',
+      hap_p3:'De raadpleging loopt tot <b>15 juli 2026</b>. Daarna is het te laat.',
+      tgt_k:'Waarom ONZE berg het doelwit is', tgt_h:'De Beira Baixa is regio #1 van het land voor zonne-energie',
+      tgt_p:'aan zonnegebieden in de Beira Baixa — <b>11% van de hele regio</b>, het hoogste aandeel van alle regio’s van Portugal. Daarbovenop nog <b>19&nbsp;295 ha</b> voor windenergie. De gemeente Fundão alleen al komt op <b>~6&nbsp;237 ha voor zon en ~4&nbsp;947 ha voor wind</b>.',
+      tgt_f1:'<b>#1 zon, #2/#3/#4 wind</b>In de nationale rangschikking staat de regio bovenaan voor zonne-energie (Sertã en Proença-a-Nova aan de top) en domineert ze windenergie: Castelo Branco (#2), Oleiros (#3), Fundão (#4).',
+      tgt_f2:'<b>De Gardunha wordt er bij naam genoemd</b>De adviseurs van de regering wijzen de landschapsgroep <i>“Pinhal do Centro”</i> — waartoe de <b>“Serras da Gardunha, Alvelos e Moradal”</b> en het <b>“agrarisch-bosbouwkundige massief van Castelo Branco”</b> behoren — aan als de groep met het <b>grootste zonnepotentieel van het land</b> (~34% van de groep).',
+      tab_h:'ZAER-zonnepotentieel per landschapsgroep',
+      tab_th1:'Groep van landschapseenheden (GUP)', tab_th2:'Zon (km²)', tab_th3:'Oppervlakte groep (km²)', tab_th4:'% van de groep',
+      tab_gard:'← omvat de Gardunha',
+      tgt_tab_cap:'De groep <i>“Pinhal do Centro”</i> — waarin de adviseurs de Gardunha plaatsen — heeft het grootste zonnepotentieel van het land, met <b>34%</b> van de oppervlakte. Bron: landschapsrapport van het PSZAER, tabel 1.',
+      tgt_quote:'“Het is daarom logisch dat de resterende gebieden die met de laagste huidige waarden voor landschapskwaliteit zijn.”<span>— Landschapsrapport van het PSZAER, over het binnenland. Met andere woorden: ze behandelen onze streek als de “restjes” van het land. Dat is ze niet.</span>',
+      risk_k:'Wat er op het spel staat', risk_h:'Dekens van glas over de berg',
+      risk_f1:'<b>Het landschap</b>Het eigen landschapsrapport van het PSZAER (een officieel document van deze raadpleging) erkent dat grootschalige zonne-energie <i>“dekens van glas”</i> creëert en wordt ervaren als <i>“een aanzienlijke visuele aantasting”</i>. Er geldt een grens van <b>25 aaneengesloten ha</b> per zonneveld — die de megaprojecten negeren.',
+      risk_f2:'<b>Geen milieutoets</b>Binnen de versnellingsgebieden is er geen milieueffectbeoordeling. Zonder die toets gaan projecten door zonder de beoordeling die water, bodem, bos en biodiversiteit beschermt.',
+      risk_f3:'<b>De fauna</b>De regio is de thuisbasis van bedreigde soorten — <b>monniksgier, Spaanse keizerarend, steenarend, zwarte ooievaar, kleine trap, Iberische lynx, Iberische wolf en vleermuizen</b>. Het rapport erkent dat gegevens over deze soorten buiten de beschermde gebieden ontbreken.',
+      risk_f4:'<b>Water en land</b>Het neemt landbouw- en bosgrond in beslag en tast de waterlopen aan, en de berg die de regio van water voorziet. Woningen kunnen op slechts <b>200 m</b> (zon) en <b>1 km</b> (wind) van de centrales liggen.',
+      plan_k:'Wat ze met onze streek van plan zijn', plan_h:'Sleep en vergelijk: vandaag vs. morgen',
+      plan_p:'Links het stuwmeer van Marateca (Castelo Branco) zoals het er vandaag bij ligt. Rechts de <b>impactsimulatie</b> met de centrales die de versnellingsgebieden mogelijk maken. <b>Sleep de schuifregelaar</b> over de afbeelding en vergelijk.',
+      ba_before:'Vandaag', ba_after:'Morgen?',
+      ba_aria:'Sleep om voor en na te vergelijken',
+      ba_alt_before:'Het stuwmeer van Marateca zoals het nu is — omringd door akkers en bos',
+      ba_alt_after:'Impactsimulatie bij het stuwmeer van Marateca — zonnepanelen en windturbines rond het water',
+      ba_cap:'Rechterafbeelding: impactsimulatie gemaakt door de campagne — geen echte foto.',
+      gal_p:'Meer campagnebeelden — klik om ze op ware grootte te openen en deel ze:',
+      gal_c1:'Simulatie: zonnevelden op de berghelling.',
+      gal_c2:'Vandaag vs. morgen — simulatie gezien vanaf het stenen wegkruis, met centrales op de helling.',
+      gal_c3:'Vandaag vs. morgen — deelafbeelding van de campagne.',
+      gal_c4:'Campagneaffiche — bewaar, print en deel.',
+      gal_c5:'Projectgronden (in het groen) en uitgesloten gronden bij Lardosa — studiegebied van de REN.',
+      gal_c6:'Satire van de campagne: “Pinhal Sustentável 5.0” — het dennenbos vervangen door zonnepanelen.',
+      ss_registo:'Stap 1: knop “Registo” rechtsboven op participa.pt',
+      ss_form:'Registratieformulier: kies “Individual”, vul het in en klik op “Submeter”',
+      ss_registado:'Bevestiging van de registratie: je moet het account nog via e-mail activeren',
+      ss_ativar:'Link “Ativação de registo” in de e-mail',
+      ss_email:'E-mail “Ativação de registo no Portal Participa” in je inbox',
+      ss_login:'Venster “Conta ativada” — klik op “aqui” om in te loggen',
+      ss_participar:'Knop “Participar” op de pagina van de raadpleging',
+      act_k:'Wat je kunt doen', act_h:'Twee acties — in twee minuten',
+      act1_h:'Maak bezwaar in de openbare raadpleging', act1_tag:'tot 15 juli',
+      act1_p:'Dit is de belangrijkste actie. Het is het officiële beslissingsproces en bezwaren <b>moeten volgens de wet worden meegewogen</b>. Bekijk hieronder het stappenplan.',
+      act1_btn:'Bekijk de handleiding →',
+      act2_h:'Delen', act2_p:'Stuur deze pagina naar iedereen die je kent in de Beira Baixa. Hoe meer bezwaren, hoe zwaarder het nee weegt.',
+      share_copy:'Link kopiëren',
+      sign_k:'Teken in 1 minuut', sign_h:'Zo teken je de petitie',
+      sign1:'<b>Maak een account aan.</b> Om te tekenen heb je een eigen account nodig. Klik bovenaan de <a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener">pagina van de petitie in het parlement</a> op <b>“Entrar”</b> → <b>“Registar”</b>. Vul je naam, geboortedatum, identiteitsbewijs, e-mailadres en een wachtwoord in, accepteer de voorwaarden en klik op <b>“Registar”</b>.',
+      sign2:'<b>Activeer het account via e-mail.</b> Open het bericht van de Assembleia da República en klik op de activeringslink van het account.',
+      sign3:'<b>Log in.</b> Ga terug naar de pagina van de petitie en klik op <b>“Entrar”</b> met je e-mailadres en wachtwoord.',
+      sign4:'<b>Teken.</b> Klik bovenaan de pagina op <b>“Assinar”</b> en bevestig met <b>“assinar esta petição”</b>. ✅ Klaar — je handtekening telt mee voor de 7&nbsp;500 die een debat in de plenaire vergadering afdwingen.',
+      how_k:'Zo maak je in 2 minuten bezwaar', how_h:'Stap voor stap',
+      how1:'<b>Maak een account aan op <a href="https://participa.pt" target="_blank" rel="noopener">participa.pt</a>.</b> Klik rechtsboven op <b>“Registo”</b> → kies het type <b>“Individual”</b> → vul naam, e-mailadres en een wachtwoord in (minimaal 12 tekens) en klik op <b>“Registar”</b>.',
+      how2:'<b>Activeer het account.</b> Ga naar je e-mail, open het bericht van Participa en klik op de <b>activeringslink</b>.',
+      how3:'<b>Log in.</b> Ga terug naar <a href="https://participa.pt" target="_blank" rel="noopener">participa.pt</a> en klik op <b>“Entrar”</b> (je kunt ook inloggen met de <b>Chave Móvel Digital</b>).',
+      how4:'<b>Open de raadpleging.</b> <a href="https://participa.pt/pt/consulta/central-solar-fotovoltaica-de-sophia-e-lmat-associadas-projeto-reformulado" target="_blank" rel="noopener">Klik hier om de Sophia-raadpleging te openen</a> en druk op de knop <b>“Participar”</b>.',
+      how5:'<b>Schrijf je bijdrage.</b> Plak je tekst — genereer je <b>unieke bijdrage</b> met de knop hieronder. Iedereen kan er maar <b>één</b> indienen, en een eigen tekst per persoon telt veel zwaarder dan identieke kopieën.',
+      how_disc:'<b>Kies “Discordância” (oneens).</b> Plak in het vak <i>“A minha participação”</i> je bijdrage in het commentaarveld en kies in het menu <b>“Classificador”</b> (classificatie) — de blauwe balk bovenaan het veld — de optie <b>“Discordância”</b>, zodat duidelijk is dat je bezwaar maakt.',
+      how6:'<b>Maak het openbaar en dien in.</b> Vink de optie aan die de <b>publicatie</b> van je bijdrage in het eindrapport toestaat en klik op <b>“Submeter”</b>. ✅ Klaar.',
+      how7:'<b>Deel deze pagina.</b> Stuur de link naar iedereen die je kent in de Beira Baixa — hoe meer bezwaren, hoe zwaarder het nee weegt.',
+      ss_colar:'Het vak “A minha participação”: plak het commentaar en kies “Discordância” in het menu “Classificador”',
+      ss_submeter:'Vink “Autorizo a publicação do meu comentário” aan en klik op “Submeter”',
+      ss_obrigado:'Bevestiging: je bijdrage is met succes ingediend',
+      gen_h:'Jouw bijdrage — uniek',
+      gen_p:'Druk op “Genereer” om een unieke, originele bijdrage te maken (door AI geschreven op basis van de feiten op deze pagina). Elk bezwaar wordt anders — en telt zwaarder.',
+      gen_btn:'✨ Genereer mijn bijdrage', gen_copy:'Tekst kopiëren',
+      topics_toggle:'Kies onderwerpen voor je bijdrage (optioneel)',
+      topics_lead:'Kies de punten die jou het meest zorgen baren, dan richt de bijdrage zich daarop. Kies je er geen, dan blijft de tekst algemeen.',
+      obj1:'<b>Nog steeds gigantisch</b>573 MWp en 1 177 ha omheind — herzien verandert niets aan de industriële schaal.',
+      obj2:'<b>Al eens afgewezen</b>De beoordelingscommissie gaf een ongunstig advies — blijvende en onomkeerbare effecten.',
+      obj3:'<b>400 kV-lijn</b>Een zeer-hoogspanningslijn loopt dwars door Fundão naar het onderstation.',
+      obj4:'<b>Landschap</b>Industrialiseert het landelijke landschap van de Beira Baixa.',
+      obj5:'<b>Toerisme en erfgoed</b>Historische dorpen zoals Monsanto en het Geopark Naturtejo (UNESCO) verliezen hun decor.',
+      obj6:'<b>Habitats en soorten</b>Bedreigde soorten en habitats, vlak bij het natuurpark Tejo Internacional.',
+      obj7:'<b>Landbouwgrond</b>Neemt landbouw- en weidegrond in beslag en verzwakt de plattelandseconomie.',
+      obj8:'<b>Bodem en water</b>Bodemerosie; beken, bronnen en grondwaterlagen worden aangetast.',
+      obj9:'<b>Branden en batterijen</b>Een centrale met batterijopslag (BESS) in een gebied met een hoog brandrisico.',
+      obj10:'<b>Woningen en dorpen</b>Vlak bij dorpen — en de huizenprijzen dalen.',
+      obj11:'<b>Winst naar elders</b>De winst gaat naar een multinational; de lasten blijven hier.',
+      obj12:'<b>Cumulatieve impact</b>Komt bovenop de zonnecentrale Beira en de versnellingsgebieden van het PSZAER.',
+      obj13:'<b>De bevolking zei al nee</b>12 693 inzendingen in de eerste raadpleging — meer dan ooit.',
+      obj14:'<b>Te weinig tijd</b>Maar 13 dagen (10 werkdagen) om een herzien project te bestuderen.',
+      obj15:'<b>Alternatieven genegeerd</b>Daken, al bebouwde en aangetaste terreinen, eigen verbruik.',
+      cta_obj:'Maak bezwaar in de raadpleging →',
+      cta_open:'Openen op participa.pt ↗',
+      so_k:'Waarover de raadpleging gaat',
+      so_h:'Kleiner op papier — maar nog altijd een megacentrale',
+      so_p:'Na het ongunstige advies diende de projectontwikkelaar (Lightsource bp; in de raadpleging “Coloursflow – Unipessoal, Lda.”) een <b>herzien project</b> in. Over die nieuwe versie heeft het Portugese milieuagentschap de raadpleging geopend — en wat we nu zeggen, telt mee voor het eindbesluit: de milieueffectverklaring (DIA).',
+      so_f1:'<b>Nog steeds gigantisch</b><b>573&nbsp;MWp</b> en <b>1&nbsp;177 omheinde hectare</b> in 22 blokken — meer dan 1&nbsp;600 voetbalvelden — in de gemeenten Idanha-a-Nova en Penamacor, met een batterijopslagsysteem (BESS) en een onderstation.',
+      so_f2:'<b>Fundão ligt nog steeds op de route</b>De panelen zijn uit de gemeente Fundão verdwenen, maar <b>een zeer-hoogspanningslijn van 400&nbsp;kV</b> voert de stroom naar het onderstation van Fundão. Betrokken deelgemeenten volgens participa.pt: Alcaide, Fatela, Capinha, Três Povos, Enxames, Vale de Prazeres e Mata da Rainha, de samengevoegde deelgemeente Fundão, Penamacor, Pedrógão de São Pedro e Bemposta, Aldeia de Santa Margarida en Proença-a-Velha.',
+      so_f3:'<b>Al een keer afgewezen</b>De beoordelingscommissie gaf een <b>ongunstig advies</b> over het oorspronkelijke project (867&nbsp;MWp, 1&nbsp;737&nbsp;ha omheind): effecten “van grote omvang en in verschillende gevallen blijvend en onomkeerbaar” op het landschap, de bodem, de ruimtelijke ordening en de sociaaleconomische situatie.',
+      so_f4:'<b>12&nbsp;693 stemmen tegen</b>De eerste raadpleging (oktober–november 2025) kreeg <b>12&nbsp;693 inzendingen</b> — de openbare raadpleging met de meeste deelname ooit in Portugal. Nu hebben we <b>tot 21 oktober</b> om te laten zien dat het verzet niet is veranderd — elke nieuwe inzending telt.',
+      so_docs:'Officiële documenten: <a href="https://siaia.apambiente.pt/AIADOC/AIA3800/volume%204%20-%20rnt202610713592.pdf" target="_blank" rel="noopener">Niet-technische samenvatting van het herziene project (pdf, PT)</a> · <a href="https://siaia.apambiente.pt/AIADOC/AIA3800/csf%20sophia%20relatorio%20artigo%20162026107135927.pdf" target="_blank" rel="noopener">Rapport over artikel 16 (pdf, PT)</a> · <a href="https://siaia.apambiente.pt/ProcessoAIA/Detalhes/3800" target="_blank" rel="noopener">MER-procedure nr. 3800</a>.',
+      fl_obj:'Maak bezwaar in de Sophia-raadpleging',
+      how_vid:'🎬 <b>Liever een video?</b> Deze laat zien hoe je je bezwaar indient. Hij is gemaakt voor de eerste raadpleging — de procedure op participa.pt is dezelfde.',
+      cmp_was:'Oorspronkelijk project<small>oktober 2025</small>',
+      cmp_now:'Herzien project<small>oktober 2026</small>',
+      cmp_l1:'Vermogen',
+      cmp_l2:'Omheinde oppervlakte',
+      cmp_l3:'Oppervlakte panelen',
+      cmp_l4:'Omheinde blokken',
+      cmp_l5:'400&nbsp;kV-lijnen',
+      cmp_l6:'In Fundão',
+      cmp_v2a:'1&nbsp;737&nbsp;ha',
+      cmp_v2b:'1&nbsp;177&nbsp;ha',
+      cmp_v6a:'Panelen + lijn',
+      cmp_v6b:'400&nbsp;kV-lijn',
+      cmp_cap:'Bron: niet-technische samenvatting van het herziene project (APA, MER-procedure nr. 3800). Kleiner op papier — maar 1&nbsp;177 omheinde hectare is nog altijd meer dan 1&nbsp;600 voetbalvelden.',
+      red_k:'Op sociale media',
+      red_h:'Kijk, reageer en deel',
+      red_p:'Video’s en berichten van de mensen die tegen Sophia strijden. Een like, een reactie of een share zorgt ervoor dat het algoritme ze aan meer mensen laat zien — een van de nuttigste dingen die je in een paar seconden kunt doen.',
+      red_vid:'🎬 Video’s over Sophia',
+      red_fb:'📣 Op Facebook',
+      red_fb_gsul:'<b>Movimento Cívico Gardunha Sul</b> — organiseerde de protesten tegen Sophia. Hun nieuwste berichten, live.',
+      red_reel:'<b>Reel over de berg</b> — like, reageer en deel.',
+      red_people:'🧑‍🌾 Lokale stemmen — volg, reageer en deel',
+      red_more:'Meer bewegingen, burgemeesters, journalisten en pagina’s →',
+      red_post:'Bericht in de groep Beira Baixa',
+      red_play:'Video afspelen',
+      fl_lourical:'Louriçal en de Gardunha — de versnellingsgebieden',
+      docs_k:'Documenten van de raadpleging', docs_h:'Lees de officiële documenten',
+      docs_en:'📖 Lees de documenten — samengevat en vertaald, sectie voor sectie →',
+      docs_p:'Alle documenten van de openbare raadpleging, in volgorde van publicatie, hier gehost zodat je ze makkelijk kunt lezen — elk met een korte samenvatting. De cijfers en citaten op deze pagina komen hieruit.',
+      sum_abc:'Inleidende presentatie van EMER 2030 die in eenvoudige taal uitlegt wat de ZAER zijn: de doelen voor 2030 (20,8 GW zon, 10,4 GW wind), hoe projecten een vergunning krijgen en het tijdpad — publiek debat in juni–juli 2026 en omzetting in de gemeentelijke bestemmingsplannen (PDM) in 2026–2028. Het aanbevolen startpunt voordat je de technische documenten leest.',
+      sum_ordenamento:'Rapport van CEDRU dat toegeeft dat het aangewezen gebied veel groter is dan de doelen voor 2030 vereisen — en dat de oppervlakte die zonnecentrales innemen in vijf jaar al is gestegen van ~1 290 naar ~4 740 ha. Het waarschuwt voor grondspeculatie en “energetische monofunctionaliteit” in het binnenland, en raadt aan voorrang te geven aan bebouwde en aangetaste terreinen, niet aan landelijke grond.',
+      sum_paisagem:'Laat zien dat de landschapsgroep “Pinhal do Centro” — waartoe uitdrukkelijk de “Serras da Gardunha, Alvelos e Moradal” behoren — het meest in het vizier ligt van het hele land, met ~34% van de oppervlakte aangemerkt als potentiële ZAER voor zon (~1 372 km²). Het geeft toe dat grote zonneparken “dekens van glas” vormen die als een aanzienlijke visuele aantasting worden ervaren, en stelt voor de panelen te beperken tot 25 aaneengesloten ha.',
+      sum_energia:'Concludeert dat de grootste rem op hernieuwbare energie geen gebrek aan grond is, maar de toegang tot het net en de vergunningverlening — er is ~8,7 GW toegekend dat nooit is aangesloten. Het beveelt kleine, modulaire ZAER aan, dicht bij het net en het verbruik, op bebouwde terreinen — in plaats van grote, homogene blokken — en wijst op de stedelijke daken (potentieel van 28 GW).',
+      sum_juridico:'Rapport van AMMC Legal dat het vergunningsstelsel binnen de ZAER uittekent: één loket, milieubeoordeling op het niveau van het plan en niet van het project — waarbij in de regel geen volledige milieueffectbeoordeling meer nodig is en die wordt vervangen door een loutere conformiteitstoets, met maximale termijnen van 12 maanden (6 bij repowering).',
+      sum_espacializada:'Rapport van het LNEG dat uitlegt hoe de kaarten van de ZAER zijn getekend — waaronder Figura 39 op deze pagina — met ~371 348 ha aan potentiële zones voor zon en 84 489 ha voor wind. Het erkent beperkingen: kaartmateriaal met een resolutie van slechts 1 ha, gemeentelijke bestemmingsplannen (PDM) niet geraadpleegd en luchtvaartbeperkingen alleen bij benadering.',
+      sum_ecologia:'Rapport van CIBIO-BIOPOLIS dat de criteria vastlegt om de gebieden met de grootste natuurwaarde buiten de ZAER te houden. Het erkent dat windenergie roofvogels en vleermuizen doodt doordat ze tegen de wieken botsen — en geeft toe dat de gegevens over soorten buiten beschermde gebieden beperkt zijn, wat de bescherming van de biodiversiteit kan ondermijnen.',
+      sum_proposta:'Het centrale document: het programma dat, op grond van de Europese RED III-richtlijn, de zones afbakent waar zonne- en windcentrales een vereenvoudigde vergunning via “één loket” krijgen. Het brengt ~578 777 ha met potentieel voor zon en 84 489 ha voor wind in kaart — en geeft toe dat het grootste deel geconcentreerd ligt in de groep Pinhal do Centro, waartoe de Serra da Gardunha behoort.',
+      sum_aae_rnt:'Versie in eenvoudige taal van de strategische milieubeoordeling: legt het voorstel uit dat ~7% van het grondgebied openstelt voor projecten zonder milieueffectbeoordeling en benoemt risico’s — druk op dunbevolkte plattelandsgebieden, cumulatieve effecten op landschap en biodiversiteit, groeiend maatschappelijk verzet. Concludeert dat de lokale voordelen groter zijn bij kleinere projecten dicht bij het verbruik.',
+      sum_aae_rap:'De volledige strategische milieubeoordeling (249 pagina’s). Erkent belangrijke risico’s: de druk zal vooral vallen op bos-, landbouw- en weidegrond in dunbevolkte plattelandsgebieden, binnen de ZAER kunnen onbekende biodiversiteitswaarden voorkomen en het legitieme verzet van lokale gemeenschappen is een beperkende factor.',
+      sum_pareceres:'De formele adviezen van de overheidsinstanties (474 pagina’s). Verschillende instanties gaven een ongunstig advies of een advies onder voorwaarden — te grote zones, conflicten met de ruimtelijke ordening, het erfgoed, de landbouw en het natuurbehoud. Het ICNF eist zelfs dat de gebieden worden geschrapt die overlappen met de strook van 1 km rond het regionaal beschermd landschap van de Serra da Gardunha.',
+      sum_analise:'Het antwoord van de regering op de adviezen van 36 instanties (172 bijdragen), waaronder de bedenkingen van Fundão en Covilhã en het ongunstige advies van de erfgoedinstantie Património Cultural, I.P. Bijna twee derde van de bijdragen wordt slechts “gedeeltelijk aanvaard” of alleen “genoteerd”, zonder dat het programma verandert — de inzendingen van burgers worden in een apart document afgewogen.',
+      tl_k:'Hoe we hier zijn beland', tl_h:'Tijdlijn',
+      tl_p:'Alle data komen uit de officiële documenten. Kijk hoe lang het proces duurde — en hoe weinig tijd wij kregen om te reageren.',
+      tl1_d:'6 februari 2026', tl1_t:'De regering geeft opdracht voor het programma',
+      tl1_p:'Bij Despacho nr. 1532-B/2026 krijgt EMER 2030 de opdracht het voor te bereiden, met <b>zes maanden</b> om alles af te ronden.',
+      tl2_d:'Februari – maart 2026', tl2_t:'De reikwijdte van de milieubeoordeling wordt vastgelegd',
+      tl2_p:'Milieu-instanties worden geraadpleegd over de “kritieke beslissingsfactoren” — wat de beoordeling wel, en niet, zal onderzoeken.',
+      tl3_d:'2 – 5 mei 2026', tl3_t:'Het voorstel, de milieubeoordeling en 6 thematische rapporten verschijnen',
+      tl3_p:'Het <a href="/read/rt-paisagem" target="_blank" rel="noopener">landschapsrapport</a> noemt de <b>“Serras da Gardunha, Alvelos e Moradal”</b> uitdrukkelijk binnen de groep die <b>het meest in het vizier ligt van het hele land</b> (~34% van de oppervlakte). Het <a href="/read/rt-energia" target="_blank" rel="noopener">energierapport</a> concludeert dat de rem niet het gebrek aan grond is — maar het net.',
+      tl4_d:'5 mei 2026', tl4_t:'Overheidsinstanties worden geraadpleegd — 20 dagen om te reageren',
+      tl4_p:'Gemeenten, regionale commissies en de instanties voor natuur, milieu, erfgoed en landbouw krijgen honderden technische pagina’s. Wie niet binnen 20 dagen antwoordt, wordt geacht <b>geen bezwaar</b> te hebben.',
+      tl5_d:'16 juni 2026', tl5_t:'De adviezen: vier instanties zeggen NEE',
+      tl5_p:'Ongunstig: <b>Cultureel Erfgoed</b>, <b>Landbouw (DGADR)</b>, de <b>Nationale Vereniging van Gemeenten</b> (over de inhoud <i>én</i> het proces) en één gemeente. Het <b>ICNF eist de schrapping</b> van de gebieden die overlappen met de strook van 1 km rond het <b>regionaal beschermd landschap van de Serra da Gardunha</b>.',
+      tl6_d:'17 juni 2026', tl6_t:'De openbare raadpleging gaat open',
+      tl6_p:'Aangekondigd bij Aviso nr. 14136-B/2026/2. <b>Minder dan een maand</b> voor burgers om meer dan duizend pagina’s te lezen en erop te reageren.',
+      tl7_d:'23 juni 2026', tl7_t:'De regering weegt de adviezen af — en de meeste sneuvelen onderweg',
+      tl7_p:'Van de <b><a href="/objecoes" target="_blank" rel="noopener">172 bijdragen</a></b> worden er 45 alleen “genoteerd” (ze veranderen niets) en 62 slechts “gedeeltelijk aanvaard”. De kritiek van de Direção-Geral do Território — dat de zones <b>veel groter zijn dan de doelen vereisen</b> — wordt “genoteerd”. De eis van het ICNF over de Gardunha <b>wordt niet eens genoemd</b>. <a href="/objecoes" target="_blank" rel="noopener">Bekijk alle 172 en de antwoorden →</a>',
+      tl8_d:'15 juli 2026', tl8_t:'De openbare raadpleging is gesloten — 8&nbsp;053 bijdragen',
+      tl8_p:'Ze sloot met <b>8&nbsp;053 ingediende bijdragen</b>. Volgens de wet <b>moeten ze allemaal worden meegewogen</b> in het afwegingsrapport van de regering.',
+      tl9_d:'Juli – augustus 2026', tl9_t:'De regering analyseert de bijdragen en rondt het voorstel af',
+      tl9_p:'Daarna volgt het wetgevingsproces. Vanaf dan valt er niet meer te discussiëren.',
+      tl10_d:'2026 – 2028', tl10_t:'De zones worden doorvertaald naar de gemeentelijke plannen',
+      tl10_p:'Pas wanneer ze in de plannen van de gemeenten zijn opgenomen, worden de beschermingsregels bindend voor bedrijven — en dan worden de centrales ook echt mogelijk op het terrein.',
+      pet_k:'Petitie in het parlement',
+      pet_total:'/ 7&nbsp;500 handtekeningen',
+      pet_done:'✅ <b>Mijlpaal van 1&nbsp;000 handtekeningen bereikt</b> — een hoorzitting met de indieners is gegarandeerd.',
+      pet_next:'Volgend doel: <b>7&nbsp;500</b> — dat dwingt een plenair debat in het parlement af.',
+      pet_btn:'Teken de petitie →',
+      foot_made:'Gemaakt door buren uit de Beira Baixa die de berg overeind willen houden.',
+      fcol_campaign:'De campagnes', fl_c_sophia:'Megacentrale Sophia — raadpleging tot 21 oktober', fl_c_pszaer:'De Gardunha en de versnellingsgebieden (PSZAER)', fcol_docs:'Documenten en gegevens', fcol_official:'Officiële bronnen', fl_home:'Home', fl_act:'Teken de petitie',
+      foot_maps:'De kaarten van de voorgestelde gebieden', foot_obj:'De 172 bezwaren en de antwoorden van de regering',
+      foot_allies:'Vertel het verder — bondgenoten &amp; pers',
+      foot_about:'Begrijp het proces — wie beslist',
+      foot_read:'Officiële documenten',
+      foot_s1:'Sophia-raadpleging (participa.pt)', foot_s2:'Petitie in het parlement', foot_s3:'Uitleg (Público)',
+      foot_photo:'Omslagfoto: Jocehcap11, CC BY-SA 4.0 (Wikimedia Commons)',
+      foot_disc:'De cijfers over Sophia komen uit de officiële documenten van de nieuwe raadpleging (niet-technische samenvatting van het herziene project, oktober 2026), van participa.pt en uit persberichten over het advies van de beoordelingscommissie; die over het PSZAER uit de officiële documenten van mei 2026. Informatieve burgerpagina zonder winstoogmerk, niet verbonden aan een partij, bedrijf of overheidsinstantie.'
     }
   };
   var STR={
     pt:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'Consulta da Sophia: faltam <b>'+d+' dias e '+h+'h</b>':'Consulta da Sophia: faltam <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>A consulta da Sophia terminou</b> — obrigado a quem participou', gen:'A gerar…', copied:'Copiado ✓', linkcopied:'Link copiado ✓', objections:function(n){return '✍️ <b>'+n+'</b> participações na consulta da Sophia até agora — junta a tua.'}, grow:function(d,f){var n=d.d7;return n>0?'📈 <b>+'+f(n)+'</b> nos últimos 7 dias':'';}, shareMsg:'A megacentral solar Sophia voltou: 573 MWp e 1 177 hectares vedados na Beira Baixa, com uma linha de 400 kV pelo Fundão. Nova consulta pública só até 21 de outubro — objeta em 2 minutos: '},
     en:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'Sophia consultation: <b>'+d+' days and '+h+'h</b> left':'Sophia consultation: <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b> left'}, ended:'<b>The Sophia consultation has closed</b> — thank you for taking part', gen:'Generating…', copied:'Copied ✓', linkcopied:'Link copied ✓', objections:function(n){return '✍️ <b>'+n+'</b> submissions to the Sophia consultation so far — add yours.'}, grow:function(d,f){var n=d.d7;return n>0?'📈 <b>+'+f(n)+'</b> in the last 7 days':'';}, shareMsg:'The Sophia mega solar plant is back: 573 MWp and 1,177 fenced hectares in the Beira Baixa, with a 400 kV line through Fundão. New public consultation only until 21 October — object in 2 minutes: '},
     de:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'Sophia-Konsultation: noch <b>'+d+' Tage und '+h+'h</b>':'Sophia-Konsultation: noch <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>Die Sophia-Konsultation ist beendet</b> — danke fürs Mitmachen', gen:'Wird erstellt…', copied:'Kopiert ✓', linkcopied:'Link kopiert ✓', objections:function(n){return '✍️ <b>'+n+'</b> Beiträge zur Sophia-Konsultation bisher — füge deinen hinzu.'}, grow:function(d,f){var n=d.d7;return n>0?'📈 <b>+'+f(n)+'</b> in den letzten 7 Tagen':'';}, shareMsg:'Das Solar-Großkraftwerk Sophia ist zurück: 573 MWp und 1 177 eingezäunte Hektar in der Beira Baixa, mit einer 400-kV-Leitung durch Fundão. Neue Konsultation nur bis 21. Oktober — Einspruch in 2 Minuten: '},
-    fr:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'Consultation Sophia : encore <b>'+d+' jours et '+h+'h</b>':'Consultation Sophia : encore <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>La consultation Sophia est close</b> — merci d’avoir participé', gen:'Génération…', copied:'Copié ✓', linkcopied:'Lien copié ✓', objections:function(n){return '✍️ <b>'+n+'</b> participations à la consultation Sophia jusqu’ici — ajoute la tienne.'}, grow:function(d,f){var n=d.d7;return n>0?'📈 <b>+'+f(n)+'</b> au cours des 7 derniers jours':'';}, shareMsg:'La méga-centrale solaire Sophia est de retour : 573 MWc et 1 177 hectares clôturés en Beira Baixa, avec une ligne de 400 kV à travers Fundão. Nouvelle consultation seulement jusqu’au 21 octobre — participe en 2 minutes : '}
+    fr:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'Consultation Sophia : encore <b>'+d+' jours et '+h+'h</b>':'Consultation Sophia : encore <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>La consultation Sophia est close</b> — merci d’avoir participé', gen:'Génération…', copied:'Copié ✓', linkcopied:'Lien copié ✓', objections:function(n){return '✍️ <b>'+n+'</b> participations à la consultation Sophia jusqu’ici — ajoute la tienne.'}, grow:function(d,f){var n=d.d7;return n>0?'📈 <b>+'+f(n)+'</b> au cours des 7 derniers jours':'';}, shareMsg:'La méga-centrale solaire Sophia est de retour : 573 MWc et 1 177 hectares clôturés en Beira Baixa, avec une ligne de 400 kV à travers Fundão. Nouvelle consultation seulement jusqu’au 21 octobre — participe en 2 minutes : '},
+    nl:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'Sophia-raadpleging: nog <b>'+d+' dagen en '+h+'u</b>':'Sophia-raadpleging: nog <b>'+h+'u '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>De Sophia-raadpleging is gesloten</b> — bedankt aan iedereen die heeft meegedaan', gen:'Bezig met genereren…', copied:'Gekopieerd ✓', linkcopied:'Link gekopieerd ✓', objections:function(n){return '✍️ <b>'+n+'</b> inzendingen in de Sophia-raadpleging tot nu toe — voeg de jouwe toe.'}, grow:function(d,f){var n=d.d7;return n>0?'📈 <b>+'+f(n)+'</b> in de afgelopen 7 dagen':'';}, shareMsg:'De zonne-megacentrale Sophia is terug: 573 MWp en 1 177 omheinde hectare in de Beira Baixa, met een 400 kV-lijn dwars door Fundão. Nieuwe openbare raadpleging, nog maar tot 21 oktober — maak in 2 minuten bezwaar: '}
   };
 
   // PT strings: read from the markup — unless api/page.js already rendered this page in
@@ -1068,7 +1256,7 @@
   document.querySelectorAll('[data-i18n-aria]').forEach(function(el){var k=el.getAttribute('data-i18n-aria');if(PT[k]==null)PT[k]=el.getAttribute('aria-label');});
   }
   var BASE='/sophia'; // this page's slug (also served at / when it's the default home — see vercel.json)
-  var LANGS=['pt','en','de','fr'];
+  var LANGS=['pt','en','de','fr','nl'];
   var pathLang=location.pathname.split('/').filter(Boolean)[0]||'';
   var lang=(LANGS.indexOf(pathLang)>-1)?pathLang:(localStorage.getItem('nf_lang')||'pt');
   function tr(l,k){return (l==='pt')?PT[k]:((I18N[l]&&I18N[l][k]!=null)?I18N[l][k]:PT[k]);}
@@ -1165,7 +1353,8 @@
     pt:'Venho manifestar a minha discordância com o projeto reformulado da Central Solar Fotovoltaica de Sophia e da LMAT associada. Mesmo reduzido, continua a ser uma central de 573 MWp com 1 177 hectares vedados em Idanha-a-Nova e Penamacor e uma linha de 400 kV a atravessar o Fundão. A Comissão de Avaliação reconheceu impactes de grande magnitude, em vários casos permanentes e irreversíveis, na paisagem, nos solos, no ordenamento do território e na socioeconomia — e a reformulação não os elimina. Peço a emissão de uma Declaração de Impacte Ambiental desfavorável.',
     en:'I wish to state my disagreement with the reformulated Sophia Photovoltaic Solar Plant project and its associated very-high-voltage line (LMAT). Even reduced, it is still a 573 MWp plant with 1,177 fenced hectares in Idanha-a-Nova and Penamacor and a 400 kV line crossing Fundão. The Assessment Commission recognised impacts of great magnitude, in several cases permanent and irreversible, on the landscape, soils, spatial planning and the socio-economy — and the reformulation does not remove them. I ask for an unfavourable Environmental Impact Declaration (DIA).',
     de:'Hiermit erhebe ich Einspruch gegen das überarbeitete Projekt des Photovoltaik-Solarkraftwerks Sophia und der zugehörigen Höchstspannungsleitung (LMAT). Auch verkleinert bleibt es ein Kraftwerk mit 573 MWp und 1 177 eingezäunten Hektar in Idanha-a-Nova und Penamacor sowie einer 400-kV-Leitung quer durch Fundão. Die Bewertungskommission hat Auswirkungen von großem Ausmaß festgestellt, in mehreren Fällen dauerhaft und irreversibel, auf Landschaft, Böden, Raumordnung und Sozioökonomie — die Überarbeitung beseitigt sie nicht. Ich fordere eine ablehnende Umweltverträglichkeitserklärung (DIA).',
-    fr:'Je manifeste mon désaccord avec le projet reformulé de la centrale solaire photovoltaïque de Sophia et de la ligne très haute tension (LMAT) associée. Même réduit, il reste une centrale de 573 MWc avec 1 177 hectares clôturés à Idanha-a-Nova et Penamacor et une ligne de 400 kV traversant Fundão. La Commission d’évaluation a reconnu des impacts de grande ampleur, dans plusieurs cas permanents et irréversibles, sur le paysage, les sols, l’aménagement du territoire et la socio-économie — la reformulation ne les supprime pas. Je demande l’émission d’une Déclaration d’impact environnemental défavorable.'
+    fr:'Je manifeste mon désaccord avec le projet reformulé de la centrale solaire photovoltaïque de Sophia et de la ligne très haute tension (LMAT) associée. Même réduit, il reste une centrale de 573 MWc avec 1 177 hectares clôturés à Idanha-a-Nova et Penamacor et une ligne de 400 kV traversant Fundão. La Commission d’évaluation a reconnu des impacts de grande ampleur, dans plusieurs cas permanents et irréversibles, sur le paysage, les sols, l’aménagement du territoire et la socio-économie — la reformulation ne les supprime pas. Je demande l’émission d’une Déclaration d’impact environnemental défavorable.',
+    nl:'Hierbij maak ik bezwaar tegen het herziene project van de fotovoltaïsche zonnecentrale Sophia en de bijbehorende zeer-hoogspanningslijn (LMAT). Ook in verkleinde vorm blijft het een centrale van 573 MWp met 1 177 omheinde hectare in Idanha-a-Nova en Penamacor en een 400 kV-lijn dwars door Fundão. De beoordelingscommissie stelde effecten van grote omvang vast, in verschillende gevallen blijvend en onomkeerbaar, op het landschap, de bodem, de ruimtelijke ordening en de sociaaleconomische situatie — en de herziening neemt die niet weg. Ik verzoek om een ongunstige milieueffectverklaring (DIA).'
   };
   var genBtn=document.getElementById('gen'), genTxt=document.getElementById('gen-txt'), copyGen=document.getElementById('copygen'), shelfBadge=document.getElementById('shelfBadge');
   var chips=Array.prototype.slice.call(document.querySelectorAll('.tp'));

@@ -10,6 +10,7 @@
 <link rel="alternate" hreflang="en" href="https://salvargardunha.com/en/read/rt-espacializada">
 <link rel="alternate" hreflang="de" href="https://salvargardunha.com/de/read/rt-espacializada">
 <link rel="alternate" hreflang="fr" href="https://salvargardunha.com/fr/read/rt-espacializada">
+<link rel="alternate" hreflang="nl" href="https://salvargardunha.com/nl/read/rt-espacializada">
 <link rel="alternate" hreflang="x-default" href="https://salvargardunha.com/read/rt-espacializada">
 <script src="/lang-url.js"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
@@ -66,7 +67,7 @@
 </head>
 <body>
 
-<div class="top"><div class="wrap"><a href="/read/" data-i18n="top_all">← Todos os documentos</a> · <a href="/" data-i18n="top_home">salvargardunha.com</a><span class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></span></div></div>
+<div class="top"><div class="wrap"><a href="/read/" data-i18n="top_all">← Todos os documentos</a> · <a href="/" data-i18n="top_home">salvargardunha.com</a><span class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button><button data-lang="nl">NL</button></span></div></div>
 
 <header>
   <div class="wrap">
@@ -169,7 +170,7 @@
 
 <script>
 (function(){
-  var LANGS=['pt','en','de','fr'];
+  var LANGS=['pt','en','de','fr','nl'];
   var I18N={
     en:{
       pgtitle:'Integration of Spatialised Information — the report that drew the maps — PSZAER',
@@ -350,6 +351,66 @@
       f_src2:'Pétition au Parlement',
       f_src3:'Renováveis Participa (EMER)',
       f_disc:'Réalisé par des voisins de la Beira Baixa qui veulent que la montagne reste debout. Page informative, civique, à but non lucratif, non affiliée à aucun parti, entreprise ou organisme public. Reproduction fidèle d’un document officiel publié pour consultation publique sur participa.pt (miroir sur <a href="/docs/rt-espacializada.pdf">/docs/rt-espacializada.pdf</a>) — ce n’est pas une traduction officielle ; les passages cités sont notre traduction de l’original portugais. Là où un chiffre compte, vérifiez-le dans le PDF source.'
+    },
+    nl:{
+      pgtitle:'Integratie van ruimtelijke informatie — het rapport dat de kaarten tekende — PSZAER',
+      top_all:'← Alle documenten',
+      top_home:'salvargardunha.com',
+      eyebrow:'PSZAER-raadpleging · document',
+      h1:'Integratie van ruimtelijke informatie — het rapport dat de kaarten tekende',
+      meta_line:'<span class="pt">Relatório Temático – Integração da Informação Espacializada</span><br>LNEG (coördinatie: Sofia Simões) · mei 2026 · 115 pagina’s',
+      sum_h:'Samenvatting',
+      sum_p:'Het GIS-rapport dat in werkelijkheid <b>de kaarten tekende</b> — ook de kaart die op deze site staat. Het haalde het hele vasteland door een zeef van uitsluitingscriteria en hield ~578&nbsp;777 ha over voor zonne-energie (dat zakt naar 371&nbsp;348 ha zodra er een onderstation binnen 10 km moet liggen) en ~84&nbsp;489 ha voor windenergie. Het eigen hoofdstuk over de beperkingen is het waardevolste deel: de onderliggende bodemgebruikskaart heeft een resolutie van maar <b>1 hectare</b>, de <b>gemeentelijke plannen zijn nooit geraadpleegd</b> en de luchtvaartbeperkingen konden alleen bij benadering worden ingeschat. Het bevestigt ook dat de <b>Beira Baixa</b> tot de zwaarst in kaart gebrachte regio’s van het land behoort.',
+      fig1_l:'van <b>de hele regio Beira Baixa</b> in kaart gebracht als potentieel zonnegebied — oplopend tot <b>22,1%</b> zonder het filter op afstand tot het net',
+      fig2_l:'resolutie van de bodemgebruikskaart waarmee de zones zijn getekend — door het rapport zelf <b>onvoldoende</b> genoemd',
+      fig3_l:'gemeentelijke bestemmingsplannen (PDM) geraadpleegd bij het tekenen van de kaarten',
+      fig4_l:'van de in kaart gebrachte zonnegrond ligt echt bij een onderstation <b>met beschikbare capaciteit</b> — de rest kan nergens worden aangesloten',
+      cta_object:'Teken de petitie →',
+      cta_pdf:'Originele pdf (Portugees)',
+      s1_h:'Hoe de kaarten zijn gemaakt',
+      s1_p1:'Het hele vasteland ging door een GIS-filter: verzamel alle milieu- en erfgoedbeperkingen die een zone zouden uitsluiten, breng voor elk daarvan de beste beschikbare nationale gegevens bijeen en haal vervolgens elk gebied dat onder minstens één beperking valt van de kaart. Wat overblijft, is wat je ingekleurd op de kaart ziet.',
+      s1_p2:'Voor zonne- en windenergie werden verschillende criteria toegepast, wat twee afzonderlijke kaarten opleverde. Gebieden kleiner dan 20 ha werden in de regel weggelaten.',
+      s2_h:'De bekentenissen die ertoe doen',
+      s2_p1:'Het rapport is eerlijk over zijn eigen grenzen, en juist die bekentenissen behoren tot de sterkste gronden om bezwaar te maken. Het werd in zeven maanden gemaakt, beperkt door de gegevens die toevallig voorhanden waren.',
+      s2_p2:'Het opvallendst: de <b>gemeentelijke bestemmingsplannen zijn helemaal niet geraadpleegd</b>. De plannen die het grondgebruik in Fundão, Castelo Branco en Covilhã daadwerkelijk regelen, speelden geen enkele rol bij het tekenen van deze zones.',
+      s2_q1:'“Het werk werd uitgevoerd in een periode van 7 maanden en werd beperkt door de tijd en door de beschikbaarheid van gegevens.”<span class="cite">p. 12</span>',
+      s2_q2:'“Daarom is de informatie uit de verschillende gemeentelijke bestemmingsplannen (PDM) niet meegenomen, omdat het niet mogelijk was elk daarvan afzonderlijk te raadplegen.”<span class="cite">p. 12</span>',
+      s3_h:'De basiskaart is te grof om op deze schaal betrouwbaar te zijn',
+      s3_p1:'De bodemgebruikskaart waarop alles rust, werkt met een <b>resolutie van 1 hectare</b> — en het rapport zegt zelf dat dat niet volstaat voor detailvragen, juist omdat een groot deel van de analyse met kleinere polygonen werkt.',
+      s3_p2:'Het waarschuwt bovendien dat de bodemgebruikskaart <b>juridisch niet bindend is</b>, zodat wettelijk beschermde bomen zoals de kurkeik in werkelijkheid kunnen staan in gebieden die de kaart als iets heel anders heeft ingedeeld.',
+      s3_q1:'“De huidige COS (COS2023) werkt met een resolutie van 1 ha, wat onvoldoende is om detailvragen goed te behandelen… Dit punt is vooral relevant omdat in dit rapport, en met name bij windenergie, wordt gewerkt met polygonen kleiner dan 100 ha.”<span class="cite">p. 72</span>',
+      s3_q2:'“De COS is geen juridisch bindend instrument, en sommige exemplaren van beschermde soorten (bijvoorbeeld kurkeik, hulst) kunnen voorkomen in gebieden die de COS heeft ingedeeld als bijvoorbeeld ‘bossen van invasieve soorten’.”<span class="cite">p. 72</span>',
+      s3_q3:'“De hele lopende exercitie wordt bepaald door de beperkingen van de cartografische informatie die voor het land bestaat, en daarmee moet rekening worden gehouden.”<span class="cite">p. 72</span>',
+      s4_h:'De luchtvaartbeperkingen zijn geschat',
+      s4_p1:'De luchtvaartservituten voor windenergie konden niet op tijd worden verwerkt, dus verving het team ze door ruwe cirkels rond luchthavens en vliegvelden. Het rapport stelt dat de windcijfers die daaruit volgen met voorbehoud moeten worden behandeld, met een onzekerheid van ongeveer <b>±6,9%</b> op de in kaart gebrachte oppervlakte.',
+      s4_q1:'“Het was niet mogelijk de luchtvaartservituten in detail mee te nemen. Er is een vereenvoudigde analyse uitgevoerd, die met voorbehoud moet worden behandeld.”<span class="cite">p. 73</span>',
+      s5_h:'De Beira Baixa in cijfers',
+      s5_p1:'Het rapport bevestigt wat de kaart laat zien. <b>11,0% van de hele regio Beira Baixa</b> is in kaart gebracht als potentieel zonnegebied en 3,7% als windgebied — en zonder het filter op afstand tot het net loopt het zonnecijfer op tot <b>22,1%</b>, meer dan een vijfde van de regio.',
+      s5_p2:'Per gemeente: <b>Fundão</b> heeft 6&nbsp;237 ha zonnegebied (8,9% van de gemeente) en 4&nbsp;947 ha windgebied (7,1%). <b>Castelo Branco</b> heeft 8&nbsp;836 ha zon en 7&nbsp;183 ha wind. <b>Covilhã</b> heeft 3&nbsp;317 ha zon en 4&nbsp;659 ha wind (8,4%).',
+      s5_p3:'Landelijk staat <b>Castelo Branco op nummer 2 voor windenergie</b> (8,7% van alle in kaart gebrachte windoppervlakte), met <b>Oleiros op nummer 3</b>, <b>Fundão op nummer 4</b> en <b>Covilhã op nummer 6</b>. Het rapport geeft toe dat deze concentratie “vragen kan oproepen over de mogelijke aanvaardbaarheid in sommige gebieden.”',
+      s5_q1:'“De in kaart gebrachte gebieden zijn ongelijk verdeeld over de NUTS III-regio’s en de gemeenten, wat vragen kan oproepen over de mogelijke aanvaardbaarheid in sommige gebieden.”<span class="cite">p. 72</span>',
+      s6_h:'Het grootste deel van de in kaart gebrachte grond kan nergens worden aangesloten',
+      s6_p1:'De eis van een onderstation binnen 10 km verkleint de zonneoppervlakte van 578&nbsp;777 ha tot 371&nbsp;348 ha. Maar de eis dat dat onderstation ook echt <b>capaciteit beschikbaar</b> heeft, brengt die terug tot slechts <b>118&nbsp;669 ha — 21%</b> van de in kaart gebrachte grond.',
+      s6_p2:'Bij windenergie is het nog schrijnender: slechts <b>4&nbsp;579 ha (5%)</b> van de in kaart gebrachte oppervlakte ligt binnen 10 km van een onderstation met beschikbare capaciteit.',
+      s6_p3:'Met andere woorden: het overgrote deel van de grond die wordt opengesteld, kan op dit moment nergens op worden aangesloten.',
+      s7_h:'De kaart op deze site (figuur 39)',
+      s7_p1:'Figuur 39 — de kaart die op deze site staat — toont de zonne- en windzones die binnen 20 km van een onderstation van het net liggen. Volgens die analyse ligt 98% van de zonnezones en 96% van de windzones dicht bij een onderstation, wat het rapport opvat als gunstig voor het combineren van wind en zon op gedeelde aansluitingen, waarbij de <b>regio’s Centro en Norte</b> het meest geschikt zijn.',
+      fc_p:'<b>De openbare raadpleging is gesloten — nu moet de petitie dit tegenhouden.</b> Boven de 7&nbsp;500 handtekeningen is het parlement verplicht in een plenaire vergadering over de Gardunha te debatteren.',
+      fc_a:'Teken de petitie →',
+      f_c1_h:'De campagne',
+      f_home:'Home',
+      f_action:'Teken de petitie',
+      f_spread:'Vertel het verder',
+      foot_about:'Begrijp het proces — wie beslist',
+      f_c2_h:'Documenten en gegevens',
+      f_docs:'Documenten uitgelegd',
+      f_obj:'De 172 bezwaren',
+      f_maps:'De kaarten van de gebieden',
+      f_c3_h:'Officiële bronnen',
+      f_src1:'PSZAER-raadpleging (participa.pt)',
+      f_src2:'Petitie in het parlement',
+      f_src3:'Renováveis Participa (EMER)',
+      f_disc:'Gemaakt door buren uit de Beira Baixa die de berg overeind willen houden. Informatieve burgerpagina zonder winstoogmerk, niet verbonden aan een partij, bedrijf of overheidsinstantie. Getrouwe Nederlandse weergave van een officieel document dat voor de openbare raadpleging op participa.pt is gepubliceerd (gespiegeld op <a href="/docs/rt-espacializada.pdf">/docs/rt-espacializada.pdf</a>) — geen officiële vertaling; de geciteerde passages zijn onze vertaling van het Portugese origineel. Waar een cijfer ertoe doet, controleer het dan in de bron-pdf.'
     }
   };
   var PT={}, PTA={};

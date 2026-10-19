@@ -8,7 +8,7 @@
   // Non-PT visitors: hide the page until the inline switcher has translated it, so the
   // Portuguese markup never flashes first. Revealed on DOMContentLoaded (the switcher at the
   // end of <body> has run by then), with a timeout as a safety net.
-  (function(){try{if(document.documentElement.hasAttribute('data-ssr'))return;var L=['en','de','fr'],p=location.pathname.split('/').filter(Boolean)[0],l=L.indexOf(p)>-1?p:localStorage.getItem('nf_lang');if(L.indexOf(l)<0)return;var d=document.documentElement,show=function(){d.classList.remove('i18n-wait');};d.classList.add('i18n-wait');document.addEventListener('DOMContentLoaded',show);setTimeout(show,2000);}catch(e){}})();
+  (function(){try{if(document.documentElement.hasAttribute('data-ssr'))return;var L=['en','de','fr','nl'],p=location.pathname.split('/').filter(Boolean)[0],l=L.indexOf(p)>-1?p:localStorage.getItem('nf_lang');if(L.indexOf(l)<0)return;var d=document.documentElement,show=function(){d.classList.remove('i18n-wait');};d.classList.add('i18n-wait');document.addEventListener('DOMContentLoaded',show);setTimeout(show,2000);}catch(e){}})();
 </script>
 <title>Salvar a Gardunha — Não às megacentrais solares na serra</title>
 <meta name="description" content="Os próprios documentos do Governo colocam a Serra da Gardunha na região mais visada do país para centrais solares — sem avaliação de impacte ambiental. A consulta pública termina a 15 de julho de 2026.">
@@ -23,6 +23,7 @@
 <link rel="alternate" hreflang="en" href="https://salvargardunha.com/en/pszaer">
 <link rel="alternate" hreflang="de" href="https://salvargardunha.com/de/pszaer">
 <link rel="alternate" hreflang="fr" href="https://salvargardunha.com/fr/pszaer">
+<link rel="alternate" hreflang="nl" href="https://salvargardunha.com/nl/pszaer">
 <link rel="alternate" hreflang="x-default" href="https://salvargardunha.com/pszaer">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <style>
@@ -38,13 +39,14 @@
   .langsw button{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:11.5px;letter-spacing:.05em;padding:5px 9px;border-radius:999px;cursor:pointer}
   .langsw button.on{background:var(--green-d);color:#05230f}
 
-  .bar{position:relative;background:#1a1206;border-bottom:1px solid #3a2a08;color:var(--amber);font-size:14.5px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:14px;padding:8px 165px}
+  .bar{position:relative;background:#1a1206;border-bottom:1px solid #3a2a08;color:var(--amber);font-size:14.5px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:14px;padding:8px 200px}
   .bar-content{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .bar .btn{font-size:12.5px;padding:6px 13px;white-space:nowrap;flex:0 0 auto}
   @media(max-width:640px){
-    .bar{font-size:13px;justify-content:flex-start;padding:10px 140px 10px 12px}
+    .bar{font-size:12px;flex-wrap:wrap;row-gap:5px;padding:7px 10px}
     .bar .btn{display:none}
-    .langsw{right:6px}
+    .bar-content{flex:1 1 100%;white-space:normal;text-align:center}
+    .langsw{position:static;transform:none;order:1}
     .langsw button{font-size:10.5px;padding:4px 7px}
     .wrap{padding:0 18px}
     header{padding:44px 0 32px}
@@ -240,7 +242,7 @@
 
 <div class="topstick">
 <div class="bar mono">
-  <div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></div>
+  <div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button><button data-lang="nl">NL</button></div>
   <div class="bar-content">⚠️ <span id="barleft">…</span></div>
   <a class="btn btn-primary" href="#assinar" data-i18n="hero_cta1">Assinar a petição →</a>
 </div>
@@ -890,13 +892,168 @@
       foot_s1:'Consultation et documents officiels (participa.pt)', foot_s2:'Pétition au Parlement', foot_s3:'Explication (Público)',
       foot_photo:'Photo de couverture : Jocehcap11, CC BY-SA 4.0 (Wikimedia Commons)',
       foot_disc:'Tous les chiffres et citations proviennent des documents officiels en consultation publique sur participa.pt (Proposition de PSZAER et rapports thématiques, mai 2026). Page informative et civique, sans but lucratif, non affiliée à un parti, une entreprise ou une entité publique.'
+    },
+    nl:{
+      bar_pre:'⚠️ De openbare raadpleging sluit op <b>15 juli 2026</b> —',
+      eyebrow:'Openbare raadpleging PSZAER · Beira Baixa',
+      nav_sophia:'<span class="live"></span>Megacentrale Sophia', nav_lourical:'PSZAER · Gardunha',
+      sophia_band:'⚠️ <b>Dringend:</b> over de zonne-megacentrale Sophia loopt een nieuwe openbare raadpleging — nog maar tot <b>21 oktober</b>.', sophia_band_btn:'Maak bezwaar tegen Sophia →',
+      h1a:'De Serra da Gardunha', h1b:'is niet te koop',
+      lede:'Ze willen in onze regio <b>grootschalige zonne- en windcentrales</b> bouwen — megaprojecten die <b>ons landschap zullen verwoesten</b>. Dat is niet onze mening: in <b>de eigen documenten van de regering</b> ligt onze berg in de regio die in heel Portugal het meest in het vizier ligt, met vergunningen in sneltempo en <b>zonder milieueffectbeoordeling</b>. De raadpleging is gesloten — nu is ons wapen de <b>petitie in het parlement</b>: met 7&nbsp;500 handtekeningen wordt een debat in de Assembleia da República afgedwongen.',
+      cd_d:'Dagen', cd_h:'Uren', cd_m:'Min', cd_s:'Sec',
+      hero_cta1:'Teken de petitie →', hero_cta2:'Delen ↓', read_cta:'Lees de documenten →',
+      band1_line:'Dit is het plan voor onze berg. Laat je stem horen en help deze megacentrales tegen te houden —',
+      band2_line:'Laat hen niet voor ons beslissen. Een bezwaar is officieel en moet wettelijk in overweging worden genomen —',
+      map_k:'De officiële kaart van de regering', map_h:'Dit is het plan — en de Gardunha ligt er middenin',
+      map_p:'Elke vlek is een gebied waar de regering de bouw van centrales voor hernieuwbare energie wil versnellen. Het centrale binnenland is het dichtst bedekte gebied van het land. De Serra da Gardunha en het massief van Castelo Branco liggen in het hart van die vlek.',
+      map_lg_solar:'Zonnezones', map_lg_wind:'Windzones',
+      map_src:'Bron: <i>Voorstel PSZAER — Thematisch rapport over de integratie van ruimtelijke informatie</i> (LNEG / EMER 2030), Figuur 39. Markering door ons.',
+      hap_k:'Wat er gebeurt', hap_h:'7% van het land opengesteld voor centrales — zonder milieubeoordeling',
+      hap_p1:'De regering heeft het <b>PSZAER</b> — het <i>Sectoraal programma voor de versnellingsgebieden voor hernieuwbare energie</i> — ter openbare raadpleging voorgelegd. In de woorden van de eigen samenvatting heeft het proces <b>“ongeveer 7% van het Portugese vasteland beschikbaar gesteld voor versnelling”</b>, waar projecten een vergunning kunnen krijgen <b>“zonder de milieueffectbeoordeling (AIA) te doorlopen”</b>.',
+      hap_p2:'Binnen deze gebieden wordt de milieubeoordeling vervangen door een eenvoudige <b>“verificatie-subprocedure”</b> en <b>“één loket”</b> met krappe termijnen. Het in kaart gebrachte potentieel is enorm: <b>~578&nbsp;777&nbsp;ha voor zonne-energie</b> en <b>~84&nbsp;618&nbsp;ha voor windenergie</b>. En het gaat niet om daken — <b>78,9% van het gebied met zonnepotentieel is bosgebied</b>.',
+      hap_p3:'De raadpleging loopt tot <b>15 juli 2026</b>. Daarna is het te laat.',
+      tgt_k:'Waarom ONZE berg het doelwit is', tgt_h:'De Beira Baixa is regio #1 van het land voor zonne-energie',
+      tgt_p:'aan zonnezones in de Beira Baixa — <b>11% van de hele regio</b>, het hoogste percentage van alle regio’s in Portugal. Daarbovenop <b>19&nbsp;295 ha</b> voor windenergie. Alleen al de gemeente Fundão telt <b>~6&nbsp;237 ha voor zonne-energie en ~4&nbsp;947 ha voor windenergie</b>.',
+      tgt_f1:'<b>#1 zon, #2/#3/#4 wind</b>In de nationale ranglijst staat de regio bovenaan voor zonne-energie (Sertã en Proença-a-Nova aan de top) en domineert ze windenergie: Castelo Branco (#2), Oleiros (#3), Fundão (#4).',
+      tgt_f2:'<b>De Gardunha wordt er bij naam genoemd</b>De consultants van de regering wijzen de landschapsgroep <i>“Pinhal do Centro”</i> — waartoe de <b>“Serras da Gardunha, Alvelos e Moradal”</b> en het <b>“land- en bosbouwmassief van Castelo Branco”</b> behoren — aan als de groep met het <b>grootste zonnepotentieel van het land</b> (~34% van de groep).',
+      tab_h:'ZAER-zonnepotentieel per landschapsgroep',
+      tab_th1:'Groep van landschapseenheden (GUP)', tab_th2:'Zon (km²)', tab_th3:'Oppervlakte groep (km²)', tab_th4:'% van de groep',
+      tab_gard:'← omvat de Gardunha',
+      tgt_tab_cap:'De groep <i>“Pinhal do Centro”</i> — waarin de consultants de Gardunha plaatsen — heeft het grootste zonnepotentieel van het land, met <b>34%</b> van de oppervlakte. Bron: Landschapsrapport van het PSZAER, tabel 1.',
+      tgt_quote:'“Het is daarom logisch dat de resterende gebieden de gebieden zijn met de laagste huidige waarden voor landschapskwaliteit.”<span>— Landschapsrapport van het PSZAER, over het binnenland. Met andere woorden: ze behandelen onze grond als het “restje” van het land. Dat is het niet.</span>',
+      risk_k:'Wat er op het spel staat', risk_h:'Dekens van glas over de berg',
+      risk_f1:'<b>Het landschap</b>Het Landschapsrapport van het PSZAER zelf (het officiële regeringsdocument in de raadpleging) geeft toe dat grootschalige zonne-energie <i>“glazen dekens”</i> creëert en wordt ervaren als <i>“een aanzienlijke visuele aantasting”</i>. Er geldt een grens van <b>25 aaneengesloten ha</b> per zonneveld — die de megaprojecten negeren.',
+      risk_f2:'<b>Geen milieutoets</b>Binnen de versnellingsgebieden is er geen milieueffectbeoordeling (AIA). Zonder die toets gaan projecten door zonder de beoordeling die water, bodem, bos en biodiversiteit beschermt.',
+      risk_f3:'<b>De fauna</b>De regio is het leefgebied van bedreigde soorten — <b>monniksgier, Spaanse keizerarend, steenarend, zwarte ooievaar, kleine trap, Iberische lynx, Iberische wolf en vleermuizen</b>. Het rapport erkent dat er buiten de beschermde gebieden gegevens over deze soorten ontbreken.',
+      risk_f4:'<b>Water en grond</b>Het legt beslag op landbouw- en bosgrond en tast de waterlopen aan, net als de berg die de regio van water voorziet. Huizen liggen op amper <b>200 m</b> (zon) en <b>1 km</b> (wind) van de centrales.',
+      plan_k:'Wat ze met onze grond van plan zijn', plan_h:'Sleep en vergelijk: vandaag vs. morgen',
+      plan_p:'Links het stuwmeer van Marateca (Castelo Branco) zoals het er vandaag bij ligt. Rechts de <b>simulatie van de impact</b> met de centrales die de versnellingsgebieden toelaten. <b>Sleep de schuifknop</b> over de afbeelding en vergelijk.',
+      ba_before:'Vandaag', ba_after:'Morgen?',
+      ba_aria:'Sleep om voor en na te vergelijken',
+      ba_alt_before:'Het stuwmeer van Marateca zoals het er vandaag bij ligt — omringd door akkers en bos',
+      ba_alt_after:'Simulatie van de impact bij het stuwmeer van Marateca — zonnepanelen en windturbines rond het water',
+      ba_cap:'Rechterafbeelding: impactsimulatie gemaakt door de campagne — geen echte foto.',
+      gal_p:'Meer beelden van de campagne — klik om ze op ware grootte te openen en deel ze:',
+      gal_c1:'Simulatie: zonnevelden op de berghelling.',
+      gal_c2:'Vandaag vs. morgen — simulatie gezien vanaf het stenen kruis, met centrales op de helling.',
+      gal_c3:'Vandaag vs. morgen — deelafbeelding van de campagne.',
+      gal_c4:'Campagneposter — bewaar, print en deel hem.',
+      gal_c5:'Projectgronden (in groen) en uitgesloten gronden bij Lardosa — studiegebied van de REN.',
+      gal_c6:'Campagnesatire: “Pinhal Sustentável 5.0” — het dennenbos vervangen door zonnepanelen.',
+      ss_registo:'Stap 1: knop “Registo” rechtsboven op participa.pt',
+      ss_form:'Registratieformulier: kies “Individual”, vul het in en klik op “Submeter”',
+      ss_registado:'Bevestiging van de registratie: je moet het account nog via e-mail activeren',
+      ss_ativar:'Link “Ativação de registo” in de e-mail',
+      ss_email:'E-mail “Ativação de registo no Portal Participa” in de inbox',
+      ss_login:'Venster “Conta ativada” — klik op “aqui” om in te loggen',
+      ss_participar:'Knop “Participar” op de pagina van de raadpleging',
+      act_k:'Wat jij kunt doen', act_h:'Twee acties — in twee minuten',
+      act1_h:'Maak bezwaar in de openbare raadpleging', act1_tag:'tot 15 juli',
+      act1_p:'Dit is de belangrijkste actie. Het is de officiële besluitvormingsprocedure en bezwaren <b>moeten wettelijk in overweging worden genomen</b>. Zie het stappenplan hieronder.',
+      act1_btn:'Bekijk het stappenplan →',
+      act2_h:'Delen', act2_p:'Stuur deze pagina naar iedereen die je kent in de Beira Baixa. Hoe meer bezwaren, hoe zwaarder het nee weegt.',
+      share_copy:'Link kopiëren',
+      sign_k:'Teken in 1 minuut', sign_h:'Zo teken je de petitie',
+      sign1:'<b>Maak een account aan.</b> Om te tekenen heb je een eigen account nodig. Klik bovenaan de <a href="https://participacao.parlamento.pt/initiatives/5569" target="_blank" rel="noopener">petitiepagina van het parlement</a> op <b>“Entrar”</b> → <b>“Registar”</b>. Vul je naam, geboortedatum, identiteitsbewijs, e-mailadres en een wachtwoord in, accepteer de voorwaarden en klik op <b>“Registar”</b>.',
+      sign2:'<b>Activeer het account via e-mail.</b> Open het bericht van de Assembleia da República en klik op de activeringslink van het account.',
+      sign3:'<b>Log in.</b> Ga terug naar de petitiepagina en klik op <b>“Entrar”</b> met je e-mailadres en wachtwoord.',
+      sign4:'<b>Teken.</b> Klik bovenaan de pagina op <b>“Assinar”</b> en bevestig met <b>“assinar esta petição”</b>. ✅ Klaar — je handtekening telt mee voor de 7&nbsp;500 die een debat in de plenaire vergadering afdwingen.',
+      how_k:'Zo maak je bezwaar in 2 minuten', how_h:'Stap voor stap',
+      how1:'<b>Maak een account aan op <a href="https://participa.pt" target="_blank" rel="noopener">participa.pt</a>.</b> Klik rechtsboven op <b>“Registo”</b> → kies het type <b>“Individual”</b> → vul naam, e-mailadres en een wachtwoord (minimaal 12 tekens) in en klik op <b>“Registar”</b>.',
+      how2:'<b>Activeer het account.</b> Ga naar je e-mail, open het bericht van Participa en klik op de <b>activeringslink</b>.',
+      how3:'<b>Log in.</b> Ga terug naar <a href="https://participa.pt" target="_blank" rel="noopener">participa.pt</a> en klik op <b>“Entrar”</b> (je kunt ook inloggen met de <b>Chave Móvel Digital</b>).',
+      how4:'<b>Open de raadpleging.</b> <a href="https://participa.pt/pt/consulta/programa-setorial-das-zonas-de-aceleracao-da-implantacao-de-energias-renovaveis-pszaer" target="_blank" rel="noopener">Klik hier om de raadpleging over het PSZAER te openen</a> en druk op de knop <b>“Participar”</b>.',
+      how5:'<b>Schrijf je bijdrage.</b> Plak je tekst — genereer je <b>unieke bijdrage</b> met de knop hieronder. Iedereen kan maar <b>één</b> bijdrage indienen, en een andere tekst per persoon telt veel zwaarder dan identieke kopieën.',
+      how_disc:'<b>Kies “Discordância” (niet akkoord).</b> Plak je bijdrage in het gedeelte <i>“A minha participação”</i> in het commentaarvak en selecteer in het menu <b>“Classificação”</b> (de blauwe balk bovenaan het vak) <b>“Discordância”</b> — zo is duidelijk dat je bezwaar maakt.',
+      how6:'<b>Openbaar maken en indienen.</b> Vink de optie aan die de <b>publicatie</b> van de bijdrage in het eindrapport toestaat en klik op <b>“Submeter”</b>. ✅ Klaar.',
+      how7:'<b>Deel deze pagina.</b> Stuur de link naar iedereen die je kent in de Beira Baixa — hoe meer bezwaren, hoe zwaarder het nee weegt.',
+      ss_colar:'Het gedeelte “A minha participação”: plak het commentaar en kies “Discordância” in het menu “Classificação”',
+      ss_submeter:'Vink “Autorizo a publicação do meu comentário” aan en klik op “Submeter”',
+      ss_obrigado:'Bevestiging: je bijdrage is met succes ingediend',
+      gen_h:'Jouw bijdrage — uniek',
+      gen_p:'Klik op “Genereer” om een unieke, originele bijdrage te maken (door AI geschreven op basis van de feiten op deze pagina). Elk bezwaar wordt anders — en telt zwaarder.',
+      gen_btn:'✨ Genereer mijn bijdrage', gen_copy:'Tekst kopiëren',
+      topics_toggle:'Kies onderwerpen voor je bijdrage (optioneel)',
+      topics_lead:'Kies de onderwerpen waar jij je het meest zorgen over maakt en de bijdrage wordt erop toegespitst. Kies je er geen, dan blijft de bijdrage algemeen.',
+      obj1:'<b>Habitats en ecosystemen</b>Vernietigt het leefgebied van bedreigde soorten — monniksgier, Spaanse keizerarend, Iberische lynx en Iberische wolf.',
+      obj2:'<b>Woningwaarde</b>Wonen naast industriële centrales doet de huizenprijzen dalen.',
+      obj3:'<b>Toerisme</b>Schrikt toeristen af: het natuurtoerisme, de kersen van Fundão en de historische dorpen.',
+      obj4:'<b>Landschap</b>“Glazen dekens” over een van de mooiste landschappen van het binnenland.',
+      obj5:'<b>Landbouwgrond</b>Legt beslag op vruchtbare grond met kersenboomgaarden, olijfgaarden en weiden.',
+      obj6:'<b>Gezondheid</b>Zware metalen, microplastics door slijtage van de panelen en schittering vlak bij huizen.',
+      obj7:'<b>Water</b>De berg voorziet de regio van water — het tast beken, bronnen en grondwaterlagen aan.',
+      obj8:'<b>Brandgevaar</b>Kappen en infrastructuur in het bos vergroten het risico op brand.',
+      obj9:'<b>Bos en koolstof</b>78,9% van het zonnepotentieel ligt in bosgebied — dat bos vernietigen laat koolstof vrijkomen.',
+      obj10:'<b>Geen milieubeoordeling</b>Binnen de ZAER is er geen milieueffectbeoordeling (AIA) — zonder de toets die de natuur beschermt.',
+      obj11:'<b>Cultureel erfgoed</b>Dorpen, kapellen, het stenen kruis, de wandelpaden en de Marateca verliezen hun landschappelijke omlijsting.',
+      obj12:'<b>Baten naar elders</b>De winsten verdwijnen uit de regio; alleen de lasten blijven achter.',
+      obj13:'<b>Grondspeculatie</b>De wedloop om de ZAER drijft de grondprijzen op en verdrijft de boeren.',
+      obj14:'<b>Cumulatieve impact</b>Veel projecten samen, zonder beoordeling van het totale effect.',
+      obj15:'<b>Het net is de rem</b>Er is al ~8,7 GW toegewezen dat nog niet is aangesloten — er is geen gebrek aan grond, maar aan netcapaciteit.',
+      obj16:'<b>Te dicht bij huizen</b>Centrales op amper 200 m (zon) en 1 km (wind) van woningen.',
+      obj17:'<b>Geluid en schaduw</b>De turbines veroorzaken geluid en slagschaduw voor wie in de buurt woont.',
+      obj18:'<b>Vogels en vleermuizen</b>Wieken en elektriciteitsleidingen doden vogels en vleermuizen — dat geeft het rapport zelf toe.',
+      obj19:'<b>Bodem en erosie</b>Bodemafdichting, erosie en een verstoorde hydrologie van de helling.',
+      obj20:'<b>Genegeerde alternatieven</b>Daken in steden (28 GW), al bebouwde terreinen en eigen verbruik blijven onbenut.',
+      docs_k:'Documenten van de raadpleging', docs_h:'Lees de officiële documenten',
+      docs_en:'📖 Lees de documenten — samengevat en vertaald, sectie per sectie →',
+      docs_p:'Alle documenten van de openbare raadpleging, in volgorde van publicatie, hier ondergebracht zodat je ze makkelijk kunt lezen — elk met een korte samenvatting. De cijfers en citaten op deze pagina komen hieruit.',
+      sum_abc:'Inleidende presentatie van EMER 2030 die in eenvoudige taal uitlegt wat de ZAER zijn: de doelen voor 2030 (20,8 GW zon, 10,4 GW wind), hoe projecten een vergunning krijgen en het tijdpad — openbare discussie in juni–juli 2026 en omzetting in de gemeentelijke bestemmingsplannen (PDM) in 2026–2028. Het aanbevolen startpunt voordat je de technische documenten leest.',
+      sum_ordenamento:'Rapport van CEDRU dat toegeeft dat het aangewezen gebied veel groter is dan de doelen voor 2030 vereisen — en dat de oppervlakte die zonnecentrales innemen in vijf jaar al is gestegen van ~1 290 naar ~4 740 ha. Het waarschuwt voor grondspeculatie en “energetische monofunctionaliteit” in het binnenland, en beveelt aan voorrang te geven aan reeds bebouwde en aangetaste terreinen, niet aan landelijke grond.',
+      sum_paisagem:'Laat zien dat de landschapsgroep “Pinhal do Centro” — waartoe uitdrukkelijk de “Serras da Gardunha, Alvelos e Moradal” behoren — in het hele land het meest in het vizier ligt, met ~34% van de oppervlakte aangemerkt als potentiële ZAER voor zonne-energie (~1 372 km²). Het geeft toe dat grote zonneparken “glazen dekens” vormen die als een aanzienlijke visuele aantasting worden ervaren, en stelt voor de panelen te beperken tot 25 aaneengesloten ha.',
+      sum_energia:'Concludeert dat de grootste rem op hernieuwbare energie geen gebrek aan grond is, maar de toegang tot het net en de vergunningverlening — ~8,7 GW die al is toegewezen, is nooit aangesloten. Het beveelt kleine, modulaire ZAER aan, dicht bij het net en bij het verbruik, op reeds bebouwde terreinen — in plaats van grote, homogene vlakken — en wijst op de daken in steden (potentieel van 28 GW).',
+      sum_juridico:'Rapport van AMMC Legal dat het vergunningsregime binnen de ZAER uittekent: één loket en milieubeoordeling op het niveau van het plan in plaats van het project — waarbij de volledige milieueffectbeoordeling (AIA) in de regel vervalt en wordt vervangen door een loutere conformiteitscontrole, met maximale termijnen van 12 maanden (6 bij repowering).',
+      sum_espacializada:'Rapport van LNEG dat uitlegt hoe de kaarten van de ZAER — waaronder Figura 39 op deze pagina — zijn getekend, met ~371 348 ha potentiële zones voor zonne-energie en 84 489 ha voor windenergie. Het erkent beperkingen: kaartmateriaal met een resolutie van slechts 1 ha, gemeentelijke bestemmingsplannen (PDM) die niet zijn geraadpleegd en luchtvaartbeperkingen die slechts bij benadering zijn meegenomen.',
+      sum_ecologia:'Rapport van CIBIO-BIOPOLIS dat de criteria vastlegt om de gebieden met de grootste natuurwaarde uit te sluiten van de ZAER. Het erkent dat windenergie roofvogels en vleermuizen doodt door aanvaringen met de wieken — en geeft toe dat de informatie over soorten buiten beschermde gebieden beperkt is, wat de bescherming van de biodiversiteit kan ondermijnen.',
+      sum_proposta:'Het centrale document: het programma dat op grond van de Europese RED III-richtlijn de zones afbakent waar zonne- en windcentrales een vereenvoudigde vergunning via “één loket” krijgen. Het brengt ~578 777 ha met potentieel voor zonne-energie en 84 489 ha voor windenergie in kaart — en geeft toe dat het overgrote deel geconcentreerd is in de groep Pinhal do Centro, waartoe de Serra da Gardunha behoort.',
+      sum_aae_rnt:'Versie in eenvoudige taal van de strategische milieubeoordeling: legt het voorstel uit dat ~7% van het grondgebied openstelt voor projecten zonder milieueffectbeoordeling (AIA) en benoemt risico’s — druk op dunbevolkte plattelandsgebieden, cumulatieve effecten op landschap en biodiversiteit, groeiend maatschappelijk verzet. Concludeert dat de lokale voordelen groter zijn bij kleinere projecten dicht bij het verbruik.',
+      sum_aae_rap:'De volledige strategische milieubeoordeling (249 pagina’s). Ze erkent belangrijke risico’s: de druk komt vooral te liggen op bos-, landbouw- en weidegrond in dunbevolkte plattelandsgebieden, binnen de ZAER kunnen onbekende biodiversiteitswaarden bestaan en het legitieme verzet van lokale gemeenschappen is een beperkende factor.',
+      sum_pareceres:'De formele adviezen van de overheidsinstanties (474 pagina’s). Verschillende instanties gaven een ongunstig advies of een advies onder voorwaarden — te grote zones, conflicten met de ruimtelijke ordening, het erfgoed, de landbouw en het natuurbehoud. Het ICNF eist zelfs dat de gebieden worden geschrapt die overlappen met de strook van 1 km rond het regionaal beschermd landschap van de Serra da Gardunha.',
+      sum_analise:'Het antwoord van de regering op de adviezen van 36 instanties (172 bijdragen), waaronder de bedenkingen van Fundão en Covilhã en het ongunstige advies van de erfgoedautoriteit. Bijna twee derde van de bijdragen is slechts “gedeeltelijk aanvaard” of alleen “genoteerd”, zonder wijziging van het programma — de inzendingen van burgers worden in een apart document gewogen.',
+      tl_k:'Hoe we hier zijn beland', tl_h:'Tijdlijn',
+      tl_p:'Alle data komen uit de officiële documenten. Kijk hoe lang het proces duurde — en hoe weinig tijd we kregen om te reageren.',
+      tl1_d:'6 februari 2026', tl1_t:'De regering geeft opdracht voor het programma',
+      tl1_p:'Besluit nr. 1532-B/2026 belast EMER 2030 met de voorbereiding en geeft <b>zes maanden</b> om alles af te ronden.',
+      tl2_d:'Februari – maart 2026', tl2_t:'De reikwijdte van de milieubeoordeling wordt vastgelegd',
+      tl2_p:'Instanties met milieubevoegdheden worden gehoord over de “kritieke beslissingsfactoren” — wat de beoordeling wel, en niet, zal onderzoeken.',
+      tl3_d:'2 – 5 mei 2026', tl3_t:'Het voorstel, de milieubeoordeling en de 6 thematische rapporten verschijnen',
+      tl3_p:'Het <a href="/read/rt-paisagem" target="_blank" rel="noopener">Landschapsrapport</a> noemt de <b>“Serras da Gardunha, Alvelos e Moradal”</b> uitdrukkelijk binnen de groep <b>die in het hele land het meest in het vizier ligt</b> (~34% van de oppervlakte). Het <a href="/read/rt-energia" target="_blank" rel="noopener">Energierapport</a> concludeert dat de rem niet het gebrek aan grond is — maar het net.',
+      tl4_d:'5 mei 2026', tl4_t:'De overheidsinstanties worden geraadpleegd — 20 dagen om te antwoorden',
+      tl4_p:'Gemeenten, regionale commissies en de autoriteiten voor natuur, milieu, erfgoed en landbouw krijgen honderden technische pagina’s. Wie niet binnen 20 dagen antwoordt, wordt geacht <b>geen bezwaar te hebben</b>.',
+      tl5_d:'16 juni 2026', tl5_t:'De adviezen: vier instanties zeggen NEE',
+      tl5_p:'Ongunstig: <b>Cultureel Erfgoed</b>, <b>Landbouw (DGADR)</b>, de <b>Nationale Vereniging van Gemeenten</b> (over de inhoud <i>én</i> het proces) en één gemeente. Het <b>ICNF eist dat de gebieden worden geschrapt</b> die overlappen met de strook van 1 km rond het <b>regionaal beschermd landschap van de Serra da Gardunha</b>.',
+      tl6_d:'17 juni 2026', tl6_t:'De openbare raadpleging gaat open',
+      tl6_p:'Aangekondigd bij Kennisgeving nr. 14136-B/2026/2. <b>Minder dan een maand</b> voor burgers om meer dan duizend pagina’s te lezen en erop te reageren.',
+      tl7_d:'23 juni 2026', tl7_t:'De regering weegt de adviezen — en de meeste sneuvelen onderweg',
+      tl7_p:'Van de <b><a href="/objecoes" target="_blank" rel="noopener">172 bijdragen</a></b> worden er 45 alleen “genoteerd” (ze veranderen niets) en 62 slechts “gedeeltelijk aanvaard”. De kritiek van de autoriteit voor ruimtelijke ordening — dat de zones <b>veel groter zijn dan de doelen vereisen</b> — wordt “genoteerd”. De eis van het ICNF over de Gardunha <b>wordt niet eens genoemd</b>. <a href="/objecoes" target="_blank" rel="noopener">Bekijk alle 172 en de antwoorden →</a>',
+      tl8_d:'15 juli 2026', tl8_t:'De openbare raadpleging is gesloten — 8&nbsp;053 bijdragen',
+      tl8_p:'Ze sloot met <b>8&nbsp;053 ingediende bijdragen</b>. Volgens de wet moeten ze allemaal <b>in overweging worden genomen</b> in het afwegingsrapport van de regering.',
+      tl9_d:'Juli – augustus 2026', tl9_t:'De regering analyseert de bijdragen en rondt het voorstel af',
+      tl9_p:'Daarna volgt het wetgevingsproces. Vanaf dan valt er niets meer te bediscussiëren.',
+      tl10_d:'2026 – 2028', tl10_t:'De zones worden doorvertaald naar de gemeentelijke bestemmingsplannen',
+      tl10_p:'Pas wanneer ze in de plannen van de gemeenten zijn opgenomen, worden de beschermingsregels bindend voor bedrijven — en dan worden de centrales op het terrein mogelijk.',
+      pet_k:'Petitie in het parlement',
+      pet_total:'/ 7&nbsp;500 handtekeningen',
+      pet_done:'✅ <b>Mijlpaal van 1&nbsp;000 handtekeningen bereikt</b> — een hoorzitting met de indieners is gegarandeerd.',
+      pet_next:'Volgend doel: <b>7&nbsp;500</b> — dat dwingt een debat af in de plenaire vergadering van de Assembleia da República.',
+      pet_btn:'Teken de petitie →',
+      foot_made:'Gemaakt door buren uit de Beira Baixa die de berg overeind willen houden.',
+      fcol_campaign:'De campagnes', fl_c_sophia:'Megacentrale Sophia — raadpleging tot 21 oktober', fl_c_pszaer:'De Gardunha en de versnellingsgebieden (PSZAER)', fcol_docs:'Documenten en gegevens', fcol_official:'Officiële bronnen', fl_home:'Home', fl_act:'Teken de petitie',
+      foot_maps:'De kaarten van de voorgestelde gebieden', foot_obj:'De 172 bezwaren en de antwoorden van de regering',
+      foot_allies:'Vertel het verder — bondgenoten &amp; pers',
+      foot_about:'Begrijp het proces — wie beslist',
+      foot_read:'Officiële documenten',
+      foot_s1:'Raadpleging en officiële documenten (participa.pt)', foot_s2:'Petitie in het parlement', foot_s3:'Uitleg (Público)',
+      foot_photo:'Omslagfoto: Jocehcap11, CC BY-SA 4.0 (Wikimedia Commons)',
+      foot_disc:'Alle cijfers en citaten komen uit de officiële documenten die op participa.pt ter openbare raadpleging liggen (Voorstel PSZAER en thematische rapporten, mei 2026). Informatieve burgerpagina zonder winstoogmerk, niet verbonden aan een partij, bedrijf of overheidsinstantie.'
     }
   };
   var STR={
     pt:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'faltam <b>'+d+' dias e '+h+'h</b>':'faltam <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>Assina a petição</b> — força um debate no Parlamento', gen:'A gerar…', copied:'Copiado ✓', linkcopied:'Link copiado ✓', objections:function(n){return '✍️ <b>'+n+'</b> assinaturas na petição — junta a tua.'}, grow:function(d,f){var n=d.d7;return n>0?'📈 <b>+'+f(n)+'</b> nos últimos 7 dias':'';}, shareMsg:'A Serra da Gardunha é das áreas mais visadas do país por megacentrais solares. Objeta na consulta pública até 15 de julho: '},
     en:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'<b>'+d+' days and '+h+'h</b> left':'<b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b> left'}, ended:'<b>Sign the petition</b> — force a debate in Parliament', gen:'Generating…', copied:'Copied ✓', linkcopied:'Link copied ✓', objections:function(n){return '✍️ <b>'+n+'</b> signatures on the petition — add yours.'}, grow:function(d,f){var n=d.d7;return n>0?'📈 <b>+'+f(n)+'</b> in the last 7 days':'';}, shareMsg:'The Serra da Gardunha is one of the areas most targeted by mega solar plants in Portugal. Object in the public consultation by 15 July: '},
     de:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'noch <b>'+d+' Tage und '+h+'h</b>':'noch <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>Unterschreibe die Petition</b> — erzwinge eine Debatte im Parlament', gen:'Wird erstellt…', copied:'Kopiert ✓', linkcopied:'Link kopiert ✓', objections:function(n){return '✍️ <b>'+n+'</b> Unterschriften für die Petition — füge deine hinzu.'}, grow:function(d,f){var n=d.d7;return n>0?'📈 <b>+'+f(n)+'</b> in den letzten 7 Tagen':'';}, shareMsg:'Die Serra da Gardunha gehört zu den am stärksten von Solar-Großkraftwerken bedrohten Gebieten Portugals. Nimm bis 15. Juli an der Konsultation teil: '},
-    fr:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'encore <b>'+d+' jours et '+h+'h</b>':'encore <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>Signe la pétition</b> — impose un débat au Parlement', gen:'Génération…', copied:'Copié ✓', linkcopied:'Lien copié ✓', objections:function(n){return '✍️ <b>'+n+'</b> signatures sur la pétition — ajoute la tienne.'}, grow:function(d,f){var n=d.d7;return n>0?'📈 <b>+'+f(n)+'</b> au cours des 7 derniers jours':'';}, shareMsg:'La Serra da Gardunha est l’une des zones les plus visées du pays par les méga-centrales solaires. Participe à la consultation avant le 15 juillet : '}
+    fr:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'encore <b>'+d+' jours et '+h+'h</b>':'encore <b>'+h+'h '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>Signe la pétition</b> — impose un débat au Parlement', gen:'Génération…', copied:'Copié ✓', linkcopied:'Lien copié ✓', objections:function(n){return '✍️ <b>'+n+'</b> signatures sur la pétition — ajoute la tienne.'}, grow:function(d,f){var n=d.d7;return n>0?'📈 <b>+'+f(n)+'</b> au cours des 7 derniers jours':'';}, shareMsg:'La Serra da Gardunha est l’une des zones les plus visées du pays par les méga-centrales solaires. Participe à la consultation avant le 15 juillet : '},
+    nl:{left:function(d,h,m,s){var ss=s<10?'0'+s:''+s;return d>0?'nog <b>'+d+' dagen en '+h+'u</b>':'nog <b>'+h+'u '+m+'m<span class="secw"> '+ss+'s</span></b>'}, ended:'<b>Teken de petitie</b> — dwing een debat in het parlement af', gen:'Bezig met genereren…', copied:'Gekopieerd ✓', linkcopied:'Link gekopieerd ✓', objections:function(n){return '✍️ <b>'+n+'</b> handtekeningen onder de petitie — zet ook de jouwe.'}, grow:function(d,f){var n=d.d7;return n>0?'📈 <b>+'+f(n)+'</b> in de afgelopen 7 dagen':'';}, shareMsg:'De Serra da Gardunha is een van de gebieden in Portugal die het zwaarst in het vizier liggen van zonne-megacentrales. Maak bezwaar in de openbare raadpleging, uiterlijk 15 juli: '}
   };
 
   // PT strings: read from the markup — unless api/page.js already rendered this page in
@@ -908,7 +1065,7 @@
   document.querySelectorAll('[data-i18n-aria]').forEach(function(el){var k=el.getAttribute('data-i18n-aria');if(PT[k]==null)PT[k]=el.getAttribute('aria-label');});
   }
   var BASE='/pszaer'; // this page's slug (also served at / when it's the default home — see vercel.json)
-  var LANGS=['pt','en','de','fr'];
+  var LANGS=['pt','en','de','fr','nl'];
   var pathLang=location.pathname.split('/').filter(Boolean)[0]||'';
   var lang=(LANGS.indexOf(pathLang)>-1)?pathLang:(localStorage.getItem('nf_lang')||'pt');
   function tr(l,k){return (l==='pt')?PT[k]:((I18N[l]&&I18N[l][k]!=null)?I18N[l][k]:PT[k]);}
@@ -1005,7 +1162,8 @@
     pt:'Venho manifestar a minha oposição à inclusão da Serra da Gardunha e da Beira Baixa nas Zonas de Aceleração de Energias Renováveis do PSZAER. Oponho-me à instalação de megacentrais solares e eólicas nesta região sem avaliação de impacte ambiental, pelos impactes na paisagem protegida, na água, no solo agrícola e florestal e nas espécies ameaçadas. Peço a exclusão desta área do programa.',
     en:'I wish to express my opposition to the inclusion of the Serra da Gardunha and the Beira Baixa in the PSZAER renewable-energy acceleration zones. I oppose the installation of mega solar and wind power plants in this region without an environmental impact assessment, given the impacts on the protected landscape, water, agricultural and forest land, and threatened species. I ask that this area be excluded from the programme.',
     de:'Hiermit erhebe ich Einspruch gegen die Aufnahme der Serra da Gardunha und der Beira Baixa in die Beschleunigungszonen für erneuerbare Energien des PSZAER. Ich lehne den Bau von Solar- und Windgroßkraftwerken in dieser Region ohne Umweltverträglichkeitsprüfung ab — wegen der Auswirkungen auf die geschützte Landschaft, das Wasser, den land- und forstwirtschaftlichen Boden und die bedrohten Arten. Ich fordere den Ausschluss dieses Gebiets aus dem Programm.',
-    fr:'Je manifeste mon opposition à l’inclusion de la Serra da Gardunha et de la Beira Baixa dans les zones d’accélération des énergies renouvelables du PSZAER. Je m’oppose à l’installation de méga-centrales solaires et éoliennes dans cette région sans évaluation d’impact environnemental, en raison des impacts sur le paysage protégé, l’eau, les sols agricoles et forestiers et les espèces menacées. Je demande l’exclusion de cette zone du programme.'
+    fr:'Je manifeste mon opposition à l’inclusion de la Serra da Gardunha et de la Beira Baixa dans les zones d’accélération des énergies renouvelables du PSZAER. Je m’oppose à l’installation de méga-centrales solaires et éoliennes dans cette région sans évaluation d’impact environnemental, en raison des impacts sur le paysage protégé, l’eau, les sols agricoles et forestiers et les espèces menacées. Je demande l’exclusion de cette zone du programme.',
+    nl:'Hierbij spreek ik mijn bezwaar uit tegen de opname van de Serra da Gardunha en de Beira Baixa in de versnellingsgebieden voor hernieuwbare energie van het PSZAER. Ik verzet me tegen de bouw van megacentrales voor zonne- en windenergie in deze regio zonder milieueffectbeoordeling, vanwege de gevolgen voor het beschermde landschap, het water, de landbouw- en bosgrond en de bedreigde soorten. Ik vraag dit gebied uit het programma te schrappen.'
   };
   var genBtn=document.getElementById('gen'), genTxt=document.getElementById('gen-txt'), copyGen=document.getElementById('copygen'), shelfBadge=document.getElementById('shelfBadge');
   var chips=Array.prototype.slice.call(document.querySelectorAll('.tp'));

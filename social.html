@@ -10,6 +10,7 @@
 <link rel="alternate" hreflang="en" href="https://salvargardunha.com/en/social">
 <link rel="alternate" hreflang="de" href="https://salvargardunha.com/de/social">
 <link rel="alternate" hreflang="fr" href="https://salvargardunha.com/fr/social">
+<link rel="alternate" hreflang="nl" href="https://salvargardunha.com/nl/social">
 <link rel="alternate" hreflang="x-default" href="https://salvargardunha.com/social">
 <script src="/lang-url.js"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
@@ -41,6 +42,7 @@
   .subh:first-of-type{margin-top:18px}
   .grid{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
   @media(max-width:620px){.grid{grid-template-columns:1fr}}
+  @media(max-width:440px){.top .wrap{gap:10px}.langsw button{font-size:11px;padding:5px 6px}}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 17px}
   .card.hot{border-color:#3a5c2a;background:#101a0f}
   .card h3{font-size:16.5px;font-weight:700;line-height:1.3}
@@ -82,7 +84,7 @@
 
 <div class="top"><div class="wrap">
   <a href="/">← salvargardunha.com</a>
-  <div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></div>
+  <div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button><button data-lang="nl">NL</button></div>
 </div></div>
 
 <header>
@@ -651,6 +653,106 @@ Sabe tudo e objeta 👉 salvargardunha.com</p><button class="btn btn-primary msg
       f_read:'Documents en anglais',
       a_src:'Source',
       f_disc:'Répertoire compilé par recherche publique (presse, sites et réseaux sociaux). Les liens mènent à des pages publiques ; nous ne publions pas de contacts personnels privés. Certaines données (comptes, nombre d’abonnés) peuvent être obsolètes — vérifie avant d’utiliser. Page informative et civique, sans but lucratif, non affiliée à un parti, une entreprise ou une entité publique. Ces groupes et médias sont cités à titre de référence ; cela n’implique pas qu’ils soutiennent cette page.'
+    },
+    nl:{
+      eyebrow:'Vertel het verder',
+      h1:'We staan er niet alleen voor.<br>Help om meer mensen te bereiken.',
+      lede:'Er zijn al mensen die strijden tegen de megacentrales in de Beira Baixa — burgerbewegingen, milieuorganisaties, gemeenten en journalisten. Hier vind je <b>wie al ter plaatse actie voert</b>, de <b>media die over het onderwerp berichten</b> en de <b>gemeenschappen waar je de campagne kunt delen</b> voordat de raadpleging sluit.',
+      cta_object:'Maak bezwaar in de raadpleging →', cta_camp:'Bekijk de campagne',
+      kit_k:'Delen in 30 seconden', kit_h:'Kant-en-klare teksten — kopieer en plak', kit_p:'Gebruik deze teksten om te reageren, te posten, naar groepen te sturen of om pagina’s en makers uit de regio een bericht te sturen. Tik op kopiëren.', kit_copy:'📋 Kopiëren',
+      cm_h:'💬 Korte reactie',
+      cm_txt:'⚠️ De Serra da Gardunha is een van de gebieden in het land die het zwaarst in het vizier liggen voor megacentrales voor zonne- en windenergie — die zonder milieueffectbeoordeling vergund kunnen worden. De openbare raadpleging sluit op 15 juli. Laat van je horen 👉 salvargardunha.com',
+      fb_h:'📣 Bericht voor Facebook',
+      fb_txt:'🌄 Onze berg is niet te koop.\n\nDe regering heeft de Serra da Gardunha ingedeeld in de regio van het land die het zwaarst in het vizier ligt voor megacentrales voor zonne- en windenergie — het staat in haar eigen officiële documenten. Ze kunnen er komen ZONDER milieueffectbeoordeling, op slechts 200 m van woningen.\n\nDe openbare raadpleging sluit op 15 juli en elk bezwaar moet volgens de wet in overweging worden genomen. Het kost 2 minuten.\n\nLees er alles over en maak bezwaar 👉 salvargardunha.com',
+      vs_h:'⚡ Snelle reactie',
+      vs_txt:'🌄 De Serra da Gardunha is niet te koop — maak uiterlijk 15 juli bezwaar tegen de megacentrales voor zonne- en windenergie 👉 salvargardunha.com',
+      dm_h:'✉️ Bericht voor pagina’s en makers (DM)',
+      dm_txt:'Hallo! Wij zijn buren die de campagne salvargardunha.com zijn begonnen, tegen de megacentrales voor zonne- en windenergie op de Serra da Gardunha. De openbare raadpleging sluit op 15 juli. Omdat jullie een groot publiek in de regio hebben, zou het een enorme hulp zijn als jullie dit zouden kunnen delen. Bedankt voor alles wat jullie voor onze streek doen! 🌄',
+      dm2_h:'✉️ Bericht — vragen om te delen',
+      dm2_txt:'Hallo! 🌄 Kunnen jullie de Serra da Gardunha helpen? We hebben salvargardunha.com gemaakt, een site die stap voor stap uitlegt hoe je bezwaar maakt in de openbare raadpleging (die sluit op 15 juli) en hoe je de petitie tekent. Het zou een enorme hulp zijn als jullie deze link met jullie volgers zouden delen. Bedankt voor alles wat jullie voor onze streek doen!',
+      dm3_h:'✉️ Persoonlijk bericht (DM)',
+      dm3_txt:'Hallo João. Ik heb Salvargardunha.com gemaakt zodat mensen zich heel makkelijk kunnen informeren over het project van de zonnecentrales en snel in actie kunnen komen. De site legt tot in detail uit welke stappen je zet om de petitie te tekenen. Als je het kunt delen, help je enorm. Bedankt! 🌄',
+      s1_k:'Wie al strijdt', s1_h:'Bewegingen en organisaties — neem contact op, sluit je aan, deel',
+      s1_p:'Deze groepen verzetten zich al publiekelijk tegen de megacentrales voor zonne- en windenergie en tegen de versnellingsgebieden (ZAER) in de regio. Het zijn de waardevolste bondgenoten — velen hebben al adviezen, petities en inzendingen voor de raadpleging ingediend.',
+      d_gsul:'De beweging in de frontlinie, uit Vale de Prazeres / Mata da Rainha (Fundão). Ze organiseerde de protesten tegen de megacentrale “Sophia”, pal op onze berg.',
+      d_cbc:'Burgerbeweging uit de Cova da Beira (Fundão/Covilhã) voor de veerkracht van het gebied. Organiseerde mee de demonstraties en heeft een eigen website met een manifest.',
+      d_cpbb:'Burgerbeweging die een kritische inzending heeft ingediend over het PSZAER zelf — niet alleen over afzonderlijke projecten. Actief op sociale media.',
+      d_pnti:'Initiatiefnemer van de petitie in het parlement tegen de centrales “Sophia” en “Beira” en van de nationale demonstratie in Lissabon. De best georganiseerde actie in de regio.',
+      d_quercus:'Regionale afdeling van de grootste milieu-ngo van het land. Heeft zich al formeel verzet tegen de centrales in de Beira Baixa en eist een regionale milieubeoordeling.',
+      d_rewild:'Diende een officieel standpunt in tegen het project “Sophia” en de bijbehorende 400 kV-lijnen, vanwege de gevolgen voor de ecologische verbondenheid en voor 231 soorten gewervelde dieren.',
+      d_mejs:'Nationaal platform van burgerbewegingen tegen megaprojecten voor zonne- en windenergie, dat de groepen uit de Beira Baixa verbindt met die uit de Alentejo en de Algarve en een goede ruimtelijke ordening van hernieuwbare energie eist.',
+      d_spea:'Partner van BirdLife in Portugal en de nationale autoriteit op het gebied van vogelsterfte door elektriciteitslijnen — een centraal argument tegen de lijnen van de centrales.',
+      d_geota:'Ngo voor ruimtelijke ordening die eerst een plan voor hernieuwbare energie wil, met voorrang voor daken en energiegemeenschappen — precies de kritiek op het PSZAER.',
+      d_camin:'Bergvereniging die als missie heeft de Serra da Gardunha te verdedigen en op te waarderen. Een grote lokale achterban die houdt van de berg die we willen beschermen.',
+      s1_note:'Persoonlijke contactgegevens (mobiele nummers van activisten) publiceren we hier niet, uit respect voor de privacy — gebruik de pagina’s en de petitie hierboven.',
+      s2_k:'Lokale bestuurders van de gemeenten', s2_h:'De lokale bestuurders van de gemeenten en hun standpunt in deze kwestie',
+      s2_p:'Deze gemeenten hebben zich al verzet tegen het PSZAER of tegen de megacentrales — met een formeel advies of een publiek standpunt. Het zijn natuurlijke bondgenoten — het loont de moeite ze te vragen hun standpunt kracht bij te zetten en uit te dragen.',
+      dep_k:'Leden van het Portugese parlement', dep_h:'Parlementsleden gekozen voor Castelo Branco — bij hen ligt het nationale debat',
+      dep_p:'Het PSZAER is een nationaal programma. En zodra de petitie meer dan 7 500 handtekeningen telt, moet er een debat komen in de plenaire vergadering van het parlement. Dit zijn de parlementsleden die gekozen zijn in het kiesdistrict Castelo Branco — schrijf ze en vraag hen de kwestie aan te kaarten en de berg te verdedigen.',
+      dep_fazenda:'Lijsttrekker van de PS in Castelo Branco en oud-staatssecretaris van Toerisme. Hij was de eerste ondertekenaar van schriftelijke vragen van de PS (nov. 2025) waarin de regering wordt bevraagd over de zonne-megacentrales Sophia en Beira, met de eis van een effectbeoordeling, raadpleging van de bevolking en bescherming van het kurkeikenlandschap (montado) en de bodem.',
+      dep_ribeiro:'Parlementslid van CHEGA voor Castelo Branco, geboren in de Beira Baixa. Heeft zich op sociale media uitgesproken tegen de megacentrales — en is een van de makkelijkst bereikbare parlementsleden.',
+      dep_write:'Schrijven (parlement) →', dep_note:'Portugese parlementsleden publiceren geen direct e-mailadres — “Schrijven (parlement)” opent het officiële contactformulier van het parlement voor dat parlementslid. Alternatief via de fractie: het formulier van de PSD-fractie of psd@psd.pt.',
+      dep_aires:'Parlementslid van PSD/AD voor Castelo Branco en oud-burgemeester van Vila de Rei. Geen bekend publiek standpunt over het PSZAER.',
+      dep_cipriano:'Parlementslid van PSD/AD voor Castelo Branco (nam de zetel van Pedro Reis over). Geen bekend publiek standpunt over het PSZAER.',
+      tag_no:'Maakte bezwaar',
+      c_pres:'Burgemeester',
+      d_idanha:'Een van de gemeenten van “Sophia”. Maakte bezwaar tegen het PSZAER; het voorstel schendt haar gemeentelijk bestemmingsplan (PDM) en het Geopark Naturtejo.',
+      d_serta:'Maakte bezwaar tegen het PSZAER: wijst de “buitensporige concentratie van nieuwe infrastructuur” af in een milieugevoelig gebied met een hoge landschappelijke waarde. Burgemeester Carlos Miranda: “de energietransitie wordt alleen echt duurzaam als ze elk gebied respecteert en tot zijn recht laat komen.”',
+      d_oleiros:'Maakte ook bezwaar, met een beroep op de bijzondere milieukenmerken van het gebied.',
+      d_fundao:'Een van de gemeenten die de Serra da Gardunha delen. Maakte bezwaar tegen de megacentrale “Sophia” en wees op overlappingen in het PSZAER (uitbreiding van industriezone UE2), met de eis het irrigatiegebied Gardunha Sul te beschermen. Nog geen algemeen advies over de PSZAER-raadpleging.',
+      d_cbmun:'De andere gemeente op de Gardunha. Nam unaniem een voorzorgsmotie aan (nov. 2025) en verzette zich tegen het wind- en zonneproject van Eurowind op de berg — de burgemeester liet weten het er “absoluut mee oneens” te zijn en sloeg pachtaanbiedingen af. Nog geen formeel advies over de PSZAER-raadpleging.',
+      s3_k:'Regionale pers', s3_h:'Kranten, radiozenders en portalen — vraag ze erover te berichten',
+      s3_p:'Media uit de Beira Baixa en het binnenland, waarvan sommige al over de raadpleging berichten. Ben je journalist? Alle feiten in deze campagne komen uit de <a href="/read/">officiële documenten</a>. Stuur ze de pagina en de samenvatting.',
+      tag_cov:'Berichtte al',
+      tag_no_sophia:'Maakte bezwaar (Sophia)',
+      tag_opp_plants:'Tegen de megacentrales',
+      d_penamacor:'Ook in het gebied van de megacentrale “Sophia”. Bracht een ongunstig advies uit over het project (nov. 2025), met een beroep op cumulatieve effecten, het natuurreservaat Serra da Malcata en het keurmerk voor duurzaam toerisme “Terras do Lince”.',
+      d_proenca:'De burgemeester, João Lobo, is voorzitter van de CIM da Beira Baixa en sprak namens de acht gemeenten tegen het opleggen van de megacentrales: “we wijzen niet af om af te wijzen, maar we laten ons ook niets opleggen”. Het PSZAER brengt meer dan 25% van de gemeente in kaart voor zonne-energie.',
+      tag_opp_gard:'Tegen de centrale op de Gardunha',
+      role_vp:'Locoburgemeester',
+      role_ver:'Wethouder',
+      role_opp:'Oppositie',
+      act_opp:'Is tegen',
+      d_jf:'Weekblad gevestigd in Fundão, aan de voet van de Gardunha — het epicentrum van de campagne.',
+      d_reconq:'Het grootste weekblad van het district Castelo Branco (sinds 1945).',
+      d_ndc:'Publiceerde al over het PSZAER en over de demonstraties tegen de megacentrales.',
+      d_ddcb:'Berichtte over “Sophia” en het PSZAER (“laat kaartmateriaal weg”). Actief rond de energieconflicten in het district.',
+      d_rcb:'Radiozender uit Fundão waarvan de zendmast op de Serra da Gardunha zelf staat. Zond al “Het binnenland is niet te koop” uit.',
+      d_rcastelo:'Bericht over Castelo Branco, Idanha-a-Nova, Penamacor, Proença, Oleiros en Vila Velha de Ródão — gemeenten in de ZAER.',
+      d_rcovilha:'Radio en online nieuws uit Covilhã / Cova da Beira.',
+      d_bbtv:'Regionale web-tv in Castelo Branco; verspreidde al het persbericht van de CPBB tegen de ZAER.',
+      l_news:'Artikel →', l_sign:'Teken de petitie →', l_contact:'Contactgegevens →', l_contact2:'Contact →', l_site:'Website →',
+      c_lbl:'Contact', c_dm:'direct bericht op de pagina hierboven (DM)', c_viapet:'via de petitie of een lokale beweging',
+      msg_h:'📰 Bericht voor de pers',
+      msg_p:'“Goedemiddag. De openbare raadpleging over het PSZAER — dat de Serra da Gardunha plaatst in de regio van het land die het zwaarst in het vizier ligt voor zonne-megacentrales — loopt bijna af. We hebben de feiten verzameld, allemaal uit de officiële documenten van de regering, en de vertaling van de 12 documenten op salvargardunha.com gezet. Voor vragen staan we graag tot uw beschikking.”',
+      s4_k:'Waar je kunt delen', s4_h:'Pagina’s en gemeenschappen met een groot bereik in de regio',
+      s4_p:'Deel de campagne (of reageer met de link) op deze pagina’s, groepen en accounts. Eén keer delen op een grote pagina uit de Beira Baixa bereikt duizenden buren.',
+      d_bbterras:'Gemeenschapspagina van de Beira Baixa, met veel content over de Gardunha.',
+      d_igbbtv:'Video- en media-account uit de Beira Baixa — het grootste algemene regionale publiek dat we vonden.',
+      d_igestrela:'Groot account over landschap en ecotoerisme in het binnenland, met oog voor duurzaamheid.',
+      d_igbbpt:'Promotieaccount van de Beira Baixa — “Waar de zon en het geluk geboren worden”.',
+      d_igvisit:'Toerismeaccounts van de twee gemeenten die de berg delen.',
+      d_iggeo:'UNESCO-Geopark dat 7 gemeenten van de Beira Baixa omvat — een natuurbewust publiek.',
+      d_ytrcb:'Kanaal van de radiozender uit Fundão; zendt uit naar alle getroffen gemeenten.',
+      d_ytrec:'De videotak van het weekblad van het district.',
+      d_coop:'De kersengemeenschap van Fundão / Gardunha — het bedreigde land is van hen.',
+      sub_fb:'📘 Facebook — groepen en pagina’s', grp_h:'Koop-en-verkoopgroepen en advertentiegroepen', grp_p:'Hier maakt delen het meeste verschil. Post of reageer met de link in deze lokale marktplaatsgroepen:', grp2_h:'Dorps- en gemeenschapsgroepen', grp2_p:'Groepen van de dorpen en gemeenten rond de berg — deel in je eigen woonplaats:', sub_ig:'📸 Instagram', sub_yt:'▶️ YouTube',
+      sub_posts:'📱 Posts en reels — like, reageer en deel', p_intro:'Content van de gemeenschap over de berg. Interactie (liken, reageren, delen) zorgt ervoor dat het algoritme die aan meer mensen laat zien — een van de nuttigste dingen die je in een paar seconden kunt doen.', p_reel1:'Korte video over de bedreiging van de Gardunha — like, reageer en deel.', p_reel2:'Lokale maker met video’s over de regio — reageer en deel de video’s die over de berg gaan.', p_post1:'Bericht in een grote regionale groep — reageer met de link van de campagne en like het.', p_creator1:'Lokale pagina met een groot bereik in de regio — volg en deel de content over de berg.', sub_people:'🧑‍🌾 Mensen en lokale stemmen', p_people:'Buren die zich actief inzetten voor de berg. Volg ze, reageer en deel wat ze over de Gardunha posten.',
+      d_grp1:'Regionale gemeenschapsgroep — deel en reageer met de link.', d_grp2:'Regionale gemeenschapsgroep — deel en reageer met de link.',
+      d_ytbbtv:'Regionale web-tv in Castelo Branco; berichtte al over het onderwerp.',
+      s4_note:'Tip: zit je in een lokale Facebookgroep voor kopen en verkopen of van je dorp? Daar maakt delen het meeste verschil. Zoek de groepen van je deelgemeente en deel daar.',
+      s6_k:'Deelgemeentebesturen', s6_h:'Deelgemeentebesturen rond de Gardunha — vraag ze stelling te nemen', s6_p:'Zij zijn het bestuur dat het dichtst bij de bedreigde dorpen staat. Schrijf ze of reageer op hun pagina’s met de vraag zich uit te spreken tegen het PSZAER en de raadpleging en de petitie onder de inwoners bekend te maken. De deelgemeenten op de berg zelf staan bovenaan.',
+      jf_fundao_p:'De deelgemeenten die de berg omarmen — het meest direct getroffen.', jf_cb_p:'De zuidhelling van de berg en de dorpen in de vlakte.', jf_cov_p:'De noordhelling, met zicht op de Cova da Beira.',
+      jf_lc:'✅ Tot nu toe heeft maar één deelgemeentebestuur zich publiekelijk uitgesproken: <b>Louriçal do Campo</b> — voorzitter Gorete Serra verzette zich tegen de centrales op de zuidhelling van de Gardunha (“ik wil een Gardunha vol mensen, niet vol panelen”) en riep op om deel te nemen aan de raadpleging. <a href="https://www.diariodigitalcastelobranco.pt/noticia/72138/castelo-branco-lourical-do-campo-apela-a-mobilizacao-da-populacao-contra-instalacao-de-centrais-fotovoltaicas-na-serra-da-gardunha" target="_blank" rel="noopener">artikel →</a> De andere nog niet — en juist daarom loont het om ze onder druk te zetten.',
+      s7_k:'In het nieuws', s7_h:'Al in de media verschenen — gebruik het als bewijs in je reacties', s7_p:'Openbare nieuwsberichten die blijvend online staan, over het verzet tegen de megacentrales en tegen het PSZAER. Citeer of deel ze — ze laten zien dat dit geen losse mening is, maar breed gedragen verzet.',
+      n_rtp:'Videoreportage: “Tegen zonne-megacentrales — de zon is van wie haar verdient en het land van wie het bewerkt.”', n_rr:'“Demonstranten protesteren in Fundão tegen de bouw van een fotovoltaïsche centrale.”', n_obs:'“Burgerplatform overhandigt in Idanha-a-Nova manifest tegen zonneprojecten.”', n_pub:'De concrete gevallen die gemeenten inbrengen tegen de kaart van hernieuwbare energie.', n_ndc:'“Demonstratie tegen de zonne-megacentrales in de Beira Baixa.”', n_ddcb:'Louriçal do Campo roept op tot mobilisatie tegen de fotovoltaïsche centrales op de Serra da Gardunha.', n_rew:'Officieel standpunt tegen het project Sophia: “als de prijs die we betalen de biodiversiteit zelf is, noem het dan geen groene energie.”',
+      s5_k:'Ben je maker, journalist of lid van een groep?', s5_h:'Help ons meer mensen te bereiken',
+      s5_p:'Heb je een pagina, een kanaal of een publiek in de regio — of hoor je bij een van deze groepen? Dan is het nuttigste wat je kunt doen: <b>de campagne delen en je achterban uitleggen hoe ze bezwaar maken</b>. Elk bezwaar moet volgens de wet in overweging worden genomen.',
+      s5_cta1:'Zo maak je bezwaar →', s5_cta2:'Lees de officiële documenten',
+      fcol_campaign:'De campagne', fcol_docs:'Documenten en gegevens', fcol_official:'Officiële bronnen', fl_home:'Home', fl_act:'Reageer in de raadpleging', fl_share:'Vertel het verder', fl_readdocs:'Documenten in het Engels', fl_obj:'De 172 bezwaren', fl_maps:'De kaarten van de gebieden', foot_about:'Begrijp het proces — wie beslist', fl_consulta:'PSZAER-raadpleging (participa.pt)', fl_petition:'Petitie in het parlement', fl_emer:'Renováveis Participa (EMER)',
+      f_read:'Documenten in het Engels',
+      a_src:'Bron',
+      f_disc:'Overzicht samengesteld op basis van openbaar onderzoek (nieuws, websites en sociale media). De links gaan naar openbare pagina’s; we publiceren geen privécontactgegevens. Sommige gegevens (accounts, aantallen volgers) kunnen verouderd zijn — controleer ze voordat je ze gebruikt. Informatieve, maatschappelijke pagina zonder winstoogmerk, niet verbonden aan een partij, bedrijf of overheidsinstantie. Deze groepen en media worden ter referentie genoemd; dat betekent niet dat ze deze specifieke pagina steunen.'
     }
   };
   var PT={}; document.querySelectorAll('[data-i18n]').forEach(function(el){PT[el.getAttribute('data-i18n')]=el.innerHTML;});
@@ -665,7 +767,7 @@ Sabe tudo e objeta 👉 salvargardunha.com</p><button class="btn btn-primary msg
     localStorage.setItem('nf_lang',l);
   }
   document.querySelectorAll('#langsw button').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang'));});});
-  var COPIED={pt:'Copiado ✓',en:'Copied ✓',de:'Kopiert ✓',fr:'Copié ✓'};
+  var COPIED={pt:'Copiado ✓',en:'Copied ✓',de:'Kopiert ✓',fr:'Copié ✓',nl:'Gekopieerd ✓'};
   document.querySelectorAll('.copybtn').forEach(function(b){
     b.addEventListener('click',function(){
       var t=document.querySelector(b.getAttribute('data-copy'));

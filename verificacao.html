@@ -11,6 +11,7 @@
 <link rel="alternate" hreflang="en" href="https://salvargardunha.com/en/verificacao">
 <link rel="alternate" hreflang="de" href="https://salvargardunha.com/de/verificacao">
 <link rel="alternate" hreflang="fr" href="https://salvargardunha.com/fr/verificacao">
+<link rel="alternate" hreflang="nl" href="https://salvargardunha.com/nl/verificacao">
 <link rel="alternate" hreflang="x-default" href="https://salvargardunha.com/verificacao">
 <script src="/lang-url.js"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
@@ -79,7 +80,7 @@
 </head>
 <body>
 
-<div class="top"><div class="wrap"><a href="/" data-i18n="top_home">← salvargardunha.com</a> · <a href="/map" data-i18n="top_map">Mapa verificado</a> · <a href="/read/" data-i18n="top_docs">Documentos</a><span class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></span></div></div>
+<div class="top"><div class="wrap"><a href="/" data-i18n="top_home">← salvargardunha.com</a> · <a href="/map" data-i18n="top_map">Mapa verificado</a> · <a href="/read/" data-i18n="top_docs">Documentos</a><span class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button><button data-lang="nl">NL</button></span></div></div>
 
 <header>
   <div class="wrap">
@@ -248,7 +249,7 @@
 
 <script>
 (function(){
-  var LANGS=['pt','en','de','fr'];
+  var LANGS=['pt','en','de','fr','nl'];
   var DATA_URL='/dados/data.json';
   var I18N={
     en:{
@@ -439,6 +440,69 @@
       cta1:'Voir la carte →', cta2:'Retour à la campagne',
       foot_made:'Fait par des voisins de la Beira Baixa qui veulent la serra debout. · <a href="/">salvargardunha.com</a>',
       disc:'Page de méthode de la carte vérifiée. Tous les chiffres sont recalculés chaque semaine à partir des registres publics cités. Informative, civique, sans but lucratif, non affiliée à un parti, une entreprise ou une entité publique.'
+    },
+    nl:{
+      top_home:'← salvargardunha.com', top_map:'De geverifieerde kaart', top_docs:'Documenten',
+      eyebrow:'Methode · hoe we weten wat we weten',
+      h1:'Hoe deze kaart is geverifieerd',
+      lede:'“Geverifieerd” betekent hier niet dat iemand een stempel op de gegevens heeft gezet. Het betekent dat <b>vier onafhankelijke registers</b>, bijgehouden door instanties die nooit met elkaar hebben gesproken, hetzelfde zeggen — en dat de afstand tussen hun antwoorden is gemeten.',
+      s1_kick:'Het uitgangspunt', s1_h2:'Wie telt de windturbines?',
+      s1_p1:'Er bestaat in Portugal geen enkele officiële lijst die zegt: “dit zijn alle windturbines, op deze coördinaten, ter plaatse bevestigd”. Er zijn <b>twee</b> lijsten, gemaakt om totaal verschillende redenen, door mensen die nooit met elkaar hebben gesproken. Juist dat maakt ze bruikbaar.',
+      s1_p2:'De ene wordt gemaakt door vrijwilligers die naar satellietbeelden kijken. De andere door de staat, omdat wie elektriciteit opwekt een vergunning nodig heeft. <b>Geen van beide volstaat op zichzelf.</b> Samen verifiëren ze elkaar.',
+      s2_kick:'Bron 1', s2_h2:'OpenStreetMap — vrijwilligers die satellietbeelden overtrekken',
+      s2_p1:'OpenStreetMap is de Wikipedia van de kaarten. Iedereen kan de editor openen, de satellietbeelden laden, de onmiskenbare kenmerken van een windturbine herkennen — de mast, de drie wieken, de lange schaduw — en een punt plaatsen met de tags <b>power=generator</b> en <b>generator:source=wind</b>. Sommigen brengen ook ter plaatse in kaart, met gps.',
+      s2_p2:'En wie bevestigt het? <b>Niemand, officieel.</b> Dat is het eerlijke antwoord. De kwaliteit van OpenStreetMap komt niet van een autoriteit die er een stempel op zet: ze komt doordat alles openbaar is en door iedereen kan worden herschreven. Elke bewerking wordt vastgelegd met de naam van wie ze maakte en de datum, en iedereen kan naar hetzelfde beeld kijken en corrigeren of verwijderen wat fout is.',
+      s2_p3:'Het helpt dat een windturbine een van de makkelijkst herkenbare objecten ter wereld is: enorm, alleenstaand, met veel contrast en met een schaduw die je met niets anders kunt verwarren. Gebouwen worden voortdurend verkeerd in kaart gebracht; windturbines zelden.',
+      s2_p4:'Wat OSM bewijst: dat daar fysiek een mast staat. Op zichzelf blijft het een onbevestigde bewering. Uit OSM komen ook de omtrekken van de parken, de exploitanten, de modellen en de hoogtes — gegevens die de DGEG niet publiceert. Het wordt opgehaald via de Overpass-API, binnen een kader van 39,85° tot 40,30° noorderbreedte en van 7,20° tot 7,90° westerlengte, rond het gebergte.',
+      s3_kick:'Bron 2', s3_h2:'DGEG — het vergunningenregister van de staat',
+      s3_p1:'Het Directoraat-Generaal voor Energie en Geologie is de toezichthouder van de sector. Elke centrale die elektriciteit opwekt, heeft een vergunning nodig, en de DGEG publiceert die vergunningen via een open kaartdienst: <b>één polygoon per turbineblok</b>, met dossiernummer, eigenaar, vermogen in kW en de datum van ingebruikname.',
+      s3_p2:'Hier is er wél iemand die bevestigt: de <b>staat</b>, als voorwaarde om de centrale te mogen laten draaien. Het is niet de bewering van een vrijwilliger — het is een wettelijk register met de naam van de projectontwikkelaar erin.',
+      s3_p3:'Wat de DGEG bewijst: dat er op die plek een vergunning bestaat. Het bewijst niet dat er ook gebouwd is. <b>Papier is geen beton.</b>',
+      s4_kick:'Bronnen 3 en 4', s4_h2:'De second opinion, en de vorm van wat nog niet bestaat',
+      s4_p1:'<b>INEGI e2p</b> — Energias Endógenas de Portugal, bijgehouden door de Universiteit van Porto. Eén punt per centrale, zonder turbineposities: naam, projectontwikkelaar, geïnstalleerd vermogen, jaar. Het wordt samengesteld uit gegevens van de projectontwikkelaars en de DGEG, maar apart bijgehouden — dus wanneer het overeenkomt in naam en vermogen, is dat een echte bevestiging en geen kopie. Het dient alleen om parken te staven; het plaatst nooit iets op de kaart.',
+      s4_p2:'<b>APA / SNIAmb</b> — het Portugese Milieuagentschap. Elk project waarvoor een milieueffectbeoordeling verplicht is, dient een polygoon van het studiegebied in. Het is de enige openbare bron die projecten die nog gebouwd moeten worden een <b>echte vorm</b> geeft, in plaats van een bijvoeglijk naamwoord uit een persbericht. Daar komen de geplande projecten vandaan die op de kaart zijn getekend.',
+      s5_kick:'Waarom vergelijken', s5_h2:'Waarom overeenstemming als verificatie telt',
+      th_src:'Bron', th_proves:'Wat het bewijst', th_weak:'Wat het niet bewijst',
+      r1_a:'<b>OpenStreetMap</b>', r1_b:'Dat er een mast staat, zichtbaar op satellietbeelden', r1_c:'Dat die legaal is, of dat iemand met gezag de positie heeft bevestigd',
+      r2_a:'<b>DGEG-register</b>', r2_b:'Dat er een vergunning bestaat, met dossiernummer en eigenaar', r2_c:'Dat er ook echt gebouwd is — een vergunning is papier',
+      s5_p1:'De twee zwakke punten heffen elkaar op. Een vrijwilliger die in een ander land satellietbeelden overtrekt en een technisch medewerker die in Lissabon vergunningspolygonen archiveert, <b>kunnen onmogelijk van elkaar overschrijven</b>: om de vergelijking te laten misleiden, zouden ze allebei op dezelfde plek fout moeten zitten, tot op de meter. Dat is wat een verificatie onderscheidt van een bewering.',
+      s6_kick:'De test', s6_h2:'De vergelijking, turbine voor turbine',
+      st1_t:'Zoek het dichtstbijzijnde vergunde blok',
+      st1_p:'Voor elke windturbine uit OpenStreetMap wordt de afstand tot alle blokken in het DGEG-register berekend, en het dichtstbijzijnde blok wordt bewaard.',
+      st2_t:'Binnen 250 meter is het dezelfde turbine',
+      st2_p:'De tolerantie is een keuze, en daarom wordt ze vermeld: de DGEG-polygoon is een vergunningsblok en het OSM-punt is de overgetrokken mast — ze zijn nooit bedoeld om op de centimeter overeen te komen.',
+      st3_t:'<b data-stat="turbines_confirmed">224</b> van de <b data-stat="turbines">229</b> komen overeen',
+      st3_p:'De mediane afwijking tussen de twee bronnen is <b data-stat="median_offset_m">1</b> m; het slechtste paar ligt <b data-stat="max_offset_m">232</b> m uit elkaar. De helft van de paren ligt minder dan een meter uit elkaar — minder dan de breedte van de mastvoet die ze allebei beschrijven.',
+      st4_t:'Wat niet overeenkomt, wordt ook zo gemarkeerd',
+      st4_p:'<b data-stat="unmatched">5</b> OSM-turbines hebben geen vergunning binnen 250 m. Op de kaart staat hun positie gemarkeerd als <b>niet geverifieerd</b> — ze worden niet verborgen en ook niet als bevestigd meegeteld.',
+      s6_note:'<b>Eerlijkheidshalve over het maximum:</b> die <b data-stat="max_offset_m">232</b> m worden begrensd door de tolerantie zelf. Boven 250 m telt niets als een “slechte” overeenkomst — het telt als geen overeenkomst. Wat de mediane afwijking van <b data-stat="median_offset_m">1</b> m laat zien, is dat de overgrote meerderheid van de paren niet tegen de grens aan zit: de punten liggen bovenop elkaar.',
+      s7_kick:'De omgekeerde richting', s7_h2:'De roze windturbines <span class="pinkdot"></span>',
+      s7_p1:'Dezelfde test omgekeerd: <b data-stat="dgeg_only">19</b> windturbines staan in het DGEG-register zonder enige tegenhanger in OpenStreetMap. De meest waarschijnlijke verklaring is <b>recente bouw</b> — de satellietbeelden waarover vrijwilligers beschikken, lopen achter op de werkelijkheid, soms met meer dan een jaar. Ze staan in het roze op de kaart, met een label dat precies dat zegt: opgenomen in het officiële register, nog niet gezien door een tweede bron.',
+      s8_kick:'Op parkniveau', s8_h2:'<b data-stat="plants_confirmed">35</b> van de <b data-stat="plants">37</b> parken onafhankelijk bevestigd',
+      s8_p1:'Hetzelfde idee, een verdieping hoger. Elk OSM-park wordt gekoppeld aan een DGEG-park — op basis van hoeveel van zijn turbines overeenkwamen en onder welke naam — en aan het e2p-register van INEGI, op basis van nabijheid en type. Parken zonder onafhankelijke bevestiging steunen alleen op OSM, en het infovenster op de kaart vermeldt dat ook.',
+      s9_kick:'Gebouwd, of alleen goedgekeurd', s9_h2:'Hoe we weten of een goedgekeurd project ook echt gebouwd is',
+      s9_p1:'Dit is een andere vraag, en die beantwoord je met geometrie. De APA publiceert het studiegebied van elk project. De vraag wordt dan: <b>staat er binnen die polygoon een windturbine of zonneblok met een DGEG-vergunning?</b>',
+      s9_l1:'Er staat iets binnen → <b>gebouwd</b>.',
+      s9_l2:'Er staat helemaal niets → <b>goedgekeurd en nog niet gebouwd</b>. Dit is de interessante categorie: de toestemming bestaat, de berg staat er nog.',
+      s9_l3:'Geen polygoon gepubliceerd, of het project bestaat uit lijnen en onderstations (die het centraleregister van de DGEG niet dekt) → <b>dat valt niet te zeggen</b>, en dat is ook wat er staat. Beter het toegeven dan iets suggereren.',
+      s9_p2:'Een project dat half gebouwd is, leest als nog niet gebouwd. Het is een <b>afleiding</b>, geen bewijsstuk — en de kaart vermeldt het ook als zodanig.',
+      s10_kick:'De routine', s10_h2:'Wat er draait, en hoe vaak',
+      s10_p1:'Eén keer per week, op de server, altijd in dezelfde volgorde: de geometrie en de tags uit OpenStreetMap ophalen; het vergunningenregister van de DGEG ophalen; e2p van INEGI ophalen; alles met elkaar vergelijken en de afwijkingen meten; de studiegebieden van de APA ophalen; bepalen wat er gebouwd is; de afgebrande gebieden van 2011 tot 2025 ophalen; één enkel gegevensbestand schrijven.',
+      s10_p2:'Elke stap overschrijft zijn eigen uitvoer — niets stapelt zich op, niets blijft achter van een vorige week. De kaart rekent niets uit: ze tekent alleen dat bestand. Laatste herberekening: <b data-stat="built">—</b>.',
+      s11_kick:'De grenzen', s11_h2:'Wat dit niet bewijst',
+      lim1:'De tolerantie van <b>250 m</b> is een methodologische keuze. Strenger, en sommige paren zouden niet meer overeenkomen; ruimer, en er zouden er meer overeenkomen. De waarde wordt juist vermeld zodat de test met een andere waarde kan worden herhaald.',
+      lim2:'<b>“Goedgekeurd en nog niet gebouwd”</b> is een afleiding uit het ontbreken van een registratie, geen bewijsstuk dat er niets is gebouwd.',
+      lim3:'De gegevens zijn een <b>wekelijkse momentopname</b>. Een vergunning die gisteren is verleend, verschijnt pas bij de volgende herberekening.',
+      s11_p:'De volledige lijst van de beperkingen van de kaart — de APA-laag die stopt bij dossier nr. 3762, de omtrekken die convexe omhulsels van de turbines zijn en geen wettelijke grenzen, de lijnen en onderstations die niet in het centraleregister staan — vind je onderaan de <a href="/map">kaartpagina</a> zelf.',
+      s12_kick:'Herhaal de test', s12_h2:'Elke bron is openbaar',
+      s12_p:'Niets hiervan hangt af van bevoorrechte toegang. Alle vier de registers zijn voor iedereen toegankelijk — daarom staan de adressen hier. Wie de vergelijking wil overdoen, met een andere tolerantie of een ander gebied, komt op dezelfde getallen uit.',
+      src_dgeg:'· het vergunningenregister, één polygoon per blok',
+      src_osm:'· via de Overpass-API',
+      src_apa:'· dossiers van milieueffectbeoordelingen en studiegebieden',
+      src_inegi:'· academisch register, één punt per centrale',
+      cta1:'Bekijk de kaart →', cta2:'Terug naar de campagne',
+      foot_made:'Gemaakt door buren uit de Beira Baixa die de berg overeind willen houden. · <a href="/">salvargardunha.com</a>',
+      disc:'Methodepagina van de geverifieerde kaart. Alle getallen worden wekelijks opnieuw berekend uit de hierboven genoemde openbare registers. Informatief en maatschappelijk, zonder winstoogmerk, niet verbonden aan enige partij, enig bedrijf of enige overheidsinstantie.'
     }
   };
 

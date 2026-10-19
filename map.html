@@ -10,6 +10,7 @@
 <link rel="alternate" hreflang="en" href="https://salvargardunha.com/en/map">
 <link rel="alternate" hreflang="de" href="https://salvargardunha.com/de/map">
 <link rel="alternate" hreflang="fr" href="https://salvargardunha.com/fr/map">
+<link rel="alternate" hreflang="nl" href="https://salvargardunha.com/nl/map">
 <link rel="alternate" hreflang="x-default" href="https://salvargardunha.com/map">
 <script src="/lang-url.js"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
@@ -240,7 +241,7 @@
 <body>
 <div id="map"></div>
 
-<div id="topctrls"><span class="langsw" id="langsw"><button data-l="pt">PT</button><button data-l="en">EN</button><button data-l="de">DE</button><button data-l="fr">FR</button></span>
+<div id="topctrls"><span class="langsw" id="langsw"><button data-l="pt">PT</button><button data-l="en">EN</button><button data-l="de">DE</button><button data-l="fr">FR</button><button data-l="nl">NL</button></span>
 <span class="sep" aria-hidden="true"></span>
 <button id="panelBtn" aria-label="Stats &amp; layers">
 <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"/></svg>
@@ -560,6 +561,77 @@ fr:{
  burn_more:'Le solaire s’installe-t-il sur des terres brûlées ? La superposition mesurée dans tout le pays, et ce qu’elle montre →',
  method_more:'Qui compte les éoliennes, qui les confirme et comment les quatre sources sont recoupées — la méthode, pas à pas →',
  fdisc:'Fait par des voisins de la Beira Baixa qui veulent garder la montagne debout. Page informative, citoyenne, à but non lucratif, non affiliée à un parti, une entreprise ou un organisme public.'
+},
+nl:{
+ top_home:'← salvargardunha.com', top_maps:'Officiële kaarten', top_docs:'Documenten', top_obj:'De 172 bezwaren',
+ eyebrow:'Geverifieerde gegevens · officiële registers',
+ h1:'De kaart die de regering niet publiceerde',
+ lede:'Alle windparken en zonnecentrales rond de Serra da Gardunha die <b>al gebouwd, vergund en goedgekeurd</b> zijn, met de positie van elke windturbine. Samengesteld uit de officiële registers en geverifieerd door die registers met elkaar te vergelijken.',
+ callout:'⚠️ <b>Geen enkele coördinaat is verzonnen.</b> Elke positie komt uit een openbaar register. Projecten die op papier bestaan maar geen gepubliceerde geometrie hebben, staan in de lijst en zijn gemarkeerd als <b>zonder locatie</b> — ze worden niet ergens op een plausibele plek neergezet.',
+ loading:'Gegevens laden…',
+ zoomhint:'Klik op de kaart om met het scrollwiel te zoomen',
+ detailhint:'Elke windturbine verschijnt als je inzoomt. Op landniveau zijn alleen de gebieden van de parken te zien.',
+ k_turb:'windturbines in kaart gebracht', k_conf:'bevestigd in twee bronnen', k_off:'mediane afwijking tussen bronnen',
+ k_only:'alleen in het DGEG-register (recent)', k_plan:'geplande projecten (APA)', k_unbuilt:'goedgekeurd en nog niet gebouwd',
+ k_lines:'geplande vermeldingen die niet bij één technologie horen — lijnen, onderstations en het programma zelf', thou:' ',
+ built_note:function(d){return 'Gegevens worden elke maandag automatisch opnieuw opgebouwd uit de officiële registers. Laatst bijgewerkt: '+d.stats.built+'.';},
+ base_map:'Kaart', base_sat:'Satelliet', base_topo:'Reliëf',
+ l_wind:'Windparken (gebied)', l_turb:'Windturbines (OSM)', l_dturb:'Windturbines alleen in het DGEG-register',
+ l_solar:'Zonnecentrales (OSM)', l_dsolar:'Zonnecentrales (DGEG)', l_plan:'Geplande projecten', l_ardnat:'Afgebrande gebieden per jaar (hele land)',
+ burn_year:'Jaar:', burn_all:'Alle',
+ burn_pop:'Afgebrand gebied',
+ burnnote:'<b>Wat deze laag laat zien.</b> De afgebrande gebieden in het hele land, <b>één jaar tegelijk</b> of <b>alle jaren samen</b> — kies hierboven. Bij “Alle” geldt: hoe ouder het jaar, hoe donkerder de vlek. De twaalf jaren worden op de achtergrond gedownload zodra de kaart opent, dus wisselen gaat meteen. Alleen vlekken van 5 ha of meer worden getoond, met contouren vereenvoudigd tot ~100 m; de weggelaten kleine vlekken zijn goed voor 0,4% tot 5% van het afgebrande gebied, afhankelijk van het jaar. Bron: ICNF.',
+ lg_turb:'windturbine (OSM + DGEG)', lg_dturb:'windturbine alleen in het DGEG-register', lg_solar:'zonnecentrale in bedrijf',
+ lg_plan:'goedgekeurd en nog niet gebouwd', lg_line:'lijn / onderstation', lg_built:'vergund en al gebouwd',
+ turbine:'Windturbine', turbine_lic:'Vergunde windturbine', noname:'zonder naam',
+ f_type:'type', f_power:'vermogen', f_operator:'exploitant', f_since:'in bedrijf sinds', f_turbines:'windturbines',
+ f_area:'oppervlakte', f_centre:'middelpunt', f_subparkof:'deelpark van', f_park:'park',
+ f_park_osm:'park (OSM)', f_height:'hoogte', f_model:'model', f_coords:'coördinaten', f_attrib:'toewijzing aan park',
+ f_owner:'eigenaar', f_blade:'rotorstraal', f_over:'opschaling', f_concelho:'gemeente', f_processo:'dossiernr.',
+ f_installed:'geïnstalleerd vermogen', f_blocks:'vergunde blokken', f_blockarea:'oppervlakte van de blokken', f_situation:'status',
+ f_aia:'MER-dossier', f_decision:'besluit', f_cp:'openbare raadpleging', f_promoter:'projectontwikkelaar',
+ f_licensor:'vergunningverlener', f_munis:'gemeenten', f_studyarea:'studiegebied',
+ f_burn:'op afgebrand gebied',
+ bw_pre:'brandde af vóór de ingebruikname', bw_post:'brandde af na de ingebruikname',
+ bw_both:'brandde af vóór en na', bw_unk:'datum van ingebruikname onbekend',
+ b_h:'Zon, wind en afgebrande gebieden',
+ dec:',', b_country:'afgebrand in het land', b_exp:'verwacht op basis van de omgeving',
+ b_ratio:function(x){return x+'× de verwachte waarde';},
+ b_cav:'Het gebied van elke centrale vergeleken met de afgebrande gebieden van het ICNF (2014–2025), en met wat er in een straal van 20 km eromheen is afgebrand. Dit meet samenvallen in ruimte en tijd — het zegt niets over de oorzaak van welke brand dan ook.',
+ wind:'windenergie', solar:'zonne-energie', pv:'fotovoltaïsche zonne-energie',
+ source:'Bron', sources:'Bronnen', src_link:'bron', to:' tot ',
+ fromcentre:function(k){return 'op '+k+' km van het OSM-middelpunt';},
+ confirmed_by:'Bevestigd door:', no_indep:'Nog niet bevestigd door een onafhankelijke bron.',
+ hull_note:'Het gebied is het convexe omhulsel van de windturbines, niet de wettelijke grens van het park.',
+ dgeg_ok:'Bevestigd door het DGEG-register:', dgeg_proc:'dossiernr.', dgeg_since:', in bedrijf sinds',
+ dgeg_offset:'Afwijking tussen de twee bronnen:',
+ dgeg_none:'Geen overeenkomst in het DGEG-register binnen 250 m — positie niet geverifieerd.',
+ dgeg_only_note:'Staat in het officiële register van de DGEG, maar nog niet in OpenStreetMap — meestal recente bouw.',
+ reg_note:'(vergunningsregister)', precision:'Nauwkeurigheid:',
+ s_unbuilt:'Goedgekeurd en nog niet gebouwd', s_nogeom:'In beoordeling of zonder gepubliceerde locatie',
+ s_lines:'Lijnen en onderstations', s_done:'Vergunningen die al ter plaatse zijn gerealiseerd',
+ s_wind:'Windparken', s_dsolar:'Zonnecentrales — DGEG-register', s_subs:'Deelwindparken',
+ s_osmsolar:'Zonnecentrales — getekend in OSM',
+ p_conf:'bevestigd', p_osmonly:'alleen OSM', p_official:'officieel',
+ m_turbines:'windturbines', m_blocks:'blokken', m_subpark:'deelpark',
+ m_nocoords:'geen gepubliceerde coördinaten',
+ sec_sources:'Waar deze gegevens vandaan komen', sec_sources_s:'Vier onafhankelijke openbare registers. Waar ze van elkaar afwijken, staat dat op de kaart.',
+ sec_method:'Hoe het is geverifieerd', sec_method_s:'Een kaart is maar zoveel waard als de verificatie ervan.',
+ method1:function(d){return 'Elke windturbine uit OpenStreetMap is één voor één vergeleken met het vergunningsregister van de DGEG, dat per blok windturbines een polygoon publiceert. <b>'+d.stats.turbines_confirmed+' van de '+d.stats.turbines+'</b> komen in beide bronnen overeen, met een mediane afwijking van <b>'+d.stats.median_offset_m+' m</b> (maximaal '+d.stats.max_offset_m+' m). Twee registers, bijgehouden door verschillende instanties voor verschillende doeleinden, komen tot op de breedte van een mast overeen.';},
+ method2:function(d){return '<b>'+d.stats.dgeg_only+'</b> windturbines staan in het officiële register maar nog niet in OpenStreetMap — recente bouw, en daarom roze getekend. '+d.stats.plants_confirmed+' van de '+d.stats.plants+' parken hebben een onafhankelijke bevestiging. Om te weten of een goedgekeurd project echt is gebouwd, wordt het studiegebied van de APA naast het register van de DGEG gelegd: als de DGEG daar niets heeft staan, is het goedgekeurd en nog niet gebouwd.';},
+ sec_limits:'Wat deze kaart niet kan zeggen', sec_limits_s:'De beperkingen, vooraf benoemd.',
+ limits:['De geometrielaag van de APA <b>houdt op bij dossiernr. 3762</b>. De recentste aanvragen (Sophia, Beira, Pinhal Interior II) staan in het register en hebben helemaal geen gepubliceerde vorm. Ze worden vermeld, zonder coördinaten.',
+   'De contouren van de windparken uit OSM zijn het <b>convexe omhulsel van de windturbines</b>, niet de wettelijke grens van het park — het vergunde gebied is meestal groter.',
+   'Lijnen en onderstations <b>staan niet</b> in het DGEG-register van centrales, dus of ze gebouwd zijn, kan hier niet worden geverifieerd.',
+   '“Goedgekeurd, nog niet gebouwd” is een afleiding: de vergunning bestaat en het vergunningsregister toont vandaag niets binnen het gebied. Een project dat half af is, komt dus over als nog niet gebouwd.',
+   'De gegevens zijn een wekelijkse momentopname, niet in realtime.'],
+ fcol_campaign:'De campagne', fcol_docs:'Documenten en gegevens', fcol_official:'Officiële bronnen',
+ fl_home:'Home', fl_act:'Reageer in de raadpleging', fl_share:'Vertel het verder', fl_map:'De geverifieerde kaart',
+ fl_maps:'De kaarten van de gebieden', foot_about:'Begrijp het proces — wie beslist', fl_obj:'De 172 bezwaren',
+ fl_method:'Hoe de kaart wordt geverifieerd',
+ burn_more:'Worden zonnecentrales gebouwd op grond die is afgebrand? De overlap gemeten in het hele land, en wat die laat zien →',
+ method_more:'Wie de windturbines telt, wie ze bevestigt en hoe de vier bronnen naast elkaar worden gelegd — de methode stap voor stap uitgelegd →',
+ fdisc:'Gemaakt door buren uit de Beira Baixa die de berg overeind willen houden. Informatieve burgerpagina zonder winstoogmerk, niet verbonden aan een partij, bedrijf of overheidsinstantie.'
 }};
 
 /* ------------------------------------- source cards (per language) */
@@ -595,7 +667,15 @@ var SRC = {
      {who:'Projets planifiés',h:'APA — SNIAmb et SIAIA',u:'https://siaia.apambiente.pt/',
       p:'Tout projet soumis à évaluation d’impact environnemental dépose un polygone d’aire d’étude. La décision, le promoteur, les communes et les dates de consultation de chaque dossier en proviennent.'},
      {who:'Deuxième avis',h:'INEGI e2p',u:'https://e2p.inegi.up.pt/',
-      p:'Registre tenu par l’Université de Porto. Un point par centrale, sans position d’éolienne. Sert uniquement à corroborer le nom, le promoteur et la puissance de chaque parc.'}]
+      p:'Registre tenu par l’Université de Porto. Un point par centrale, sans position d’éolienne. Sert uniquement à corroborer le nom, le promoteur et la puissance de chaque parc.'}],
+ nl:[{who:'Positie — de referentie',h:'DGEG — vergunningsregister',u:'https://servergeo.dgeg.gov.pt/arcgis/rest/services/Visualizadores/CE/MapServer',
+      p:'Het Directoraat-Generaal Energie en Geologie publiceert per blok windturbines en per blok zonnepanelen een polygoon, met dossiernummer, eigenaar, vermogen en datum van ingebruikname. Voor de positie is deze bron doorslaggevend.'},
+     {who:'Contouren, namen, details',h:'OpenStreetMap (Overpass)',u:'https://www.openstreetmap.org/',
+      p:'Levert wat de DGEG niet publiceert: contouren van de parken, exploitanten, modellen en hoogtes van de windturbines. Wordt voor de positie nooit op zichzelf aanvaard — altijd naast de DGEG gelegd.'},
+     {who:'Geplande projecten',h:'APA — SNIAmb en SIAIA',u:'https://siaia.apambiente.pt/',
+      p:'Elk project waarvoor een milieueffectbeoordeling verplicht is, levert een polygoon van het studiegebied aan. Daaruit komen het besluit, de projectontwikkelaar, de gemeenten en de data van de openbare raadpleging van elk dossier.'},
+     {who:'Tweede mening',h:'INEGI e2p',u:'https://e2p.inegi.up.pt/',
+      p:'Register bijgehouden door de Universiteit van Porto. Eén punt per centrale, zonder posities van windturbines. Dient alleen om naam, projectontwikkelaar en vermogen van elk park te bevestigen.'}]
 };
 
 /* ----- phrases the pipeline writes into data.json in Portuguese ---------- */
@@ -710,7 +790,44 @@ var PHRASE = {
   'Acidentais - Transportes e Comunicações':'Accidentelle — transports et lignes',
   'Acidentais - Maquinaria':'Accidentelle — machines','Acidentais - Outros':'Accidentelle — autre',
   'Uso do fogo - Fumar':'Usage du feu — cigarette','Uso do fogo - Fogueiras':'Usage du feu — feux de camp',
-  'Uso do fogo - Queima de lixo':'Usage du feu — brûlage de déchets','Uso do fogo - Outros':'Usage du feu — autre'}
+  'Uso do fogo - Queima de lixo':'Usage du feu — brûlage de déchets','Uso do fogo - Outros':'Usage du feu — autre'},
+ nl:{'submetido, sem consulta pública marcada':'ingediend, geen openbare raadpleging gepland',
+  'consulta pública encerrada 15/07/2026, em análise':'openbare raadpleging gesloten op 15/07/2026, in behandeling',
+  'proposta rejeitada pelo executivo municipal em junho de 2026; sem processo de AIA aberto':'voorstel in juni 2026 afgewezen door het gemeentebestuur; geen MER-procedure geopend',
+  'polígono da área de estudo publicado pela APA':'polygoon van het studiegebied, gepubliceerd door de APA',
+  'sem geometria publicada — o processo é posterior ao limite da camada SNIAmb (n.º 3762)':'geen gepubliceerde geometrie — het dossier is van na de grens van de SNIAmb-laag (nr. 3762)',
+  "sem localização publicada — apenas '~7 ha de terreno municipal na serra'. Não é colocada no mapa por isso.":'geen gepubliceerde locatie — alleen “~7 ha gemeentegrond op de berg”. Daarom staat die niet op de kaart.',
+  'o programa não publicou cartografia por concelho, pelo que não há nada de exato para desenhar':'het programma heeft geen kaarten per gemeente gepubliceerd, dus er valt niets exacts te tekenen',
+  'linhas e subestações não constam do registo DGEG de centrais — estado no terreno não verificável aqui':'lijnen en onderstations staan niet in het DGEG-register van centrales — de toestand ter plaatse is hier niet te verifiëren',
+  'sem geometria — não é possível verificar no terreno':'geen geometrie — ter plaatse niet te verifiëren',
+  'nada consta do registo DGEG dentro desta área — aprovado mas aparentemente por construir':'niets in het DGEG-register binnen dit gebied — goedgekeurd maar blijkbaar nog niet gebouwd',
+  'É a proposta em torno da qual se organizou a contestação local. Não existe potência instalada publicada.':'Rond dit voorstel heeft het lokale verzet zich georganiseerd. Er is geen geïnstalleerd vermogen gepubliceerd.',
+  'É este programa, e não um projeto concreto, que a campanha «Salvar a Gardunha» contesta.':'De campagne “Salvar a Gardunha” verzet zich tegen dit programma, niet tegen een concreet project.',
+  'aprovado, por construir':'goedgekeurd, nog niet gebouwd','construído':'gebouwd',
+  'linha/subestação — não verificável':'lijn/onderstation — niet te verifiëren','sem geometria publicada':'geen gepubliceerde geometrie',
+  'eólico':'windenergie','solar':'zonne-energie','linha/subestação':'lijn/onderstation','armazenamento':'opslag','híbrido':'hybride',
+  'híbrido (solar + eólico)':'hybride (zon + wind)','programa setorial':'sectoraal programma',
+  'nacional (cluster «Pinhal do Centro» abrange a Gardunha)':'nationaal (de cluster “Pinhal do Centro” omvat de Gardunha)',
+  'DGEG (registo oficial)':'DGEG (officieel register)','relation membership':'lid van een OSM-relatie',
+  'DGEG - Direcção-Geral de Energia e Geologia':'DGEG — Directoraat-Generaal Energie en Geologie',
+  'Estrutura de Missão para o Licenciamento de Projetos de Energias Renováveis 2030':'Missiestructuur voor de vergunningverlening van projecten voor hernieuwbare energie 2030',
+  'Direcção-Geral de Geologia e Energia':'Directoraat-Generaal Geologie en Energie',
+  'Direcção Geral de Energia':'Directoraat-Generaal Energie',
+  'Gazeta do Interior — Câmara não quer parque solar e eólico na Gardunha':'Gazeta do Interior — gemeente wil geen zonne- en windpark op de Gardunha',
+  'APA/SNIAmb — áreas de estudo de processos de AIA':'APA/SNIAmb — studiegebieden van MER-dossiers',
+  'DGEG — registo de centrais eólicas e solares':'DGEG — register van wind- en zonnecentrales',
+  'participa.pt — consulta pública do PSZAER':'participa.pt — openbare raadpleging over het PSZAER',
+  'Incendiarismo - Imputáveis':'Brandstichting — dader toerekeningsvatbaar',
+  'Incendiarismo - Inimputáveis':'Brandstichting — dader ontoerekeningsvatbaar',
+  'Incendiarismo - Sem motivação conhecida':'Brandstichting — geen bekend motief',
+  'Naturais':'Natuurlijke oorzaak','Indeterminadas':'Onbepaald','Reacendimentos':'Opnieuw opgelaaid',
+  'Queimadas de sobrantes florestais ou agrícolas':'Afbranden van bos- of landbouwresten',
+  'Queimas amontoados de sobrantes florestais ou agrícolas':'Verbranden van opgestapelde bos- of landbouwresten',
+  'Queimadas para gestão de pasto para gado':'Afbranden van weidegrond voor vee',
+  'Acidentais - Transportes e Comunicações':'Ongeval — vervoer en leidingen',
+  'Acidentais - Maquinaria':'Ongeval — machines','Acidentais - Outros':'Ongeval — overig',
+  'Uso do fogo - Fumar':'Gebruik van vuur — roken','Uso do fogo - Fogueiras':'Gebruik van vuur — kampvuren',
+  'Uso do fogo - Queima de lixo':'Gebruik van vuur — afval verbranden','Uso do fogo - Outros':'Gebruik van vuur — overig'}
 };
 var DIAW = {
  en:{'favorável condicionado':'favourable, with conditions','favorável':'favourable','desfavorável':'unfavourable',
@@ -718,7 +835,9 @@ var DIAW = {
  de:{'favorável condicionado':'positiv, mit Auflagen','favorável':'positiv','desfavorável':'negativ',
      'desconformidade do eia':'UVP-Bericht nicht konform','encerrado':'abgeschlossen','s/ data':'ohne Datum'},
  fr:{'favorável condicionado':'favorable, sous conditions','favorável':'favorable','desfavorável':'défavorable',
-     'desconformidade do eia':'non-conformité de l’EIE','encerrado':'clos','s/ data':'sans date'}
+     'desconformidade do eia':'non-conformité de l’EIE','encerrado':'clos','s/ data':'sans date'},
+ nl:{'favorável condicionado':'gunstig onder voorwaarden','favorável':'gunstig','desfavorável':'ongunstig',
+     'desconformidade do eia':'MER niet conform','encerrado':'afgesloten','s/ data':'zonder datum'}
 };
 var TPL = {
  en:{dia:'EIA decision ', cp:'under assessment — public consultation until ',
@@ -736,6 +855,11 @@ var TPL = {
      sol:function(x){return 'centrales solaires DGEG dans l’aire : '+x;},
      aia:function(n){return 'APA/SIAIA — dossier EIE n° '+n;},
      near:function(k){return 'parc le plus proche ('+k+') — déduit';}},
+ nl:{dia:'milieueffectverklaring: ', cp:'in beoordeling — openbare raadpleging tot ',
+     turb:function(n){return n+' door de DGEG vergunde windturbines binnen het gebied';},
+     sol:function(x){return 'DGEG-zonnecentrales in het gebied: '+x;},
+     aia:function(n){return 'APA/SIAIA — MER-dossiernr. '+n;},
+     near:function(k){return 'dichtstbijzijnd park ('+k+') — afgeleid';}},
  pt:{near:function(k){return 'parque mais próximo ('+k+') — inferido';}}
 };
 
@@ -775,18 +899,30 @@ var NM = {
    mod:{sobre:'suréquipement',ree:'rééquipement',amp:'extension',alt:'modification',exp:'expansion',
         rooftops:'toitures',phase:function(n){return 'phase '+n;},
         cluster:function(n){return 'noyau '+n;},south:'noyau sud',north:'noyau nord',
-        sobre2:'2ᵉ suréquipement',eurowind:'proposition Eurowind'}}
+        sobre2:'2ᵉ suréquipement',eurowind:'proposition Eurowind'}},
+ nl:{and:' en ',
+   head:function(w,x){return x?w+' '+x:w;},
+   t:{wind:'windpark',winds:'windparken',subwind:'deelwindpark',floatwind:'drijvend windpark',
+      solar:'zonnecentrale',solarpark:'zonnepark',floating:'drijvende zonnecentrale',
+      cpv:'concentrerende zonnecentrale',complex:'energiecomplex',hcomplex:'hybride energiecomplex',
+      subst:'onderstation',selfc:'eigenverbruiksinstallatie',smallgen:'kleinschalige productie-eenheid'},
+   mod:{sobre:'opschaling',ree:'vernieuwing',amp:'uitbreiding',alt:'wijziging',exp:'expansie',
+        rooftops:'daken',phase:function(n){return 'fase '+n;},
+        cluster:function(n){return 'cluster '+n;},south:'zuidcluster',north:'noordcluster',
+        sobre2:'2e opschaling',eurowind:'voorstel Eurowind'}}
 };
 /* the handful of names no rule should try to parse */
 var NFIXED = {
  'Parque solar e eólico na Serra da Gardunha':
    {en:'solar and wind park on the Serra da Gardunha',
     de:'Solar- und Windpark auf der Serra da Gardunha',
-    fr:'parc solaire et éolien sur la Serra da Gardunha'},
+    fr:'parc solaire et éolien sur la Serra da Gardunha',
+    nl:'zonne- en windpark op de Serra da Gardunha'},
  'PSZAER — Zonas de Aceleração de Energias Renováveis':
    {en:'PSZAER — Renewable Energy Acceleration Zones',
     de:'PSZAER — Beschleunigungsgebiete für erneuerbare Energien',
-    fr:'PSZAER — zones d’accélération des énergies renouvelables'}
+    fr:'PSZAER — zones d’accélération des énergies renouvelables',
+    nl:'PSZAER — versnellingsgebieden voor hernieuwbare energie'}
 };
 /* head noun → key in NM[lang].t. Order matters: most specific first. */
 var NHEAD = [
@@ -853,7 +989,20 @@ var NFRAG = {
      [/\bCentra(?:l|is) (?:Solar(?:es)? )?Fotov[oó]?lt?[áa]icas? d[oae]s? /gi,'centrale solaire de '],
      [/\bCentra(?:l|is) Solar(?:es)? /gi,'centrale solaire '],
      [/ a (\d[\d/.,]*) ?kV/gi,' à $1 kV'],[/\btroço\b/gi,'tronçon'],[/\bn[.]?[ºo]\s?(\d+)/gi,'n° $1'],
-     [/\bEstudo Pr[ée]vio\b/gi,'étude préalable']]
+     [/\bEstudo Pr[ée]vio\b/gi,'étude préalable']],
+ nl:[[/\bSubestaç(?:ão|ões) e Linhas? El[ée]c?tricas? d[oa] /gi,'Onderstation en elektriciteitslijn van '],
+     [/\bLinhas? de Alta Tensão\b/gi,'Hoogspanningslijn'],[/\bLinhas? El[ée]c?tricas?\b/gi,'Elektriciteitslijn'],
+     [/\bLinhas?\b/gi,'Lijn'],[/\bRamal d[oa] /gi,'aftakking van '],[/\bRamal\b/gi,'aftakking'],
+     [/\bpara a Subestação d[oae] /gi,'naar onderstation '],[/\bentre a subestação /gi,'tussen onderstation '],
+     [/\be a subestação d[oae] /gi,'en onderstation '],[/\bSubestaç(?:ão|ões) d[oae] /gi,'onderstation '],
+     [/\bSubestaç(?:ão|ões)\b/gi,'onderstation'],[/\bAbertura d[ao] /gi,'opening van '],
+     [/\bde ligação à RESP\b/gi,'voor aansluiting op het RESP-net'],[/\bLigação\b/g,'Verbinding'],[/\bEixo\b/gi,'Verbindingsas'],
+     [/\bProjeto H[íi]brido d[oa] /gi,'hybride project van '],
+     [/\bParques? Eólicos? d[oae]s? /gi,'windpark '],
+     [/\bCentra(?:l|is) (?:Solar(?:es)? )?Fotov[oó]?lt?[áa]icas? d[oae]s? /gi,'zonnecentrale '],
+     [/\bCentra(?:l|is) Solar(?:es)? /gi,'zonnecentrale '],
+     [/ a (\d[\d/.,]*) ?kV/gi,' op $1 kV'],[/\btroço\b/gi,'traject'],[/\bn[.]?[ºo]\s?(\d+)/gi,'nr. $1'],
+     [/\bEstudo Pr[ée]vio\b/gi,'voorstudie']]
 };
 
 function nmMod(w,M){

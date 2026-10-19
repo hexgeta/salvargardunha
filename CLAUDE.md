@@ -7,18 +7,29 @@ of this GitHub repo (hexgeta/salvargardunha). Canonical domain **salvargardunha.
 (salvargardunha.hexgeta.com, salvaragardunha.hexgeta.com, no-farms.hexgeta.com, www)
 308-redirect to it via `vercel.json`.
 
-## ⚠️ QUADRILINGUAL — always keep PT / EN / DE / FR in sync
-The page is quadrilingual: **Portuguese (default), English, German, French**, driven
-by a `data-i18n` dictionary in `index.html` (the `I18N` object) plus a language
-switcher. `data-i18n-alt` / `data-i18n-aria` translate `alt` and `aria-label`
-attributes through the same dictionaries.
+## ⚠️ FIVE LANGUAGES — always keep PT / EN / DE / FR / NL in sync
+The site is in five languages: **Portuguese (default), English, German, French,
+Dutch** (Dutch added 2026-10-19), driven by a `data-i18n` dictionary in `index.html`
+(the `I18N` object) plus a language switcher. `data-i18n-alt` / `data-i18n-aria`
+translate `alt` and `aria-label` attributes through the same dictionaries.
 
 **Any change to visible content — new text, edited text, a new section — MUST be
-applied to all four languages.** The PT string lives in the HTML itself; add the
-translation to `I18N.en`, `I18N.de` AND `I18N.fr` (plus `STR.*` for JS-generated
-strings). Never ship PT-only text. Image captions and alt text count too.
-The AI "gerar contributo" endpoint (`api/generate.js`) also generates in the
-selected language — keep its `lang` handling in sync.
+applied to all five languages.** The PT string lives in the HTML itself; add the
+translation to `I18N.en`, `I18N.de`, `I18N.fr` AND `I18N.nl` (plus `STR.*` and any
+other per-language table for JS-generated strings). Never ship PT-only text. Image
+captions and alt text count too. The AI "gerar contributo" endpoint
+(`api/generate.js`) also generates in the selected language — keep its `lang`
+handling in sync. The language list is hard-coded in several places: each page's
+`LANGS` array and switcher buttons, the anti-flash `<head>` snippet, `lang-url.js`,
+`api/page.js` (`LANGS`, `ALL`, `HOME_META`), the `/xx` rewrites in `vercel.json`,
+and `img/og-{pt,en,de,fr,nl}.jpg`.
+
+Dutch is informal (je/jij, like the PT “tu”) and uses consistent terms: openbare
+raadpleging (consulta pública), bezwaar maken (objetar), inzendingen
+(participações), milieueffectverklaring (DIA), beoordelingscommissie (CA),
+versnellingsgebieden voor hernieuwbare energie (ZAER), zeer-hoogspanningslijn
+(LMAT), onderstation (subestação). Dutch needs many apostrophes (’s, foto’s, zo’n)
+— always the curly `’` inside JS strings (see the quote hazard below).
 
 Participa.pt UI labels (“Registo”, “Individual”, “Registar”, “Entrar”,
 “Participar”, “Submeter”) stay in **Portuguese in every language** — the how-to
@@ -51,7 +62,7 @@ Rules:
   - `pszaer.html` → **/pszaer** (was /pszaer, which 308-redirects) — the original Gardunha/Louriçal PSZAER page (zones,
     Marateca slider, petition), restored from commit e4bfeea, with an urgent Sophia banner.
   - **`/` is whichever page is the default**: the `{"source":"/","destination":"/sophia"}`
-    rewrite in `vercel.json` + `HOME` in `api/page.js` (which also serves /en, /de, /fr).
+    rewrite in `vercel.json` + `HOME` in `api/page.js` (which also serves /en, /de, /fr, /nl).
     Change both to switch the default. Each page has `var BASE='/<slug>'` so the language
     switcher and share links keep its own slug (visiting / updates the bar to /sophia).
   Everything below that says `index.html` now means these two files.
@@ -81,12 +92,14 @@ Rules:
   (regenerated from the PDF, page 69 of rt-espacializada; circle at the verified
   Gardunha location 40.18°N 7.34°W).
 - `docs/` — local mirror of all 12 official consultation PDFs (so they outlive
-  participa.pt), listed on the page in release-date order with quadrilingual
+  participa.pt), listed on the page in release-date order with five-language
   summaries (i18n keys `sum_*`). Summaries were written from the actual PDFs —
   keep them faithful; don't invent numbers.
-- `api/page.js` — serves index.html on /en /de /fr with language-swapped OG/meta
+- `api/page.js` — serves index.html on /en /de /fr /nl with language-swapped OG/meta
   tags (crawlers don't run JS); rewired in vercel.json. OG images are
-  `img/og-{pt,en,de,fr}.jpg`.
+  `img/og-{pt,en,de,fr,nl}.jpg` (og-nl rendered 2026-10-19 in the same layout: hero
+  photo darkened, Helvetica bold headline — but all five still carry the old PSZAER
+  15 July message).
 - `img/` — campaign images: the "what they plan" gallery, the Marateca
   before/after slider pair, and `gardunha-hero.jpg` (hero background — CC BY-SA 4.0
   by Jocehcap11, Wikimedia Commons; credit link in the footer must stay).

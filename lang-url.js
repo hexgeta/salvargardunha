@@ -3,12 +3,12 @@
 // a direct hit on /en/<page> seeds nf_lang=en and the inline switcher initialises to English.
 // Also rewrites the address bar when the visitor toggles language, so shares reflect the choice.
 (function () {
-  var LANGS = ['en', 'de', 'fr'];
+  var LANGS = ['en', 'de', 'fr', 'nl'];
   var segs = location.pathname.split('/').filter(Boolean);
   var urlLang = (LANGS.indexOf(segs[0]) >= 0) ? segs[0] : null;
   var base = '/' + (urlLang ? segs.slice(1) : segs).join('/'); // path without the locale prefix
 
-  // A /en/<page> (or /de, /fr) URL wins over any stored preference.
+  // A /en/<page> (or /de, /fr, /nl) URL wins over any stored preference.
   if (urlLang) { try { localStorage.setItem('nf_lang', urlLang); } catch (e) {} }
 
   // Hide the page until the page's inline switcher has translated it (it runs before
@@ -26,7 +26,7 @@
     }
   } catch (e) {}
 
-  // Keep the URL in sync when the visitor clicks the PT/EN/DE/FR toggle.
+  // Keep the URL in sync when the visitor clicks the PT/EN/DE/FR/NL toggle.
   document.addEventListener('click', function (e) {
     var b = e.target && e.target.closest ? e.target.closest('#langsw button') : null;
     if (!b) return;

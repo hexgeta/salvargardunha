@@ -11,6 +11,7 @@
 <link rel="alternate" hreflang="en" href="https://salvargardunha.com/en/ardidas">
 <link rel="alternate" hreflang="de" href="https://salvargardunha.com/de/ardidas">
 <link rel="alternate" hreflang="fr" href="https://salvargardunha.com/fr/ardidas">
+<link rel="alternate" hreflang="nl" href="https://salvargardunha.com/nl/ardidas">
 <link rel="alternate" hreflang="x-default" href="https://salvargardunha.com/ardidas">
 <script src="/lang-url.js"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
@@ -88,7 +89,7 @@
 </head>
 <body>
 
-<div class="top"><div class="wrap"><a href="/" data-i18n="top_home">← salvargardunha.com</a> · <a href="/map" data-i18n="top_map">Mapa verificado</a> · <a href="/verificacao" data-i18n="top_method">Como foi verificado</a> · <a href="/read/" data-i18n="top_docs">Documentos</a><span class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></span></div></div>
+<div class="top"><div class="wrap"><a href="/" data-i18n="top_home">← salvargardunha.com</a> · <a href="/map" data-i18n="top_map">Mapa verificado</a> · <a href="/verificacao" data-i18n="top_method">Como foi verificado</a> · <a href="/read/" data-i18n="top_docs">Documentos</a><span class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button><button data-lang="nl">NL</button></span></div></div>
 
 <header>
   <div class="wrap">
@@ -226,7 +227,7 @@
 
 <script>
 (function(){
-  var LANGS=['pt','en','de','fr'];
+  var LANGS=['pt','en','de','fr','nl'];
   var DATA_URL='/dados/burns.json';
 
   var I18N={
@@ -373,6 +374,54 @@
       built_note:'Recalculé chaque semaine à partir des registres publics. Dernière mise à jour : <b data-stat="built">—</b>.',
       loading:'Chargement des données…',
       disc:'Analyse de données publiques. Tous les chiffres de cette page sont recalculés à partir des registres cités et peuvent être reproduits par quiconque. Page informative, civique, sans but lucratif, non affiliée à un parti, une entreprise ou une entité publique.'
+    },
+    nl:{
+      top_home:'← salvargardunha.com', top_map:'De geverifieerde kaart', top_method:'Hoe het is geverifieerd', top_docs:'Documenten',
+      eyebrow:'Analyse · officiële registers, het hele land',
+      h1:'Komen zonneparken op grond die is afgebrand?',
+      lede:'Het is de verdenking die je in elk dorp met een project voor de deur het vaakst hoort: eerst brandt het, dan verschijnt het park. Die bewering is <b>toetsbaar</b> — de oppervlakte van elke centrale is openbaar, en de afgebrande gebieden ook. We hebben de twee over het hele Portugese vasteland over elkaar gelegd. Deze pagina vertelt wat eruit kwam, ook het deel dat niemand goed uitkomt.',
+      s1_kick:'De vraag', s1_h2:'Een overlap alleen is niet genoeg',
+      s1_p1:'Laten zien dat een zonnecentrale op een brandplek ligt, bewijst op zichzelf niets. <b data-stat="baseline_pct">14,8</b>% van het Portugese vasteland is tussen <b data-stat="y0">2014</b> en <b data-stat="y1">2025</b> minstens één keer afgebrand. In zo’n land is het te verwachten dat je centrales op afgebrande grond vindt, <b>ook als niemand ooit voor afgebrande grond kiest</b>.',
+      s1_p2:'De vraag die wél te beantwoorden is, is een andere: <b>liggen centrales vaker op afgebrande grond dan de grond om hen heen is afgebrand?</b> Zo ja, dan kiest iemand. Zo nee, dan is het geografie. Dat is de vergelijking die we hebben gemaakt.',
+      s2_kick:'De methode', s2_h2:'Vier stappen, openbare gegevens, geen verzonnen cijfers',
+      st1_t:'De werkelijke oppervlakte van elke centrale',
+      st1_p:'Niet het middelpunt, maar de polygoon. <b data-stat="solar_plants">719</b> zonnecentrales en <b data-stat="wind_plants">239</b> windparken, uit het vergunningsregister van de DGEG en uit OpenStreetMap. Wat alleen als punt is gepubliceerd, valt af — met een punt kun je geen overlap meten.',
+      st2_t:'Alle afgebrande gebieden van het ICNF, op maximale resolutie',
+      st2_p:'De officiële brandpolygonen van <b data-stat="y0">2014</b> tot <b data-stat="y1">2025</b>, jaar na jaar, in het hele land — meer dan twintigduizend brandplekken. Geen enkele is voor deze berekening vereenvoudigd.',
+      st3_t:'Hoeveel van elke centrale op een brandplek ligt',
+      st3_p:'Geometrische doorsnede, centrale per centrale, brand per brand. We houden bij welk deel van de oppervlakte van de centrale is afgebrand en in welke jaren — en vergelijken het jaar van de brand met het jaar van ingebruikname, om “eerst afgebrand, daarna gebouwd” te scheiden van “eerst gebouwd, daarna afgebrand”.',
+      st4_t:'De eerlijke vergelijking: de grond eromheen',
+      st4_p:'Zonnecentrales worden vooral in het zuiden gebouwd, en het zuiden brandt weinig; windparken komen op bergkammen, en bergkammen branden veel. Elk van beide vergelijken met het landelijk gemiddelde geeft dus een verkeerd antwoord. Daarom meten we ook <b>hoeveel er is afgebrand van de grond binnen een straal van 20 km rond elke centrale</b>, op een raster van 1 km over het vasteland, en tegen die waarde wordt de centrale afgezet.',
+      s3_kick:'Het resultaat', s3_h2:'Nee. De landelijke gegevens laten die keuze niet zien',
+      v_kick:'Conclusie',
+      v_p:'Het vergunde oppervlak aan zonnecentrales in Portugal ligt <b data-stat="solar_ratio">0,94</b>× zo vaak op afgebrande grond als de grond eromheen is afgebrand; bij windparken is dat <b data-stat="wind_ratio">0,98</b>×. Een waarde onder 1 betekent <b>minder</b> afgebrande grond dan de eigen omgeving van de centrale bij toeval zou hebben opgeleverd. <b>Geen van beide technologieën toont op landelijke schaal een voorkeur voor afgebrande grond.</b>',
+      s3_p1:'We publiceren dit omdat het alternatief zou zijn de cijfers uit te kiezen die in het verhaal passen — en dat is precies wat we, terecht, de rapporten van de openbare raadpleging verwijten. Een kaart die alleen haar makers gelijk geeft, is niets waard.',
+      s3_p2:'Wat de windparken laten zien, is het vastleggen waard: <b data-stat="wind_on_scar">185</b> van de <b data-stat="wind_plants">239</b> windparken raken een brandplek, en <b data-stat="wind_obs">35,8</b>% van hun totale oppervlakte is al eens afgebrand. Niet omdat iemand brandplekken uitkiest, maar omdat <b>windparken precies het soort terrein innemen dat brandt</b>: kammen vol struikgewas, zonder mensen. Wat de berg gevaarlijk maakt, is juist wat hem aantrekkelijk maakt voor wie er een vergunning voor wil.',
+      s4_kick:'De uitzondering', s4_h2:'Waar er wel degelijk iets te verklaren valt',
+      s4_p1:'Het landelijk gemiddelde sluit de deur voor een algemene theorie. Niet voor concrete gevallen — en die zijn er. Dit zijn de zonnecentrales waarvan de oppervlakte <b>veel meer</b> is afgebrand dan de grond om hen heen: de laatste kolom geeft aan hoeveel keer meer. Een centrale die volledig op een brandplek uit 2022 ligt, in een gebied waar 2% van de grond afbrandde, is geen alledaags toeval.',
+      th_plant:'Centrale', th_area:'Oppervlakte', th_burned:'Afgebrand', th_local:'Omgeving', th_x:'Overmaat', th_when:'Volgorde',
+      s4_note:'<b>Dit is een vertrekpunt, geen beschuldiging.</b> Samenvallen in ruimte en tijd kun je meten; een oorzaak moet je onderzoeken. De volgende stap voor elk van deze gevallen is documentair — wanneer de vergunning werd aangevraagd, wie de grond vóór de brand bezat, wat het brandonderzoek zegt. Niets daarvan staat op deze pagina, en zolang dat er niet staat, wordt hier niemand ergens van beschuldigd.',
+      s5_kick:'De volgorde van de gebeurtenissen', s5_h2:'Eerst afgebrand, daarna gebouwd',
+      s5_p1:'Van alle zonnecentrales die een brandplek raken, zijn er <b data-stat="pre">26</b> in gebruik genomen <b>na</b> de brand die over hun grond trok, stonden er <b data-stat="post">27</b> al toen het vuur kwam, en hebben er <b data-stat="unk">62</b> geen gepubliceerde datum van ingebruikname — daarover valt eenvoudigweg niets te zeggen.',
+      th_fire:'Brand', th_since:'In gebruik', th_burnedha:'Afgebrand oppervlak', th_share:'% van de centrale',
+      s5_p2:'De onschuldige lezing van deze lijst is de waarschijnlijkste en de saaiste: afgebrande grond is goedkope grond, al ontbost, en niemand verzet zich ertegen — precies wat een projectontwikkelaar zoekt. Dat verklaart de hele lijst zonder dat er een crimineel aan te pas komt. Het verklaart hem, let wel, <b>zonder hem aanvaardbaar te maken</b>: het betekent dat een brand de berg meer waard maakt voor wie hem wil bezetten.',
+      s6_kick:'De grenzen', s6_h2:'Wat deze berekening niet bewijst',
+      lim1:'<b>Ze bewijst geen oorzaken.</b> Ze meet samenvallen in ruimte en tijd. Ze zegt niet wie welke brand heeft gesticht, en suggereert ook niet dat iemand dat heeft gedaan.',
+      lim2:'Het ICNF <b>publiceert in deze dienst geen polygonen van vóór 2014</b>. Dat is het venster; een brand uit 2005 op dezelfde grond telt niet mee.',
+      lim3:'<b data-stat="unk">62</b> zonnecentrales op een brandplek hebben <b>geen datum van ingebruikname</b> in het register van de DGEG. Ze vallen aan geen van beide kanten van de volgorde.',
+      lim4:'De polygoon van de DGEG is het <b>vergunde oppervlak</b>, niet het oppervlak dat daadwerkelijk met panelen is bedekt. Dat overschat de overlap van de grote centrales licht.',
+      lim5:'De straal van 20 km voor de lokale vergelijking is een <b>uitdrukkelijke keuze</b>. Kleiner, en elke centrale wordt vergeleken met meer gelijksoortig terrein; groter, en ze wordt vergeleken met haar regio. Het gegevensbestand publiceert de lokale waarde van elke centrale, zodat de test op een andere manier kan worden overgedaan.',
+      s7_kick:'De test overdoen', s7_h2:'Alles ligt open',
+      s7_p:'Het volledige resultaat — de <b data-stat="onscar">300</b> centrales en parken die een brandplek raken, met de overlap per brandjaar, de lokale waarde en de overmaat van elk — is ruw gepubliceerd. De bronnen zijn dezelfde als die van de kaart.',
+      src_json:'Het volledige resultaat (JSON)', src_json_d:'· één regel per centrale, wekelijks herberekend',
+      src_icnf:'· officiële brandpolygonen, één dienst per jaar',
+      src_dgeg:'· vergunningsregister, één polygoon per blok',
+      src_osm:'· contouren van de centrales en parken, via de Overpass-API',
+      cta1:'Bekijk de kaart →', cta2:'Hoe de kaart wordt geverifieerd',
+      foot_made:'Gemaakt door buren uit de Beira Baixa die de berg overeind willen houden. · <a href="/">salvargardunha.com</a>',
+      built_note:'Wekelijks herberekend op basis van de openbare registers. Laatste update: <b data-stat="built">—</b>.',
+      loading:'Gegevens laden…',
+      disc:'Analyse van openbare gegevens. Alle cijfers op deze pagina worden herberekend uit de genoemde registers en kunnen door iedereen worden nagerekend. Informatieve burgerpagina zonder winstoogmerk, niet verbonden aan een partij, bedrijf of overheidsinstantie.'
     }
   };
 
@@ -387,7 +436,9 @@
     de:{dec:',', pre:'gebrannt, dann gebaut', post:'gebaut, dann gebrannt', both:'davor und danach gebrannt',
         unk:'kein Inbetriebnahmedatum', none:'—', empty:'Keine Fälle zu melden.', x:'×'},
     fr:{dec:',', pre:'brûlé, puis construit', post:'construit, puis brûlé', both:'brûlé avant et après',
-        unk:'pas de date de mise en service', none:'—', empty:'Aucun cas à signaler.', x:'×'}
+        unk:'pas de date de mise en service', none:'—', empty:'Aucun cas à signaler.', x:'×'},
+    nl:{dec:',', pre:'eerst afgebrand, daarna gebouwd', post:'eerst gebouwd, daarna afgebrand', both:'afgebrand vóór en na de bouw',
+        unk:'geen datum van ingebruikname', none:'—', empty:'Geen gevallen om te melden.', x:'×'}
   };
 
   var PT={};

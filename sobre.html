@@ -11,6 +11,7 @@
 <link rel="alternate" hreflang="en" href="https://salvargardunha.com/en/sobre">
 <link rel="alternate" hreflang="de" href="https://salvargardunha.com/de/sobre">
 <link rel="alternate" hreflang="fr" href="https://salvargardunha.com/fr/sobre">
+<link rel="alternate" hreflang="nl" href="https://salvargardunha.com/nl/sobre">
 <link rel="alternate" hreflang="x-default" href="https://salvargardunha.com/sobre">
 <script src="/lang-url.js"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
@@ -106,7 +107,7 @@
 </head>
 <body>
 
-<div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button></div>
+<div class="langsw" id="langsw"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="fr">FR</button><button data-lang="nl">NL</button></div>
 
 <header>
   <div class="wrap">
@@ -375,7 +376,7 @@
 
 <script>
 (function(){
-  var LANGS=['pt','en','de','fr'];
+  var LANGS=['pt','en','de','fr','nl'];
   var I18N={
     en:{
       tl_k:'How we got here', tl_h:'Timeline',
@@ -745,6 +746,129 @@
       s7_cta2:'Ce qu’ont dit les entités officielles',
       foot_made:'Fait par des voisins de la Beira Baixa qui veulent la serra debout. · <a href="/">salvargardunha.com</a>',
       disc:'Explication en langage simple de la procédure d’élaboration du PSZAER, sur la base des documents officiels de la consultation (participa.pt / EMER 2030, 2026) et du Régime juridique des instruments de gestion territoriale. Informatif, civique, sans but lucratif, non affilié à un parti, une entreprise ou une entité publique.'
+    },
+    nl:{
+      tl_k:'Hoe we hier zijn beland', tl_h:'Tijdlijn',
+      tl_p:'Alle datums komen uit de officiële documenten. Let op hoe lang het proces duurde — en hoe weinig tijd we kregen om te reageren.',
+      tl1_d:'6 februari 2026', tl1_t:'De regering geeft opdracht voor het PSZAER',
+      tl1_p:'Bij Despacho n.º 1532-B/2026 krijgt EMER 2030 de opdracht het programma voor te bereiden, met <b>zes maanden</b> om alles af te ronden.',
+      tl2_d:'Februari – maart 2026', tl2_t:'De reikwijdte van de milieubeoordeling wordt vastgelegd',
+      tl2_p:'De instanties met milieubevoegdheden worden gehoord over de “kritieke beslissingsfactoren” — wat de beoordeling wel, en niet, zal onderzoeken.',
+      tl3_d:'2 – 5 mei 2026', tl3_t:'Het voorstel, de milieubeoordeling en de 6 thematische rapporten verschijnen',
+      tl3_p:'Het <a href="/read/rt-paisagem" target="_blank" rel="noopener">Landschapsrapport</a> noemt uitdrukkelijk de <b>“Serras da Gardunha, Alvelos e Moradal”</b> binnen de groep die <b>in het hele land het zwaarst in het vizier ligt</b> (~34% van de oppervlakte). Het <a href="/read/rt-energia" target="_blank" rel="noopener">Energierapport</a> concludeert dat de rem niet een gebrek aan grond is — het is het stroomnet.',
+      tl4_d:'5 mei 2026', tl4_t:'De overheidsinstanties worden geraadpleegd — 20 dagen om te antwoorden',
+      tl4_p:'Gemeentebesturen, CCDR, ICNF, APA, Património Cultural en de landbouwdiensten krijgen honderden technische pagina’s. Wie niet binnen 20 dagen antwoordt, wordt geacht <b>geen bezwaar te hebben</b>.',
+      tl5_d:'16 juni 2026', tl5_t:'De adviezen: vier instanties zeggen NEE',
+      tl5_p:'Ongunstig: <b>Património Cultural</b>, <b>Landbouw (DGADR)</b>, de <b>Nationale Vereniging van Gemeenten</b> (over de inhoud <i>én</i> over het proces) en één gemeente. Het <b>ICNF eist de schrapping</b> van de gebieden die overlappen met de strook van 1 km rond het <b>Regionaal Beschermd Landschap van de Serra da Gardunha</b>.',
+      tl6_d:'17 juni 2026', tl6_t:'De openbare raadpleging gaat open',
+      tl6_p:'Aangekondigd bij Aviso n.º 14136-B/2026/2. <b>Minder dan een maand</b> voor de burgers om meer dan duizend pagina’s te lezen en erop te reageren.',
+      tl7_d:'23 juni 2026', tl7_t:'De regering weegt de adviezen af — en de meeste sneuvelen onderweg',
+      tl7_p:'Van de <b><a href="/objecoes" target="_blank" rel="noopener">172 bijdragen</a></b> worden er 45 alleen maar “genoteerd” (ze veranderen niets) en 62 slechts “gedeeltelijk aanvaard”. De kritiek van het directoraat-generaal voor ruimtelijke ordening (Direção-Geral do Território) — dat de zones <b>veel groter zijn dan de doelstellingen vereisen</b> — wordt “genoteerd”. De eis van het ICNF over de Gardunha <b>wordt niet eens vermeld</b>. <a href="/objecoes" target="_blank" rel="noopener">Bekijk de 172 en de antwoorden →</a>',
+      tl8_d:'15 juli 2026', tl8_t:'De openbare raadpleging is gesloten — 8&nbsp;053 bijdragen',
+      tl8_p:'Ze werd afgesloten met <b>8&nbsp;053 ingediende bijdragen</b>. Volgens de wet <b>moeten ze allemaal worden meegewogen</b> in het afwegingsrapport van de regering.',
+      tl9_d:'Juli – augustus 2026', tl9_t:'De regering analyseert de bijdragen en rondt het voorstel af',
+      tl9_p:'Daarna volgt het wetgevingsproces. Vanaf dat moment is discussie geen optie meer.',
+      tl10_d:'2026 – 2028', tl10_t:'De zones worden doorvertaald naar de gemeentelijke bestemmingsplannen (PDM)',
+      tl10_p:'Pas wanneer ze in de plannen van de gemeenten zijn opgenomen, gaan de beschermingsregels de bedrijven echt binden — en dan worden de centrales ter plaatse mogelijk.',
+      risk_k:'Wat er op het spel staat', risk_h:'Dekens van glas over de berg',
+      risk_f1:'<b>Het landschap</b>Het Landschapsrapport van het PSZAER zelf (het officiële regeringsdocument dat ter raadpleging voorligt) erkent dat zonne-energie op grote schaal <i>“dekens van glas”</i> creëert en wordt ervaren als <i>“een aanzienlijke visuele aantasting”</i>. Er geldt een grens van <b>25 ha aaneengesloten</b> per zonneveld — en die negeren de megaprojecten.',
+      risk_f2:'<b>Geen milieutoets</b>Binnen de versnellingsgebieden is er geen milieueffectbeoordeling (AIA). Zonder die toets gaan projecten door zonder de beoordeling die water, bodem, bos en biodiversiteit beschermt.',
+      risk_f3:'<b>De fauna</b>De regio is het leefgebied van bedreigde soorten — <b>monniksgier, Spaanse keizerarend, steenarend, zwarte ooievaar, kleine trap, Iberische lynx, Iberische wolf en vleermuizen</b>. Het rapport erkent dat er gegevens over deze soorten buiten de beschermde gebieden ontbreken.',
+      risk_f4:'<b>Het water en het land</b>Het neemt landbouw- en bosgrond in beslag, en tast de waterlopen aan en de berg die de regio van water voorziet. Woningen komen op slechts <b>200 m</b> (zon) en <b>1 km</b> (wind) van de centrales te liggen.',
+      tgt_k:'Waarom ONZE berg het doelwit is', tgt_h:'De Beira Baixa is regio #1 van het land voor zonne-energie',
+      tgt_p:'aan zones voor zonne-energie in de Beira Baixa — <b>11% van de hele regio</b>, het hoogste percentage van alle regio’s van Portugal. Daarbij komt nog <b>19&nbsp;295 ha</b> voor windenergie. De gemeente Fundão alleen al komt uit op <b>~6&nbsp;237 ha voor zonne-energie en ~4&nbsp;947 ha voor windenergie</b>.',
+      tgt_f1:'<b>#1 zon, #2/#3/#4 wind</b>In de nationale ranglijst staat de regio bovenaan voor zonne-energie (Sertã en Proença-a-Nova aan de top) en domineert ze windenergie: Castelo Branco (#2), Oleiros (#3), Fundão (#4).',
+      tgt_f2:'<b>De Gardunha wordt er bij naam genoemd</b>De consultants van de regering lichten de landschapsgroep <i>“Pinhal do Centro”</i> uit — waartoe de <b>“Serras da Gardunha, Alvelos e Moradal”</b> en het <b>“land- en bosbouwmassief van Castelo Branco”</b> behoren — als de groep met het <b>grootste zonnepotentieel van het land</b> (~34% van de groep).',
+      tab_h:'ZAER-zonnepotentieel per landschapsgroep', tab_th1:'Groep van landschapseenheden (GUP)', tab_th2:'Zon (km²)', tab_th3:'Oppervlakte groep (km²)', tab_th4:'% van de groep', tab_gard:'← omvat de Gardunha',
+      tgt_tab_cap:'De groep <i>“Pinhal do Centro”</i> — waarin de consultants de Gardunha onderbrengen — heeft het grootste zonnepotentieel van het land, met <b>34%</b> van zijn oppervlakte. Bron: Landschapsrapport van het PSZAER, tabel 1.',
+      tgt_quote:'“Het is daarom vanzelfsprekend dat de resterende gebieden die met de laagste huidige waarden voor landschapskwaliteit zijn.”<span>— Landschapsrapport van het PSZAER, over het binnenland. Met andere woorden: ze behandelen onze streek als het “restant” van het land. Dat is ze niet.</span>',
+      hap_k:'Wat er gebeurt', hap_h:'7% van het land opengesteld voor centrales — zonder milieubeoordeling',
+      hap_p1:'De regering heeft het <b>PSZAER</b> — het <i>sectorale programma voor de versnellingsgebieden voor de uitrol van hernieuwbare energie</i> — ter openbare raadpleging voorgelegd. In de woorden van de eigen samenvatting heeft het proces <b>“ongeveer 7% van het nationale grondgebied op het vasteland beschikbaar gesteld voor versnelling”</b>, waar projecten een vergunning kunnen krijgen <b>“zonder de milieueffectbeoordeling (AIA) te doorlopen”</b>.',
+      hap_p2:'Binnen deze zones wordt de milieubeoordeling vervangen door een eenvoudige <b>“verificatiesubprocedure”</b> en door <b>“één loket”</b> met krappe termijnen. Het in kaart gebrachte potentieel is enorm: <b>~578&nbsp;777&nbsp;ha voor zonne-energie</b> en <b>~84&nbsp;618&nbsp;ha voor windenergie</b>. En het gaat niet om daken — <b>78,9% van het gebied met zonnepotentieel is bosgebied</b>.',
+      hap_p3:'De openbare raadpleging liep tot <b>15 juli 2026</b> en ontving 8&nbsp;053 bijdragen.',
+      map_k:'De officiële kaart van de regering', map_h:'Dit is het plan — en de Gardunha ligt er middenin',
+      map_p:'Elke vlek is een zone waar de regering hernieuwbare-energiecentrales versneld wil laten bouwen. Het centrale binnenland is het meest bedekte gebied van het land. De Serra da Gardunha en het massief van Castelo Branco liggen in het hart van die vlek.',
+      map_lg_solar:'Zonnezones', map_lg_wind:'Windzones',
+      map_alt:'Officiële kaart van de versnellingsgebieden voor hernieuwbare energie (ZAER) in Portugal.',
+      map_src:'Bron: <i>PSZAER-voorstel — Thematisch rapport over de integratie van ruimtelijke informatie</i> (LNEG / EMER 2030), figuur 39. Markering door ons.',
+      back:'← Salvar a Gardunha',
+      eyebrow:'PSZAER · Korte gids',
+      h1:'Wie beslist wat, en wanneer —<br>het proces in gewone taal',
+      lede:'Waar het om gaat, brengt een paar afkortingen met zich mee — <b>PSZAER</b>, <b>EMER 2030</b>, <b>ZAER</b> — en verschillende fasen. Deze pagina legt in een paar minuten uit wat elk ervan betekent, <b>wie er echt beslist</b> (de Portugese regering, niet de Europese Unie) en waarom jouw bezwaar nog steeds telt.',
+      s1_kick:'Het plan',
+      s1_h2:'Wat is het PSZAER?',
+      s1_def:'<span>PSZAER</span> = Sectoraal programma voor de versnellingsgebieden voor de uitrol van hernieuwbare energie.',
+      s1_p1:'Het is een <b>nationaal plan</b> dat op de kaart van het Portugese vasteland de <b>“versnellingsgebieden”</b> (de ZAER) intekent — de gebieden waar zonne- en windprojecten een versnelde vergunningsprocedure krijgen, met minder obstakels. Een van die gebieden valt over de <b>Serra da Gardunha</b>.',
+      s1_p2:'Het is een <b>document</b>: regels, richtlijnen en kaarten. De regering gaf er opdracht toe bij Despacho n.º 1532-B/2026 van 6 februari 2026, met een termijn van zes maanden om het af te ronden.',
+      s2_kick:'Wie het heeft gemaakt',
+      s2_h2:'Wat is EMER 2030?',
+      s2_def:'<span>EMER 2030</span> = Missiestructuur voor de vergunningverlening van projecten voor hernieuwbare energie 2030.',
+      s2_p1:'Het is een <b>missiestructuur</b> — in het Portugese bestuursstelsel een <b>tijdelijk team/taskforce</b> dat de regering opricht om gedurende een beperkte periode één enkel dossier te behandelen, buiten de vaste ministeries. De opdracht ervan is <b>de vergunningverlening voor hernieuwbare energie te versnellen</b>, in lijn met de energie- en klimaatdoelen van Portugal voor 2030.',
+      s2_p2:'Aan EMER 2030 vertrouwde de regering het werk toe om <b>het PSZAER te schrijven</b> en <b>de raadpleging te leiden</b> — de adviezen verzamelen en de antwoorden opstellen.',
+      s3_kick:'De meest voorkomende verwarring',
+      s3_h2:'EMER 2030 vs. PSZAER — wat is het verschil?',
+      s3_p1:'Het ene is <b>wie</b>; het andere is <b>wat</b>. EMER 2030 heeft het PSZAER <b>geschreven</b> — zoals een auteur en zijn boek.',
+      s3_r1a:'Wat het is',
+      s3_r1b:'Een team van de regering (missiestructuur)',
+      s3_r1c:'Een sectoraal plan (document)',
+      s3_r2a:'Categorie',
+      s3_r2b:'Een organisatie — mensen',
+      s3_r2c:'Een document — regels en kaarten',
+      s3_r3a:'Rol',
+      s3_r3b:'De <b>auteur</b> — schrijft het, leidt de raadpleging en weegt de bezwaren af',
+      s3_r3c:'Wat <b>ter raadpleging voorligt</b> — tekent de zones in, ook over de Gardunha',
+      s3_r4a:'Hierop reageer jij…',
+      s3_r4b:'…door te bekritiseren dat het rechter is over zijn eigen werk',
+      s3_r4c:'…door je bezwaar in te dienen in de openbare raadpleging',
+      s3_p2:'Kort samengevat: de <b>regering</b> gaf opdracht voor een plan → belastte <b>EMER 2030</b> (het team) ermee → dat schreef het <b>PSZAER</b> (het plan) → het PSZAER tekent zones in over de <b>Serra da Gardunha</b> → daar maak jij bezwaar tegen, en het is EMER 2030 dat jouw bezwaar leest.',
+      s4_kick:'Wie beslist',
+      s4_h2:'Het is de Portugese regering — niet de Europese Unie',
+      s4_p1:'Dit hele proces is <b>nationaal</b>. Er is geen Europese Commissie, en ook geen andere EU-instelling, die over de Gardunha beslist. Wie bepaalt, schrijft en afweegt, is de <b>Portugese staat</b>, via EMER 2030, binnen het kader van de wettelijke regeling voor ruimtelijke-ordeningsinstrumenten (RJIGT).',
+      s4_p2:'En er is een detail dat ertoe doet: in de institutionele fase zijn de geraadpleegde instanties <b>ook de staat</b>. Het ICNF (natuur), Património Cultural (erfgoed), de DGADR (landbouw), de APA, de DGEG — het zijn allemaal <b>organen van de centrale overheid</b>, elk onder een eigen ministerie. Met andere woorden: een arm van de regering (EMER 2030) raadpleegde <b>schriftelijk</b> andere armen van diezelfde regering. De <b>gemeenten</b> en de <b>ANMP</b> (hun vereniging) zijn de uitzondering — lokaal bestuur, gekozen en onafhankelijker.',
+      s4_p3:'Toch is er een nuance die de zaak <b>versterkt</b> — niet verzwakt. De verplichting om “versnellingsgebieden” te creëren <b>komt van de Europese Unie</b>: de Europese richtlijn hernieuwbare energie (<b>RED III</b>, Richtlijn (EU) 2023/2413) verplicht <b>elke</b> lidstaat om gebieden met een versnelde vergunningsprocedure aan te wijzen. Maar de EU heeft <b>nooit voor de Gardunha gekozen</b> — waar de zones komen, beslist Portugal. En dezelfde richtlijn schrijft voor om Natura 2000 en beschermde landschappen <b>uit te sluiten</b>, en een degelijke milieubeoordeling uit te voeren. Kortom: Brussel eist zones; <b>het was Lissabon dat besloot ze op de berg te leggen</b> — en het had de berg, met evenveel legitimiteit, erbuiten kunnen laten.',
+      gov_kick:'De eigen woorden van de regering',
+      gov_p:'Het is niet de campagne die dit zegt — het staat in de <b>strategische milieubeoordeling</b> van de regering zelf. Het voorlopige rapport (p. 99) noemt, onder de factoren die de “versnelling” afremmen, “het verzet van gemeenschappen die het bestaan van grote projecten in hun nabijheid <b>legitiem afwijzen</b>”. En de niet-technische samenvatting herhaalt het: “het <b>legitieme verzet</b> van de lokale gemeenschap kan de versnelling bemoeilijken”. Dezelfde beoordeling concludeert dat grote, geconcentreerde projecten de <b>slechtste optie</b> zijn — de voordelen zijn groter “bij een kleinere schaal, een grotere nabijheid en een koppeling aan het lokale verbruik”. Met andere woorden: een gigantische centrale op de berg zetten is, volgens de eigen berekeningen van de regering, de verkeerde weg.',
+      s5_kick:'Hoe het werkt',
+      s5_h2:'De fasen van het proces',
+      s5_p1:'Er was geen enkele <b>vergadering</b> of hoorzitting. De “adviezen” zijn <b>schriftelijke meningen</b>, elektronisch ingediend op een overheidsplatform (het PCGT). Elke instantie had <b>20 dagen</b> om te antwoorden — en volgens de wet <b>geldt zwijgen als “geen bezwaar”</b>.',
+      s5_s1_h:'De opdracht',
+      s5_s1_p:'De regering geeft opdracht tot het PSZAER en vertrouwt het toe aan EMER 2030 (Despacho n.º 1532-B/2026).',
+      s5_s1_when:'6 feb 2026',
+      s5_s2_h:'Institutionele raadpleging',
+      s5_s2_p:'EMER 2030 schrijft de overheidsinstanties aan (ICNF, Património, DGADR, gemeenten…), die binnen 20 dagen schriftelijk antwoorden. Verschillende geven een ongunstig advies of een advies onder voorwaarden.',
+      s5_s2_when:'vanaf 5 mei 2026 · afgerond',
+      s5_s3_h:'Afweging van de adviezen',
+      s5_s3_p:'EMER 2030 bundelt de adviezen en schrijft zijn antwoorden, waarbij het de meeste maar “gedeeltelijk” aanvaardt of zich ertoe beperkt ze te “noteren”. Dat is het document dat wordt samengevat op de pagina <a href="/analise">Wat de officiële instanties zeiden</a>.',
+      s5_s3_when:'23 jun 2026',
+      s5_s4_h:'Openbare raadpleging — jouw beurt',
+      s5_s4_p:'Nu kan elke burger zijn of haar bezwaar indienen op participa.pt. EMER 2030 zal deze bijdragen na afloop van de termijn <b>afzonderlijk</b> moeten afwegen.',
+      s5_s4_when:'17 jun → 15 jul 2026',
+      s6_kick:'Twee rondes “bezwaren”',
+      s6_h2:'Het woord “bezwaar” verwijst naar twee verschillende dingen',
+      s6_p1:'Hier raakt bijna iedereen de draad kwijt. Er zijn <b>twee afzonderlijke fasen</b> waarin bezwaren worden ingediend — de eerste is al gesloten; de tweede loopt nog <b>en is die van jou</b>.',
+      s6_th_b:'Fase 1 — institutioneel',
+      s6_th_c:'Fase 2 — openbare raadpleging',
+      s6_r1a:'Wie maakt bezwaar',
+      s6_r1b:'~36 <b>overheidsinstanties</b> (ICNF, Património, gemeenten, CCDR…)',
+      s6_r1c:'<b>Burgers</b> — jij, je buren, iedereen',
+      s6_r2a:'Hoe',
+      s6_r2b:'Schriftelijk advies op het PCGT-platform, termijn van 20 dagen',
+      s6_r2c:'Bezwaar ingediend op participa.pt',
+      s6_r3a:'Wanneer',
+      s6_r3b:'Al gesloten (raadpleging vanaf 5 mei 2026)',
+      s6_r3c:'<b>17 jun → 15 jul 2026</b>',
+      s6_r4a:'Wie leest en antwoordt',
+      s6_r4b:'EMER 2030 (al afgerond)',
+      s6_r4c:'EMER 2030, opnieuw, <b>na 15 jul</b>',
+      s6_call_kick:'Waar het om draait',
+      s6_call_p:'Degenen die in fase 1 bezwaar maakten, <b>waren geen activisten of ngo’s</b> — het waren de <b>eigen organen van de staat</b> die belast zijn met de bescherming van erfgoed, bodem en natuur. Toch aanvaardde EMER 2030 de meeste maar “gedeeltelijk” of beperkte het zich ertoe ze te “noteren”. Als zelfs de eigen deskundigen van de regering worden afgedaan met “genoteerd”, dan <b>krijgt fase 2 — jouw bezwaar — dezelfde afweging</b>. Daarom telt het aantal bijdragen.',
+      s7_kick:'In één zin',
+      s7_h2:'Waar de campagne tegen strijdt',
+      s7_p1:'“Salvar a Gardunha” bestrijdt het <b>PSZAER</b> (het plan) en de zones die het over de berg tekent. <b>EMER 2030</b> is slechts het bureau erachter — en omdat het tegelijk de <b>auteur</b> van het plan is, de <b>ontvanger</b> van de bezwaren en de <b>rechter</b> die beslist welke worden aanvaard, is het geen onafhankelijke scheidsrechter. De openbare raadpleging is de volgende — en beste — kans om de stem van de burgers in die afweging te laten doorklinken.',
+      s7_cta1:'Mijn bezwaar indienen →',
+      s7_cta2:'Wat de officiële instanties zeiden',
+      foot_made:'Gemaakt door buren uit de Beira Baixa die de berg overeind willen houden. · <a href="/">salvargardunha.com</a>',
+      disc:'Uitleg in gewone taal van de procedure waarmee het PSZAER wordt opgesteld, gebaseerd op de officiële documenten van de raadpleging (participa.pt / EMER 2030, 2026) en op de wettelijke regeling voor ruimtelijke-ordeningsinstrumenten. Informatief, maatschappelijk, zonder winstoogmerk, niet verbonden aan enige partij, enig bedrijf of enige overheidsinstantie.'
     }
   };
   var PT={};
